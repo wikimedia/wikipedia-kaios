@@ -1,0 +1,10 @@
+{
+    "@metadata": {
+        "authors": [
+            "Stephane Bisson"
+        ]
+    },
+    "app-title": "Title of the application. Shown in the app store and the app launcher.",
+    "app-subtitle": "Subtitle of the application. Shown in the app store.",
+    "app-description": "Description of the application. Shown in the app store."
+}

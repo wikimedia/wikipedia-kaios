@@ -1,0 +1,12 @@
+{
+    "@metadata": {
+        "authors": [
+            "Stephane Bisson"
+        ],
+        "locale": "en",
+        "message-documentation": "qqq"
+    },
+    "app-title": "Wikipedia",
+    "app-subtitle": "The free encyclopedia",
+    "app-description": "TODO"
+}
