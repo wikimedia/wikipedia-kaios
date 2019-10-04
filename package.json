@@ -1,0 +1,29 @@
+{
+  "name": "wikipedia-kaios",
+  "version": "1.0.0",
+  "description": "Wikipedia KaiOS app",
+  "private": "true",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack && lessc style/*.less dist/main.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wikimedia/wikipedia-kaios.git"
+  },
+  "keywords": [
+    "wikipedia",
+    "kaios"
+  ],
+  "author": "Wikimedia Foundation",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wikimedia/wikipedia-kaios/issues"
+  },
+  "homepage": "https://github.com/wikimedia/wikipedia-kaios#readme",
+  "devDependencies": {
+    "less": "^3.10.3",
+    "webpack": "^4.41.0",
+    "webpack-cli": "^3.3.9"
+  }
+}
