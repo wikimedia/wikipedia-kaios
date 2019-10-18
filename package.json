@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack && lessc style/*.less dist/main.css",
+    "start": "http-server -p 8080",
     "banana": "banana-checker i18n/"
   },
   "repository": {
@@ -29,6 +30,7 @@
     "webpack-cli": "^3.3.9"
   },
   "dependencies": {
-    "banana-i18n": "^1.1.1"
+    "banana-i18n": "^1.1.1",
+    "http-server": "^0.11.1"
   }
 }
