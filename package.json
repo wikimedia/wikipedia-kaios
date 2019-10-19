@@ -5,7 +5,7 @@
   "private": "true",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack && lessc style/*.less dist/main.css",
+    "build": "webpack --mode development && lessc style/style.less dist/main.css",
     "start": "http-server -p 8080",
     "banana": "banana-checker i18n/"
   },
