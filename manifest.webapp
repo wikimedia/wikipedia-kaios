@@ -5,8 +5,8 @@
   "type": "web",
   "launch_path": "/index.html",
   "icons": {
-    "56": "TODO",
-    "112": "TODO"
+    "56": "/images/W_Square_56px.png",
+    "112": "/images/W_Square_112px.png"
   },
   "developer": {
     "name": "Wikimedia Foundation",
