@@ -1,29 +1,28 @@
-import Banana from 'banana-i18n';
-import { getArticle } from './mwapi';
+import 'preact/debug'
+import { h, render } from 'preact'
+import Router from 'preact-router'
+import { createHashHistory } from 'history'
+import Banana from 'banana-i18n'
+import Article from './article.jsx'
+import Home from './home.jsx'
 
-const lang = navigator.language.substr( 0, 2 );
-const banana = new Banana( lang );
-fetch( 'i18n/' + lang + '.json' )
-	.then( ( response ) => response.json() )
-	.then( ( messages ) => banana.load( messages, lang ) )
-	.then( () => {
-		// const root = document.querySelector('#root');
-		// root.innerText = banana.i18n( 'app-title' );
-	} );
+const lang = navigator.language.substr(0, 2)
+const banana = new Banana(lang)
+fetch('i18n/' + lang + '.json')
+  .then((response) => response.json())
+  .then((messages) => banana.load(messages, lang))
+  .then(() => {
+    // const root = document.querySelector('#root');
+    // root.innerText = banana.i18n( 'app-title' );
+  })
 
-const root = document.querySelector('#root');
+const root = document.querySelector('#root')
 
-const parts = window.location.hash.match( /#\/(.*)\/(.*)/ );
+const Main = () => (
+  <Router history={createHashHistory()}>
+    <Home path='/' />
+    <Article path='/:lang/:title' />
+  </Router>
+)
 
-if ( parts && parts.length === 3 ) {
-	getArticle( parts[1], parts[2] )
-		.then( ( data ) => {
-			console.log( data );
-			const imgUrl = data.lead.image.urls['320'];
-			const title = data.lead.displaytitle;
-			const desc = data.lead.description;
-			root.innerHTML = '<div class="article"><img src="' + imgUrl + '" /><div class="card">' +
-				'<div class="title">' + title + '</div>' +
-				'<div class="desc">' + desc + '</div></div></div>';
-		} );
-}
+render(<Main />, root)

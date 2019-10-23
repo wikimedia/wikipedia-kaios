@@ -4,24 +4,43 @@
 	}
 
 	.card {
-		margin: -40px 10px 0 10px;
+		margin: 0 5px;
 		padding: 10px;
-		border-radius: 10px;
+		border-top-left-radius: 5px;
+		border-top-right-radius: 5px;
 		background-color: white;
 		position: absolute;
-		top: 50%;
+		box-shadow: -2px 2px 10px 0 rgba(0, 0, 0, 0.1);
+		border: solid 1px #f5f5f5;
 		bottom: 0;
 		left: 0;
 		right: 0;
+		top: 15px;
+
+		&.with-image {
+			top: 97px;
+		}
 
 		.title {
-			font-size: 2em;
-			font-weight: bold;
+			font-family: Georgia;
+			font-size: 22px;
+			line-height: 0.91;
+			color: #000000;
 		}
 
 		.desc {
-			font-size: 0.875em;
-			color: grey;
+			font-family: Lato;
+			font-size: 12px;
+			line-height: 1.58;
+			margin-top: 5px;
+			color: #72777d;
+		}
+
+		.line {
+			width: 63px;
+			height: 1px;
+			background-color: #c8ccd1;
+			margin-top: 10px;
 		}
 	}
 }

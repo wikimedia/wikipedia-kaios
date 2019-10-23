@@ -24,13 +24,29 @@
   },
   "homepage": "https://github.com/wikimedia/wikipedia-kaios#readme",
   "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/plugin-transform-react-jsx": "^7.3.0",
+    "@babel/preset-env": "^7.6.3",
+    "babel-loader": "^8.0.6",
+    "eslint": "^6.5.1",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-config-standard-preact": "^1.1.6",
+    "eslint-loader": "^3.0.2",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-standard": "^4.0.1",
     "grunt-banana-checker": "^0.8.1",
     "http-server": "^0.11.1",
     "less": "^3.10.3",
-    "webpack": "^4.41.0",
+    "webpack": "^4.41.2",
     "webpack-cli": "^3.3.9"
   },
   "dependencies": {
-    "banana-i18n": "^1.1.1"
+    "banana-i18n": "^1.1.1",
+    "history": "^4.10.1",
+    "preact": "^10.0.1",
+    "preact-router": "^3.0.1"
   }
 }
