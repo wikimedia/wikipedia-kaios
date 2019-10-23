@@ -1,10 +1,7 @@
 import 'preact/debug'
 import { h, render } from 'preact'
-import Router from 'preact-router'
-import { createHashHistory } from 'history'
 import Banana from 'banana-i18n'
-import Article from './article.jsx'
-import Home from './home.jsx'
+import Routes from './components/routes.jsx'
 
 const lang = navigator.language.substr(0, 2)
 const banana = new Banana(lang)
@@ -17,12 +14,4 @@ fetch('i18n/' + lang + '.json')
   })
 
 const root = document.querySelector('#root')
-
-const Main = () => (
-  <Router history={createHashHistory()}>
-    <Home path='/' />
-    <Article path='/:lang/:title' />
-  </Router>
-)
-
-render(<Main />, root)
+render(<Routes />, root)

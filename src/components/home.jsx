@@ -1,6 +1,6 @@
 import { h, Fragment } from 'preact'
-import { useNavigation } from './useNavigation'
-import { Softkey } from './softkey'
+import { Softkey } from 'components/softkey'
+import { useNavigation } from 'hooks/useNavigation'
 
 const Home = () => {
   useNavigation()

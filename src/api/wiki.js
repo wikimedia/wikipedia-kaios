@@ -5,12 +5,14 @@ function getArticle (lang, title) {
     .then((data) => {
       const parser = new DOMParser()
       var doc = parser.parseFromString(data.lead.sections[0].text, 'text/html')
-      const preview = doc.querySelector('p')
+      const paragraphs = Array.prototype.map.call(
+        doc.querySelectorAll('p'), (n) => n.outerHTML)
       return {
         title: data.lead.displaytitle,
         description: data.lead.description,
         imageUrl: data.lead.image && data.lead.image.urls['320'],
-        preview: preview.outerHTML
+        preview: paragraphs[0],
+        paragraphs: paragraphs
       }
     })
 }

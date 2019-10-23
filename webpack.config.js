@@ -31,6 +31,17 @@ module.exports = {
                   pragmaFrag: "Fragment", // default is React.Fragment
                   throwIfNamespace: false // defaults to true
                 }
+              ],
+              [
+                "module-resolver",
+                {
+                  root: ["./src"],
+                  alias: {
+                    components: './src/components',
+                    hooks: './src/hooks',
+                    api: './src/api'
+                  }
+                }
               ]
             ],
             presets: [
