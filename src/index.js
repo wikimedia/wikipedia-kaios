@@ -2,6 +2,7 @@ import 'preact/debug'
 import { h, render } from 'preact'
 import Banana from 'banana-i18n'
 import Routes from './components/routes.jsx'
+import './styles/index.less'
 
 const lang = navigator.language.substr(0, 2)
 const banana = new Banana(lang)

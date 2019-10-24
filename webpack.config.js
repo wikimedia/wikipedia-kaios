@@ -1,10 +1,11 @@
-const path = require('path');
+const path = require('path')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
   entry: './src/index.js',
   output: {
     filename: 'main.js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist')
   },
   module: {
     rules: [
@@ -25,17 +26,17 @@ module.exports = {
           options: {
             plugins: [
               [
-                "@babel/plugin-transform-react-jsx",
+                '@babel/plugin-transform-react-jsx',
                 {
-                  pragma: "h", // default pragma is React.createElement
-                  pragmaFrag: "Fragment", // default is React.Fragment
+                  pragma: 'h', // default pragma is React.createElement
+                  pragmaFrag: 'Fragment', // default is React.Fragment
                   throwIfNamespace: false // defaults to true
                 }
               ],
               [
-                "module-resolver",
+                'module-resolver',
                 {
-                  root: ["./src"],
+                  root: ['./src'],
                   alias: {
                     components: './src/components',
                     hooks: './src/hooks',
@@ -45,16 +46,25 @@ module.exports = {
               ]
             ],
             presets: [
-                [
-                  "@babel/preset-env",
-                  {
-                    targets: "firefox 37"
-                  }
-                ]
+              [
+                '@babel/preset-env',
+                {
+                  targets: 'firefox 37'
+                }
               ]
+            ]
           }
         }
+      },
+      {
+        test: /\.less$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'less-loader'
+        ]
       }
     ]
-  }
-};
+  },
+  plugins: [new MiniCssExtractPlugin()]
+}
