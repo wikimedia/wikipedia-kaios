@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Wikipedia",
-  "description": "The official Wikipedia KaiOS app.",
+  "description": "With the free Wikipedia app, search and explore information from all over the world in 300+ languages.",
   "type": "web",
   "launch_path": "/index.html",
   "icons": {
@@ -16,7 +16,7 @@
     "en-US": {
       "name": "Wikipedia",
       "subtitle": "The Free Encyclopedia",
-      "description": "The official Wikipedia KaiOS app."
+      "description": "With the free Wikipedia app, search and explore information from all over the world in 300+ languages."
     }
   },
   "default_locale": "en-US",
