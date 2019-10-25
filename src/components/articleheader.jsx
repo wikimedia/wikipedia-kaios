@@ -8,7 +8,7 @@ export const ArticleHeader = ({
 }) => {
   const hasImage = !!imageUrl
   return (
-    <div class='article'>
+    <div class='page article'>
       { hasImage ? <img src={imageUrl} /> : '' }
       <div class={'card' + (hasImage ? ' with-image' : '')}>
         <div class='title' dangerouslySetInnerHTML={{ __html: title }} />
