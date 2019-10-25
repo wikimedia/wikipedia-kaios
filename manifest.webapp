@@ -12,6 +12,10 @@
     "name": "Wikimedia Foundation",
     "url": "https://wikimediafoundation.org/"
   },
+  "categories": [
+    "entertainment",
+    "book/reference"
+  ],
   "locales": {
     "en-US": {
       "name": "Wikipedia",
