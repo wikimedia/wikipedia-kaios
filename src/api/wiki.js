@@ -28,6 +28,10 @@ function getArticle (lang, title) {
         })
       })
 
+      // The app is served from the app:// protocol so protocol-relative
+      // links don't work.
+      content = content.replace(/src="\/\//gi, 'src="https://')
+
       return {
         title: data.lead.displaytitle,
         description: data.lead.description,
