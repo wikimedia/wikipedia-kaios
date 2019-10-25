@@ -4,12 +4,18 @@ function getArticle (lang, title) {
     .then((response) => response.json())
     .then((data) => {
       const paragraphs = []
+      var content = ''
       const parser = new DOMParser()
-      var content = data.lead.sections[0].text
-      var doc = parser.parseFromString(data.lead.sections[0].text, 'text/html')
-      Array.prototype.forEach.call(doc.querySelectorAll('p'), (n) => {
-        paragraphs.push(n.outerHTML)
-      })
+      var doc
+
+      if (data.lead.sections) {
+        content = data.lead.sections[0].text
+        doc = parser.parseFromString(data.lead.sections[0].text, 'text/html')
+        Array.prototype.forEach.call(doc.querySelectorAll('p'), (n) => {
+          paragraphs.push(n.outerHTML)
+        })
+      }
+
       data.remaining.sections.forEach((s) => {
         const header = 'h' + (s.toclevel + 1)
         const headerLine = '<' + header + '>' + s.line + '</' + header + '>'
