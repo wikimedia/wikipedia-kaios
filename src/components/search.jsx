@@ -3,7 +3,7 @@ import { Softkey } from 'components/softkey'
 import { useNavigation } from 'hooks/useNavigation'
 import { useSearch } from 'hooks/useSearch'
 
-const Search = () => {
+export const Search = () => {
   useNavigation()
   const [searchResults, setQuery] = useSearch('en')
 
@@ -43,5 +43,3 @@ const Search = () => {
     </Fragment>
   )
 }
-
-export default Search

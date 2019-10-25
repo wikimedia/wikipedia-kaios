@@ -3,16 +3,32 @@ function getArticle (lang, title) {
   return fetch(url)
     .then((response) => response.json())
     .then((data) => {
+      const paragraphs = []
       const parser = new DOMParser()
+      var content = data.lead.sections[0].text
       var doc = parser.parseFromString(data.lead.sections[0].text, 'text/html')
-      const paragraphs = Array.prototype.map.call(
-        doc.querySelectorAll('p'), (n) => n.outerHTML)
+      Array.prototype.forEach.call(doc.querySelectorAll('p'), (n) => {
+        paragraphs.push(n.outerHTML)
+      })
+      data.remaining.sections.forEach((s) => {
+        const header = 'h' + (s.toclevel + 1)
+        const headerLine = '<' + header + '>' + s.line + '</' + header + '>'
+        paragraphs.push(headerLine)
+        content += headerLine
+        content += s.text
+        doc = parser.parseFromString(s.text, 'text/html')
+        Array.prototype.forEach.call(doc.querySelectorAll('p'), (n) => {
+          paragraphs.push(n.outerHTML)
+        })
+      })
+
       return {
         title: data.lead.displaytitle,
         description: data.lead.description,
         imageUrl: data.lead.image && data.lead.image.urls['320'],
         preview: paragraphs[0],
-        paragraphs: paragraphs
+        paragraphs: paragraphs,
+        content: content
       }
     })
 }
