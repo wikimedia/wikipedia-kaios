@@ -22,9 +22,10 @@ function search (lang, term) {
   return fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      return data.query.pages.map((p) => {
+      return Object.values(data.query.pages).map((p) => {
         return {
-          title: p.title.replace(term, '<span class="searchmatch">' + term + '</span>'),
+          title: p.title,
+          titleHtml: p.title.replace(term, '<span class="searchmatch">' + term + '</span>'),
           description: p.description,
           imageUrl: p.thumbnail && p.thumbnail.source
         }

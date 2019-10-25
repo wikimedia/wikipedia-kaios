@@ -2,11 +2,11 @@ import { h } from 'preact'
 import Router from 'preact-router'
 import { createHashHistory } from 'history'
 import Article from './article.jsx'
-import Home from './home.jsx'
+import Search from './search.jsx'
 
 const Routes = () => (
   <Router history={createHashHistory()}>
-    <Home path='/' />
+    <Search path='/' />
     <Article path='/:lang/:title' />
   </Router>
 )

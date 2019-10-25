@@ -8,9 +8,20 @@ export const useNavigation = () => {
     return () => document.removeEventListener('keydown', onKeyDown)
   }, [])
 
+  useEffect(() => {
+    const element = getSelectedElement()
+    if (element) {
+      element.scrollIntoView()
+    }
+  })
+
   const [current, setCurrent] = useState({ type: null, index: null })
 
   const getAllElements = () => document.querySelectorAll('[nav-selectable]')
+
+  const getSelectedElement = () => {
+    return document.querySelector('[nav-selected=true]')
+  }
 
   const getTheIndexOfTheSelectedElement = () => {
     const element = document.querySelector('[nav-selected=true]')
