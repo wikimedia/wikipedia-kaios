@@ -1,5 +1,6 @@
 .search {
 	background-color: #3366cc;
+	text-align: center;
 
 	.double-u {
 		width: 60px;
@@ -14,7 +15,14 @@
 		font-family: Lato;
 		font-size: 17px;
 		color: #323232;
-		margin: 20px 13px;
+		margin: 20px 0;
+		border-radius: 2px;
+		padding: 2px;
+		border: 1px;
+
+		&:focus {
+			outline: none;
+		}
 	}
 
 	.results {
@@ -25,6 +33,7 @@
 		position: absolute;
 		top: 66px;
 		bottom: 30px;
+		text-align: left;
 	}
 
 	.result {

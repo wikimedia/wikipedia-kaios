@@ -1,27 +1,26 @@
 .article-header {
 	overflow-y: scroll;
 	overflow-x: hidden;
-	// padding: 5px 15px;
+	position: relative;
 
-	& > img {
+	img.lead-image {
 		width: 100%;
 	}
 
 	.card {
-		margin: 0 5px;
 		padding: 10px;
 		border-radius: 5px;
 		background-color: white;
-		// position: absolute;
 		box-shadow: -2px 2px 10px 0 rgba(0, 0, 0, 0.1);
 		border: solid 1px #f5f5f5;
-		bottom: 0;
-		left: 0;
+		position: absolute;
 		right: 0;
-		top: 15px;
+		left: 0;
+		top: 0;
+		margin: 15px 5px;
 
 		&.with-image {
-			top: 97px;
+			margin-top: 150px;
 		}
 
 		.title {

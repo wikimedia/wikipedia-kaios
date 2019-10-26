@@ -17,7 +17,7 @@ export const ArticleHeader = ({
 
   return (
     <div class='page article-header' ref={contentRef}>
-      { hasImage ? <img src={imageUrl} /> : '' }
+      { hasImage ? <img class='lead-image' src={imageUrl} /> : '' }
       <div class={'card' + (hasImage ? ' with-image' : '')}>
         <div class='title' dangerouslySetInnerHTML={{ __html: title }} />
         { description ? (
