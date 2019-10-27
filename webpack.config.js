@@ -39,7 +39,8 @@ module.exports = {
                   alias: {
                     components: './src/components',
                     hooks: './src/hooks',
-                    api: './src/api'
+                    api: './src/api',
+                    contexts: './src/contexts'
                   }
                 }
               ]

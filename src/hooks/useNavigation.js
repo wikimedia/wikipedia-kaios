@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'preact/hooks'
 
-export const useNavigation = () => {
+export const useNavigation = (containerRef) => {
   useEffect(() => {
     document.addEventListener('keydown', onKeyDown)
     setNavigation(0)
