@@ -1,4 +1,5 @@
 import { h, Fragment } from 'preact'
+import { useRef } from 'preact/hooks'
 import { Softkey } from 'components/softkey'
 import { useNavigation } from 'hooks/useNavigation'
 import { useSearch } from 'hooks/useSearch'

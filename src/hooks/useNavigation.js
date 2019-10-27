@@ -9,9 +9,18 @@ export const useNavigation = (containerRef) => {
   }, [])
 
   useEffect(() => {
+    if (!containerRef.current) return
     const element = getSelectedElement()
-    if (element) {
-      element.scrollIntoView()
+    if (!element) return
+    if (element.tagName === 'INPUT') return
+
+    const containerRect = containerRef.current.getBoundingClientRect()
+    const rect = element.getBoundingClientRect()
+    if (rect.y > containerRect.height) {
+      containerRef.current.scrollTop += (rect.bottom - containerRect.bottom)
+    }
+    if (rect.y < containerRect.y) {
+      containerRef.current.scrollTop -= (containerRect.y - rect.y)
     }
   })
 
