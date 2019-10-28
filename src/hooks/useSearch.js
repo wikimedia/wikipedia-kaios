@@ -19,7 +19,7 @@ export const useSearch = (lang) => {
         })
     } else {
       counter.current = 0
-      setSearchResults([])
+      setSearchResults(null)
     }
   }, [lang, query])
 

@@ -13,7 +13,7 @@ export const Search = () => {
   const [searchResults, setQuery] = useSearch(lang)
   const i18n = useI18n()
 
-  const hasResults = searchResults.length
+  const resultsPage = searchResults !== null
 
   const onKeyCenter = () => {
     const element = document.querySelector('[nav-selected=true][x-url]')
@@ -25,9 +25,9 @@ export const Search = () => {
   return (
     <Fragment>
       <div class='page search' key='search'>
-        <img class='double-u' src='images/w.svg' style={{ display: (hasResults ? 'none' : 'block') }} />
+        <img class='double-u' src='images/w.svg' style={{ display: (resultsPage ? 'none' : 'block') }} />
         <input type='text' placeholder={i18n.i18n('search-placeholder')} onInput={(e) => setQuery(e.target.value)} nav-selectable />
-        { hasResults ? (
+        { resultsPage ? (
           <div class='results' ref={containerRef}>
             { searchResults.map((r) => (
               <div class='result' nav-selectable x-url={'/' + lang + '/' + r.title}>

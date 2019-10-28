@@ -48,6 +48,9 @@ function search (lang, term) {
   return fetch(url)
     .then((response) => response.json())
     .then((data) => {
+      if (!data.query.pages) {
+        return []
+      }
       return Object.values(data.query.pages).map((p) => {
         return {
           title: p.title,
