@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode development && lessc style/style.less dist/main.css",
     "start": "http-server -p 8080",
-    "banana": "banana-checker i18n/"
+    "banana": "banana-checker i18n/",
+    "deploy": "./node_modules/b2g-cli-tool/b2g.js update . Wikipedia"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,7 @@
     "@babel/core": "^7.6.4",
     "@babel/plugin-transform-react-jsx": "^7.3.0",
     "@babel/preset-env": "^7.6.3",
+    "b2g-cli-tool": "github:fabricedesre/b2gclitool",
     "babel-loader": "^8.0.6",
     "babel-plugin-module-resolver": "^3.2.0",
     "eslint": "^6.5.1",
