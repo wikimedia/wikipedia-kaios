@@ -26,7 +26,7 @@ export const Search = () => {
     <Fragment>
       <div class='page search' key='search'>
         <img class='double-u' src='images/w.svg' style={{ display: (hasResults ? 'none' : 'block') }} />
-        <input type='text' placeholder='Search' onInput={(e) => setQuery(e.target.value)} nav-selectable />
+        <input type='text' placeholder={i18n.i18n('search-placeholder')} onInput={(e) => setQuery(e.target.value)} nav-selectable />
         { hasResults ? (
           <div class='results' ref={containerRef}>
             { searchResults.map((r) => (
