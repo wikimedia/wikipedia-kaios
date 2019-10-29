@@ -6,10 +6,10 @@ export const useScroll = (
 ) => {
   useKeys({
     ArrowDown: () => {
-      elementRef.current.scrollTop += step
+      elementRef.current.scrollLeft += step
     },
     ArrowUp: () => {
-      elementRef.current.scrollTop -= step
+      elementRef.current.scrollLeft -= step
     }
   })
 }

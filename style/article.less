@@ -1,10 +1,31 @@
-.article-header {
-	overflow-y: scroll;
-	overflow-x: hidden;
-	position: relative;
+.article {
+	// Those properties need to be set on
+	// the parent of the element with columns.
+	overflow-x: scroll;
+	overflow-y: hidden;
+}
 
-	img.lead-image {
+.article-header {
+	height: @pageHeight;
+	// This needs to be set to a multiple of the column-width
+	// that allows at least 2 columns in order for columns
+	// to appear at all have have the right width.
+	width: @pageWidth * 2;
+	column-width: @pageWidth;
+	column-gap: 0;
+	// Firefox 48 needs the -moz prefix for column attributes
+	-moz-column-width: @pageWidth;
+	-moz-column-gap: 0;
+	padding-top: 10px;
+	// This prevents long words like URL from overflowing
+	// onto the next column.
+	word-wrap: break-word;
+
+	.lead-image {
+		margin-top: -10px;
 		width: 100%;
+		height: @pageHeight;
+		background-size: @pageWidth auto;
 	}
 
 	.card {
@@ -13,29 +34,24 @@
 		background-color: white;
 		box-shadow: -2px 2px 10px 0 rgba(0, 0, 0, 0.1);
 		border: solid 1px #f5f5f5;
-		position: absolute;
-		right: 0;
-		left: 0;
-		top: 0;
 		margin: 15px 5px;
 
 		&.with-image {
-			margin-top: 150px;
+			margin-top: -120px;
 		}
 
 		.title {
-			font-family: Georgia;
+			font-family: @titleFont;
 			font-size: 22px;
 			line-height: 0.91;
-			color: #000000;
 		}
 
 		.desc {
-			font-family: Lato;
-			font-size: 12px;
+			font-family: @textFont;
+			font-size: 14px;
 			line-height: 1.58;
 			margin-top: 5px;
-			color: #72777d;
+			color: @colorLight;
 		}
 
 		.line {
@@ -48,16 +64,21 @@
 }
 
 .article-content {
-	font-family: Lato;
-	font-size: 12px;
+	font-family: @textFont;
+	font-size: 14px;
 	line-height: 1.75;
+	text-align: justify;
+
+	* {
+		max-width: 200px;
+	}
 
 	table {
 		display: none;
 	}
 
 	figure {
-		margin-left: 0;
+		margin: 10px;
 	}
 
 	span.mw-ref {
@@ -67,9 +88,18 @@
 
 	img {
 		max-width: 210px;
+		max-height: 250px;
 	}
 
 	a {
 		text-decoration: none;
+	}
+
+	.quotebox {
+		// width: 100% !important;
+	}
+
+	blockquote {
+		margin: 10px;
 	}
 }
