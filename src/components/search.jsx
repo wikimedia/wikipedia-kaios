@@ -35,7 +35,7 @@ export const Search = () => {
                   <div class='title' dangerouslySetInnerHTML={{ __html: r.titleHtml }} />
                   <div class='description'>{r.description}</div>
                 </div>
-                <div class='img'><img src={r.imageUrl} /></div>
+                { r.imageUrl && <div class='img'><img src={r.imageUrl} /></div> }
               </div>
             )) }
           </div>
