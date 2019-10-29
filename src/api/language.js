@@ -4,9 +4,7 @@ const load = (lang) => {
     fetch('i18n/' + lang + '.json')
       .then((response) => response.json())
       .then((json) => {
-        const data = {}
-        data[lang] = json
-        resolve(data)
+        resolve({ [lang]: json })
       })
       .catch(() => {
         // It is expected that some languages don't have an i18n file.
