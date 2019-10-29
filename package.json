@@ -8,7 +8,7 @@
     "build": "webpack --mode development && lessc style/style.less dist/main.css",
     "start": "http-server -p 8080",
     "banana": "banana-checker i18n/",
-    "deploy": "./node_modules/b2g-cli-tool/b2g.js update . Wikipedia"
+    "deploy": "./node_modules/b2g-cli-tool/b2g.js uninstall Wikipedia && ./node_modules/b2g-cli-tool/b2g.js install ."
   },
   "repository": {
     "type": "git",
