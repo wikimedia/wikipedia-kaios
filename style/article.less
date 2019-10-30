@@ -1,26 +1,4 @@
 .article {
-	// Those properties need to be set on
-	// the parent of the element with columns.
-	overflow-x: scroll;
-	overflow-y: hidden;
-}
-
-.article-header {
-	height: @pageHeight;
-	// This needs to be set to a multiple of the column-width
-	// that allows at least 2 columns in order for columns
-	// to appear at all have have the right width.
-	width: @pageWidth * 2;
-	column-width: @pageWidth;
-	column-gap: 0;
-	// Firefox 48 needs the -moz prefix for column attributes
-	-moz-column-width: @pageWidth;
-	-moz-column-gap: 0;
-	padding-top: 10px;
-	// This prevents long words like URL from overflowing
-	// onto the next column.
-	word-wrap: break-word;
-
 	.lead-image {
 		margin-top: -10px;
 		width: 100%;

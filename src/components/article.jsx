@@ -1,5 +1,5 @@
 import { h, Fragment } from 'preact'
-import { ArticleHeader } from 'components/articleheader.jsx'
+import { Pager } from 'components/pager.jsx'
 import { Softkey } from 'components/softkey'
 import { useArticle } from 'hooks/useArticle'
 import { useBackToSearch } from 'hooks/useBackToSearch'
@@ -12,15 +12,28 @@ export const Article = ({ lang, title }) => {
     return 'Loading...'
   }
 
+  const hasImage = !!article.imageUrl
+
   return (
     <Fragment>
-      <ArticleHeader
-        imageUrl={article.imageUrl}
-        title={article.title}
-        description={article.description}
-        preview={article.preview}
-        content={article.content}
-      />
+      <Pager>
+        <div class='page article'>
+          { hasImage && <div class='lead-image' style={{ backgroundImage: `url(${article.imageUrl})` }} /> }
+          <div class={'card' + (hasImage ? ' with-image' : '')}>
+            <div class='title' dangerouslySetInnerHTML={{ __html: article.title }} />
+            { article.description && (
+              <Fragment>
+                <div class='desc'>{article.description}</div>
+                <div class='line' />
+              </Fragment>
+            ) }
+            <div
+              class='article-content'
+              dangerouslySetInnerHTML={{ __html: article.content }}
+            />
+          </div>
+        </div>
+      </Pager>
       <Softkey
         left='Settings'
       />
