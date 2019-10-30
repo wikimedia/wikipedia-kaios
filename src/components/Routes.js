@@ -1,8 +1,7 @@
 import { h } from 'preact'
 import Router from 'preact-router'
 import { createHashHistory } from 'history'
-import { Article } from './article.jsx'
-import { Search } from './search.jsx'
+import { Article, Search } from 'components'
 
 export const Routes = () => (
   <Router history={createHashHistory()}>

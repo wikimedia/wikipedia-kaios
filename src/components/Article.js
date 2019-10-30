@@ -1,8 +1,6 @@
 import { h, Fragment } from 'preact'
-import { Pager } from 'components/pager.jsx'
-import { Softkey } from 'components/softkey'
-import { useArticle } from 'hooks/useArticle'
-import { useBackToSearch } from 'hooks/useBackToSearch'
+import { Pager, Softkey } from 'components'
+import { useArticle, useBackToSearch } from 'hooks'
 
 export const Article = ({ lang, title }) => {
   const article = useArticle(lang, title)

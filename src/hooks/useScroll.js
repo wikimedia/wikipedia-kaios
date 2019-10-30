@@ -1,4 +1,4 @@
-import { useKeys } from 'hooks/useKeys'
+import { useKeys } from 'hooks'
 
 export const useScroll = (
   elementRef,

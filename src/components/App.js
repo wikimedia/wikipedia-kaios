@@ -1,7 +1,6 @@
 import { h } from 'preact'
-import { Routes } from 'components/routes.jsx'
-import { LanguageContext } from 'contexts/LanguageContext'
-import { I18nContext } from 'contexts/I18nContext'
+import { Routes } from 'components'
+import { LanguageContext, I18nContext } from 'contexts'
 
 export const App = ({ lang, i18n }) => {
   return (

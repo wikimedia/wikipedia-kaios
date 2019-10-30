@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'preact/hooks'
-import { getArticle } from 'api/wiki'
+import { getArticle } from 'api'
 
 export const useArticle = (lang, title) => {
   const [article, setArticle] = useState()

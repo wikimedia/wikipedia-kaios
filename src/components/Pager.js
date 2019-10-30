@@ -1,6 +1,6 @@
 import { h } from 'preact'
 import { useRef } from 'preact/hooks'
-import { useScroll } from 'hooks/useScroll'
+import { useScroll } from 'hooks'
 
 export const Pager = ({
   children

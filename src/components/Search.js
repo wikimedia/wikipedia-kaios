@@ -1,10 +1,7 @@
 import { h, Fragment } from 'preact'
 import { useRef } from 'preact/hooks'
-import { Softkey } from 'components/softkey'
-import { useNavigation } from 'hooks/useNavigation'
-import { useSearch } from 'hooks/useSearch'
-import { useLanguage } from 'hooks/useLanguage'
-import { useI18n } from 'hooks/useI18n'
+import { Softkey } from 'components'
+import { useNavigation, useSearch, useLanguage, useI18n } from 'hooks'
 
 export const Search = () => {
   const containerRef = useRef()

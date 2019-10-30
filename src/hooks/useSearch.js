@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'preact/hooks'
-import { search } from 'api/wiki'
+import { search } from 'api'
 
 export const useSearch = (lang) => {
   const [query, setQuery] = useState('')
