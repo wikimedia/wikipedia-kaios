@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Patriccck"
+		]
+	},
+	"app-title": "Wikipedie",
+	"app-subtitle": "Otevřená encyklopedie",
+	"app-description": "S aplikací Wikipedie můžete vyhledávat a objevovat informace z celého světa ve více než 300 jazycích.",
+	"search-select": "Vybrat",
+	"search-placeholder": "Vyhledávání"
+}

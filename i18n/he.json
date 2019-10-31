@@ -1,11 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"דגש חזק"
+			"דגש חזק",
+			"Amire80"
 		]
 	},
 	"app-title": "ויקיפדיה",
 	"app-subtitle": "האנציקלופדיה החופשית",
 	"app-description": "בעזרת אפליקציית ויקיפדיה החינמית, תוכלו לחפש ולחקור מידע מכל העולם ביותר מ־300 שפות.",
-	"search-select": "בחר"
+	"search-select": "בחירה",
+	"search-placeholder": "חיפוש"
 }

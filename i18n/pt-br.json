@@ -1,12 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Dvpita"
+			"Eduardo Addad de Oliveira"
 		]
 	},
 	"app-title": "Wikipédia",
 	"app-subtitle": "A enciclopédia livre",
-	"app-description": "Com a aplicação grátis da Wikipédia, procura e explora informação de todo o mundo em mais de 300 idiomas",
+	"app-description": "Com o aplicativo grátis da Wikipédia, procure e explore a informação de todo o mundo em mais de 300 idiomas",
 	"search-select": "Selecionar",
 	"search-placeholder": "Pesquisar"
 }
