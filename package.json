@@ -8,7 +8,9 @@
     "build": "webpack --mode development && lessc style/style.less dist/main.css",
     "start": "http-server -p 8080",
     "banana": "banana-checker i18n/",
-    "deploy": "./node_modules/b2g-cli-tool/b2g.js uninstall Wikipedia && ./node_modules/b2g-cli-tool/b2g.js install ."
+    "deploy": "./node_modules/b2g-cli-tool/b2g.js uninstall Wikipedia && ./node_modules/b2g-cli-tool/b2g.js install .",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run"
   },
   "repository": {
     "type": "git",
@@ -31,6 +33,7 @@
     "b2g-cli-tool": "github:fabricedesre/b2gclitool",
     "babel-loader": "^8.0.6",
     "babel-plugin-module-resolver": "^3.2.0",
+    "cypress": "^3.5.0",
     "eslint": "^6.5.1",
     "eslint-config-standard": "^14.1.0",
     "eslint-config-standard-preact": "^1.1.6",
