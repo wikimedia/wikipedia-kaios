@@ -1,12 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Dvpita"
+			"Dvpita",
+			"Fitoschido",
+			"Hamilton Abreu"
 		]
 	},
 	"app-title": "Wikipédia",
 	"app-subtitle": "A enciclopédia livre",
-	"app-description": "Com a aplicação grátis da Wikipédia, procura e explora informação de todo o mundo em mais de 300 idiomas",
-	"search-select": "Selecionar",
+	"app-description": "Com a aplicação grátis da Wikipédia, procure e explore informação de todo o mundo em mais de 300 idiomas.",
+	"search-select": "Selec.",
 	"search-placeholder": "Pesquisar"
 }

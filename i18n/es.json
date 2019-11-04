@@ -2,11 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Ihojose",
-			"Madamebiblio"
+			"Madamebiblio",
+			"Fitoschido"
 		]
 	},
 	"app-title": "Wikipedia",
 	"app-subtitle": "La enciclopedia libre",
-	"search-select": "Seleccionar",
+	"app-description": "Con la aplicación gratuita de Wikipedia es posible buscar y explorar información proveniente de todo el mundo en más de 300 idiomas.",
+	"search-select": "Selec.",
 	"search-placeholder": "Buscar"
 }

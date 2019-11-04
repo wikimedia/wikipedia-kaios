@@ -1,9 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Okras"
+			"Okras",
+			"Kareyac"
 		]
 	},
 	"app-title": "Википедия",
-	"search-select": "Выбрать"
+	"app-subtitle": "Свободная энциклопедия",
+	"search-select": "Выбрать",
+	"search-placeholder": "Поиск"
 }
