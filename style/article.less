@@ -15,7 +15,7 @@
 		margin: 15px 5px;
 
 		&.with-image {
-			margin-top: -120px;
+			margin-top: -160px;
 		}
 
 		.title {
@@ -37,6 +37,34 @@
 			height: 1px;
 			background-color: #c8ccd1;
 			margin-top: 10px;
+		}
+
+		.article-actions {
+			display: flex;
+			margin-top: 15px;
+
+			&-button {
+				text-align: center;
+				flex-basis: -moz-max-content;
+
+				label {
+					display: inline-block;
+					font-size: @smallFont;
+				}
+
+				img {
+					width: 45px;
+					height: 45px;
+				}
+
+				&[nav-selected=true] {
+					img {
+						border-radius: 2px;
+						border: solid 1px rgba(51, 102, 204, 0.5);
+						background-color: #eaf3ff;
+					}
+				}
+			}
 		}
 	}
 }

@@ -2,14 +2,16 @@ import { useKeys } from 'hooks'
 
 export const useScroll = (
   elementRef,
-  step
+  step,
+  axis
 ) => {
+  const prop = axis === 'x' ? 'scrollLeft' : 'scrollTop'
   useKeys({
     ArrowDown: () => {
-      elementRef.current.scrollLeft += step
+      elementRef.current[prop] += step
     },
     ArrowUp: () => {
-      elementRef.current.scrollLeft -= step
+      elementRef.current[prop] -= step
     }
   })
 }
