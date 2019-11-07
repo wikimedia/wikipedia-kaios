@@ -1,11 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Gomoko"
+			"Gomoko",
+			"Fitoschido"
 		]
 	},
 	"app-title": "Wikipédia",
 	"app-subtitle": "L’encyclopédie libre",
 	"app-description": "Avec l’application libre Wikipédia, cherchez et explorez des informations du monde entier en plus de 300 langues.",
-	"search-select": "Sélectionner"
+	"search-placeholder": "Rechercher",
+	"centerkey-select": "Sélect."
 }

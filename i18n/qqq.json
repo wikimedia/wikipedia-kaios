@@ -1,12 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Stephane Bisson"
+			"Stephane Bisson",
+			"Robby"
 		]
 	},
 	"app-title": "Title of the application. Shown in the app store and the app launcher.",
 	"app-subtitle": "Subtitle of the application. Shown in the app store.",
 	"app-description": "Description of the application. Shown in the app store.",
-	"search-select": "Label of the center key to go to the selected article on the search results page.",
-	"search-placeholder": "Placeholder of the search input."
+	"search-placeholder": "Placeholder of the search input.\n{{Identical|Search}}",
+	"centerkey-select": "Label of the center key to choose the selected element. This is used in several contexts when the arrow keys are used to move the focus between visual elements."
 }

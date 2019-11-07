@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'preact/hooks'
 
-export const useNavigation = (containerRef) => {
+export const useNavigation = (containerRef, axis, elementsSelector = '[data-selectable]') => {
   useEffect(() => {
     document.addEventListener('keydown', onKeyDown)
-    setNavigation(0)
 
     return () => document.removeEventListener('keydown', onKeyDown)
   }, [])
@@ -14,43 +13,49 @@ export const useNavigation = (containerRef) => {
     if (!element) return
     if (element.tagName === 'INPUT') return
 
+    // todo: cache the next line since it doesn't change
     const containerRect = containerRef.current.getBoundingClientRect()
     const rect = element.getBoundingClientRect()
-    if (rect.y > containerRect.height) {
+    if (rect.bottom > containerRect.bottom) {
+      // scroll down
       containerRef.current.scrollTop += (rect.bottom - containerRect.bottom)
     }
-    if (rect.y < containerRect.y) {
-      containerRef.current.scrollTop -= (containerRect.y - rect.y)
+    if (rect.top < containerRect.top) {
+      // scroll up
+      containerRef.current.scrollTop -= (containerRect.top - rect.top)
     }
   })
 
-  const [current, setCurrent] = useState({ type: null, index: null })
+  const previousKey = axis === 'x' ? 'ArrowLeft' : 'ArrowUp'
+  const nextKey = axis === 'x' ? 'ArrowRight' : 'ArrowDown'
 
-  const getAllElements = () => document.querySelectorAll('[nav-selectable]')
+  const [current, setCurrent] = useState({ type: null, index: null, key: null })
+
+  const getAllElements = () => document.querySelectorAll(elementsSelector)
 
   const getSelectedElement = () => {
     return document.querySelector('[nav-selected=true]')
   }
 
   const getTheIndexOfTheSelectedElement = () => {
-    const element = document.querySelector('[nav-selected=true]')
+    const element = getSelectedElement()
     return element ? parseInt(element.getAttribute('nav-index')) : 0
   }
 
   const setNavigation = index => selectElement(getAllElements()[index] || document.body)
 
   const onKeyDown = evt => {
-    if (evt.key !== 'ArrowDown' && evt.key !== 'ArrowUp') return
-
+    if (evt.key !== previousKey && evt.key !== nextKey) return
+    evt.preventDefault()
     const allElements = getAllElements()
     const currentIndex = getTheIndexOfTheSelectedElement()
 
     let setIndex
     switch (evt.key) {
-      case 'ArrowDown':
+      case nextKey:
         setIndex = (currentIndex + 1 > allElements.length - 1) ? 0 : currentIndex + 1
         return selectElement(allElements[setIndex] || allElements[0], setIndex)
-      case 'ArrowUp':
+      case previousKey:
         setIndex = (currentIndex === 0) ? allElements.length - 1 : currentIndex - 1
         return selectElement(allElements[setIndex] || allElements[0], setIndex)
       default:
@@ -68,11 +73,20 @@ export const useNavigation = (containerRef) => {
           selectThisElement ? element.focus() : element.blur()
         }
       })
-      setCurrent({ type: selectElement.tagName, index: setIndex })
+      setCurrent({ type: selectElement.tagName, index: setIndex, key: selectElement.getAttribute('data-selected-key') })
     } else {
       setNavigation(0)
     }
   }
 
-  return [current, setNavigation]
+  const getCurrent = () => {
+    const element = getSelectedElement()
+    return {
+      type: element.tagName,
+      index: element.getAttribute('nav-index'),
+      key: element.getAttribute('data-selected-key')
+    }
+  }
+
+  return [current, setNavigation, getCurrent]
 }
