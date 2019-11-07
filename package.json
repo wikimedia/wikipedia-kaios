@@ -4,13 +4,12 @@
   "description": "Wikipedia KaiOS app",
   "private": "true",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "cypress run",
     "build": "webpack --mode development && lessc style/style.less dist/main.css",
     "start": "http-server -p 8080",
     "banana": "banana-checker i18n/",
     "deploy": "./node_modules/b2g-cli-tool/b2g.js uninstall Wikipedia && ./node_modules/b2g-cli-tool/b2g.js install .",
-    "cy:open": "cypress open",
-    "cy:run": "cypress run"
+    "cypress": "cypress open"
   },
   "repository": {
     "type": "git",
