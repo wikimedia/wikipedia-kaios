@@ -7,6 +7,6 @@
 	"app-title": "Wikipedia",
 	"app-subtitle": "Vapaa tietosanakirja",
 	"app-description": "Ilmaisella Wikipedia-sovelluksella, haet ja tutkit tietoa ympäri maailmaa yli 300 kielellä.",
-	"search-select": "Valitse",
-	"search-placeholder": "Haku"
+	"search-placeholder": "Haku",
+	"centerkey-select": "Valitse"
 }
