@@ -5,8 +5,6 @@ import { SearchPage } from "../page-objects/search-page"
 // @ts-check
 const searchPage = new SearchPage()
 describe('Article search', () =>{
-  
-
   beforeEach(() =>{
     searchPage.navigateToSearchPage()
     searchPage.search("catt")
@@ -26,15 +24,11 @@ describe('Article search', () =>{
     cy.get('.result').first().next()
       .children().should('have.length', 1)
   })
-
   
-})
-it.only('article should open from search results page', () => {
-  searchPage.navigateToSearchPage()
-  cy.get('input[type=text]').type("catt")
-  cy.get('.result').first().next()
-      .children().should('have.length', 1)
-  cy.get('body').type('{enter}').type('{downarrow}').type('{enter}')
-  cy.get('.title').should('have.text', "Cattaraugus County, New York")
-//cy.get('body').type('{uparrow}{uparrow}{downarrow}{downarrow}{leftarrow}{rightarrow}{leftarrow}{rightarrow}')
+  it('article should open from search results page', () => {
+    cy.get('.result').first().next()
+    .children().should('have.length', 1)
+    cy.get('body').type('{enter}').type('{downarrow}').type('{enter}')
+    cy.get('.title').should('have.text', "Cattaraugus County, New York")
+  })
 })
