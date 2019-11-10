@@ -1,16 +1,20 @@
 import { h, Fragment } from 'preact'
-import { useRef } from 'preact/hooks'
+import { useRef, useEffect } from 'preact/hooks'
 import { Softkey } from 'components'
 import { useNavigation, useSearch, useLanguage, useI18n } from 'hooks'
 
 export const Search = () => {
   const containerRef = useRef()
-  const [current] = useNavigation(containerRef, 'y')
+  const [current, setNavigation] = useNavigation(containerRef, 'y')
   const lang = useLanguage()
   const [searchResults, setQuery] = useSearch(lang)
   const i18n = useI18n()
 
   const resultsPage = searchResults !== null
+
+  useEffect(() => {
+    setNavigation(0)
+  }, [])
 
   const onKeyCenter = () => {
     const element = document.querySelector('[nav-selected=true][data-title]')
@@ -22,7 +26,7 @@ export const Search = () => {
 
   return (
     <Fragment>
-      <div class='page search' key='search'>
+      <div class='page search'>
         <img class='double-u' src='images/w.svg' style={{ display: (resultsPage ? 'none' : 'block') }} />
         <input type='text' placeholder={i18n.i18n('search-placeholder')} onInput={(e) => setQuery(e.target.value)} data-selectable />
         { resultsPage && (
