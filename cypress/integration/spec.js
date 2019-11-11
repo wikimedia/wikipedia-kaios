@@ -11,7 +11,7 @@ describe('Article search', () =>{
   })
 
   it('search should show results', () => {
-    cy.get('.result').first()
+    searchPage.results().first()
       .should('have.text', "Cattaraugus County, New YorkCounty in New York")
   })
 
