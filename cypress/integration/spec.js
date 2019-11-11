@@ -1,9 +1,11 @@
 /// <reference types="Cypress" />
 
 import { SearchPage } from "../page-objects/search-page"
+import { BasePage } from "../page-objects/base-page"
 
 // @ts-check
 const searchPage = new SearchPage()
+const basePage = new BasePage()
 describe('Article search', () =>{
   beforeEach(() =>{
     searchPage.navigateToSearchPage()
@@ -16,19 +18,22 @@ describe('Article search', () =>{
   })
 
   it('results with image should show image', () => {
-    cy.get('.result').first()
+    searchPage.results().first()
       .children().should('have.length', 2)
   })
 
   it('results without image should not show image', () => {
-    cy.get('.result').first().next()
+    searchPage.results().first().next()
       .children().should('have.length', 1)
   })
   
   it('article should open from search results page', () => {
-    cy.get('.result').first().next()
+    searchPage.results().first().next()
     .children().should('have.length', 1)
-    cy.get('body').type('{enter}').type('{downarrow}').type('{enter}')
+
+    basePage.pressEnterKey()
+    basePage.pressDownArrowKey()
+    basePage.pressEnterKey()
     cy.get('.title').should('have.text', "Cattaraugus County, New York")
   })
 })

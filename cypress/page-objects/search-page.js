@@ -8,6 +8,6 @@ export class SearchPage {
     }
 
     results(){
-        cy.get('.result')
+        return cy.get('.result')
     }
 }
