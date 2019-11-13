@@ -45,27 +45,19 @@ function search (lang, term) {
   const baseUrl = `https://${lang}.wikipedia.org/w/api.php`
   const params = {
     action: 'query',
-    redirects: null,
-    converttitles: null,
-    prop: ['description', 'pageimages', 'info'].join('|'),
-    piprop: 'thumbnail',
-    pilicense: 'any',
-    generator: 'prefixsearch',
-    gpsnamespace: 0,
-    list: 'search',
-    srnamespace: 0,
-    inprop: 'varianttitles',
-    srwhat: 'text',
-    srinfo: 'suggestion',
-    srprop: null,
-    sroffset: 0,
-    srlimit: 1,
-    pithumbsize: 64,
-    gpslimit: 10,
-    origin: '*',
     format: 'json',
-    gpssearch: term,
-    srsearch: term
+    formatversion: 2,
+    origin: '*',
+    prop: ['description', 'pageimages', 'pageprops'].join('|'),
+    redirect: '',
+    piprop: 'thumbnail',
+    pilimit: 15,
+    ppprop: 'displaytitle',
+    generator: 'prefixsearch',
+    pithumbsize: 64,
+    gpslimit: 15,
+    gpsnamespace: 0,
+    gpssearch: term
   }
   const url = baseUrl + '?' + Object.keys(params).map(p => `${p}=${params[p]}`).join('&')
   return fetch(url)
@@ -74,6 +66,7 @@ function search (lang, term) {
       if (!data.query.pages) {
         return []
       }
+      data.query.pages.sort((a, b) => a.index - b.index)
       return Object.values(data.query.pages).map((p) => {
         return {
           title: p.title,
