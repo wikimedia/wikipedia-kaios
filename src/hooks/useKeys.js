@@ -5,6 +5,7 @@ export const useKeys = (handlers) => {
     const key = e.key.toString()
     if (handlers[key]) {
       handlers[key](e)
+      e.stopPropagation()
       e.preventDefault()
     }
   }

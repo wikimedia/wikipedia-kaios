@@ -1,17 +1,23 @@
 // todo: Implement a real cache that keeps
-// the last N articles to keep memory usage
+// the last N requests to keep memory usage
 // under control.
-const articleCache = {}
-
-function getArticle (lang, title) {
-  const cacheKey = lang + ':' + title
-  if (articleCache[cacheKey]) {
-    return Promise.resolve(articleCache[cacheKey])
+const requestCache = {}
+const cachedFetch = url => {
+  if (requestCache[url]) {
+    return Promise.resolve(requestCache[url])
   }
-  const url = `https://${lang}.wikipedia.org/api/rest_v1/page/mobile-sections/${title}`
   return fetch(url)
-    .then((response) => response.json())
-    .then((data) => {
+    .then(response => response.json())
+    .then(data => {
+      requestCache[url] = data
+      return data
+    })
+}
+
+const getArticle = (lang, title) => {
+  const url = `https://${lang}.wikipedia.org/api/rest_v1/page/mobile-sections/${title}`
+  return cachedFetch(url)
+    .then(data => {
       const parser = new DOMParser()
       let content = data.lead.sections[0].text
       const doc = parser.parseFromString(data.lead.sections[0].text, 'text/html')
@@ -36,44 +42,34 @@ function getArticle (lang, title) {
         content,
         infobox
       }
-      articleCache[cacheKey] = result
       return result
     })
 }
 
-function search (lang, term) {
+const search = (lang, term) => {
   const baseUrl = `https://${lang}.wikipedia.org/w/api.php`
   const params = {
     action: 'query',
-    redirects: null,
-    converttitles: null,
-    prop: ['description', 'pageimages', 'info'].join('|'),
-    piprop: 'thumbnail',
-    pilicense: 'any',
-    generator: 'prefixsearch',
-    gpsnamespace: 0,
-    list: 'search',
-    srnamespace: 0,
-    inprop: 'varianttitles',
-    srwhat: 'text',
-    srinfo: 'suggestion',
-    srprop: null,
-    sroffset: 0,
-    srlimit: 1,
-    pithumbsize: 64,
-    gpslimit: 10,
-    origin: '*',
     format: 'json',
-    gpssearch: term,
-    srsearch: term
+    formatversion: 2,
+    origin: '*',
+    prop: ['description', 'pageimages', 'pageprops'].join('|'),
+    piprop: 'thumbnail',
+    pilimit: 15,
+    ppprop: 'displaytitle',
+    generator: 'prefixsearch',
+    pithumbsize: 64,
+    gpslimit: 15,
+    gpsnamespace: 0,
+    gpssearch: term
   }
   const url = baseUrl + '?' + Object.keys(params).map(p => `${p}=${params[p]}`).join('&')
-  return fetch(url)
-    .then((response) => response.json())
-    .then((data) => {
-      if (!data.query.pages) {
+  return cachedFetch(url)
+    .then(data => {
+      if (!data.query || !data.query.pages) {
         return []
       }
+      data.query.pages.sort((a, b) => a.index - b.index)
       return Object.values(data.query.pages).map((p) => {
         return {
           title: p.title,

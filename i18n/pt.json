@@ -3,12 +3,14 @@
 		"authors": [
 			"Dvpita",
 			"Fitoschido",
-			"Hamilton Abreu"
+			"Hamilton Abreu",
+			"Mansil alfalb"
 		]
 	},
 	"app-title": "Wikipédia",
 	"app-subtitle": "A enciclopédia livre",
 	"app-description": "Com a aplicação grátis da Wikipédia, procure e explore informação de todo o mundo em mais de 300 idiomas.",
 	"search-placeholder": "Pesquisar",
-	"centerkey-select": "Selec."
+	"centerkey-select": "Selec.",
+	"close": "Fechar"
 }

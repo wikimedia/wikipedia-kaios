@@ -1,19 +1,31 @@
 import { h, Fragment } from 'preact'
+import { memo } from 'preact/compat'
 import { useRef, useEffect } from 'preact/hooks'
 import { Pager, Softkey } from 'components'
-import { useArticle, useBackToSearch, useNavigation, useI18n } from 'hooks'
+import { useArticle, useNavigation, useI18n } from 'hooks'
+
+const ArticleBody = memo(({ content }) => {
+  return (
+    <div
+      class='article-content'
+      dangerouslySetInnerHTML={{ __html: content }}
+    />
+  )
+})
 
 export const Article = ({ lang, title }) => {
   const i18n = useI18n()
   const article = useArticle(lang, title)
   const actionsRef = useRef()
-  useBackToSearch()
   const [, setNavigation, getCurrent] = useNavigation(actionsRef, 'x')
 
   useEffect(() => {
     setNavigation(0)
   }, [article])
 
+  const onKeyLeft = () => {
+    history.back()
+  }
   const onKeyCenter = () => {
     const current = getCurrent()
     if (current.key === 'quickfacts') {
@@ -57,15 +69,13 @@ export const Article = ({ lang, title }) => {
                 <label>Audio</label>
               </div>
             </div>
-            <div
-              class='article-content'
-              dangerouslySetInnerHTML={{ __html: article.content }}
-            />
+            <ArticleBody content={article.content} />
           </div>
         </div>
       </Pager>
       <Softkey
-        left='Settings'
+        left={i18n.i18n('close')}
+        onKeyLeft={onKeyLeft}
         center={i18n.i18n('centerkey-select')}
         onKeyCenter={onKeyCenter}
       />

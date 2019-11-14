@@ -1,9 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"KaleemBhatti"
+			"KaleemBhatti",
+			"Mehtab ahmed"
 		]
 	},
 	"app-title": "وڪيپيڊيا",
+	"app-subtitle": "مفت انسائيڪلوپيڊيا",
+	"app-description": "مفت وڪيپيڊيا ايپ سان، 300+ ٻولين ۾ دنيا ڀر جي معلومات ڳوليو ۽ کوجيو.",
+	"search-placeholder": "ڳوليو",
 	"centerkey-select": "چونڊيو"
 }

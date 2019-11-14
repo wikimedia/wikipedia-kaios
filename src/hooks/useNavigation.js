@@ -29,7 +29,7 @@ export const useNavigation = (containerRef, axis, elementsSelector = '[data-sele
   const previousKey = axis === 'x' ? 'ArrowLeft' : 'ArrowUp'
   const nextKey = axis === 'x' ? 'ArrowRight' : 'ArrowDown'
 
-  const [current, setCurrent] = useState({ type: null, index: null, key: null })
+  const [current, setCurrent] = useState({ type: null, index: 0, key: null })
 
   const getAllElements = () => document.querySelectorAll(elementsSelector)
 
@@ -70,7 +70,12 @@ export const useNavigation = (containerRef, axis, elementsSelector = '[data-sele
         element.setAttribute('nav-selected', selectThisElement)
         element.setAttribute('nav-index', index)
         if (element.nodeName === 'INPUT') {
-          selectThisElement ? element.focus() : element.blur()
+          if (selectThisElement) {
+            element.focus()
+            element.selectionStart = element.selectionEnd = element.value.length
+          } else {
+            element.blur()
+          }
         }
       })
       setCurrent({ type: selectElement.tagName, index: setIndex, key: selectElement.getAttribute('data-selected-key') })

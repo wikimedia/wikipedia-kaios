@@ -1,8 +1,10 @@
 import { useState, useEffect, useRef } from 'preact/hooks'
+import { useHistoryState } from 'hooks'
 import { search } from 'api'
 
 export const useSearch = (lang) => {
-  const [query, setQuery] = useState('')
+  const [query, setQuery] = useHistoryState('query', '')
+
   const [searchResults, setSearchResults] = useState([])
   const counter = useRef(0)
 
@@ -23,5 +25,5 @@ export const useSearch = (lang) => {
     }
   }, [lang, query])
 
-  return [searchResults, setQuery]
+  return [query, setQuery, searchResults]
 }

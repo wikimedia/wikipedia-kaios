@@ -1,5 +1,5 @@
 import { h } from 'preact'
-import { useEffect } from 'preact/hooks'
+import { useKeys } from 'hooks'
 
 export const Softkey = ({
   left,
@@ -9,23 +9,11 @@ export const Softkey = ({
   right,
   onKeyRight
 }) => {
-  useEffect(() => {
-    document.addEventListener('keydown', handleKeyDown)
-
-    return () => document.removeEventListener('keydown', handleKeyDown)
-  }, [])
-
-  const handleKeyDown = evt => {
-    switch (evt.key) {
-      case 'SoftLeft':
-        return onKeyLeft && onKeyLeft(evt)
-      case 'Enter':
-        return onKeyCenter && onKeyCenter(evt)
-      case 'SoftRight':
-        return onKeyRight && onKeyRight(evt)
-      default:
-    }
-  }
+  useKeys({
+    SoftLeft: onKeyLeft,
+    Enter: onKeyCenter,
+    SoftRight: onKeyRight
+  })
 
   return (
     <div className='softkey'>
