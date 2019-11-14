@@ -74,7 +74,7 @@ export const Article = ({ lang, title }) => {
         </div>
       </Pager>
       <Softkey
-        left='Close'
+        left={i18n.i18n('close')}
         onKeyLeft={onKeyLeft}
         center={i18n.i18n('centerkey-select')}
         onKeyCenter={onKeyCenter}
