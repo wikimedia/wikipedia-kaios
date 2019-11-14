@@ -6,7 +6,7 @@ import { Article, Search, QuickFacts } from 'components'
 export const Routes = () => (
   <Router history={createHashHistory()}>
     <Search path='/' />
-    <Article path='/article/:lang/:title/:position?' />
+    <Article path='/article/:lang/:title' />
     <QuickFacts path='/quickfacts/:lang/:title' />
   </Router>
 )

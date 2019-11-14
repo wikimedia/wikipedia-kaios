@@ -7,7 +7,7 @@ export const Search = () => {
   const containerRef = useRef()
   const [current, setNavigation] = useNavigation(containerRef, 'y')
   const lang = useLanguage()
-  const [searchResults, setQuery] = useSearch(lang)
+  const [query, setQuery, searchResults] = useSearch(lang)
   const i18n = useI18n()
 
   const resultsPage = searchResults !== null
@@ -28,7 +28,7 @@ export const Search = () => {
     <Fragment>
       <div class='page search'>
         <img class='double-u' src='images/w.svg' style={{ display: (resultsPage ? 'none' : 'block') }} />
-        <input type='text' placeholder={i18n.i18n('search-placeholder')} onInput={(e) => setQuery(e.target.value)} data-selectable />
+        <input type='text' placeholder={i18n.i18n('search-placeholder')} value={query} onInput={(e) => setQuery(e.target.value)} data-selectable />
         { resultsPage && (
           <div class='results' ref={containerRef}>
             { searchResults.map((r) => (
