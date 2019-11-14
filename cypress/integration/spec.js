@@ -14,26 +14,24 @@ describe('Article search', () =>{
 
   it('search should show results', () => {
     searchPage.results().first()
-      .should('have.text', "Cattaraugus County, New YorkCounty in New York")
+      .should('have.text', "CattDisambiguation page providing links to topics that could be referred to by the same search term")
   })
 
   it('results with image should show image', () => {
-    searchPage.results().first()
+    searchPage.results().first().next()
       .children().should('have.length', 2)
   })
 
   it('results without image should not show image', () => {
-    searchPage.results().first().next()
+    searchPage.results().first().next().next()
       .children().should('have.length', 1)
   })
   
   it('article should open from search results page', () => {
-    searchPage.results().first().next()
-    .children().should('have.length', 1)
-
+    searchPage.results().first()
     basePage.pressEnterKey()
     basePage.pressDownArrowKey()
     basePage.pressEnterKey()
-    cy.get('.title').should('have.text', "Cattaraugus County, New York")
+    cy.get('.title').should('have.text', "Catt")
   })
 })
