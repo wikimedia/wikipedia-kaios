@@ -1,9 +1,10 @@
 import { h, Fragment } from 'preact'
 import { useRef, useEffect } from 'preact/hooks'
 import { Softkey } from 'components'
-import { useArticle, useNavigation, useScroll } from 'hooks'
+import { useArticle, useNavigation, useScroll, useI18n } from 'hooks'
 
 export const QuickFacts = ({ lang, title }) => {
+  const i18n = useI18n()
   const article = useArticle(lang, title)
   const containerRef = useRef()
   const [, setNavigation] = useNavigation(containerRef, 'x', 'a[href]:not(.image)')
@@ -18,7 +19,7 @@ export const QuickFacts = ({ lang, title }) => {
   }, [article])
 
   const backToArticle = () => {
-    window.location.hash = `/article/${lang}/${title}`
+    history.back()
   }
 
   return (
@@ -29,7 +30,7 @@ export const QuickFacts = ({ lang, title }) => {
         dangerouslySetInnerHTML={{ __html: article.infobox }}
       />
       <Softkey
-        left='Back'
+        left={i18n.i18n('close')}
         onKeyLeft={backToArticle}
       />
     </Fragment>
