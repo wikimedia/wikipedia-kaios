@@ -34,9 +34,9 @@ describe('Article search', () =>{
   it('article should open from search results page', () => {
     searchPage.search("catt")
     searchPage.results().first()
-    basePage.pressEnterKey()
-    basePage.pressDownArrowKey()
-    basePage.pressEnterKey()
+    cy.enter()
+    cy.downarrow()
+    cy.enter()
     articlePage.title().should('have.text', "Catt")
   })
 })
