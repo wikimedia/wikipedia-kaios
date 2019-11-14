@@ -11,25 +11,28 @@ const articlePage = new ArticlePage()
 describe('Article search', () =>{
   beforeEach(() =>{
     searchPage.navigateToSearchPage()
-    searchPage.search("catt")
   })
 
   it('search should show results', () => {
+    searchPage.search("catt")
     searchPage.results().first()
       .should('have.text', "CattDisambiguation page providing links to topics that could be referred to by the same search term")
   })
 
   it('results with image should show image', () => {
-    searchPage.results().first().next()
-      .children().should('have.length', 2)
+    searchPage.search("cattle")
+    searchPage.results().first()
+      .children().first().next().should('have.class', 'img')
   })
 
   it('results without image should not show image', () => {
-    searchPage.results().first().next().next()
-      .children().should('have.length', 1)
+    searchPage.search("catt")
+    searchPage.results().first()
+      .children().first().next().should('not.exist')
   })
   
   it('article should open from search results page', () => {
+    searchPage.search("catt")
     searchPage.results().first()
     basePage.pressEnterKey()
     basePage.pressDownArrowKey()
