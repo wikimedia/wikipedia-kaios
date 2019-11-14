@@ -2,10 +2,12 @@
 
 import { SearchPage } from "../page-objects/search-page"
 import { BasePage } from "../page-objects/base-page"
+import { ArticlePage } from "../page-objects/article-page"
 
 // @ts-check
 const searchPage = new SearchPage()
 const basePage = new BasePage()
+const articlePage = new ArticlePage()
 describe('Article search', () =>{
   beforeEach(() =>{
     searchPage.navigateToSearchPage()
@@ -32,6 +34,6 @@ describe('Article search', () =>{
     basePage.pressEnterKey()
     basePage.pressDownArrowKey()
     basePage.pressEnterKey()
-    cy.get('.title').should('have.text', "Catt")
+    articlePage.title().should('have.text', "Catt")
   })
 })
