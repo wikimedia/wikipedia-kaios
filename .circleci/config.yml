@@ -15,4 +15,4 @@ jobs:
       - store_artifacts:
           path: cypress/screenshots/*
       - store_artifacts:
-          path: cypress/videos/*
+          path: cypress/videos/spec.js.mp4
