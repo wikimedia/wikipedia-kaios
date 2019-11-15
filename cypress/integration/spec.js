@@ -3,7 +3,6 @@
 import { SearchPage } from "../page-objects/search-page"
 import { ArticlePage } from "../page-objects/article-page"
 
-// @ts-check
 const searchPage = new SearchPage()
 const articlePage = new ArticlePage()
 describe('Article search', () =>{
