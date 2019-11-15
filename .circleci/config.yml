@@ -2,10 +2,10 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: alpine:3.7
+      - image: circleci/node:[12.0-browsers]
     steps:
+      - checkout
       - run:
-          name: The First Step
+          name: Build and Test
           command: |
-            echo 'Hello World!'
-            echo 'This is the delivery pipeline'
+            npm install
