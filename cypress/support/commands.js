@@ -23,33 +23,14 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
-Cypress.Commands.add('downarrow', {
-    prevSubject: false
-  }, () => {
-    cy.get('body').type('{downarrow}')
+[
+  'downArrow',
+  'upArrow',
+  'leftArrow',
+  'rightArrow',
+  'enter'
+].forEach((key) => {
+  Cypress.Commands.add(key, () => {
+    cy.get('body').type(`{${key}}`)
   })
-
-  Cypress.Commands.add('enter', {
-    prevSubject: false
-  }, () => {
-    cy.get('body').type('{enter}')
-  })
-
-  Cypress.Commands.add('uparrow', {
-    prevSubject: false
-  }, () => {
-    cy.get('body').type('{uparrow}')
-  })
-
-  Cypress.Commands.add('leftarrow', {
-    prevSubject: false
-  }, () => {
-    cy.get('body').type('{leftarrow}')
-  })
-
-  Cypress.Commands.add('rightarrow', {
-    prevSubject: false
-  }, () => {
-    cy.get('body').type('{rightarrow}')
-  })
-  
+})

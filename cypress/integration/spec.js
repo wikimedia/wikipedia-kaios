@@ -32,7 +32,7 @@ describe('Article search', () =>{
     searchPage.search("catt")
     searchPage.results().first()
     cy.enter()
-    cy.downarrow()
+    cy.downArrow()
     cy.enter()
     articlePage.title().should('have.text', "Catt")
   })
