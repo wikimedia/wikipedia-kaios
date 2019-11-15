@@ -3,6 +3,7 @@ jobs:
   build:
     docker:
       - image: circleci/node:12.0-browsers
+    working_directory: /tmp
     steps:
       - checkout
       - run:
@@ -13,8 +14,8 @@ jobs:
             npm run start &
             npm test
       - store_artifacts:
-          path: cypress/screenshots
+          path: /tmp/cypress/screenshots
           destination: screenshots
       - store_artifacts:
-          path: cypress/videos
+          path: /tmp/cypress/videos
           destination: videos
