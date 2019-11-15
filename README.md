@@ -1,4 +1,6 @@
-# Wikipedia KaiOS
+[![CircleCI](https://circleci.com/gh/wikimedia/wikipedia-kaios/tree/master.svg?style=svg)](https://circleci.com/gh/wikimedia/wikipedia-kaios/tree/master)
+
+# Wikipedia KaiOS 
 
 The official Wikipedia KaiOS app.
 
