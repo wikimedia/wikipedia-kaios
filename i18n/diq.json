@@ -1,11 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mirzali"
+			"Mirzali",
+			"1917 Ekim Devrimi"
 		]
 	},
 	"app-title": "Wikipediya",
 	"app-subtitle": "Ensiklopediya xosere",
+	"app-description": "Aplikasyona Wikipedia ya, 300 ra zeder zıwan de heme cayê dınyay ra melumat bıgeyrê u keşıf bıkerê.",
 	"search-placeholder": "Cı geyre",
 	"centerkey-select": "Weçine",
 	"close": "Kip ke"
