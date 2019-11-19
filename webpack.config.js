@@ -6,6 +6,12 @@ module.exports = {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
   },
+  devServer: {
+    publicPath: '/dist/',
+    watchOptions: {
+      ignored: ['dist', 'node_modules']
+    }
+  },
   module: {
     rules: [
       {
