@@ -5,8 +5,8 @@
   "private": "true",
   "scripts": {
     "test": "cypress run",
-    "build": "webpack --mode development",
-    "start": "http-server -p 8080",
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server --mode development",
     "banana": "banana-checker i18n/",
     "deploy": "./node_modules/b2g-cli-tool/b2g.js uninstall Wikipedia && ./node_modules/b2g-cli-tool/b2g.js install .",
     "cypress": "cypress open"
@@ -44,12 +44,12 @@
     "eslint-plugin-react": "^7.16.0",
     "eslint-plugin-standard": "^4.0.1",
     "grunt-banana-checker": "^0.8.1",
-    "http-server": "^0.11.1",
     "less": "^3.10.3",
     "less-loader": "^5.0.0",
     "style-loader": "^1.0.0",
     "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.10"
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0"
   },
   "dependencies": {
     "banana-i18n": "^1.1.2",
