@@ -1,7 +1,6 @@
 import { h, Fragment } from 'preact'
 import { useRef, useEffect } from 'preact/hooks'
-import { Softkey } from 'components'
-import { useNavigation, useSearch, useLanguage, useI18n } from 'hooks'
+import { useNavigation, useSearch, useLanguage, useI18n, useSoftkey } from 'hooks'
 
 export const Search = () => {
   const containerRef = useRef()
@@ -9,12 +8,20 @@ export const Search = () => {
   const lang = useLanguage()
   const [query, setQuery, searchResults] = useSearch(lang)
   const i18n = useI18n()
+  const softkey = useSoftkey()
 
   const resultsPage = searchResults !== null
 
   useEffect(() => {
     setNavigation(0)
+    softkey.dispatch({ type: 'setLeftText', value: 'Settings' })
   }, [])
+
+  useEffect(() => {
+    softkey.dispatch({ type: 'setCenterText', value: current.type === 'INPUT' ? '' : i18n.i18n('centerkey-select') })
+    softkey.dispatch({ type: 'setOnKeyCenter', event: onKeyCenter })
+    softkey.dispatch({ type: 'setOnKeyLeft', event: () => {} })
+  }, [current.type])
 
   const onKeyCenter = () => {
     const element = document.querySelector('[nav-selected=true][data-title]')
@@ -43,11 +50,6 @@ export const Search = () => {
           </div>
         ) }
       </div>
-      <Softkey
-        left='Settings'
-        center={current.type === 'INPUT' ? '' : i18n.i18n('centerkey-select')}
-        onKeyCenter={onKeyCenter}
-      />
     </Fragment>
   )
 }

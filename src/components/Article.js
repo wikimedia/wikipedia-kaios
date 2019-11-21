@@ -1,8 +1,8 @@
 import { h, Fragment } from 'preact'
 import { memo } from 'preact/compat'
 import { useRef, useEffect } from 'preact/hooks'
-import { Pager, Softkey } from 'components'
-import { useArticle, useNavigation, useI18n } from 'hooks'
+import { Pager } from 'components'
+import { useArticle, useNavigation, useI18n, useSoftkey } from 'hooks'
 
 const ArticleBody = memo(({ content }) => {
   return (
@@ -18,7 +18,14 @@ export const Article = ({ lang, title }) => {
   const article = useArticle(lang, title)
   const actionsRef = useRef()
   const [, setNavigation, getCurrent] = useNavigation(actionsRef, 'x')
+  const softkey = useSoftkey()
 
+  useEffect(() => {
+    softkey.dispatch({ type: 'setLeftText', value: i18n.i18n('close') })
+    softkey.dispatch({ type: 'setCenterText', value: i18n.i18n('centerkey-select') })
+    softkey.dispatch({ type: 'setOnKeyLeft', event: onKeyLeft })
+    softkey.dispatch({ type: 'setOnKeyCenter', event: onKeyCenter })
+  }, [])
   useEffect(() => {
     setNavigation(0)
   }, [article])
@@ -73,12 +80,6 @@ export const Article = ({ lang, title }) => {
           </div>
         </div>
       </Pager>
-      <Softkey
-        left={i18n.i18n('close')}
-        onKeyLeft={onKeyLeft}
-        center={i18n.i18n('centerkey-select')}
-        onKeyCenter={onKeyCenter}
-      />
     </Fragment>
   )
 }
