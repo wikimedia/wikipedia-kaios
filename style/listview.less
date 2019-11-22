@@ -1,4 +1,4 @@
-.results {
+.list {
 	width: 100%;
 	background-color: white;
 	text-align: left;
@@ -9,7 +9,7 @@
 	text-align: left;
 }
 
-.result {
+.item {
 	width: 100%;
 	height: 49px;
 	margin: 0;
@@ -18,7 +18,7 @@
 	justify-content: space-between;
 }
 
-.result .info {
+.item .info {
 	height: 100%;
 	overflow: hidden;
 	display: flex;
@@ -26,7 +26,7 @@
 	justify-content: center;
 }
 
-.result .info .title {
+.item .info .title {
 	font-size: 15px;
 	white-space: nowrap;
 	text-overflow: ellipsis;
@@ -34,7 +34,7 @@
 
 }
 
-.result .info .description {
+.item .info .description {
 	font-size: 12px;
 	color: @colorLight;
 	white-space: nowrap;
@@ -42,18 +42,18 @@
 	overflow: hidden;
 }
 
-.result .img {
+.item .img {
 	height: 100%;
 	display: inline-block;
 	text-align: right;
 }
 
-.result .img img {
+.item .img img {
 	width: 38px;
 	height: 38px;
 	border-radius: 4px;
 }
 
-.result[nav-selected="true"] {
+.item[nav-selected="true"] {
 	background-color: #eaf3ff;
 }
