@@ -1,0 +1,59 @@
+.list {
+	width: 100%;
+	background-color: white;
+	text-align: left;
+	overflow: scroll;
+	position: absolute;
+	top: 66px;
+	bottom: 30px;
+	text-align: left;
+}
+
+.item {
+	width: 100%;
+	height: 49px;
+	margin: 0;
+	padding: 6px 10px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.item .info {
+	height: 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.item .info .title {
+	font-size: 15px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+
+}
+
+.item .info .description {
+	font-size: 12px;
+	color: @colorLight;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.item .img {
+	height: 100%;
+	display: inline-block;
+	text-align: right;
+}
+
+.item .img img {
+	width: 38px;
+	height: 38px;
+	border-radius: 4px;
+}
+
+.item[nav-selected="true"] {
+	background-color: #eaf3ff;
+}

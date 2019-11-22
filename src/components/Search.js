@@ -1,5 +1,6 @@
 import { h, Fragment } from 'preact'
 import { useRef, useEffect } from 'preact/hooks'
+import { ListView } from 'components'
 import { useNavigation, useSearch, useLanguage, useI18n, useSoftkey } from 'hooks'
 
 export const Search = () => {
@@ -36,19 +37,7 @@ export const Search = () => {
       <div class='page search'>
         <img class='double-u' src='images/w.svg' style={{ display: (resultsPage ? 'none' : 'block') }} />
         <input type='text' placeholder={i18n.i18n('search-placeholder')} value={query} onInput={(e) => setQuery(e.target.value)} data-selectable />
-        { resultsPage && (
-          <div class='results' ref={containerRef}>
-            { searchResults.map((r) => (
-              <div class='result' data-selectable data-title={r.title} data-selected-key={r.title} key={r.title}>
-                <div class='info'>
-                  <div class='title' dangerouslySetInnerHTML={{ __html: r.titleHtml }} />
-                  <div class='description'>{r.description}</div>
-                </div>
-                { r.imageUrl && <div class='img'><img src={r.imageUrl} /></div> }
-              </div>
-            )) }
-          </div>
-        ) }
+        { resultsPage && <ListView items={searchResults} containerRef={containerRef} /> }
       </div>
     </Fragment>
   )
