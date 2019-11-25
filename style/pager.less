@@ -5,6 +5,20 @@
 	overflow-x: scroll;
 	overflow: -moz-scrollbars-none;
 
+	.header {
+		margin-top: @headerHeight;
+		height: @pageHeaderHeight;
+		max-height: @pageHeaderHeight;
+		width: 100%;
+		max-width: 100%;
+		background-color: #cccccc;
+		padding: 0 5px;
+		font-weight: 700;
+		box-sizing: border-box;
+		line-height: 26px;
+		text-align: center;
+	}
+
 	.pages {
 		height: @pageHeight;
 		// This needs to be set to a multiple of the column-width

@@ -15,14 +15,19 @@ export const Search = () => {
 
   useEffect(() => {
     setNavigation(0)
-    softkey.dispatch({ type: 'setLeftText', value: i18n.i18n('settings') })
+    softkey.dispatch({ type: 'setLeftText', value: 'Settings' })
+    softkey.dispatch({ type: 'setOnKeyLeft', event: onKeyLeft })
+    softkey.dispatch({ type: 'setRightText', value: '' })
   }, [])
 
   useEffect(() => {
     softkey.dispatch({ type: 'setCenterText', value: current.type === 'INPUT' ? '' : i18n.i18n('centerkey-select') })
     softkey.dispatch({ type: 'setOnKeyCenter', event: onKeyCenter })
-    softkey.dispatch({ type: 'setOnKeyLeft', event: () => {} })
   }, [current.type])
+
+  const onKeyLeft = () => {
+    window.location.hash = '/settings'
+  }
 
   const onKeyCenter = () => {
     const element = document.querySelector('[nav-selected=true][data-title]')
