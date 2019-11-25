@@ -24,16 +24,15 @@ export const Settings = () => {
     // @todo different action depending on the selected item
   }
 
-  // @todo i18n implemented here
   const items = [
-    { title: 'Language' },
-    { title: 'Text size' },
-    { title: 'About Wikipedia' },
-    { title: 'Privacy policy', link: 'https://foundation.m.wikimedia.org/wiki/Privacy_policy' },
-    { title: 'Terms of use', link: `https://foundation.m.wikimedia.org/wiki/Terms_of_Use/${lang}` },
-    { title: 'Rate the app' },
-    { title: 'Help and feedback' },
-    { title: 'About the app' }
+    { title: i18n.i18n('settings-language') },
+    { title: i18n.i18n('settings-textsize') },
+    { title: i18n.i18n('settings-about-wikipedia') },
+    { title: i18n.i18n('settings-privacy'), link: 'https://foundation.m.wikimedia.org/wiki/Privacy_policy' },
+    { title: i18n.i18n('settings-term'), link: `https://foundation.m.wikimedia.org/wiki/Terms_of_Use/${lang}` },
+    { title: i18n.i18n('settings-rate') },
+    { title: i18n.i18n('settings-help-feedback') },
+    { title: i18n.i18n('settings-about-app') }
   ]
 
   return <div class='page settings'>
