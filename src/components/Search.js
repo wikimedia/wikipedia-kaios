@@ -15,7 +15,7 @@ export const Search = () => {
 
   useEffect(() => {
     setNavigation(0)
-    softkey.dispatch({ type: 'setLeftText', value: 'Settings' })
+    softkey.dispatch({ type: 'setLeftText', value: i18n.i18n('settings') })
   }, [])
 
   useEffect(() => {
