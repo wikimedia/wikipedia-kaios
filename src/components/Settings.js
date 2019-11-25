@@ -1,7 +1,7 @@
 import { h } from 'preact'
 import { useRef, useEffect } from 'preact/hooks'
 import { useNavigation, useI18n, useLanguage, useSoftkey } from 'hooks'
-import { ListView, Pager } from 'components'
+import { ListView } from 'components'
 
 export const Settings = () => {
   const containerRef = useRef()
@@ -36,8 +36,9 @@ export const Settings = () => {
     { title: 'About the app' }
   ]
 
-  return <Pager header='Settings'>
-    <div class='page settings'>
-      <ListView items={items} containerRef={containerRef} />
-    </div></Pager>
+  return <div class='page settings'>
+    {/* @todo thinking of <Header name='settings'/> */}
+    <div class='header'>Settings</div>
+    <ListView items={items} containerRef={containerRef} />
+  </div>
 }
