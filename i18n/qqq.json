@@ -11,5 +11,13 @@
 	"search-placeholder": "Placeholder of the search input.\n{{Identical|Search}}",
 	"settings": "Label of the settings key",
 	"centerkey-select": "Label of the center key to choose the selected element. This is used in several contexts when the arrow keys are used to move the focus between visual elements.",
-	"close": "Label of the close key\n{{Identical|Close}}"
+	"close": "Label of the close key\n{{Identical|Close}}",
+	"settings-language": "Label of the language item list. Shown in the Settings menu, used in language setting.",
+	"settings-textsize": "Label of the Text size item list. Shown in the Settings menu, used in text size setting.",
+	"settings-about-wikipedia": "Label of the About Wikipedia item list. Shown in the Settings menu, used in showing the information of Wikipedia.",
+	"settings-privacy": "Label of the Privacy policy item list. Shown in the Settings menu, redirect to the privacy policy browser page.",
+	"settings-term": "Label of Terms of use. Shown in the Settings menu, redirect to the Terms of use browser page.",
+	"settings-rate": "Label of the Rate item list. Shown in the Settings menu, used in rating the app.",
+	"settings-help-feedback": "Label of Help and feedback item list. Shown in the Settings menu, to find help and give feedback.",
+	"settings-about-app": "Label of the About the app item list. Shown in the Settings menu, used in showing the information of this app"
 }
