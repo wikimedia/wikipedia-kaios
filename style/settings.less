@@ -4,14 +4,24 @@
 		height: @pageHeaderHeight;
 		max-height: @pageHeaderHeight;
 		background-color: #d8d8d8;
-		font-size: 17px;
 		box-sizing: border-box;
-		line-height: 28px;
+		padding: 3px 0;
+		font-family: @textFont regular;
+		font-size: 17px;
 		text-align: center;
 	}
 
 	.list {
 		top: @pageHeaderHeight;
 		bottom: @softkeysHeight;
+
+		.info .title {
+			font-family: @textFont;
+			font-size: 17px;
+		}
+
+		.item[nav-selected="true"] {
+			background-color: #eaecf0;
+		}
 	}   
 }
