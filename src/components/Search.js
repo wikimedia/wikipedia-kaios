@@ -5,7 +5,7 @@ import { useNavigation, useSearch, useLanguage, useI18n, useSoftkey } from 'hook
 
 export const Search = () => {
   const containerRef = useRef()
-  const [current, setNavigation] = useNavigation(containerRef, 'y')
+  const [current, setNavigation, getCurrent] = useNavigation(containerRef, 'y')
   const lang = useLanguage()
   const [query, setQuery, searchResults] = useSearch(lang)
   const i18n = useI18n()
@@ -30,10 +30,9 @@ export const Search = () => {
   }
 
   const onKeyCenter = () => {
-    const element = document.querySelector('[nav-selected=true][data-title]')
-    if (element) {
-      const title = element.getAttribute('data-title')
-      window.location.hash = `/article/${lang}/${title}`
+    const { index, key } = getCurrent()
+    if (index) {
+      window.location.hash = `/article/${lang}/${key}`
     }
   }
 
