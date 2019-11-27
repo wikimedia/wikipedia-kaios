@@ -9,7 +9,7 @@ export const Settings = () => {
   const lang = useLanguage()
   const softkey = useSoftkey()
 
-  const [, setNavigation] = useNavigation(containerRef, 'y')
+  const [, setNavigation, getCurrent] = useNavigation(containerRef, 'y')
 
   useEffect(() => {
     setNavigation(0)
@@ -21,7 +21,13 @@ export const Settings = () => {
   }, [])
 
   const onKeyCenter = () => {
-    // @todo different action depending on the selected item
+    const { index } = getCurrent()
+    const item = items[index]
+
+    // open link
+    if (item && item.link) {
+      window.open(item.link)
+    }
   }
 
   const items = [

@@ -88,7 +88,7 @@ export const useNavigation = (containerRef, axis, elementsSelector = '[data-sele
     const element = getSelectedElement()
     return {
       type: element.tagName,
-      index: element.getAttribute('nav-index'),
+      index: parseInt(element.getAttribute('nav-index'), 10),
       key: element.getAttribute('data-selected-key')
     }
   }
