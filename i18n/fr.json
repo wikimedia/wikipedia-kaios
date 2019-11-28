@@ -2,13 +2,24 @@
 	"@metadata": {
 		"authors": [
 			"Gomoko",
-			"Fitoschido"
+			"Fitoschido",
+			"Eihel",
+			"Verdy p"
 		]
 	},
 	"app-title": "Wikipédia",
 	"app-subtitle": "L’encyclopédie libre",
 	"app-description": "Avec l’application libre Wikipédia, cherchez et explorez des informations du monde entier en plus de 300 langues.",
 	"search-placeholder": "Rechercher",
-	"centerkey-select": "Sélect.",
-	"close": "Fermer"
+	"settings": "Paramètres",
+	"centerkey-select": "Sélectionner",
+	"settings-close": "Fermer",
+	"settings-language": "Langue",
+	"settings-textsize": "Taille du texte",
+	"settings-about-wikipedia": "À propos de Wikipédia",
+	"settings-privacy": "Politique de confidentialité",
+	"settings-term": "Conditions d’utilisation",
+	"settings-rate": "Évaluer l’application",
+	"settings-help-feedback": "Aide et commentaires",
+	"settings-about-app": "À propos de l’application"
 }

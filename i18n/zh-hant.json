@@ -1,13 +1,23 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kly"
+			"Kly",
+			"HTan (WMF)"
 		]
 	},
 	"app-title": "維基百科",
 	"app-subtitle": "自由的百科全書",
 	"app-description": "藉由自由的維基百科應用程式，進行搜尋探索來自於全世界三百種以上語言的資訊。",
 	"search-placeholder": "搜尋",
+	"settings": "設定",
 	"centerkey-select": "選擇",
-	"close": "關閉"
+	"settings-close": "關閉",
+	"settings-language": "語言",
+	"settings-textsize": "文字大小",
+	"settings-about-wikipedia": "關於維基百科",
+	"settings-privacy": "隱私權政策",
+	"settings-term": "使用條款",
+	"settings-rate": "評分應用程式",
+	"settings-help-feedback": "說明與回饋",
+	"settings-about-app": "關於維基百科應用程式"
 }

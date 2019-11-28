@@ -9,6 +9,15 @@
 	"app-subtitle": "האנציקלופדיה החופשית",
 	"app-description": "בעזרת יישום ויקיפדיה החינמי, תוכלו לחפש ולחקור מידע מכל העולם ביותר מ־300 שפות.",
 	"search-placeholder": "חיפוש",
+	"settings": "הגדרות",
 	"centerkey-select": "בחירה",
-	"close": "סגירה"
+	"settings-close": "סגירה",
+	"settings-language": "שפה",
+	"settings-textsize": "גודל טקסט",
+	"settings-about-wikipedia": "אודות ויקיפדיה",
+	"settings-privacy": "מדיניות פרטיות",
+	"settings-term": "תנאי שימוש",
+	"settings-rate": "דירוג היישום",
+	"settings-help-feedback": "עזרה ומשוב",
+	"settings-about-app": "אודות היישום"
 }

@@ -1,12 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Pyscowicz"
+			"Pyscowicz",
+			"Nike"
 		]
 	},
 	"app-title": "Wikipedia",
 	"app-subtitle": "Vapaa tietosanakirja",
 	"app-description": "Ilmaisella Wikipedia-sovelluksella, haet ja tutkit tietoa ympäri maailmaa yli 300 kielellä.",
 	"search-placeholder": "Haku",
-	"centerkey-select": "Valitse"
+	"centerkey-select": "Valitse",
+	"settings-about-wikipedia": "Tietoja Wikipediasta"
 }

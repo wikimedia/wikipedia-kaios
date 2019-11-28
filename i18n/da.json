@@ -5,5 +5,8 @@
 		]
 	},
 	"app-subtitle": "Den frie encyklopædi",
-	"centerkey-select": "Vælg"
+	"settings": "Indstillinger",
+	"centerkey-select": "Vælg",
+	"settings-language": "Sprog",
+	"settings-about-wikipedia": "Om Wikipedia"
 }

@@ -8,6 +8,15 @@
 	"app-subtitle": "Özgür ansiklopedi",
 	"app-description": "Ücretsiz Vikipedi uygulamasıyla, 300'den fazla dilde dünyanın her yerinden bilgi arayın ve keşfedin.",
 	"search-placeholder": "Ara",
+	"settings": "Ayarlar",
 	"centerkey-select": "Seç",
-	"close": "Kapat"
+	"settings-close": "Kapat",
+	"settings-language": "Dil",
+	"settings-textsize": "Metin boyutu",
+	"settings-about-wikipedia": "Vikipedi hakkında",
+	"settings-privacy": "Gizlilik politikası",
+	"settings-term": "Kullanım koşulları",
+	"settings-rate": "Uygulamayı puanla",
+	"settings-help-feedback": "Yardım ve geri bildirim",
+	"settings-about-app": "Uygulama hakkında"
 }

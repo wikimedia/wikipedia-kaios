@@ -8,6 +8,15 @@
 	"app-subtitle": "Слободната енциклопедија",
 	"app-description": "Со бесплатниот прилог на Википедија пребарувајте и истражувајте информации од целиот свет на повеќе од 300 јазици.",
 	"search-placeholder": "Пребарај",
+	"settings": "Нагодувања",
 	"centerkey-select": "Избери",
-	"close": "Затвори"
+	"settings-close": "Затвори",
+	"settings-language": "Јазик",
+	"settings-textsize": "Големина на текстот",
+	"settings-about-wikipedia": "За Википедија",
+	"settings-privacy": "Заштита на личните податоци",
+	"settings-term": "Услови на употреба",
+	"settings-rate": "Оценете го прилогот",
+	"settings-help-feedback": "Помош и мислења",
+	"settings-about-app": "За прилогот"
 }

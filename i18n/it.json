@@ -5,5 +5,14 @@
 		]
 	},
 	"app-title": "Wikipedia",
-	"close": "Chiudi"
+	"settings": "Impostazioni",
+	"settings-close": "Chiudi",
+	"settings-language": "Lingua",
+	"settings-textsize": "Dimensione del testo",
+	"settings-about-wikipedia": "Informazioni su Wikipedia",
+	"settings-privacy": "Informativa sulla privacy",
+	"settings-term": "Condizioni d'uso",
+	"settings-rate": "Valuta l'app",
+	"settings-help-feedback": "Aiuto e feedback",
+	"settings-about-app": "Informazioni sull'app"
 }
