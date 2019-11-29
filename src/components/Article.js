@@ -1,6 +1,6 @@
 import { h, Fragment } from 'preact'
 import { memo } from 'preact/compat'
-import { useRef, useEffect } from 'preact/hooks'
+import { useRef, useEffect, useState } from 'preact/hooks'
 import { Pager } from 'components'
 import { useArticle, useNavigation, useI18n, useSoftkey } from 'hooks'
 
@@ -19,6 +19,11 @@ export const Article = ({ lang, title }) => {
   const actionsRef = useRef()
   const [, setNavigation, getCurrent] = useNavigation(actionsRef, 'x')
   const softkey = useSoftkey()
+  const [currentSection, setCurrentSection] = useState(0)
+
+  if (!article) {
+    return 'Loading...'
+  }
 
   useEffect(() => {
     softkey.dispatch({ type: 'setLeftText', value: i18n.i18n('close') })
@@ -43,22 +48,32 @@ export const Article = ({ lang, title }) => {
     window.location.hash = `/quickfacts/${lang}/${title}`
   }
 
-  if (!article) {
-    return 'Loading...'
-  }
-
   const hasImage = !!article.imageUrl
+
+  const pagerEvent = {
+    nextPage: () => {
+      const sectionLength = article.sections.length
+      const nextSection = currentSection + 1
+
+      if (nextSection < sectionLength) setCurrentSection(nextSection)
+      else setCurrentSection(0)
+    },
+    prevPage: () => {
+      const prevSection = currentSection - 1
+      if (prevSection >= 0) setCurrentSection(prevSection)
+    }
+  }
 
   return (
     <Fragment>
-      <Pager>
+      <Pager event={pagerEvent}>
         <div class='page article'>
           { hasImage && <div class='lead-image' style={{ backgroundImage: `url(${article.imageUrl})` }} /> }
           <div class={'card' + (hasImage ? ' with-image' : '')}>
             <div class='title' dangerouslySetInnerHTML={{ __html: article.title }} />
-            { article.description && (
+            { article.sections[currentSection].description && (
               <Fragment>
-                <div class='desc'>{article.description}</div>
+                <div class='desc'>{article.sections[currentSection].description}</div>
                 <div class='line' />
               </Fragment>
             ) }
@@ -76,7 +91,7 @@ export const Article = ({ lang, title }) => {
                 <label>Audio</label>
               </div>
             </div>
-            <ArticleBody content={article.content} />
+            <ArticleBody content={article.sections[currentSection].content} />
           </div>
         </div>
       </Pager>
