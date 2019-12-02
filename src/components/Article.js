@@ -78,20 +78,22 @@ export const Article = ({ lang, title }) => {
                 <div class='line' />
               </Fragment>
             ) }
-            <div class='article-actions' ref={actionsRef}>
-              <div class='article-actions-button' data-selectable data-selected-key='sections'>
-                <img src='images/sections.svg' />
-                <label>Sections</label>
+            { currentSection === 0 && (
+              <div class='article-actions' ref={actionsRef}>
+                <div class='article-actions-button' data-selectable data-selected-key='sections'>
+                  <img src='images/sections.svg' />
+                  <label>Sections</label>
+                </div>
+                <div class='article-actions-button' data-selectable data-selected-key='quickfacts'>
+                  <img src='images/quickfacts.svg' />
+                  <label>Quick Facts</label>
+                </div>
+                <div class='article-actions-button' data-selectable data-selected-key='audio'>
+                  <img src='images/audio.svg' />
+                  <label>Audio</label>
+                </div>
               </div>
-              <div class='article-actions-button' data-selectable data-selected-key='quickfacts'>
-                <img src='images/quickfacts.svg' />
-                <label>Quick Facts</label>
-              </div>
-              <div class='article-actions-button' data-selectable data-selected-key='audio'>
-                <img src='images/audio.svg' />
-                <label>Audio</label>
-              </div>
-            </div>
+            ) }
             <ArticleBody content={article.sections[currentSection].content} />
           </div>
         </div>
