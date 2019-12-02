@@ -35,3 +35,8 @@
     cy.get('body').type(`{${key}}`)
   })
 })
+
+
+Cypress.Commands.add('clickCloseButton', ()=>{
+  cy.get('label.left').contains('close').click()
+})

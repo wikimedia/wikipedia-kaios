@@ -37,17 +37,14 @@ describe('Article search', () =>{
     articlePage.title().should('have.text', "Catt")
   })
 
-  it.only('back button should take us to search page with results', () => {
+  it('back button should take us to search page with results', () => {
     searchPage.search("cattle")
     searchPage.results().first()
     cy.enter()
     cy.downArrow()
     cy.enter()
     articlePage.title().should('have.text', "Cattle")
-    cy.backspace()
-    cy.backspace()
-    cy.backspace()
-    cy.backspace()
+    cy.clickCloseButton()
     searchPage.results().first()
       .children().first().next().should('have.class', 'img')
   })
