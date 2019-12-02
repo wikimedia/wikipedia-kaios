@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"Xuacu"
+		]
+	},
+	"app-title": "Wikipedia",
+	"app-subtitle": "La enciclopedia llibre",
+	"app-description": "Cola aplicación llibre de Wikipedia, busca y esplora información viniente de tol mundu en más de 300 llingües.",
+	"search-placeholder": "Buscar",
+	"settings": "Configuración",
+	"centerkey-select": "Seleicionar",
+	"settings-close": "Zarrar",
+	"settings-language": "Llingua",
+	"settings-textsize": "Tamañu de testu",
+	"settings-about-wikipedia": "Tocante a Wikipedia",
+	"settings-privacy": "Política d'intimidá",
+	"settings-term": "Condiciones d'usu",
+	"settings-rate": "Calificar la app",
+	"settings-help-feedback": "Ayuda y comentarios",
+	"settings-about-app": "Tocante a la app"
+}

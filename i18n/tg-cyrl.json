@@ -5,5 +5,11 @@
 		]
 	},
 	"app-title": "Википедиа",
-	"search-placeholder": "Ҷустан"
+	"search-placeholder": "Ҷустан",
+	"settings-language": "Забон",
+	"settings-textsize": "Андозаи матн",
+	"settings-about-wikipedia": "Дар бораи Википедиа",
+	"settings-privacy": "Сиёсати ҳифзи асрор",
+	"settings-term": "Шартҳои истифода",
+	"settings-about-app": "Оиди барнома"
 }

@@ -10,5 +10,13 @@
 	"search-placeholder": "Pesquisar",
 	"settings": "Configurações",
 	"centerkey-select": "Selec.",
-	"settings-close": "Fechar"
+	"settings-close": "Fechar",
+	"settings-language": "Idioma",
+	"settings-textsize": "Tamanho do texto",
+	"settings-about-wikipedia": "Sobre Wikipedia",
+	"settings-privacy": "Politica de privacidade",
+	"settings-term": "Termos de uso",
+	"settings-rate": "Classificar o aplicativo",
+	"settings-help-feedback": "Ajuda e comentários",
+	"settings-about-app": "Sobre o aplicativo"
 }

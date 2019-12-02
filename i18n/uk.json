@@ -1,13 +1,23 @@
 {
 	"@metadata": {
 		"authors": [
-			"Movses"
+			"Movses",
+			"Ата"
 		]
 	},
 	"app-title": "Вікіпедія",
 	"app-subtitle": "Вільна енциклопедія",
 	"app-description": "З допомогою безкоштовного додатку Вікіпедія, ви можете шукати та читати інформацію зі всього світу понад 300 мовами.",
 	"search-placeholder": "Пошук",
+	"settings": "Налаштування",
 	"centerkey-select": "Вибрати",
-	"settings-close": "Закрити"
+	"settings-close": "Закрити",
+	"settings-language": "Мова",
+	"settings-textsize": "Розмір тексту",
+	"settings-about-wikipedia": "Про Вікіпедію",
+	"settings-privacy": "Політика конфіденційності",
+	"settings-term": "Умови використання",
+	"settings-rate": "Оцінити програмку",
+	"settings-help-feedback": "Допомога та зворотний зв'язок",
+	"settings-about-app": "Про програмку"
 }
