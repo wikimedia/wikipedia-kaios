@@ -55,12 +55,13 @@ export const Article = ({ lang, title }) => {
       const sectionLength = article.sections.length
       const nextSection = currentSection + 1
 
-      if (nextSection < sectionLength) setCurrentSection(nextSection)
-      else setCurrentSection(0)
+      setCurrentSection(nextSection < sectionLength ? nextSection : 0)
     },
     prevPage: () => {
       const prevSection = currentSection - 1
-      if (prevSection >= 0) setCurrentSection(prevSection)
+      if (prevSection >= 0) {
+        setCurrentSection(prevSection)
+      }
     }
   }
 

@@ -48,7 +48,9 @@ const getArticle = (lang, title) => {
         nextContent = ''
       }
 
-      if (s.toclevel === 1) nextDescription = s.line
+      if (s.toclevel === 1) {
+        nextDescription = s.line
+      }
 
       const header = 'h' + (s.toclevel + 1)
       const headerLine = `<${header}>${s.line}</${header}>`
