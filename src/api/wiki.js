@@ -30,6 +30,7 @@ const getArticle = (lang, title) => {
     // parse lead as the first section
     const sections = []
     sections.push({
+      imageUrl,
       description: data.lead.description,
       content: data.lead.sections[0].text
     })
@@ -40,8 +41,14 @@ const getArticle = (lang, title) => {
     data.remaining.sections.forEach((s) => {
       // the section starts with every toclevel 1
       if (s.toclevel === 1 && nextDescription) {
+        // search for the first image in the content
+        const doc = parser.parseFromString(nextContent, 'text/html')
+        const imgNode = doc.querySelector('img')
+
         sections.push({
-          description: nextDescription, content: nextContent
+          description: nextDescription,
+          content: nextContent,
+          imageUrl: (imgNode && imgNode.getAttribute('src')) || imageUrl
         })
 
         nextDescription = ''
@@ -65,7 +72,6 @@ const getArticle = (lang, title) => {
 
     return {
       title,
-      imageUrl,
       sections,
       infobox
     }

@@ -20,6 +20,7 @@ export const Article = ({ lang, title }) => {
   const [, setNavigation, getCurrent] = useNavigation(actionsRef, 'x')
   const softkey = useSoftkey()
   const [currentSection, setCurrentSection] = useState(0)
+  const imageUrl = article && article.sections[currentSection].imageUrl
 
   if (!article) {
     return 'Loading...'
@@ -31,6 +32,7 @@ export const Article = ({ lang, title }) => {
     softkey.dispatch({ type: 'setOnKeyLeft', event: onKeyLeft })
     softkey.dispatch({ type: 'setOnKeyCenter', event: onKeyCenter })
   }, [])
+
   useEffect(() => {
     setNavigation(0)
   }, [article])
@@ -47,8 +49,6 @@ export const Article = ({ lang, title }) => {
   const goToQuickFacts = () => {
     window.location.hash = `/quickfacts/${lang}/${title}`
   }
-
-  const hasImage = !!article.imageUrl
 
   const pagerEvent = {
     nextPage: () => {
@@ -69,8 +69,8 @@ export const Article = ({ lang, title }) => {
     <Fragment>
       <Pager event={pagerEvent}>
         <div class='page article'>
-          { hasImage && <div class='lead-image' style={{ backgroundImage: `url(${article.imageUrl})` }} /> }
-          <div class={'card' + (hasImage ? ' with-image' : '')}>
+          { imageUrl && <div class='lead-image' style={{ backgroundImage: `url(${imageUrl})` }} /> }
+          <div class={'card' + (imageUrl ? ' with-image' : '')}>
             <div class='title' dangerouslySetInnerHTML={{ __html: article.title }} />
             { article.sections[currentSection].description && (
               <Fragment>
