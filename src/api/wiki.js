@@ -55,9 +55,12 @@ const getArticle = (lang, title) => {
       const header = 'h' + (s.toclevel + 1)
       const headerLine = `<${header}>${s.line}</${header}>`
 
+      // add header when it is not h1
+      nextContent += s.toclevel !== 1 ? headerLine : ''
+
       // The app is served from the app:// protocol so protocol-relative
       // image sources don't work.
-      nextContent += headerLine + s.text.replace(/src="\/\//gi, 'src="https://')
+      nextContent += s.text.replace(/src="\/\//gi, 'src="https://')
     })
 
     return {
