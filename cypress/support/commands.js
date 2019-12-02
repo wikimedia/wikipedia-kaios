@@ -28,6 +28,7 @@
   'upArrow',
   'leftArrow',
   'rightArrow',
+  'backspace',
   'enter'
 ].forEach((key) => {
   Cypress.Commands.add(key, () => {
