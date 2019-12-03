@@ -7,7 +7,7 @@ const searchPage = new SearchPage()
 const articlePage = new ArticlePage()
 describe('Article search', () =>{
   beforeEach(() =>{
-    searchPage.navigateToSearchPage()
+    cy.navigateToHomePage()
   })
 
   it('search should show results', () => {
@@ -35,17 +35,5 @@ describe('Article search', () =>{
     cy.downArrow()
     cy.enter()
     articlePage.title().should('have.text', "Catt")
-  })
-
-  it('back button should take us to search page with results', () => {
-    searchPage.search("cattle")
-    searchPage.results().first()
-    cy.enter()
-    cy.downArrow()
-    cy.enter()
-    articlePage.title().should('have.text', "Cattle")
-    cy.clickCloseButton()
-    searchPage.results().first()
-      .children().first().next().should('have.class', 'img')
   })
 })
