@@ -28,9 +28,15 @@
   'upArrow',
   'leftArrow',
   'rightArrow',
+  'backspace',
   'enter'
 ].forEach((key) => {
   Cypress.Commands.add(key, () => {
     cy.get('body').type(`{${key}}`)
   })
+})
+
+
+Cypress.Commands.add('clickCloseButton', ()=>{
+  cy.get('label.left').contains('close').click()
 })
