@@ -71,7 +71,7 @@ export const Article = ({ lang, title }) => {
         <div class='page article'>
           { imageUrl && <div class='lead-image' style={{ backgroundImage: `url(${imageUrl})` }} /> }
           <div class={'card' + (imageUrl ? ' with-image' : '')}>
-            <div class='title' dangerouslySetInnerHTML={{ __html: article.title }} />
+            <div class='title' dangerouslySetInnerHTML={{ __html: article.sections[currentSection].title }} />
             { article.sections[currentSection].description && (
               <Fragment>
                 <div class='desc'>{article.sections[currentSection].description}</div>

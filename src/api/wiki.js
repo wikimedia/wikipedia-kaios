@@ -19,7 +19,6 @@ const getArticle = (lang, title) => {
   const url = `https://${lang}.wikipedia.org/api/rest_v1/page/mobile-sections/${title}`
   return cachedFetch(url, data => {
     const parser = new DOMParser()
-    const title = data.lead.displaytitle
     const imageUrl = data.lead.image && data.lead.image.urls['320']
 
     // parse info box
@@ -31,32 +30,33 @@ const getArticle = (lang, title) => {
     const sections = []
     sections.push({
       imageUrl,
+      title: data.lead.displaytitle,
       description: data.lead.description,
       content: data.lead.sections[0].text
     })
 
     // parse section as the remaining section
-    let nextDescription = ''
+    let nextTitle = ''
     let nextContent = ''
     data.remaining.sections.forEach((s) => {
       // the section starts with every toclevel 1
-      if (s.toclevel === 1 && nextDescription) {
+      if (s.toclevel === 1 && nextTitle) {
         // search for the first image in the content
         const doc = parser.parseFromString(nextContent, 'text/html')
         const imgNode = doc.querySelector('img')
 
         sections.push({
-          description: nextDescription,
+          title: nextTitle,
           content: nextContent,
           imageUrl: (imgNode && imgNode.getAttribute('src')) || imageUrl
         })
 
-        nextDescription = ''
+        nextTitle = ''
         nextContent = ''
       }
 
       if (s.toclevel === 1) {
-        nextDescription = s.line
+        nextTitle = s.line
       }
 
       const header = 'h' + (s.toclevel + 1)
@@ -71,7 +71,6 @@ const getArticle = (lang, title) => {
     })
 
     return {
-      title,
       sections,
       infobox
     }
