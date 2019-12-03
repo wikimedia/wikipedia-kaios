@@ -15,6 +15,12 @@ const cachedFetch = (url, transformFn) => {
     })
 }
 
+const fixImageUrl = (htmlString) => {
+  // The app is served from the app:// protocol so protocol-relative
+  // image sources don't work.
+  return htmlString.replace(/src="\/\//gi, 'src="https://')
+}
+
 const getArticle = (lang, title) => {
   const url = `https://${lang}.wikipedia.org/api/rest_v1/page/mobile-sections/${title}`
   return cachedFetch(url, data => {
@@ -24,7 +30,7 @@ const getArticle = (lang, title) => {
     // parse info box
     const doc = parser.parseFromString(data.lead.sections[0].text, 'text/html')
     const infoboxNode = doc.querySelector('[class^="infobox"]')
-    const infobox = infoboxNode && infoboxNode.outerHTML
+    const infobox = infoboxNode && fixImageUrl(infoboxNode.outerHTML)
 
     // parse lead as the first section
     const sections = []
@@ -32,7 +38,7 @@ const getArticle = (lang, title) => {
       imageUrl,
       title: data.lead.displaytitle,
       description: data.lead.description,
-      content: data.lead.sections[0].text
+      content: fixImageUrl(data.lead.sections[0].text)
     })
 
     // parse section as the remaining section
@@ -47,7 +53,7 @@ const getArticle = (lang, title) => {
 
         sections.push({
           title: nextTitle,
-          content: nextContent,
+          content: fixImageUrl(nextContent),
           imageUrl: (imgNode && imgNode.getAttribute('src')) || imageUrl
         })
 
@@ -65,9 +71,7 @@ const getArticle = (lang, title) => {
       // add header when it is not h1
       nextContent += s.toclevel !== 1 ? headerLine : ''
 
-      // The app is served from the app:// protocol so protocol-relative
-      // image sources don't work.
-      nextContent += s.text.replace(/src="\/\//gi, 'src="https://')
+      nextContent += s.text
     })
 
     return {
