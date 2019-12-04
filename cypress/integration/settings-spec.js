@@ -5,16 +5,35 @@ import { SettingsPage } from "../page-objects/settings-page"
 
 const settingsPage = new SettingsPage()
 
-describe('Article search', () =>{
+
+describe('settings page', () =>{
+  var firstElementOfTheSettingsMenuList
   beforeEach(() =>{
     cy.navigateToHomePage()
     cy.clickSettingsButton()
+    firstElementOfTheSettingsMenuList = settingsPage.settingsList().children().first()
   })
 
-  it('settings menu should show all buttons', () => {
+  it('should show all buttons', () => {
     settingsPage.settingsList().should('have.text', "LanguageText sizeAbout WikipediaPrivacy policyTerms of useRate the appHelp and feedbackAbout the app")
   })
-  //TODO: create test checking for each button/link
-  //TODO: create test checking for select line and using arrows to change and assert the change
-  //TODO: 
+  
+  it('down arrow changes selection', () => {
+    firstElementOfTheSettingsMenuList.should('have.attr', 'nav-selected', 'true')
+
+    firstElementOfTheSettingsMenuList.next().should('have.attr', 'nav-selected', 'false')
+
+    cy.downArrow()
+
+    settingsPage.settingsList().children().first().should('have.attr', 'nav-selected', 'false')
+
+    firstElementOfTheSettingsMenuList.next().should('have.attr', 'nav-selected', 'true')
+  })
+
+  it('only the first element should be selected on load', () => {
+    firstElementOfTheSettingsMenuList.should('have.attr', 'nav-selected', 'true')
+
+    firstElementOfTheSettingsMenuList.next().should('have.attr', 'nav-selected', 'false')
+  })
+
 })
