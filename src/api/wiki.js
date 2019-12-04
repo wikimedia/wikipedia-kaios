@@ -15,34 +15,69 @@ const cachedFetch = (url, transformFn) => {
     })
 }
 
+const fixImageUrl = (htmlString) => {
+  // The app is served from the app:// protocol so protocol-relative
+  // image sources don't work.
+  return htmlString.replace(/src="\/\//gi, 'src="https://')
+}
+
 const getArticle = (lang, title) => {
   const url = `https://${lang}.wikipedia.org/api/rest_v1/page/mobile-sections/${title}`
   return cachedFetch(url, data => {
     const parser = new DOMParser()
-    let content = data.lead.sections[0].text
+    const imageUrl = data.lead.image && data.lead.image.urls['320']
+
+    // parse info box
     const doc = parser.parseFromString(data.lead.sections[0].text, 'text/html')
     const infoboxNode = doc.querySelector('[class^="infobox"]')
-    const infobox = infoboxNode && infoboxNode.outerHTML
+    const infobox = infoboxNode && fixImageUrl(infoboxNode.outerHTML)
 
-    data.remaining.sections.forEach((s) => {
-      const header = 'h' + (s.toclevel + 1)
-      const headerLine = `<${header}>${s.line}</${header}>`
-      content += headerLine
-      content += s.text
-    })
-
-    // The app is served from the app:// protocol so protocol-relative
-    // image sources don't work.
-    content = content.replace(/src="\/\//gi, 'src="https://')
-
-    const result = {
+    // parse lead as the first section
+    const sections = []
+    sections.push({
+      imageUrl,
       title: data.lead.displaytitle,
       description: data.lead.description,
-      imageUrl: data.lead.image && data.lead.image.urls['320'],
-      content,
+      content: fixImageUrl(data.lead.sections[0].text)
+    })
+
+    // parse section as the remaining section
+    let nextTitle = ''
+    let nextContent = ''
+    data.remaining.sections.forEach((s) => {
+      // the section starts with every toclevel 1
+      if (s.toclevel === 1 && nextTitle) {
+        // search for the first image in the content
+        const doc = parser.parseFromString(nextContent, 'text/html')
+        const imgNode = doc.querySelector('img')
+
+        sections.push({
+          title: nextTitle,
+          content: fixImageUrl(nextContent),
+          imageUrl: (imgNode && imgNode.getAttribute('src')) || imageUrl
+        })
+
+        nextTitle = ''
+        nextContent = ''
+      }
+
+      if (s.toclevel === 1) {
+        nextTitle = s.line
+      }
+
+      const header = 'h' + (s.toclevel + 1)
+      const headerLine = `<${header}>${s.line}</${header}>`
+
+      // add header when it is not h1
+      nextContent += s.toclevel !== 1 ? headerLine : ''
+
+      nextContent += s.text
+    })
+
+    return {
+      sections,
       infobox
     }
-    return result
   })
 }
 
