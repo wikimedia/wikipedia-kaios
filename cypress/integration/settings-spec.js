@@ -2,7 +2,9 @@
 
 
 import { SettingsPage } from "../page-objects/settings-page"
+import { SearchPage } from "../page-objects/search-page"
 
+const searchPage = new SearchPage()
 const settingsPage = new SettingsPage()
 
 
@@ -10,11 +12,11 @@ describe('settings page', () =>{
   var firstElementOfTheSettingsMenuList
   beforeEach(() =>{
     cy.navigateToHomePage()
-    cy.clickSettingsButton()
+    searchPage.navigateToSettingsPage()
     firstElementOfTheSettingsMenuList = settingsPage.settingsList().children().first()
   })
 
-  it('should show all buttons', () => {
+  it('show all the items in the list', () => {
     settingsPage.settingsList().should('have.text', "LanguageText sizeAbout WikipediaPrivacy policyTerms of useRate the appHelp and feedbackAbout the app")
   })
   

@@ -7,4 +7,8 @@ export class SearchPage {
     results(){
         return cy.get('.item')
     }
+
+    navigateToSettingsPage(){
+        cy.clickSettingsButton()
+    }
 }
