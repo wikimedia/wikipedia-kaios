@@ -1,4 +1,4 @@
-import { h, Fragment } from 'preact'
+import { h } from 'preact'
 import { useRef, useEffect } from 'preact/hooks'
 import { ListView } from 'components'
 import { useNavigation, useSearch, useLanguage, useI18n, useSoftkey } from 'hooks'
@@ -10,8 +10,6 @@ export const Search = () => {
   const [query, setQuery, searchResults] = useSearch(lang)
   const i18n = useI18n()
   const softkey = useSoftkey()
-
-  const resultsPage = searchResults !== null
 
   useEffect(() => {
     setNavigation(0)
@@ -37,12 +35,10 @@ export const Search = () => {
   }
 
   return (
-    <Fragment>
-      <div class='page search'>
-        <img class='double-u' src='images/w.svg' style={{ display: (resultsPage ? 'none' : 'block') }} />
-        <input type='text' placeholder={i18n.i18n('search-placeholder')} value={query} onInput={(e) => setQuery(e.target.value)} data-selectable />
-        { resultsPage && <ListView items={searchResults} containerRef={containerRef} /> }
-      </div>
-    </Fragment>
+    <div class='page search'>
+      <img class='double-u' src='images/w.svg' style={{ display: (searchResults ? 'none' : 'block') }} />
+      <input type='text' placeholder={i18n.i18n('search-placeholder')} value={query} onInput={(e) => setQuery(e.target.value)} data-selectable />
+      { searchResults && <ListView items={searchResults} containerRef={containerRef} /> }
+    </div>
   )
 }
