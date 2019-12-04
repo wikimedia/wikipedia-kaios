@@ -22,21 +22,24 @@ const ArticleSection = ({
   const [, setNavigation, getCurrent] = useNavigation(actionsRef, 'x')
 
   useEffect(() => {
-    setNavigation(0)
+    softkey.dispatch({ type: 'setOnKeyCenter', event: onKeyCenter })
   }, [])
 
   useEffect(() => {
     // todo: the enter key should only be available on the
     // first page of the first section
-    const text = hasActions ? i18n.i18n('centerkey-select') : ''
-    const handler = hasActions ? onKeyCenter : null
-    softkey.dispatch({ type: 'setCenterText', value: text })
-    softkey.dispatch({ type: 'setOnKeyCenter', event: handler })
+    softkey.dispatch({
+      type: 'setCenterText',
+      value: hasActions ? i18n.i18n('centerkey-select') : ''
+    })
+    if (hasActions) {
+      setNavigation(0)
+    }
   }, [hasActions])
 
   const onKeyCenter = () => {
     const current = getCurrent()
-    if (current.key === 'quickfacts') {
+    if (current && (current.key === 'quickfacts')) {
       goToQuickFacts()
     }
   }
