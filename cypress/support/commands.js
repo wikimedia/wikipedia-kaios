@@ -36,13 +36,12 @@
   })
 })
 
-
 Cypress.Commands.add('clickCloseButton', ()=>{
   cy.get('label.left').contains('Close').click()
 })
 
 Cypress.Commands.add('clickSettingsButton', ()=>{
-  cy.get('label.left').contains('settings').click()
+  cy.get('label.left').contains('Settings').click()
 })
 Cypress.Commands.add('navigateToHomePage', ()=>{
   cy.visit('http://127.0.0.1:8080')
