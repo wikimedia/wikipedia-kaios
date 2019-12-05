@@ -47,13 +47,15 @@ const getArticle = (lang, title) => {
     data.remaining.sections.forEach((s) => {
       // the section starts with every toclevel 1
       if (s.toclevel === 1 && nextTitle) {
+        const modifiedContent = fixImageUrl(nextContent)
+
         // search for the first image in the content
-        const doc = parser.parseFromString(nextContent, 'text/html')
+        const doc = parser.parseFromString(modifiedContent, 'text/html')
         const imgNode = doc.querySelector('img')
 
         sections.push({
           title: nextTitle,
-          content: fixImageUrl(nextContent),
+          content: modifiedContent,
           imageUrl: (imgNode && imgNode.getAttribute('src')) || imageUrl
         })
 
