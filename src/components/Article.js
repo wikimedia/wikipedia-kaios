@@ -1,8 +1,7 @@
 import { h, Fragment } from 'preact'
 import { memo } from 'preact/compat'
-import { useRef, useEffect, useLayoutEffect, useState } from 'preact/hooks'
-import { Pager } from 'components'
-import { useArticle, useNavigation, useI18n, useSoftkey } from 'hooks'
+import { useRef, useEffect } from 'preact/hooks'
+import { useArticle, useNavigation, useI18n, useSoftkey, usePagination } from 'hooks'
 
 const ArticleBody = memo(({ content }) => {
   return (
@@ -82,64 +81,40 @@ const ArticleSection = ({
 
 export const Article = ({ lang, title }) => {
   const i18n = useI18n()
-  const articleRef = useRef()
+  const containerRef = useRef()
   const article = useArticle(lang, title)
   const softkey = useSoftkey()
-  const [currentSection, setCurrentSection] = useState(0)
-  const [isLastPage, setIsLastPage] = useState(0)
 
   if (!article) {
     return 'Loading...'
   }
 
-  const section = article.sections[currentSection]
+  const [currentPage] = usePagination(containerRef, 240, 'x', article.sections.length)
+  const section = article.sections[currentPage]
 
   useEffect(() => {
     softkey.dispatch({ type: 'setLeftText', value: i18n.i18n('close') })
     softkey.dispatch({ type: 'setOnKeyLeft', event: onKeyLeft })
   }, [])
 
-  useLayoutEffect(() => {
-    if (isLastPage) {
-      const scrollWidth = articleRef.current.scrollWidth
-      const offset = 240
-      articleRef.current.scrollLeft = scrollWidth - offset
-    }
-    setIsLastPage(false)
-  }, [currentSection])
-
   const onKeyLeft = () => {
     history.back()
   }
 
-  const pagerEvent = {
-    nextPage: () => {
-      const sectionLength = article.sections.length
-      const nextSection = currentSection + 1
-
-      setCurrentSection(nextSection < sectionLength ? nextSection : 0)
-    },
-    prevPage: () => {
-      const prevSection = currentSection - 1
-      if (prevSection >= 0) {
-        setCurrentSection(prevSection)
-        setIsLastPage(true)
-      }
-    }
-  }
-
   return (
-    <Pager event={pagerEvent} containerRef={articleRef}>
-      <div class='page article'>
-        <ArticleSection
-          lang={lang}
-          title={section.title}
-          description={section.description}
-          imageUrl={section.imageUrl}
-          hasActions={currentSection === 0}
-          content={section.content}
-        />
+    <div class='pages-container' ref={containerRef}>
+      <div class='pages'>
+        <div class='page article'>
+          <ArticleSection
+            lang={lang}
+            title={section.title}
+            description={section.description}
+            imageUrl={section.imageUrl}
+            hasActions={currentPage === 0}
+            content={section.content}
+          />
+        </div>
       </div>
-    </Pager>
+    </div>
   )
 }
