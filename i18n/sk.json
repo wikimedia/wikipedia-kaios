@@ -6,7 +6,17 @@
 	},
 	"app-title": "Wikipédia",
 	"app-subtitle": "Slobodná encyklopédia",
+	"app-description": "S aplikáciou Wikipédie môžete vyhľadávať a objavovať informácie z celého sveta vo viac ako 300 jazykoch.",
 	"search-placeholder": "Vyhľadávanie",
 	"settings": "Nastavenia",
+	"centerkey-select": "Vybrať",
+	"close": "Zavrieť",
+	"settings-language": "Jazyk",
+	"settings-textsize": "Veľkosť textu",
+	"settings-about-wikipedia": "O Wikipédii",
+	"settings-privacy": "Ochrana osobných údajov",
+	"settings-term": "Podmienky použitia",
+	"settings-rate": "Ohodnoťte aplikáciu",
+	"settings-help-feedback": "Pomoc a spätná väzba",
 	"settings-about-app": "O aplikácii"
 }

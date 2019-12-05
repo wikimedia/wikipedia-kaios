@@ -1,9 +1,21 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mainframe98"
+			"Mainframe98",
+			"Rots61"
 		]
 	},
+	"app-subtitle": "De vrije encyclopedie",
 	"search-placeholder": "Zoeken",
-	"centerkey-select": "Selecteren"
+	"settings": "Instellingen",
+	"centerkey-select": "Selecteren",
+	"close": "Sluiten",
+	"settings-language": "Taal",
+	"settings-textsize": "Tekstgrootte",
+	"settings-about-wikipedia": "Over Wikipedia",
+	"settings-privacy": "Privacybeleid",
+	"settings-term": "Gebruiksvoorwaarden",
+	"settings-rate": "App beoordelen",
+	"settings-help-feedback": "Hulp en feedback",
+	"settings-about-app": "Over de app"
 }

@@ -9,9 +9,12 @@
 	"app-subtitle": "L'enciclopèdia lliure",
 	"app-description": "Amb l'aplicació lliure de la Viquipèdia podeu cercar i explorar informació del món sencer en més de 300 llengües.",
 	"search-placeholder": "Cerca",
+	"settings": "Configuració",
 	"centerkey-select": "Selec.",
-	"settings-close": "Tanca",
+	"close": "Tanca",
 	"settings-language": "Llengua",
 	"settings-textsize": "Mida del text",
+	"settings-about-wikipedia": "Quant a la Viquipèdia",
+	"settings-privacy": "Política de privadesa",
 	"settings-about-app": "Quant a l'aplicació"
 }

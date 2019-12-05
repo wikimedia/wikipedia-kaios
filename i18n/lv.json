@@ -6,5 +6,11 @@
 	},
 	"app-title": "Vikipēdija",
 	"app-subtitle": "Brīvā enciklopēdija",
-	"close": "Aizvērt"
+	"settings": "Iestatījumi",
+	"close": "Aizvērt",
+	"settings-language": "Valoda",
+	"settings-textsize": "Teksta izmērs",
+	"settings-term": "Lietošanas noteikumi",
+	"settings-help-feedback": "Palīdzība un atsauksmes",
+	"settings-about-app": "Par lietotni"
 }
