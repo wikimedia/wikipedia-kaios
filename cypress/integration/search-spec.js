@@ -7,7 +7,7 @@ const searchPage = new SearchPage()
 const articlePage = new ArticlePage()
 describe('Article search', () =>{
   beforeEach(() =>{
-    searchPage.navigateToSearchPage()
+    cy.navigateToHomePage()
   })
 
   it('search should show results', () => {

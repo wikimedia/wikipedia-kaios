@@ -1,5 +1,6 @@
 {  
     "watchForFileChanges": false,
     "viewportWidth": 240,
-    "viewportHeight": 290
+    "viewportHeight": 290,
+    "videoUploadOnPasses":false
 }
