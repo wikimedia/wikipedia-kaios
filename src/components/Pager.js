@@ -1,9 +1,7 @@
 import { h } from 'preact'
-import { useRef } from 'preact/hooks'
 import { useScroll } from 'hooks'
 
-export const Pager = ({ children, event }) => {
-  const containerRef = useRef()
+export const Pager = ({ children, event, containerRef }) => {
   useScroll(containerRef, 240, 'x', event)
   return (
     <div class='pages-container' ref={containerRef}>

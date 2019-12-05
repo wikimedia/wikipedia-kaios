@@ -1,6 +1,6 @@
 import { h, Fragment } from 'preact'
 import { memo } from 'preact/compat'
-import { useRef, useEffect, useState } from 'preact/hooks'
+import { useRef, useEffect, useLayoutEffect, useState } from 'preact/hooks'
 import { Pager } from 'components'
 import { useArticle, useNavigation, useI18n, useSoftkey } from 'hooks'
 
@@ -82,9 +82,11 @@ const ArticleSection = ({
 
 export const Article = ({ lang, title }) => {
   const i18n = useI18n()
+  const articleRef = useRef()
   const article = useArticle(lang, title)
   const softkey = useSoftkey()
   const [currentSection, setCurrentSection] = useState(0)
+  const [isLastPage, setIsLastPage] = useState(0)
 
   if (!article) {
     return 'Loading...'
@@ -96,6 +98,15 @@ export const Article = ({ lang, title }) => {
     softkey.dispatch({ type: 'setLeftText', value: i18n.i18n('close') })
     softkey.dispatch({ type: 'setOnKeyLeft', event: onKeyLeft })
   }, [])
+
+  useLayoutEffect(() => {
+    if (isLastPage) {
+      const scrollWidth = articleRef.current.scrollWidth
+      const offset = 240
+      articleRef.current.scrollLeft = scrollWidth - offset
+    }
+    setIsLastPage(false)
+  }, [currentSection])
 
   const onKeyLeft = () => {
     history.back()
@@ -112,12 +123,13 @@ export const Article = ({ lang, title }) => {
       const prevSection = currentSection - 1
       if (prevSection >= 0) {
         setCurrentSection(prevSection)
+        setIsLastPage(true)
       }
     }
   }
 
   return (
-    <Pager event={pagerEvent}>
+    <Pager event={pagerEvent} containerRef={articleRef}>
       <div class='page article'>
         <ArticleSection
           lang={lang}

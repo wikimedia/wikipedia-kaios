@@ -27,7 +27,8 @@ export const useScroll = (
       // show the previous page (section in article)
       if (previous === after) {
         event.prevPage()
-        elementRef.current[prop] = 0
+        // normally we need to show the section in last page
+        // use the hook useLayoutEffect in the container view
       }
     }
   })
