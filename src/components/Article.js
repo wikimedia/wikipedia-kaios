@@ -102,18 +102,16 @@ export const Article = ({ lang, title }) => {
   }
 
   return (
-    <div class='pages-container' ref={containerRef}>
-      <div class='pages'>
-        <div class='page article'>
-          <ArticleSection
-            lang={lang}
-            title={section.title}
-            description={section.description}
-            imageUrl={section.imageUrl}
-            hasActions={currentSection === 0}
-            content={section.content}
-          />
-        </div>
+    <div class='page pages-container' ref={containerRef}>
+      <div class='pages article'>
+        <ArticleSection
+          lang={lang}
+          title={section.title}
+          description={section.description}
+          imageUrl={section.imageUrl}
+          hasActions={currentSection === 0}
+          content={section.content}
+        />
       </div>
     </div>
   )
