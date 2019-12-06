@@ -6,7 +6,7 @@
 	},
 	"app-title": "Wikipedia",
 	"settings": "Impostazioni",
-	"settings-close": "Chiudi",
+	"close": "Chiudi",
 	"settings-language": "Lingua",
 	"settings-textsize": "Dimensione del testo",
 	"settings-about-wikipedia": "Informazioni su Wikipedia",
