@@ -89,8 +89,8 @@ export const Article = ({ lang, title }) => {
     return 'Loading...'
   }
 
-  const [currentPage] = usePagination(containerRef, 240, 'x', article.sections.length)
-  const section = article.sections[currentPage]
+  const [currentSection] = usePagination(containerRef, 240, 'x', article.sections.length)
+  const section = article.sections[currentSection]
 
   useEffect(() => {
     softkey.dispatch({ type: 'setLeftText', value: i18n.i18n('close') })
@@ -110,7 +110,7 @@ export const Article = ({ lang, title }) => {
             title={section.title}
             description={section.description}
             imageUrl={section.imageUrl}
-            hasActions={currentPage === 0}
+            hasActions={currentSection === 0}
             content={section.content}
           />
         </div>

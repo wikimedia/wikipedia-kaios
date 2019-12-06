@@ -5,9 +5,9 @@ export const usePagination = (
   elementRef,
   step,
   axis,
-  numOfPage
+  numOfSection
 ) => {
-  const [currentPage, setCurrentPage] = useState(0)
+  const [currentSection, setCurrentSection] = useState(0)
   const [isLastPage, setIsLastPage] = useState(0)
   const prop = axis === 'x' ? 'scrollLeft' : 'scrollTop'
 
@@ -17,9 +17,9 @@ export const usePagination = (
       elementRef.current[prop] += step
       const after = elementRef.current[prop]
 
-      // show the next page (section in article)
+      // show the next section of the article
       if (previous === after) {
-        showNextPage()
+        showNextSection()
       }
     },
     ArrowUp: () => {
@@ -27,9 +27,9 @@ export const usePagination = (
       elementRef.current[prop] -= step
       const after = elementRef.current[prop]
 
-      // show the previous page (section in article)
+      // show the previous section of the article
       if (previous === after) {
-        showPrevPage()
+        showPrevSection()
       }
     }
   })
@@ -44,20 +44,20 @@ export const usePagination = (
     } else {
       elementRef.current[prop] = 0
     }
-  }, [currentPage])
+  }, [currentSection])
 
-  const showNextPage = () => {
-    const nextSection = currentPage + 1
-    setCurrentPage(nextSection < numOfPage ? nextSection : 0)
+  const showNextSection = () => {
+    const nextSection = currentSection + 1
+    setCurrentSection(nextSection < numOfSection ? nextSection : 0)
   }
 
-  const showPrevPage = () => {
-    const prevPage = currentPage - 1
-    if (prevPage >= 0) {
-      setCurrentPage(prevPage)
+  const showPrevSection = () => {
+    const prevSection = currentSection - 1
+    if (prevSection >= 0) {
+      setCurrentSection(prevSection)
       setIsLastPage(true)
     }
   }
 
-  return [currentPage, isLastPage]
+  return [currentSection]
 }
