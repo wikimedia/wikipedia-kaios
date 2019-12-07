@@ -1,7 +1,7 @@
 import { h, Fragment } from 'preact'
 import { memo } from 'preact/compat'
 import { useRef, useEffect } from 'preact/hooks'
-import { useArticle, useNavigation, useI18n, useSoftkey, usePagination } from 'hooks'
+import { useArticle, useNavigation, useI18n, useSoftkey, useArticlePagination } from 'hooks'
 
 const ArticleBody = memo(({ content }) => {
   return (
@@ -89,7 +89,7 @@ export const Article = ({ lang, title }) => {
     return 'Loading...'
   }
 
-  const [currentSection] = usePagination(containerRef, article.sections.length)
+  const [currentSection] = useArticlePagination(containerRef, article.sections.length)
   const section = article.sections[currentSection]
 
   useEffect(() => {

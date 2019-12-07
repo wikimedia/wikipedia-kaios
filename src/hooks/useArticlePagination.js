@@ -3,7 +3,7 @@ import { useKeys } from 'hooks'
 
 const DEVICE_WIDTH = 240
 
-export const usePagination = (
+export const useArticlePagination = (
   elementRef,
   numOfSection
 ) => {
