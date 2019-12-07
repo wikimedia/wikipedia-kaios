@@ -1,20 +1,20 @@
 import { useState, useLayoutEffect } from 'preact/hooks'
 import { useKeys } from 'hooks'
 
+const DEVICE_WIDTH = 240
+
 export const usePagination = (
   elementRef,
-  step,
-  axis,
   numOfSection
 ) => {
   const [currentSection, setCurrentSection] = useState(0)
   const [isLastPage, setIsLastPage] = useState(0)
-  const prop = axis === 'x' ? 'scrollLeft' : 'scrollTop'
+  const prop = 'scrollLeft'
 
   useKeys({
     ArrowDown: () => {
       const previous = elementRef.current[prop]
-      elementRef.current[prop] += step
+      elementRef.current[prop] += DEVICE_WIDTH
       const after = elementRef.current[prop]
 
       // show the next section of the article
@@ -24,7 +24,7 @@ export const usePagination = (
     },
     ArrowUp: () => {
       const previous = elementRef.current[prop]
-      elementRef.current[prop] -= step
+      elementRef.current[prop] -= DEVICE_WIDTH
       const after = elementRef.current[prop]
 
       // show the previous section of the article
@@ -37,7 +37,7 @@ export const usePagination = (
   useLayoutEffect(() => {
     if (isLastPage) {
       const scrollWidth = elementRef.current.scrollWidth
-      const offset = step
+      const offset = DEVICE_WIDTH
       elementRef.current[prop] = scrollWidth - offset
 
       setIsLastPage(false)

@@ -89,7 +89,7 @@ export const Article = ({ lang, title }) => {
     return 'Loading...'
   }
 
-  const [currentSection] = usePagination(containerRef, 240, 'x', article.sections.length)
+  const [currentSection] = usePagination(containerRef, article.sections.length)
   const section = article.sections[currentSection]
 
   useEffect(() => {
