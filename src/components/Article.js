@@ -1,8 +1,7 @@
 import { h, Fragment } from 'preact'
 import { memo } from 'preact/compat'
-import { useRef, useEffect, useState } from 'preact/hooks'
-import { Pager } from 'components'
-import { useArticle, useNavigation, useI18n, useSoftkey } from 'hooks'
+import { useRef, useEffect } from 'preact/hooks'
+import { useArticle, useNavigation, useI18n, useSoftkey, useArticlePagination } from 'hooks'
 
 const ArticleBody = memo(({ content }) => {
   return (
@@ -82,14 +81,15 @@ const ArticleSection = ({
 
 export const Article = ({ lang, title }) => {
   const i18n = useI18n()
+  const containerRef = useRef()
   const article = useArticle(lang, title)
   const softkey = useSoftkey()
-  const [currentSection, setCurrentSection] = useState(0)
 
   if (!article) {
     return 'Loading...'
   }
 
+  const [currentSection] = useArticlePagination(containerRef, article.sections.length)
   const section = article.sections[currentSection]
 
   useEffect(() => {
@@ -101,24 +101,9 @@ export const Article = ({ lang, title }) => {
     history.back()
   }
 
-  const pagerEvent = {
-    nextPage: () => {
-      const sectionLength = article.sections.length
-      const nextSection = currentSection + 1
-
-      setCurrentSection(nextSection < sectionLength ? nextSection : 0)
-    },
-    prevPage: () => {
-      const prevSection = currentSection - 1
-      if (prevSection >= 0) {
-        setCurrentSection(prevSection)
-      }
-    }
-  }
-
   return (
-    <Pager event={pagerEvent}>
-      <div class='page article'>
+    <div class='page pages-container' ref={containerRef}>
+      <div class='pages article'>
         <ArticleSection
           lang={lang}
           title={section.title}
@@ -128,6 +113,6 @@ export const Article = ({ lang, title }) => {
           content={section.content}
         />
       </div>
-    </Pager>
+    </div>
   )
 }
