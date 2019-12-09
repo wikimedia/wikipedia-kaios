@@ -1,2 +1,3 @@
 export * from './language'
-export * from './wiki'
+export * from './getArticle'
+export * from './search'
