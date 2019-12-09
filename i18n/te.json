@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Veeven"
+		]
+	},
+	"settings": "అమరికలు",
+	"close": "మూసివేయి",
+	"settings-language": "భాష",
+	"settings-textsize": "పాఠ్య పరిమాణం",
+	"settings-about-wikipedia": "వికీపీడియా గురించి",
+	"settings-privacy": "గోప్యతా విధానం",
+	"settings-term": "వాడుక నియమాలు"
+}

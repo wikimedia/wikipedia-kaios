@@ -9,6 +9,15 @@
 	"app-subtitle": "مفت انسائيڪلوپيڊيا",
 	"app-description": "مفت وڪيپيڊيا ايپ سان، 300+ ٻولين ۾ دنيا ڀر جي معلومات ڳوليو ۽ کوجيو.",
 	"search-placeholder": "ڳوليو",
+	"settings": "ترتيبون",
 	"centerkey-select": "چونڊيو",
-	"close": "بند ڪريو"
+	"close": "بند ڪريو",
+	"settings-language": "ٻولي",
+	"settings-textsize": "متن جي ماپ",
+	"settings-about-wikipedia": "وڪيپيڊيا بابت",
+	"settings-privacy": "ذاتيات پاليسي",
+	"settings-term": "استعمال جا شرط",
+	"settings-rate": "ايپ کي ريٽ ڪريو",
+	"settings-help-feedback": "مدد ۽ پذيرائي",
+	"settings-about-app": "ايپ بابت"
 }
