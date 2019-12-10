@@ -43,8 +43,7 @@ export const Toc = ({ lang, title }) => {
   })
 
   return <div class='page toc'>
-    {/* @todo thinking of <Header name='settings'/> */}
-    <div class='header'>Sections</div>
+    <div class='header'>{i18n.i18n('sections')}</div>
     <ListView items={items} containerRef={containerRef} />
   </div>
 }

@@ -99,10 +99,17 @@ export const Article = ({ lang, title, subtitle }) => {
   useEffect(() => {
     softkey.dispatch({ type: 'setLeftText', value: i18n.i18n('close') })
     softkey.dispatch({ type: 'setOnKeyLeft', event: onKeyLeft })
+    softkey.dispatch({ type: 'setRightText', value: i18n.i18n('sections') })
+    softkey.dispatch({ type: 'setOnKeyRight', event: onKeyRight })
   }, [])
 
   const onKeyLeft = () => {
     history.back()
+  }
+
+  // @todo temporarily section until we have the menu
+  const onKeyRight = () => {
+    window.location.hash = `/toc/${lang}/${title}`
   }
 
   return (
