@@ -1,7 +1,6 @@
 import { useState, useLayoutEffect } from 'preact/hooks'
 import { useSoftkey } from 'hooks'
-
-const DEVICE_WIDTH = 240
+import { viewport } from 'utils'
 
 export const useArticlePagination = (
   elementRef,
@@ -10,28 +9,33 @@ export const useArticlePagination = (
 ) => {
   const [currentSection, setCurrentSection] = useState(findSection(article.toc, subTitle))
   const [isLastPage, setIsLastPage] = useState(0)
+  const [currentPage, setCurrentPage] = useState(0)
   const prop = 'scrollLeft'
   const numOfSection = article.sections.length
 
   useSoftkey('Article', {
     onKeyArrowDown: () => {
       const previous = elementRef.current[prop]
-      elementRef.current[prop] += DEVICE_WIDTH
+      elementRef.current[prop] += viewport.width
       const after = elementRef.current[prop]
 
       // show the next section of the article
       if (previous === after) {
         showNextSection()
+      } else {
+        setCurrentPage(p => p + 1)
       }
     },
     onKeyArrowUp: () => {
       const previous = elementRef.current[prop]
-      elementRef.current[prop] -= DEVICE_WIDTH
+      elementRef.current[prop] -= viewport.width
       const after = elementRef.current[prop]
 
       // show the previous section of the article
       if (previous === after) {
         showPrevSection()
+      } else {
+        setCurrentPage(p => p - 1)
       }
     }
   }, [currentSection])
@@ -39,12 +43,13 @@ export const useArticlePagination = (
   useLayoutEffect(() => {
     if (isLastPage) {
       const scrollWidth = elementRef.current.scrollWidth
-      const offset = DEVICE_WIDTH
+      const offset = viewport.width
       elementRef.current[prop] = scrollWidth - offset
-
+      setCurrentPage(elementRef.current[prop] / viewport.width)
       setIsLastPage(false)
     } else {
       elementRef.current[prop] = 0
+      setCurrentPage(0)
     }
   }, [currentSection])
 
@@ -82,7 +87,7 @@ export const useArticlePagination = (
     }
   }
 
-  return [currentSection, setCurrentSection]
+  return [currentSection, setCurrentSection, currentPage]
 }
 
 const findSection = (toc, title) => {

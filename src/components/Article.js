@@ -2,8 +2,11 @@ import { h, Fragment } from 'preact'
 import { route } from 'preact-router'
 import { memo } from 'preact/compat'
 import { useState, useRef } from 'preact/hooks'
-import { useArticle, useNavigation, useI18n, useSoftkey, useArticlePagination } from 'hooks'
 import { ArticleToc } from 'components'
+import {
+  useArticle, useI18n, useSoftkey,
+  useArticlePagination, useArticleLinksNavigation
+} from 'hooks'
 
 const ArticleBody = memo(({ content }) => {
   return (
@@ -36,35 +39,34 @@ const ArticleAudioPopup = ({ closeFn }) => {
 }
 
 const ArticleSection = ({
-  lang, imageUrl, title, description, hasActions, content, showToc
+  lang, imageUrl, title, description, hasActions, content, page, showToc
 }) => {
   const i18n = useI18n()
-  const actionsRef = useRef()
-  const [,, getCurrent] = useNavigation('Article', actionsRef, 'x')
   const [isAudioPopupVisible, setAudioPopupVisible] = useState(false)
-  const onKeyCenter = () => {
-    const current = getCurrent()
-    if (current) {
-      switch (current.key) {
-        case 'quickfacts':
-          window.location.hash = `/quickfacts/${lang}/${title}`
-          break
-        case 'sections':
-          showToc()
-          break
-        case 'audio':
-          setAudioPopupVisible(true)
-          break
-      }
+  const contentRef = useRef()
+
+  const onTitleClick = title => {
+    // todo: show a preview with an option to read more
+    window.location.hash = `/article/${lang}/${title}`
+  }
+  const onActionClick = action => {
+    if (action === 'quickfacts') {
+      window.location.hash = `/quickfacts/${lang}/${title}`
+    } else if (action === 'sections') {
+      showToc()
+    } else if (action === 'audio') {
+      setAudioPopupVisible(true)
     }
   }
+  const [selectedLink] = useArticleLinksNavigation(
+    contentRef, page, onTitleClick, onActionClick)
+
   useSoftkey('Article', {
-    center: hasActions ? i18n.i18n('centerkey-select') : '',
-    onKeyCenter
-  }, [hasActions])
+    center: selectedLink ? i18n.i18n('centerkey-select') : ''
+  }, [selectedLink])
 
   return (
-    <Fragment>
+    <div class='article-section' ref={contentRef}>
       { isAudioPopupVisible && <ArticleAudioPopup closeFn={() => setAudioPopupVisible(false)} />}
       { imageUrl && <div class='lead-image' style={{ backgroundImage: `url(${imageUrl})` }} /> }
       <div class={'card' + (imageUrl ? ' with-image' : '')}>
@@ -76,16 +78,16 @@ const ArticleSection = ({
           </Fragment>
         ) }
         { hasActions && (
-          <div class='article-actions' ref={actionsRef}>
-            <div class='article-actions-button' data-selectable data-selected-key='sections'>
+          <div class='article-actions'>
+            <div class='article-actions-button' data-action='sections'>
               <img src='images/sections.svg' />
               <label>Sections</label>
             </div>
-            <div class='article-actions-button' data-selectable data-selected-key='quickfacts'>
+            <div class='article-actions-button' data-action='quickfacts'>
               <img src='images/quickfacts.svg' />
               <label>Quick Facts</label>
             </div>
-            <div class='article-actions-button' data-selectable data-selected-key='audio'>
+            <div class='article-actions-button' data-action='audio'>
               <img src='images/audio.svg' />
               <label>Audio</label>
             </div>
@@ -93,11 +95,11 @@ const ArticleSection = ({
         ) }
         <ArticleBody content={content} />
       </div>
-    </Fragment>
+    </div>
   )
 }
 
-export const Article = ({ lang, title: articleTitle, subtitle: initialSubTitle }) => {
+const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
   const i18n = useI18n()
   const containerRef = useRef()
   const article = useArticle(lang, articleTitle)
@@ -108,7 +110,7 @@ export const Article = ({ lang, title: articleTitle, subtitle: initialSubTitle }
 
   const [isTocShown, toggleToc] = useState(false)
   const [subTitle, setSubTitle] = useState(initialSubTitle)
-  const [currentSection, setCurrentSection] = useArticlePagination(containerRef, article, subTitle)
+  const [currentSection, setCurrentSection, currentPage] = useArticlePagination(containerRef, article, subTitle)
   const section = article.sections[currentSection]
 
   useSoftkey('Article', {
@@ -134,6 +136,7 @@ export const Article = ({ lang, title: articleTitle, subtitle: initialSubTitle }
       <div class='page pages-container' ref={containerRef}>
         <div class='pages article'>
           <ArticleSection
+            key={currentSection}
             lang={lang}
             title={section.title}
             description={section.description}
@@ -141,9 +144,14 @@ export const Article = ({ lang, title: articleTitle, subtitle: initialSubTitle }
             hasActions={currentSection === 0}
             content={section.content}
             showToc={() => toggleToc(true)}
+            page={currentPage}
           />
         </div>
       </div>
     </Fragment>
   )
+}
+
+export const Article = ({ lang, title: articleTitle, subtitle: initialSubTitle }) => {
+  return <ArticleInner lang={lang} articleTitle={articleTitle} initialSubTitle={initialSubTitle} key={lang + articleTitle + articleTitle} />
 }
