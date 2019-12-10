@@ -1,14 +1,15 @@
 import { h } from 'preact'
 import Router from 'preact-router'
 import { createHashHistory } from 'history'
-import { Article, Search, Settings, QuickFacts } from 'components'
+import { Article, Search, Settings, QuickFacts, Toc } from 'components'
 
 export const Routes = () => (
   <Router history={createHashHistory()}>
     <Search path='/' />
     <Settings path='/settings' />
-    <Article path='/article/:lang/:title' />
+    <Article path='/article/:lang/:title/:subtitle?' />
     <QuickFacts path='/quickfacts/:lang/:title' />
+    <Toc path='/toc/:lang/:title' />
   </Router>
 )
 

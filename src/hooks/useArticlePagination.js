@@ -5,11 +5,13 @@ const DEVICE_WIDTH = 240
 
 export const useArticlePagination = (
   elementRef,
-  numOfSection
+  article,
+  subTitle
 ) => {
-  const [currentSection, setCurrentSection] = useState(0)
+  const [currentSection, setCurrentSection] = useState(findLocatedSection(article.toc, subTitle))
   const [isLastPage, setIsLastPage] = useState(0)
   const prop = 'scrollLeft'
+  const numOfSection = article.sections.length
 
   useKeys({
     ArrowDown: () => {
@@ -46,6 +48,23 @@ export const useArticlePagination = (
     }
   }, [currentSection])
 
+  useLayoutEffect(() => {
+    const sectionTitle = article.sections[currentSection].title
+
+    // scroll when the subtitle is not on first page
+    if (subTitle && sectionTitle !== subTitle) {
+      const subTitleElement = Array
+        .from(elementRef.current.querySelectorAll('h3'))
+        .find(e => e.textContent === subTitle)
+
+      subTitleElement && subTitleElement.scrollIntoView()
+
+      if (elementRef.current.scrollLeft !== 0) {
+        elementRef.current.scrollLeft += 24
+      }
+    }
+  }, [])
+
   const showNextSection = () => {
     const nextSection = currentSection + 1
     setCurrentSection(nextSection < numOfSection ? nextSection : 0)
@@ -60,4 +79,16 @@ export const useArticlePagination = (
   }
 
   return [currentSection]
+}
+
+const findLocatedSection = (toc, title) => {
+  const index = toc.findIndex(item => {
+    if (typeof item === 'string') {
+      return item === title
+    } else if (Array.isArray(item)) {
+      return item.includes(title)
+    }
+  })
+
+  return index + 1
 }

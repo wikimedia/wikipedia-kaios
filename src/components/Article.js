@@ -38,12 +38,16 @@ const ArticleSection = ({
 
   const onKeyCenter = () => {
     const current = getCurrent()
-    if (current && (current.key === 'quickfacts')) {
-      goToQuickFacts()
+    if (current) {
+      switch (current.key) {
+        case 'quickfacts':
+          window.location.hash = `/quickfacts/${lang}/${title}`
+          break
+        case 'sections':
+          window.location.hash = `/toc/${lang}/${title}`
+          break
+      }
     }
-  }
-  const goToQuickFacts = () => {
-    window.location.hash = `/quickfacts/${lang}/${title}`
   }
 
   return (
@@ -79,7 +83,7 @@ const ArticleSection = ({
   )
 }
 
-export const Article = ({ lang, title }) => {
+export const Article = ({ lang, title, subtitle }) => {
   const i18n = useI18n()
   const containerRef = useRef()
   const article = useArticle(lang, title)
@@ -89,7 +93,7 @@ export const Article = ({ lang, title }) => {
     return 'Loading...'
   }
 
-  const [currentSection] = useArticlePagination(containerRef, article.sections.length)
+  const [currentSection] = useArticlePagination(containerRef, article, subtitle)
   const section = article.sections[currentSection]
 
   useEffect(() => {
