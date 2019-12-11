@@ -62,7 +62,9 @@ export const getArticle = (lang, title) => {
           break
         case 2 : {
           const index = toc.length - 1
-          if (typeof toc[index] === 'string') toc[index] = [toc[index]]
+          if (typeof toc[index] === 'string') {
+            toc[index] = [toc[index]]
+          }
           toc[index].push(s.line)
           break
         }

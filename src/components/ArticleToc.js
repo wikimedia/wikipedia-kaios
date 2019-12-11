@@ -1,17 +1,13 @@
 import { h } from 'preact'
-import { route } from 'preact-router'
 import { useRef, useEffect } from 'preact/hooks'
 import { useNavigation, useI18n, useSoftkey } from 'hooks'
 import { ListView } from 'components'
 
-export const ArticleToc = ({ lang, title, items: toc, close }) => {
+export const ArticleToc = ({ items: toc, close }) => {
   const containerRef = useRef()
   const i18n = useI18n()
   const softkey = useSoftkey()
   const items = []
-
-  if (!toc) return
-
   const [, setNavigation, getCurrent] = useNavigation(containerRef, 'y')
 
   useEffect(() => {
@@ -27,7 +23,6 @@ export const ArticleToc = ({ lang, title, items: toc, close }) => {
     const item = items[index]
 
     if (item && item.title) {
-      route(`/article/${lang}/${title}/${item.title}`, true)
       close(item)
     }
   }
@@ -37,8 +32,11 @@ export const ArticleToc = ({ lang, title, items: toc, close }) => {
       items.push({ title: item, sectionIndex: sectionIndex + 1 })
     } else if (Array.isArray(item)) {
       item.forEach((i, index) => {
-        if (index) items.push({ title: i, titleHtml: `<span class="subheader">${i}</span>`, sectionIndex: sectionIndex + 1 })
-        else items.push({ title: i, sectionIndex: sectionIndex + 1 })
+        if (index) {
+          items.push({ title: i, titleHtml: `<span class="subheader">${i}</span>`, sectionIndex: sectionIndex + 1 })
+        } else {
+          items.push({ title: i, sectionIndex: sectionIndex + 1 })
+        }
       })
     }
   })

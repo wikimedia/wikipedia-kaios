@@ -64,8 +64,8 @@ export const useArticlePagination = (
       // @todo replace the magic number with constant device width
       if (elementRef.current.scrollLeft % 240 === 216) {
         elementRef.current.scrollLeft += 24
-      } else if (elementRef.current.scrollLeft % 240 === 16) {
-        elementRef.current.scrollLeft -= 16
+      } else {
+        elementRef.current.scrollLeft -= elementRef.current.scrollLeft % 240
       }
     } else {
       elementRef.current.scrollLeft = 0

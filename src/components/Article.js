@@ -1,4 +1,5 @@
 import { h, Fragment } from 'preact'
+import { route } from 'preact-router'
 import { memo } from 'preact/compat'
 import { useState, useRef, useEffect } from 'preact/hooks'
 import { useArticle, useNavigation, useI18n, useSoftkey, useArticlePagination } from 'hooks'
@@ -84,10 +85,10 @@ const ArticleSection = ({
   )
 }
 
-export const Article = ({ lang, title, subtitle: initialSubTitle }) => {
+export const Article = ({ lang, title: articleTitle, subtitle: initialSubTitle }) => {
   const i18n = useI18n()
   const containerRef = useRef()
-  const article = useArticle(lang, title)
+  const article = useArticle(lang, articleTitle)
   const softkey = useSoftkey()
 
   if (!article) {
@@ -102,15 +103,11 @@ export const Article = ({ lang, title, subtitle: initialSubTitle }) => {
   useEffect(() => {
     if (!showToc) {
       softkey.dispatch({ type: 'setLeftText', value: i18n.i18n('close') })
-      softkey.dispatch({ type: 'setOnKeyLeft', event: onKeyLeft })
+      softkey.dispatch({ type: 'setOnKeyLeft', event: () => history.back() })
       softkey.dispatch({ type: 'setRightText', value: i18n.i18n('sections') })
       softkey.dispatch({ type: 'setOnKeyRight', event: onKeyRight })
     }
   }, [showToc])
-
-  const onKeyLeft = () => {
-    history.back()
-  }
 
   // @todo temporarily section until we have the menu
   const onKeyRight = () => {
@@ -122,13 +119,14 @@ export const Article = ({ lang, title, subtitle: initialSubTitle }) => {
       const { sectionIndex, title } = item
       setCurrentSection(sectionIndex)
       setSubTitle(title)
+      route(`/article/${lang}/${articleTitle}/${title}`, true)
     }
     toggleToc(false)
   }
 
   return (
     <Fragment>
-      { showToc && <ArticleToc lang={lang} title={title} items={article.toc} close={goToArticleSubpage} /> }
+      { showToc && <ArticleToc items={article.toc} close={goToArticleSubpage} /> }
       <div class='page pages-container' ref={containerRef}>
         <div class='pages article'>
           <ArticleSection
