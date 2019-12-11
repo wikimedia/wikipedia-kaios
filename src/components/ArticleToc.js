@@ -1,23 +1,23 @@
 import { h } from 'preact'
+import { route } from 'preact-router'
 import { useRef, useEffect } from 'preact/hooks'
-import { useNavigation, useI18n, useArticle, useSoftkey } from 'hooks'
+import { useNavigation, useI18n, useSoftkey } from 'hooks'
 import { ListView } from 'components'
 
-export const Toc = ({ lang, title }) => {
+export const ArticleToc = ({ lang, title, items: toc, close }) => {
   const containerRef = useRef()
   const i18n = useI18n()
-  const article = useArticle(lang, title)
   const softkey = useSoftkey()
   const items = []
 
-  if (!article) return
+  if (!toc) return
 
   const [, setNavigation, getCurrent] = useNavigation(containerRef, 'y')
 
   useEffect(() => {
     setNavigation(0)
     softkey.dispatch({ type: 'setLeftText', value: i18n.i18n('close') })
-    softkey.dispatch({ type: 'setOnKeyLeft', event: () => history.back() })
+    softkey.dispatch({ type: 'setOnKeyLeft', event: () => close() })
     softkey.dispatch({ type: 'setCenterText', value: i18n.i18n('centerkey-select') })
     softkey.dispatch({ type: 'setOnKeyCenter', event: onKeyCenter })
   }, [])
@@ -27,17 +27,18 @@ export const Toc = ({ lang, title }) => {
     const item = items[index]
 
     if (item && item.title) {
-      window.location.hash = `/article/${lang}/${title}/${item.title}`
+      route(`/article/${lang}/${title}/${item.title}`, true)
+      close(item)
     }
   }
 
-  article.toc.forEach(item => {
+  toc.forEach((item, sectionIndex) => {
     if (typeof item === 'string') {
-      items.push({ title: item })
+      items.push({ title: item, sectionIndex: sectionIndex + 1 })
     } else if (Array.isArray(item)) {
       item.forEach((i, index) => {
-        if (index) items.push({ title: i, titleHtml: `<span class="subheader">${i}</span>` })
-        else items.push({ title: i })
+        if (index) items.push({ title: i, titleHtml: `<span class="subheader">${i}</span>`, sectionIndex: sectionIndex + 1 })
+        else items.push({ title: i, sectionIndex: sectionIndex + 1 })
       })
     }
   })

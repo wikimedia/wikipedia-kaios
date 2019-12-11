@@ -1,7 +1,7 @@
 import { h } from 'preact'
 import Router from 'preact-router'
 import { createHashHistory } from 'history'
-import { Article, Search, Settings, QuickFacts, Toc } from 'components'
+import { Article, Search, Settings, QuickFacts } from 'components'
 
 export const Routes = () => (
   <Router history={createHashHistory()}>
@@ -9,7 +9,6 @@ export const Routes = () => (
     <Settings path='/settings' />
     <Article path='/article/:lang/:title/:subtitle?' />
     <QuickFacts path='/quickfacts/:lang/:title' />
-    <Toc path='/toc/:lang/:title' />
   </Router>
 )
 

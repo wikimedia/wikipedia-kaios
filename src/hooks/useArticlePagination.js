@@ -6,7 +6,8 @@ const DEVICE_WIDTH = 240
 export const useArticlePagination = (
   elementRef,
   article,
-  subTitle
+  subTitle,
+  showToc
 ) => {
   const [currentSection, setCurrentSection] = useState(findLocatedSection(article.toc, subTitle))
   const [isLastPage, setIsLastPage] = useState(0)
@@ -15,6 +16,7 @@ export const useArticlePagination = (
 
   useKeys({
     ArrowDown: () => {
+      if (showToc) return
       const previous = elementRef.current[prop]
       elementRef.current[prop] += DEVICE_WIDTH
       const after = elementRef.current[prop]
@@ -25,6 +27,7 @@ export const useArticlePagination = (
       }
     },
     ArrowUp: () => {
+      if (showToc) return
       const previous = elementRef.current[prop]
       elementRef.current[prop] -= DEVICE_WIDTH
       const after = elementRef.current[prop]
@@ -51,7 +54,6 @@ export const useArticlePagination = (
   useLayoutEffect(() => {
     const sectionTitle = article.sections[currentSection].title
 
-    // scroll when the subtitle is not on first page
     if (subTitle && sectionTitle !== subTitle) {
       const subTitleElement = Array
         .from(elementRef.current.querySelectorAll('h3'))
@@ -59,11 +61,16 @@ export const useArticlePagination = (
 
       subTitleElement && subTitleElement.scrollIntoView()
 
-      if (elementRef.current.scrollLeft !== 0) {
+      // @todo replace the magic number with constant device width
+      if (elementRef.current.scrollLeft % 240 === 216) {
         elementRef.current.scrollLeft += 24
+      } else if (elementRef.current.scrollLeft % 240 === 16) {
+        elementRef.current.scrollLeft -= 16
       }
+    } else {
+      elementRef.current.scrollLeft = 0
     }
-  }, [])
+  }, [subTitle])
 
   const showNextSection = () => {
     const nextSection = currentSection + 1
@@ -78,7 +85,7 @@ export const useArticlePagination = (
     }
   }
 
-  return [currentSection]
+  return [currentSection, setCurrentSection]
 }
 
 const findLocatedSection = (toc, title) => {

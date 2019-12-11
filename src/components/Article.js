@@ -1,7 +1,8 @@
 import { h, Fragment } from 'preact'
 import { memo } from 'preact/compat'
-import { useRef, useEffect } from 'preact/hooks'
+import { useState, useRef, useEffect } from 'preact/hooks'
 import { useArticle, useNavigation, useI18n, useSoftkey, useArticlePagination } from 'hooks'
+import { ArticleToc } from 'components'
 
 const ArticleBody = memo(({ content }) => {
   return (
@@ -13,7 +14,7 @@ const ArticleBody = memo(({ content }) => {
 })
 
 const ArticleSection = ({
-  lang, imageUrl, title, description, hasActions, content
+  lang, imageUrl, title, description, hasActions, content, showToc
 }) => {
   const i18n = useI18n()
   const softkey = useSoftkey()
@@ -44,7 +45,7 @@ const ArticleSection = ({
           window.location.hash = `/quickfacts/${lang}/${title}`
           break
         case 'sections':
-          window.location.hash = `/toc/${lang}/${title}`
+          showToc()
           break
       }
     }
@@ -83,7 +84,7 @@ const ArticleSection = ({
   )
 }
 
-export const Article = ({ lang, title, subtitle }) => {
+export const Article = ({ lang, title, subtitle: initialSubTitle }) => {
   const i18n = useI18n()
   const containerRef = useRef()
   const article = useArticle(lang, title)
@@ -93,15 +94,19 @@ export const Article = ({ lang, title, subtitle }) => {
     return 'Loading...'
   }
 
-  const [currentSection] = useArticlePagination(containerRef, article, subtitle)
+  const [showToc, toggleToc] = useState(false)
+  const [subTitle, setSubTitle] = useState(initialSubTitle)
+  const [currentSection, setCurrentSection] = useArticlePagination(containerRef, article, subTitle, showToc)
   const section = article.sections[currentSection]
 
   useEffect(() => {
-    softkey.dispatch({ type: 'setLeftText', value: i18n.i18n('close') })
-    softkey.dispatch({ type: 'setOnKeyLeft', event: onKeyLeft })
-    softkey.dispatch({ type: 'setRightText', value: i18n.i18n('sections') })
-    softkey.dispatch({ type: 'setOnKeyRight', event: onKeyRight })
-  }, [])
+    if (!showToc) {
+      softkey.dispatch({ type: 'setLeftText', value: i18n.i18n('close') })
+      softkey.dispatch({ type: 'setOnKeyLeft', event: onKeyLeft })
+      softkey.dispatch({ type: 'setRightText', value: i18n.i18n('sections') })
+      softkey.dispatch({ type: 'setOnKeyRight', event: onKeyRight })
+    }
+  }, [showToc])
 
   const onKeyLeft = () => {
     history.back()
@@ -109,21 +114,34 @@ export const Article = ({ lang, title, subtitle }) => {
 
   // @todo temporarily section until we have the menu
   const onKeyRight = () => {
-    window.location.hash = `/toc/${lang}/${title}`
+    toggleToc(true)
+  }
+
+  const goToArticleSubpage = (item) => {
+    if (item) {
+      const { sectionIndex, title } = item
+      setCurrentSection(sectionIndex)
+      setSubTitle(title)
+    }
+    toggleToc(false)
   }
 
   return (
-    <div class='page pages-container' ref={containerRef}>
-      <div class='pages article'>
-        <ArticleSection
-          lang={lang}
-          title={section.title}
-          description={section.description}
-          imageUrl={section.imageUrl}
-          hasActions={currentSection === 0}
-          content={section.content}
-        />
+    <Fragment>
+      { showToc && <ArticleToc lang={lang} title={title} items={article.toc} close={goToArticleSubpage} /> }
+      <div class='page pages-container' ref={containerRef}>
+        <div class='pages article'>
+          <ArticleSection
+            lang={lang}
+            title={section.title}
+            description={section.description}
+            imageUrl={section.imageUrl}
+            hasActions={currentSection === 0}
+            content={section.content}
+            showToc={() => toggleToc(true)}
+          />
+        </div>
       </div>
-    </div>
+    </Fragment>
   )
 }
