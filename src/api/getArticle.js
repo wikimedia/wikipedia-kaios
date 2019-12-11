@@ -56,19 +56,7 @@ export const getArticle = (lang, title) => {
       nextContent += s.text
 
       // build toc structure
-      switch (s.toclevel) {
-        case 1 :
-          toc.push(s.line)
-          break
-        case 2 : {
-          const index = toc.length - 1
-          if (typeof toc[index] === 'string') {
-            toc[index] = [toc[index]]
-          }
-          toc[index].push(s.line)
-          break
-        }
-      }
+      toc.push({ level: s.toclevel, line: s.line, sectionIndex: sections.length })
     })
 
     return {

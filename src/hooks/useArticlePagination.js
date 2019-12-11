@@ -56,7 +56,7 @@ export const useArticlePagination = (
 
     if (subTitle && sectionTitle !== subTitle) {
       const subTitleElement = Array
-        .from(elementRef.current.querySelectorAll('h3'))
+        .from(elementRef.current.querySelectorAll('h3, h4'))
         .find(e => e.textContent === subTitle)
 
       subTitleElement && subTitleElement.scrollIntoView()
@@ -89,13 +89,8 @@ export const useArticlePagination = (
 }
 
 const findSection = (toc, title) => {
-  const index = toc.findIndex(item => {
-    if (typeof item === 'string') {
-      return item === title
-    } else if (Array.isArray(item)) {
-      return item.includes(title)
-    }
-  })
-
-  return index + 1
+  if (!title) {
+    return 0
+  }
+  return toc.find(item => item.line === title).sectionIndex
 }

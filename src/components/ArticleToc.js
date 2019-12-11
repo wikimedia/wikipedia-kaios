@@ -7,7 +7,7 @@ export const ArticleToc = ({ items, close }) => {
   const containerRef = useRef()
   const i18n = useI18n()
   const softkey = useSoftkey()
-  const listItems = []
+  const listItems = parseTocItems(items)
   const [, setNavigation, getCurrent] = useNavigation(containerRef, 'y')
 
   useEffect(() => {
@@ -28,22 +28,17 @@ export const ArticleToc = ({ items, close }) => {
     }
   }
 
-  items.forEach((item, sectionIndex) => {
-    if (typeof item === 'string') {
-      listItems.push({ title: item, sectionIndex: sectionIndex + 1 })
-    } else if (Array.isArray(item)) {
-      item.forEach((i, index) => {
-        if (index) {
-          listItems.push({ title: i, titleHtml: `<span class="subheader">${i}</span>`, sectionIndex: sectionIndex + 1 })
-        } else {
-          listItems.push({ title: i, sectionIndex: sectionIndex + 1 })
-        }
-      })
-    }
-  })
-
   return <div class='page toc'>
     <div class='header'>{i18n.i18n('sections')}</div>
     <ListView items={listItems} containerRef={containerRef} />
   </div>
+}
+
+const parseTocItems = items => {
+  return items.map(item => {
+    const title = item.line
+    const sectionIndex = item.sectionIndex
+    const titleHtml = item.level > 1 ? `<span class="subheader${item.level}">${item.line}</span>` : ''
+    return { title, sectionIndex, titleHtml }
+  })
 }
