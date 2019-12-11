@@ -3,11 +3,11 @@ import { useRef, useEffect } from 'preact/hooks'
 import { useNavigation, useI18n, useSoftkey } from 'hooks'
 import { ListView } from 'components'
 
-export const ArticleToc = ({ items: toc, close }) => {
+export const ArticleToc = ({ items, close }) => {
   const containerRef = useRef()
   const i18n = useI18n()
   const softkey = useSoftkey()
-  const items = []
+  const listItems = []
   const [, setNavigation, getCurrent] = useNavigation(containerRef, 'y')
 
   useEffect(() => {
@@ -21,22 +21,22 @@ export const ArticleToc = ({ items: toc, close }) => {
 
   const onKeyCenter = () => {
     const { index } = getCurrent()
-    const item = items[index]
+    const item = listItems[index]
 
     if (item && item.title) {
       close(item)
     }
   }
 
-  toc.forEach((item, sectionIndex) => {
+  items.forEach((item, sectionIndex) => {
     if (typeof item === 'string') {
-      items.push({ title: item, sectionIndex: sectionIndex + 1 })
+      listItems.push({ title: item, sectionIndex: sectionIndex + 1 })
     } else if (Array.isArray(item)) {
       item.forEach((i, index) => {
         if (index) {
-          items.push({ title: i, titleHtml: `<span class="subheader">${i}</span>`, sectionIndex: sectionIndex + 1 })
+          listItems.push({ title: i, titleHtml: `<span class="subheader">${i}</span>`, sectionIndex: sectionIndex + 1 })
         } else {
-          items.push({ title: i, sectionIndex: sectionIndex + 1 })
+          listItems.push({ title: i, sectionIndex: sectionIndex + 1 })
         }
       })
     }
@@ -44,6 +44,6 @@ export const ArticleToc = ({ items: toc, close }) => {
 
   return <div class='page toc'>
     <div class='header'>{i18n.i18n('sections')}</div>
-    <ListView items={items} containerRef={containerRef} />
+    <ListView items={listItems} containerRef={containerRef} />
   </div>
 }

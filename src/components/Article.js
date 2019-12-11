@@ -95,19 +95,19 @@ export const Article = ({ lang, title: articleTitle, subtitle: initialSubTitle }
     return 'Loading...'
   }
 
-  const [showToc, toggleToc] = useState(false)
+  const [isTocShown, toggleToc] = useState(false)
   const [subTitle, setSubTitle] = useState(initialSubTitle)
-  const [currentSection, setCurrentSection] = useArticlePagination(containerRef, article, subTitle, showToc)
+  const [currentSection, setCurrentSection] = useArticlePagination(containerRef, article, subTitle, isTocShown)
   const section = article.sections[currentSection]
 
   useEffect(() => {
-    if (!showToc) {
+    if (!isTocShown) {
       softkey.dispatch({ type: 'setLeftText', value: i18n.i18n('close') })
       softkey.dispatch({ type: 'setOnKeyLeft', event: () => history.back() })
       softkey.dispatch({ type: 'setRightText', value: i18n.i18n('sections') })
       softkey.dispatch({ type: 'setOnKeyRight', event: onKeyRight })
     }
-  }, [showToc])
+  }, [isTocShown])
 
   // @todo temporarily section until we have the menu
   const onKeyRight = () => {
@@ -126,7 +126,7 @@ export const Article = ({ lang, title: articleTitle, subtitle: initialSubTitle }
 
   return (
     <Fragment>
-      { showToc && <ArticleToc items={article.toc} close={goToArticleSubpage} /> }
+      { isTocShown && <ArticleToc items={article.toc} close={goToArticleSubpage} /> }
       <div class='page pages-container' ref={containerRef}>
         <div class='pages article'>
           <ArticleSection

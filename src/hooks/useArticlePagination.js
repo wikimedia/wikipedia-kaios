@@ -7,16 +7,16 @@ export const useArticlePagination = (
   elementRef,
   article,
   subTitle,
-  showToc
+  isTocShown
 ) => {
-  const [currentSection, setCurrentSection] = useState(findLocatedSection(article.toc, subTitle))
+  const [currentSection, setCurrentSection] = useState(findSection(article.toc, subTitle))
   const [isLastPage, setIsLastPage] = useState(0)
   const prop = 'scrollLeft'
   const numOfSection = article.sections.length
 
   useKeys({
     ArrowDown: () => {
-      if (showToc) return
+      if (isTocShown) return
       const previous = elementRef.current[prop]
       elementRef.current[prop] += DEVICE_WIDTH
       const after = elementRef.current[prop]
@@ -27,7 +27,7 @@ export const useArticlePagination = (
       }
     },
     ArrowUp: () => {
-      if (showToc) return
+      if (isTocShown) return
       const previous = elementRef.current[prop]
       elementRef.current[prop] -= DEVICE_WIDTH
       const after = elementRef.current[prop]
@@ -88,7 +88,7 @@ export const useArticlePagination = (
   return [currentSection, setCurrentSection]
 }
 
-const findLocatedSection = (toc, title) => {
+const findSection = (toc, title) => {
   const index = toc.findIndex(item => {
     if (typeof item === 'string') {
       return item === title
