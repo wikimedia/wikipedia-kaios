@@ -16,6 +16,7 @@ export const ArticleToc = ({ items: toc, close }) => {
     softkey.dispatch({ type: 'setOnKeyLeft', event: () => close() })
     softkey.dispatch({ type: 'setCenterText', value: i18n.i18n('centerkey-select') })
     softkey.dispatch({ type: 'setOnKeyCenter', event: onKeyCenter })
+    softkey.dispatch({ type: 'setRightText', value: '' })
   }, [])
 
   const onKeyCenter = () => {
