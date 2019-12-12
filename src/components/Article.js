@@ -108,7 +108,7 @@ export const Article = ({ lang, title: articleTitle, subtitle: initialSubTitle }
 
   const [isTocShown, toggleToc] = useState(false)
   const [subTitle, setSubTitle] = useState(initialSubTitle)
-  const [currentSection, setCurrentSection] = useArticlePagination(containerRef, article, subTitle, isTocShown)
+  const [currentSection, setCurrentSection] = useArticlePagination(containerRef, article, subTitle)
   const section = article.sections[currentSection]
 
   useSoftkey('Article', {

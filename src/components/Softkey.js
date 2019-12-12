@@ -7,20 +7,16 @@ export const Softkey = ({
   center,
   onKeyCenter,
   right,
-  onKeyRight
+  onKeyRight,
+  onKeyArrowDown,
+  onKeyArrowUp
 }) => {
-  console.log('render softkey', {
-    left,
-    onKeyLeft,
-    center,
-    onKeyCenter,
-    right,
-    onKeyRight
-  })
   useKeys({
     SoftLeft: onKeyLeft,
     Enter: onKeyCenter,
-    SoftRight: onKeyRight
+    SoftRight: onKeyRight,
+    ArrowDown: onKeyArrowDown,
+    ArrowUp: onKeyArrowUp
   })
 
   return (
