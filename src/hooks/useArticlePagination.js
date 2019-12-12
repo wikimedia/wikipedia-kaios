@@ -5,14 +5,18 @@ const DEVICE_WIDTH = 240
 
 export const useArticlePagination = (
   elementRef,
-  numOfSection
+  article,
+  subTitle,
+  isTocShown
 ) => {
-  const [currentSection, setCurrentSection] = useState(0)
+  const [currentSection, setCurrentSection] = useState(findSection(article.toc, subTitle))
   const [isLastPage, setIsLastPage] = useState(0)
   const prop = 'scrollLeft'
+  const numOfSection = article.sections.length
 
   useKeys({
     ArrowDown: () => {
+      if (isTocShown) return
       const previous = elementRef.current[prop]
       elementRef.current[prop] += DEVICE_WIDTH
       const after = elementRef.current[prop]
@@ -23,6 +27,7 @@ export const useArticlePagination = (
       }
     },
     ArrowUp: () => {
+      if (isTocShown) return
       const previous = elementRef.current[prop]
       elementRef.current[prop] -= DEVICE_WIDTH
       const after = elementRef.current[prop]
@@ -46,6 +51,27 @@ export const useArticlePagination = (
     }
   }, [currentSection])
 
+  useLayoutEffect(() => {
+    const sectionTitle = article.sections[currentSection].title
+
+    if (subTitle && sectionTitle !== subTitle) {
+      const subTitleElement = Array
+        .from(elementRef.current.querySelectorAll('h3, h4'))
+        .find(e => e.textContent === subTitle)
+
+      subTitleElement && subTitleElement.scrollIntoView()
+
+      // @todo replace the magic number with constant device width
+      if (elementRef.current.scrollLeft % 240 === 216) {
+        elementRef.current.scrollLeft += 24
+      } else {
+        elementRef.current.scrollLeft -= elementRef.current.scrollLeft % 240
+      }
+    } else {
+      elementRef.current.scrollLeft = 0
+    }
+  }, [subTitle])
+
   const showNextSection = () => {
     const nextSection = currentSection + 1
     setCurrentSection(nextSection < numOfSection ? nextSection : 0)
@@ -59,5 +85,12 @@ export const useArticlePagination = (
     }
   }
 
-  return [currentSection]
+  return [currentSection, setCurrentSection]
+}
+
+const findSection = (toc, title) => {
+  if (!title) {
+    return 0
+  }
+  return toc.find(item => item.line === title).sectionIndex
 }

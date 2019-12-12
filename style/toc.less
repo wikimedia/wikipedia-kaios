@@ -1,0 +1,37 @@
+.toc {
+
+	.header {
+		height: @pageHeaderHeight;
+		max-height: @pageHeaderHeight;
+		background-color: #d8d8d8;
+		box-sizing: border-box;
+		padding: 3px 0;
+		font-family: @textFont regular;
+		font-size: 17px;
+		text-align: center;
+	}
+
+	.list {
+		top: @pageHeaderHeight;
+		bottom: @softkeysHeight;
+
+		.info .title {
+			font-family: @textFont;
+			font-size: 17px;
+
+			.subheader2 {
+				color: #54595d;
+				padding-left: 15px;
+			}
+
+			.subheader3 {
+				color: #54595d;
+				padding-left: 30px;
+			}
+		}
+
+		.item[nav-selected="true"] {
+			background-color: #eaecf0;
+		}
+	}   
+}

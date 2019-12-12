@@ -1,5 +1,6 @@
 export * from './App'
 export * from './Article'
+export * from './ArticleToc'
 export * from './ListView'
 export * from './QuickFacts'
 export * from './Routes'

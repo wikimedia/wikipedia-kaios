@@ -7,7 +7,7 @@ export const Routes = () => (
   <Router history={createHashHistory()}>
     <Search path='/' />
     <Settings path='/settings' />
-    <Article path='/article/:lang/:title' />
+    <Article path='/article/:lang/:title/:subtitle?' />
     <QuickFacts path='/quickfacts/:lang/:title' />
   </Router>
 )

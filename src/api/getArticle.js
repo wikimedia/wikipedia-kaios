@@ -5,6 +5,7 @@ export const getArticle = (lang, title) => {
   return cachedFetch(url, data => {
     const parser = new DOMParser()
     const imageUrl = data.lead.image && data.lead.image.urls['320']
+    const toc = []
 
     // parse info box
     const doc = parser.parseFromString(data.lead.sections[0].text, 'text/html')
@@ -53,11 +54,15 @@ export const getArticle = (lang, title) => {
       nextContent += s.toclevel !== 1 ? headerLine : ''
 
       nextContent += s.text
+
+      // build toc structure
+      toc.push({ level: s.toclevel, line: s.line, sectionIndex: sections.length })
     })
 
     return {
       sections,
-      infobox
+      infobox,
+      toc
     }
   })
 }
