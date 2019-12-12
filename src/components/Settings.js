@@ -18,7 +18,7 @@ export const Settings = () => {
   }
   useSoftkey('Settings', {
     right: i18n.i18n('close'),
-    onKeyRight: () => { history.back() },
+    onKeyRight: () => history.back(),
     center: i18n.i18n('centerkey-select'),
     onKeyCenter
   })

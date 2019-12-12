@@ -115,7 +115,7 @@ export const Article = ({ lang, title: articleTitle, subtitle: initialSubTitle }
     left: i18n.i18n('close'),
     onKeyLeft: () => history.back(),
     right: i18n.i18n('sections'),
-    onKeyRight: () => { toggleToc(true) }
+    onKeyRight: () => toggleToc(true)
   }, [])
 
   const goToArticleSubpage = (item) => {

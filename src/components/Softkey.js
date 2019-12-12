@@ -44,9 +44,9 @@ export const Softkey = ({
 
   return (
     <div class='softkey'>
-      <SoftkeyButton className='left' text={left} handler={onKeyLeft} />
-      <SoftkeyButton className='center' text={center} handler={onKeyCenter} />
-      <SoftkeyButton className='right' text={right} handler={onKeyRight} />
+      <SoftkeyButton key='left' className='left' text={left} handler={onKeyLeft} />
+      <SoftkeyButton key='center' className='center' text={center} handler={onKeyCenter} />
+      <SoftkeyButton key='right' className='right' text={right} handler={onKeyRight} />
     </div>
   )
 }
