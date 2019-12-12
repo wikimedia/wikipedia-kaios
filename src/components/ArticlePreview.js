@@ -10,7 +10,7 @@ export const ArticlePreview = ({ lang, title, close }) => {
   useSoftkey('ArticlePreview', {
     left: i18n.i18n('close'),
     onKeyLeft: close,
-    center: 'read',
+    center: i18n.i18n('softkey-read'),
     onKeyCenter: read
   }, [])
 
