@@ -1,9 +1,19 @@
 {
 	"@metadata": {
 		"authors": [
-			"Tomasdd"
+			"Tomasdd",
+			"Eitvys200"
 		]
 	},
 	"app-title": "Vikipedija",
-	"app-subtitle": "Laisvoji enciklopedija"
+	"app-subtitle": "Laisvoji enciklopedija",
+	"settings": "Nustatymai",
+	"settings-language": "Kalba",
+	"settings-textsize": "Teksto dydis",
+	"settings-about-wikipedia": "Apie Vikipediją",
+	"settings-privacy": "Privatumo politika",
+	"settings-term": "Naudojimosi sąlygos",
+	"settings-rate": "Įvertinti programėlę",
+	"settings-help-feedback": "Pagalba ir atsiliepimai",
+	"settings-about-app": "Apie programėlę"
 }

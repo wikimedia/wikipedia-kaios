@@ -11,6 +11,15 @@
 	"app-subtitle": "A enciclopédia livre",
 	"app-description": "Com a aplicação grátis da Wikipédia, procure e explore informação de todo o mundo em mais de 300 idiomas.",
 	"search-placeholder": "Pesquisar",
+	"settings": "Definições",
 	"centerkey-select": "Selec.",
-	"close": "Fechar"
+	"close": "Fechar",
+	"settings-language": "Língua",
+	"settings-textsize": "Tamanho do texto",
+	"settings-about-wikipedia": "Sobre a Wikipédia",
+	"settings-privacy": "Normas de privacidade",
+	"settings-term": "Condições de utilização",
+	"settings-rate": "Avaliar a aplicação",
+	"settings-help-feedback": "Ajuda e comentários",
+	"settings-about-app": "Sobre a aplicação"
 }
