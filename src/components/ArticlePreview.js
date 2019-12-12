@@ -28,8 +28,8 @@ export const ArticlePreview = ({ lang, title, close }) => {
       <div class='preview-content'>
         <div class='item'>
           <div class='info'>
-            <div class='title'>{data.title}</div>
-            <div class='description'>{data.description}</div>
+            <div class='title' dangerouslySetInnerHTML={{ __html: data.title }} />
+            <div class='description' dangerouslySetInnerHTML={{ __html: data.description }} />
           </div>
           <div class='img'><img src={data.imageUrl} /></div>
         </div>
