@@ -47,7 +47,7 @@ const ArticleSection = ({
 
   const onTitleClick = title => {
     // todo: show a preview with an option to read more
-    window.location.hash = `/article/${lang}/${title}`
+    route(`/article/${lang}/${title}`, true)
   }
   const onActionClick = action => {
     if (action === 'quickfacts') {
