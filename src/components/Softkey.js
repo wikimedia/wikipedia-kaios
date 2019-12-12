@@ -21,8 +21,10 @@ export const Softkey = ({
   const handlersRef = useRef()
   handlersRef.current = {
     SoftLeft: onKeyLeft,
+    l: onKeyLeft, // for testing purposes
     Enter: onKeyCenter,
     SoftRight: onKeyRight,
+    r: onKeyRight, // for testing purposes
     ArrowDown: onKeyArrowDown,
     ArrowUp: onKeyArrowUp,
     ArrowLeft: onKeyArrowLeft,
