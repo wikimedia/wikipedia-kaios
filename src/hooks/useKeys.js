@@ -1,10 +1,12 @@
-import { useEffect } from 'preact/hooks'
+import { useEffect, useRef } from 'preact/hooks'
 
 export const useKeys = (handlers) => {
+  const handlersRef = useRef()
+  handlersRef.current = handlers
   const onKeyDown = (e) => {
     const key = e.key.toString()
-    if (handlers[key]) {
-      handlers[key](e)
+    if (handlersRef.current[key]) {
+      handlersRef.current[key](e)
       e.stopPropagation()
       e.preventDefault()
     }
@@ -13,5 +15,5 @@ export const useKeys = (handlers) => {
   useEffect(() => {
     document.addEventListener('keydown', onKeyDown)
     return () => document.removeEventListener('keydown', onKeyDown)
-  }, [handlers])
+  }, [])
 }
