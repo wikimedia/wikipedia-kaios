@@ -34,7 +34,7 @@ export const useArticlePagination = (
         showPrevSection()
       }
     }
-  }, [])
+  }, [currentSection])
 
   useLayoutEffect(() => {
     if (isLastPage) {
