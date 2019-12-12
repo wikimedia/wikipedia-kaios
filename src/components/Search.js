@@ -9,30 +9,23 @@ export const Search = () => {
   const lang = useLanguage()
   const [query, setQuery, searchResults] = useSearch(lang)
   const i18n = useI18n()
-  const softkey = useSoftkey()
-
-  useEffect(() => {
-    setNavigation(0)
-    softkey.dispatch({ type: 'setLeftText', value: 'Settings' })
-    softkey.dispatch({ type: 'setOnKeyLeft', event: onKeyLeft })
-    softkey.dispatch({ type: 'setRightText', value: '' })
-  }, [])
-
-  useEffect(() => {
-    softkey.dispatch({ type: 'setCenterText', value: current.type === 'INPUT' ? '' : i18n.i18n('centerkey-select') })
-    softkey.dispatch({ type: 'setOnKeyCenter', event: onKeyCenter })
-  }, [current.type])
-
-  const onKeyLeft = () => {
-    window.location.hash = '/settings'
-  }
-
   const onKeyCenter = () => {
     const { index, key } = getCurrent()
     if (index) {
       window.location.hash = `/article/${lang}/${key}`
     }
   }
+
+  useSoftkey('Search', true, {
+    left: 'Settings',
+    onKeyLeft: () => { window.location.hash = '/settings' },
+    center: current.type === 'DIV' ? i18n.i18n('centerkey-select') : '',
+    onKeyCenter
+  }, [current.type])
+
+  useEffect(() => {
+    setNavigation(0)
+  }, [])
 
   return (
     <div class='page search'>

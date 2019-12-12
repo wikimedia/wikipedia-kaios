@@ -13,7 +13,7 @@ export const App = ({ lang, i18n }) => {
       <I18nContext.Provider value={i18n}>
         <SoftkeyContext.Provider value={{ state, dispatch }}>
           <Routes />
-          <Softkey {...state} />
+          <Softkey {...state.current} />
         </SoftkeyContext.Provider>
       </I18nContext.Provider>
     </LanguageContext.Provider>

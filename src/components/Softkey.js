@@ -9,6 +9,14 @@ export const Softkey = ({
   right,
   onKeyRight
 }) => {
+  console.log('render softkey', {
+    left,
+    onKeyLeft,
+    center,
+    onKeyCenter,
+    right,
+    onKeyRight
+  })
   useKeys({
     SoftLeft: onKeyLeft,
     Enter: onKeyCenter,

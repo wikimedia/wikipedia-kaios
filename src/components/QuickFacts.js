@@ -7,7 +7,10 @@ export const QuickFacts = ({ lang, title }) => {
   const article = useArticle(lang, title)
   const containerRef = useRef()
   const [, setNavigation] = useNavigation(containerRef, 'x', 'a[href]:not(.image)')
-  const softkey = useSoftkey()
+  useSoftkey('QuickFacts', true, {
+    left: i18n.i18n('close'),
+    onKeyLeft: () => { history.back() }
+  })
   useScroll(containerRef, 10, 'y')
 
   if (!article) {
@@ -15,17 +18,8 @@ export const QuickFacts = ({ lang, title }) => {
   }
 
   useEffect(() => {
-    softkey.dispatch({ type: 'setLeftText', value: i18n.i18n('close') })
-    softkey.dispatch({ type: 'setOnKeyLeft', event: backToArticle })
-    softkey.dispatch({ type: 'setCenterText', value: '' })
-  }, [])
-  useEffect(() => {
     setNavigation(0)
   }, [article])
-
-  const backToArticle = () => {
-    history.back()
-  }
 
   return (
     <Fragment>
