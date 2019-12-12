@@ -7,7 +7,7 @@ export const QuickFacts = ({ lang, title }) => {
   const article = useArticle(lang, title)
   const containerRef = useRef()
   const [, setNavigation] = useNavigation(containerRef, 'x', 'a[href]:not(.image)')
-  useSoftkey('QuickFacts', true, {
+  useSoftkey('QuickFacts', {
     left: i18n.i18n('close'),
     onKeyLeft: () => { history.back() }
   })

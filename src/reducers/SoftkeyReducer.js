@@ -4,27 +4,29 @@ export const SoftkeyReducer = (state, action) => {
   switch (action.type) {
     case 'set':
       return { ...state, current: { ...state.current, ...action.config } }
-    case 'setLeftText':
-      return { ...state, current: { ...state.current, left: action.value } }
-    case 'setCenterText':
-      return { ...state, current: { ...state.current, center: action.value } }
-    case 'setRightText':
-      return { ...state, current: { ...state.current, right: action.value } }
-    case 'setOnKeyCenter':
-      return { ...state, current: { ...state.current, onKeyCenter: action.event } }
-    case 'setOnKeyLeft':
-      return { ...state, current: { ...state.current, onKeyLeft: action.event } }
-    case 'setOnKeyRight':
-      return { ...state, current: { ...state.current, onKeyRight: action.event } }
     case 'push':
       stack = state.stack || []
-      if (state.current) {
-        stack.push(state.current)
+      current = state.current
+      if (!current) {
+        current = { name: action.origin, counter: 1 }
+      } else if (current.name !== action.origin) {
+        stack.push(current)
+        current = { name: action.origin, counter: 1 }
+      } else {
+        current.counter++
       }
-      return { stack, current: {} }
+      return { stack, current }
     case 'pop':
       stack = state.stack || []
-      current = stack.length > 0 ? stack.pop() : {}
+      current = state.current
+      if (current.name !== action.origin) {
+        throw new Error(`Unexpected origin: ${action.origin}. Expected: ${current.name}`)
+      } else {
+        current.counter--
+        if (current.counter === 0) {
+          current = stack.pop()
+        }
+      }
       return { stack, current }
     default:
       return state

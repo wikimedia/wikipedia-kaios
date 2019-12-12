@@ -16,7 +16,7 @@ export const ArticleToc = ({ items, close }) => {
       close(item)
     }
   }
-  useSoftkey('ArticleToc', true, {
+  useSoftkey('ArticleToc', {
     left: i18n.i18n('close'),
     onKeyLeft: () => close(),
     center: i18n.i18n('centerkey-select'),

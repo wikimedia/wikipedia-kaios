@@ -15,7 +15,7 @@ const ArticleBody = memo(({ content }) => {
 })
 
 const ArticleAudioPopup = ({ closeFn }) => {
-  useSoftkey('ArticleAudioPopup', true, {
+  useSoftkey('ArticleAudioPopup', {
     center: 'ClosePopup',
     onKeyCenter: closeFn
   }, [])
@@ -58,7 +58,7 @@ const ArticleSection = ({
       }
     }
   }
-  useSoftkey('ArticleSection', false, {
+  useSoftkey('Article', {
     center: hasActions ? i18n.i18n('centerkey-select') : '',
     onKeyCenter
   }, [hasActions])
@@ -111,7 +111,7 @@ export const Article = ({ lang, title: articleTitle, subtitle: initialSubTitle }
   const [currentSection, setCurrentSection] = useArticlePagination(containerRef, article, subTitle, isTocShown)
   const section = article.sections[currentSection]
 
-  useSoftkey('Article', true, {
+  useSoftkey('Article', {
     left: i18n.i18n('close'),
     onKeyLeft: () => history.back(),
     right: i18n.i18n('sections'),
