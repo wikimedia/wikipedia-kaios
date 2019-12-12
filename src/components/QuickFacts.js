@@ -6,12 +6,14 @@ export const QuickFacts = ({ lang, title }) => {
   const i18n = useI18n()
   const article = useArticle(lang, title)
   const containerRef = useRef()
-  const [, setNavigation] = useNavigation(containerRef, 'x', 'a[href]:not(.image)')
+  const [, setNavigation] = useNavigation('QuickFacts', containerRef, 'x', 'a[href]:not(.image)')
+  const [scrollDown, scrollUp] = useScroll(containerRef, 10, 'y')
   useSoftkey('QuickFacts', {
     left: i18n.i18n('close'),
-    onKeyLeft: () => { history.back() }
+    onKeyLeft: () => { history.back() },
+    onKeyArrowDown: scrollDown,
+    onKeyArrowUp: scrollUp
   })
-  useScroll(containerRef, 10, 'y')
 
   if (!article) {
     return 'Loading...'

@@ -5,7 +5,7 @@ import { useNavigation, useSearch, useLanguage, useI18n, useSoftkey } from 'hook
 
 export const Search = () => {
   const containerRef = useRef()
-  const [current, setNavigation, getCurrent] = useNavigation(containerRef, 'y')
+  const [current, setNavigation, getCurrent] = useNavigation('Search', containerRef, 'y')
   const lang = useLanguage()
   const [query, setQuery, searchResults] = useSearch(lang)
   const i18n = useI18n()

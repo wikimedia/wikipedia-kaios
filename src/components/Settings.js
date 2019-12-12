@@ -23,7 +23,7 @@ export const Settings = () => {
     onKeyCenter
   })
 
-  const [, setNavigation, getCurrent] = useNavigation(containerRef, 'y')
+  const [, setNavigation, getCurrent] = useNavigation('Settings', containerRef, 'y')
 
   useEffect(() => {
     setNavigation(0)

@@ -1,5 +1,4 @@
 export * from './useArticle'
-export * from './useBackToSearch'
 export * from './useHistoryState'
 export * from './useI18n'
 export * from './useSoftkey'

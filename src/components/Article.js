@@ -40,7 +40,7 @@ const ArticleSection = ({
 }) => {
   const i18n = useI18n()
   const actionsRef = useRef()
-  const [,, getCurrent] = useNavigation(actionsRef, 'x')
+  const [,, getCurrent] = useNavigation('Article', actionsRef, 'x')
   const [isVisible, setVisible] = useState(false)
   const onKeyCenter = () => {
     const current = getCurrent()

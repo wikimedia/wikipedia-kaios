@@ -7,7 +7,7 @@ export const ArticleToc = ({ items, close }) => {
   const containerRef = useRef()
   const i18n = useI18n()
   const listItems = parseTocItems(items)
-  const [, setNavigation, getCurrent] = useNavigation(containerRef, 'y')
+  const [, setNavigation, getCurrent] = useNavigation('ArticleToc', containerRef, 'y')
   const onKeyCenter = () => {
     const { index } = getCurrent()
     const item = listItems[index]
