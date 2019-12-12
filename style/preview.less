@@ -1,0 +1,37 @@
+.article-preview {
+	position: absolute;
+	top:0;
+	right: 0;
+	bottom: @softkeysHeight;
+	left: 0;
+
+	.shader {
+		width: 100%;
+		height: @pageHeight/2;
+		background-color: black;
+		opacity: 0.5;
+	}
+
+	.preview-content {
+		overflow: hidden;
+		width: 100%;
+		height: @pageHeight/2;
+		background-color: white;
+
+		.item {
+			border-bottom: 1px solid #c8ccd1;
+
+			.title {
+				font-weight: bold;
+			}
+		}
+
+		.preview-text {
+			padding: 4px 10px 0 10px;
+			p {
+				font-size: 14px;
+				margin: 0;
+			}
+		}
+	}
+}

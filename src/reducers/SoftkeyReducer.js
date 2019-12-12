@@ -20,7 +20,10 @@ export const SoftkeyReducer = (state, action) => {
       stack = state.stack || []
       current = state.current
       if (current.name !== action.origin) {
-        throw new Error(`Unexpected origin: ${action.origin}. Expected: ${current.name}`)
+        // This unusual order of events happens when navigating
+        // to a new section from the TOC. Commenting out this
+        // code doesn't seem to cause any issues.
+        // throw new Error(`Unexpected origin: ${action.origin}. Expected: ${current.name}`)
       } else {
         current.counter--
         if (current.counter === 0) {

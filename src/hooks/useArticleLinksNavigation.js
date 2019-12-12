@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'preact/hooks'
-import { useKeys } from 'hooks'
+import { useSoftkey } from 'hooks'
 import { viewport } from 'utils'
 
 const SELECTED_ATTRIBUTE = 'data-selected'
@@ -51,8 +51,8 @@ export const useArticleLinksNavigation = (
     }
   }, [currentPage])
 
-  useKeys({
-    ArrowLeft: () => {
+  useSoftkey('Article', {
+    onKeyArrowLeft: () => {
       if (!hasLinks()) {
         return
       }
@@ -62,14 +62,14 @@ export const useArticleLinksNavigation = (
       }
       setCurrentLink(links[i])
     },
-    ArrowRight: () => {
+    onKeyArrowRight: () => {
       if (!hasLinks()) {
         return
       }
       const i = (links.indexOf(currentLink) + 1) % links.length
       setCurrentLink(links[i])
     },
-    Enter: () => {
+    onKeyCenter: () => {
       if (currentLink) {
         const title = currentLink.getAttribute('title')
         if (title) {
@@ -82,7 +82,7 @@ export const useArticleLinksNavigation = (
         }
       }
     }
-  })
+  }, [links, currentLink])
 
   return [currentLink]
 }

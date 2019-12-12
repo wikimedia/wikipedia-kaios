@@ -17,45 +17,21 @@ const ArticleBody = memo(({ content }) => {
   )
 })
 
-const ArticleAudioPopup = ({ closeFn }) => {
-  useSoftkey('ArticleAudioPopup', {
-    center: 'ClosePopup',
-    onKeyCenter: closeFn
-  }, [])
-  const style = {
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    bottom: '30px',
-    top: 100,
-    backgroundColor: 'pink',
-    zIndex: 999
-  }
-  return (
-    <div class='popup' style={style}>
-      <h1>This is a popup on top of the article page</h1>
-    </div>
-  )
-}
-
 const ArticleSection = ({
   lang, imageUrl, title, description, hasActions, content, page, showToc
 }) => {
   const i18n = useI18n()
-  const [isAudioPopupVisible, setAudioPopupVisible] = useState(false)
   const contentRef = useRef()
+  const [articlePreview, setArticlePreview] = useState()
 
   const onTitleClick = title => {
-    // todo: show a preview with an option to read more
-    route(`/article/${lang}/${title}`, true)
+    setArticlePreview(title)
   }
   const onActionClick = action => {
     if (action === 'quickfacts') {
       window.location.hash = `/quickfacts/${lang}/${title}`
     } else if (action === 'sections') {
       showToc()
-    } else if (action === 'audio') {
-      setAudioPopupVisible(true)
     }
   }
   const [selectedLink] = useArticleLinksNavigation(
@@ -67,7 +43,7 @@ const ArticleSection = ({
 
   return (
     <div class='article-section' ref={contentRef}>
-      { isAudioPopupVisible && <ArticleAudioPopup closeFn={() => setAudioPopupVisible(false)} />}
+      { articlePreview && <ArticlePreview close={() => setArticlePreview(null)} title={articlePreview} lang={lang} />}
       { imageUrl && <div class='lead-image' style={{ backgroundImage: `url(${imageUrl})` }} /> }
       <div class={'card' + (imageUrl ? ' with-image' : '')}>
         <div class='title' dangerouslySetInnerHTML={{ __html: title }} />
@@ -153,5 +129,5 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
 }
 
 export const Article = ({ lang, title: articleTitle, subtitle: initialSubTitle }) => {
-  return <ArticleInner lang={lang} articleTitle={articleTitle} initialSubTitle={initialSubTitle} key={lang + articleTitle + articleTitle} />
+  return <ArticleInner lang={lang} articleTitle={articleTitle} initialSubTitle={initialSubTitle} key={lang + articleTitle} />
 }
