@@ -58,13 +58,16 @@ export const useArticlePagination = (
 
       subTitleElement && subTitleElement.scrollIntoView()
 
-      // @todo replace the magic number with constant device width
-      if (elementRef.current.scrollLeft % 240 === 216) {
-        elementRef.current.scrollLeft += 24
+      elementRef.current.scrollTop = 0
+      // @todo replace the DEVICE_WIDTH to utils
+      // @todo need to verify the magic number again when testing different device width
+      if (elementRef.current.scrollLeft % DEVICE_WIDTH === 216) {
+        elementRef.current.scrollLeft += (DEVICE_WIDTH - 216)
       } else {
-        elementRef.current.scrollLeft -= elementRef.current.scrollLeft % 240
+        elementRef.current.scrollLeft -= elementRef.current.scrollLeft % DEVICE_WIDTH
       }
     } else {
+      elementRef.current.scrollTop = 0
       elementRef.current.scrollLeft = 0
     }
   }, [subTitle])
