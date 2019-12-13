@@ -64,11 +64,9 @@ export const useArticlePagination = (
       const offset = Math.floor(
         subTitleElement.getBoundingClientRect().left / viewport.width
       )
-      elementRef.current.scrollTop = 0
       elementRef.current.scrollLeft += offset * viewport.width
       setCurrentPage(elementRef.current.scrollLeft / viewport.width)
     } else {
-      elementRef.current.scrollTop = 0
       elementRef.current.scrollLeft = 0
       setCurrentPage(0)
     }
