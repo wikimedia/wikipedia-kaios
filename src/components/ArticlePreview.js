@@ -17,9 +17,8 @@ export const ArticlePreview = ({ lang, title, close }) => {
   const article = useArticle(lang, title)
   const data = article ? article.sections[0] : {
     title: title,
-    description: 'Loading...',
-    imageUrl: '',
-    content: 'blurry text'
+    description: '',
+    content: 'Loading...'
   }
 
   return (
@@ -31,7 +30,7 @@ export const ArticlePreview = ({ lang, title, close }) => {
             <div class='title' dangerouslySetInnerHTML={{ __html: data.title }} />
             <div class='description' dangerouslySetInnerHTML={{ __html: data.description }} />
           </div>
-          <div class='img'><img src={data.imageUrl} /></div>
+          { data.imageUrl && <div class='img'><img src={data.imageUrl} /></div> }
         </div>
         <div class='preview-text' dangerouslySetInnerHTML={{ __html: data.content }} />
       </div>
