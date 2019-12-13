@@ -2,7 +2,7 @@ import { h, Fragment } from 'preact'
 import { route } from 'preact-router'
 import { memo } from 'preact/compat'
 import { useState, useRef } from 'preact/hooks'
-import { ArticleToc } from 'components'
+import { ArticlePreview, ArticleToc } from 'components'
 import {
   useArticle, useI18n, useSoftkey,
   useArticlePagination, useArticleLinksNavigation
