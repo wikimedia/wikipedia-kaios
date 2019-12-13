@@ -57,7 +57,7 @@
 					height: 45px;
 				}
 
-				&[nav-selected=true] {
+				&[data-selected=true] {
 					img {
 						border-radius: 2px;
 						border: solid 1px rgba(51, 102, 204, 0.5);
@@ -99,6 +99,7 @@
 
 	a {
 		text-decoration: none;
+		page-break-inside: avoid; // doesn't work
 	}
 
 	.quotebox {
@@ -107,5 +108,10 @@
 
 	blockquote {
 		margin: 10px;
+	}
+
+	[data-selected=true] {
+		background-color: #eaf3ff;
+		text-decoration: underline;
 	}
 }

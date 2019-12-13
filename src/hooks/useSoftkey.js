@@ -5,7 +5,7 @@ export const useSoftkey = (origin, config = null, dependencies = []) => {
   const softkey = useContext(SoftkeyContext)
   useEffect(() => {
     softkey.dispatch({ type: 'push', origin })
-    return () => { softkey.dispatch({ type: 'pop', origin }) }
+    return () => softkey.dispatch({ type: 'pop', origin })
   }, [origin])
 
   useEffect(() => {
