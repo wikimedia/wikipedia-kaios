@@ -1,7 +1,7 @@
 import { h, Fragment } from 'preact'
 import { route } from 'preact-router'
 import { memo } from 'preact/compat'
-import { useState, useRef, useEffect } from 'preact/hooks'
+import { useState, useRef } from 'preact/hooks'
 import { useArticle, useNavigation, useI18n, useSoftkey, useArticlePagination } from 'hooks'
 import { ArticleToc } from 'components'
 
@@ -14,30 +14,34 @@ const ArticleBody = memo(({ content }) => {
   )
 })
 
+const ArticleAudioPopup = ({ closeFn }) => {
+  useSoftkey('ArticleAudioPopup', {
+    center: 'ClosePopup',
+    onKeyCenter: closeFn
+  }, [])
+  const style = {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    bottom: '30px',
+    top: 100,
+    backgroundColor: 'pink',
+    zIndex: 999
+  }
+  return (
+    <div class='popup' style={style}>
+      <h1>This is a popup on top of the article page</h1>
+    </div>
+  )
+}
+
 const ArticleSection = ({
   lang, imageUrl, title, description, hasActions, content, showToc
 }) => {
   const i18n = useI18n()
-  const softkey = useSoftkey()
   const actionsRef = useRef()
-  const [, setNavigation, getCurrent] = useNavigation(actionsRef, 'x')
-
-  useEffect(() => {
-    softkey.dispatch({ type: 'setOnKeyCenter', event: onKeyCenter })
-  }, [])
-
-  useEffect(() => {
-    // todo: the enter key should only be available on the
-    // first page of the first section
-    softkey.dispatch({
-      type: 'setCenterText',
-      value: hasActions ? i18n.i18n('centerkey-select') : ''
-    })
-    if (hasActions) {
-      setNavigation(0)
-    }
-  }, [hasActions])
-
+  const [,, getCurrent] = useNavigation('Article', actionsRef, 'x')
+  const [isAudioPopupVisible, setAudioPopupVisible] = useState(false)
   const onKeyCenter = () => {
     const current = getCurrent()
     if (current) {
@@ -48,12 +52,20 @@ const ArticleSection = ({
         case 'sections':
           showToc()
           break
+        case 'audio':
+          setAudioPopupVisible(true)
+          break
       }
     }
   }
+  useSoftkey('Article', {
+    center: hasActions ? i18n.i18n('centerkey-select') : '',
+    onKeyCenter
+  }, [hasActions])
 
   return (
     <Fragment>
+      { isAudioPopupVisible && <ArticleAudioPopup closeFn={() => setAudioPopupVisible(false)} />}
       { imageUrl && <div class='lead-image' style={{ backgroundImage: `url(${imageUrl})` }} /> }
       <div class={'card' + (imageUrl ? ' with-image' : '')}>
         <div class='title' dangerouslySetInnerHTML={{ __html: title }} />
@@ -89,7 +101,6 @@ export const Article = ({ lang, title: articleTitle, subtitle: initialSubTitle }
   const i18n = useI18n()
   const containerRef = useRef()
   const article = useArticle(lang, articleTitle)
-  const softkey = useSoftkey()
 
   if (!article) {
     return 'Loading...'
@@ -97,22 +108,15 @@ export const Article = ({ lang, title: articleTitle, subtitle: initialSubTitle }
 
   const [isTocShown, toggleToc] = useState(false)
   const [subTitle, setSubTitle] = useState(initialSubTitle)
-  const [currentSection, setCurrentSection] = useArticlePagination(containerRef, article, subTitle, isTocShown)
+  const [currentSection, setCurrentSection] = useArticlePagination(containerRef, article, subTitle)
   const section = article.sections[currentSection]
 
-  useEffect(() => {
-    if (!isTocShown) {
-      softkey.dispatch({ type: 'setLeftText', value: i18n.i18n('close') })
-      softkey.dispatch({ type: 'setOnKeyLeft', event: () => history.back() })
-      softkey.dispatch({ type: 'setRightText', value: i18n.i18n('sections') })
-      softkey.dispatch({ type: 'setOnKeyRight', event: onKeyRight })
-    }
-  }, [isTocShown])
-
-  // @todo temporarily section until we have the menu
-  const onKeyRight = () => {
-    toggleToc(true)
-  }
+  useSoftkey('Article', {
+    left: i18n.i18n('close'),
+    onKeyLeft: () => history.back(),
+    right: i18n.i18n('sections'),
+    onKeyRight: () => toggleToc(true)
+  }, [])
 
   const goToArticleSubpage = (item) => {
     if (item) {

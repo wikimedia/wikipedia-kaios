@@ -5,34 +5,27 @@ import { useNavigation, useSearch, useLanguage, useI18n, useSoftkey } from 'hook
 
 export const Search = () => {
   const containerRef = useRef()
-  const [current, setNavigation, getCurrent] = useNavigation(containerRef, 'y')
+  const [current, setNavigation, getCurrent] = useNavigation('Search', containerRef, 'y')
   const lang = useLanguage()
   const [query, setQuery, searchResults] = useSearch(lang)
   const i18n = useI18n()
-  const softkey = useSoftkey()
-
-  useEffect(() => {
-    setNavigation(0)
-    softkey.dispatch({ type: 'setLeftText', value: 'Settings' })
-    softkey.dispatch({ type: 'setOnKeyLeft', event: onKeyLeft })
-    softkey.dispatch({ type: 'setRightText', value: '' })
-  }, [])
-
-  useEffect(() => {
-    softkey.dispatch({ type: 'setCenterText', value: current.type === 'INPUT' ? '' : i18n.i18n('centerkey-select') })
-    softkey.dispatch({ type: 'setOnKeyCenter', event: onKeyCenter })
-  }, [current.type])
-
-  const onKeyLeft = () => {
-    window.location.hash = '/settings'
-  }
-
   const onKeyCenter = () => {
     const { index, key } = getCurrent()
     if (index) {
       window.location.hash = `/article/${lang}/${key}`
     }
   }
+
+  useSoftkey('Search', {
+    left: i18n.i18n('Settings'),
+    onKeyLeft: () => { window.location.hash = '/settings' },
+    center: current.type === 'DIV' ? i18n.i18n('centerkey-select') : '',
+    onKeyCenter
+  }, [current.type])
+
+  useEffect(() => {
+    setNavigation(0)
+  }, [])
 
   return (
     <div class='page search'>

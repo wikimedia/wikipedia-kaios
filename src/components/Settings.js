@@ -7,19 +7,6 @@ export const Settings = () => {
   const containerRef = useRef()
   const i18n = useI18n()
   const lang = useLanguage()
-  const softkey = useSoftkey()
-
-  const [, setNavigation, getCurrent] = useNavigation(containerRef, 'y')
-
-  useEffect(() => {
-    setNavigation(0)
-    softkey.dispatch({ type: 'setLeftText', value: '' })
-    softkey.dispatch({ type: 'setRightText', value: i18n.i18n('close') })
-    softkey.dispatch({ type: 'setOnKeyRight', event: () => history.back() })
-    softkey.dispatch({ type: 'setCenterText', value: i18n.i18n('centerkey-select') })
-    softkey.dispatch({ type: 'setOnKeyCenter', event: onKeyCenter })
-  }, [])
-
   const onKeyCenter = () => {
     const { index } = getCurrent()
     const item = items[index]
@@ -29,6 +16,18 @@ export const Settings = () => {
       window.open(item.link)
     }
   }
+  useSoftkey('Settings', {
+    right: i18n.i18n('close'),
+    onKeyRight: () => history.back(),
+    center: i18n.i18n('centerkey-select'),
+    onKeyCenter
+  })
+
+  const [, setNavigation, getCurrent] = useNavigation('Settings', containerRef, 'y')
+
+  useEffect(() => {
+    setNavigation(0)
+  }, [])
 
   const items = [
     { title: i18n.i18n('settings-language') },

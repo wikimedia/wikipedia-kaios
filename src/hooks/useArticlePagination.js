@@ -1,22 +1,20 @@
 import { useState, useLayoutEffect } from 'preact/hooks'
-import { useKeys } from 'hooks'
+import { useSoftkey } from 'hooks'
 
 const DEVICE_WIDTH = 240
 
 export const useArticlePagination = (
   elementRef,
   article,
-  subTitle,
-  isTocShown
+  subTitle
 ) => {
   const [currentSection, setCurrentSection] = useState(findSection(article.toc, subTitle))
   const [isLastPage, setIsLastPage] = useState(0)
   const prop = 'scrollLeft'
   const numOfSection = article.sections.length
 
-  useKeys({
-    ArrowDown: () => {
-      if (isTocShown) return
+  useSoftkey('Article', {
+    onKeyArrowDown: () => {
       const previous = elementRef.current[prop]
       elementRef.current[prop] += DEVICE_WIDTH
       const after = elementRef.current[prop]
@@ -26,8 +24,7 @@ export const useArticlePagination = (
         showNextSection()
       }
     },
-    ArrowUp: () => {
-      if (isTocShown) return
+    onKeyArrowUp: () => {
       const previous = elementRef.current[prop]
       elementRef.current[prop] -= DEVICE_WIDTH
       const after = elementRef.current[prop]
@@ -37,7 +34,7 @@ export const useArticlePagination = (
         showPrevSection()
       }
     }
-  })
+  }, [currentSection])
 
   useLayoutEffect(() => {
     if (isLastPage) {
