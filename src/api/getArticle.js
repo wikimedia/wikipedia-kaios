@@ -55,8 +55,8 @@ export const getArticle = (lang, title) => {
 
       nextContent += s.text
 
-      // build toc structure
-      toc.push({ level: s.toclevel, line: s.line, sectionIndex: sections.length })
+      // build toc structure (level 1 to 3)
+      s.toclevel <= 3 && toc.push({ level: s.toclevel, line: s.line, sectionIndex: sections.length })
     })
 
     return {
