@@ -41,7 +41,7 @@ const ArticleSection = ({
   const i18n = useI18n()
   const actionsRef = useRef()
   const [,, getCurrent] = useNavigation('Article', actionsRef, 'x')
-  const [isVisible, setVisible] = useState(false)
+  const [isAudioPopupVisible, setAudioPopupVisible] = useState(false)
   const onKeyCenter = () => {
     const current = getCurrent()
     if (current) {
@@ -53,7 +53,7 @@ const ArticleSection = ({
           showToc()
           break
         case 'audio':
-          setVisible(true)
+          setAudioPopupVisible(true)
           break
       }
     }
@@ -65,7 +65,7 @@ const ArticleSection = ({
 
   return (
     <Fragment>
-      { isVisible && <ArticleAudioPopup closeFn={() => setVisible(false)} />}
+      { isAudioPopupVisible && <ArticleAudioPopup closeFn={() => setAudioPopupVisible(false)} />}
       { imageUrl && <div class='lead-image' style={{ backgroundImage: `url(${imageUrl})` }} /> }
       <div class={'card' + (imageUrl ? ' with-image' : '')}>
         <div class='title' dangerouslySetInnerHTML={{ __html: title }} />
