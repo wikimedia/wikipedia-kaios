@@ -56,7 +56,11 @@ export const getArticle = (lang, title) => {
       nextContent += s.text
 
       // build toc structure (level 1 to 3)
-      s.toclevel <= 3 && toc.push({ level: s.toclevel, line: s.line, sectionIndex: sections.length })
+      s.toclevel <= 3 && toc.push({
+        level: s.toclevel,
+        line: convertPlainText(s.line),
+        sectionIndex: sections.length
+      })
     })
 
     return {
@@ -71,4 +75,10 @@ const fixImageUrl = (htmlString) => {
   // The app is served from the app:// protocol so protocol-relative
   // image sources don't work.
   return htmlString.replace(/src="\/\//gi, 'src="https://')
+}
+
+const convertPlainText = string => {
+  var dom = document.createElement('div')
+  dom.innerHTML = string
+  return dom.textContent
 }
