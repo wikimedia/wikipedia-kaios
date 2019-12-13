@@ -22,44 +22,35 @@ export const getArticle = (lang, title) => {
     })
 
     // parse section as the remaining section
-    let nextTitle = ''
-    let nextContent = ''
     data.remaining.sections.forEach((s) => {
-      // the section starts with every toclevel 1
-      if (s.toclevel === 1 && nextTitle) {
-        const modifiedContent = fixImageUrl(nextContent)
-
-        // search for the first image in the content
-        const doc = parser.parseFromString(modifiedContent, 'text/html')
-        const imgNode = doc.querySelector('img')
-
-        sections.push({
-          title: nextTitle,
-          content: modifiedContent,
-          imageUrl: (imgNode && imgNode.getAttribute('src')) || imageUrl
-        })
-
-        nextTitle = ''
-        nextContent = ''
-      }
-
+      // new section when toclevel 1
       if (s.toclevel === 1) {
-        nextTitle = s.line
+        const imgFound = searchForFirstImage(s.text)
+        sections.push({
+          title: s.line,
+          content: fixImageUrl(s.text),
+          imageUrl: imgFound || imageUrl
+        })
+      } else {
+        // group into previous section when toclevel > 1
+        const previousSection = sections[sections.length - 1]
+        const header = 'h' + (s.toclevel + 1)
+        const headerLine = `<${header}>${s.line}</${header}>`
+        previousSection.content += fixImageUrl(headerLine + s.text)
+
+        if (previousSection.imageUrl === imageUrl) {
+          const imageFound = searchForFirstImage(s.text)
+          if (imageFound) {
+            previousSection.imageUrl = imageFound
+          }
+        }
       }
-
-      const header = 'h' + (s.toclevel + 1)
-      const headerLine = `<${header}>${s.line}</${header}>`
-
-      // add header when it is not h1
-      nextContent += s.toclevel !== 1 ? headerLine : ''
-
-      nextContent += s.text
 
       // build toc structure (level 1 to 3)
       s.toclevel <= 3 && toc.push({
         level: s.toclevel,
         line: convertPlainText(s.line),
-        sectionIndex: sections.length
+        sectionIndex: sections.length - 1
       })
     })
 
@@ -81,4 +72,12 @@ const convertPlainText = string => {
   var dom = document.createElement('div')
   dom.innerHTML = string
   return dom.textContent
+}
+
+const searchForFirstImage = content => {
+  const parser = new DOMParser()
+  const doc = parser.parseFromString(content, 'text/html')
+  const imgNode = doc.querySelector('img')
+
+  return (imgNode && imgNode.getAttribute('src')) || false
 }
