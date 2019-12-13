@@ -61,18 +61,16 @@ export const useArticlePagination = (
         .from(elementRef.current.querySelectorAll('h3, h4'))
         .find(e => e.textContent === subTitle)
 
-      subTitleElement && subTitleElement.scrollIntoView()
-
+      const offset = Math.floor(
+        subTitleElement.getBoundingClientRect().left / viewport.width
+      )
       elementRef.current.scrollTop = 0
-      // @todo need to verify the magic number again when testing different device width
-      if (elementRef.current.scrollLeft % viewport.width === 216) {
-        elementRef.current.scrollLeft += (viewport.width - 216)
-      } else {
-        elementRef.current.scrollLeft -= elementRef.current.scrollLeft % viewport.width
-      }
+      elementRef.current.scrollLeft += offset * viewport.width
+      setCurrentPage(elementRef.current.scrollLeft / viewport.width)
     } else {
       elementRef.current.scrollTop = 0
       elementRef.current.scrollLeft = 0
+      setCurrentPage(0)
     }
   }, [subTitle])
 
