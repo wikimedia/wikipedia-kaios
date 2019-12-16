@@ -5,7 +5,8 @@ import { useState, useRef } from 'preact/hooks'
 import { ArticlePreview, ArticleToc } from 'components'
 import {
   useArticle, useI18n, useSoftkey,
-  useArticlePagination, useArticleLinksNavigation
+  useArticlePagination, useArticleLinksNavigation,
+  usePopup
 } from 'hooks'
 
 const ArticleBody = memo(({ content }) => {
@@ -22,10 +23,11 @@ const ArticleSection = ({
 }) => {
   const i18n = useI18n()
   const contentRef = useRef()
-  const [articlePreview, setArticlePreview] = useState()
+
+  const [showPopup] = usePopup(ArticlePreview, { position: 'bottom' })
 
   const onTitleClick = title => {
-    setArticlePreview(title)
+    showPopup({ title, lang })
   }
   const onActionClick = action => {
     if (action === 'quickfacts') {
@@ -43,7 +45,6 @@ const ArticleSection = ({
 
   return (
     <div class='article-section' ref={contentRef}>
-      { articlePreview && <ArticlePreview close={() => setArticlePreview(null)} title={articlePreview} lang={lang} />}
       { imageUrl && <div class='lead-image' style={{ backgroundImage: `url(${imageUrl})` }} /> }
       <div class={'card' + (imageUrl ? ' with-image' : '')}>
         <div class='title' dangerouslySetInnerHTML={{ __html: title }} />

@@ -5,6 +5,7 @@ import { useArticle, useI18n, useSoftkey } from 'hooks'
 export const ArticlePreview = ({ lang, title, close }) => {
   const i18n = useI18n()
   const read = () => {
+    close()
     route(`/article/${lang}/${title}`, true)
   }
   useSoftkey('ArticlePreview', {
