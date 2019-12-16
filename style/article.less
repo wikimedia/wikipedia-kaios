@@ -8,15 +8,13 @@
 
 	.article-section {
 		height: @pageHeight;
-		// This needs to be set to a multiple of the column-width
-		// that allows at least 2 columns in order for columns
-		// to appear at all have have the right width.
-		width: @pageWidth * 2;
+		width: @pageWidth;
 		column-width: @pageWidth;
 		column-gap: 0;
 		// Firefox 48 needs the -moz prefix for column attributes
 		-moz-column-width: @pageWidth;
 		-moz-column-gap: 0;
+		-moz-column-fill: auto;
 		padding-top: 10px;
 		// This prevents long words like URLs from overflowing
 		// onto the next column.
