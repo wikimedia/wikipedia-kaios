@@ -1,16 +1,20 @@
 {
 	"@metadata": {
 		"authors": [
-			"WikiPhoenix"
+			"WikiPhoenix",
+			"Mjälten",
+			"ProletariatetsBefrielseOrkester"
 		]
 	},
 	"app-title": "Wikipedia",
 	"app-subtitle": "Den fria encyklopedin",
 	"app-description": "Med den fria Wikipedia-appen kan du söka och utforska information från hela världen på 300+ språk.",
 	"search-placeholder": "Sök",
+	"sections": "Avsnitt",
 	"settings": "Inställningar",
 	"centerkey-select": "Välj",
 	"close": "Stäng",
+	"softkey-read": "Läst",
 	"settings-language": "Språk",
 	"settings-textsize": "Textstorlek",
 	"settings-about-wikipedia": "Om Wikipedia",

@@ -1,16 +1,19 @@
 {
 	"@metadata": {
 		"authors": [
-			"Xuacu"
+			"Xuacu",
+			"Eduardo Addad de Oliveira"
 		]
 	},
 	"app-title": "Wikipedia",
 	"app-subtitle": "La enciclopedia llibre",
 	"app-description": "Cola aplicación llibre de Wikipedia, busca y esplora información viniente de tol mundu en más de 300 llingües.",
 	"search-placeholder": "Buscar",
+	"sections": "Seiciones",
 	"settings": "Configuración",
 	"centerkey-select": "Seleicionar",
 	"close": "Zarrar",
+	"softkey-read": "Lleer",
 	"settings-language": "Llingua",
 	"settings-textsize": "Tamañu de testu",
 	"settings-about-wikipedia": "Tocante a Wikipedia",

@@ -8,5 +8,17 @@
 	"app-subtitle": "Otevřená encyklopedie",
 	"app-description": "S aplikací Wikipedie můžete vyhledávat a objevovat informace z celého světa ve více než 300 jazycích.",
 	"search-placeholder": "Vyhledávání",
-	"centerkey-select": "Vybrat"
+	"sections": "Sekce",
+	"settings": "Nastavení",
+	"centerkey-select": "Vybrat",
+	"close": "Zavřít",
+	"softkey-read": "Číst",
+	"settings-language": "Jazyk",
+	"settings-textsize": "Velikost textu",
+	"settings-about-wikipedia": "O Wikipedii",
+	"settings-privacy": "Zásady ochrany osobních údajů",
+	"settings-term": "Podmínky užití",
+	"settings-rate": "Ohodnotit aplikaci",
+	"settings-help-feedback": "Pomoc a zpětná vazba",
+	"settings-about-app": "O aplikaci"
 }

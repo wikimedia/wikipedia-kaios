@@ -1,12 +1,18 @@
 {
 	"@metadata": {
 		"authors": [
-			"Beta16"
+			"Beta16",
+			"Eduardo Addad de Oliveira"
 		]
 	},
 	"app-title": "Wikipedia",
+	"app-subtitle": "L'enciclopedia libera",
+	"search-placeholder": "Ricerca",
+	"sections": "Sezioni",
 	"settings": "Impostazioni",
+	"centerkey-select": "Seleziona",
 	"close": "Chiudi",
+	"softkey-read": "Leggi",
 	"settings-language": "Lingua",
 	"settings-textsize": "Dimensione del testo",
 	"settings-about-wikipedia": "Informazioni su Wikipedia",

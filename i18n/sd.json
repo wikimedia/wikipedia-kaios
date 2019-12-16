@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"KaleemBhatti",
-			"Mehtab ahmed"
+			"Mehtab ahmed",
+			"Eduardo Addad de Oliveira"
 		]
 	},
 	"app-title": "وڪيپيڊيا",
@@ -13,6 +14,7 @@
 	"settings": "ترتيبون",
 	"centerkey-select": "چونڊيو",
 	"close": "بند ڪريو",
+	"softkey-read": "پڙهو",
 	"settings-language": "ٻولي",
 	"settings-textsize": "متن جي ماپ",
 	"settings-about-wikipedia": "وڪيپيڊيا بابت",

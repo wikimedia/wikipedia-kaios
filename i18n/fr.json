@@ -4,7 +4,8 @@
 			"Gomoko",
 			"Fitoschido",
 			"Eihel",
-			"Verdy p"
+			"Verdy p",
+			"Wladek92"
 		]
 	},
 	"app-title": "Wikipédia",
@@ -15,6 +16,7 @@
 	"settings": "Paramètres",
 	"centerkey-select": "Sélectionner",
 	"close": "Fermer",
+	"softkey-read": "Lire",
 	"settings-language": "Langue",
 	"settings-textsize": "Taille du texte",
 	"settings-about-wikipedia": "À propos de Wikipédia",

@@ -3,16 +3,19 @@
 		"authors": [
 			"Ihojose",
 			"Madamebiblio",
-			"Fitoschido"
+			"Fitoschido",
+			"Eduardo Addad de Oliveira"
 		]
 	},
 	"app-title": "Wikipedia",
 	"app-subtitle": "La enciclopedia libre",
 	"app-description": "Con la aplicación gratuita de Wikipedia es posible buscar y explorar información proveniente de todo el mundo en más de 300 idiomas.",
 	"search-placeholder": "Buscar",
+	"sections": "Secciones",
 	"settings": "Configuración",
 	"centerkey-select": "Selec.",
 	"close": "Cerrar",
+	"softkey-read": "Leer",
 	"settings-language": "Idioma",
 	"settings-textsize": "Tamaño de texto",
 	"settings-about-wikipedia": "Acerca de Wikipedia",

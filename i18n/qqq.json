@@ -13,7 +13,7 @@
 	"settings": "Label of the settings key",
 	"centerkey-select": "Label of the center key to choose the selected element. This is used in several contexts when the arrow keys are used to move the focus between visual elements.",
 	"close": "Label of the close key\n{{Identical|Close}}",
-	"softkey-read": "Text of the read option in the softkey. Used to read the selected article in the article preview.",
+	"softkey-read": "Text of the read option in the softkey. Used to read the selected article in the article preview.\n{{Identical|Read}}",
 	"settings-language": "Label of the language item list. Shown in the Settings menu, used in language setting.",
 	"settings-textsize": "Label of the Text size item list. Shown in the Settings menu, used in text size setting.",
 	"settings-about-wikipedia": "Label of the About Wikipedia item list. Shown in the Settings menu, used in showing the information of Wikipedia.",

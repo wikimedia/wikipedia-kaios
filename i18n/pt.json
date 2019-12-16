@@ -4,16 +4,19 @@
 			"Dvpita",
 			"Fitoschido",
 			"Hamilton Abreu",
-			"Mansil alfalb"
+			"Mansil alfalb",
+			"Eduardo Addad de Oliveira"
 		]
 	},
 	"app-title": "Wikipédia",
 	"app-subtitle": "A enciclopédia livre",
 	"app-description": "Com a aplicação grátis da Wikipédia, procure e explore informação de todo o mundo em mais de 300 idiomas.",
 	"search-placeholder": "Pesquisar",
+	"sections": "Secções",
 	"settings": "Definições",
 	"centerkey-select": "Selec.",
 	"close": "Fechar",
+	"softkey-read": "Ler",
 	"settings-language": "Língua",
 	"settings-textsize": "Tamanho do texto",
 	"settings-about-wikipedia": "Sobre a Wikipédia",
