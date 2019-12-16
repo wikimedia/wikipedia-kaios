@@ -109,20 +109,18 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
   return (
     <Fragment>
       { isTocShown && <ArticleToc items={article.toc} close={goToArticleSubpage} /> }
-      <div class='page pages-container' ref={containerRef}>
-        <div class='pages article'>
-          <ArticleSection
-            key={currentSection}
-            lang={lang}
-            title={section.title}
-            description={section.description}
-            imageUrl={section.imageUrl}
-            hasActions={currentSection === 0}
-            content={section.content}
-            showToc={() => toggleToc(true)}
-            page={currentPage}
-          />
-        </div>
+      <div class='page article' ref={containerRef}>
+        <ArticleSection
+          key={currentSection}
+          lang={lang}
+          title={section.title}
+          description={section.description}
+          imageUrl={section.imageUrl}
+          hasActions={currentSection === 0}
+          content={section.content}
+          showToc={() => toggleToc(true)}
+          page={currentPage}
+        />
       </div>
     </Fragment>
   )
