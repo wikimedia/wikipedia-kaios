@@ -77,7 +77,10 @@ const convertPlainText = string => {
 const searchForFirstImage = content => {
   const parser = new DOMParser()
   const doc = parser.parseFromString(content, 'text/html')
-  const imgNode = doc.querySelector('img')
-
-  return (imgNode && imgNode.getAttribute('src')) || false
+  for (const imgNode of doc.querySelectorAll('img')) {
+    if (imgNode.getAttribute('width') >= 200) {
+      return 'https:' + imgNode.getAttribute('src')
+    }
+  }
+  return false
 }
