@@ -7,14 +7,6 @@
 	overflow: -moz-scrollbars-none;
 
 	.article-section {
-		height: @pageHeight;
-		width: @pageWidth;
-		column-width: @pageWidth;
-		column-gap: 0;
-		// Firefox 48 needs the -moz prefix for column attributes
-		-moz-column-width: @pageWidth;
-		-moz-column-gap: 0;
-		-moz-column-fill: auto;
 		padding-top: 10px;
 		// This prevents long words like URLs from overflowing
 		// onto the next column.
@@ -23,8 +15,8 @@
 		.lead-image {
 			margin-top: -10px;
 			width: 100%;
-			height: @pageHeight;
-			background-size: @pageWidth auto;
+			height: 100%;
+			background-size: 100% auto;
 			background-repeat: no-repeat;
 		}
 	
@@ -68,21 +60,24 @@
 				&-button {
 					text-align: center;
 					flex-basis: -moz-max-content;
-	
+					flex: auto;
+
 					label {
 						display: inline-block;
+						color: #3366cc;
 						font-size: @smallFont;
 					}
 	
 					img {
-						width: 45px;
-						height: 45px;
+						width: 55px;
+						height: 55px;
+						padding: 4px;
 					}
 	
 					&[data-selected=true] {
 						img {
-							border-radius: 2px;
-							border: solid 1px rgba(51, 102, 204, 0.5);
+							-moz-outline-radius: 2px;
+							outline: solid 1px rgba(51, 102, 204, 0.5);
 							background-color: #eaf3ff;
 						}
 					}
@@ -98,7 +93,7 @@
 		text-align: justify;
 	
 		* {
-			max-width: 200px;
+			max-width: 100%;
 		}
 	
 		table {
@@ -122,6 +117,7 @@
 		a {
 			text-decoration: none;
 			page-break-inside: avoid; // doesn't work
+			padding: 1px;
 		}
 	
 		.quotebox {
@@ -134,7 +130,8 @@
 	
 		[data-selected=true] {
 			background-color: #eaf3ff;
-			text-decoration: underline;
+			outline: solid 1px rgba(51, 102, 204, 0.48);
+			-moz-outline-radius: 2px;
 		}
 	}
 }

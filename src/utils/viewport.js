@@ -1,3 +1,4 @@
 export const viewport = {
-  width: 240
+  width: window.screen.width,
+  height: window.screen.height
 }
