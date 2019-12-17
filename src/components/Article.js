@@ -63,10 +63,6 @@ const ArticleSection = ({
               <img src='images/quickfacts.svg' /><br />
               <label>Quick Facts</label>
             </div>
-            <div class='article-actions-button' data-action='audio'>
-              <img src='images/audio.svg' /><br />
-              <label>Audio</label>
-            </div>
           </div>
         ) }
         <ArticleBody content={content} />
