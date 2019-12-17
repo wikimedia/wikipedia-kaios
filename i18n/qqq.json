@@ -23,6 +23,7 @@
 	"softkey-search": "Label of the search softkey",
 	"softkey-sections": "Label of the sections softkey",
 	"softkey-settings": "Label of the settings softkey",
+	"reference-title": "Header of the reference preview popup.\n* $1 - Number of the current reference.",
 	"settings-language": "Label of the language item list. Shown in the Settings menu, used in language setting.",
 	"settings-textsize": "Label of the Text size item list. Shown in the Settings menu, used in text size setting.",
 	"settings-about-wikipedia": "Label of the About Wikipedia item list. Shown in the Settings menu, used in showing the information of Wikipedia.",

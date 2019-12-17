@@ -6,6 +6,7 @@ export const getArticle = (lang, title) => {
     const parser = new DOMParser()
     const imageUrl = data.lead.image && data.lead.image.urls['320']
     const toc = []
+    const references = {}
 
     // parse info box
     const doc = parser.parseFromString(data.lead.sections[0].text, 'text/html')
@@ -21,11 +22,12 @@ export const getArticle = (lang, title) => {
       content: fixImageUrl(data.lead.sections[0].text)
     })
 
-    // parse section as the remaining section
+    // parse remaining sections
     data.remaining.sections.forEach((s) => {
+      const sectionDoc = parser.parseFromString(s.text, 'text/html')
       // new section when toclevel 1
       if (s.toclevel === 1) {
-        const imgFound = searchForFirstImage(s.text)
+        const imgFound = searchForFirstImage(sectionDoc)
         sections.push({
           title: s.line,
           content: fixImageUrl(s.text),
@@ -39,7 +41,7 @@ export const getArticle = (lang, title) => {
         previousSection.content += fixImageUrl(headerLine + s.text)
 
         if (previousSection.imageUrl === imageUrl) {
-          const imageFound = searchForFirstImage(s.text)
+          const imageFound = searchForFirstImage(sectionDoc)
           if (imageFound) {
             previousSection.imageUrl = imageFound
           }
@@ -52,12 +54,22 @@ export const getArticle = (lang, title) => {
         line: convertPlainText(s.line),
         sectionIndex: sections.length - 1
       })
+
+      // build references list
+      if (s.isReferenceSection) {
+        const refNodes = sectionDoc.querySelectorAll('li[id^="cite_"]')
+        for (const refNode of refNodes) {
+          const [id, ref] = extractReference(refNode)
+          references[id] = ref
+        }
+      }
     })
 
     return {
       sections,
       infobox,
-      toc
+      toc,
+      references
     }
   })
 }
@@ -74,13 +86,19 @@ const convertPlainText = string => {
   return dom.textContent
 }
 
-const searchForFirstImage = content => {
-  const parser = new DOMParser()
-  const doc = parser.parseFromString(content, 'text/html')
+const searchForFirstImage = doc => {
   for (const imgNode of doc.querySelectorAll('img')) {
     if (imgNode.getAttribute('width') >= 200) {
       return 'https:' + imgNode.getAttribute('src')
     }
   }
   return false
+}
+
+const extractReference = refNode => {
+  const id = refNode.getAttribute('id')
+  const [, number] = id.match(/.*?-(\d+)/)
+  const refContentNode = refNode.querySelector('.mw-reference-text')
+  const content = refContentNode ? refContentNode.outerHTML : ''
+  return [id, { number, content }]
 }

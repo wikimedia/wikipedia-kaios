@@ -5,7 +5,10 @@ export const PopupContainer = ({ component, props, options }) => {
     options = options || {}
     const style = {}
     if (options.position === 'bottom') {
-      style.top = '50%'
+      style.top = '20%'
+    } else if (options.position === 'auto') {
+      style.top = 'auto'
+      style.maxHeight = '80vh'
     }
     return (
       <div class='popup'>
