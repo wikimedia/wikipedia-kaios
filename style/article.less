@@ -7,6 +7,14 @@
 	overflow: -moz-scrollbars-none;
 
 	.article-section {
+		height: calc(100vh - @softkeysHeight);
+		width: 100vw;
+		column-width: 100vw;
+		column-gap: 0;
+		// Firefox 48 needs the -moz prefix for column attributes
+		-moz-column-width: 100vw;
+		-moz-column-gap: 0;
+		-moz-column-fill: auto;
 		padding-top: 10px;
 		// This prevents long words like URLs from overflowing
 		// onto the next column.

@@ -3,7 +3,6 @@ import { route } from 'preact-router'
 import { memo } from 'preact/compat'
 import { useState, useRef } from 'preact/hooks'
 import { ArticlePreview, ArticleToc } from 'components'
-import { viewport } from 'utils'
 import {
   useArticle, useI18n, useSoftkey,
   useArticlePagination, useArticleLinksNavigation
@@ -42,19 +41,8 @@ const ArticleSection = ({
     center: selectedLink ? i18n.i18n('centerkey-select') : ''
   }, [selectedLink])
 
-  // Inline style
-  const sectionStyle = `
-  width: ${viewport.width}px;
-  height: ${viewport.height - 56}px;
-  column-width:${viewport.width}px;
-  column-gap:0;
-  /* Firefox 48 needs the -moz prefix for column attributes */
-  -moz-column-width: ${viewport.width}px;
-  -moz-column-gap: 0;
-  -moz-column-fill: auto;`
-
   return (
-    <div class='article-section' ref={contentRef} style={sectionStyle}>
+    <div class='article-section' ref={contentRef}>
       { articlePreview && <ArticlePreview close={() => setArticlePreview(null)} title={articlePreview} lang={lang} />}
       { imageUrl && <div class='lead-image' style={{ backgroundImage: `url(${imageUrl})` }} /> }
       <div class={'card' + (imageUrl ? ' with-image' : '')}>
