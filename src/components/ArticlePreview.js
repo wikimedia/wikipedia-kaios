@@ -24,17 +24,14 @@ export const ArticlePreview = ({ lang, title, close }) => {
 
   return (
     <div class='article-preview'>
-      <div class='shader' />
-      <div class='preview-content'>
-        <div class='item'>
-          <div class='info'>
-            <div class='title' dangerouslySetInnerHTML={{ __html: data.title }} />
-            <div class='description' dangerouslySetInnerHTML={{ __html: data.description }} />
-          </div>
-          { data.imageUrl && <div class='img'><img src={data.imageUrl} /></div> }
+      <div class='item'>
+        <div class='info'>
+          <div class='title' dangerouslySetInnerHTML={{ __html: data.title }} />
+          <div class='description' dangerouslySetInnerHTML={{ __html: data.description }} />
         </div>
-        <div class='preview-text' dangerouslySetInnerHTML={{ __html: data.content }} />
+        { data.imageUrl && <div class='img'><img src={data.imageUrl} /></div> }
       </div>
+      <div class='preview-text' dangerouslySetInnerHTML={{ __html: data.content }} />
     </div>
   )
 }
