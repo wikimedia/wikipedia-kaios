@@ -40,7 +40,7 @@ export const Settings = () => {
     { title: i18n.i18n('settings-about-app') }
   ]
 
-  return <div class='page settings'>
+  return <div class='settings'>
     {/* @todo thinking of <Header name='settings'/> */}
     <div class='header'>Settings</div>
     <ListView items={items} containerRef={containerRef} />

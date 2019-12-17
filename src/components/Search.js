@@ -28,7 +28,7 @@ export const Search = () => {
   }, [])
 
   return (
-    <div class='page search'>
+    <div class='search'>
       <img class='double-u' src='images/w.svg' style={{ display: (searchResults ? 'none' : 'block') }} />
       <input type='text' placeholder={i18n.i18n('search-placeholder')} value={query} onInput={(e) => setQuery(e.target.value)} data-selectable />
       { searchResults && <ListView items={searchResults} containerRef={containerRef} /> }

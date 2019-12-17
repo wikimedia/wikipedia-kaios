@@ -56,15 +56,15 @@ const ArticleSection = ({
         { hasActions && (
           <div class='article-actions'>
             <div class='article-actions-button' data-action='sections'>
-              <img src='images/sections.svg' />
+              <img src='images/sections.svg' /><br />
               <label>Sections</label>
             </div>
             <div class='article-actions-button' data-action='quickfacts'>
-              <img src='images/quickfacts.svg' />
+              <img src='images/quickfacts.svg' /><br />
               <label>Quick Facts</label>
             </div>
             <div class='article-actions-button' data-action='audio'>
-              <img src='images/audio.svg' />
+              <img src='images/audio.svg' /><br />
               <label>Audio</label>
             </div>
           </div>
@@ -109,7 +109,7 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
   return (
     <Fragment>
       { isTocShown && <ArticleToc items={article.toc} close={goToArticleSubpage} /> }
-      <div class='page article' ref={containerRef}>
+      <div class='article' ref={containerRef}>
         <ArticleSection
           key={currentSection}
           lang={lang}

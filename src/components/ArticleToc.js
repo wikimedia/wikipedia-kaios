@@ -27,7 +27,7 @@ export const ArticleToc = ({ items, close }) => {
     setNavigation(0)
   }, [])
 
-  return <div class='page toc'>
+  return <div class='toc'>
     <div class='header'>{i18n.i18n('sections')}</div>
     <ListView items={listItems} containerRef={containerRef} />
   </div>
