@@ -24,10 +24,10 @@ const ArticleSection = ({
   const i18n = useI18n()
   const contentRef = useRef()
 
-  const [showPopup] = usePopup(ArticlePreview, { position: 'bottom' })
+  const [showArticlePreview] = usePopup(ArticlePreview, { position: 'bottom' })
 
   const onTitleClick = title => {
-    showPopup({ title, lang })
+    showArticlePreview({ title, lang })
   }
   const onActionClick = action => {
     if (action === 'quickfacts') {
