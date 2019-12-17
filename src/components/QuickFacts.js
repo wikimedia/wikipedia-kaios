@@ -26,7 +26,7 @@ export const QuickFacts = ({ lang, title }) => {
   return (
     <Fragment>
       <div
-        class='page quickfacts'
+        class='quickfacts'
         ref={containerRef}
         dangerouslySetInnerHTML={{ __html: article.infobox }}
       />

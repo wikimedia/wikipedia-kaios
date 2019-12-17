@@ -109,7 +109,7 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
   return (
     <Fragment>
       { isTocShown && <ArticleToc items={article.toc} close={goToArticleSubpage} /> }
-      <div class='page article' ref={containerRef}>
+      <div class='article' ref={containerRef}>
         <ArticleSection
           key={currentSection}
           lang={lang}
