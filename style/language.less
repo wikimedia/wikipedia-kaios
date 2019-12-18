@@ -1,5 +1,8 @@
 .language {
 
+	background-color: #3366cc;
+	text-align: center;
+
 	.header {
 		height: @pageHeaderHeight;
 		max-height: @pageHeaderHeight;
@@ -11,19 +14,26 @@
 		text-align: center;
 	}
 
-	.list {
-		top: @pageHeaderHeight;
+	input {
+		width: 214px;
+		font-size: 17px;
+		font-family: @textFont;
+		font-size: 17px;
+		color: #323232;
+		margin: 5px 10px;
+		border-radius: 2px;
+		padding: 2px;
+		border: 1px;
+
+		&:focus {
+			outline: none;
+		}
+	}
+
+	.radio-list {
+		top: 60px;
 		bottom: @softkeysHeight;
-
-		.info .title {
-			font-family: @textFont;
-			font-size: 17px;
-		}
-
-		.item[nav-selected="true"] {
-			background-color: #eaecf0;
-		}
-	}   
+	}
 }
 
 .language-message {

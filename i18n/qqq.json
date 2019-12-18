@@ -9,6 +9,7 @@
 	"app-subtitle": "Subtitle of the application. Shown in the app store.",
 	"app-description": "Description of the application. Shown in the app store.",
 	"done": "Label of the done key",
+	"search-language-placeholder": "Placeholder of input in the language settings page",
 	"search-placeholder": "Placeholder of the search input.\n{{Identical|Search}}",
 	"sections": "Label of the sections key",
 	"settings": "Label of the settings key",

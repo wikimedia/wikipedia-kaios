@@ -15,7 +15,7 @@ export const Settings = () => {
     if (item.link) {
       window.open(item.link)
     } else if (item.path) {
-      window.location.hash = '/language'
+      window.location.hash = item.path
     }
   }
   useSoftkey('Settings', {
