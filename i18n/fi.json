@@ -9,6 +9,17 @@
 	"app-subtitle": "Vapaa tietosanakirja",
 	"app-description": "Ilmaisella Wikipedia-sovelluksella, haet ja tutkit tietoa ympäri maailmaa yli 300 kielellä.",
 	"search-placeholder": "Haku",
+	"sections": "Osiot",
+	"settings": "Asetukset",
 	"centerkey-select": "Valitse",
-	"settings-about-wikipedia": "Tietoja Wikipediasta"
+	"close": "Sulje",
+	"softkey-read": "Lue",
+	"settings-language": "Kieli",
+	"settings-textsize": "Tekstin koko",
+	"settings-about-wikipedia": "Tietoja Wikipediasta",
+	"settings-privacy": "Tietosuojakäytäntö",
+	"settings-term": "Käyttöehdot",
+	"settings-rate": "Arvostele sovellus",
+	"settings-help-feedback": "Ohje ja palaute",
+	"settings-about-app": "Tietoja sovelluksesta"
 }

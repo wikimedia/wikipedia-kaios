@@ -1,0 +1,20 @@
+{
+	"@metadata": {
+		"authors": [
+			"Hikemaniac"
+		]
+	},
+	"app-title": "Wikipedia",
+	"app-subtitle": "Die freie Enzyklopädie",
+	"search-placeholder": "Suchen",
+	"sections": "Abschnitte",
+	"settings": "Einstellungen",
+	"settings-language": "Sprache",
+	"settings-textsize": "Textgröße",
+	"settings-about-wikipedia": "Über Wikipedia",
+	"settings-privacy": "Datenschutzrichtlinie",
+	"settings-term": "Nutzungsbedingungen",
+	"settings-rate": "Die App bewerten",
+	"settings-help-feedback": "Hilfe und Rückmeldung",
+	"settings-about-app": "Über die App"
+}
