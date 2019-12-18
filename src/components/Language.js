@@ -1,9 +1,10 @@
 import { h } from 'preact'
 import { useState, useRef, useEffect } from 'preact/hooks'
+import { loadMessages } from 'api'
 import { useNavigation, useI18n, useSoftkey, usePopup } from 'hooks'
 import { RadioListView } from 'components'
 
-// @todo replace with hi mr code
+// @todo replace with all language code
 const initialListItem = [
   { title: 'English (Default)', lang: 'en' },
   { title: 'Spanish', lang: 'es' },
@@ -13,7 +14,7 @@ const initialListItem = [
 export const Language = () => {
   const containerRef = useRef()
   const i18n = useI18n()
-  const lang = i18n.locale
+  const [lang, setLang] = useState(i18n.locale)
   const [items, setItems] = useState(initialListItem)
   const [showLanguagePopup] = usePopup(languagePopup, { position: 'bottom' })
   const [, setNavigation, getCurrent] = useNavigation('Language', containerRef, 'y')
@@ -22,7 +23,13 @@ export const Language = () => {
     const { index } = getCurrent()
     const item = items[index]
 
-    i18n.setLocale(item.lang)
+    // load new language json file
+    loadMessages(item.lang).then((messages) => {
+      i18n.setLocale(item.lang)
+      i18n.load(messages)
+      setLang(i18n.locale)
+    })
+
     setItems(items.map((item, itemIndex) => {
       item.isSelected = itemIndex === index
       return item
@@ -34,7 +41,7 @@ export const Language = () => {
     onKeyLeft: () => history.back(),
     center: i18n.i18n('centerkey-select'),
     onKeyCenter
-  })
+  }, [lang])
 
   useEffect(() => {
     // find the current selected language
