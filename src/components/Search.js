@@ -17,7 +17,7 @@ export const Search = () => {
   }
 
   useSoftkey('Search', {
-    left: i18n.i18n('Settings'),
+    left: i18n.i18n('settings'),
     onKeyLeft: () => { window.location.hash = '/settings' },
     center: current.type === 'DIV' ? i18n.i18n('centerkey-select') : '',
     onKeyCenter
