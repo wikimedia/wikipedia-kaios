@@ -1,14 +1,14 @@
 import { h } from 'preact'
 import { useRef, useEffect } from 'preact/hooks'
 import { ListView } from 'components'
-import { useNavigation, useSearch, useLanguage, useI18n, useSoftkey } from 'hooks'
+import { useNavigation, useSearch, useI18n, useSoftkey } from 'hooks'
 
 export const Search = () => {
   const containerRef = useRef()
   const [current, setNavigation, getCurrent] = useNavigation('Search', containerRef, 'y')
-  const lang = useLanguage()
-  const [query, setQuery, searchResults] = useSearch(lang)
   const i18n = useI18n()
+  const lang = i18n.locale
+  const [query, setQuery, searchResults] = useSearch(lang)
   const onKeyCenter = () => {
     const { index, key } = getCurrent()
     if (index) {

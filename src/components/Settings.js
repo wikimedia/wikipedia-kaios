@@ -1,12 +1,12 @@
 import { h } from 'preact'
 import { useRef, useEffect } from 'preact/hooks'
-import { useNavigation, useI18n, useLanguage, useSoftkey } from 'hooks'
+import { useNavigation, useI18n, useSoftkey } from 'hooks'
 import { ListView } from 'components'
 
 export const Settings = () => {
   const containerRef = useRef()
   const i18n = useI18n()
-  const lang = useLanguage()
+  const lang = i18n.locale
   const onKeyCenter = () => {
     const { index } = getCurrent()
     const item = items[index]
