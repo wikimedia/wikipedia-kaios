@@ -1,0 +1,47 @@
+.language {
+
+	.header {
+		height: @pageHeaderHeight;
+		max-height: @pageHeaderHeight;
+		background-color: #d8d8d8;
+		box-sizing: border-box;
+		padding: 3px 0;
+		font-family: @textFont regular;
+		font-size: 17px;
+		text-align: center;
+	}
+
+	.list {
+		top: @pageHeaderHeight;
+		bottom: @softkeysHeight;
+
+		.info .title {
+			font-family: @textFont;
+			font-size: 17px;
+		}
+
+		.item[nav-selected="true"] {
+			background-color: #eaecf0;
+		}
+	}   
+}
+
+.language-message {
+	
+	font-family: @textFont regular;
+
+	.header {
+		height: @pageHeaderHeight;
+		max-height: @pageHeaderHeight;
+		background-color: #d8d8d8;
+		box-sizing: border-box;
+		padding: 6px 0;
+		font-size: 17px;
+		text-align: center;
+	}
+
+	p.preview-text {
+		font-size: 12px;
+		margin: 10px;
+	}
+}

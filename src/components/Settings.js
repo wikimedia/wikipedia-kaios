@@ -12,8 +12,10 @@ export const Settings = () => {
     const item = items[index]
 
     // open link
-    if (item && item.link) {
+    if (item.link) {
       window.open(item.link)
+    } else if (item.path) {
+      window.location.hash = '/language'
     }
   }
   useSoftkey('Settings', {
@@ -30,7 +32,7 @@ export const Settings = () => {
   }, [])
 
   const items = [
-    { title: i18n.i18n('settings-language') },
+    { title: i18n.i18n('settings-language'), path: '/language' },
     { title: i18n.i18n('settings-textsize') },
     { title: i18n.i18n('settings-about-wikipedia') },
     { title: i18n.i18n('settings-privacy'), link: 'https://foundation.m.wikimedia.org/wiki/Privacy_policy' },
