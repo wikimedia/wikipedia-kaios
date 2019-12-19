@@ -1,5 +1,5 @@
 // json language file given by iOS team
-export const allLanguages = [
+const languages = [
   {
     canonical_name: 'English',
     code: 'en',
@@ -1447,3 +1447,11 @@ export const allLanguages = [
     name: 'Test Wiki'
   }
 ]
+
+export const allLanguages = languages.map(language => {
+  return {
+    lang: language.code,
+    title: language.name,
+    canonical_name: language.canonical_name
+  }
+})

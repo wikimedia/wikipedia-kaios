@@ -1,3 +1,3 @@
 export * from './cachedFetch'
 export * from './viewport'
-export * from './allLanguages'
+export * from './languages'

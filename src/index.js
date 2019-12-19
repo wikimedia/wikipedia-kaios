@@ -5,7 +5,7 @@ import { loadMessages } from 'api'
 import { App } from 'components'
 import '../style/style.less'
 
-const lang = navigator.language.substr(0, 2)
+const lang = localStorage.getItem('language-app') || navigator.language.substr(0, 2)
 const banana = new Banana(lang)
 loadMessages(lang).then((messages) => {
   banana.load(messages)
