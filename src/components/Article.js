@@ -87,10 +87,10 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
   const section = article.sections[currentSection]
 
   useSoftkey('Article', {
-    left: i18n.i18n('softkey-close'),
-    onKeyLeft: () => history.back(),
-    right: i18n.i18n('softkey-sections'),
-    onKeyRight: () => toggleToc(true)
+    left: i18n.i18n('softkey-sections'),
+    onKeyLeft: () => toggleToc(true),
+    right: i18n.i18n('softkey-close'),
+    onKeyRight: () => history.back()
   }, [])
 
   const goToArticleSubpage = (item) => {
