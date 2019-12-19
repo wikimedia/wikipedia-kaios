@@ -81,8 +81,8 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
     return 'Loading...'
   }
 
-  const [isTocShown, toggleToc] = useState(false)
   const [subTitle, setSubTitle] = useState(initialSubTitle)
+  const [popupToc] = usePopup(ArticleToc)
   const [currentSection, setCurrentSection, currentPage] = useArticlePagination(containerRef, article, subTitle)
   const section = article.sections[currentSection]
 
@@ -90,7 +90,7 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
     left: i18n.i18n('softkey-close'),
     onKeyLeft: () => history.back(),
     right: i18n.i18n('softkey-sections'),
-    onKeyRight: () => toggleToc(true)
+    onKeyRight: () => showToc()
   }, [])
 
   const goToArticleSubpage = (item) => {
@@ -100,26 +100,26 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
       setSubTitle(title)
       route(`/article/${lang}/${articleTitle}/${title}`, true)
     }
-    toggleToc(false)
+  }
+
+  const showToc = () => {
+    popupToc({ items: article.toc, closeFn: goToArticleSubpage })
   }
 
   return (
-    <Fragment>
-      { isTocShown && <ArticleToc items={article.toc} close={goToArticleSubpage} /> }
-      <div class='article' ref={containerRef}>
-        <ArticleSection
-          key={currentSection}
-          lang={lang}
-          title={section.title}
-          description={section.description}
-          imageUrl={section.imageUrl}
-          hasActions={currentSection === 0}
-          content={section.content}
-          showToc={() => toggleToc(true)}
-          page={currentPage}
-        />
-      </div>
-    </Fragment>
+    <div class='article' ref={containerRef}>
+      <ArticleSection
+        key={currentSection}
+        lang={lang}
+        title={section.title}
+        description={section.description}
+        imageUrl={section.imageUrl}
+        hasActions={currentSection === 0}
+        content={section.content}
+        showToc={() => showToc()}
+        page={currentPage}
+      />
+    </div>
   )
 }
 
