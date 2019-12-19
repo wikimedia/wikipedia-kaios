@@ -3,7 +3,7 @@ const languages = [
   {
     canonical_name: 'English',
     code: 'en',
-    name: 'English'
+    name: 'English (Default)'
   },
   {
     canonical_name: 'Dutch',
