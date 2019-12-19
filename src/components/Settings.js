@@ -1,23 +1,26 @@
 import { h } from 'preact'
+import { route } from 'preact-router'
 import { useRef, useEffect } from 'preact/hooks'
-import { useNavigation, useI18n, useLanguage, useSoftkey } from 'hooks'
+import { useNavigation, useI18n, useSoftkey } from 'hooks'
 import { ListView } from 'components'
 
 export const Settings = () => {
   const containerRef = useRef()
   const i18n = useI18n()
-  const lang = useLanguage()
+  const lang = i18n.locale
   const onKeyCenter = () => {
     const { index } = getCurrent()
     const item = items[index]
 
     // open link
-    if (item && item.link) {
+    if (item.link) {
       window.open(item.link)
+    } else if (item.path) {
+      route(item.path)
     }
   }
   useSoftkey('Settings', {
-    right: i18n.i18n('close'),
+    right: i18n.i18n('softkey-close'),
     onKeyRight: () => history.back(),
     center: i18n.i18n('centerkey-select'),
     onKeyCenter
@@ -30,7 +33,7 @@ export const Settings = () => {
   }, [])
 
   const items = [
-    { title: i18n.i18n('settings-language') },
+    { title: i18n.i18n('settings-language'), path: '/language' },
     { title: i18n.i18n('settings-textsize') },
     { title: i18n.i18n('settings-about-wikipedia') },
     { title: i18n.i18n('settings-privacy'), link: 'https://foundation.m.wikimedia.org/wiki/Privacy_policy' },
@@ -42,7 +45,7 @@ export const Settings = () => {
 
   return <div class='settings'>
     {/* @todo thinking of <Header name='settings'/> */}
-    <div class='header'>Settings</div>
+    <div class='header'>{i18n.i18n('header-settings')}</div>
     <ListView items={items} containerRef={containerRef} />
   </div>
 }

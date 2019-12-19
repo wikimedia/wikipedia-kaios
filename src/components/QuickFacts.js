@@ -9,7 +9,7 @@ export const QuickFacts = ({ lang, title }) => {
   const [, setNavigation] = useNavigation('QuickFacts', containerRef, 'x', 'a[href]:not(.image)')
   const [scrollDown, scrollUp] = useScroll(containerRef, 10, 'y')
   useSoftkey('QuickFacts', {
-    left: i18n.i18n('close'),
+    left: i18n.i18n('softkey-close'),
     onKeyLeft: () => history.back(),
     onKeyArrowDown: scrollDown,
     onKeyArrowUp: scrollUp
