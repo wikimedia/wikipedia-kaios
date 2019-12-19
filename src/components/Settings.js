@@ -20,7 +20,7 @@ export const Settings = () => {
     }
   }
   useSoftkey('Settings', {
-    right: i18n.i18n('close'),
+    right: i18n.i18n('softkey-close'),
     onKeyRight: () => history.back(),
     center: i18n.i18n('centerkey-select'),
     onKeyCenter
@@ -45,7 +45,7 @@ export const Settings = () => {
 
   return <div class='settings'>
     {/* @todo thinking of <Header name='settings'/> */}
-    <div class='header'>Settings</div>
+    <div class='header'>{i18n.i18n('header-settings')}</div>
     <ListView items={items} containerRef={containerRef} />
   </div>
 }

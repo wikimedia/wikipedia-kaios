@@ -3,6 +3,7 @@ import { useState, useRef, useEffect } from 'preact/hooks'
 import { loadMessages } from 'api'
 import { useNavigation, useI18n, useSoftkey, usePopup, useSearchLanguage } from 'hooks'
 import { RadioListView } from 'components'
+import { setAppLanguage } from 'utils'
 
 export const Language = () => {
   const containerRef = useRef()
@@ -24,17 +25,17 @@ export const Language = () => {
         i18n.setLocale(item.lang)
         i18n.load(messages)
         setLang(i18n.locale)
-        localStorage.setItem('language-app', item.lang)
+        setAppLanguage(item.lang)
       })
     }
   }
 
   useSoftkey('Language', {
-    left: i18n.i18n('done'),
+    left: i18n.i18n('softkey-done'),
     onKeyLeft: () => history.back(),
     center: i18n.i18n('centerkey-select'),
     onKeyCenter,
-    right: i18n.i18n('search'),
+    right: i18n.i18n('softkey-search'),
     onKeyRight: () => setNavigation(0)
   }, [lang, items])
 
@@ -52,7 +53,7 @@ export const Language = () => {
 
 const LanguagePopup = ({ close, i18n }) => {
   useSoftkey('LanguageMessage', {
-    center: i18n.i18n('ok'),
+    center: i18n.i18n('softkey-ok'),
     onKeyCenter: close
   }, [])
 

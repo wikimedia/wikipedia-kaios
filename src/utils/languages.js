@@ -1455,3 +1455,11 @@ export const allLanguages = languages.map(language => {
     canonicalName: language.canonical_name
   }
 })
+
+export const setAppLanguage = lang => {
+  localStorage.setItem('language-app', lang)
+}
+
+export const getAppLanguage = () => {
+  return localStorage.getItem('language-app')
+}

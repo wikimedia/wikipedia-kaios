@@ -9,7 +9,7 @@ export const ArticlePreview = ({ lang, title, close }) => {
     route(`/article/${lang}/${title}`, true)
   }
   useSoftkey('ArticlePreview', {
-    left: i18n.i18n('close'),
+    left: i18n.i18n('softkey-close'),
     onKeyLeft: close,
     center: i18n.i18n('softkey-read'),
     onKeyCenter: read
