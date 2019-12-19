@@ -10,7 +10,7 @@ export const Language = () => {
   const i18n = useI18n()
   const [lang, setLang] = useState(i18n.locale)
   const [items, query, setQuery] = useSearchLanguage(lang)
-  const [showLanguagePopup] = usePopup(LanguagePopup, { position: 'bottom' })
+  const [showLanguagePopup] = usePopup(LanguagePopup, { position: 'auto' })
   const [, setNavigation, getCurrent] = useNavigation('Language', containerRef, 'y')
 
   const onKeyCenter = () => {
