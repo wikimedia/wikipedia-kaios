@@ -1452,6 +1452,6 @@ export const allLanguages = languages.map(language => {
   return {
     lang: language.code,
     title: language.name,
-    canonical_name: language.canonical_name
+    canonicalName: language.canonical_name
   }
 })

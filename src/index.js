@@ -9,5 +9,5 @@ const lang = localStorage.getItem('language-app') || navigator.language.substr(0
 const banana = new Banana(lang)
 loadMessages(lang).then((messages) => {
   banana.load(messages)
-  render(<App lang={lang} i18n={banana} />, document.querySelector('#root'))
+  render(<App i18n={banana} />, document.querySelector('#root'))
 })

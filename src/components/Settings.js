@@ -1,4 +1,5 @@
 import { h } from 'preact'
+import { route } from 'preact-router'
 import { useRef, useEffect } from 'preact/hooks'
 import { useNavigation, useI18n, useSoftkey } from 'hooks'
 import { ListView } from 'components'
@@ -15,7 +16,7 @@ export const Settings = () => {
     if (item.link) {
       window.open(item.link)
     } else if (item.path) {
-      window.location.hash = item.path
+      route(item.path)
     }
   }
   useSoftkey('Settings', {

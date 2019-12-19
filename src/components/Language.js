@@ -1,16 +1,15 @@
 import { h } from 'preact'
 import { useState, useRef, useEffect } from 'preact/hooks'
 import { loadMessages } from 'api'
-import { useNavigation, useI18n, useSoftkey, usePopup } from 'hooks'
+import { useNavigation, useI18n, useSoftkey, usePopup, useSearchLanguage } from 'hooks'
 import { RadioListView } from 'components'
-import { allLanguages } from 'utils'
 
 export const Language = () => {
   const containerRef = useRef()
   const i18n = useI18n()
   const [lang, setLang] = useState(i18n.locale)
   const [items, query, setQuery] = useSearchLanguage(lang)
-  const [showLanguagePopup] = usePopup(languagePopup, { position: 'bottom' })
+  const [showLanguagePopup] = usePopup(LanguagePopup, { position: 'bottom' })
   const [, setNavigation, getCurrent] = useNavigation('Language', containerRef, 'y')
 
   const onKeyCenter = () => {
@@ -51,29 +50,7 @@ export const Language = () => {
   </div>
 }
 
-const useSearchLanguage = (lang) => {
-  const [items, setItems] = useState(getInitialLangList(lang))
-  const [query, setQuery] = useState()
-
-  useEffect(() => {
-    const filteredList = query ? filterFirst10Language(query) : getInitialLangList(lang)
-    setItems(filteredList.map(item => {
-      item.isSelected = item.lang === lang
-      return item
-    }))
-  }, [query])
-
-  useEffect(() => {
-    setItems(items.map(item => {
-      item.isSelected = item.lang === lang
-      return item
-    }))
-  }, [lang])
-
-  return [items, query, setQuery]
-}
-
-const languagePopup = ({ close, i18n }) => {
+const LanguagePopup = ({ close, i18n }) => {
   useSoftkey('LanguageMessage', {
     center: i18n.i18n('ok'),
     onKeyCenter: close
@@ -83,28 +60,4 @@ const languagePopup = ({ close, i18n }) => {
     <div class='header'>{i18n.i18n('language-setting')}</div>
     <p class='preview-text'>{i18n.i18n('language-setting-message')}</p>
   </div>
-}
-
-const filterFirst10Language = text => {
-  const foundList = []
-  for (let i = 0; foundList.length < 10 && i < allLanguages.length; i++) {
-    if (
-      allLanguages[i].title.toLowerCase().indexOf(text) > -1 ||
-      allLanguages[i].canonical_name.toLowerCase().indexOf(text) > -1 ||
-      allLanguages[i].lang.toLowerCase().indexOf(text) > -1
-    ) {
-      foundList.push(allLanguages[i])
-    }
-  }
-  return foundList
-}
-
-const getInitialLangList = lang => {
-  const list = allLanguages.slice(0, 10)
-
-  if (!list.find(language => language.lang === lang)) {
-    list.unshift(allLanguages.find(language => language.lang === lang))
-  }
-
-  return list
 }
