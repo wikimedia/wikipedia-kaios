@@ -90,7 +90,8 @@ const filterFirst10Language = text => {
   for (let i = 0; foundList.length < 10 && i < allLanguages.length; i++) {
     if (
       allLanguages[i].title.toLowerCase().indexOf(text) > -1 ||
-      allLanguages[i].canonical_name.toLowerCase().indexOf(text) > -1
+      allLanguages[i].canonical_name.toLowerCase().indexOf(text) > -1 ||
+      allLanguages[i].lang.toLowerCase().indexOf(text) > -1
     ) {
       foundList.push(allLanguages[i])
     }
