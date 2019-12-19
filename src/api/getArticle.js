@@ -1,7 +1,7 @@
 import { cachedFetch } from 'utils'
 
 export const getArticle = (lang, title) => {
-  const url = `https://${lang}.wikipedia.org/api/rest_v1/page/mobile-sections/${title}`
+  const url = `https://${lang}.wikipedia.org/api/rest_v1/page/mobile-sections/${encodeURIComponent(title)}`
   return cachedFetch(url, data => {
     const parser = new DOMParser()
     const imageUrl = data.lead.image && data.lead.image.urls['320']

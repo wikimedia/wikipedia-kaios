@@ -15,7 +15,7 @@ export const search = (lang, term) => {
     pithumbsize: 64,
     gpslimit: 15,
     gpsnamespace: 0,
-    gpssearch: term
+    gpssearch: encodeURIComponent(term)
   }
   const url = baseUrl + '?' + Object.keys(params).map(p => `${p}=${params[p]}`).join('&')
   return cachedFetch(url, data => {
