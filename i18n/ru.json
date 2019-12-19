@@ -8,6 +8,17 @@
 	"app-title": "Википедия",
 	"app-subtitle": "Свободная энциклопедия",
 	"search-placeholder": "Поиск",
+	"sections": "Разделы",
+	"settings": "Настройки",
 	"centerkey-select": "Выбрать",
-	"close": "Закрыть"
+	"close": "Закрыть",
+	"softkey-read": "Читать",
+	"settings-language": "Язык",
+	"settings-textsize": "Размер текста",
+	"settings-about-wikipedia": "О Википедии",
+	"settings-privacy": "Политика конфиденциальности",
+	"settings-term": "Условия использования",
+	"settings-rate": "Оцените приложение",
+	"settings-help-feedback": "Помощь и обратная связь",
+	"settings-about-app": "О приложении"
 }

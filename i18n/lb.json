@@ -7,6 +7,7 @@
 	"app-title": "Wikipedia",
 	"app-subtitle": "Déi fräi Enzyklopedie",
 	"search-placeholder": "Sichen",
+	"sections": "Abschnitter",
 	"settings": "Astellungen",
 	"centerkey-select": "Eraussichen",
 	"close": "Zoumaachen",
@@ -15,5 +16,6 @@
 	"settings-textsize": "Gréisst vum Text",
 	"settings-about-wikipedia": "Iwwer Wikipedia",
 	"settings-term": "Benotzungs-Bedingungen",
+	"settings-rate": "D'App bewäerten",
 	"settings-help-feedback": "Hëllef a Feedback"
 }
