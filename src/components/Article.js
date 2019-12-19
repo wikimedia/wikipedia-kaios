@@ -82,16 +82,9 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
   }
 
   const [subTitle, setSubTitle] = useState(initialSubTitle)
-  const [popupToc] = usePopup(ArticleToc)
+  const [showTocPopup] = usePopup(ArticleToc)
   const [currentSection, setCurrentSection, currentPage] = useArticlePagination(containerRef, article, subTitle)
   const section = article.sections[currentSection]
-
-  useSoftkey('Article', {
-    left: i18n.i18n('softkey-close'),
-    onKeyLeft: () => history.back(),
-    right: i18n.i18n('softkey-sections'),
-    onKeyRight: () => showToc()
-  }, [])
 
   const goToArticleSubpage = (item) => {
     if (item) {
@@ -102,9 +95,16 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
     }
   }
 
-  const showToc = () => {
-    popupToc({ items: article.toc, closeFn: goToArticleSubpage })
+  const showArticleTocPopup = () => {
+    showTocPopup({ items: article.toc, onSelectItem: goToArticleSubpage })
   }
+
+  useSoftkey('Article', {
+    left: i18n.i18n('softkey-close'),
+    onKeyLeft: () => history.back(),
+    right: i18n.i18n('softkey-sections'),
+    onKeyRight: showArticleTocPopup
+  }, [])
 
   return (
     <div class='article' ref={containerRef}>
@@ -116,7 +116,7 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
         imageUrl={section.imageUrl}
         hasActions={currentSection === 0}
         content={section.content}
-        showToc={() => showToc()}
+        showToc={showArticleTocPopup}
         page={currentPage}
       />
     </div>
