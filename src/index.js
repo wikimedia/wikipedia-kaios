@@ -10,5 +10,5 @@ const lang = getAppLanguage() || navigator.language.substr(0, 2)
 const banana = new Banana(lang)
 loadMessages(lang).then((messages) => {
   banana.load(messages)
-  render(<App i18n={banana} />, document.querySelector('#root'))
+  render(<App i18n={banana} />, document.querySelector('.root'))
 })

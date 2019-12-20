@@ -1,0 +1,9 @@
+{
+  "extends": "stylelint-config-wikimedia",
+  "rules": {
+  	"selector-attribute-quotes": null,
+  	"no-descending-specificity": null,
+  	"font-family-no-missing-generic-family-keyword": null,
+  	"font-weight-notation": null
+  }
+}
