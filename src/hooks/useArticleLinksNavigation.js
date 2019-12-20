@@ -12,28 +12,6 @@ const SUPPORTED_LINKS = [
   'a[rel="mw:ExtLink"]'
 ].join(',')
 
-const makeLinkClickEvent = link => {
-  const title = link.getAttribute('title')
-  if (title) {
-    return { type: 'title', title }
-  }
-
-  const action = link.getAttribute('data-action')
-  if (action) {
-    return { type: 'action', action }
-  }
-
-  if (link.classList.contains('mw-ref')) {
-    const refLink = link.querySelector('a')
-    const referenceId = refLink.getAttribute('href').slice(1)
-    return { type: 'reference', referenceId }
-  }
-
-  if (link.getAttribute('rel') === 'mw:ExtLink') {
-    return { type: 'external', href: link.href }
-  }
-}
-
 export const useArticleLinksNavigation = (
   origin,
   lang,
@@ -62,25 +40,7 @@ export const useArticleLinksNavigation = (
   const hasLinks = () => links && links.length
 
   useEffect(() => {
-    const links = contentRef.current.querySelectorAll(SUPPORTED_LINKS)
-    const visibleLinks = []
-    let rect
-    for (const link of links) {
-      rect = link.getBoundingClientRect()
-      if (!rect.height || !rect.width) {
-        // Hidden (probably display:none;)
-        continue
-      }
-      if (rect.x < 0 && (rect.x + rect.width < 0)) {
-        // Not visible on this page at all
-        continue
-      }
-      if (rect.x > viewport.width || rect.y > viewport.height) {
-        // After the current page
-        break
-      }
-      visibleLinks.push(link)
-    }
+    const visibleLinks = findVisibleLinks(contentRef.current)
     setLinks(visibleLinks)
     if (visibleLinks.length) {
       setCurrentLink(visibleLinks[0])
@@ -133,4 +93,49 @@ export const useArticleLinksNavigation = (
   }, [links, currentLink])
 
   return [currentLink]
+}
+
+const makeLinkClickEvent = link => {
+  const title = link.getAttribute('title')
+  if (title) {
+    return { type: 'title', title }
+  }
+
+  const action = link.getAttribute('data-action')
+  if (action) {
+    return { type: 'action', action }
+  }
+
+  if (link.classList.contains('mw-ref')) {
+    const refLink = link.querySelector('a')
+    const referenceId = refLink.getAttribute('href').slice(1)
+    return { type: 'reference', referenceId }
+  }
+
+  if (link.getAttribute('rel') === 'mw:ExtLink') {
+    return { type: 'external', href: link.href }
+  }
+}
+
+const findVisibleLinks = container => {
+  const links = container.querySelectorAll(SUPPORTED_LINKS)
+  const visibleLinks = []
+  let rect
+  for (const link of links) {
+    rect = link.getBoundingClientRect()
+    if (!rect.height || !rect.width) {
+      // Hidden (probably display:none;)
+      continue
+    }
+    if (rect.x < 0 && (rect.x + rect.width < 0)) {
+      // Not visible on this page at all
+      continue
+    }
+    if (rect.x > viewport.width || rect.y > viewport.height) {
+      // After the current page
+      break
+    }
+    visibleLinks.push(link)
+  }
+  return visibleLinks
 }
