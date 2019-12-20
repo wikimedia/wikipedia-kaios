@@ -14,7 +14,6 @@ export const getRandomArticleTitle = lang => {
   return fetch(url)
     .then(response => response.json())
     .then(data => {
-      console.log(data)
       return data.query.random[0].title
     })
 }
