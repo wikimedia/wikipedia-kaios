@@ -24,12 +24,13 @@ export const useSearchLanguage = (lang) => {
 }
 
 const filterFirst10Language = text => {
+  const lowerCaseText = text.toLowerCase()
   const foundList = []
   for (let i = 0; foundList.length < 10 && i < allLanguages.length; i++) {
     if (
-      allLanguages[i].title.toLowerCase().indexOf(text) > -1 ||
-        allLanguages[i].canonicalName.toLowerCase().indexOf(text) > -1 ||
-        allLanguages[i].lang.toLowerCase().indexOf(text) > -1
+      allLanguages[i].title.toLowerCase().indexOf(lowerCaseText) > -1 ||
+      allLanguages[i].canonicalName.toLowerCase().indexOf(lowerCaseText) > -1 ||
+      allLanguages[i].lang.toLowerCase().indexOf(lowerCaseText) > -1
     ) {
       foundList.push(allLanguages[i])
     }

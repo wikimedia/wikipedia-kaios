@@ -45,7 +45,7 @@ export const Language = () => {
   }, [])
 
   return <div class='language'>
-    <input type='text' placeholder={i18n.i18n('search-placeholder')} value={query} onInput={(e) => setQuery(e.target.value.toLowerCase())} data-selectable />
+    <input type='text' placeholder={i18n.i18n('search-placeholder')} value={query} onInput={(e) => setQuery(e.target.value)} data-selectable />
     <div class='header'>{i18n.i18n('language-change')}</div>
     <RadioListView items={items} containerRef={containerRef} />
   </div>
