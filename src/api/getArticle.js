@@ -12,6 +12,7 @@ export const getArticle = (lang, title) => {
     const doc = parser.parseFromString(data.lead.sections[0].text, 'text/html')
     const infoboxNode = doc.querySelector('[class^="infobox"]')
     const infobox = infoboxNode && fixImageUrl(infoboxNode.outerHTML)
+    const preview = extractPreview(doc)
 
     // parse lead as the first section
     const sections = []
@@ -19,7 +20,8 @@ export const getArticle = (lang, title) => {
       imageUrl,
       title: data.lead.displaytitle,
       description: data.lead.description,
-      content: fixImageUrl(data.lead.sections[0].text)
+      content: fixImageUrl(data.lead.sections[0].text),
+      preview
     })
 
     // parse remaining sections
@@ -101,4 +103,20 @@ const extractReference = refNode => {
   const refContentNode = refNode.querySelector('.mw-reference-text')
   const content = refContentNode ? refContentNode.outerHTML : ''
   return [id, { number, content }]
+}
+
+const extractPreview = doc => {
+  const p = doc.querySelector('p')
+
+  Array.from(p.querySelectorAll('a')).forEach(link => {
+    const span = document.createElement('span')
+    span.textContent = link.textContent
+    link.parentNode.replaceChild(span, link)
+  })
+
+  Array.from(p.querySelectorAll('.mw-ref')).forEach(ref => {
+    ref.parentNode.removeChild(ref)
+  })
+
+  return p.outerHTML
 }
