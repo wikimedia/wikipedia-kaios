@@ -100,10 +100,10 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
   }
 
   useSoftkey('Article', {
-    left: i18n.i18n('softkey-close'),
-    onKeyLeft: () => history.back(),
-    right: i18n.i18n('softkey-sections'),
-    onKeyRight: showArticleTocPopup
+    left: i18n.i18n('softkey-sections'),
+    onKeyLeft: showArticleTocPopup,
+    right: i18n.i18n('softkey-close'),
+    onKeyRight: () => history.back()
   }, [])
 
   return (

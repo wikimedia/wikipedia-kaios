@@ -37,7 +37,7 @@
 })
 
 Cypress.Commands.add('clickCloseButton', ()=>{
-  cy.get('label.left').contains('Close').click()
+  cy.get('label.right').contains('Close').click()
 })
 
 Cypress.Commands.add('clickSettingsButton', ()=>{
