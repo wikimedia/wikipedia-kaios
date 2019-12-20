@@ -1,7 +1,9 @@
 import { h } from 'preact'
 import { useRef, useEffect } from 'preact/hooks'
+import { route } from 'preact-router'
 import { ListView } from 'components'
 import { useNavigation, useSearch, useI18n, useSoftkey } from 'hooks'
+import { getRandomArticleTitle } from 'api'
 
 export const Search = () => {
   const containerRef = useRef()
@@ -16,11 +18,18 @@ export const Search = () => {
     }
   }
 
+  const goToRandomArticle = () => {
+    getRandomArticleTitle(lang).then(title => {
+      route(`/article/${lang}/${title}`)
+    })
+  }
+
   useSoftkey('Search', {
     left: i18n.i18n('softkey-settings'),
     onKeyLeft: () => { window.location.hash = '/settings' },
     center: current.type === 'DIV' ? i18n.i18n('centerkey-select') : '',
-    onKeyCenter
+    onKeyCenter,
+    onKeyRight: goToRandomArticle
   }, [current.type])
 
   useEffect(() => {
