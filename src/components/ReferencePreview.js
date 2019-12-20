@@ -7,8 +7,8 @@ export const ReferencePreview = ({ reference, lang, close }) => {
   const contentRef = useRef()
   useArticleLinksNavigation('ReferencePreview', lang, contentRef, 1)
   useSoftkey('ReferencePreview', {
-    left: i18n.i18n('close'),
-    onKeyLeft: close
+    right: i18n.i18n('close'),
+    onKeyRight: close
   }, [])
 
   return (
