@@ -3,7 +3,7 @@ import { useRef, useEffect } from 'preact/hooks'
 import { useNavigation, useI18n, useSoftkey } from 'hooks'
 import { ListView } from 'components'
 
-export const ArticleToc = ({ items, close }) => {
+export const ArticleToc = ({ items, onSelectItem, close }) => {
   const containerRef = useRef()
   const i18n = useI18n()
   const listItems = parseTocItems(items)
@@ -13,7 +13,8 @@ export const ArticleToc = ({ items, close }) => {
     const item = listItems[index]
 
     if (item && item.title) {
-      close(item)
+      onSelectItem(item)
+      close()
     }
   }
   useSoftkey('ArticleToc', {

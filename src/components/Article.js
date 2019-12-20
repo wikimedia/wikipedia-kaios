@@ -81,17 +81,10 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
     return 'Loading...'
   }
 
-  const [isTocShown, toggleToc] = useState(false)
   const [subTitle, setSubTitle] = useState(initialSubTitle)
+  const [showTocPopup] = usePopup(ArticleToc)
   const [currentSection, setCurrentSection, currentPage] = useArticlePagination(containerRef, article, subTitle)
   const section = article.sections[currentSection]
-
-  useSoftkey('Article', {
-    left: i18n.i18n('softkey-sections'),
-    onKeyLeft: () => toggleToc(true),
-    right: i18n.i18n('softkey-close'),
-    onKeyRight: () => history.back()
-  }, [])
 
   const goToArticleSubpage = (item) => {
     if (item) {
@@ -100,26 +93,33 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
       setSubTitle(title)
       route(`/article/${lang}/${articleTitle}/${title}`, true)
     }
-    toggleToc(false)
   }
 
+  const showArticleTocPopup = () => {
+    showTocPopup({ items: article.toc, onSelectItem: goToArticleSubpage })
+  }
+
+  useSoftkey('Article', {
+    left: i18n.i18n('softkey-sections'),
+    onKeyLeft: showArticleTocPopup,
+    right: i18n.i18n('softkey-close'),
+    onKeyRight: () => history.back()
+  }, [])
+
   return (
-    <Fragment>
-      { isTocShown && <ArticleToc items={article.toc} close={goToArticleSubpage} /> }
-      <div class='article' ref={containerRef}>
-        <ArticleSection
-          key={currentSection}
-          lang={lang}
-          title={section.title}
-          description={section.description}
-          imageUrl={section.imageUrl}
-          hasActions={currentSection === 0}
-          content={section.content}
-          showToc={() => toggleToc(true)}
-          page={currentPage}
-        />
-      </div>
-    </Fragment>
+    <div class='article' ref={containerRef}>
+      <ArticleSection
+        key={currentSection}
+        lang={lang}
+        title={section.title}
+        description={section.description}
+        imageUrl={section.imageUrl}
+        hasActions={currentSection === 0}
+        content={section.content}
+        showToc={showArticleTocPopup}
+        page={currentPage}
+      />
+    </div>
   )
 }
 
