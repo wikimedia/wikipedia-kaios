@@ -1,10 +1,9 @@
 .radio-list {
 	width: 100%;
-	background-color: white;
+	background-color: #fff;
 	text-align: left;
 	overflow: scroll;
 	position: absolute;
-	text-align: left;
 
 	.item {
 		width: 100%;
@@ -14,7 +13,7 @@
 		display: flex;
 		justify-content: space-between;
 	}
-	
+
 	.item .info {
 		font-family: @textFont;
 		height: 100%;
@@ -23,15 +22,14 @@
 		flex-direction: column;
 		justify-content: center;
 	}
-	
+
 	.item .info .title {
 		font-size: 17px;
 		white-space: nowrap;
 		text-overflow: ellipsis;
 		overflow: hidden;
-	
 	}
-	
+
 	.item .info .description {
 		font-size: 12px;
 		color: @colorLight;
@@ -39,20 +37,20 @@
 		text-overflow: ellipsis;
 		overflow: hidden;
 	}
-	
-	.item[nav-selected="true"] {
+
+	.item[ nav-selected=true ] {
 		background-color: #eaf3ff;
 	}
-	
+
 	.item .radio {
 		width: 22px;
 		height: 22px;
 		margin-top: 7px;
 		border-radius: 11px;
-		border: 2px solid #3366cc;
+		border: 2px solid #36c;
 
-		&.selected{
-			outline: 5px solid #3366cc;
+		&.selected {
+			outline: 5px solid #36c;
 			outline-offset: -11px;
 			-moz-outline-radius: 11px;
 		}
