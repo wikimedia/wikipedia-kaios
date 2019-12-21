@@ -16,10 +16,15 @@
 		overflow: hidden;
 		z-index: 102;
 		position: absolute;
-		top: 0;
+		max-height: 80vh;
 		right: 0;
 		bottom: @softkeysHeight;
 		left: 0;
 		background-color: #fff;
+
+		&.fullscreen {
+			max-height: unset;
+			top: 0;
+		}
 	}
 }

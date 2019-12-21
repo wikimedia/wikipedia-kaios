@@ -79,7 +79,7 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
   }
 
   const [subTitle, setSubTitle] = useState(initialSubTitle)
-  const [showTocPopup] = usePopup(ArticleToc)
+  const [showTocPopup] = usePopup(ArticleToc, { mode: 'fullscreen' })
   const [currentSection, setCurrentSection, currentPage] = useArticlePagination(containerRef, article, subTitle)
   const section = article.sections[currentSection]
 
