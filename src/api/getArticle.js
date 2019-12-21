@@ -20,6 +20,11 @@ export const getArticle = (lang, title) => {
       description: data.lead.description,
       content: fixImageUrl(data.lead.sections[0].text)
     })
+    toc.push({
+      level: 1,
+      line: data.lead.displaytitle,
+      sectionIndex: 0
+    })
 
     // parse section as the remaining section
     data.remaining.sections.forEach((s) => {
