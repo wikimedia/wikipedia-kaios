@@ -1,12 +1,8 @@
-import { cachedFetch } from 'utils'
+import { cachedFetch, buildMwApiUrl } from 'utils'
 
 export const search = (lang, term) => {
-  const baseUrl = `https://${lang}.wikipedia.org/w/api.php`
   const params = {
     action: 'query',
-    format: 'json',
-    formatversion: 2,
-    origin: '*',
     prop: ['description', 'pageimages', 'pageprops'].join('|'),
     piprop: 'thumbnail',
     pilimit: 15,
@@ -17,7 +13,7 @@ export const search = (lang, term) => {
     gpsnamespace: 0,
     gpssearch: encodeURIComponent(term)
   }
-  const url = baseUrl + '?' + Object.keys(params).map(p => `${p}=${params[p]}`).join('&')
+  const url = buildMwApiUrl(lang, params)
   return cachedFetch(url, data => {
     if (!data.query || !data.query.pages) {
       return []
