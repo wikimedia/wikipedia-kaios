@@ -11,7 +11,7 @@ export const search = (lang, term) => {
     pithumbsize: 64,
     gpslimit: 15,
     gpsnamespace: 0,
-    gpssearch: encodeURIComponent(term)
+    gpssearch: term
   }
   const url = buildMwApiUrl(lang, params)
   return cachedFetch(url, data => {
