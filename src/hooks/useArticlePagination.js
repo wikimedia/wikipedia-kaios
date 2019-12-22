@@ -10,14 +10,13 @@ export const useArticlePagination = (
   const [currentSection, setCurrentSection] = useState(findSection(article.toc, subTitle))
   const [isLastPage, setIsLastPage] = useState(0)
   const [currentPage, setCurrentPage] = useState(0)
-  const prop = 'scrollLeft'
   const numOfSection = article.sections.length
 
   useSoftkey('Article', {
     onKeyArrowDown: () => {
-      const previous = elementRef.current[prop]
-      elementRef.current[prop] += viewport.width
-      const after = elementRef.current[prop]
+      const previous = elementRef.current.scrollLeft
+      elementRef.current.scrollLeft += viewport.width
+      const after = elementRef.current.scrollLeft
 
       // show the next section of the article
       if (previous === after) {
@@ -27,9 +26,9 @@ export const useArticlePagination = (
       }
     },
     onKeyArrowUp: () => {
-      const previous = elementRef.current[prop]
-      elementRef.current[prop] -= viewport.width
-      const after = elementRef.current[prop]
+      const previous = elementRef.current.scrollLeft
+      elementRef.current.scrollLeft -= viewport.width
+      const after = elementRef.current.scrollLeft
 
       // show the previous section of the article
       if (previous === after) {
@@ -44,21 +43,19 @@ export const useArticlePagination = (
     if (isLastPage) {
       const scrollWidth = elementRef.current.scrollWidth
       const offset = viewport.width
-      elementRef.current[prop] = scrollWidth - offset
-      setCurrentPage(elementRef.current[prop] / viewport.width)
+      elementRef.current.scrollLeft = scrollWidth - offset
+      setCurrentPage(elementRef.current.scrollLeft / viewport.width)
       setIsLastPage(false)
     } else {
-      elementRef.current[prop] = 0
+      elementRef.current.scrollLeft = 0
       setCurrentPage(0)
     }
   }, [currentSection])
 
   useLayoutEffect(() => {
-    const sectionTitle = article.sections[currentSection].title
-
-    if (subTitle && sectionTitle !== subTitle) {
+    if (subTitle) {
       const subTitleElement = Array
-        .from(elementRef.current.querySelectorAll('h3, h4'))
+        .from(elementRef.current.querySelectorAll('.title, h3, h4'))
         .find(e => e.textContent === subTitle)
 
       const offset = Math.floor(
@@ -66,9 +63,6 @@ export const useArticlePagination = (
       )
       elementRef.current.scrollLeft += offset * viewport.width
       setCurrentPage(elementRef.current.scrollLeft / viewport.width)
-    } else {
-      elementRef.current.scrollLeft = 0
-      setCurrentPage(0)
     }
   }, [subTitle])
 
