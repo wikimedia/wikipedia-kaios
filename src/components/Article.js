@@ -83,8 +83,7 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
   const [currentSection, setCurrentSection, currentPage] = useArticlePagination(containerRef, article, subTitle)
   const section = article.sections[currentSection]
 
-  const goToArticleSubpage = item => {
-    const { sectionIndex, title } = item
+  const goToArticleSubpage = ({ sectionIndex, title }) => {
     setCurrentSection(sectionIndex)
     setSubTitle(title)
     route(`/article/${lang}/${articleTitle}/${title}`, true)
