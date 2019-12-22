@@ -83,13 +83,10 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
   const [currentSection, setCurrentSection, currentPage] = useArticlePagination(containerRef, article, subTitle)
   const section = article.sections[currentSection]
 
-  const goToArticleSubpage = (item) => {
-    if (item) {
-      const { sectionIndex, title } = item
-      setCurrentSection(sectionIndex)
-      setSubTitle(title)
-      route(`/article/${lang}/${articleTitle}/${title}`, true)
-    }
+  const goToArticleSubpage = ({ sectionIndex, title }) => {
+    setCurrentSection(sectionIndex)
+    setSubTitle(title)
+    route(`/article/${lang}/${articleTitle}/${title}`, true)
   }
 
   const showArticleTocPopup = () => {
