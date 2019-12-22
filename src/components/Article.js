@@ -2,7 +2,7 @@ import { h, Fragment } from 'preact'
 import { route } from 'preact-router'
 import { memo } from 'preact/compat'
 import { useState, useRef } from 'preact/hooks'
-import { ArticlePreview, ArticleToc } from 'components'
+import { ReferencePreview, ArticleToc } from 'components'
 import {
   useArticle, useI18n, useSoftkey,
   useArticlePagination, useArticleLinksNavigation,
@@ -19,29 +19,26 @@ const ArticleBody = memo(({ content }) => {
 })
 
 const ArticleSection = ({
-  lang, imageUrl, title, description, hasActions, content, page, showToc
+  lang, imageUrl, title, description, hasActions, content, page, showToc, references
 }) => {
-  const i18n = useI18n()
   const contentRef = useRef()
 
-  const [showArticlePreview] = usePopup(ArticlePreview, { position: 'bottom' })
+  const [showReferencePreview] = usePopup(ReferencePreview, { position: 'auto' })
 
-  const onTitleClick = title => {
-    showArticlePreview({ title, lang })
-  }
-  const onActionClick = action => {
-    if (action === 'quickfacts') {
-      window.location.hash = `/quickfacts/${lang}/${title}`
-    } else if (action === 'sections') {
-      showToc()
+  const linkHandlers = {
+    action: ({ action }) => {
+      if (action === 'quickfacts') {
+        route(`/quickfacts/${lang}/${title}`)
+      } else if (action === 'sections') {
+        showToc()
+      }
+    },
+    reference: ({ referenceId }) => {
+      showReferencePreview({ reference: references[referenceId], lang })
     }
   }
-  const [selectedLink] = useArticleLinksNavigation(
-    contentRef, page, onTitleClick, onActionClick)
 
-  useSoftkey('Article', {
-    center: selectedLink ? i18n.i18n('centerkey-select') : ''
-  }, [selectedLink])
+  useArticleLinksNavigation('Article', lang, contentRef, page, linkHandlers)
 
   return (
     <div class='article-section' ref={contentRef}>
@@ -82,7 +79,7 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
   }
 
   const [subTitle, setSubTitle] = useState(initialSubTitle)
-  const [showTocPopup] = usePopup(ArticleToc)
+  const [showTocPopup] = usePopup(ArticleToc, { mode: 'fullscreen' })
   const [currentSection, setCurrentSection, currentPage] = useArticlePagination(containerRef, article, subTitle)
   const section = article.sections[currentSection]
 
@@ -116,6 +113,7 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
         imageUrl={section.imageUrl}
         hasActions={currentSection === 0}
         content={section.content}
+        references={article.references}
         showToc={showArticleTocPopup}
         page={currentPage}
       />

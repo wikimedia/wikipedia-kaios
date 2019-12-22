@@ -2,15 +2,14 @@ import { h } from 'preact'
 
 export const PopupContainer = ({ component, props, options }) => {
   if (component) {
-    options = options || {}
-    const style = {}
-    if (options.position === 'bottom') {
-      style.top = '50%'
+    let contentClasses = 'popup-content'
+    if (options && options.mode === 'fullscreen') {
+      contentClasses += ' fullscreen'
     }
     return (
       <div class='popup'>
         <div class='shader' />
-        <div class='popup-content' style={style}>
+        <div class={contentClasses}>
           { h(component, props) }
         </div>
       </div>
