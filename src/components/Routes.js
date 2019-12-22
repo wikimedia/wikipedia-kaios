@@ -3,8 +3,8 @@ import Router from 'preact-router'
 import { createHashHistory } from 'history'
 import { Article, Search, Settings, QuickFacts, Language } from 'components'
 
-export const Routes = () => (
-  <Router history={createHashHistory()}>
+export const Routes = ({ onRouteChange }) => (
+  <Router history={createHashHistory()} onChange={onRouteChange}>
     <Search path='/' />
     <Settings path='/settings' />
     <Article path='/article/:lang/:title/:subtitle?' />
