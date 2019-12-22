@@ -2,19 +2,8 @@
 	background-color: #36c;
 	text-align: center;
 
-	.header {
-		height: @pageHeaderHeight;
-		max-height: @pageHeaderHeight;
-		background-color: #d8d8d8;
-		box-sizing: border-box;
-		line-height: 26px;
-		font-family: @textFont;
-		font-size: 17px;
-		text-align: center;
-	}
-
 	input {
-		width: 214px;
+		width: calc( 100vw - 20px );
 		font-size: 17px;
 		font-family: @textFont;
 		color: #323232;
@@ -28,8 +17,8 @@
 		}
 	}
 
-	.radio-list {
-		top: 60px;
+	.list {
+		top: 63px;
 		bottom: @softkeysHeight;
 	}
 }

@@ -44,8 +44,10 @@ export const Settings = () => {
   ]
 
   return <div class='settings'>
-    {/* @todo thinking of <Header name='settings'/> */}
-    <div class='header'>{i18n.i18n('header-settings')}</div>
-    <ListView items={items} containerRef={containerRef} />
+    <ListView
+      header={i18n.i18n('header-settings')}
+      items={items}
+      containerRef={containerRef}
+    />
   </div>
 }
