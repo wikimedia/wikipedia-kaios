@@ -5,6 +5,7 @@
 			"Robby"
 		]
 	},
+	"article-language-available": "The header title of the article language search page",
 	"app-title": "Title of the application. Shown in the app store and the app launcher.",
 	"app-subtitle": "Subtitle of the application. Shown in the app store.",
 	"app-description": "Description of the application. Shown in the app store.",
@@ -18,6 +19,7 @@
 	"language-change": "Title of the language settings page",
 	"language-setting": "Title of the popup message in the language settings page",
 	"language-setting-message": "Message shown in the popup message in the language settings page",
+	"menu-language": "Label of the Language item. Shown in the Menu page.",
 	"menu-section": "Label of the Section item. Shown in the Menu page.",
 	"softkey-close": "Label of the close softkey\n{{Identical|Close}}",
 	"softkey-done": "Label of the done softkey",
