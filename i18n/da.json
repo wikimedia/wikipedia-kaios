@@ -5,9 +5,9 @@
 		]
 	},
 	"app-subtitle": "Den frie encyklopædi",
-	"settings": "Indstillinger",
+	"header-settings": "Indstillinger",
 	"centerkey-select": "Vælg",
-	"close": "Luk",
+	"softkey-close": "Luk",
 	"softkey-read": "Læs",
 	"settings-language": "Sprog",
 	"settings-textsize": "Tekststørrelse",
