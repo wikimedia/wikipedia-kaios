@@ -8,6 +8,7 @@
 	"app-title": "Title of the application. Shown in the app store and the app launcher.",
 	"app-subtitle": "Subtitle of the application. Shown in the app store.",
 	"app-description": "Description of the application. Shown in the app store.",
+	"header-search": "The header title of the search page",
 	"header-sections": "The header title of the sections(ToC) page",
 	"header-settings": "The header title of the settings page",
 	"search-language-placeholder": "Placeholder of input in the language settings page",

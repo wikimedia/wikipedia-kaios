@@ -29,8 +29,7 @@ export const ArticleToc = ({ items, onSelectItem, close }) => {
   }, [])
 
   return <div class='toc'>
-    <div class='header'>{i18n.i18n('header-sections')}</div>
-    <ListView items={listItems} containerRef={containerRef} />
+    <ListView header={i18n.i18n('header-sections')} items={listItems} containerRef={containerRef} />
   </div>
 }
 

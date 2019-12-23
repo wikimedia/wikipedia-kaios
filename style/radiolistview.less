@@ -1,58 +1,71 @@
-.radio-list {
-	width: 100%;
-	background-color: #fff;
-	text-align: left;
-	overflow: scroll;
-	position: absolute;
-
-	.item {
-		width: 100%;
-		height: 49px;
-		margin: 0;
-		padding: 6px 10px;
-		display: flex;
-		justify-content: space-between;
-	}
-
-	.item .info {
+.radiolistview {
+	.header {
+		height: @pageHeaderHeight;
+		max-height: @pageHeaderHeight;
+		background-color: #d8d8d8;
+		box-sizing: border-box;
+		padding: 3px 0;
 		font-family: @textFont;
-		height: 100%;
-		overflow: hidden;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-	}
-
-	.item .info .title {
 		font-size: 17px;
-		white-space: nowrap;
-		text-overflow: ellipsis;
-		overflow: hidden;
+		text-align: center;
 	}
 
-	.item .info .description {
-		font-size: 12px;
-		color: @colorLight;
-		white-space: nowrap;
-		text-overflow: ellipsis;
-		overflow: hidden;
-	}
+	.list {
+		width: 100%;
+		background-color: #fff;
+		text-align: left;
+		overflow: scroll;
+		position: absolute;
 
-	.item[ nav-selected=true ] {
-		background-color: #eaf3ff;
-	}
+		.item {
+			width: 100%;
+			height: 49px;
+			margin: 0;
+			padding: 6px 10px;
+			display: flex;
+			justify-content: space-between;
 
-	.item .radio {
-		width: 22px;
-		height: 22px;
-		margin-top: 7px;
-		border-radius: 11px;
-		border: 2px solid #36c;
+			.info {
+				font-family: @textFont;
+				height: 100%;
+				overflow: hidden;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
 
-		&.selected {
-			outline: 5px solid #36c;
-			outline-offset: -11px;
-			-moz-outline-radius: 11px;
+				.title {
+					font-size: 17px;
+					white-space: nowrap;
+					text-overflow: ellipsis;
+					overflow: hidden;
+				}
+
+				.description {
+					font-size: 12px;
+					color: @colorLight;
+					white-space: nowrap;
+					text-overflow: ellipsis;
+					overflow: hidden;
+				}
+			}
+
+			&[ nav-selected=true ] {
+				background-color: #eaf3ff;
+			}
+
+			.radio {
+				width: 22px;
+				height: 22px;
+				margin-top: 7px;
+				border-radius: 11px;
+				border: 2px solid #36c;
+
+				&.selected {
+					outline: 5px solid #36c;
+					outline-offset: -11px;
+					-moz-outline-radius: 11px;
+				}
+			}
 		}
 	}
 }
