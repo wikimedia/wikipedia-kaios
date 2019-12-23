@@ -2,7 +2,7 @@ import { h, Fragment } from 'preact'
 import { route } from 'preact-router'
 import { memo } from 'preact/compat'
 import { useState, useRef } from 'preact/hooks'
-import { ReferencePreview, ArticleToc } from 'components'
+import { ReferencePreview, ArticleToc, ArticleMenu } from 'components'
 import {
   useArticle, useI18n, useSoftkey,
   useArticlePagination, useArticleLinksNavigation,
@@ -80,6 +80,7 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
 
   const [subTitle, setSubTitle] = useState(initialSubTitle)
   const [showTocPopup] = usePopup(ArticleToc, { mode: 'fullscreen' })
+  const [showMenuPopup] = usePopup(ArticleMenu, { mode: 'fullscreen' })
   const [currentSection, setCurrentSection, currentPage] = useArticlePagination(containerRef, article, subTitle)
   const section = article.sections[currentSection]
 
@@ -94,8 +95,8 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
   }
 
   useSoftkey('Article', {
-    left: i18n.i18n('softkey-sections'),
-    onKeyLeft: showArticleTocPopup,
+    left: i18n.i18n('softkey-menu'),
+    onKeyLeft: () => showMenuPopup({ onTocSelected: showArticleTocPopup }),
     right: i18n.i18n('softkey-close'),
     onKeyRight: () => history.back()
   }, [])

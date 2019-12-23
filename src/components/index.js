@@ -1,5 +1,6 @@
 export * from './App'
 export * from './Article'
+export * from './ArticleMenu'
 export * from './ArticlePreview'
 export * from './ArticleToc'
 export * from './Language'
