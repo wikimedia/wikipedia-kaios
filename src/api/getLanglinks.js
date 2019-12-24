@@ -9,9 +9,8 @@ export const getLanglinks = (lang, title) => {
     llprop: 'langname'
   }
   const url = buildMwApiUrl(lang, params)
-  return cachedFetch(url)
-    .then(response => {
-      const { pages } = response.query
-      return pages[0].langlinks
-    })
+  return cachedFetch(url, response => {
+    const { pages } = response.query
+    return pages[0].langlinks
+  })
 }
