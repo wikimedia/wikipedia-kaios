@@ -3,6 +3,7 @@ import { route } from 'preact-router'
 import { memo } from 'preact/compat'
 import { useState, useRef } from 'preact/hooks'
 import { ReferencePreview, ArticleToc, ArticleMenu } from 'components'
+import { viewport } from 'utils'
 import {
   useArticle, useI18n, useSoftkey,
   useArticlePagination, useArticleLinksNavigation,
@@ -91,7 +92,8 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
   }
 
   const showArticleTocPopup = () => {
-    showTocPopup({ items: article.toc, onSelectItem: goToArticleSubpage })
+    const currentTitle = findCurrentLocatedTitleOrSubtitle(containerRef)
+    showTocPopup({ items: article.toc, currentTitle, onSelectItem: goToArticleSubpage })
   }
 
   useSoftkey('Article', {
@@ -121,4 +123,15 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
 
 export const Article = ({ lang, title: articleTitle, subtitle: initialSubTitle }) => {
   return <ArticleInner lang={lang} articleTitle={articleTitle} initialSubTitle={initialSubTitle} key={lang + articleTitle} />
+}
+
+const findCurrentLocatedTitleOrSubtitle = ref => {
+  let element
+  Array.from(ref.current.querySelectorAll('.title, h3, h4'))
+    .find(ref => {
+      if (ref.getBoundingClientRect().left < viewport.width) {
+        element = ref
+      }
+    })
+  return element.textContent
 }
