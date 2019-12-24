@@ -1,7 +1,8 @@
 import { h, Fragment } from 'preact'
 import { route } from 'preact-router'
 import { memo } from 'preact/compat'
-import { useState, useRef } from 'preact/hooks'
+import { useState, useRef, useEffect } from 'preact/hooks'
+import { articleHistory } from 'utils'
 import { ReferencePreview, ArticleToc, ArticleMenu } from 'components'
 import {
   useArticle, useI18n, useSoftkey,
@@ -99,6 +100,10 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
     onKeyLeft: () => showMenuPopup({ onTocSelected: showArticleTocPopup }),
     right: i18n.i18n('softkey-close'),
     onKeyRight: () => history.back()
+  }, [])
+
+  useEffect(() => {
+    articleHistory.add(lang, articleTitle)
   }, [])
 
   return (

@@ -18,6 +18,7 @@
 	"language-change": "Title of the language settings page",
 	"language-setting": "Title of the popup message in the language settings page",
 	"language-setting-message": "Message shown in the popup message in the language settings page",
+	"menu-previous": "Label of the Previous article item. Shown in the Menu page.",
 	"menu-section": "Label of the Section item. Shown in the Menu page.",
 	"softkey-close": "Label of the close softkey\n{{Identical|Close}}",
 	"softkey-done": "Label of the done softkey",
