@@ -1,12 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Luky001"
+			"Luky001",
+			"Patriccck"
 		]
 	},
 	"app-title": "Wikipédia",
 	"app-subtitle": "Slobodná encyklopédia",
 	"app-description": "S aplikáciou Wikipédie môžete vyhľadávať a objavovať informácie z celého sveta vo viac ako 300 jazykoch.",
+	"header-menu": "Nabídka u článku",
 	"header-sections": "Sekcie",
 	"header-settings": "Nastavenia",
 	"softkey-done": "Hotovo",

@@ -2,17 +2,22 @@
 	"@metadata": {
 		"authors": [
 			"Meno25",
-			"ديفيد"
+			"ديفيد",
+			"Eduardo Addad de Oliveira"
 		]
 	},
 	"app-title": "ويكيبيديا",
 	"app-subtitle": "الموسوعة الحرة",
 	"app-description": "من خلال تطبيق ويكيبيديا المجاني، ابحث واستكشف المعلومات من جميع أنحاء العالم بأكثر من 300 لغة.",
+	"header-menu": "قائمة المقالة",
+	"header-search": "نتائج البحث",
 	"header-sections": "الأقسام",
 	"header-settings": "إعدادات",
+	"menu-section": "الأقسام",
 	"softkey-done": "تم",
 	"softkey-search": "بحث",
 	"search-language-placeholder": "بحث في اللغات",
+	"softkey-menu": "القائمة",
 	"search-placeholder": "بحث",
 	"softkey-sections": "الأقسام",
 	"softkey-settings": "الإعدادات",

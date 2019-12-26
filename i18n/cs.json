@@ -1,18 +1,22 @@
 {
 	"@metadata": {
 		"authors": [
-			"Patriccck"
+			"Patriccck",
+			"Eduardo Addad de Oliveira"
 		]
 	},
 	"app-title": "Wikipedie",
 	"app-subtitle": "Otevřená encyklopedie",
 	"app-description": "S aplikací Wikipedie můžete vyhledávat a objevovat informace z celého světa ve více než 300 jazycích.",
+	"header-menu": "Nabídka i článku",
 	"header-search": "Výsledky hledání",
 	"header-sections": "Sekce",
 	"header-settings": "Nastavení",
+	"menu-section": "Sekce",
 	"softkey-done": "Hotovo",
 	"softkey-search": "Hledat",
 	"search-language-placeholder": "Hledat jazyky",
+	"softkey-menu": "Menu",
 	"search-placeholder": "Vyhledávání",
 	"softkey-sections": "Sekce",
 	"softkey-settings": "Nastavení",

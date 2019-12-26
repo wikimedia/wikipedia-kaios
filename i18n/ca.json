@@ -2,18 +2,22 @@
 	"@metadata": {
 		"authors": [
 			"Fitoschido",
-			"Toniher"
+			"Toniher",
+			"Eduardo Addad de Oliveira"
 		]
 	},
 	"app-title": "Viquipèdia",
 	"app-subtitle": "L'enciclopèdia lliure",
 	"app-description": "Amb l'aplicació lliure de la Viquipèdia podeu cercar i explorar informació del món sencer en més de 300 llengües.",
+	"header-menu": "Menu de l'article",
 	"header-search": "Resultats de cerca",
 	"header-sections": "Seccions",
 	"header-settings": "Configuració",
+	"menu-section": "Seccions",
 	"softkey-done": "Fet",
 	"softkey-search": "Cerca",
 	"search-language-placeholder": "Llengües de cerca",
+	"softkey-menu": "Menú",
 	"search-placeholder": "Cerca",
 	"softkey-sections": "Seccions",
 	"softkey-settings": "Paràmetres",
