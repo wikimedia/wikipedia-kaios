@@ -1,16 +1,29 @@
 {
 	"@metadata": {
 		"authors": [
-			"Luky001"
+			"Luky001",
+			"Patriccck"
 		]
 	},
 	"app-title": "Wikipédia",
 	"app-subtitle": "Slobodná encyklopédia",
 	"app-description": "S aplikáciou Wikipédie môžete vyhľadávať a objavovať informácie z celého sveta vo viac ako 300 jazykoch.",
+	"header-menu": "Nabídka u článku",
+	"header-sections": "Sekcie",
+	"header-settings": "Nastavenia",
+	"softkey-done": "Hotovo",
+	"softkey-search": "Hľadať",
+	"search-language-placeholder": "Hľadať jazyky",
 	"search-placeholder": "Vyhľadávanie",
-	"settings": "Nastavenia",
+	"softkey-sections": "Sekcie",
+	"softkey-settings": "Nastavenia",
 	"centerkey-select": "Vybrať",
-	"close": "Zavrieť",
+	"softkey-close": "Zavrieť",
+	"language-change": "Zmeniť jazyk aplikácie",
+	"language-setting": "Jazykové nastavenia",
+	"language-setting-message": "Zmena jazyku tu zmení jazyk v celej aplikácii. Jazyk môžete tiež zmeniť pri každom článku použitím článkového menu.",
+	"softkey-ok": "V poriadku",
+	"softkey-read": "Čítať",
 	"settings-language": "Jazyk",
 	"settings-textsize": "Veľkosť textu",
 	"settings-about-wikipedia": "O Wikipédii",
