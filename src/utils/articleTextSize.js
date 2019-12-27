@@ -32,4 +32,14 @@ const init = containerRef => {
     adjust(containerRef, get(), false)
   }
 }
-export default { get, set, adjust, reset, init }
+
+const getSoftkeyEffect = containerRef => {
+  const onKeyboard4 = () => adjust(containerRef, 1)
+  const onKeyboard5 = () => reset(containerRef)
+  const onKeyboard6 = () => adjust(containerRef, -1)
+
+  return {
+    onKeyboard4, onKeyboard5, onKeyboard6
+  }
+}
+export default { get, set, adjust, reset, init, getSoftkeyEffect }

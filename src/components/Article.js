@@ -104,9 +104,7 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
     onKeyLeft: () => showMenuPopup({ onTocSelected: showArticleTocPopup }),
     right: i18n.i18n('softkey-close'),
     onKeyRight: () => history.back(),
-    onKeyboard4: () => ArticleTextSize.adjust(containerRef, 1),
-    onKeyboard5: () => ArticleTextSize.reset(containerRef),
-    onKeyboard6: () => ArticleTextSize.adjust(containerRef, -1)
+    ...ArticleTextSize.getSoftkeyEffect(containerRef)
   }, [])
 
   return (
