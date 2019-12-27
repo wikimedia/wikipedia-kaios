@@ -11,6 +11,13 @@ export const getLanglinks = (lang, title) => {
   const url = buildMwApiUrl(lang, params)
   return cachedFetch(url, response => {
     const { pages } = response.query
-    return pages[0].langlinks
+    return pages[0].langlinks.map(item => (
+      {
+        title: item.langname,
+        lang: item.lang,
+        description: item.title
+      }
+    )
+    )
   })
 }

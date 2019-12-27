@@ -8,14 +8,7 @@ export const useSearchArticleLanguage = (lang, title) => {
 
   useEffect(() => {
     getLanglinks(lang, title)
-      .then(items => {
-        const languages = items.map(item => {
-          return {
-            title: item.langname,
-            lang: item.lang,
-            description: item.title
-          }
-        })
+      .then(languages => {
         setAllLanguages(languages)
         setItems(getInitialLangList(languages))
       })
