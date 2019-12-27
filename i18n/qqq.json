@@ -12,7 +12,9 @@
 	"header-search": "The header title of the search page",
 	"header-sections": "The header title of the sections(ToC) page",
 	"header-settings": "The header title of the settings page",
+	"header-textsize": "The header title of the text size page",
 	"menu-section": "Label of the Section item. Shown in the Menu page.",
+	"menu-textsize": "Label of the Text size item list. Shown in the Menu menu.",
 	"softkey-done": "Label of the done softkey",
 	"softkey-search": "Label of the search softkey",
 	"search-language-placeholder": "Placeholder of input in the language settings page",
@@ -36,5 +38,8 @@
 	"settings-term": "Label of Terms of use. Shown in the Settings menu, redirect to the Terms of use browser page.",
 	"settings-rate": "Label of the Rate item list. Shown in the Settings menu, used in rating the app.",
 	"settings-help-feedback": "Label of Help and feedback item list. Shown in the Settings menu, to find help and give feedback.",
-	"settings-about-app": "Label of the About the app item list. Shown in the Settings menu, used in showing the information of this app"
+	"settings-about-app": "Label of the About the app item list. Shown in the Settings menu, used in showing the information of this app",
+	"textsize-increase": "Label of the press key to increase the text size. Shown in the Tet Size page.",
+	"textsize-decrease": "Label of the press key to decrease the text size. Shown in the Tet Size page.",
+	"textsize-default": "Label of the press key to set the text size to be default. Shown in the Tet Size page."
 }
