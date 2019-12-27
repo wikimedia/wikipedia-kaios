@@ -1,13 +1,14 @@
 import { h, Fragment } from 'preact'
 import { route } from 'preact-router'
 import { memo } from 'preact/compat'
-import { useState, useRef } from 'preact/hooks'
+import { useState, useRef, useLayoutEffect } from 'preact/hooks'
 import { ReferencePreview, ArticleToc, ArticleMenu } from 'components'
 import {
   useArticle, useI18n, useSoftkey,
   useArticlePagination, useArticleLinksNavigation,
   usePopup
 } from 'hooks'
+import { ArticleTextSize } from 'utils'
 
 const ArticleBody = memo(({ content }) => {
   return (
@@ -39,6 +40,10 @@ const ArticleSection = ({
   }
 
   useArticleLinksNavigation('Article', lang, contentRef, page, linkHandlers)
+
+  useLayoutEffect(() => {
+    ArticleTextSize.init(contentRef)
+  }, [])
 
   return (
     <div class='article-section' ref={contentRef}>
@@ -98,7 +103,10 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
     left: i18n.i18n('softkey-menu'),
     onKeyLeft: () => showMenuPopup({ onTocSelected: showArticleTocPopup }),
     right: i18n.i18n('softkey-close'),
-    onKeyRight: () => history.back()
+    onKeyRight: () => history.back(),
+    onKeyboard4: () => ArticleTextSize.adjust(containerRef, 1),
+    onKeyboard5: () => ArticleTextSize.reset(containerRef),
+    onKeyboard6: () => ArticleTextSize.adjust(containerRef, -1)
   }, [])
 
   return (

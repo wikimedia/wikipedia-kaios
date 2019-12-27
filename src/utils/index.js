@@ -1,3 +1,4 @@
+export { default as ArticleTextSize } from './articleTextSize'
 export * from './cachedFetch'
 export * from './languages'
 export * from './mwApi'
