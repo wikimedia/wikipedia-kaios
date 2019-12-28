@@ -19,9 +19,16 @@ const adjustElement = (selector, parentElement, step) => {
 }
 
 const adjust = (step = 1, update = true) => {
+  // article
   adjustElement('.title', document, step)
   adjustElement('.desc', document, step)
   adjustElement('.article-content', document, step)
+
+  // article preview
+  adjustElement('.preview-text', document, step)
+
+  // reference preview
+  adjustElement('.reference-preview', document, step)
 
   if (update) {
     set(get() + step)
@@ -33,9 +40,13 @@ const reset = () => {
   set(DEFAULT_SIZE)
 }
 
-const init = () => {
+const init = (elements = 'ALL') => {
   if (get() !== DEFAULT_SIZE) {
-    adjust(get(), false)
+    if (elements === 'ALL') {
+      adjust(get(), false)
+    } else {
+      adjustElement(elements, document, get())
+    }
   }
 }
 
