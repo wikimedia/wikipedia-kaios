@@ -9,37 +9,44 @@ const set = size => {
   localStorage.setItem(KEY, size)
 }
 
-const adjust = (containerRef, step = 1, update = true) => {
-  // article-content class name
-  const contentElement = containerRef.current.querySelector('.article-content')
-  if (contentElement) {
-    const adjust = parseFloat(window.getComputedStyle(contentElement).getPropertyValue('font-size')) + step
-    contentElement.style.setProperty('font-size', `${adjust}px`)
+const adjustElement = (selector, parentElement, step) => {
+  const element = parentElement.querySelector(selector)
+
+  if (element) {
+    const adjust = parseFloat(window.getComputedStyle(element).getPropertyValue('font-size')) + step
+    element.style.setProperty('font-size', `${adjust}px`)
   }
+}
+
+const adjust = (step = 1, update = true) => {
+  adjustElement('.title', document, step)
+  adjustElement('.desc', document, step)
+  adjustElement('.article-content', document, step)
 
   if (update) {
     set(get() + step)
   }
 }
 
-const reset = (containerRef) => {
-  adjust(containerRef, -get())
+const reset = () => {
+  adjust(-get())
   set(DEFAULT_SIZE)
 }
 
-const init = containerRef => {
+const init = () => {
   if (get() !== DEFAULT_SIZE) {
-    adjust(containerRef, get(), false)
+    adjust(get(), false)
   }
 }
 
-const getSoftkeyEffect = containerRef => {
-  const onKeyboard4 = () => adjust(containerRef, 1)
-  const onKeyboard5 = () => reset(containerRef)
-  const onKeyboard6 = () => adjust(containerRef, -1)
+const getSoftkeyEffect = () => {
+  const onKeyboard4 = () => adjust(1)
+  const onKeyboard5 = () => reset()
+  const onKeyboard6 = () => adjust(-1)
 
   return {
     onKeyboard4, onKeyboard5, onKeyboard6
   }
 }
+
 export default { get, set, adjust, reset, init, getSoftkeyEffect }

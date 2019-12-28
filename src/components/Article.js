@@ -42,7 +42,7 @@ const ArticleSection = ({
   useArticleLinksNavigation('Article', lang, contentRef, page, linkHandlers)
 
   useLayoutEffect(() => {
-    ArticleTextSize.init(contentRef)
+    ArticleTextSize.init()
   }, [])
 
   return (
@@ -104,7 +104,7 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
     onKeyLeft: () => showMenuPopup({ onTocSelected: showArticleTocPopup }),
     right: i18n.i18n('softkey-close'),
     onKeyRight: () => history.back(),
-    ...ArticleTextSize.getSoftkeyEffect(containerRef)
+    ...ArticleTextSize.getSoftkeyEffect()
   }, [])
 
   return (
