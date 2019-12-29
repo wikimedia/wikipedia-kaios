@@ -106,7 +106,7 @@
 				}
 
 				figure {
-					margin: 10px;
+					margin: 10px 0;
 				}
 
 				span.mw-ref {
@@ -123,6 +123,31 @@
 					text-decoration: none;
 					page-break-inside: avoid; // doesn't work
 					padding: 1px;
+				}
+
+				dd {
+					margin-left: 0;
+					padding-left: 1em;
+				}
+
+				ul {
+					padding-left: 1em;
+					&.gallery  {
+						list-style-type: none;
+						.gallerybox {
+							width: 100% !important;
+							text-align: center;
+							div {
+								width: 100% !important;
+							}
+						}
+					}
+				}
+
+				ol {
+					&.references {
+						padding-left: 2.25em;
+					}
 				}
 
 				.quotebox {
