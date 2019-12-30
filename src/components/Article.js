@@ -10,6 +10,10 @@ import {
 } from 'hooks'
 
 const ArticleBody = memo(({ content }) => {
+  if (typeof content === 'object') {
+    return <div class='article-content'>{content}</div>
+  }
+
   return (
     <div
       class='article-content'
@@ -19,7 +23,8 @@ const ArticleBody = memo(({ content }) => {
 })
 
 const ArticleSection = ({
-  lang, imageUrl, title, description, hasActions, content, page, showToc, references
+  lang, imageUrl, title, description, isFooter,
+  hasActions, content, page, showToc, references
 }) => {
   const contentRef = useRef()
 
@@ -43,7 +48,7 @@ const ArticleSection = ({
   return (
     <div class='article-section' ref={contentRef}>
       { imageUrl && <div class='lead-image' style={{ backgroundImage: `url(${imageUrl})` }} /> }
-      <div class={'card' + (imageUrl ? ' with-image' : '')}>
+      <div class={'card' + (imageUrl ? ' with-image' : '') + (isFooter ? ' footer' : '')}>
         <div class='title' dangerouslySetInnerHTML={{ __html: title }} />
         { description && (
           <Fragment>
@@ -83,7 +88,6 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
   const [showMenuPopup] = usePopup(ArticleMenu, { mode: 'fullscreen' })
   const [currentSection, setCurrentSection, currentPage] = useArticlePagination(containerRef, article, subTitle)
   const section = article.sections[currentSection]
-
   const goToArticleSubpage = ({ sectionIndex, title }) => {
     setCurrentSection(sectionIndex)
     setSubTitle(title)
@@ -106,11 +110,8 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
       <ArticleSection
         key={currentSection}
         lang={lang}
-        title={section.title}
-        description={section.description}
-        imageUrl={section.imageUrl}
+        {...section}
         hasActions={currentSection === 0}
-        content={section.content}
         references={article.references}
         showToc={showArticleTocPopup}
         page={currentPage}
