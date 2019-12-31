@@ -8,6 +8,7 @@ import {
   useArticlePagination, useArticleLinksNavigation,
   usePopup
 } from 'hooks'
+import { confirmDialog } from 'utils'
 
 const ArticleBody = memo(({ content }) => {
   return (
@@ -19,7 +20,8 @@ const ArticleBody = memo(({ content }) => {
 })
 
 const ArticleSection = ({
-  lang, imageUrl, title, description, hasActions, content, page, showToc, references
+  lang, imageUrl, title, description, hasActions,
+  content, page, showToc, goToSubpage, references
 }) => {
   const contentRef = useRef()
 
@@ -35,6 +37,10 @@ const ArticleSection = ({
     },
     reference: ({ referenceId }) => {
       showReferencePreview({ reference: references[referenceId], lang })
+    },
+    goto: ({ anchor }) => {
+      // @todo styling to be confirmed with design
+      confirmDialog({ message: `Go to Section "${anchor}"?`, onSubmit: () => goToSubpage({ title: anchor }) })
     }
   }
 
@@ -85,7 +91,11 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
   const section = article.sections[currentSection]
 
   const goToArticleSubpage = ({ sectionIndex, title }) => {
-    setCurrentSection(sectionIndex)
+    setCurrentSection(
+      sectionIndex !== undefined
+        ? sectionIndex
+        : article.toc.find(item => item.line === title).sectionIndex
+    )
     setSubTitle(title)
     route(`/article/${lang}/${articleTitle}/${title}`, true)
   }
@@ -113,6 +123,7 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
         content={section.content}
         references={article.references}
         showToc={showArticleTocPopup}
+        goToSubpage={goToArticleSubpage}
         page={currentPage}
       />
     </div>

@@ -8,8 +8,9 @@ const SELECTED_ATTRIBUTE = 'data-selected'
 const SUPPORTED_LINKS = [
   '[data-action]',
   'a[title]',
-  '.mw-ref',
-  'a[rel="mw:ExtLink"]'
+  'a[href^="#cite_note"]',
+  'a[rel="mw:ExtLink"]',
+  'a[href^="#"]'
 ].join(',')
 
 export const useArticleLinksNavigation = (
@@ -106,14 +107,17 @@ const makeLinkClickEvent = link => {
     return { type: 'action', action }
   }
 
-  if (link.classList.contains('mw-ref')) {
-    const refLink = link.querySelector('a')
-    const referenceId = refLink.getAttribute('href').slice(1)
+  if (link.parentElement.classList.contains('mw-ref')) {
+    const referenceId = link.getAttribute('href').slice(1)
     return { type: 'reference', referenceId }
   }
 
   if (link.getAttribute('rel') === 'mw:ExtLink') {
     return { type: 'external', href: link.href }
+  }
+
+  if (link.hash) {
+    return { type: 'goto', anchor: link.textContent }
   }
 }
 
