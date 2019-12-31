@@ -4,7 +4,16 @@
 			"沈澄心"
 		]
 	},
-	"settings": "设置",
+	"header-search": "搜索结果",
+	"header-settings": "设置",
+	"softkey-done": "完成",
+	"softkey-search": "搜索",
+	"softkey-menu": "菜单",
+	"softkey-sections": "段落",
+	"softkey-settings": "设置",
+	"language-change": "更改程序语言",
+	"language-setting": "语言设置",
+	"softkey-ok": "好的",
 	"settings-language": "语言",
 	"settings-term": "使用条款",
 	"settings-about-app": "关于维基百科应用程序"

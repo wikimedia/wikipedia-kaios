@@ -1,0 +1,24 @@
+{
+	"@metadata": {
+		"authors": [
+			"CyberTroopers",
+			"Tofeiku"
+		]
+	},
+	"header-menu": "Menu rencana",
+	"header-search": "Keputusan carian",
+	"menu-section": "Bahagian",
+	"softkey-done": "Selesai",
+	"softkey-search": "Cari",
+	"search-language-placeholder": "Cari bahasa",
+	"softkey-menu": "Menu",
+	"softkey-sections": "Bahagian",
+	"softkey-settings": "Tetapan",
+	"language-change": "Tukar bahasa aplikasi",
+	"language-setting": "Tetapan bahasa",
+	"language-setting-message": "Menukar bahasa di sini akan mengubah bahasa di seluruh aplikasinya. Anda juga boleh menukar bahasa pada setiap artikel menggunakan menu artikel.",
+	"softkey-ok": "Baiklah",
+	"softkey-read": "Baca",
+	"reference-title": "Rujukan [$1]",
+	"offline-message": "Tiada sambungan internet"
+}
