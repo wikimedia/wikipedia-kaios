@@ -6,7 +6,7 @@ const defautParams = {
 
 export const buildMwApiUrl = (lang, params) => {
   params = Object.assign({}, defautParams, params)
-  const baseUrl = `https://${lang}.wikipedia.org/w/api.php`
+  const baseUrl = `https://${lang}.m.wikipedia.org/w/api.php`
   return baseUrl + '?' + Object.keys(params).map(p => {
     return `${p}=${encodeURIComponent(params[p])}`
   }).join('&')
