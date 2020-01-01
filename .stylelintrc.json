@@ -2,6 +2,7 @@
   "extends": "stylelint-config-wikimedia",
   "rules": {
     "selector-attribute-quotes": null,
-    "no-descending-specificity": null
+    "no-descending-specificity": null,
+    "declaration-no-important": null
   }
 }

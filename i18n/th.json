@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"Nitisart Jungtrakungrat"
+		]
+	},
+	"header-menu": "เมนูบทความ",
+	"header-search": "ผลลัพธ์การค้นหา",
+	"softkey-done": "เสร็จสิ้น",
+	"softkey-search": "ค้นหา",
+	"softkey-menu": "เมนู",
+	"softkey-settings": "การตั้งค่า",
+	"language-setting": "การตั้งค่าภาษา",
+	"softkey-ok": "ตกลง",
+	"offline-message": "ไม่มีการเชื่อมต่ออินเทอร์เน็ต"
+}

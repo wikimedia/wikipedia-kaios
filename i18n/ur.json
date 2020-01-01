@@ -1,0 +1,39 @@
+{
+	"@metadata": {
+		"authors": [
+			"MKaur"
+		]
+	},
+	"app-title": "ویکیپیڈیا",
+	"app-subtitle": "آزاد دائرۃ المعارف",
+	"app-description": "آزاد ویکی پیڈیا ایپ کے ذریعہ پوری دنیا سے 300+ زبانوں میں معلومات تلاش کریں۔",
+	"header-menu": "آرٹیکل مینو",
+	"header-search": "تلاش کے نتائج",
+	"header-sections": "حصے",
+	"header-settings": "ترتیبات",
+	"menu-section": "حصے",
+	"softkey-done": "تکمیل",
+	"softkey-search": "تلاش کریں",
+	"search-language-placeholder": "زبان منتخب کریں",
+	"softkey-menu": "مینو",
+	"search-placeholder": "تلاش کریں",
+	"softkey-sections": "حصے",
+	"softkey-settings": "ترتیبات",
+	"centerkey-select": "منتخب کریں",
+	"softkey-close": "بند کریں",
+	"language-change": "اپلیکیشن کی زبان بدلیں",
+	"language-setting": "زبان کی ترتیبات",
+	"language-setting-message": " یہاں زبان کو تبدیل کرنے سے پوری ایپ میں زبان بدل جائے گی۔ آپ آرٹیکل مینو کا استعمال کرتے ہوئے ہر مضمون کی زبان بھی تبدیل کرسکتے ہیں۔",
+	"softkey-ok": "ٹھیک ہے",
+	"softkey-read": "پڑھیں",
+	"reference-title": "حوالہ جات$1",
+	"offline-message": "انٹرنیٹ کنکشن دستیاب نہیں ہے",
+	"settings-language": "زبانیں",
+	"settings-textsize": "متن کا سائز",
+	"settings-about-wikipedia": "ویکیپیڈیا کے بارے ميں",
+	"settings-privacy": "اخفائے راز کے اصول",
+	"settings-term": "استعمال کے شرائط",
+	"settings-rate": "ایپ کو ریٹ کریں",
+	"settings-help-feedback": "مدد اور ردعمل",
+	"settings-about-app": "ایپ کے بارے ميں"
+}

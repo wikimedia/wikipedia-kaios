@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"McDutchie"
+		]
+	},
+	"softkey-done": "Facite",
+	"softkey-search": "Cercar",
+	"search-language-placeholder": "Cercar linguas",
+	"softkey-sections": "Sectiones",
+	"softkey-settings": "Configurationes",
+	"language-change": "Cambiar lingua del app",
+	"language-setting": "Configuration de lingua",
+	"language-setting-message": "Cambiar le lingua hic cambiara le lingua in tote le app. Tu pote etiam cambiar le lingua sur cata articulo usante le menu de articulo",
+	"softkey-ok": "OK"
+}

@@ -7,8 +7,17 @@
 	"app-title": "Uicchipèdie",
 	"app-subtitle": "'A 'ngeclopedije lìbbere",
 	"app-description": "Cu l'app d'a 'ngeclopedije lìbbere, cirche e esplore le 'mbormaziune da tutte 'u munne jndr'à cchiù de 300 lènghe.",
+	"header-settings": "'Mbostaziune",
+	"softkey-done": "Fatte",
+	"softkey-search": "Cirche",
 	"search-placeholder": "Cirche",
-	"settings": "'Mbostaziune",
+	"softkey-sections": "Seziune",
+	"softkey-settings": "'Mbostaziune",
 	"centerkey-select": "Scacchie",
-	"close": "Achiude"
+	"softkey-close": "Achiude",
+	"language-change": "Cange 'a lènghe de l'app",
+	"language-setting": "'Mbostaziune d'a lènghe",
+	"softkey-ok": "Apposte",
+	"reference-title": "Referimende [$1]",
+	"offline-message": "Nisciuna connessione a Indernette"
 }

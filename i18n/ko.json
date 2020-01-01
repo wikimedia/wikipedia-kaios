@@ -1,14 +1,32 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ykhwong"
+			"Ykhwong",
+			"Gongsoonyee",
+			"Eduardo Addad de Oliveira"
 		]
 	},
 	"app-title": "위키백과",
 	"app-subtitle": "우리 모두의 백과사전",
+	"header-menu": "문서 메뉴",
+	"header-search": "검색 결과",
+	"header-sections": "부분",
+	"header-settings": "설정",
+	"menu-section": "부분",
+	"softkey-done": "완료",
+	"softkey-search": "검색",
+	"search-language-placeholder": "검색 언어",
+	"softkey-menu": "메뉴",
 	"search-placeholder": "검색",
-	"settings": "설정",
+	"softkey-sections": "부분",
+	"softkey-settings": "설정",
 	"centerkey-select": "선택",
+	"softkey-close": "닫기",
+	"language-change": "앱 언어 변경",
+	"language-setting": "언어 설정",
+	"softkey-ok": "확인",
+	"softkey-read": "읽기",
+	"reference-title": "각주 [$1]",
 	"settings-language": "언어",
 	"settings-textsize": "텍스트 크기",
 	"settings-about-wikipedia": "위키백과 정보",

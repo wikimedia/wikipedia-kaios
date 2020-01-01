@@ -1,12 +1,24 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": [
+			"BadDog"
+		]
+	},
 	"app-title": "Википедија",
 	"app-subtitle": "Слободна енциклопедија",
 	"app-description": "Са бесплатном апликацијом Википедија, претражујте и истражујте информације из целог света на више од 300 језика",
+	"header-settings": "Подешавања",
+	"softkey-done": "Готово",
+	"softkey-search": "Претражи",
+	"search-language-placeholder": "Изаберите језике",
 	"search-placeholder": "Претрага",
-	"settings": "Подешавања",
+	"softkey-sections": "Одељци",
+	"softkey-settings": "Подешавања",
 	"centerkey-select": "Изабери",
-	"close": "Затвори",
+	"softkey-close": "Затвори",
+	"language-change": "Промена језика апликације",
+	"language-setting": "Подешавања језика",
+	"softkey-ok": "У реду",
 	"settings-language": "Језик",
 	"settings-textsize": "Величина текста",
 	"settings-about-wikipedia": "О Википедији",

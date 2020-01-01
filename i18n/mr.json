@@ -1,0 +1,38 @@
+{
+	"@metadata": {
+		"authors": [
+			"MKaur"
+		]
+	},
+	"app-title": "विकिपीडिया",
+	"app-subtitle": "मुक्त ज्ञानकोश",
+	"app-description": "विकिपीडिया अ‍ॅपसह 300+ भाषांमध्ये जगभरातून माहिती शोधा आणि एक्सप्लोर करा",
+	"header-menu": "लेखांचे मेनू",
+	"header-search": "परिणाम शोधणे",
+	"header-sections": "विभाग",
+	"header-settings": "सेटिंग्स",
+	"menu-section": "विभाग",
+	"softkey-done": "पूर्ण झाले",
+	"softkey-search": "शोधा",
+	"search-language-placeholder": "भाषा शोधा",
+	"softkey-menu": "मेनू",
+	"search-placeholder": "शोधा",
+	"softkey-sections": "विभाग",
+	"softkey-settings": "सेटिंग्स",
+	"centerkey-select": "निवडा",
+	"softkey-close": "बंद करा",
+	"language-change": "अ‍ॅपची भाषा बदला",
+	"language-setting": "भाषा सेटिंग्ज",
+	"language-setting-message": "अ‍ॅपची भाषा बदली कि त्याचीही भाषा बदलते, विनामूल्य विकिपीडिया अ‍ॅपसह सर्व ठीक पासून माहिती शोधा आणि एक्सप्लोर करा",
+	"softkey-read": "वाचा",
+	"reference-title": "संदर्भ [$1]",
+	"offline-message": "इंटरनेट कनेक्शन नाही",
+	"settings-language": "भाषा",
+	"settings-textsize": "मजकूर आकार",
+	"settings-about-wikipedia": "विकिपीडिया बद्दल",
+	"settings-privacy": "गोपनीयता धोरण",
+	"settings-term": "वापरण्याच्या अटी",
+	"settings-rate": "या अॲपचे दरनिर्धारण करा",
+	"settings-help-feedback": "मदत आणि अभिप्राय",
+	"settings-about-app": "अ‍ॅप बद्दल"
+}
