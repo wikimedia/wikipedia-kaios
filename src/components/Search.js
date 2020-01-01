@@ -3,6 +3,7 @@ import { useRef, useEffect } from 'preact/hooks'
 import { route } from 'preact-router'
 import { ListView } from 'components'
 import { useNavigation, useSearch, useI18n, useSoftkey } from 'hooks'
+import { articleHistory } from 'utils'
 import { getRandomArticleTitle } from 'api'
 
 export const Search = () => {
@@ -33,6 +34,7 @@ export const Search = () => {
   }, [current.type])
 
   useEffect(() => {
+    articleHistory.clear()
     setNavigation(0)
   }, [])
 

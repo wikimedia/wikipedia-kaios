@@ -1,3 +1,4 @@
+export { default as articleHistory } from './articleHistory'
 export * from './cachedFetch'
 export * from './languages'
 export * from './mwApi'
