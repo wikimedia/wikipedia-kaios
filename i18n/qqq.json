@@ -5,6 +5,7 @@
 			"Robby"
 		]
 	},
+	"article-language-available": "The header title of the article language search page",
 	"app-title": "Title of the application. Shown in the app store and the app launcher.",
 	"app-subtitle": "Subtitle of the application. Shown in the app store.",
 	"app-description": "Description of the application. Shown in the app store.",
@@ -12,6 +13,7 @@
 	"header-search": "The header title of the search page",
 	"header-sections": "The header title of the sections(ToC) page",
 	"header-settings": "The header title of the settings page",
+	"menu-language": "Label of the Language item. Shown in the Menu page.",
 	"menu-section": "Label of the Section item. Shown in the Menu page.",
 	"softkey-done": "Label of the done softkey",
 	"softkey-search": "Label of the search softkey",
