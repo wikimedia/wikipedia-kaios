@@ -5,10 +5,15 @@
 		]
 	},
 	"app-subtitle": "Den frie encyklopædi",
-	"settings": "Indstillinger",
+	"header-settings": "Indstillinger",
+	"softkey-done": "Udført",
+	"softkey-sections": "Sektioner",
+	"softkey-settings": "Indstillinger",
 	"centerkey-select": "Vælg",
-	"close": "Luk",
+	"softkey-close": "Luk",
+	"language-setting": "Sprogindstillinger",
 	"softkey-read": "Læs",
+	"offline-message": "Ingen internetforbindelse",
 	"settings-language": "Sprog",
 	"settings-textsize": "Tekststørrelse",
 	"settings-about-wikipedia": "Om Wikipedia"

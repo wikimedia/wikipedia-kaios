@@ -1,0 +1,33 @@
+{
+	"@metadata": {
+		"authors": [
+			"MKaur"
+		]
+	},
+	"app-title": "विकिपीडिया",
+	"app-subtitle": "एक मुक्त ज्ञानकोश",
+	"app-description": "निःशुल्क विकिपीडिया ऐप के साथ, 300+ भाषाओं में दुनिया भर से जानकारी खोजें और पाएं।",
+	"header-sections": "अनुभाग",
+	"header-settings": "सेटिंग्स",
+	"softkey-done": "पूर्ण हुआ",
+	"softkey-search": "खोजें",
+	"search-language-placeholder": "भाषा चुनें",
+	"search-placeholder": "खोजें",
+	"softkey-sections": "अनुभाग",
+	"softkey-settings": "सेटिंग्स",
+	"centerkey-select": "चुनें",
+	"softkey-close": "बंद करें",
+	"language-change": "एप की भाषा बदलें",
+	"language-setting": "भाषा सेटिंग",
+	"language-setting-message": "यहां भाषा बदलने से पूरे ऐप में भाषा बदल जाएगी, आप लेख मेन्यू का उपयोग करके प्रत्येक लेख की भाषा भी बदल सकते हैं",
+	"softkey-ok": "ठीक है",
+	"softkey-read": "पढ़ें",
+	"settings-language": "भाषा",
+	"settings-textsize": "अक्षर आकार",
+	"settings-about-wikipedia": "विकिपीडिया के बारे में",
+	"settings-privacy": "गोपनीयता नीति",
+	"settings-term": "उपयोग की शर्तें",
+	"settings-rate": "एप को रेट करें",
+	"settings-help-feedback": "सहायता व फीडबैक",
+	"settings-about-app": "ऐप के बारे में"
+}

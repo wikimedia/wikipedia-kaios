@@ -1,0 +1,39 @@
+{
+	"@metadata": {
+		"authors": [
+			"MKaur"
+		]
+	},
+	"app-title": "ଉଇକିପିଡ଼ିଆ",
+	"app-subtitle": "ମୁକ୍ତ ଜ୍ଞାନକୋଷ",
+	"app-description": "ମୁକ୍ତ ଉଇକିପିଡ଼ିଆ ଆପରେ , ୩୦୦+ ଟି ଭାଷାରେ ସମଗ୍ର ଦୁନିଆରେ ସୂଚନାର ଅନୁସନ୍ଧାନ ଖୋଜା ଚାଲିଛି",
+	"header-menu": "ଅନୁଚ୍ଛେଦର ସୂଚୀ",
+	"header-search": "ପରିଣାମ ଖୋଜନ୍ତୁ",
+	"header-sections": "ବିଭାଗ",
+	"header-settings": "ପୃଷ୍ଠଭୂମି",
+	"menu-section": "ବିଭାଗ",
+	"softkey-done": "ସମାପ୍ତ",
+	"softkey-search": "ଖୋଜନ୍ତୁ",
+	"search-language-placeholder": "ଭାଷା ସମୂହକୁ ଖୋଜନ୍ତୁ",
+	"softkey-menu": "ଖୋଜନ୍ତୁ",
+	"search-placeholder": "ଖୋଜନ୍ତୁ",
+	"softkey-sections": "ବିଭାଗ",
+	"softkey-settings": "ପୃଷ୍ଠଭୂମି",
+	"centerkey-select": "ବାଛିବା",
+	"softkey-close": "ସମାପ୍ତି",
+	"language-change": "ଆପର ଭାଷା ସମୂହକୁ ବଦଳାନ୍ତୁ",
+	"language-setting": "ଭାଷାର ପୃଷ୍ଠଭୂମି",
+	"language-setting-message": "ଏଠାରେ ଭାଷାକୁ ବଦଳାଇବା ଦ୍ୱାରା ସମସ୍ତ ଆପରେ ଭାଷା ଗୁଡିକ ବଦଳିଯିବ, ତୁମେ ମଧ୍ୟ ବଦଳାଇ ପାରିବ",
+	"softkey-ok": "ଠିକ ଅଛି",
+	"softkey-read": "ପଢ଼ନ୍ତୁ",
+	"reference-title": "ଆଧାର [$1]",
+	"offline-message": "ଇଣ୍ଟରନେଟର ସଂଯୋଗ ନାହିଁ",
+	"settings-language": "ଭାଷା",
+	"settings-textsize": "ବିଷୟବସ୍ତୁର ଆକାର",
+	"settings-about-wikipedia": "ଉଇକିପିଡ଼ିଆ ବାବଦରେ",
+	"settings-privacy": "ଗୋପନୀୟ ନୀତି",
+	"settings-term": "ଶବ୍ଦର ବ୍ୟବହାର",
+	"settings-rate": "ଆପର ମୂଲ୍ୟାଙ୍କନ",
+	"settings-help-feedback": "ସାହାଯ୍ୟ ଓ ପ୍ରତିପୁଷ୍ଟି",
+	"settings-about-app": "ଆପ ବାବଦରେ"
+}

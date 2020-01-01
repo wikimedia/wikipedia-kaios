@@ -5,7 +5,7 @@ import { useNavigation, useI18n, useSoftkey } from 'hooks'
 import { articleHistory } from 'utils'
 import { ListView } from 'components'
 
-export const ArticleMenu = ({ close, onTocSelected }) => {
+export const ArticleMenu = ({ close, onTocSelected, onLanguageSelected }) => {
   const containerRef = useRef()
   const i18n = useI18n()
   const onKeyCenter = () => {
@@ -37,7 +37,8 @@ export const ArticleMenu = ({ close, onTocSelected }) => {
   }, [])
 
   const items = [
-    { title: i18n.i18n('menu-section'), action: onTocSelected }
+    { title: i18n.i18n('menu-section'), action: onTocSelected },
+    { title: i18n.i18n('menu-language'), action: onLanguageSelected }
   ]
 
   // add Previous Section item

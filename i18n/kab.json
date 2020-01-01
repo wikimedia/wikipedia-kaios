@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"K Messaoudi"
+		]
+	},
+	"header-menu": "Umuɣ n umagrad",
+	"header-search": "Igmaḍ n unadi",
+	"menu-section": "Tigezmiwin",
+	"softkey-done": "Immed",
+	"softkey-search": "Nadi",
+	"search-language-placeholder": "Fren tutlayin",
+	"softkey-menu": "Umuɣ",
+	"softkey-sections": "Tigezmiwin",
+	"softkey-settings": "Iɣewwaṛen",
+	"language-change": "Beddel tutlayt n usnas",
+	"language-setting": "Iɣewwaṛen n tutlayt",
+	"language-setting-message": "Abeddel n tutlayt da ad tt-ibeddel akk deg usnas, tzemreḍ daɣen ad tbeddleḍ tutlayt n yal amagrad s useqdec n wumuɣ n umagrad",
+	"softkey-ok": "Ih",
+	"reference-title": "Timsisɣelt [$1]",
+	"offline-message": "Ulac tuqqna n internet"
+}

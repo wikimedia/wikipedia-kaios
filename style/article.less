@@ -106,7 +106,7 @@
 				}
 
 				figure {
-					margin: 10px;
+					margin: 10px 0;
 				}
 
 				span.mw-ref {
@@ -125,8 +125,43 @@
 					padding: 1px;
 				}
 
+				dd {
+					margin-left: 0;
+					padding-left: 1em;
+				}
+
+				ul {
+					padding-left: 1em;
+
+					&.gallery {
+						list-style-type: none;
+
+						.gallerybox {
+							width: 100% !important;
+							text-align: center;
+
+							div {
+								width: 100% !important;
+							}
+						}
+					}
+				}
+
+				ol {
+					&.references {
+						padding-left: 2.25em;
+					}
+				}
+
 				.quotebox {
 					// width: 100% !important;
+				}
+
+				.hatnote,
+				.dablink,
+				.rellink {
+					padding: 5px 7px;
+					background-color: #f8f9fa;
 				}
 
 				blockquote {
