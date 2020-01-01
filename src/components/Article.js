@@ -11,6 +11,7 @@ import {
   useArticlePagination, useArticleLinksNavigation,
   usePopup
 } from 'hooks'
+import { viewport } from 'utils'
 
 const ArticleBody = memo(({ content }) => {
   return (
@@ -95,7 +96,8 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
   }
 
   const showArticleTocPopup = () => {
-    showTocPopup({ items: article.toc, onSelectItem: goToArticleSubpage })
+    const currentTitle = findCurrentLocatedTitleOrSubtitle(containerRef)
+    showTocPopup({ items: article.toc, currentTitle, onSelectItem: goToArticleSubpage })
   }
 
   const showArticleLanguagePopup = () => {
@@ -129,4 +131,15 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
 
 export const Article = ({ lang, title: articleTitle, subtitle: initialSubTitle }) => {
   return <ArticleInner lang={lang} articleTitle={articleTitle} initialSubTitle={initialSubTitle} key={lang + articleTitle} />
+}
+
+const findCurrentLocatedTitleOrSubtitle = ref => {
+  let element
+  Array.from(ref.current.querySelectorAll('.title, h3, h4'))
+    .find(ref => {
+      if (ref.getBoundingClientRect().left < viewport.width) {
+        element = ref
+      }
+    })
+  return element.textContent
 }

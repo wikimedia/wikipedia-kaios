@@ -1,9 +1,9 @@
 import { h } from 'preact'
-import { useRef, useEffect } from 'preact/hooks'
+import { useRef, useLayoutEffect } from 'preact/hooks'
 import { useNavigation, useI18n, useSoftkey } from 'hooks'
 import { ListView } from 'components'
 
-export const ArticleToc = ({ items, onSelectItem, close }) => {
+export const ArticleToc = ({ items, currentTitle, onSelectItem, close }) => {
   const containerRef = useRef()
   const i18n = useI18n()
   const listItems = parseTocItems(items)
@@ -24,8 +24,8 @@ export const ArticleToc = ({ items, onSelectItem, close }) => {
     onKeyCenter
   })
 
-  useEffect(() => {
-    setNavigation(0)
+  useLayoutEffect(() => {
+    setNavigation(listItems.findIndex(item => item.title === currentTitle))
   }, [])
 
   return <div class='toc'>
