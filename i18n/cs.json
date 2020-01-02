@@ -6,6 +6,7 @@
 			"YjM"
 		]
 	},
+	"article-language-available": "Dostupné v {{PLURAL:$1|$1 jazyce|$1 jazycích jazyky}}",
 	"app-title": "Wikipedie",
 	"app-subtitle": "Otevřená encyklopedie",
 	"app-description": "S aplikací Wikipedie můžete vyhledávat a objevovat informace z celého světa ve více než 300 jazycích.",
@@ -13,6 +14,8 @@
 	"header-search": "Výsledky hledání",
 	"header-sections": "Sekce",
 	"header-settings": "Nastavení",
+	"menu-previous": "Předchozí článek",
+	"menu-language": "Jazyk",
 	"menu-section": "Sekce",
 	"softkey-done": "Hotovo",
 	"softkey-search": "Hledat",

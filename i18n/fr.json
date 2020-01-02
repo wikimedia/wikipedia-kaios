@@ -10,6 +10,7 @@
 			"Thibaut120094"
 		]
 	},
+	"article-language-available": "Disponible en $1 {{PLURAL:$1|langue|langues}}",
 	"app-title": "Wikipédia",
 	"app-subtitle": "L’encyclopédie libre",
 	"app-description": "Avec l’application libre Wikipédia, cherchez et explorez des informations du monde entier en plus de 300 langues.",
@@ -17,6 +18,8 @@
 	"header-search": "Résultats de la recherche",
 	"header-sections": "Sections",
 	"header-settings": "Paramètres",
+	"menu-previous": "Article précédent",
+	"menu-language": "Langue",
 	"menu-section": "Sections",
 	"softkey-done": "Terminé",
 	"softkey-search": "Rechercher",

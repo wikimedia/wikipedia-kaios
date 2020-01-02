@@ -5,6 +5,7 @@
 			"Amire80"
 		]
 	},
+	"article-language-available": "זמין {{בשפה אחת|ב־$1 שפות}}.",
 	"app-title": "ויקיפדיה",
 	"app-subtitle": "האנציקלופדיה החופשית",
 	"app-description": "בעזרת יישום ויקיפדיה החינמי, תוכלו לחפש ולחקור מידע מכל העולם ביותר מ־300 שפות.",
@@ -12,6 +13,8 @@
 	"header-search": "תוצאות חיפוש",
 	"header-sections": "פסקאות",
 	"header-settings": "הגדרות",
+	"menu-previous": "הערך הקודם",
+	"menu-language": "שפה",
 	"menu-section": "פסקאות",
 	"softkey-done": "בוצע",
 	"softkey-search": "חיפוש",
