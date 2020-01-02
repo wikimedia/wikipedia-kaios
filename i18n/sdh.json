@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"Paraw2"
+		]
+	},
+	"header-search": "ئاکامەگان مینەکردن",
+	"softkey-done": "کریا",
+	"softkey-search": "مینە بکە",
+	"search-language-placeholder": "مینەێ زوانەیل بکە",
+	"softkey-sections": "بەشەیل",
+	"language-change": "زوان بەرنامەگە بگووڕنەو",
+	"softkey-ok": "باشە",
+	"reference-title": "سەرچاوە [$1]",
+	"offline-message": "پەیوەندی ئینترنتەگە دابڕیاس"
+}

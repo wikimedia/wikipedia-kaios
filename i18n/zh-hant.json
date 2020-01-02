@@ -5,6 +5,7 @@
 			"HTan (WMF)"
 		]
 	},
+	"article-language-available": "有 $1 種{{PLURAL:$1|語言}}可用",
 	"app-title": "維基百科",
 	"app-subtitle": "自由的百科全書",
 	"app-description": "藉由自由的維基百科應用程式，進行搜尋探索來自於全世界三百種以上語言的資訊。",
@@ -12,6 +13,8 @@
 	"header-search": "搜尋結果",
 	"header-sections": "段落",
 	"header-settings": "設定",
+	"menu-previous": "上一個條目",
+	"menu-language": "語言",
 	"menu-section": "段落",
 	"softkey-done": "完成",
 	"softkey-search": "搜尋",
@@ -24,7 +27,7 @@
 	"softkey-close": "關閉",
 	"language-change": "變更應用程式語言",
 	"language-setting": "語言設定",
-	"language-setting-message": "在此的變更語言將會透過應用程式來變更語言，您也可以在各條目使用條目選單來變更語言",
+	"language-setting-message": "在此的變更語言將會透過應用程式來變更語言。您也可以在各條目使用條目選單來變更語言。",
 	"softkey-ok": "確認",
 	"softkey-read": "閱讀",
 	"reference-title": "參考資料[$1]",
