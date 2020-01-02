@@ -16,8 +16,8 @@ export const useArticleLinksNavigation = (
   origin,
   lang,
   contentRef,
-  currentPage,
-  linkHandlers = {}
+  linkHandlers = {},
+  dependencies = []
 ) => {
   const i18n = useI18n()
   const [links, setLinks] = useState([])
@@ -40,6 +40,10 @@ export const useArticleLinksNavigation = (
   const hasLinks = () => links && links.length
 
   useEffect(() => {
+    findAndSetCurrentLink()
+  }, dependencies)
+
+  const findAndSetCurrentLink = () => {
     const visibleLinks = findVisibleLinks(contentRef.current)
     setLinks(visibleLinks)
     if (visibleLinks.length) {
@@ -47,7 +51,7 @@ export const useArticleLinksNavigation = (
     } else {
       setCurrentLink(null)
     }
-  }, [currentPage])
+  }
 
   const defaultLinkHandlers = {
     title: ({ title }) => {
@@ -92,7 +96,7 @@ export const useArticleLinksNavigation = (
     }
   }, [links, currentLink])
 
-  return [currentLink]
+  return [findAndSetCurrentLink]
 }
 
 const makeLinkClickEvent = link => {

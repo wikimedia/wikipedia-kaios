@@ -42,7 +42,7 @@ const ArticleSection = ({
     }
   }
 
-  useArticleLinksNavigation('Article', lang, contentRef, page, linkHandlers)
+  useArticleLinksNavigation('Article', lang, contentRef, linkHandlers, [page])
 
   return (
     <div class='article-section' ref={contentRef}>
