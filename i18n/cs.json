@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Patriccck",
-			"Eduardo Addad de Oliveira"
+			"Eduardo Addad de Oliveira",
+			"YjM"
 		]
 	},
 	"app-title": "Wikipedie",
@@ -24,7 +25,7 @@
 	"softkey-close": "Zavřít",
 	"language-change": "Změnit jazyk aplikace",
 	"language-setting": "Jazykové nastavení",
-	"language-setting-message": "Změna jazyku zde změní jazyk v celé aplikaci. Jazyk článku můžete změnit použitím nabídky u článků",
+	"language-setting-message": "Změna jazyku zde změní jazyk v celé aplikaci. Jazyk článku můžete změnit použitím nabídky u článků.",
 	"softkey-ok": "V pořádku",
 	"softkey-read": "Číst",
 	"reference-title": "Reference [$1]",

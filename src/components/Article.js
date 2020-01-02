@@ -1,14 +1,17 @@
 import { h, Fragment } from 'preact'
 import { route } from 'preact-router'
 import { memo } from 'preact/compat'
-import { useState, useRef } from 'preact/hooks'
-import { ReferencePreview, ArticleToc, ArticleMenu } from 'components'
+import { useState, useRef, useEffect } from 'preact/hooks'
+import {
+  ReferencePreview, ArticleToc, ArticleLanguage,
+  ArticleMenu
+} from 'components'
 import {
   useArticle, useI18n, useSoftkey,
   useArticlePagination, useArticleLinksNavigation,
   usePopup
 } from 'hooks'
-import { confirmDialog } from 'utils'
+import { articleHistory, confirmDialog, viewport } from 'utils'
 
 const ArticleBody = memo(({ content }) => {
   return (
@@ -86,6 +89,7 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
 
   const [subTitle, setSubTitle] = useState(initialSubTitle)
   const [showTocPopup] = usePopup(ArticleToc, { mode: 'fullscreen' })
+  const [showLanguagePopup] = usePopup(ArticleLanguage, { mode: 'fullscreen' })
   const [showMenuPopup] = usePopup(ArticleMenu, { mode: 'fullscreen' })
   const [currentSection, setCurrentSection, currentPage] = useArticlePagination(containerRef, article, subTitle)
   const section = article.sections[currentSection]
@@ -101,14 +105,23 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
   }
 
   const showArticleTocPopup = () => {
-    showTocPopup({ items: article.toc, onSelectItem: goToArticleSubpage })
+    const currentTitle = findCurrentLocatedTitleOrSubtitle(containerRef)
+    showTocPopup({ items: article.toc, currentTitle, onSelectItem: goToArticleSubpage })
+  }
+
+  const showArticleLanguagePopup = () => {
+    showLanguagePopup({ lang, title: articleTitle })
   }
 
   useSoftkey('Article', {
     left: i18n.i18n('softkey-menu'),
-    onKeyLeft: () => showMenuPopup({ onTocSelected: showArticleTocPopup }),
+    onKeyLeft: () => showMenuPopup({ onTocSelected: showArticleTocPopup, onLanguageSelected: showArticleLanguagePopup }),
     right: i18n.i18n('softkey-close'),
     onKeyRight: () => history.back()
+  }, [])
+
+  useEffect(() => {
+    articleHistory.add(lang, articleTitle)
   }, [])
 
   return (
@@ -132,4 +145,15 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
 
 export const Article = ({ lang, title: articleTitle, subtitle: initialSubTitle }) => {
   return <ArticleInner lang={lang} articleTitle={articleTitle} initialSubTitle={initialSubTitle} key={lang + articleTitle} />
+}
+
+const findCurrentLocatedTitleOrSubtitle = ref => {
+  let element
+  Array.from(ref.current.querySelectorAll('.title, h3, h4'))
+    .find(ref => {
+      if (ref.getBoundingClientRect().left < viewport.width) {
+        element = ref
+      }
+    })
+  return element.textContent
 }

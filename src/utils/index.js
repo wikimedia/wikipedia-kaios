@@ -1,3 +1,4 @@
+export { default as articleHistory } from './articleHistory'
 export { default as confirmDialog } from './confirm'
 export * from './cachedFetch'
 export * from './languages'

@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'preact/hooks'
+import { useState, useLayoutEffect } from 'preact/hooks'
 import { allLanguages } from 'utils'
 
 export const useSearchLanguage = (lang) => {
   const [items, setItems] = useState(getInitialLangList(lang))
   const [query, setQuery] = useState()
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const filteredList = query ? filterFirst10Language(query) : getInitialLangList(lang)
     setItems(filteredList.map(item => {
       item.isSelected = item.lang === lang
@@ -13,7 +13,7 @@ export const useSearchLanguage = (lang) => {
     }))
   }, [query])
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setItems(items.map(item => {
       item.isSelected = item.lang === lang
       return item

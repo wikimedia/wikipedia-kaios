@@ -29,7 +29,7 @@
 	"softkey-close": "Fermer",
 	"language-change": "Modifier la langue de l’application",
 	"language-setting": "Paramètres de langue",
-	"language-setting-message": "Changer la langue ici la modifiera dans toute l’application ; vous pouvez aussi modifier la langue sur chaque article en utilisant le menu de l’article",
+	"language-setting-message": "Changer la langue ici la modifiera dans toute l’application. Vous pouvez aussi modifier la langue sur chaque article en utilisant le menu de l’article.",
 	"softkey-ok": "Valider",
 	"softkey-read": "Lire",
 	"reference-title": "Référence [$1]",
