@@ -1,4 +1,4 @@
-import { buildMwApiUrl } from 'utils'
+import { buildMwApiUrl, cachedFetch } from 'utils'
 
 export const getArticleFooter = (lang, title) => {
   const params = {
@@ -16,9 +16,5 @@ export const getArticleFooter = (lang, title) => {
   }
 
   const url = buildMwApiUrl(lang, params)
-  return fetch(url)
-    .then(response => response.json())
-    .then(data => {
-      return data.query.pages
-    })
+  return cachedFetch(url, data => data.query.pages)
 }

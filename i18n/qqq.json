@@ -10,6 +10,7 @@
 	"app-subtitle": "Subtitle of the application. Shown in the app store.",
 	"app-description": "Description of the application. Shown in the app store.",
 	"centerkey-select": "Label of the center key to choose the selected element. This is used in several contexts when the arrow keys are used to move the focus between visual elements.",
+	"content-license": "Paragraph of content license is under CC BY-SA 3.0. Shown in the Article footer page",
 	"header-menu": "The header title of the menu page",
 	"header-search": "The header title of the search page",
 	"header-sections": "The header title of the sections(ToC) page",
@@ -30,6 +31,7 @@
 	"softkey-menu": "Label of the menu softkey",
 	"softkey-ok": "Label of the word \"ok\" shown in the popup message in the language settings page",
 	"softkey-read": "Text of the read option in the softkey. Used to read the selected article in the article preview.\n{{Identical|Read}}",
+	"suggested-articles": "Text of the suggested articles. Shown in the article footer page.",
 	"reference-title": "Header of the reference preview popup.\n* $1 - Number of the current reference.",
 	"offline-message": "Message to be display at the top of the screen when there is no internet connection.",
 	"settings-language": "Label of the language item list. Shown in the Settings menu, used in language setting.",
@@ -39,5 +41,7 @@
 	"settings-term": "Label of Terms of use. Shown in the Settings menu, redirect to the Terms of use browser page.",
 	"settings-rate": "Label of the Rate item list. Shown in the Settings menu, used in rating the app.",
 	"settings-help-feedback": "Label of Help and feedback item list. Shown in the Settings menu, to find help and give feedback.",
-	"settings-about-app": "Label of the About the app item list. Shown in the Settings menu, used in showing the information of this app"
+	"settings-about-app": "Label of the About the app item list. Shown in the Settings menu, used in showing the information of this app",
+	"toc-footer": "Label of the footer item in the Table of Content list. Shown in the Toc page",
+	"view-in-browser": "Text of the View article in browser. Shown in the article footer page"
 }

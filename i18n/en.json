@@ -10,6 +10,7 @@
     "app-title": "Wikipedia",
     "app-subtitle": "The free encyclopedia",
     "app-description": "With the free Wikipedia app, search and explore information from all over the world in 300+ languages.",
+    "content-license": "Content is available under $1 unless otherwise noted.",
     "header-menu": "Article menu",
     "header-search": "Search results",
     "header-sections": "Sections",
@@ -31,6 +32,7 @@
     "language-setting-message": "Changing the language here will change the language throughout the app. You can also change the language on each article using the article menu.",
     "softkey-ok": "Okay",
     "softkey-read": "Read",
+    "suggested-articles": "SUGGESTED ARTICLES",
     "reference-title": "Reference [$1]",
     "offline-message": "No internet connection ",
     "settings-language": "Language",
@@ -40,5 +42,7 @@
     "settings-term": "Terms of use",
     "settings-rate": "Rate the app",
     "settings-help-feedback": "Help and feedback",
-    "settings-about-app": "About the app"
+    "settings-about-app": "About the app",
+    "toc-footer": "Footer",
+    "view-in-browser": "View article in browser"
 }

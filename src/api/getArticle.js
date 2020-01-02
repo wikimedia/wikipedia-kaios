@@ -2,7 +2,7 @@ import { h } from 'preact'
 import { cachedFetch } from 'utils'
 import { ArticleFooter } from 'components'
 
-export const getArticle = (lang, title) => {
+export const getArticle = (lang, title, i18n) => {
   const url = `https://${lang}.wikipedia.org/api/rest_v1/page/mobile-sections/${encodeURIComponent(title)}`
   return cachedFetch(url, data => {
     const parser = new DOMParser()
@@ -76,12 +76,12 @@ export const getArticle = (lang, title) => {
 
     // footer
     sections.push({
-      title: '',
+      title: i18n.i18n('toc-footer'),
       content: <ArticleFooter lang={lang} title={title} />,
       imageUrl: false,
       isFooter: true
     })
-    toc.push({ level: 1, line: 'Footer', sectionIndex: sections.length - 1 })
+    toc.push({ level: 1, line: i18n.i18n('toc-footer'), sectionIndex: sections.length - 1 })
 
     return {
       sections,
