@@ -117,7 +117,7 @@ const makeLinkClickEvent = link => {
   }
 
   if (link.hash) {
-    return { type: 'goto', anchor: link.textContent }
+    return { type: 'section', anchor: link.textContent }
   }
 }
 

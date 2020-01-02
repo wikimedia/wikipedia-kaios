@@ -27,7 +27,7 @@ const ArticleSection = ({
   content, page, showToc, goToSubpage, references
 }) => {
   const contentRef = useRef()
-
+  const i18n = useI18n()
   const [showReferencePreview] = usePopup(ReferencePreview, { position: 'auto' })
 
   const linkHandlers = {
@@ -41,9 +41,9 @@ const ArticleSection = ({
     reference: ({ referenceId }) => {
       showReferencePreview({ reference: references[referenceId], lang })
     },
-    goto: ({ anchor }) => {
+    section: ({ anchor }) => {
       // @todo styling to be confirmed with design
-      confirmDialog({ message: `Go to Section "${anchor}"?`, onSubmit: () => goToSubpage({ title: anchor }) })
+      confirmDialog({ message: i18n.i18n('confirm-section', anchor), onSubmit: () => goToSubpage({ title: anchor }) })
     }
   }
 

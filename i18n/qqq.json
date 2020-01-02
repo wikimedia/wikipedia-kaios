@@ -10,6 +10,7 @@
 	"app-subtitle": "Subtitle of the application. Shown in the app store.",
 	"app-description": "Description of the application. Shown in the app store.",
 	"centerkey-select": "Label of the center key to choose the selected element. This is used in several contexts when the arrow keys are used to move the focus between visual elements.",
+	"confirm-section": "Confirm message switch to the selected section page. Shown in the Article page.",
 	"header-menu": "The header title of the menu page",
 	"header-search": "The header title of the search page",
 	"header-sections": "The header title of the sections(ToC) page",
