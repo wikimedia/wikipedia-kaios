@@ -3,7 +3,8 @@
 		"authors": [
 			"Meno25",
 			"ديفيد",
-			"Eduardo Addad de Oliveira"
+			"Eduardo Addad de Oliveira",
+			"محمد أحمد عبد الفتاح"
 		]
 	},
 	"app-title": "ويكيبيديا",
@@ -13,6 +14,8 @@
 	"header-search": "نتائج البحث",
 	"header-sections": "الأقسام",
 	"header-settings": "إعدادات",
+	"menu-previous": "المقالة السابقة",
+	"menu-language": "اللغة",
 	"menu-section": "الأقسام",
 	"softkey-done": "تم",
 	"softkey-search": "بحث",

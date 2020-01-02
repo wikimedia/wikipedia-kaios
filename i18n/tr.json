@@ -4,6 +4,7 @@
 			"BaRaN6161 TURK"
 		]
 	},
+	"article-language-available": "$1 mevcut {{PLURAL:$1|dil|dil}}",
 	"app-title": "Vikipedi",
 	"app-subtitle": "Özgür ansiklopedi",
 	"app-description": "Ücretsiz Vikipedi uygulamasıyla, 300'den fazla dilde dünyanın her yerinden bilgi arayın ve keşfedin.",
@@ -11,6 +12,8 @@
 	"header-search": "Arama sonuçları",
 	"header-sections": "Bölümler",
 	"header-settings": "Ayarlar",
+	"menu-previous": "Önceki makale",
+	"menu-language": "Dil",
 	"menu-section": "Bölümler",
 	"softkey-done": "Tamamlandı",
 	"softkey-search": "Ara",
