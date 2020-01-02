@@ -5,7 +5,7 @@ import { getArticleFooter } from 'api'
 
 // The reason why adding placeholder items is
 // the use article links navigation able to select the first item
-const PLACEHOLDER_ITEMS = [{ title: '' }, { title: '' }, { title: '' }]
+const PLACEHOLDER_ITEMS = [{ title: 'loading...' }, { title: 'loading...' }, { title: 'loading...' }]
 
 export const ArticleFooter = ({ lang, title }) => {
   const [footer, setFooter] = useState(PLACEHOLDER_ITEMS)
@@ -27,7 +27,7 @@ export const ArticleFooter = ({ lang, title }) => {
                 <div class='article-title'>{item.title}</div>
                 <div class='description'>{item.description}</div>
               </div>
-              <div class='img'><img src={item.thumbnail && item.thumbnail.source} /></div>
+              { item.thumbnail && <div class='img'><img src={item.thumbnail.source} /></div> }
             </a>
           })}
         </div>
