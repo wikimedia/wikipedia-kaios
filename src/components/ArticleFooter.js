@@ -3,18 +3,18 @@ import { useState, useEffect } from 'preact/hooks'
 import { useI18n } from 'hooks'
 import { getArticleFooter } from 'api'
 
+// The reason why adding placeholder items is
+// the use article links navigation able to select the first item
+const PLACEHOLDER_ITEMS = [{ title: '' }, { title: '' }, { title: '' }]
+
 export const ArticleFooter = ({ lang, title }) => {
-  const [footer, setFooter] = useState([])
+  const [footer, setFooter] = useState(PLACEHOLDER_ITEMS)
   const i18n = useI18n()
 
   useEffect(() => {
     getArticleFooter(lang, title)
       .then(items => setFooter(items))
   }, [])
-
-  if (!footer.length) {
-    return 'Loading...'
-  }
 
   return (
     <div class='article-footer'>
