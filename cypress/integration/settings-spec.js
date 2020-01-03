@@ -41,7 +41,7 @@ describe('settings page', () =>{
     firstElementOfTheSettingsMenuList.next().should('have.attr', 'nav-selected', 'false')
   })
 
-  it.only('language of the app should change', () => {
+  it('language of the app should change', () => {
     cy.enter()
     languageSettingsPage.popupTitleElement().should('have.text', 'Language settings')
 
