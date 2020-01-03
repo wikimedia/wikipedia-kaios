@@ -1,7 +1,7 @@
 import { usePopup } from 'hooks'
 import { ConfirmDialog } from 'components'
 
-export default function ({ message, onSubmit }) {
+export const confirmDialog = ({ message, onSubmit }) => {
   const [showConfirmDialog] = usePopup(ConfirmDialog, { position: 'auto' })
   showConfirmDialog({ message, onSubmit })
 }

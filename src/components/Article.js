@@ -41,9 +41,9 @@ const ArticleSection = ({
     reference: ({ referenceId }) => {
       showReferencePreview({ reference: references[referenceId], lang })
     },
-    section: ({ anchor }) => {
+    section: ({ text, anchor }) => {
       // @todo styling to be confirmed with design
-      confirmDialog({ message: i18n.i18n('confirm-section', anchor), onSubmit: () => goToSubpage({ title: anchor }) })
+      confirmDialog({ message: i18n.i18n('confirm-section', text), onSubmit: () => goToSubpage({ title: anchor }) })
     }
   }
 

@@ -13,10 +13,8 @@ export const ConfirmDialog = ({ message, onSubmit, close }) => {
 
   return (
     <div class='confirm-dialog'>
-      <div class='item'>
-        <div class='info'>
-          <div class='title'>{message}</div>
-        </div>
+      <div class='info'>
+        <div class='title'>{message}</div>
       </div>
     </div>
   )

@@ -117,7 +117,7 @@ const makeLinkClickEvent = link => {
   }
 
   if (link.hash) {
-    return { type: 'section', anchor: link.textContent }
+    return { type: 'section', text: link.textContent, anchor: link.getAttribute('href').slice(1) }
   }
 }
 
