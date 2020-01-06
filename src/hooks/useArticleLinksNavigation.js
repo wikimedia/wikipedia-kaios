@@ -17,8 +17,8 @@ export const useArticleLinksNavigation = (
   origin,
   lang,
   contentRef,
-  currentPage,
-  linkHandlers = {}
+  linkHandlers = {},
+  dependencies = []
 ) => {
   const i18n = useI18n()
   const [links, setLinks] = useState([])
@@ -48,7 +48,7 @@ export const useArticleLinksNavigation = (
     } else {
       setCurrentLink(null)
     }
-  }, [currentPage])
+  }, dependencies)
 
   const defaultLinkHandlers = {
     title: ({ title }) => {
