@@ -2,14 +2,15 @@
 	"@metadata": {
 		"authors": [
 			"Beta16",
-			"Eduardo Addad de Oliveira"
+			"Eduardo Addad de Oliveira",
+			"Dansita"
 		]
 	},
 	"article-language-available": "Disponibile in $1 {{PLURAL:$1|lingua|lingue}}",
 	"app-title": "Wikipedia",
 	"app-subtitle": "L'enciclopedia libera",
 	"app-description": "Con l'applicazione gratuita di Wikipedia, cerca ed esplora informazioni da tutto il mondo in oltre 300 lingue.",
-	"header-menu": "Menu voce",
+	"header-menu": "Menu della voce",
 	"header-search": "Risultati della ricerca",
 	"header-sections": "Sezioni",
 	"header-settings": "Impostazioni",
@@ -17,15 +18,15 @@
 	"menu-language": "Lingua",
 	"menu-section": "Sezioni",
 	"softkey-done": "Fatto",
-	"softkey-search": "Ricerca",
-	"search-language-placeholder": "Cerca nelle lingue",
+	"softkey-search": "Cerca",
+	"search-language-placeholder": "Cerca lingue",
 	"softkey-menu": "Menu",
-	"search-placeholder": "Ricerca",
+	"search-placeholder": "Cerca",
 	"softkey-sections": "Sezioni",
 	"softkey-settings": "Impostazioni",
 	"centerkey-select": "Seleziona",
 	"softkey-close": "Chiudi",
-	"language-change": "Cambia la lingua",
+	"language-change": "Cambia la lingua dell'app",
 	"language-setting": "Impostazioni per la lingua",
 	"language-setting-message": "Cambiando la lingua qui cambierà la lingua in tutta l'applicazione. Puoi anche cambiare la lingua su ogni voce usando il menu delle voci.",
 	"softkey-ok": "Ok",
