@@ -34,10 +34,7 @@ export const ArticleFooter = ({ lang, title }) => {
         <h2>
           <img src='/images/wikipedia-wordmark-en.png' height='18' width='116' />
         </h2>
-        <p class='license' dangerouslySetInnerHTML={
-          { __html: i18n.i18n('content-license', '<a class=\'external\' rel=\'mw:ExtLink\' href=\'https://creativecommons.org/licenses/by-sa/3.0/\'>CC BY-SA 3.0</a>') }
-        }
-        />
+        <p class='license' dangerouslySetInnerHTML={{ __html: i18n.i18n('content-license') }} />
         <p class='browser'>
           <a class='external' rel='mw:ExtLink' href={`https://${lang}.m.wikipedia.org/w/index.php?title=${title}`}>
             {i18n.i18n('view-in-browser')}
