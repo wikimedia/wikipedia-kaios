@@ -30,6 +30,9 @@ const adjust = (step = 1, update = true) => {
   // reference preview
   adjustElement('.reference-preview', document, step)
 
+  // confirm dialog
+  adjustElement('.confirm-dialog', document, step)
+
   if (update) {
     set(get() + step)
   }

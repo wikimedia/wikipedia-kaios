@@ -1,5 +1,7 @@
 import { h } from 'preact'
+import { useLayoutEffect } from 'preact/hooks'
 import { useI18n, useSoftkey } from 'hooks'
+import { ArticleTextSize } from 'utils'
 
 export const ConfirmDialog = ({ message, onSubmit, close }) => {
   const i18n = useI18n()
@@ -8,7 +10,12 @@ export const ConfirmDialog = ({ message, onSubmit, close }) => {
     right: i18n.i18n('softkey-close'),
     onKeyRight: close,
     center: i18n.i18n('softkey-ok'),
-    onKeyCenter: () => { onSubmit(); close() }
+    onKeyCenter: () => { onSubmit(); close() },
+    ...ArticleTextSize.getSoftkeyEffect()
+  }, [])
+
+  useLayoutEffect(() => {
+    ArticleTextSize.init('.confirm-dialog')
   }, [])
 
   return (
