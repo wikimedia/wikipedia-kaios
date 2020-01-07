@@ -1,0 +1,19 @@
+{
+	"@metadata": {
+		"authors": [
+			"Андрей Саг."
+		]
+	},
+	"header-menu": "Статьяның менюзы",
+	"header-search": "Тілен салтары",
+	"menu-language": "Тіл",
+	"menu-section": "Пӧлік",
+	"softkey-done": "Идерге",
+	"softkey-search": "Тілирге",
+	"softkey-menu": "Меню",
+	"softkey-sections": "Пӧлік",
+	"softkey-settings": "Турғысханы",
+	"language-change": "Тілде алыстырарға",
+	"softkey-ok": "Окей",
+	"softkey-read": "Хығырарға"
+}

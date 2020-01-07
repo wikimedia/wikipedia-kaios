@@ -2,13 +2,41 @@
 	"@metadata": {
 		"authors": [
 			"আফতাবুজ্জামান",
-			"Sohom Datta"
+			"Sohom Datta",
+			"MKaur"
 		]
 	},
 	"app-title": "উইকিপিডিয়া",
 	"app-subtitle": "একটি মুক্ত বিশ্বকোষ",
+	"app-description": "উইকিপিডিয়া অ্যাপের সাহায্য ৩০০ এর বেশি ভাষায় বিশ্বজুড়ের তথ্য অনুসন্ধান এবং অন্বেষণ করুন।",
+	"header-menu": "নিবন্ধের মেনু",
+	"header-search": "অনুসন্ধানের ফলাফল",
+	"header-sections": "অনুচ্ছেদ",
+	"header-settings": "সেটিংস",
+	"menu-language": "ভাষা",
+	"menu-section": "বিভাগ",
+	"softkey-done": "সম্পন্ন",
+	"softkey-search": "অনুসন্ধান",
+	"search-language-placeholder": "ভাষা অনুসন্ধান করুন",
+	"softkey-menu": "তালিকা",
 	"search-placeholder": "অনুসন্ধান",
-	"sections": "অনুচ্ছেদ",
+	"softkey-sections": "বিভাগ",
+	"softkey-settings": "সেটিংস",
 	"centerkey-select": "নির্বাচন করুন",
-	"settings-language": "ভাষা"
+	"softkey-close": "বন্ধ",
+	"language-change": "অ্যাপের ভাষা পরিবর্তন করুন",
+	"language-setting": "ভাষা সেটিং",
+	"language-setting-message": "এখানে ভাষা পরিবর্তন করলে অ্যাপ জুড়ে ভাষা পরিবর্তন হবে। আপনি নিবন্ধের মেনু ব্যবহার করে প্রতিটি নিবন্ধে ভাষা পরিবর্তন করতে পারেন।",
+	"softkey-ok": "ঠিক আছে",
+	"softkey-read": "পড়ুন",
+	"reference-title": "তথ্যসূত্র [$1]",
+	"offline-message": "কোনও ইন্টারনেট সংযোগ নেই",
+	"settings-language": "ভাষা",
+	"settings-textsize": "অক্ষরের আকার",
+	"settings-about-wikipedia": "উইকিপিডিয়া সম্পর্কে",
+	"settings-privacy": "গোপনীয়তার নীতি",
+	"settings-term": "ব্যবহারের শর্তাবলী",
+	"settings-rate": "অ্যাপের মূল্যায়ন করুন",
+	"settings-help-feedback": "সাহায্য ও প্রতিক্রিয়া",
+	"settings-about-app": "অ্যাপ সম্পর্কে"
 }

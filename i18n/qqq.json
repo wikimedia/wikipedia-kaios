@@ -2,17 +2,22 @@
 	"@metadata": {
 		"authors": [
 			"Stephane Bisson",
-			"Robby"
+			"Robby",
+			"Amire80"
 		]
 	},
+	"article-language-available": "The header title of the article language search page. The word \"available\" refers to the article.",
 	"app-title": "Title of the application. Shown in the app store and the app launcher.",
 	"app-subtitle": "Subtitle of the application. Shown in the app store.",
 	"app-description": "Description of the application. Shown in the app store.",
+	"confirm-section": "Confirm message switch to the selected section page. Shown in the Article page.\n* $1 - Selected section name",
 	"header-menu": "The header title of the menu page",
 	"header-search": "The header title of the search page",
 	"header-sections": "The header title of the sections(ToC) page",
 	"header-settings": "The header title of the settings page",
 	"header-textsize": "The header title of the text size page",
+	"menu-previous": "Label of the Previous article item. Shown in the Menu page.",
+	"menu-language": "Label of the Language item. Shown in the Menu page.",
 	"menu-section": "Label of the Section item. Shown in the Menu page.",
 	"menu-textsize": "Label of the Text size item list. Shown in the Menu menu.",
 	"softkey-done": "Label of the done softkey",

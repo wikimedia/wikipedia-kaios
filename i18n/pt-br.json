@@ -4,6 +4,7 @@
 			"Eduardo Addad de Oliveira"
 		]
 	},
+	"article-language-available": "Disponível em $1 {{PLURAL:$1|idioma|idiomas}}",
 	"app-title": "Wikipédia",
 	"app-subtitle": "A enciclopédia livre",
 	"app-description": "Com o aplicativo grátis da Wikipédia, procure e explore a informação de todo o mundo em mais de 300 idiomas",
@@ -11,6 +12,8 @@
 	"header-search": "Procurar resultados",
 	"header-sections": "Seções",
 	"header-settings": "Configurações",
+	"menu-previous": "Artigo anterior",
+	"menu-language": "Idioma",
 	"menu-section": "Seções",
 	"softkey-done": "Feito",
 	"softkey-search": "Pesquisar",
@@ -23,7 +26,7 @@
 	"softkey-close": "Fechar",
 	"language-change": "Trocar o idioma do aplicativo",
 	"language-setting": "Configurações de idioma",
-	"language-setting-message": "Alterar o idioma aqui mudará o idioma em todo o aplicativo. Você também pode alterar o idioma de cada artigo usando o menu do artigo",
+	"language-setting-message": "Alterar o idioma aqui mudará o idioma em todo o aplicativo. Você também pode alterar o idioma de cada artigo usando o menu Artigo.",
 	"softkey-ok": "Ok",
 	"softkey-read": "Ler",
 	"reference-title": "Referência [$1]",

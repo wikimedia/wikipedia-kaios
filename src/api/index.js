@@ -1,4 +1,5 @@
 export * from './getArticle'
+export * from './getLanglinks'
 export * from './getRandomArticleTitle'
 export * from './language'
 export * from './search'

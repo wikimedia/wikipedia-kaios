@@ -1,9 +1,11 @@
 import { h } from 'preact'
 import { useRef, useEffect } from 'preact/hooks'
+import { route } from 'preact-router'
 import { useNavigation, useI18n, useSoftkey, usePopup } from 'hooks'
+import { articleHistory } from 'utils'
 import { ListView, TextSize } from 'components'
 
-export const ArticleMenu = ({ close, onTocSelected }) => {
+export const ArticleMenu = ({ close, onTocSelected, onLanguageSelected }) => {
   const containerRef = useRef()
   const i18n = useI18n()
   const onKeyCenter = () => {
@@ -14,6 +16,7 @@ export const ArticleMenu = ({ close, onTocSelected }) => {
       item.action()
     }
   }
+
   useSoftkey('Menu', {
     right: i18n.i18n('softkey-close'),
     onKeyRight: close,
@@ -28,14 +31,26 @@ export const ArticleMenu = ({ close, onTocSelected }) => {
     showTextSize()
   }
 
+  const onPreviousSelected = () => {
+    const { lang, title } = articleHistory.prev()
+    route(`/article/${lang}/${title}`, true)
+    close()
+  }
+
   useEffect(() => {
     setNavigation(0)
   }, [])
 
   const items = [
     { title: i18n.i18n('menu-section'), action: onTocSelected },
-    { title: i18n.i18n('menu-textsize'), action: onTextsizeSelected }
+    { title: i18n.i18n('menu-textsize'), action: onTextsizeSelected },
+    { title: i18n.i18n('menu-language'), action: onLanguageSelected }
   ]
+
+  // add Previous Section item
+  if (articleHistory.hasPrev()) {
+    items.unshift({ title: i18n.i18n('menu-previous'), action: onPreviousSelected })
+  }
 
   return <div class='menu'>
     <ListView

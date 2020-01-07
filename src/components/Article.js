@@ -1,14 +1,17 @@
 import { h, Fragment } from 'preact'
 import { route } from 'preact-router'
 import { memo } from 'preact/compat'
-import { useState, useRef, useLayoutEffect } from 'preact/hooks'
-import { ReferencePreview, ArticleToc, ArticleMenu } from 'components'
+import { useState, useRef, useEffect, useLayoutEffect } from 'preact/hooks'
+import {
+  ReferencePreview, ArticleToc, ArticleLanguage,
+  ArticleMenu
+} from 'components'
 import {
   useArticle, useI18n, useSoftkey,
   useArticlePagination, useArticleLinksNavigation,
   usePopup
 } from 'hooks'
-import { ArticleTextSize } from 'utils'
+import { articleHistory, ArticleTextSize, confirmDialog, viewport } from 'utils'
 
 const ArticleBody = memo(({ content }) => {
   return (
@@ -20,10 +23,11 @@ const ArticleBody = memo(({ content }) => {
 })
 
 const ArticleSection = ({
-  lang, imageUrl, title, description, hasActions, content, page, showToc, references
+  lang, imageUrl, title, description, hasActions,
+  content, page, showToc, goToSubpage, references
 }) => {
   const contentRef = useRef()
-
+  const i18n = useI18n()
   const [showReferencePreview] = usePopup(ReferencePreview, { position: 'auto' })
 
   const linkHandlers = {
@@ -36,6 +40,10 @@ const ArticleSection = ({
     },
     reference: ({ referenceId }) => {
       showReferencePreview({ reference: references[referenceId], lang })
+    },
+    section: ({ text, anchor }) => {
+      // @todo styling to be confirmed with design
+      confirmDialog({ message: i18n.i18n('confirm-section', text), onSubmit: () => goToSubpage({ title: anchor }) })
     }
   }
 
@@ -85,26 +93,40 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
 
   const [subTitle, setSubTitle] = useState(initialSubTitle)
   const [showTocPopup] = usePopup(ArticleToc, { mode: 'fullscreen' })
+  const [showLanguagePopup] = usePopup(ArticleLanguage, { mode: 'fullscreen' })
   const [showMenuPopup] = usePopup(ArticleMenu, { mode: 'fullscreen' })
   const [currentSection, setCurrentSection, currentPage] = useArticlePagination(containerRef, article, subTitle)
   const section = article.sections[currentSection]
 
   const goToArticleSubpage = ({ sectionIndex, title }) => {
-    setCurrentSection(sectionIndex)
+    setCurrentSection(
+      sectionIndex !== undefined
+        ? sectionIndex
+        : article.toc.find(item => item.line === title).sectionIndex
+    )
     setSubTitle(title)
     route(`/article/${lang}/${articleTitle}/${title}`, true)
   }
 
   const showArticleTocPopup = () => {
-    showTocPopup({ items: article.toc, onSelectItem: goToArticleSubpage })
+    const currentTitle = findCurrentLocatedTitleOrSubtitle(containerRef)
+    showTocPopup({ items: article.toc, currentTitle, onSelectItem: goToArticleSubpage })
+  }
+
+  const showArticleLanguagePopup = () => {
+    showLanguagePopup({ lang, title: articleTitle })
   }
 
   useSoftkey('Article', {
     left: i18n.i18n('softkey-menu'),
-    onKeyLeft: () => showMenuPopup({ onTocSelected: showArticleTocPopup }),
+    onKeyLeft: () => showMenuPopup({ onTocSelected: showArticleTocPopup, onLanguageSelected: showArticleLanguagePopup }),
     right: i18n.i18n('softkey-close'),
     onKeyRight: () => history.back(),
     ...ArticleTextSize.getSoftkeyEffect()
+  }, [])
+
+  useEffect(() => {
+    articleHistory.add(lang, articleTitle)
   }, [])
 
   return (
@@ -119,6 +141,7 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
         content={section.content}
         references={article.references}
         showToc={showArticleTocPopup}
+        goToSubpage={goToArticleSubpage}
         page={currentPage}
       />
     </div>
@@ -127,4 +150,15 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
 
 export const Article = ({ lang, title: articleTitle, subtitle: initialSubTitle }) => {
   return <ArticleInner lang={lang} articleTitle={articleTitle} initialSubTitle={initialSubTitle} key={lang + articleTitle} />
+}
+
+const findCurrentLocatedTitleOrSubtitle = ref => {
+  let element
+  Array.from(ref.current.querySelectorAll('.title, h3, h4'))
+    .find(ref => {
+      if (ref.getBoundingClientRect().left < viewport.width) {
+        element = ref
+      }
+    })
+  return element.textContent
 }

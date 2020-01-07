@@ -3,9 +3,11 @@
 		"authors": [
 			"Meno25",
 			"ديفيد",
-			"Eduardo Addad de Oliveira"
+			"Eduardo Addad de Oliveira",
+			"محمد أحمد عبد الفتاح"
 		]
 	},
+	"article-language-available": "متاح ب$1 {{PLURAL:$1|لغة|لغات}}",
 	"app-title": "ويكيبيديا",
 	"app-subtitle": "الموسوعة الحرة",
 	"app-description": "من خلال تطبيق ويكيبيديا المجاني، ابحث واستكشف المعلومات من جميع أنحاء العالم بأكثر من 300 لغة.",
@@ -13,6 +15,8 @@
 	"header-search": "نتائج البحث",
 	"header-sections": "الأقسام",
 	"header-settings": "إعدادات",
+	"menu-previous": "المقالة السابقة",
+	"menu-language": "اللغة",
 	"menu-section": "الأقسام",
 	"softkey-done": "تم",
 	"softkey-search": "بحث",
@@ -25,7 +29,7 @@
 	"softkey-close": "إغلاق",
 	"language-change": "تغيير لغة التطبيق",
 	"language-setting": "إعدادات اللغة",
-	"language-setting-message": "سيؤدي تغيير اللغة هنا إلى تغيير اللغة في جميع أنحاء التطبيق، كما يمكنك تغيير اللغة في كل مقالة باستخدام قائمة المقالة",
+	"language-setting-message": "سيؤدي تغيير اللغة هنا إلى تغيير اللغة في جميع أنحاء التطبيق، كما يمكنك تغيير اللغة في كل مقالة باستخدام قائمة المقالة.",
 	"softkey-ok": "حسنا",
 	"softkey-read": "قراءة",
 	"reference-title": "المرجع [$1]",
