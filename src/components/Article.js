@@ -4,7 +4,7 @@ import { memo } from 'preact/compat'
 import { useState, useRef, useEffect } from 'preact/hooks'
 import {
   ReferencePreview, ArticleToc, ArticleLanguage,
-  ArticleMenu
+  ArticleMenu, Loading
 } from 'components'
 import {
   useArticle, useI18n, useSoftkey,
@@ -84,7 +84,7 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
   const article = useArticle(lang, articleTitle)
 
   if (!article) {
-    return 'Loading...'
+    return <Loading message={i18n.i18n('article-loading-message')} />
   }
 
   const [subTitle, setSubTitle] = useState(initialSubTitle)
