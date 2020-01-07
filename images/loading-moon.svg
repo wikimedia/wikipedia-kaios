@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="106px" height="106px" viewBox="0 0 106 106" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.1 (89650) - https://sketch.com -->
+    <title>Group 4</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Empty-states" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-4" transform="translate(46.500000, 36.000000) rotate(-330.000000) translate(-46.500000, -36.000000) translate(-7.000000, -23.000000)">
+            <ellipse id="Oval" fill="#8DACD7" cx="50.3697803" cy="116.868153" rx="1" ry="1"></ellipse>
+            <path d="M27.3318509,101.546464 C29.9609685,104.608734 32.9516983,107.352313 36.2379412,109.711193 C39.2478675,111.871732 42.505701,113.709547 45.9606532,115.173919" id="Oval" stroke="#8DACD7" stroke-width="2" stroke-linecap="round"></path>
+            <path d="M20.6567032,102.470429 C48.5210932,102.453548 71.1233291,79.8671141 71.1402194,52.0222165 C71.1522177,32.2155535 59.733305,15.0834039 43.1107605,6.84869762" id="Oval" stroke="#8DACD7" stroke-width="2" stroke-linecap="round" transform="translate(45.898461, 54.659563) rotate(-150.000000) translate(-45.898461, -54.659563) "></path>
+            <ellipse id="Oval" fill="#00AF89" cx="97.781545" cy="23.7045167" rx="1.52941176" ry="1.52727273"></ellipse>
+            <ellipse id="Oval" fill="#3366CC" cx="93.9580156" cy="22.9408803" rx="1" ry="1"></ellipse>
+            <ellipse id="Oval" fill="#FFCC33" cx="99.6933098" cy="33.2499712" rx="6.5" ry="6.49090909"></ellipse>
+        </g>
+    </g>
+</svg>
