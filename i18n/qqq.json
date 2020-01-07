@@ -11,6 +11,7 @@
 	"app-subtitle": "Subtitle of the application. Shown in the app store.",
 	"app-description": "Description of the application. Shown in the app store.",
 	"content-license": "Paragraph of content license is under CC BY-SA 3.0. Shown in the Article footer page",
+	"confirm-section": "Confirm message switch to the selected section page. Shown in the Article page.\n* $1 - Selected section name",
 	"header-menu": "The header title of the menu page",
 	"header-search": "The header title of the search page",
 	"header-sections": "The header title of the sections(ToC) page",

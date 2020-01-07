@@ -9,6 +9,7 @@
 			"Mansil"
 		]
 	},
+	"article-language-available": "Disponível em $1 {{PLURAL:$1|língua|línguas}}",
 	"app-title": "Wikipédia",
 	"app-subtitle": "A enciclopédia livre",
 	"app-description": "Com a aplicação grátis da Wikipédia, procure e explore informação de todo o mundo em mais de 300 línguas.",
@@ -16,6 +17,8 @@
 	"header-search": "Resultados da pesquisa",
 	"header-sections": "Secções",
 	"header-settings": "Definições",
+	"menu-previous": "Artigo anterior",
+	"menu-language": "Língua",
 	"menu-section": "Secções",
 	"softkey-done": "Concluído",
 	"softkey-search": "Pesquisar",

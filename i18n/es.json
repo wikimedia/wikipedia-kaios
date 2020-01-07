@@ -4,9 +4,11 @@
 			"Ihojose",
 			"Madamebiblio",
 			"Fitoschido",
-			"Eduardo Addad de Oliveira"
+			"Eduardo Addad de Oliveira",
+			"Silverie04"
 		]
 	},
+	"article-language-available": "Disponible en $1 {{PLURAL:$1|idioma|idiomas}}",
 	"app-title": "Wikipedia",
 	"app-subtitle": "La enciclopedia libre",
 	"app-description": "Con la aplicación gratuita de Wikipedia es posible buscar y explorar información proveniente de todo el mundo en más de 300 idiomas.",
@@ -14,6 +16,8 @@
 	"header-search": "Resultados de la búsqueda",
 	"header-sections": "Secciones",
 	"header-settings": "Configuración",
+	"menu-previous": "Artículo anterior",
+	"menu-language": "Idioma",
 	"menu-section": "Secciones",
 	"softkey-done": "Hecho",
 	"softkey-search": "Buscar",

@@ -11,7 +11,7 @@ import {
   useArticlePagination, useArticleLinksNavigation,
   usePopup
 } from 'hooks'
-import { articleHistory, viewport } from 'utils'
+import { articleHistory, confirmDialog, viewport } from 'utils'
 
 const ArticleBody = memo(({ content }) => {
   if (typeof content === 'object') {
@@ -28,10 +28,11 @@ const ArticleBody = memo(({ content }) => {
 
 const ArticleSection = ({
   lang, imageUrl, title, description, isFooter,
-  hasActions, content, page, showToc, references
+  hasActions, content, page, showToc, references,
+  goToSubpage
 }) => {
   const contentRef = useRef()
-
+  const i18n = useI18n()
   const [showReferencePreview] = usePopup(ReferencePreview, { position: 'auto' })
 
   const linkHandlers = {
@@ -44,6 +45,10 @@ const ArticleSection = ({
     },
     reference: ({ referenceId }) => {
       showReferencePreview({ reference: references[referenceId], lang })
+    },
+    section: ({ text, anchor }) => {
+      // @todo styling to be confirmed with design
+      confirmDialog({ message: i18n.i18n('confirm-section', text), onSubmit: () => goToSubpage({ title: anchor }) })
     }
   }
 
@@ -94,7 +99,11 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
   const [currentSection, setCurrentSection, currentPage] = useArticlePagination(containerRef, article, subTitle)
   const section = article.sections[currentSection]
   const goToArticleSubpage = ({ sectionIndex, title }) => {
-    setCurrentSection(sectionIndex)
+    setCurrentSection(
+      sectionIndex !== undefined
+        ? sectionIndex
+        : article.toc.find(item => item.line === title).sectionIndex
+    )
     setSubTitle(title)
     route(`/article/${lang}/${articleTitle}/${title}`, true)
   }
@@ -128,6 +137,7 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
         hasActions={currentSection === 0}
         references={article.references}
         showToc={showArticleTocPopup}
+        goToSubpage={goToArticleSubpage}
         page={currentPage}
       />
     </div>

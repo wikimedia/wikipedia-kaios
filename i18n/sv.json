@@ -4,9 +4,11 @@
 			"WikiPhoenix",
 			"Mjälten",
 			"ProletariatetsBefrielseOrkester",
-			"Eduardo Addad de Oliveira"
+			"Eduardo Addad de Oliveira",
+			"Tölvuforritari"
 		]
 	},
+	"article-language-available": "Tillgänglig på $1 {{PLURAL:$1|språk}}",
 	"app-title": "Wikipedia",
 	"app-subtitle": "Den fria encyklopedin",
 	"app-description": "Med den fria Wikipedia-appen kan du söka och utforska information från hela världen på 300+ språk.",
@@ -14,6 +16,8 @@
 	"header-search": "Sökresultat",
 	"header-sections": "Avsnitt",
 	"header-settings": "Inställningar",
+	"menu-previous": "Föregående artikel",
+	"menu-language": "Språk",
 	"menu-section": "Avsnitt",
 	"softkey-done": "Klar",
 	"softkey-search": "Sök",

@@ -5,6 +5,7 @@
 			"Patriccck"
 		]
 	},
+	"article-language-available": "Dostupné v {{PLURAL:$1|$1 jazyku|$1 jazykooch}}",
 	"app-title": "Wikipédia",
 	"app-subtitle": "Slobodná encyklopédia",
 	"app-description": "S aplikáciou Wikipédie môžete vyhľadávať a objavovať informácie z celého sveta vo viac ako 300 jazykoch.",
@@ -12,6 +13,8 @@
 	"header-search": "Výsledky vyhľadávania",
 	"header-sections": "Sekcie",
 	"header-settings": "Nastavenia",
+	"menu-previous": "Predchádzajúci článok",
+	"menu-language": "Jazyk",
 	"menu-section": "Sekcie",
 	"softkey-done": "Hotovo",
 	"softkey-search": "Hľadať",

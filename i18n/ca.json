@@ -6,6 +6,7 @@
 			"Eduardo Addad de Oliveira"
 		]
 	},
+	"article-language-available": "Disponible en $1 {{PLURAL:$1|llengua|llengües}}",
 	"app-title": "Viquipèdia",
 	"app-subtitle": "L'enciclopèdia lliure",
 	"app-description": "Amb l'aplicació lliure de la Viquipèdia podeu cercar i explorar informació del món sencer en més de 300 llengües.",
@@ -13,6 +14,8 @@
 	"header-search": "Resultats de cerca",
 	"header-sections": "Seccions",
 	"header-settings": "Configuració",
+	"menu-previous": "Article anterior",
+	"menu-language": "Llengua",
 	"menu-section": "Seccions",
 	"softkey-done": "Fet",
 	"softkey-search": "Cerca",
@@ -25,7 +28,7 @@
 	"softkey-close": "Tanca",
 	"language-change": "Canvia la llengua de l'aplicació",
 	"language-setting": "Configuració de llengua",
-	"language-setting-message": "Canviar la llengua aquí canviarà la llengua arreu de l'aplicació. Podeu canviar també la llengua de cada article fent servir el menú de l'aplicació",
+	"language-setting-message": "En canviar la llengua aquí es canviarà arreu de l'aplicació. Podeu canviar també la llengua de cada article fent servir el menú d'article.",
 	"softkey-ok": "D'acord",
 	"softkey-read": "Llegeix",
 	"reference-title": "Referència [$1]",
