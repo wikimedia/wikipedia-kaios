@@ -113,6 +113,10 @@ const extractReference = refNode => {
 const extractPreview = doc => {
   const p = doc.querySelector('p')
 
+  if (!p) {
+    return ''
+  }
+
   Array.from(p.querySelectorAll('a')).forEach(link => {
     const span = document.createElement('span')
     span.textContent = link.textContent
