@@ -37,7 +37,8 @@ describe('settings page', () => {
   })
 
   it('show all the items in the list', () => {
-    settingsPage.settingsList().should('have.text', settingsMenuListEnglishText.toString().replace(/,/g, ''))
+    settingsPage.settingsList().should('have.text', settingsMenuListEnglishText.join(''))
+    //settingsMenuListEnglishText.join('')
   })
 
   it('down arrow changes selection', () => {
@@ -65,14 +66,14 @@ describe('settings page', () => {
     languageSettingsPage.popupTextElement().should('have.text', languageSettingsPopupEnglishText)
     cy.enter()
 
-    cy.get('.left').should('have.text', 'Search')
+    cy.getLeftSoftkeyButton().should('have.text', enJson['softkey-search'])
 
     cy.downArrow()
     cy.enter()
 
     languageSettingsPage.headerElement().should('have.text', languageChangeDutchText)
 
-    cy.get('.right').click()
-    settingsPage.settingsList().should('have.text', settingsMenuListDutchText.toString().replace(/,/g, ''))
+    cy.getRightSoftkeyButton().click()
+    settingsPage.settingsList().should('have.text', settingsMenuListDutchText.join(''))
   })
 })
