@@ -37,11 +37,11 @@
 })
 
 Cypress.Commands.add('getLeftSoftkeyButton', () => {
-  return cy.get( '.softkey > .left' )
+  return cy.get('.softkey > .left')
 })
 
 Cypress.Commands.add('getRightSoftkeyButton', () => {
-  return cy.get( '.softkey > .right' )
+  return cy.get('.softkey > .right')
 })
 
 Cypress.Commands.add('clickCloseButton', () => {
@@ -55,5 +55,3 @@ Cypress.Commands.add('clickSettingsButton', () => {
 Cypress.Commands.add('navigateToHomePage', () => {
   cy.visit('http://127.0.0.1:8080')
 })
-
-
