@@ -48,6 +48,7 @@ const getPrev = () => {
   const list = get()
   return list[list.length - 2]
 }
+
 export const articleHistory = {
   get, set, add, prev, clear, isEmpty, hasPrev, getPrev
 }
