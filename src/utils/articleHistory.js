@@ -40,8 +40,14 @@ const isEmpty = () => {
 }
 
 const hasPrev = () => {
-  return get() && (get().length > 1)
+  const list = get()
+  return list && (list.length > 1)
 }
-export default {
-  get, set, add, prev, clear, isEmpty, hasPrev
+
+const getPrev = () => {
+  const list = get()
+  return list[list.length - 2]
+}
+export const articleHistory = {
+  get, set, add, prev, clear, isEmpty, hasPrev, getPrev
 }
