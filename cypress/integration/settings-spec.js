@@ -38,7 +38,6 @@ describe('settings page', () => {
 
   it('show all the items in the list', () => {
     settingsPage.settingsList().should('have.text', settingsMenuListEnglishText.join(''))
-    //settingsMenuListEnglishText.join('')
   })
 
   it('down arrow changes selection', () => {
