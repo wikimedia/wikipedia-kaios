@@ -1,7 +1,7 @@
 import { h } from 'preact'
 import { useRef, useLayoutEffect } from 'preact/hooks'
 import { useI18n, useSoftkey, useArticleLinksNavigation } from 'hooks'
-import { ArticleTextSize } from 'utils'
+import { articleTextSize } from 'utils'
 
 export const ReferencePreview = ({ reference, lang, close }) => {
   const i18n = useI18n()
@@ -10,11 +10,11 @@ export const ReferencePreview = ({ reference, lang, close }) => {
   useSoftkey('ReferencePreview', {
     right: i18n.i18n('softkey-close'),
     onKeyRight: close,
-    ...ArticleTextSize.getSoftkeyEffect()
+    ...articleTextSize.getSoftkeyEffect()
   }, [])
 
   useLayoutEffect(() => {
-    ArticleTextSize.init('.reference-preview')
+    articleTextSize.init('.reference-preview')
   }, [])
 
   return (

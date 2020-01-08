@@ -2,7 +2,7 @@ import { h } from 'preact'
 import { useLayoutEffect } from 'preact/hooks'
 import { route } from 'preact-router'
 import { useArticle, useI18n, useSoftkey } from 'hooks'
-import { ArticleTextSize } from 'utils'
+import { articleTextSize } from 'utils'
 
 export const ArticlePreview = ({ lang, title, close }) => {
   const i18n = useI18n()
@@ -15,7 +15,7 @@ export const ArticlePreview = ({ lang, title, close }) => {
     onKeyRight: close,
     center: i18n.i18n('softkey-read'),
     onKeyCenter: read,
-    ...ArticleTextSize.getSoftkeyEffect()
+    ...articleTextSize.getSoftkeyEffect()
   }, [])
 
   const article = useArticle(lang, title)
@@ -25,7 +25,7 @@ export const ArticlePreview = ({ lang, title, close }) => {
   }
 
   useLayoutEffect(() => {
-    ArticleTextSize.init('.preview-text')
+    articleTextSize.init('.preview-text')
   }, [])
 
   return (

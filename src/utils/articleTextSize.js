@@ -63,4 +63,4 @@ const getSoftkeyEffect = () => {
   }
 }
 
-export default { get, set, adjust, reset, init, getSoftkeyEffect }
+export const articleTextSize = { get, set, adjust, reset, init, getSoftkeyEffect }

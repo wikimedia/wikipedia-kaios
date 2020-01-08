@@ -1,4 +1,4 @@
-export { default as ArticleTextSize } from './articleTextSize'
+export * from './articleTextSize'
 export { default as articleHistory } from './articleHistory'
 export * from './confirm'
 export * from './cachedFetch'

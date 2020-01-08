@@ -11,7 +11,7 @@ import {
   useArticlePagination, useArticleLinksNavigation,
   usePopup
 } from 'hooks'
-import { articleHistory, ArticleTextSize, confirmDialog, viewport } from 'utils'
+import { articleHistory, articleTextSize, confirmDialog, viewport } from 'utils'
 
 const ArticleBody = memo(({ content }) => {
   return (
@@ -50,7 +50,7 @@ const ArticleSection = ({
   useArticleLinksNavigation('Article', lang, contentRef, page, linkHandlers)
 
   useLayoutEffect(() => {
-    ArticleTextSize.init()
+    articleTextSize.init()
   }, [])
 
   return (
@@ -122,7 +122,7 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
     onKeyLeft: () => showMenuPopup({ onTocSelected: showArticleTocPopup, onLanguageSelected: showArticleLanguagePopup }),
     right: i18n.i18n('softkey-close'),
     onKeyRight: () => history.back(),
-    ...ArticleTextSize.getSoftkeyEffect()
+    ...articleTextSize.getSoftkeyEffect()
   }, [])
 
   useEffect(() => {
