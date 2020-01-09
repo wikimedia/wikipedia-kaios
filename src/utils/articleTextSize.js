@@ -1,6 +1,8 @@
 const KEY = 'article-textsize'
 const DEFAULT_SIZE = 0
 const [MIN_SIZE, MAX_SIZE] = [0, 6]
+const SELECTORS = '.adjustable-font-size'
+const FONT_SIZE_ATTRIBUTE = 'data-font-size'
 
 const get = () => {
   return parseInt(localStorage.getItem(KEY), 10) || DEFAULT_SIZE
@@ -10,38 +12,22 @@ const set = size => {
   localStorage.setItem(KEY, size)
 }
 
-const adjustElement = (selector, parentElement, step) => {
-  const element = parentElement.querySelector(selector)
-
-  if (element) {
-    const adjust = parseFloat(window.getComputedStyle(element).getPropertyValue('font-size')) + step
+const adjustElement = step => {
+  const elements = document.querySelectorAll(SELECTORS)
+  Array.from(elements).forEach(element => {
+    const adjust = parseFloat(element.getAttribute(FONT_SIZE_ATTRIBUTE)) + get() + step
     element.style.setProperty('font-size', `${adjust}px`)
-  }
+  })
 }
 
-const adjust = (step = 1, update = true) => {
+const adjust = step => {
   const newSize = get() + step
   if (newSize < MIN_SIZE || newSize > MAX_SIZE) {
     return
   }
 
-  // article
-  adjustElement('.title', document, step)
-  adjustElement('.desc', document, step)
-  adjustElement('.article-content', document, step)
-
-  // article preview
-  adjustElement('.preview-text', document, step)
-
-  // reference preview
-  adjustElement('.reference-preview', document, step)
-
-  // confirm dialog
-  adjustElement('.confirm-dialog', document, step)
-
-  if (update) {
-    set(newSize)
-  }
+  adjustElement(step)
+  set(newSize)
 }
 
 const reset = () => {
@@ -49,24 +35,28 @@ const reset = () => {
   set(DEFAULT_SIZE)
 }
 
-const init = (elements = 'ALL') => {
-  if (get() !== DEFAULT_SIZE) {
-    if (elements === 'ALL') {
-      adjust(get(), false)
-    } else {
-      adjustElement(elements, document, get())
+const init = () => {
+  const elements = document.querySelectorAll(SELECTORS)
+  Array.from(elements).forEach(element => {
+    if (!element.hasAttribute(FONT_SIZE_ATTRIBUTE)) {
+      const fontSize = parseFloat(window.getComputedStyle(element).getPropertyValue('font-size'))
+      element.setAttribute(FONT_SIZE_ATTRIBUTE, fontSize)
     }
-  }
+  })
+
+  adjust(0)
 }
 
-const getSoftkeyEffect = () => {
-  const onKeyboard4 = () => adjust(1)
-  const onKeyboard5 = () => reset()
-  const onKeyboard6 = () => adjust(-1)
+const getSoftkeyEffect = (onAdjust = () => {}) => {
+  const onKeyboard4 = () => { adjust(1); onAdjust(get()) }
+  const onKeyboard5 = () => { reset(); onAdjust(get()) }
+  const onKeyboard6 = () => { adjust(-1); onAdjust(get()) }
 
   return {
     onKeyboard4, onKeyboard5, onKeyboard6
   }
 }
 
-export const articleTextSize = { get, set, adjust, reset, init, getSoftkeyEffect }
+export const articleTextSize = {
+  get, set, adjust, reset, init, getSoftkeyEffect
+}

@@ -1,22 +1,22 @@
 import { h, Fragment } from 'preact'
 import { route } from 'preact-router'
 import { memo } from 'preact/compat'
-import { useState, useRef, useEffect, useLayoutEffect } from 'preact/hooks'
+import { useState, useRef, useEffect } from 'preact/hooks'
 import {
   ReferencePreview, ArticleToc, ArticleLanguage,
   ArticleMenu, Loading
 } from 'components'
 import {
   useArticle, useI18n, useSoftkey,
-  useArticlePagination, useArticleLinksNavigation,
+  useArticlePagination, useArticleLinksNavigation, useArticleTextSize,
   usePopup
 } from 'hooks'
-import { articleHistory, articleTextSize, confirmDialog, viewport } from 'utils'
+import { articleHistory, confirmDialog, viewport } from 'utils'
 
 const ArticleBody = memo(({ content }) => {
   return (
     <div
-      class='article-content'
+      class='article-content adjustable-font-size'
       dangerouslySetInnerHTML={{ __html: content }}
     />
   )
@@ -29,6 +29,7 @@ const ArticleSection = ({
   const contentRef = useRef()
   const i18n = useI18n()
   const [showReferencePreview] = usePopup(ReferencePreview, { position: 'auto' })
+  const [textSize] = useArticleTextSize('Article')
 
   const linkHandlers = {
     action: ({ action }) => {
@@ -47,20 +48,16 @@ const ArticleSection = ({
     }
   }
 
-  useArticleLinksNavigation('Article', lang, contentRef, linkHandlers, [page])
-
-  useLayoutEffect(() => {
-    articleTextSize.init()
-  }, [])
+  useArticleLinksNavigation('Article', lang, contentRef, linkHandlers, [page, textSize])
 
   return (
     <div class='article-section' ref={contentRef}>
       { imageUrl && <div class='lead-image' style={{ backgroundImage: `url(${imageUrl})` }} /> }
       <div class={'card' + (imageUrl ? ' with-image' : '')}>
-        <div class='title' dangerouslySetInnerHTML={{ __html: title }} />
+        <div class='title adjustable-font-size' dangerouslySetInnerHTML={{ __html: title }} />
         { description && (
           <Fragment>
-            <div class='desc'>{description}</div>
+            <div class='desc adjustable-font-size'>{description}</div>
             <div class='line' />
           </Fragment>
         ) }
@@ -121,8 +118,7 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
     left: i18n.i18n('softkey-menu'),
     onKeyLeft: () => showMenuPopup({ onTocSelected: showArticleTocPopup, onLanguageSelected: showArticleLanguagePopup }),
     right: i18n.i18n('softkey-close'),
-    onKeyRight: () => history.back(),
-    ...articleTextSize.getSoftkeyEffect()
+    onKeyRight: () => history.back()
   }, [])
 
   useEffect(() => {
@@ -149,7 +145,9 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
 }
 
 export const Article = ({ lang, title: articleTitle, subtitle: initialSubTitle }) => {
-  return <ArticleInner lang={lang} articleTitle={articleTitle} initialSubTitle={initialSubTitle} key={lang + articleTitle} />
+  return (
+    <ArticleInner lang={lang} articleTitle={articleTitle} initialSubTitle={initialSubTitle} key={lang + articleTitle} />
+  )
 }
 
 const findCurrentLocatedTitleOrSubtitle = ref => {
