@@ -2,6 +2,7 @@ import { h } from 'preact'
 import { useState, useEffect } from 'preact/hooks'
 import { useI18n } from 'hooks'
 import { getArticleFooter } from 'api'
+import { buildWpMobileWebUrl } from 'utils'
 
 // The reason why adding placeholder items is
 // the use article links navigation able to select the first item
@@ -36,7 +37,7 @@ export const ArticleFooter = ({ lang, title }) => {
         </h2>
         <p class='license' dangerouslySetInnerHTML={{ __html: i18n.i18n('content-license') }} />
         <p class='browser'>
-          <a class='external' rel='mw:ExtLink' href={`https://${lang}.m.wikipedia.org/w/index.php?title=${title}`}>
+          <a class='external' rel='mw:ExtLink' href={buildWpMobileWebUrl(lang, title)}>
             {i18n.i18n('view-in-browser')}
           </a>
         </p>
