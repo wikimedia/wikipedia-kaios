@@ -1,8 +1,8 @@
 import { h } from 'preact'
-import { route } from 'preact-router'
 import { useRef, useEffect, useState } from 'preact/hooks'
 import { useNavigation, useI18n, useSoftkey, useSearchArticleLanguage } from 'hooks'
 import { RadioListView } from 'components'
+import { goto } from 'utils'
 
 export const ArticleLanguage = ({ lang, title, close }) => {
   const containerRef = useRef()
@@ -24,7 +24,7 @@ export const ArticleLanguage = ({ lang, title, close }) => {
     const item = items.find(item => item.isSelected)
     if (item) {
       const { lang, description } = item
-      route(`/article/${lang}/${description}`, true)
+      goto.article(lang, description, true)
     }
     close()
   }
