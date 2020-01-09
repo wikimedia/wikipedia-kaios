@@ -6,7 +6,7 @@ import { articleTextSize } from 'utils'
 export const ReferencePreview = ({ reference, lang, close }) => {
   const i18n = useI18n()
   const contentRef = useRef()
-  useArticleLinksNavigation('ReferencePreview', lang, contentRef, 1)
+  useArticleLinksNavigation('ReferencePreview', lang, contentRef)
   useSoftkey('ReferencePreview', {
     right: i18n.i18n('softkey-close'),
     onKeyRight: close,

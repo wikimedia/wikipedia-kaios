@@ -7,6 +7,7 @@
         "message-documentation": "qqq"
     },
     "article-language-available": "Available in $1 {{PLURAL:$1|language|languages}}",
+    "article-loading-message": "Loading page...",
     "app-title": "Wikipedia",
     "app-subtitle": "The free encyclopedia",
     "app-description": "With the free Wikipedia app, search and explore information from all over the world in 300+ languages.",

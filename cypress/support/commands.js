@@ -36,13 +36,22 @@
   })
 })
 
-Cypress.Commands.add('clickCloseButton', ()=>{
-  cy.get('label.right').contains('Close').click()
+Cypress.Commands.add('getLeftSoftkeyButton', () => {
+  return cy.get('.softkey > .left')
 })
 
-Cypress.Commands.add('clickSettingsButton', ()=>{
-  cy.get('label.left').contains('Settings').click()
+Cypress.Commands.add('getRightSoftkeyButton', () => {
+  return cy.get('.softkey > .right')
 })
-Cypress.Commands.add('navigateToHomePage', ()=>{
+
+Cypress.Commands.add('clickCloseButton', () => {
+  cy.getRightSoftkeyButton().contains('Close').click()
+})
+
+Cypress.Commands.add('clickSettingsButton', () => {
+  cy.getLeftSoftkeyButton().contains('Settings').click()
+})
+
+Cypress.Commands.add('navigateToHomePage', () => {
   cy.visit('http://127.0.0.1:8080')
 })

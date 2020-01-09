@@ -49,7 +49,11 @@ export const ArticleMenu = ({ close, onTocSelected, onLanguageSelected }) => {
 
   // add Previous Section item
   if (articleHistory.hasPrev()) {
-    items.unshift({ title: i18n.i18n('menu-previous'), action: onPreviousSelected })
+    items.unshift({
+      title: i18n.i18n('menu-previous'),
+      description: articleHistory.getPrev().title,
+      action: onPreviousSelected
+    })
   }
 
   return <div class='menu'>

@@ -7,6 +7,7 @@
 		]
 	},
 	"article-language-available": "The header title of the article language search page. The word \"available\" refers to the article.",
+	"article-loading-message": "The message when loading the article. Shown in the article page",
 	"app-title": "Title of the application. Shown in the app store and the app launcher.",
 	"app-subtitle": "Subtitle of the application. Shown in the app store.",
 	"app-description": "Description of the application. Shown in the app store.",

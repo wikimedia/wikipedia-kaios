@@ -6,7 +6,8 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'standard',
-    'standard-preact'
+    'standard-preact',
+    "plugin:cypress/recommended"
   ],
   globals: {
     Atomics: 'readonly',
@@ -18,5 +19,8 @@ module.exports = {
     },
     ecmaVersion: 2018,
     sourceType: 'module'
-  }
+  },
+  "plugins": [
+    "cypress"
+  ]
 }
