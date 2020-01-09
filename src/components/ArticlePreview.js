@@ -1,12 +1,12 @@
 import { h } from 'preact'
-import { route } from 'preact-router'
 import { useArticle, useI18n, useSoftkey, useArticleTextSize } from 'hooks'
+import { goto } from 'utils'
 
 export const ArticlePreview = ({ lang, title, close }) => {
   const i18n = useI18n()
   const read = () => {
     close()
-    route(`/article/${lang}/${title}`, true)
+    goto.article(lang, title, true)
   }
   useSoftkey('ArticlePreview', {
     right: i18n.i18n('softkey-close'),
