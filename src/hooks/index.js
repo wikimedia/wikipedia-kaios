@@ -1,6 +1,7 @@
 export * from './useArticle'
 export * from './useArticleLinksNavigation'
 export * from './useArticlePagination'
+export * from './useArticleTextSize'
 export * from './useHistoryState'
 export * from './useI18n'
 export * from './useNavigation'

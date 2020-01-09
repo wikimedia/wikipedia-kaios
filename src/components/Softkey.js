@@ -16,7 +16,10 @@ export const Softkey = ({
   onKeyArrowDown,
   onKeyArrowUp,
   onKeyArrowLeft,
-  onKeyArrowRight
+  onKeyArrowRight,
+  onKeyboard4,
+  onKeyboard5,
+  onKeyboard6
 }) => {
   const handlersRef = useRef()
   handlersRef.current = {
@@ -26,7 +29,10 @@ export const Softkey = ({
     ArrowDown: onKeyArrowDown,
     ArrowUp: onKeyArrowUp,
     ArrowLeft: onKeyArrowLeft,
-    ArrowRight: onKeyArrowRight
+    ArrowRight: onKeyArrowRight,
+    4: onKeyboard4,
+    5: onKeyboard5,
+    6: onKeyboard6
   }
   const onKeyDown = (e) => {
     const key = e.key.toString()

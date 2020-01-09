@@ -1,8 +1,8 @@
 import { h } from 'preact'
 import { useRef, useEffect } from 'preact/hooks'
-import { useNavigation, useI18n, useSoftkey } from 'hooks'
+import { useNavigation, useI18n, useSoftkey, usePopup } from 'hooks'
 import { articleHistory, goto } from 'utils'
-import { ListView } from 'components'
+import { ListView, TextSize } from 'components'
 
 export const ArticleMenu = ({ close, onTocSelected, onLanguageSelected }) => {
   const containerRef = useRef()
@@ -25,6 +25,11 @@ export const ArticleMenu = ({ close, onTocSelected, onLanguageSelected }) => {
 
   const [, setNavigation, getCurrent] = useNavigation('Menu', containerRef, 'y')
 
+  const onTextsizeSelected = () => {
+    const [showTextSize] = usePopup(TextSize, { position: 'auto' })
+    showTextSize()
+  }
+
   const onPreviousSelected = () => {
     const { lang, title } = articleHistory.prev()
     goto.article(lang, title, true)
@@ -37,6 +42,7 @@ export const ArticleMenu = ({ close, onTocSelected, onLanguageSelected }) => {
 
   const items = [
     { title: i18n.i18n('menu-section'), action: onTocSelected },
+    { title: i18n.i18n('menu-textsize'), action: onTextsizeSelected },
     { title: i18n.i18n('menu-language'), action: onLanguageSelected }
   ]
 

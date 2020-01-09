@@ -1,8 +1,8 @@
 import { h } from 'preact'
 import { route } from 'preact-router'
 import { useRef, useEffect } from 'preact/hooks'
-import { useNavigation, useI18n, useSoftkey } from 'hooks'
-import { ListView } from 'components'
+import { useNavigation, useI18n, useSoftkey, usePopup } from 'hooks'
+import { ListView, TextSize } from 'components'
 
 export const Settings = () => {
   const containerRef = useRef()
@@ -17,8 +17,16 @@ export const Settings = () => {
       window.open(item.link)
     } else if (item.path) {
       route(item.path)
+    } else if (item.action) {
+      item.action()
     }
   }
+
+  const onTextsizeSelected = () => {
+    const [showTextSize] = usePopup(TextSize, { position: 'auto' })
+    showTextSize()
+  }
+
   useSoftkey('Settings', {
     right: i18n.i18n('softkey-close'),
     onKeyRight: () => history.back(),
@@ -34,7 +42,7 @@ export const Settings = () => {
 
   const items = [
     { title: i18n.i18n('settings-language'), path: '/language' },
-    { title: i18n.i18n('settings-textsize') },
+    { title: i18n.i18n('settings-textsize'), action: onTextsizeSelected },
     { title: i18n.i18n('settings-about-wikipedia') },
     { title: i18n.i18n('settings-privacy'), link: 'https://foundation.m.wikimedia.org/wiki/Privacy_policy' },
     { title: i18n.i18n('settings-term'), link: `https://foundation.m.wikimedia.org/wiki/Terms_of_Use/${lang}` },
