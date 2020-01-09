@@ -1,5 +1,6 @@
 const KEY = 'article-textsize'
 const DEFAULT_SIZE = 0
+const [MIN_SIZE, MAX_SIZE] = [0, 6]
 
 const get = () => {
   return parseInt(localStorage.getItem(KEY), 10) || DEFAULT_SIZE
@@ -19,6 +20,11 @@ const adjustElement = (selector, parentElement, step) => {
 }
 
 const adjust = (step = 1, update = true) => {
+  const newSize = get() + step
+  if (newSize < MIN_SIZE || newSize > MAX_SIZE) {
+    return
+  }
+
   // article
   adjustElement('.title', document, step)
   adjustElement('.desc', document, step)
@@ -34,7 +40,7 @@ const adjust = (step = 1, update = true) => {
   adjustElement('.confirm-dialog', document, step)
 
   if (update) {
-    set(get() + step)
+    set(newSize)
   }
 }
 
