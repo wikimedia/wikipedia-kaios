@@ -1,8 +1,7 @@
 import { h } from 'preact'
 import { useRef, useEffect } from 'preact/hooks'
-import { route } from 'preact-router'
 import { useNavigation, useI18n, useSoftkey } from 'hooks'
-import { articleHistory } from 'utils'
+import { articleHistory, goto } from 'utils'
 import { ListView } from 'components'
 
 export const ArticleMenu = ({ close, onTocSelected, onLanguageSelected }) => {
@@ -28,7 +27,7 @@ export const ArticleMenu = ({ close, onTocSelected, onLanguageSelected }) => {
 
   const onPreviousSelected = () => {
     const { lang, title } = articleHistory.prev()
-    route(`/article/${lang}/${title}`, true)
+    goto.article(lang, title, true)
     close()
   }
 

@@ -1,5 +1,4 @@
 import { h, Fragment } from 'preact'
-import { route } from 'preact-router'
 import { memo } from 'preact/compat'
 import { useState, useRef, useEffect } from 'preact/hooks'
 import {
@@ -11,7 +10,7 @@ import {
   useArticlePagination, useArticleLinksNavigation,
   usePopup
 } from 'hooks'
-import { articleHistory, confirmDialog, viewport } from 'utils'
+import { articleHistory, confirmDialog, goto, viewport } from 'utils'
 
 const ArticleBody = memo(({ content }) => {
   return (
@@ -33,7 +32,7 @@ const ArticleSection = ({
   const linkHandlers = {
     action: ({ action }) => {
       if (action === 'quickfacts') {
-        route(`/quickfacts/${lang}/${title}`)
+        goto.quickfacts(lang, title)
       } else if (action === 'sections') {
         showToc()
       }
@@ -101,7 +100,7 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
         : article.toc.find(item => item.line === title).sectionIndex
     )
     setSubTitle(title)
-    route(`/article/${lang}/${articleTitle}/${title}`, true)
+    goto.article(lang, [articleTitle, title], true)
   }
 
   const showArticleTocPopup = () => {
