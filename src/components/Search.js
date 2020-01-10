@@ -1,9 +1,8 @@
 import { h } from 'preact'
 import { useRef, useEffect } from 'preact/hooks'
-import { route } from 'preact-router'
 import { ListView } from 'components'
 import { useNavigation, useSearch, useI18n, useSoftkey } from 'hooks'
-import { articleHistory } from 'utils'
+import { articleHistory, goto } from 'utils'
 import { getRandomArticleTitle } from 'api'
 
 export const Search = () => {
@@ -15,13 +14,13 @@ export const Search = () => {
   const onKeyCenter = () => {
     const { index, key } = getCurrent()
     if (index) {
-      window.location.hash = `/article/${lang}/${key}`
+      goto.article(lang, key)
     }
   }
 
   const goToRandomArticle = () => {
     getRandomArticleTitle(lang).then(title => {
-      route(`/article/${lang}/${title}`)
+      goto.article(lang, title)
     })
   }
 

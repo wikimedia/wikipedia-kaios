@@ -7,6 +7,7 @@
         "message-documentation": "qqq"
     },
     "article-language-available": "Available in $1 {{PLURAL:$1|language|languages}}",
+    "article-loading-message": "Loading page...",
     "app-title": "Wikipedia",
     "app-subtitle": "The free encyclopedia",
     "app-description": "With the free Wikipedia app, search and explore information from all over the world in 300+ languages.",
@@ -16,9 +17,11 @@
     "header-search": "Search results",
     "header-sections": "Sections",
     "header-settings": "Settings",
+    "header-textsize": "Text size",
     "menu-previous": "Previous article",
     "menu-language": "Language",
     "menu-section": "Sections",
+    "menu-textsize": "Text size",
     "softkey-done": "Done",
     "softkey-search": "Search",
     "search-language-placeholder": "Search languages",
@@ -44,6 +47,9 @@
     "settings-rate": "Rate the app",
     "settings-help-feedback": "Help and feedback",
     "settings-about-app": "About the app",
+    "textsize-increase": "Press 4 (Increase size)",
+    "textsize-decrease": "Press 6 (Decrease size)",
+    "textsize-default": "Press 5 (Default)",
     "toc-footer": "Suggested articles",
-    "view-in-browser": "View article in browser"
+    "view-in-browser": "View article in browser"    
 }

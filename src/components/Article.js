@@ -1,17 +1,16 @@
 import { h, Fragment } from 'preact'
-import { route } from 'preact-router'
 import { memo } from 'preact/compat'
 import { useState, useRef, useEffect } from 'preact/hooks'
 import {
   ReferencePreview, ArticleToc, ArticleLanguage,
-  ArticleMenu
+  ArticleMenu, Loading
 } from 'components'
 import {
   useArticle, useI18n, useSoftkey,
-  useArticlePagination, useArticleLinksNavigation,
+  useArticlePagination, useArticleLinksNavigation, useArticleTextSize,
   usePopup
 } from 'hooks'
-import { articleHistory, confirmDialog, viewport } from 'utils'
+import { articleHistory, confirmDialog, goto, viewport } from 'utils'
 
 const ArticleBody = memo(({ content }) => {
   if (typeof content === 'object') {
@@ -20,7 +19,7 @@ const ArticleBody = memo(({ content }) => {
 
   return (
     <div
-      class='article-content'
+      class='article-content adjustable-font-size'
       dangerouslySetInnerHTML={{ __html: content }}
     />
   )
@@ -34,11 +33,12 @@ const ArticleSection = ({
   const contentRef = useRef()
   const i18n = useI18n()
   const [showReferencePreview] = usePopup(ReferencePreview, { position: 'auto' })
+  const [textSize] = useArticleTextSize('Article')
 
   const linkHandlers = {
     action: ({ action }) => {
       if (action === 'quickfacts') {
-        route(`/quickfacts/${lang}/${title}`)
+        goto.quickfacts(lang, title)
       } else if (action === 'sections') {
         showToc()
       }
@@ -52,16 +52,16 @@ const ArticleSection = ({
     }
   }
 
-  useArticleLinksNavigation('Article', lang, contentRef, page, linkHandlers)
+  useArticleLinksNavigation('Article', lang, contentRef, linkHandlers, [page, textSize])
 
   return (
     <div class='article-section' ref={contentRef}>
       { imageUrl && <div class='lead-image' style={{ backgroundImage: `url(${imageUrl})` }} /> }
       <div class={'card' + (imageUrl ? ' with-image' : '') + (isFooter ? ' footer' : '')}>
-        <div class='title' dangerouslySetInnerHTML={{ __html: title }} />
+        <div class='title adjustable-font-size' dangerouslySetInnerHTML={{ __html: title }} />
         { description && (
           <Fragment>
-            <div class='desc'>{description}</div>
+            <div class='desc adjustable-font-size'>{description}</div>
             <div class='line' />
           </Fragment>
         ) }
@@ -89,7 +89,7 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
   const article = useArticle(lang, articleTitle)
 
   if (!article) {
-    return 'Loading...'
+    return <Loading message={i18n.i18n('article-loading-message')} />
   }
 
   const [subTitle, setSubTitle] = useState(initialSubTitle)
@@ -105,7 +105,7 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
         : article.toc.find(item => item.line === title).sectionIndex
     )
     setSubTitle(title)
-    route(`/article/${lang}/${articleTitle}/${title}`, true)
+    goto.article(lang, [articleTitle, title], true)
   }
 
   const showArticleTocPopup = () => {
@@ -145,7 +145,9 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
 }
 
 export const Article = ({ lang, title: articleTitle, subtitle: initialSubTitle }) => {
-  return <ArticleInner lang={lang} articleTitle={articleTitle} initialSubTitle={initialSubTitle} key={lang + articleTitle} />
+  return (
+    <ArticleInner lang={lang} articleTitle={articleTitle} initialSubTitle={initialSubTitle} key={lang + articleTitle} />
+  )
 }
 
 const findCurrentLocatedTitleOrSubtitle = ref => {

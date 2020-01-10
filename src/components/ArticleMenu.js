@@ -1,9 +1,8 @@
 import { h } from 'preact'
 import { useRef, useEffect } from 'preact/hooks'
-import { route } from 'preact-router'
-import { useNavigation, useI18n, useSoftkey } from 'hooks'
-import { articleHistory } from 'utils'
-import { ListView } from 'components'
+import { useNavigation, useI18n, useSoftkey, usePopup } from 'hooks'
+import { articleHistory, goto } from 'utils'
+import { ListView, TextSize } from 'components'
 
 export const ArticleMenu = ({ close, onTocSelected, onLanguageSelected }) => {
   const containerRef = useRef()
@@ -26,9 +25,14 @@ export const ArticleMenu = ({ close, onTocSelected, onLanguageSelected }) => {
 
   const [, setNavigation, getCurrent] = useNavigation('Menu', containerRef, 'y')
 
+  const onTextsizeSelected = () => {
+    const [showTextSize] = usePopup(TextSize, { position: 'auto' })
+    showTextSize()
+  }
+
   const onPreviousSelected = () => {
     const { lang, title } = articleHistory.prev()
-    route(`/article/${lang}/${title}`, true)
+    goto.article(lang, title, true)
     close()
   }
 
@@ -38,12 +42,17 @@ export const ArticleMenu = ({ close, onTocSelected, onLanguageSelected }) => {
 
   const items = [
     { title: i18n.i18n('menu-section'), action: onTocSelected },
+    { title: i18n.i18n('menu-textsize'), action: onTextsizeSelected },
     { title: i18n.i18n('menu-language'), action: onLanguageSelected }
   ]
 
   // add Previous Section item
   if (articleHistory.hasPrev()) {
-    items.unshift({ title: i18n.i18n('menu-previous'), action: onPreviousSelected })
+    items.unshift({
+      title: i18n.i18n('menu-previous'),
+      description: articleHistory.getPrev().title,
+      action: onPreviousSelected
+    })
   }
 
   return <div class='menu'>

@@ -1,14 +1,13 @@
 export class SearchPage {
+  search (text) {
+    cy.get('input[type=text]').type(text)
+  }
 
-    search(text){
-        cy.get('input[type=text]').type(text)
-    }
+  results () {
+    return cy.get('.item')
+  }
 
-    results(){
-        return cy.get('.item')
-    }
-
-    navigateToSettingsPage(){
-        cy.clickSettingsButton()
-    }
+  navigateToSettingsPage () {
+    cy.clickSettingsButton()
+  }
 }

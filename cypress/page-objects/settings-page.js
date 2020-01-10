@@ -1,10 +1,9 @@
 export class SettingsPage {
+  search (text) {
+    cy.get('input[type=text]').type(text)
+  }
 
-    search(text){
-        cy.get('input[type=text]').type(text)
-    }
-
-    settingsList(){
-        return cy.get('.list')
-    }
+  settingsList () {
+    return cy.get('.list')
+  }
 }
