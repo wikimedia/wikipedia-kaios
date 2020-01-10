@@ -1,6 +1,8 @@
 .quickfacts {
 	overflow-x: hidden;
 	overflow-y: scroll;
+	overflow: -moz-scrollbars-none;
+	height: @availableHeight;
 
 	[ nav-selected=true ] {
 		background-color: #eaf3ff;
@@ -12,7 +14,7 @@
 	}
 
 	img {
-		max-width: 200px;
+		max-width: 100vw;
 	}
 
 	span.plainlinks {
