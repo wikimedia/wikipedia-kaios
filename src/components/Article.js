@@ -23,7 +23,8 @@ const ArticleBody = memo(({ content }) => {
 
 const ArticleSection = ({
   lang, imageUrl, title, description, hasActions,
-  content, page, showToc, goToSubpage, references
+  content, page, showToc, goToSubpage, references,
+  hasInfobox
 }) => {
   const contentRef = useRef()
   const i18n = useI18n()
@@ -66,10 +67,12 @@ const ArticleSection = ({
               <img src='images/sections.svg' /><br />
               <label>{i18n.i18n('article-action-sections')}</label>
             </div>
-            <div class='article-actions-button' data-action='quickfacts'>
-              <img src='images/quickfacts.svg' /><br />
-              <label>{i18n.i18n('article-action-quickfacts')}</label>
-            </div>
+            { hasInfobox && (
+              <div class='article-actions-button' data-action='quickfacts'>
+                <img src='images/quickfacts.svg' /><br />
+                <label>{i18n.i18n('article-action-quickfacts')}</label>
+              </div>
+            ) }
           </div>
         ) }
         <ArticleBody content={content} />
@@ -133,6 +136,7 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
         description={section.description}
         imageUrl={section.imageUrl}
         hasActions={currentSection === 0}
+        hasInfobox={!!article.infobox}
         content={section.content}
         references={article.references}
         showToc={showArticleTocPopup}

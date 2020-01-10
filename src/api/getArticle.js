@@ -9,9 +9,8 @@ export const getArticle = (lang, title) => {
     const references = {}
 
     // parse info box
-    const doc = parser.parseFromString(data.lead.sections[0].text, 'text/html')
-    const infoboxNode = doc.querySelector('[class^="infobox"]')
-    const infobox = infoboxNode && fixImageUrl(infoboxNode.outerHTML)
+    const doc = parser.parseFromString(fixImageUrl(data.lead.sections[0].text), 'text/html')
+    const infobox = extractInfobox(doc)
     const preview = extractPreview(doc)
 
     // parse lead as the first section
@@ -128,4 +127,13 @@ const extractPreview = doc => {
   })
 
   return p.outerHTML
+}
+
+const extractInfobox = doc => {
+  const infoboxNode = doc.querySelector('[class^="infobox"]')
+  if (infoboxNode) {
+    // todo: strip images and maps
+
+    return infoboxNode.outerHTML
+  }
 }
