@@ -4,13 +4,12 @@ import { useI18n } from 'hooks'
 import { getArticleFooter } from 'api'
 import { buildWpMobileWebUrl } from 'utils'
 
-// The reason why adding placeholder items is
-// the use article links navigation able to select the first item
-const PLACEHOLDER_ITEMS = [{ title: 'loading...' }, { title: 'loading...' }, { title: 'loading...' }]
-
 export const ArticleFooter = ({ lang, title }) => {
-  const [footer, setFooter] = useState(PLACEHOLDER_ITEMS)
   const i18n = useI18n()
+  // The reason why adding placeholder items is
+  // the use article links navigation able to select the first item
+  const PLACEHOLDER_ITEMS = Array(3).fill({ title: i18n.i18n('suggested-placeholder') })
+  const [footer, setFooter] = useState(PLACEHOLDER_ITEMS)
 
   useEffect(() => {
     getArticleFooter(lang, title)

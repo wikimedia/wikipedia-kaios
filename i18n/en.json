@@ -37,6 +37,7 @@
     "softkey-ok": "Okay",
     "softkey-read": "Read",
     "suggested-articles": "SUGGESTED ARTICLES",
+    "suggested-placeholder": "loading...",
     "reference-title": "Reference [$1]",
     "offline-message": "No internet connection ",
     "settings-language": "Language",

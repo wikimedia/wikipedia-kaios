@@ -37,6 +37,7 @@
 	"softkey-ok": "Label of the word \"ok\" shown in the popup message in the language settings page",
 	"softkey-read": "Text of the read option in the softkey. Used to read the selected article in the article preview.\n{{Identical|Read}}",
 	"suggested-articles": "Text of the suggested articles. Shown in the article footer page.",
+	"suggested-placeholder": "Placeholder loading text of the suggested articles. Shown in the article footer page.",
 	"reference-title": "Header of the reference preview popup.\n* $1 - Number of the current reference.",
 	"offline-message": "Message to be display at the top of the screen when there is no internet connection.",
 	"settings-language": "Label of the language item list. Shown in the Settings menu, used in language setting.",
