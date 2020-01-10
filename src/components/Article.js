@@ -64,11 +64,11 @@ const ArticleSection = ({
           <div class='article-actions'>
             <div class='article-actions-button' data-action='sections'>
               <img src='images/sections.svg' /><br />
-              <label>Sections</label>
+              <label>{i18n.i18n('article-action-sections')}</label>
             </div>
             <div class='article-actions-button' data-action='quickfacts'>
               <img src='images/quickfacts.svg' /><br />
-              <label>Quick Facts</label>
+              <label>{i18n.i18n('article-action-quickfacts')}</label>
             </div>
           </div>
         ) }

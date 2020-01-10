@@ -6,6 +6,8 @@
         "locale": "en",
         "message-documentation": "qqq"
     },
+    "article-action-sections": "Sections",
+    "article-action-quickfacts": "Quick Facts",
     "article-language-available": "Available in $1 {{PLURAL:$1|language|languages}}",
     "article-loading-message": "Loading page...",
     "app-title": "Wikipedia",

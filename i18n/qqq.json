@@ -6,6 +6,8 @@
 			"Amire80"
 		]
 	},
+	"article-action-sections": "The action button sections text on the first page of the article.",
+	"article-action-quickfacts": "The action button quick facts text on the first page of the article.",
 	"article-language-available": "The header title of the article language search page. The word \"available\" refers to the article.",
 	"article-loading-message": "The message when loading the article. Shown in the article page",
 	"app-title": "Title of the application. Shown in the app store and the app launcher.",
