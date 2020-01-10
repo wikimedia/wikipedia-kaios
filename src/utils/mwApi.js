@@ -11,3 +11,7 @@ export const buildMwApiUrl = (lang, params) => {
     return `${p}=${encodeURIComponent(params[p])}`
   }).join('&')
 }
+
+export const buildWpMobileWebUrl = (lang, title) => {
+  return `https://${lang}.m.wikipedia.org/w/index.php?title=${encodeURIComponent(title)}`
+}
