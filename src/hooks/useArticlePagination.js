@@ -58,17 +58,21 @@ export const useArticlePagination = (
         .from(elementRef.current.querySelectorAll('.title, h3, h4'))
         .find(e => e.textContent === subTitle)
 
-      const offset = Math.floor(
-        subTitleElement.getBoundingClientRect().left / viewport.width
-      )
-      elementRef.current.scrollLeft += offset * viewport.width
-      setCurrentPage(elementRef.current.scrollLeft / viewport.width)
+      if (subTitleElement) {
+        const offset = Math.floor(
+          subTitleElement.getBoundingClientRect().left / viewport.width
+        )
+        elementRef.current.scrollLeft += offset * viewport.width
+        setCurrentPage(elementRef.current.scrollLeft / viewport.width)
+      }
     }
   }, [subTitle])
 
   const showNextSection = () => {
     const nextSection = currentSection + 1
-    setCurrentSection(nextSection < numOfSection ? nextSection : 0)
+    if (nextSection < numOfSection) {
+      setCurrentSection(nextSection)
+    }
   }
 
   const showPrevSection = () => {
