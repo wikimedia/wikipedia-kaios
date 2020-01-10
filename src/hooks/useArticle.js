@@ -14,15 +14,15 @@ export const useArticle = (lang, title) => {
         const { sections, toc } = article
 
         // build footer used section and toc
-        sections.push({
+        const sectionsWithFooter = sections.concat({
           title: i18n.i18n('toc-footer'),
           content: <ArticleFooter lang={lang} title={title} />,
           imageUrl: false,
           isFooter: true
         })
-        toc.push({ level: 1, line: i18n.i18n('toc-footer'), sectionIndex: sections.length - 1 })
+        const tocWithFooter = toc.concat({ level: 1, line: i18n.i18n('toc-footer'), sectionIndex: sectionsWithFooter.length - 1 })
 
-        setArticle(article)
+        setArticle({ ...article, sections: sectionsWithFooter, toc: tocWithFooter })
       })
   }, [lang, title])
 
