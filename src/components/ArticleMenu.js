@@ -41,7 +41,7 @@ export const ArticleMenu = ({ close, onTocSelected, onLanguageSelected }) => {
   }, [])
 
   const items = [
-    { title: i18n.i18n('menu-section'), action: onTocSelected },
+    { title: i18n.i18n('article-action-sections'), action: onTocSelected },
     { title: i18n.i18n('menu-textsize'), action: onTextsizeSelected },
     { title: i18n.i18n('menu-language'), action: onLanguageSelected }
   ]
