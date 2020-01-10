@@ -24,8 +24,8 @@ export const ArticleFooter = ({ lang, title }) => {
           { footer.map(item => {
             return <a class='item' title={item.title}>
               <div class='info'>
-                <div class='article-title'>{item.title}</div>
-                <div class='description'>{item.description}</div>
+                <div class='article-title adjustable-font-size'>{item.title}</div>
+                <div class='description adjustable-font-size'>{item.description}</div>
               </div>
               { item.thumbnail && <div class='img'><img src={item.thumbnail.source} /></div> }
             </a>

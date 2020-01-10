@@ -14,7 +14,7 @@ import { articleHistory, confirmDialog, goto, viewport } from 'utils'
 
 const ArticleBody = memo(({ content }) => {
   if (typeof content === 'object') {
-    return <div class='article-content'>{content}</div>
+    return <div class='article-content adjustable-font-size'>{content}</div>
   }
 
   return (
