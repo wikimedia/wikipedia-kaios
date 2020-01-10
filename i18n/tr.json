@@ -5,16 +5,20 @@
 		]
 	},
 	"article-language-available": "$1 mevcut {{PLURAL:$1|dil|dil}}",
+	"article-loading-message": "Sayfa yükleniyor...",
 	"app-title": "Vikipedi",
 	"app-subtitle": "Özgür ansiklopedi",
 	"app-description": "Ücretsiz Vikipedi uygulamasıyla, 300'den fazla dilde dünyanın her yerinden bilgi arayın ve keşfedin.",
+	"confirm-section": "\"$1\" Bölümüne Gidin",
 	"header-menu": "Makale menüsü",
 	"header-search": "Arama sonuçları",
 	"header-sections": "Bölümler",
 	"header-settings": "Ayarlar",
+	"header-textsize": "Metin boyutu",
 	"menu-previous": "Önceki makale",
 	"menu-language": "Dil",
 	"menu-section": "Bölümler",
+	"menu-textsize": "Metin boyutu",
 	"softkey-done": "Tamamlandı",
 	"softkey-search": "Ara",
 	"search-language-placeholder": "Dil ara",
@@ -38,5 +42,8 @@
 	"settings-term": "Kullanım koşulları",
 	"settings-rate": "Uygulamayı puanla",
 	"settings-help-feedback": "Yardım ve geri bildirim",
-	"settings-about-app": "Uygulama hakkında"
+	"settings-about-app": "Uygulama hakkında",
+	"textsize-increase": "4'e basın (Boyutu artır)",
+	"textsize-decrease": "6'ya basın (Boyutu küçült)",
+	"textsize-default": "5'e basın (Varsayılan)"
 }

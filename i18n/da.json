@@ -4,10 +4,13 @@
 			"Saederup92"
 		]
 	},
+	"article-loading-message": "Indlæser siden...",
 	"app-subtitle": "Den frie encyklopædi",
 	"header-settings": "Indstillinger",
+	"header-textsize": "Tekststørrelse",
 	"menu-previous": "Forrige artikel",
 	"menu-language": "Sprog",
+	"menu-textsize": "Tekststørrelse",
 	"softkey-done": "Udført",
 	"softkey-sections": "Sektioner",
 	"softkey-settings": "Indstillinger",

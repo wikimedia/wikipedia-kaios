@@ -4,16 +4,22 @@
 			"沈澄心"
 		]
 	},
+	"article-loading-message": "正在加载页面……",
 	"header-search": "搜索结果",
 	"header-settings": "设置",
+	"menu-previous": "上一条目",
+	"menu-language": "语言",
 	"softkey-done": "完成",
 	"softkey-search": "搜索",
+	"search-language-placeholder": "搜索语言",
 	"softkey-menu": "菜单",
 	"softkey-sections": "段落",
 	"softkey-settings": "设置",
 	"language-change": "更改程序语言",
 	"language-setting": "语言设置",
 	"softkey-ok": "好的",
+	"reference-title": "参考文献[$1]",
+	"offline-message": "无互联网连接",
 	"settings-language": "语言",
 	"settings-term": "使用条款",
 	"settings-about-app": "关于维基百科应用程序"
