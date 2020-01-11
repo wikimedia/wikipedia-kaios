@@ -4,20 +4,25 @@
 			"Meno25",
 			"ديفيد",
 			"Eduardo Addad de Oliveira",
-			"محمد أحمد عبد الفتاح"
+			"محمد أحمد عبد الفتاح",
+			"Eyas"
 		]
 	},
 	"article-language-available": "متاح ب$1 {{PLURAL:$1|لغة|لغات}}",
+	"article-loading-message": "جارٍ تحميل الصفحة...",
 	"app-title": "ويكيبيديا",
 	"app-subtitle": "الموسوعة الحرة",
 	"app-description": "من خلال تطبيق ويكيبيديا المجاني، ابحث واستكشف المعلومات من جميع أنحاء العالم بأكثر من 300 لغة.",
+	"confirm-section": "قم بزيارة القسم $1",
 	"header-menu": "قائمة المقالة",
 	"header-search": "نتائج البحث",
 	"header-sections": "الأقسام",
 	"header-settings": "إعدادات",
+	"header-textsize": "حجم الخط",
 	"menu-previous": "المقالة السابقة",
 	"menu-language": "اللغة",
 	"menu-section": "الأقسام",
+	"menu-textsize": "حجم الخط",
 	"softkey-done": "تم",
 	"softkey-search": "بحث",
 	"search-language-placeholder": "بحث في اللغات",
@@ -41,5 +46,8 @@
 	"settings-term": "شروط الاستخدام",
 	"settings-rate": "قيم التطبيق",
 	"settings-help-feedback": "مساعدة وردود الفعل",
-	"settings-about-app": "عن التطبيق"
+	"settings-about-app": "عن التطبيق",
+	"textsize-increase": "اضغط 4 (زيادة الحجم)",
+	"textsize-decrease": "اضغط 6 (تقليل الحجم)",
+	"textsize-default": "اضغط 5 (الافتراضي)"
 }

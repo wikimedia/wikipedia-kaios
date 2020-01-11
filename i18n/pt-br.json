@@ -5,9 +5,11 @@
 		]
 	},
 	"article-language-available": "Disponível em $1 {{PLURAL:$1|idioma|idiomas}}",
+	"article-loading-message": "Carregando página...",
 	"app-title": "Wikipédia",
 	"app-subtitle": "A enciclopédia livre",
 	"app-description": "Com o aplicativo grátis da Wikipédia, procure e explore a informação de todo o mundo em mais de 300 idiomas",
+	"confirm-section": "Ir para a secção \"$1\"",
 	"header-menu": "Menu de artigo",
 	"header-search": "Procurar resultados",
 	"header-sections": "Seções",

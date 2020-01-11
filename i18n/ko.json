@@ -7,6 +7,7 @@
 		]
 	},
 	"article-language-available": "$1개 {{PLURAL:$1|언어}}로 읽을 수 있음",
+	"article-loading-message": "문서를 불러오는 중...",
 	"app-title": "위키백과",
 	"app-subtitle": "우리 모두의 백과사전",
 	"app-description": "위키백과 앱을 통해 전 세계 300개 이상의 언어로 정보를 검색하고 둘러보세요.",

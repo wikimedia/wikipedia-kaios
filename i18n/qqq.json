@@ -6,6 +6,8 @@
 			"Amire80"
 		]
 	},
+	"article-action-sections": "The action button sections text on the first page of the article used to open the section page and the label of the Section item shown in the Menu page.",
+	"article-action-quickfacts": "The action button quick facts text on the first page of the article used to open the quick facts page and the label of the Quick facts item shown in the Menu page.",
 	"article-language-available": "The header title of the article language search page. The word \"available\" refers to the article.",
 	"article-loading-message": "The message when loading the article. Shown in the article page",
 	"app-title": "Title of the application. Shown in the app store and the app launcher.",
@@ -20,14 +22,12 @@
 	"header-textsize": "The header title of the text size page",
 	"menu-previous": "Label of the Previous article item. Shown in the Menu page.",
 	"menu-language": "Label of the Language item. Shown in the Menu page.",
-	"menu-section": "Label of the Section item. Shown in the Menu page.",
 	"menu-textsize": "Label of the Text size item list. Shown in the Menu menu.",
 	"softkey-done": "Label of the done softkey",
 	"softkey-search": "Label of the search softkey",
 	"search-language-placeholder": "Placeholder of input in the language settings page",
 	"softkey-menu": "Label of the menu softkey",
 	"search-placeholder": "Placeholder of the search input.\n{{Identical|Search}}",
-	"softkey-sections": "Label of the sections softkey",
 	"softkey-settings": "Label of the settings softkey",
 	"centerkey-select": "Label of the center key to choose the selected element. This is used in several contexts when the arrow keys are used to move the focus between visual elements.",
 	"softkey-close": "Label of the close softkey\n{{Identical|Close}}",

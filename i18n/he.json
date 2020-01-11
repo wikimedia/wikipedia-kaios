@@ -7,9 +7,11 @@
 		]
 	},
 	"article-language-available": "זמין {{PLURAL:$1|בשפה אחת|ב־$1 שפות}}.",
+	"article-loading-message": "טעינת דף...",
 	"app-title": "ויקיפדיה",
 	"app-subtitle": "האנציקלופדיה החופשית",
 	"app-description": "בעזרת יישום ויקיפדיה החינמי, תוכלו לחפש ולחקור מידע מכל העולם ביותר מ־300 שפות.",
+	"confirm-section": "מעבר לפסקה \"$1\"",
 	"header-menu": "תפריט ערך",
 	"header-search": "תוצאות חיפוש",
 	"header-sections": "פסקאות",

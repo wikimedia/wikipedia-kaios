@@ -11,16 +11,20 @@
 		]
 	},
 	"article-language-available": "Disponible en $1 {{PLURAL:$1|langue|langues}}",
+	"article-loading-message": "Chargement de la page…",
 	"app-title": "Wikipédia",
 	"app-subtitle": "L’encyclopédie libre",
 	"app-description": "Avec l’application libre Wikipédia, cherchez et explorez des informations du monde entier en plus de 300 langues.",
+	"confirm-section": "Aller à la section « $1 »",
 	"header-menu": "Menu de l’article",
 	"header-search": "Résultats de la recherche",
 	"header-sections": "Sections",
 	"header-settings": "Paramètres",
+	"header-textsize": "Taille du texte",
 	"menu-previous": "Article précédent",
 	"menu-language": "Langue",
 	"menu-section": "Sections",
+	"menu-textsize": "Taille du texte",
 	"softkey-done": "Terminé",
 	"softkey-search": "Rechercher",
 	"search-language-placeholder": "Sélectionner les langues",
@@ -44,5 +48,8 @@
 	"settings-term": "Conditions d’utilisation",
 	"settings-rate": "Évaluer l’application",
 	"settings-help-feedback": "Aide et commentaires",
-	"settings-about-app": "À propos de l’application"
+	"settings-about-app": "À propos de l’application",
+	"textsize-increase": "Appuyer sur 4 (augmenter la taille)",
+	"textsize-decrease": "Appuyer sur 6 (diminuer la taille)",
+	"textsize-default": "Appuyer sur 5 (valeur par défaut)"
 }

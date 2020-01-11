@@ -6,16 +6,20 @@
 		]
 	},
 	"article-language-available": "有 $1 種{{PLURAL:$1|語言}}可用",
+	"article-loading-message": "載入頁面中…",
 	"app-title": "維基百科",
 	"app-subtitle": "自由的百科全書",
 	"app-description": "藉由自由的維基百科應用程式，進行搜尋探索來自於全世界三百種以上語言的資訊。",
+	"confirm-section": "前往「$1」段落",
 	"header-menu": "條目選單",
 	"header-search": "搜尋結果",
 	"header-sections": "段落",
 	"header-settings": "設定",
+	"header-textsize": "文字大小",
 	"menu-previous": "上一個條目",
 	"menu-language": "語言",
 	"menu-section": "段落",
+	"menu-textsize": "文字大小",
 	"softkey-done": "完成",
 	"softkey-search": "搜尋",
 	"search-language-placeholder": "搜尋語言",
@@ -39,5 +43,8 @@
 	"settings-term": "使用條款",
 	"settings-rate": "評分應用程式",
 	"settings-help-feedback": "說明與回饋",
-	"settings-about-app": "關於維基百科應用程式"
+	"settings-about-app": "關於維基百科應用程式",
+	"textsize-increase": "按下 4（增加大小）",
+	"textsize-decrease": "按下 6（減少大小）",
+	"textsize-default": "按下 5（預設大小）"
 }

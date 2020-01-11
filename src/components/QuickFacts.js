@@ -1,4 +1,4 @@
-import { h, Fragment } from 'preact'
+import { h } from 'preact'
 import { useRef, useEffect } from 'preact/hooks'
 import { useArticle, useNavigation, useScroll, useI18n, useSoftkey } from 'hooks'
 
@@ -24,12 +24,10 @@ export const QuickFacts = ({ lang, title }) => {
   }, [article])
 
   return (
-    <Fragment>
-      <div
-        class='quickfacts'
-        ref={containerRef}
-        dangerouslySetInnerHTML={{ __html: article.infobox }}
-      />
-    </Fragment>
+    <div
+      class='quickfacts'
+      ref={containerRef}
+      dangerouslySetInnerHTML={{ __html: article.infobox }}
+    />
   )
 }
