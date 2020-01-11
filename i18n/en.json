@@ -45,7 +45,7 @@
     "settings-rate": "Rate the app",
     "settings-help-feedback": "Help and feedback",
     "settings-about-app": "About the app",
-    "textsize-increase": "Press 4 (Increase size)",
-    "textsize-decrease": "Press 6 (Decrease size)",
+    "textsize-increase": "Press 6 (Increase size)",
+    "textsize-decrease": "Press 4 (Decrease size)",
     "textsize-default": "Press 5 (Default)"
 }
