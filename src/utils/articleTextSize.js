@@ -1,11 +1,15 @@
 const KEY = 'article-textsize'
-const DEFAULT_SIZE = 0
+const DEFAULT_SIZE = 2
 const [MIN_SIZE, MAX_SIZE] = [0, 6]
 const SELECTORS = '.adjustable-font-size'
 const FONT_SIZE_ATTRIBUTE = 'data-font-size'
 
 const get = () => {
-  return parseInt(localStorage.getItem(KEY), 10) || DEFAULT_SIZE
+  const fontSize = localStorage.getItem(KEY)
+  if (fontSize === null) {
+    return DEFAULT_SIZE
+  }
+  return parseInt(fontSize, 10)
 }
 
 const set = size => {
@@ -31,7 +35,7 @@ const adjust = step => {
 }
 
 const reset = () => {
-  adjust(-get())
+  adjust(-get() + DEFAULT_SIZE)
   set(DEFAULT_SIZE)
 }
 
