@@ -11,6 +11,9 @@ export const ArticleLanguage = ({ lang, title, close }) => {
   const [items, query, setQuery, numOfLanglink] = useSearchArticleLanguage(articleLang, title)
   const [, setNavigation, getCurrent] = useNavigation('ArticleLanguage', containerRef, 'y')
 
+  // @todo add loading experience
+  if (!items.length && !query) return 'Loading...'
+
   const onKeyCenter = () => {
     const { index } = getCurrent()
     if (index > 0) {
