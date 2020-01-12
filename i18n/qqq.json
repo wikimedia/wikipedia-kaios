@@ -22,6 +22,7 @@
 	"menu-previous": "Label of the Previous article item. Shown in the Menu page.",
 	"menu-language": "Label of the Language item. Shown in the Menu page.",
 	"menu-textsize": "Label of the Text size item list. Shown in the Menu menu.",
+	"no-result-found": "No result found text. Shown in the search and language list view",
 	"softkey-done": "Label of the done softkey",
 	"softkey-search": "Label of the search softkey",
 	"search-language-placeholder": "Placeholder of input in the language settings page",
