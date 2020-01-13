@@ -53,6 +53,6 @@ Cypress.Commands.add('clickSettingsButton', () => {
 })
 
 Cypress.Commands.add('navigateToHomePage', () => {
-  localStorage.setItem('onboard-before', true)
+  localStorage.setItem('onboard-before', 'false')
   cy.visit('http://127.0.0.1:8080')
 })
