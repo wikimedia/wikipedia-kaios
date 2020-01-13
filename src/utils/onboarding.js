@@ -1,4 +1,4 @@
-const KEY = 'onboarding-first-time'
+const KEY = 'onboard-before'
 
 const get = () => {
   return !localStorage.getItem(KEY)
