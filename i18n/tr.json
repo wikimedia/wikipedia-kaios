@@ -4,6 +4,8 @@
 			"BaRaN6161 TURK"
 		]
 	},
+	"article-action-sections": "Bölümler",
+	"article-action-quickfacts": "Kısa Bilgiler",
 	"article-language-available": "$1 mevcut {{PLURAL:$1|dil|dil}}",
 	"article-loading-message": "Sayfa yükleniyor...",
 	"app-title": "Vikipedi",
@@ -17,14 +19,12 @@
 	"header-textsize": "Metin boyutu",
 	"menu-previous": "Önceki makale",
 	"menu-language": "Dil",
-	"menu-section": "Bölümler",
 	"menu-textsize": "Metin boyutu",
 	"softkey-done": "Tamamlandı",
 	"softkey-search": "Ara",
 	"search-language-placeholder": "Dil ara",
 	"softkey-menu": "Menü",
 	"search-placeholder": "Ara",
-	"softkey-sections": "Bölümler",
 	"softkey-settings": "Ayarlar",
 	"centerkey-select": "Seç",
 	"softkey-close": "Kapat",

@@ -45,7 +45,7 @@
 	"settings-rate": "Label of the Rate item list. Shown in the Settings menu, used in rating the app.",
 	"settings-help-feedback": "Label of Help and feedback item list. Shown in the Settings menu, to find help and give feedback.",
 	"settings-about-app": "Label of the About the app item list. Shown in the Settings menu, used in showing the information of this app",
-	"textsize-increase": "Label of the press key to increase the text size. Shown in the Tet Size page.",
-	"textsize-decrease": "Label of the press key to decrease the text size. Shown in the Tet Size page.",
-	"textsize-default": "Label of the press key to set the text size to be default. Shown in the Tet Size page."
+	"textsize-increase": "Label of the press key to increase the text size. Shown in the Text Size page.",
+	"textsize-decrease": "Label of the press key to decrease the text size. Shown in the Text Size page.",
+	"textsize-default": "Label of the press key to set the text size to be default. Shown in the Text Size page."
 }

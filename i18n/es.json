@@ -8,6 +8,7 @@
 			"Silverie04"
 		]
 	},
+	"article-action-sections": "Secciones",
 	"article-language-available": "Disponible en $1 {{PLURAL:$1|idioma|idiomas}}",
 	"article-loading-message": "Cargando la página…",
 	"app-title": "Wikipedia",
@@ -20,13 +21,11 @@
 	"header-settings": "Configuración",
 	"menu-previous": "Artículo anterior",
 	"menu-language": "Idioma",
-	"menu-section": "Secciones",
 	"softkey-done": "Hecho",
 	"softkey-search": "Buscar",
 	"search-language-placeholder": "Buscar idiomas",
 	"softkey-menu": "Menú",
 	"search-placeholder": "Buscar",
-	"softkey-sections": "Secciones",
 	"softkey-settings": "Configuración",
 	"centerkey-select": "Selec.",
 	"softkey-close": "Cerrar",

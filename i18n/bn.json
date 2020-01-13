@@ -6,6 +6,7 @@
 			"MKaur"
 		]
 	},
+	"article-action-sections": "বিভাগ",
 	"app-title": "উইকিপিডিয়া",
 	"app-subtitle": "একটি মুক্ত বিশ্বকোষ",
 	"app-description": "উইকিপিডিয়া অ্যাপের সাহায্য ৩০০ এর বেশি ভাষায় বিশ্বজুড়ের তথ্য অনুসন্ধান এবং অন্বেষণ করুন।",
@@ -14,13 +15,11 @@
 	"header-sections": "অনুচ্ছেদ",
 	"header-settings": "সেটিংস",
 	"menu-language": "ভাষা",
-	"menu-section": "বিভাগ",
 	"softkey-done": "সম্পন্ন",
 	"softkey-search": "অনুসন্ধান",
 	"search-language-placeholder": "ভাষা অনুসন্ধান করুন",
 	"softkey-menu": "তালিকা",
 	"search-placeholder": "অনুসন্ধান",
-	"softkey-sections": "বিভাগ",
 	"softkey-settings": "সেটিংস",
 	"centerkey-select": "নির্বাচন করুন",
 	"softkey-close": "বন্ধ",

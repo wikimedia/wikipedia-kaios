@@ -4,6 +4,7 @@
 			"MKaur"
 		]
 	},
+	"article-action-sections": "حصے",
 	"app-title": "ویکیپیڈیا",
 	"app-subtitle": "آزاد دائرۃ المعارف",
 	"app-description": "آزاد ویکی پیڈیا ایپ کے ذریعہ پوری دنیا سے 300+ زبانوں میں معلومات تلاش کریں۔",
@@ -11,13 +12,11 @@
 	"header-search": "تلاش کے نتائج",
 	"header-sections": "حصے",
 	"header-settings": "ترتیبات",
-	"menu-section": "حصے",
 	"softkey-done": "تکمیل",
 	"softkey-search": "تلاش کریں",
 	"search-language-placeholder": "زبان منتخب کریں",
 	"softkey-menu": "مینو",
 	"search-placeholder": "تلاش کریں",
-	"softkey-sections": "حصے",
 	"softkey-settings": "ترتیبات",
 	"centerkey-select": "منتخب کریں",
 	"softkey-close": "بند کریں",

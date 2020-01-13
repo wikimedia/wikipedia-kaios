@@ -5,6 +5,8 @@
 			"HTan (WMF)"
 		]
 	},
+	"article-action-sections": "段落",
+	"article-action-quickfacts": "快速真相",
 	"article-language-available": "有 $1 種{{PLURAL:$1|語言}}可用",
 	"article-loading-message": "載入頁面中…",
 	"app-title": "維基百科",
@@ -18,14 +20,12 @@
 	"header-textsize": "文字大小",
 	"menu-previous": "上一個條目",
 	"menu-language": "語言",
-	"menu-section": "段落",
 	"menu-textsize": "文字大小",
 	"softkey-done": "完成",
 	"softkey-search": "搜尋",
 	"search-language-placeholder": "搜尋語言",
 	"softkey-menu": "選單",
 	"search-placeholder": "搜尋",
-	"softkey-sections": "段落",
 	"softkey-settings": "設定",
 	"centerkey-select": "選擇",
 	"softkey-close": "關閉",

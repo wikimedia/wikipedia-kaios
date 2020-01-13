@@ -10,6 +10,8 @@
 			"Thibaut120094"
 		]
 	},
+	"article-action-sections": "Sections",
+	"article-action-quickfacts": "Faits en bref",
 	"article-language-available": "Disponible en $1 {{PLURAL:$1|langue|langues}}",
 	"article-loading-message": "Chargement de la page…",
 	"app-title": "Wikipédia",
@@ -23,14 +25,12 @@
 	"header-textsize": "Taille du texte",
 	"menu-previous": "Article précédent",
 	"menu-language": "Langue",
-	"menu-section": "Sections",
 	"menu-textsize": "Taille du texte",
 	"softkey-done": "Terminé",
 	"softkey-search": "Rechercher",
 	"search-language-placeholder": "Sélectionner les langues",
 	"softkey-menu": "Menu",
 	"search-placeholder": "Rechercher",
-	"softkey-sections": "Sections",
 	"softkey-settings": "Paramètres",
 	"centerkey-select": "Sélectionner",
 	"softkey-close": "Fermer",

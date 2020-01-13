@@ -6,6 +6,7 @@
 			"Eduardo Addad de Oliveira"
 		]
 	},
+	"article-action-sections": "부분",
 	"article-language-available": "$1개 {{PLURAL:$1|언어}}로 읽을 수 있음",
 	"article-loading-message": "문서를 불러오는 중...",
 	"app-title": "위키백과",
@@ -17,13 +18,11 @@
 	"header-settings": "설정",
 	"menu-previous": "이전 글",
 	"menu-language": "언어",
-	"menu-section": "부분",
 	"softkey-done": "완료",
 	"softkey-search": "검색",
 	"search-language-placeholder": "검색 언어",
 	"softkey-menu": "메뉴",
 	"search-placeholder": "검색",
-	"softkey-sections": "부분",
 	"softkey-settings": "설정",
 	"centerkey-select": "선택",
 	"softkey-close": "닫기",
