@@ -1,27 +1,16 @@
 import { h } from 'preact'
-import { useState, useEffect } from 'preact/hooks'
 import { useI18n } from 'hooks'
-import { getArticleFooter } from 'api'
 import { buildWpMobileWebUrl } from 'utils'
 
-export const ArticleFooter = ({ lang, title }) => {
+export const ArticleFooter = ({ lang, title, items = [] }) => {
   const i18n = useI18n()
-  // The reason why adding placeholder items is
-  // the use article links navigation able to select the first item
-  const PLACEHOLDER_ITEMS = Array(3).fill({ title: i18n.i18n('suggested-placeholder') })
-  const [footer, setFooter] = useState(PLACEHOLDER_ITEMS)
-
-  useEffect(() => {
-    getArticleFooter(lang, title)
-      .then(items => setFooter(items))
-  }, [])
 
   return (
     <div class='article-footer'>
       <div class='content'>
         <h2>{i18n.i18n('suggested-articles')}</h2>
         <div class='list'>
-          { footer.map(item => {
+          { items.map(item => {
             return <a class='item' title={item.title}>
               <div class='info'>
                 <div class='article-title adjustable-font-size'>{item.title}</div>
