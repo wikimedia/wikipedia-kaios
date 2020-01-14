@@ -1,5 +1,5 @@
 import { h } from 'preact'
-import { useArticle, useI18n, useSoftkey, useArticleTextSize } from 'hooks'
+import { useArticleSummary, useI18n, useSoftkey, useArticleTextSize } from 'hooks'
 import { goto } from 'utils'
 
 export const ArticlePreview = ({ lang, title, close }) => {
@@ -16,8 +16,8 @@ export const ArticlePreview = ({ lang, title, close }) => {
   }, [])
   useArticleTextSize('ArticlePreview')
 
-  const article = useArticle(lang, title)
-  const data = article ? article.sections[0] : {
+  const summary = useArticleSummary(lang, title)
+  const data = summary || {
     title: title,
     preview: 'Loading...'
   }
@@ -25,11 +25,8 @@ export const ArticlePreview = ({ lang, title, close }) => {
   return (
     <div class='article-preview'>
       <div class='item'>
-        <div class='info'>
-          <div class='title adjustable-font-size' dangerouslySetInnerHTML={{ __html: data.title }} />
-          <div class='description adjustable-font-size' dangerouslySetInnerHTML={{ __html: data.description }} />
-        </div>
-        { data.imageUrl && <div class='img'><img src={data.imageUrl} /></div> }
+        <div class='title adjustable-font-size' dangerouslySetInnerHTML={{ __html: data.title }} />
+        { data.imageUrl && <img src={data.imageUrl} /> }
       </div>
       <div class='preview-text adjustable-font-size' dangerouslySetInnerHTML={{ __html: data.preview }} />
     </div>
