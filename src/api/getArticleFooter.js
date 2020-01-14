@@ -16,5 +16,5 @@ export const getArticleFooter = (lang, title) => {
   }
 
   const url = buildMwApiUrl(lang, params)
-  return cachedFetch(url, data => data.query.pages)
+  return cachedFetch(url, data => data.query && data.query.pages)
 }
