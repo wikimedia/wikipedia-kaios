@@ -8,6 +8,7 @@
 			"Tölvuforritari"
 		]
 	},
+	"article-action-sections": "Avsnitt",
 	"article-language-available": "Tillgänglig på $1 {{PLURAL:$1|språk}}",
 	"article-loading-message": "Läser in sida...",
 	"app-title": "Wikipedia",
@@ -18,15 +19,15 @@
 	"header-search": "Sökresultat",
 	"header-sections": "Avsnitt",
 	"header-settings": "Inställningar",
+	"header-textsize": "Textstorlek",
 	"menu-previous": "Föregående artikel",
 	"menu-language": "Språk",
-	"menu-section": "Avsnitt",
+	"menu-textsize": "Textstorlek",
 	"softkey-done": "Klar",
 	"softkey-search": "Sök",
 	"search-language-placeholder": "Sök språk",
 	"softkey-menu": "Meny",
 	"search-placeholder": "Sök",
-	"softkey-sections": "Avsnitt",
 	"softkey-settings": "Inställningar",
 	"centerkey-select": "Välj",
 	"softkey-close": "Stäng",
@@ -44,5 +45,8 @@
 	"settings-term": "Användarvillkor",
 	"settings-rate": "Betygsätt appen",
 	"settings-help-feedback": "Hjälp och återkoppling",
-	"settings-about-app": "Om appen"
+	"settings-about-app": "Om appen",
+	"textsize-increase": "Tryck 4 (öka storlek)",
+	"textsize-decrease": "Tryck 6 (minska storlek)",
+	"textsize-default": "Tryck 5 (standard)"
 }

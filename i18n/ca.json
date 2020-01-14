@@ -6,6 +6,7 @@
 			"Eduardo Addad de Oliveira"
 		]
 	},
+	"article-action-sections": "Seccions",
 	"article-language-available": "Disponible en $1 {{PLURAL:$1|llengua|llengües}}",
 	"app-title": "Viquipèdia",
 	"app-subtitle": "L'enciclopèdia lliure",
@@ -17,13 +18,11 @@
 	"header-settings": "Configuració",
 	"menu-previous": "Article anterior",
 	"menu-language": "Llengua",
-	"menu-section": "Seccions",
 	"softkey-done": "Fet",
 	"softkey-search": "Cerca",
 	"search-language-placeholder": "Llengües de cerca",
 	"softkey-menu": "Menú",
 	"search-placeholder": "Cerca",
-	"softkey-sections": "Seccions",
 	"softkey-settings": "Paràmetres",
 	"centerkey-select": "Selec.",
 	"softkey-close": "Tanca",

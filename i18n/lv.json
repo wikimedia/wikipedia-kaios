@@ -4,6 +4,8 @@
 			"Papuass"
 		]
 	},
+	"article-action-sections": "Sadaļas",
+	"article-action-quickfacts": "Ātrie fakti",
 	"article-loading-message": "Ielādē lapu…",
 	"app-title": "Vikipēdija",
 	"app-subtitle": "Brīvā enciklopēdija",
@@ -12,10 +14,8 @@
 	"header-settings": "Iestatījumi",
 	"menu-previous": "Iepriekšējais raksts",
 	"menu-language": "Valoda",
-	"menu-section": "Sadaļas",
 	"search-language-placeholder": "Meklēt valodas",
 	"softkey-menu": "Izvēlne",
-	"softkey-sections": "Sadaļas",
 	"softkey-settings": "Iestatījumi",
 	"softkey-close": "Aizvērt",
 	"language-setting": "Valodas iestatījumi",
