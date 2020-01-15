@@ -23,6 +23,9 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+
+import 'cypress-localstorage-commands'
+
 [
   'downArrow',
   'upArrow',
@@ -53,6 +56,6 @@ Cypress.Commands.add('clickSettingsButton', () => {
 })
 
 Cypress.Commands.add('navigateToHomePage', () => {
-  localStorage.setItem('has-onboard-before', true)
+  cy.setLocalStorage('has-onboard-before', true)
   cy.visit('http://127.0.0.1:8080')
 })
