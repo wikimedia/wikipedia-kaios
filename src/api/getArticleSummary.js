@@ -1,7 +1,7 @@
-import { cachedFetch } from 'utils'
+import { cachedFetch, buildPcsUrl } from 'utils'
 
 export const getArticleSummary = (lang, title) => {
-  const url = `https://${lang}.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(title)}`
+  const url = buildPcsUrl(lang, title, 'summary')
   return cachedFetch(url, data => ({
     title: data.displaytitle,
     imageUrl: data.thumbnail && data.thumbnail.source,
