@@ -11,6 +11,9 @@ export const ArticleLanguage = ({ lang, title, close }) => {
   const [items, query, setQuery, numOfLanglink] = useSearchArticleLanguage(articleLang, title)
   const [, setNavigation, getCurrent] = useNavigation('ArticleLanguage', containerRef, 'y')
 
+  // @todo add loading experience
+  if (!items.length && !query) return 'Loading...'
+
   const onKeyCenter = () => {
     const { index } = getCurrent()
     if (index > 0) {
@@ -44,6 +47,6 @@ export const ArticleLanguage = ({ lang, title, close }) => {
 
   return <div class='articlelanguage'>
     <input type='text' placeholder={i18n.i18n('search-placeholder')} value={query} onInput={(e) => setQuery(e.target.value)} data-selectable />
-    <RadioListView header={i18n.i18n('article-language-available', numOfLanglink)} items={items} containerRef={containerRef} />
+    <RadioListView header={i18n.i18n('article-language-available', numOfLanglink)} items={items} containerRef={containerRef} empty={i18n.i18n('no-result-found')} />
   </div>
 }

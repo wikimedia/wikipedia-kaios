@@ -18,10 +18,11 @@
     "header-search": "Search results",
     "header-sections": "Sections",
     "header-settings": "Settings",
-    "header-textsize": "Text size",
+    "header-textsize": "Article text size",
     "menu-previous": "Previous article",
     "menu-language": "Language",
     "menu-textsize": "Text size",
+    "no-result-found": "No results found",
     "softkey-done": "Done",
     "softkey-search": "Search",
     "search-language-placeholder": "Search languages",
@@ -45,7 +46,7 @@
     "settings-rate": "Rate the app",
     "settings-help-feedback": "Help and feedback",
     "settings-about-app": "About the app",
-    "textsize-increase": "Press 4 (Increase size)",
-    "textsize-decrease": "Press 6 (Decrease size)",
+    "textsize-increase": "Press 6 (Increase size)",
+    "textsize-decrease": "Press 4 (Decrease size)",
     "textsize-default": "Press 5 (Default)"
 }
