@@ -7,6 +7,7 @@ export const getArticle = (lang, title) => {
     const imageUrl = data.lead.image && data.lead.image.urls['320']
     const toc = []
     const references = {}
+    const languageCount = data.lead.languagecount
 
     // parse info box
     const doc = parser.parseFromString(fixImageUrl(data.lead.sections[0].text), 'text/html')
@@ -75,7 +76,8 @@ export const getArticle = (lang, title) => {
       sections,
       infobox,
       toc,
-      references
+      references,
+      languageCount
     }
   })
 }
