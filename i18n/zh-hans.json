@@ -1,19 +1,21 @@
 {
 	"@metadata": {
 		"authors": [
-			"沈澄心"
+			"沈澄心",
+			"Josephine W."
 		]
 	},
 	"article-loading-message": "正在加载页面……",
 	"header-search": "搜索结果",
 	"header-settings": "设置",
+	"header-textsize": "文字大小",
 	"menu-previous": "上一条目",
 	"menu-language": "语言",
+	"menu-textsize": "文字大小",
 	"softkey-done": "完成",
 	"softkey-search": "搜索",
 	"search-language-placeholder": "搜索语言",
 	"softkey-menu": "菜单",
-	"softkey-sections": "段落",
 	"softkey-settings": "设置",
 	"language-change": "更改程序语言",
 	"language-setting": "语言设置",

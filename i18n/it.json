@@ -6,6 +6,7 @@
 			"Dansita"
 		]
 	},
+	"article-action-sections": "Sezioni",
 	"article-language-available": "Disponibile in $1 {{PLURAL:$1|lingua|lingue}}",
 	"article-loading-message": "Caricamento pagina...",
 	"app-title": "Wikipedia",
@@ -19,13 +20,11 @@
 	"header-textsize": "Dimensione del testo",
 	"menu-previous": "Voce precedente",
 	"menu-language": "Lingua",
-	"menu-section": "Sezioni",
 	"softkey-done": "Fatto",
 	"softkey-search": "Cerca",
 	"search-language-placeholder": "Cerca lingue",
 	"softkey-menu": "Menu",
 	"search-placeholder": "Cerca",
-	"softkey-sections": "Sezioni",
 	"softkey-settings": "Impostazioni",
 	"centerkey-select": "Seleziona",
 	"softkey-close": "Chiudi",

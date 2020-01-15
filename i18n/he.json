@@ -6,6 +6,8 @@
 			"IKhitron"
 		]
 	},
+	"article-action-sections": "פסקאות",
+	"article-action-quickfacts": "עובדות מהירות",
 	"article-language-available": "זמין {{PLURAL:$1|בשפה אחת|ב־$1 שפות}}.",
 	"article-loading-message": "טעינת דף...",
 	"app-title": "ויקיפדיה",
@@ -16,15 +18,15 @@
 	"header-search": "תוצאות חיפוש",
 	"header-sections": "פסקאות",
 	"header-settings": "הגדרות",
+	"header-textsize": "גודל טקסט",
 	"menu-previous": "הערך הקודם",
 	"menu-language": "שפה",
-	"menu-section": "פסקאות",
+	"menu-textsize": "גודל טקסט",
 	"softkey-done": "בוצע",
 	"softkey-search": "חיפוש",
 	"search-language-placeholder": "חיפוש שפה",
 	"softkey-menu": "תפריט",
 	"search-placeholder": "חיפוש",
-	"softkey-sections": "פסקאות",
 	"softkey-settings": "הגדרות",
 	"centerkey-select": "בחירה",
 	"softkey-close": "סגירה",
@@ -42,5 +44,8 @@
 	"settings-term": "תנאי שימוש",
 	"settings-rate": "דירוג היישום",
 	"settings-help-feedback": "עזרה ומשוב",
-	"settings-about-app": "אודות היישום"
+	"settings-about-app": "אודות היישום",
+	"textsize-increase": "ללחוץ 4 (להגדיל)",
+	"textsize-decrease": "ללחוץ 6 (להקטין)",
+	"textsize-default": "ללחוץ 5 (ברירת מחדל)"
 }

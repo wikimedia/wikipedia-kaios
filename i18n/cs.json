@@ -6,6 +6,8 @@
 			"YjM"
 		]
 	},
+	"article-action-sections": "Sekce",
+	"article-action-quickfacts": "Stručná fakta",
 	"article-language-available": "Dostupné v {{PLURAL:$1|$1 jazyce|$1 jazycích jazyky}}",
 	"article-loading-message": "Načítání stránky…",
 	"app-title": "Wikipedie",
@@ -19,14 +21,12 @@
 	"header-textsize": "Velikost textu",
 	"menu-previous": "Předchozí článek",
 	"menu-language": "Jazyk",
-	"menu-section": "Sekce",
 	"menu-textsize": "Velikost textu",
 	"softkey-done": "Hotovo",
 	"softkey-search": "Hledat",
 	"search-language-placeholder": "Hledat jazyky",
 	"softkey-menu": "Menu",
 	"search-placeholder": "Vyhledávání",
-	"softkey-sections": "Sekce",
 	"softkey-settings": "Nastavení",
 	"centerkey-select": "Vybrat",
 	"softkey-close": "Zavřít",
@@ -44,5 +44,8 @@
 	"settings-term": "Podmínky užití",
 	"settings-rate": "Ohodnotit aplikaci",
 	"settings-help-feedback": "Pomoc a zpětná vazba",
-	"settings-about-app": "O aplikaci"
+	"settings-about-app": "O aplikaci",
+	"textsize-increase": "Pro zvětšení textu stiskněte 4",
+	"textsize-decrease": "Pro zmenšení textu stiskněte 6",
+	"textsize-default": "Pro výchozí velikost stiskněte 5"
 }

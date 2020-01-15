@@ -1,11 +1,15 @@
 const KEY = 'article-textsize'
-const DEFAULT_SIZE = 0
+const DEFAULT_SIZE = 2
 const [MIN_SIZE, MAX_SIZE] = [0, 6]
 const SELECTORS = '.adjustable-font-size'
 const FONT_SIZE_ATTRIBUTE = 'data-font-size'
 
 const get = () => {
-  return parseInt(localStorage.getItem(KEY), 10) || DEFAULT_SIZE
+  const fontSize = localStorage.getItem(KEY)
+  if (fontSize === null) {
+    return DEFAULT_SIZE
+  }
+  return parseInt(fontSize, 10)
 }
 
 const set = size => {
@@ -31,7 +35,7 @@ const adjust = step => {
 }
 
 const reset = () => {
-  adjust(-get())
+  adjust(-get() + DEFAULT_SIZE)
   set(DEFAULT_SIZE)
 }
 
@@ -48,9 +52,9 @@ const init = () => {
 }
 
 const getSoftkeyEffect = (onAdjust = () => {}) => {
-  const onKeyboard4 = () => { adjust(1); onAdjust(get()) }
+  const onKeyboard4 = () => { adjust(-1); onAdjust(get()) }
   const onKeyboard5 = () => { reset(); onAdjust(get()) }
-  const onKeyboard6 = () => { adjust(-1); onAdjust(get()) }
+  const onKeyboard6 = () => { adjust(1); onAdjust(get()) }
 
   return {
     onKeyboard4, onKeyboard5, onKeyboard6

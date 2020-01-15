@@ -4,17 +4,16 @@
 			"Eduardo Addad de Oliveira"
 		]
 	},
+	"article-action-sections": "Seccións",
 	"app-title": "Wikipedia",
 	"app-subtitle": "A enciclopedia libre",
 	"header-search": "Resultados da procura",
 	"header-sections": "Seccións",
 	"header-settings": "Configuracións",
-	"menu-section": "Seccións",
 	"softkey-done": "Feito",
 	"softkey-search": "Procurar",
 	"softkey-menu": "Menú",
 	"search-placeholder": "Procurar",
-	"softkey-sections": "Seccións",
 	"softkey-settings": "Configuracións",
 	"centerkey-select": "Seleccionar",
 	"softkey-close": "Pechar",

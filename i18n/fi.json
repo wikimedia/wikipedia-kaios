@@ -5,6 +5,7 @@
 			"Nike"
 		]
 	},
+	"article-action-sections": "Osiot",
 	"app-title": "Wikipedia",
 	"app-subtitle": "Vapaa tietosanakirja",
 	"app-description": "Ilmaisella Wikipedia-sovelluksella, haet ja tutkit tietoa ympäri maailmaa yli 300 kielellä.",
@@ -14,13 +15,11 @@
 	"header-settings": "Asetukset",
 	"menu-previous": "Edellinen artikkeli",
 	"menu-language": "Kieli",
-	"menu-section": "Osiot",
 	"softkey-done": "Valmis",
 	"softkey-search": "Hae",
 	"search-language-placeholder": "Hae kieliä",
 	"softkey-menu": "Valikko",
 	"search-placeholder": "Haku",
-	"softkey-sections": "Osiot",
 	"softkey-settings": "Asetukset",
 	"centerkey-select": "Valitse",
 	"softkey-close": "Sulje",

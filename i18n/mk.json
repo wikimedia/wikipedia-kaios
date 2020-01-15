@@ -4,6 +4,8 @@
 			"Bjankuloski06"
 		]
 	},
+	"article-action-sections": "Поднаслови",
+	"article-action-quickfacts": "Кратки факти",
 	"article-language-available": "Достапно на $1 {{PLURAL:$1|јазик|јазици}}",
 	"article-loading-message": "Ја вчитувам страницата...",
 	"app-title": "Википедија",
@@ -17,14 +19,12 @@
 	"header-textsize": "Големина на текстот",
 	"menu-previous": "Претходна статија",
 	"menu-language": "Јазик",
-	"menu-section": "Поднаслови",
 	"menu-textsize": "Големина на текстот",
 	"softkey-done": "Готово",
 	"softkey-search": "Пребарај",
 	"search-language-placeholder": "Пребарај јазици",
 	"softkey-menu": "Мени",
 	"search-placeholder": "Пребарај",
-	"softkey-sections": "Поднаслови",
 	"softkey-settings": "Нагодувања",
 	"centerkey-select": "Избери",
 	"softkey-close": "Затвори",

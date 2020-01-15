@@ -5,6 +5,7 @@
 			"MKaur"
 		]
 	},
+	"article-action-sections": "విభాగాలు",
 	"app-title": "వికీపీడియా",
 	"app-subtitle": "ఒక స్వేచ్ఛా విజ్ఞాన సర్వస్వం",
 	"app-description": "ప్రపంచవ్యాప్తంగా 300లకు పైగా భాషల్లో వికీపీడియాలో సమాచారం లభిస్తుంది. ఈ ఆప్ ను ఉచితంగా దిగుమతి (డౌన్లోడ్) చేసుకోవచ్చు.",
@@ -12,13 +13,11 @@
 	"header-search": "శోధన ఫలితాలు",
 	"header-sections": "విభాగాలు",
 	"header-settings": "అమరికలు",
-	"menu-section": "విభాగాలు",
 	"softkey-done": "పూర్తయింది.",
 	"softkey-search": "వెతుకు",
 	"search-language-placeholder": "భాషను ఎంచుకోండి",
 	"softkey-menu": "సూచిక",
 	"search-placeholder": "వెతుకు",
-	"softkey-sections": "విభాగాలు",
 	"softkey-settings": "అమరికలు (సెట్టింగ్స్)",
 	"centerkey-select": "ఎంచుకోండి",
 	"softkey-close": "మూసివేయి",

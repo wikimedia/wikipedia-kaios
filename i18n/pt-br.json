@@ -4,6 +4,8 @@
 			"Eduardo Addad de Oliveira"
 		]
 	},
+	"article-action-sections": "Seções",
+	"article-action-quickfacts": "Fatos rápidos",
 	"article-language-available": "Disponível em $1 {{PLURAL:$1|idioma|idiomas}}",
 	"article-loading-message": "Carregando página...",
 	"app-title": "Wikipédia",
@@ -14,15 +16,15 @@
 	"header-search": "Procurar resultados",
 	"header-sections": "Seções",
 	"header-settings": "Configurações",
+	"header-textsize": "Tamanho do texto",
 	"menu-previous": "Artigo anterior",
 	"menu-language": "Idioma",
-	"menu-section": "Seções",
+	"menu-textsize": "Tamanho do texto",
 	"softkey-done": "Feito",
 	"softkey-search": "Pesquisar",
 	"search-language-placeholder": "Pesquisar idiomas",
 	"softkey-menu": "Menu",
 	"search-placeholder": "Pesquisar",
-	"softkey-sections": "Seções",
 	"softkey-settings": "Preferências",
 	"centerkey-select": "Selec.",
 	"softkey-close": "Fechar",
@@ -40,5 +42,8 @@
 	"settings-term": "Termos de uso",
 	"settings-rate": "Classificar o aplicativo",
 	"settings-help-feedback": "Ajuda e comentários",
-	"settings-about-app": "Sobre o aplicativo"
+	"settings-about-app": "Sobre o aplicativo",
+	"textsize-increase": "Pressionar 4 (Aumenta tamanho)",
+	"textsize-decrease": "Pressionar 6 (Reduz tamanho)",
+	"textsize-default": "Pressionar 5 (Predefinição)"
 }

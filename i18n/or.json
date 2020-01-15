@@ -4,6 +4,7 @@
 			"MKaur"
 		]
 	},
+	"article-action-sections": "ବିଭାଗ",
 	"app-title": "ଉଇକିପିଡ଼ିଆ",
 	"app-subtitle": "ମୁକ୍ତ ଜ୍ଞାନକୋଷ",
 	"app-description": "ମୁକ୍ତ ଉଇକିପିଡ଼ିଆ ଆପରେ , ୩୦୦+ ଟି ଭାଷାରେ ସମଗ୍ର ଦୁନିଆରେ ସୂଚନାର ଅନୁସନ୍ଧାନ ଖୋଜା ଚାଲିଛି",
@@ -11,13 +12,11 @@
 	"header-search": "ପରିଣାମ ଖୋଜନ୍ତୁ",
 	"header-sections": "ବିଭାଗ",
 	"header-settings": "ପୃଷ୍ଠଭୂମି",
-	"menu-section": "ବିଭାଗ",
 	"softkey-done": "ସମାପ୍ତ",
 	"softkey-search": "ଖୋଜନ୍ତୁ",
 	"search-language-placeholder": "ଭାଷା ସମୂହକୁ ଖୋଜନ୍ତୁ",
 	"softkey-menu": "ଖୋଜନ୍ତୁ",
 	"search-placeholder": "ଖୋଜନ୍ତୁ",
-	"softkey-sections": "ବିଭାଗ",
 	"softkey-settings": "ପୃଷ୍ଠଭୂମି",
 	"centerkey-select": "ବାଛିବା",
 	"softkey-close": "ସମାପ୍ତି",

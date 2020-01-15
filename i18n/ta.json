@@ -5,6 +5,7 @@
 			"MKaur"
 		]
 	},
+	"article-action-sections": "பிரிவுகள்",
 	"app-title": "விக்கிபீடியா",
 	"app-subtitle": "இலவச கலை கலஞ்சியம்",
 	"app-description": "இலவச விக்கிபீடியா செயலி வழியாக, உலகில் உள்ள 300+ மொழிகளில் தகவல்களை தேடுங்கள் மற்றும் ஆராயுங்கள்",
@@ -12,13 +13,11 @@
 	"header-search": "தேடல் முடிவுகள்",
 	"header-sections": "பிரிவு",
 	"header-settings": "அமைப்புகள்",
-	"menu-section": "பிரிவுகள்",
 	"softkey-done": "முடிந்தது",
 	"softkey-search": "தேடுக",
 	"search-language-placeholder": "மொழியைத் தேர்ந்தெடு",
 	"softkey-menu": "பட்டி",
 	"search-placeholder": "தேடுக",
-	"softkey-sections": "பிரிவுகள்",
 	"softkey-settings": "அமைப்புகள்",
 	"centerkey-select": "தேர்க",
 	"softkey-close": "மூடுக",

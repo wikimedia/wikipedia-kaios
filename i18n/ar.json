@@ -8,6 +8,8 @@
 			"Eyas"
 		]
 	},
+	"article-action-sections": "الأقسام",
+	"article-action-quickfacts": "حقائق سريعة",
 	"article-language-available": "متاح ب$1 {{PLURAL:$1|لغة|لغات}}",
 	"article-loading-message": "جارٍ تحميل الصفحة...",
 	"app-title": "ويكيبيديا",
@@ -21,14 +23,12 @@
 	"header-textsize": "حجم الخط",
 	"menu-previous": "المقالة السابقة",
 	"menu-language": "اللغة",
-	"menu-section": "الأقسام",
 	"menu-textsize": "حجم الخط",
 	"softkey-done": "تم",
 	"softkey-search": "بحث",
 	"search-language-placeholder": "بحث في اللغات",
 	"softkey-menu": "القائمة",
 	"search-placeholder": "بحث",
-	"softkey-sections": "الأقسام",
 	"softkey-settings": "الإعدادات",
 	"centerkey-select": "اختر",
 	"softkey-close": "إغلاق",
