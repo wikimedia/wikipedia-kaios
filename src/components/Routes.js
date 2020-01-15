@@ -6,7 +6,7 @@ import { onboarding } from 'utils'
 
 export const Routes = ({ onRouteChange }) => {
   const onChange = ({ url }) => {
-    if (onboarding.get()) {
+    if (!onboarding.isDone()) {
       route('/onboarding')
     }
     onRouteChange(url)

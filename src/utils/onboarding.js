@@ -1,11 +1,11 @@
-const KEY = 'onboard-before'
+const KEY = 'has-onboard-before'
 
-const get = () => {
-  return !localStorage.getItem(KEY)
+const isDone = () => {
+  return !!localStorage.getItem(KEY)
 }
 
-const set = value => {
-  localStorage.setItem(KEY, Boolean(value))
+const markAsDone = () => {
+  localStorage.setItem(KEY, true)
 }
 
-export const onboarding = { get, set }
+export const onboarding = { isDone, markAsDone }
