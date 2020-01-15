@@ -2,7 +2,7 @@
   "version": "1.0.0",
   "name": "Wikipedia",
   "description": "With the free Wikipedia app, search and explore information from all over the world in 300+ languages.",
-  "type": "web",
+  "type": "privileged",
   "launch_path": "/index.html",
   "icons": {
     "56": "/images/56px.png",
@@ -24,5 +24,10 @@
     }
   },
   "default_locale": "en-US",
-  "origin": "app://kaios.wikipedia.org"
+  "origin": "app://kaios.wikipedia.org",
+  "permissions": {
+    "systemXHR": {
+      "description": "Required to bypass CORS limitations."
+    }
+  }
 }
