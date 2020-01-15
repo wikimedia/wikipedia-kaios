@@ -17,18 +17,28 @@ export const ArticlePreview = ({ lang, title, close }) => {
   useArticleTextSize('ArticlePreview')
 
   const summary = useArticleSummary(lang, title)
-  const data = summary || {
-    title: title,
-    preview: 'Loading...'
-  }
 
-  return (
+  return summary ? (
     <div class='article-preview'>
       <div class='item'>
-        <div class='title adjustable-font-size' dangerouslySetInnerHTML={{ __html: data.title }} />
-        { data.imageUrl && <img src={data.imageUrl} /> }
+        <div class='title adjustable-font-size' dangerouslySetInnerHTML={{ __html: summary.title }} />
+        { summary.imageUrl && <img class='img' src={summary.imageUrl} /> }
       </div>
-      <div class='preview-text adjustable-font-size' dangerouslySetInnerHTML={{ __html: data.preview }} />
+      <div class='preview-text adjustable-font-size' dangerouslySetInnerHTML={{ __html: summary.preview }} />
     </div>
-  )
+  ) : <LoadingPreview title={title} />
 }
+
+const LoadingPreview = ({ title }) => (
+  <div class='article-preview loading'>
+    <div class='item'>
+      <div class='title'>{title}</div>
+      <div class='loading-block img' />
+    </div>
+    <div class='preview-text' >
+      <div class='loading-block full' />
+      <div class='loading-block full' />
+      <div class='loading-block full' />
+    </div>
+  </div>
+)
