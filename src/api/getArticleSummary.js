@@ -5,7 +5,7 @@ export const getArticleSummary = (lang, title) => {
   return cachedFetch(url, data => ({
     title: data.displaytitle,
     imageUrl: data.thumbnail && data.thumbnail.source,
-    preview: data.extract_html
+    preview: data.extract_html || data.description
   })
   )
 }
