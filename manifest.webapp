@@ -5,7 +5,10 @@
   "type": "web",
   "launch_path": "/index.html",
   "icons": {
-    "56": "/images/56px.png",
+    "16":  "/images/16px.png",
+    "48":  "/images/48px.png",
+    "56":  "/images/56px.png",
+    "60":  "/images/60px.png",
     "112": "/images/112px.png"
   },
   "developer": {
