@@ -17,8 +17,8 @@ describe('Onboarding', () => {
     onboardingPage.getMainImage().should('be.visible').should('have.attr', 'src').and('contains', 'onboarding-0.png')
     onboardingPage.getTitle().should('have.text', enJson['onboarding-0-title'])
     onboardingPage.getDescription().should('have.text', enJson['onboarding-0-description'])
-    cy.getLeftSoftkeyButton().should('have.text', 'Skip')
-    cy.getRightSoftkeyButton().should('have.text', 'Next')
+    cy.getLeftSoftkeyButton().should('have.text', enJson['softkey-skip'])
+    cy.getRightSoftkeyButton().should('have.text', enJson['softkey-next'])
     cy.getRightSoftkeyButton().click()
 
     // Page 1
@@ -26,8 +26,8 @@ describe('Onboarding', () => {
     onboardingPage.getBackgroundImage().should('be.visible').should('have.attr', 'style').and('contains', 'onboarding-1-background.png')
     onboardingPage.getTitle().should('have.text', enJson['onboarding-1-title'])
     onboardingPage.getDescription().should('have.text', enJson['onboarding-1-description'])
-    cy.getLeftSoftkeyButton().should('have.text', 'Back')
-    cy.getRightSoftkeyButton().should('have.text', 'Next')
+    cy.getLeftSoftkeyButton().should('have.text', enJson['softkey-back'])
+    cy.getRightSoftkeyButton().should('have.text', enJson['softkey-next'])
     cy.getRightSoftkeyButton().click()
 
     // Page 2
@@ -35,8 +35,8 @@ describe('Onboarding', () => {
     onboardingPage.getBackgroundImage().should('be.visible').should('have.attr', 'style').and('contains', 'onboarding-2-background.png')
     onboardingPage.getTitle().should('have.text', enJson['onboarding-2-title'])
     onboardingPage.getDescription().should('have.text', enJson['onboarding-2-description'])
-    cy.getLeftSoftkeyButton().should('have.text', 'Back')
-    cy.getRightSoftkeyButton().should('have.text', 'Next')
+    cy.getLeftSoftkeyButton().should('have.text', enJson['softkey-back'])
+    cy.getRightSoftkeyButton().should('have.text', enJson['softkey-next'])
     cy.getRightSoftkeyButton().click()
 
     // Page 3
@@ -44,8 +44,9 @@ describe('Onboarding', () => {
     onboardingPage.getBackgroundImage().should('be.visible').should('have.attr', 'style').and('contains', 'onboarding-3-background.png')
     onboardingPage.getTitle().should('have.text', enJson['onboarding-3-title'])
     onboardingPage.getDescription().should('have.text', enJson['onboarding-3-description'])
-    cy.getLeftSoftkeyButton().should('have.text', 'Back')
+    cy.getLeftSoftkeyButton().should('have.text', enJson['softkey-back'])
     cy.getRightSoftkeyButton().should('have.text', '')
+    cy.getCenterSoftkeyButton().should('have.text', enJson['softkey-get-started'])
   })
 
   it('skip button skips onboarding and sets localStorage variable', () => {

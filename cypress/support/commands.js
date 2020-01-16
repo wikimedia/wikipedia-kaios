@@ -47,6 +47,10 @@ Cypress.Commands.add('getRightSoftkeyButton', () => {
   return cy.get('.softkey > .right')
 })
 
+Cypress.Commands.add('getCenterSoftkeyButton', () => {
+  return cy.get('.softkey > .center')
+})
+
 Cypress.Commands.add('clickCloseButton', () => {
   cy.getRightSoftkeyButton().contains('Close').click()
 })
