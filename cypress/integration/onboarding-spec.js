@@ -14,7 +14,7 @@ describe('Onboarding', () => {
 
   it('onboarding elements should be present', () => {
     // Page 0
-    onboardingPage.getImage().should('be.visible').should('have.attr', 'src').and('contains', 'onboarding-0.png')
+    onboardingPage.getMainImage().should('be.visible').should('have.attr', 'src').and('contains', 'onboarding-0.png')
     onboardingPage.getTitle().should('have.text', enJson['onboarding-0-title'])
     onboardingPage.getDescription().should('have.text', enJson['onboarding-0-description'])
     cy.getLeftSoftkeyButton().should('have.text', 'Skip')
@@ -22,7 +22,8 @@ describe('Onboarding', () => {
     cy.getRightSoftkeyButton().click()
 
     // Page 1
-    onboardingPage.getImage().should('be.visible').should('have.attr', 'src').and('contains', 'onboarding-1.png')
+    onboardingPage.getMainImage().should('be.visible').should('have.attr', 'src').and('contains', 'onboarding-1.png')
+    onboardingPage.getBackgroundImage().should('be.visible').should('have.attr', 'style').and('contains', 'onboarding-1-background.png')
     onboardingPage.getTitle().should('have.text', enJson['onboarding-1-title'])
     onboardingPage.getDescription().should('have.text', enJson['onboarding-1-description'])
     cy.getLeftSoftkeyButton().should('have.text', 'Back')
@@ -30,7 +31,8 @@ describe('Onboarding', () => {
     cy.getRightSoftkeyButton().click()
 
     // Page 2
-    onboardingPage.getImage().should('be.visible').should('have.attr', 'src').and('contains', 'onboarding-2.png')
+    onboardingPage.getMainImage().should('be.visible').should('have.attr', 'src').and('contains', 'onboarding-2.png')
+    onboardingPage.getBackgroundImage().should('be.visible').should('have.attr', 'style').and('contains', 'onboarding-2-background.png')
     onboardingPage.getTitle().should('have.text', enJson['onboarding-2-title'])
     onboardingPage.getDescription().should('have.text', enJson['onboarding-2-description'])
     cy.getLeftSoftkeyButton().should('have.text', 'Back')
@@ -38,7 +40,8 @@ describe('Onboarding', () => {
     cy.getRightSoftkeyButton().click()
 
     // Page 3
-    onboardingPage.getImage().should('be.visible').should('have.attr', 'src').and('contains', 'onboarding-3.png')
+    onboardingPage.getMainImage().should('be.visible').should('have.attr', 'src').and('contains', 'onboarding-3.png')
+    onboardingPage.getBackgroundImage().should('be.visible').should('have.attr', 'style').and('contains', 'onboarding-3-background.png')
     onboardingPage.getTitle().should('have.text', enJson['onboarding-3-title'])
     onboardingPage.getDescription().should('have.text', enJson['onboarding-3-description'])
     cy.getLeftSoftkeyButton().should('have.text', 'Back')
@@ -54,12 +57,12 @@ describe('Onboarding', () => {
   })
 
   it('check forward and back movements', () => {
-    onboardingPage.getImage().should('be.visible').should('have.attr', 'src').and('contains', 'onboarding-0.png')
+    onboardingPage.getMainImage().should('be.visible').should('have.attr', 'src').and('contains', 'onboarding-0.png')
     cy.getRightSoftkeyButton().should('have.text', 'Next').click()
-    onboardingPage.getImage().should('be.visible').should('have.attr', 'src').and('contains', 'onboarding-1.png')
+    onboardingPage.getMainImage().should('be.visible').should('have.attr', 'src').and('contains', 'onboarding-1.png')
     cy.getRightSoftkeyButton().should('have.text', 'Next')
     cy.getLeftSoftkeyButton().should('have.text', 'Back').click()
-    onboardingPage.getImage().should('be.visible').should('have.attr', 'src').and('contains', 'onboarding-0.png')
+    onboardingPage.getMainImage().should('be.visible').should('have.attr', 'src').and('contains', 'onboarding-0.png')
     cy.getRightSoftkeyButton().should('have.text', 'Next')
     cy.getLeftSoftkeyButton().should('have.text', 'Skip')
   })

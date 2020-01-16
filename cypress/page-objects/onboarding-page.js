@@ -1,6 +1,10 @@
 export class OnboardingPage {
-  getImage () {
+  getMainImage () {
     return cy.get('.image > img')
+  }
+
+  getBackgroundImage () {
+    return cy.get('.image')
   }
 
   getTitle () {
