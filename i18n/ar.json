@@ -20,10 +20,11 @@
 	"header-search": "نتائج البحث",
 	"header-sections": "الأقسام",
 	"header-settings": "إعدادات",
-	"header-textsize": "حجم الخط",
+	"header-textsize": "حجم نص المقالة",
 	"menu-previous": "المقالة السابقة",
 	"menu-language": "اللغة",
 	"menu-textsize": "حجم الخط",
+	"no-result-found": "لم يتم العثور على نتائج",
 	"softkey-done": "تم",
 	"softkey-search": "بحث",
 	"search-language-placeholder": "بحث في اللغات",
@@ -47,7 +48,7 @@
 	"settings-rate": "قيم التطبيق",
 	"settings-help-feedback": "مساعدة وردود الفعل",
 	"settings-about-app": "عن التطبيق",
-	"textsize-increase": "اضغط 4 (زيادة الحجم)",
-	"textsize-decrease": "اضغط 6 (تقليل الحجم)",
+	"textsize-increase": "اضغط 6 (زيادة الحجم)",
+	"textsize-decrease": "اضغط 4 (تقليل الحجم)",
 	"textsize-default": "اضغط 5 (الافتراضي)"
 }

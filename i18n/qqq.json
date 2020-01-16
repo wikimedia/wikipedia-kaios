@@ -12,7 +12,7 @@
 	"article-loading-message": "The message when loading the article. Shown in the article page",
 	"app-title": "Title of the application. Shown in the app store and the app launcher.",
 	"app-subtitle": "Subtitle of the application. Shown in the app store.",
-	"app-description": "Description of the application. Shown in the app store.",
+	"app-description": "Description of the application. Shown in the app store. The word \"free\" is in the sense of \"zero dollars, you don't have pay\".",
 	"confirm-section": "Confirm message switch to the selected section page. Shown in the Article page.\n* $1 - Selected section name",
 	"header-menu": "The header title of the menu page",
 	"header-search": "The header title of the search page",

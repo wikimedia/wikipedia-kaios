@@ -20,6 +20,7 @@
 	"menu-previous": "Претходна статија",
 	"menu-language": "Јазик",
 	"menu-textsize": "Големина на текстот",
+	"no-result-found": "Не пронајдов ништо",
 	"softkey-done": "Готово",
 	"softkey-search": "Пребарај",
 	"search-language-placeholder": "Пребарај јазици",
@@ -43,7 +44,7 @@
 	"settings-rate": "Оценете го прилогот",
 	"settings-help-feedback": "Помош и мислења",
 	"settings-about-app": "За прилогот",
-	"textsize-increase": "Стисок на 4 (поголеми)",
-	"textsize-decrease": "Стисок на 6 (помали)",
+	"textsize-increase": "Стисок на 6 (поголеми)",
+	"textsize-decrease": "Стисок на 4 (помали)",
 	"textsize-default": "Стисок на 5 (по основно)"
 }
