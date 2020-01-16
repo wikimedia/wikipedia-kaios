@@ -22,6 +22,11 @@ export const Onboarding = () => {
     setCurrentIndex(currentIndex - 1)
   }
 
+  const getImageBackgroundStyle = index => {
+    // only the first onboard image doesn't have background image
+    return index ? { backgroundImage: `url(/images/onboarding-${index}-background.png)` } : {}
+  }
+
   const softkeyConfig = [
     { left: i18n.i18n('softkey-skip'), onKeyLeft: exitOnboard, right: i18n.i18n('softkey-next'), onKeyRight: nextOnboard },
     { left: i18n.i18n('softkey-back'), onKeyLeft: prevOnboard, right: i18n.i18n('softkey-next'), onKeyRight: nextOnboard },
@@ -35,7 +40,7 @@ export const Onboarding = () => {
 
   return (
     <div class='onboarding'>
-      <div class='image' style={{ backgroundImage: `url('/images/onboarding-${currentIndex}-background.png')` }}>
+      <div class='image' style={getImageBackgroundStyle(currentIndex)}>
         <img src={`/images/onboarding-${currentIndex}.png`} />
       </div>
       <div class='title'>
