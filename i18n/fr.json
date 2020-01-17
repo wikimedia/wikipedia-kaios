@@ -22,10 +22,11 @@
 	"header-search": "Résultats de la recherche",
 	"header-sections": "Sections",
 	"header-settings": "Paramètres",
-	"header-textsize": "Taille du texte",
+	"header-textsize": "Taille du texte de l’article",
 	"menu-previous": "Article précédent",
 	"menu-language": "Langue",
 	"menu-textsize": "Taille du texte",
+	"no-result-found": "Aucun résultat trouvé",
 	"softkey-done": "Terminé",
 	"softkey-search": "Rechercher",
 	"search-language-placeholder": "Sélectionner les langues",
@@ -49,7 +50,7 @@
 	"settings-rate": "Évaluer l’application",
 	"settings-help-feedback": "Aide et commentaires",
 	"settings-about-app": "À propos de l’application",
-	"textsize-increase": "Appuyer sur 4 (augmenter la taille)",
-	"textsize-decrease": "Appuyer sur 6 (diminuer la taille)",
+	"textsize-increase": "Appuyer sur 6 (augmenter la taille)",
+	"textsize-decrease": "Appuyer sur 4 (diminuer la taille)",
 	"textsize-default": "Appuyer sur 5 (valeur par défaut)"
 }
