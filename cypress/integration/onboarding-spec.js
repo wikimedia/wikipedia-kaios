@@ -46,7 +46,8 @@ describe('Onboarding', () => {
     onboardingPage.getDescription().should('have.text', enJson['onboarding-3-description'])
     cy.getLeftSoftkeyButton().should('have.text', enJson['softkey-back'])
     cy.getRightSoftkeyButton().should('have.text', '')
-    cy.getCenterSoftkeyButton().should('have.text', enJson['softkey-get-started'])
+    cy.getCenterSoftkeyButton().should('have.text', enJson['softkey-get-started']).click()
+    searchPage.getSearchTextBox().should('be.visible')
   })
 
   it('skip button skips onboarding and sets localStorage variable', () => {
@@ -55,6 +56,7 @@ describe('Onboarding', () => {
     cy.visit('http://127.0.0.1:8080')
     cy.getLeftSoftkeyButton().should('have.text', 'Settings')
     cy.getLocalStorage('has-onboard-before').should('equal', 'true')
+    searchPage.getSearchTextBox().should('be.visible')
   })
 
   it('check forward and back movements', () => {
