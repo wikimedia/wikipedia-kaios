@@ -4,6 +4,8 @@ import { goto } from 'utils'
 
 export const ArticlePreview = ({ lang, title, close }) => {
   const i18n = useI18n()
+  const summary = useArticleSummary(lang, title)
+
   const read = () => {
     close()
     goto.article(lang, title, true)
@@ -14,9 +16,7 @@ export const ArticlePreview = ({ lang, title, close }) => {
     center: i18n.i18n('softkey-read'),
     onKeyCenter: read
   }, [])
-  useArticleTextSize('ArticlePreview')
-
-  const summary = useArticleSummary(lang, title)
+  useArticleTextSize('ArticlePreview', [summary])
 
   return summary ? (
     <div class='article-preview'>
@@ -32,7 +32,7 @@ export const ArticlePreview = ({ lang, title, close }) => {
 const LoadingPreview = ({ title }) => (
   <div class='article-preview loading'>
     <div class='item'>
-      <div class='title'>{title}</div>
+      <div class='title adjustable-font-size'>{title}</div>
       <div class='loading-block img' />
     </div>
     <div class='preview-text' >
