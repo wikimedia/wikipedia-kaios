@@ -1,7 +1,7 @@
 import { useContext, useEffect } from 'preact/hooks'
 import { SoftkeyContext } from 'contexts'
 
-export const useSoftkey = (origin, config = null, dependencies = []) => {
+export const useSoftkey = (origin, option, dependencies = []) => {
   const softkey = useContext(SoftkeyContext)
   useEffect(() => {
     softkey.dispatch({ type: 'push', origin })
@@ -9,9 +9,9 @@ export const useSoftkey = (origin, config = null, dependencies = []) => {
   }, [origin])
 
   useEffect(() => {
-    if (config) {
-      softkey.dispatch({ type: 'set', config })
-    }
+    const config = option.config || option
+    const type = option.replace ? 'replace' : 'set'
+    softkey.dispatch({ type, config })
   }, dependencies)
   return softkey
 }
