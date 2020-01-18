@@ -1,3 +1,5 @@
+import { normalizeTitle } from 'utils'
+
 const defautParams = {
   format: 'json',
   formatversion: 2,
@@ -14,4 +16,11 @@ export const buildMwApiUrl = (lang, params) => {
 
 export const buildWpMobileWebUrl = (lang, title) => {
   return `https://${lang}.m.wikipedia.org/w/index.php?title=${encodeURIComponent(title)}`
+}
+
+export const buildPcsUrl = (lang, title, endpoint) => {
+  const base = `https://${lang}.wikipedia.org`
+  const path = `api/rest_v1/page/${endpoint}`
+  const page = encodeURIComponent(normalizeTitle(title))
+  return `${base}/${path}/${page}`
 }

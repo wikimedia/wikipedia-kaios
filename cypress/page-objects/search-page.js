@@ -1,6 +1,6 @@
 export class SearchPage {
   search (text) {
-    cy.get('input[type=text]').type(text)
+    this.getSearchTextBox().type(text)
   }
 
   results () {
@@ -9,5 +9,9 @@ export class SearchPage {
 
   navigateToSettingsPage () {
     cy.clickSettingsButton()
+  }
+
+  getSearchTextBox () {
+    return cy.get('input[type=text]')
   }
 }

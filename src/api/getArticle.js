@@ -1,12 +1,13 @@
-import { cachedFetch } from 'utils'
+import { cachedFetch, buildPcsUrl } from 'utils'
 
 export const getArticle = (lang, title) => {
-  const url = `https://${lang}.wikipedia.org/api/rest_v1/page/mobile-sections/${encodeURIComponent(title)}`
+  const url = buildPcsUrl(lang, title, 'mobile-sections')
   return cachedFetch(url, data => {
     const parser = new DOMParser()
     const imageUrl = data.lead.image && data.lead.image.urls['320']
     const toc = []
     const references = {}
+    const languageCount = data.lead.languagecount
 
     // parse info box
     const doc = parser.parseFromString(fixImageUrl(data.lead.sections[0].text), 'text/html')
@@ -75,7 +76,8 @@ export const getArticle = (lang, title) => {
       sections,
       infobox,
       toc,
-      references
+      references,
+      languageCount
     }
   })
 }

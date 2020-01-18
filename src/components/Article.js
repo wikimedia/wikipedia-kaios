@@ -121,7 +121,7 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
 
   useSoftkey('Article', {
     left: i18n.i18n('softkey-menu'),
-    onKeyLeft: () => showMenuPopup({ onTocSelected: showArticleTocPopup, onLanguageSelected: showArticleLanguagePopup }),
+    onKeyLeft: () => showMenuPopup({ onTocSelected: showArticleTocPopup, onLanguageSelected: showArticleLanguagePopup, hasLanguages: article.languageCount }),
     right: i18n.i18n('softkey-close'),
     onKeyRight: () => history.back()
   }, [])

@@ -2,5 +2,6 @@
     "watchForFileChanges": false,
     "viewportWidth": 240,
     "viewportHeight": 290,
-    "videoUploadOnPasses":false
+    "videoUploadOnPasses":false,
+    "baseUrl": "http://127.0.0.1:8080"
 }
