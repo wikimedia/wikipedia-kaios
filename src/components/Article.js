@@ -3,7 +3,7 @@ import { memo } from 'preact/compat'
 import { useState, useRef, useEffect } from 'preact/hooks'
 import {
   ReferencePreview, ArticleToc, ArticleLanguage,
-  ArticleMenu, Loading
+  ArticleMenu, ArticleFooter, Loading
 } from 'components'
 import {
   useArticle, useI18n, useSoftkey,
@@ -13,10 +13,6 @@ import {
 import { articleHistory, confirmDialog, goto, viewport } from 'utils'
 
 const ArticleBody = memo(({ content }) => {
-  if (typeof content === 'object') {
-    return <div class='article-content adjustable-font-size'>{content}</div>
-  }
-
   return (
     <div
       class='article-content adjustable-font-size'
@@ -28,7 +24,7 @@ const ArticleBody = memo(({ content }) => {
 const ArticleSection = ({
   lang, imageUrl, title, description, isFooter,
   hasActions, content, page, showToc, references,
-  goToSubpage, hasInfobox
+  goToSubpage, hasInfobox, articleTitle, suggestedArticles
 }) => {
   const contentRef = useRef()
   const i18n = useI18n()
@@ -57,7 +53,7 @@ const ArticleSection = ({
   return (
     <div class='article-section' ref={contentRef}>
       { imageUrl && <div class='lead-image' style={{ backgroundImage: `url(${imageUrl})` }} /> }
-      <div class={'card' + (imageUrl ? ' with-image' : '') + (isFooter ? ' footer' : '')}>
+      <div class={'card' + (imageUrl ? ' with-image' : '')}>
         <div class='title adjustable-font-size' dangerouslySetInnerHTML={{ __html: title }} />
         { description && (
           <Fragment>
@@ -79,7 +75,10 @@ const ArticleSection = ({
             ) }
           </div>
         ) }
-        <ArticleBody content={content} />
+        { isFooter
+          ? <ArticleFooter lang={lang} title={articleTitle} items={suggestedArticles} />
+          : <ArticleBody content={content} />
+        }
       </div>
     </div>
   )
@@ -131,14 +130,16 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
   }, [])
 
   return (
-    <div class='article' ref={containerRef}>
+    <div class={'article' + (section.isFooter ? ' footer' : '')} ref={containerRef}>
       <ArticleSection
         key={currentSection}
         lang={lang}
         {...section}
+        articleTitle={articleTitle}
         hasActions={currentSection === 0}
         hasInfobox={!!article.infobox}
         references={article.references}
+        suggestedArticles={article.suggestedArticles}
         showToc={showArticleTocPopup}
         goToSubpage={goToArticleSubpage}
         page={currentPage}

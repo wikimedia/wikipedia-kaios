@@ -15,7 +15,8 @@ export const buildMwApiUrl = (lang, params) => {
 }
 
 export const buildWpMobileWebUrl = (lang, title) => {
-  return `https://${lang}.m.wikipedia.org/w/index.php?title=${encodeURIComponent(title)}`
+  const page = encodeURIComponent(normalizeTitle(title))
+  return `https://${lang}.m.wikipedia.org/w/index.php?title=${page}`
 }
 
 export const buildPcsUrl = (lang, title, endpoint) => {
