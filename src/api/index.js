@@ -1,6 +1,6 @@
 export * from './getArticle'
-export * from './getArticleFooter'
 export * from './getLanglinks'
 export * from './getRandomArticleTitle'
+export * from './getSuggestedArticles'
 export * from './language'
 export * from './search'
