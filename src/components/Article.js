@@ -64,7 +64,7 @@ const ArticleSection = ({
         { hasActions && (
           <div class='article-actions'>
             <div class='article-actions-button' data-action='sections'>
-              <img src='images/sections.svg' /><br />
+              <img tabindex='0' src='images/sections.svg' /><br />
               <label>{i18n.i18n('article-action-sections')}</label>
             </div>
             { hasInfobox && (
