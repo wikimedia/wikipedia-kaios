@@ -4,6 +4,8 @@ export const SoftkeyReducer = (state, action) => {
   switch (action.type) {
     case 'set':
       return { ...state, current: { ...state.current, ...action.config } }
+    case 'replace':
+      return { ...state, current: { ...action.config } }
     case 'push':
       stack = state.stack || []
       current = state.current
