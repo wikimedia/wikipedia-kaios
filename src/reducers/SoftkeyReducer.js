@@ -1,13 +1,11 @@
 export const SoftkeyReducer = (state, action) => {
   let stack,
     current
-  const config = typeof action.config === 'function' ? action.config() : action.config
-
   switch (action.type) {
     case 'set':
-      return { ...state, current: { ...state.current, ...config } }
+      return { ...state, current: { ...state.current, ...action.config } }
     case 'replace':
-      return { ...state, current: { ...config } }
+      return { ...state, current: { ...action.config } }
     case 'push':
       stack = state.stack || []
       current = state.current
