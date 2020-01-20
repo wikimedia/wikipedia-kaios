@@ -2,6 +2,7 @@
 
 import * as enJson from '../../i18n/en.json'
 import * as nlJson from '../../i18n/nl.json'
+import * as ptJson from '../../i18n/pt.json'
 import { SettingsPage } from '../page-objects/settings-page'
 import { SearchPage } from '../page-objects/search-page'
 import { LanguageSettingsPage } from '../page-objects/language-settings-page'
@@ -74,5 +75,17 @@ describe('settings page', () => {
 
     cy.getRightSoftkeyButton().click()
     settingsPage.settingsList().should('have.text', settingsMenuListDutchText.join(''))
+  })
+
+  it('search for language', () => {
+    cy.enter()
+    cy.enter()
+    cy.getLeftSoftkeyButton().click()
+    cy.get('div.list').should('not.contain.text', 'Português')
+    cy.get('input').type('port')
+    cy.get('div.list').should('contain.text', 'Português')
+    cy.downArrow()
+    cy.enter()
+    languageSettingsPage.headerElement().should('have.text', ptJson['language-change'])
   })
 })
