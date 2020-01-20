@@ -44,7 +44,9 @@ export const useArticleLinksNavigation = (
     const visibleLinks = findVisibleLinks(contentRef.current)
     setLinks(visibleLinks)
     if (visibleLinks.length) {
-      setCurrentLink(visibleLinks[0])
+      if (visibleLinks.indexOf(currentLink) === -1) {
+        setCurrentLink(visibleLinks[0])
+      }
     } else {
       setCurrentLink(null)
     }
@@ -135,7 +137,10 @@ const findVisibleLinks = container => {
       // Not visible on this page at all
       continue
     }
-    if (rect.x > viewport.width || rect.y > viewport.height) {
+    if (rect.y < 0 && (rect.y + rect.height < 0)) {
+      continue
+    }
+    if (rect.x > viewport.width || rect.y > (viewport.height - 30)) {
       // After the current page
       break
     }

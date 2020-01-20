@@ -134,8 +134,7 @@ const extractPreview = doc => {
 const extractInfobox = doc => {
   const infoboxNode = doc.querySelector('[class^="infobox"]')
   if (infoboxNode) {
-    // todo: strip images and maps
-
+    infoboxNode.style.width = ''
     return infoboxNode.outerHTML
   }
 }

@@ -1,13 +1,17 @@
 import { h } from 'preact'
-import { useRef, useEffect } from 'preact/hooks'
-import { useArticle, useNavigation, useScroll, useI18n, useSoftkey } from 'hooks'
+import { useRef } from 'preact/hooks'
+import { ReferencePreview } from 'components'
+import {
+  useArticle, useScroll, usePopup,
+  useI18n, useSoftkey, useArticleLinksNavigation
+} from 'hooks'
 
 export const QuickFacts = ({ lang, title }) => {
   const i18n = useI18n()
   const article = useArticle(lang, title)
   const containerRef = useRef()
-  const [, setNavigation] = useNavigation('QuickFacts', containerRef, 'x', 'a[href]:not(.image)')
-  const [scrollDown, scrollUp] = useScroll(containerRef, 10, 'y')
+  const [scrollDown, scrollUp, scrollPosition] = useScroll(containerRef, 20, 'y')
+  const [showReferencePreview] = usePopup(ReferencePreview, { position: 'auto' })
   useSoftkey('QuickFacts', {
     right: i18n.i18n('softkey-close'),
     onKeyRight: () => history.back(),
@@ -19,9 +23,12 @@ export const QuickFacts = ({ lang, title }) => {
     return 'Loading...'
   }
 
-  useEffect(() => {
-    setNavigation(0)
-  }, [article])
+  const linkHandlers = {
+    reference: ({ referenceId }) => {
+      showReferencePreview({ reference: article.references[referenceId], lang })
+    }
+  }
+  useArticleLinksNavigation('QuickFacts', lang, containerRef, linkHandlers, [scrollPosition])
 
   return (
     <div
