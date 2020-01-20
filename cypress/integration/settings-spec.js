@@ -77,7 +77,7 @@ describe('settings page', () => {
     settingsPage.settingsList().should('have.text', settingsMenuListDutchText.join(''))
   })
 
-  it('search for language', () => {
+  it('search for language on settings', () => {
     cy.enter()
     cy.enter()
     cy.getLeftSoftkeyButton().click()
