@@ -21,6 +21,10 @@ module.exports = {
     sourceType: 'module'
   },
   "plugins": [
-    "cypress"
-  ]
+    "cypress",
+    "no-only-tests"
+  ],
+  "rules": {
+    "no-only-tests/no-only-tests": "error"
+  }
 }
