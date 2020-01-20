@@ -34,8 +34,11 @@
 	"language-setting-message": "Cambiando la lingua qui cambierà la lingua in tutta l'applicazione. Puoi anche cambiare la lingua su ogni voce usando il menu delle voci.",
 	"softkey-ok": "Ok",
 	"softkey-read": "Leggi",
+	"softkey-skip": "Salta",
+	"softkey-get-started": "Inizia",
 	"reference-title": "Riferimento [$1]",
 	"offline-message": "Nessuna connessione internet",
+	"onboarding-0-title": "L'enciclopedia libera",
 	"settings-language": "Lingua",
 	"settings-textsize": "Dimensione del testo",
 	"settings-about-wikipedia": "Informazioni su Wikipedia",
@@ -43,5 +46,7 @@
 	"settings-term": "Condizioni d'uso",
 	"settings-rate": "Valuta l'app",
 	"settings-help-feedback": "Aiuto e feedback",
-	"settings-about-app": "Informazioni sull'app"
+	"settings-about-app": "Informazioni sull'app",
+	"textsize-increase": "Premi 6 (aumenta dimensioni)",
+	"textsize-decrease": "Premi 4 (diminuisci dimensioni)"
 }

@@ -2,13 +2,17 @@
 	"@metadata": {
 		"authors": [
 			"沈澄心",
-			"Josephine W."
+			"Josephine W.",
+			"VulpesVulpes825"
 		]
 	},
+	"article-action-quickfacts": "快速预览",
 	"article-loading-message": "正在加载页面……",
+	"app-title": "维基百科",
+	"app-subtitle": "自由的百科全书",
 	"header-search": "搜索结果",
 	"header-settings": "设置",
-	"header-textsize": "文字大小",
+	"header-textsize": "条目文字大小",
 	"menu-previous": "上一条目",
 	"menu-language": "语言",
 	"menu-textsize": "文字大小",
@@ -17,12 +21,26 @@
 	"search-language-placeholder": "搜索语言",
 	"softkey-menu": "菜单",
 	"softkey-settings": "设置",
+	"centerkey-select": "选择",
+	"softkey-close": "关闭",
 	"language-change": "更改程序语言",
 	"language-setting": "语言设置",
 	"softkey-ok": "好的",
+	"softkey-read": "阅读",
+	"softkey-next": "下一个",
+	"softkey-back": "返回",
+	"softkey-skip": "跳过",
+	"softkey-get-started": "入门",
 	"reference-title": "参考文献[$1]",
 	"offline-message": "无互联网连接",
+	"onboarding-0-title": "自由的百科全书",
+	"onboarding-2-title": "在近300种语言中搜索",
 	"settings-language": "语言",
+	"settings-textsize": "文字大小",
+	"settings-about-wikipedia": "关于维基百科",
+	"settings-privacy": "隐私政策",
 	"settings-term": "使用条款",
+	"settings-rate": "评价应用程序",
+	"settings-help-feedback": "帮助和反馈",
 	"settings-about-app": "关于维基百科应用程序"
 }

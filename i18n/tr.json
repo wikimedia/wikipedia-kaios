@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"BaRaN6161 TURK"
+			"BaRaN6161 TURK",
+			"SwornToTranslate29"
 		]
 	},
 	"article-action-sections": "Bölümler",
@@ -16,10 +17,11 @@
 	"header-search": "Arama sonuçları",
 	"header-sections": "Bölümler",
 	"header-settings": "Ayarlar",
-	"header-textsize": "Metin boyutu",
+	"header-textsize": "Makale metni boyutu",
 	"menu-previous": "Önceki makale",
 	"menu-language": "Dil",
 	"menu-textsize": "Metin boyutu",
+	"no-result-found": "Sonuç bulunamadı",
 	"softkey-done": "Tamamlandı",
 	"softkey-search": "Ara",
 	"search-language-placeholder": "Dil ara",
@@ -33,8 +35,20 @@
 	"language-setting-message": "Burada dili değiştirmek uygulama genelinde dili değiştirir. Makale menüsünü kullanarak her makalenin dilini de değiştirebilirsiniz.",
 	"softkey-ok": "Tamam",
 	"softkey-read": "Oku",
+	"softkey-next": "Sonraki",
+	"softkey-back": "Geri",
+	"softkey-skip": "Atla",
+	"softkey-get-started": "Başla",
 	"reference-title": "Referans [$1]",
 	"offline-message": "İnternet bağlantısı yok",
+	"onboarding-0-title": "Özgür ansiklopedi",
+	"onboarding-0-description": "Vikipedi, dünya çapındaki gönüller tarafından işbirliği içinde yazılan ücretsiz bir kaynaktır.",
+	"onboarding-1-title": "Bedava bilgiye eriş",
+	"onboarding-1-description": "40 milyondan fazla makaleyi tamamen reklamsız okuyun! Güncellemeler ve yeni makaleler düzenli bir şekilde eklenmektedir.",
+	"onboarding-2-title": "300'den fazla dilde arama imkanı",
+	"onboarding-2-description": "Araştırmak ve okumak için tercih ettiğiniz dili veya dilleri seçiniz.",
+	"onboarding-3-title": "Yeni gerçekler ve günlük bilgiler öğren",
+	"onboarding-3-description": "'Günün Sözü'nü keşfedin, güzel görüntüler görüntüleyin ve Vikipedi ile her gün yeni bilgiler öğrenin!",
 	"settings-language": "Dil",
 	"settings-textsize": "Metin boyutu",
 	"settings-about-wikipedia": "Vikipedi hakkında",
@@ -43,7 +57,7 @@
 	"settings-rate": "Uygulamayı puanla",
 	"settings-help-feedback": "Yardım ve geri bildirim",
 	"settings-about-app": "Uygulama hakkında",
-	"textsize-increase": "4'e basın (Boyutu artır)",
-	"textsize-decrease": "6'ya basın (Boyutu küçült)",
+	"textsize-increase": "6'ya basın (Boyutu artır)",
+	"textsize-decrease": "4'e basın (Boyutu küçült)",
 	"textsize-default": "5'e basın (Varsayılan)"
 }

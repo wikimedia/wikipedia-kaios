@@ -17,10 +17,11 @@
 	"header-search": "Výsledky vyhľadávania",
 	"header-sections": "Sekcie",
 	"header-settings": "Nastavenia",
-	"header-textsize": "Veľkosť textu",
+	"header-textsize": "Veľkosť textu článku",
 	"menu-previous": "Predchádzajúci článok",
 	"menu-language": "Jazyk",
 	"menu-textsize": "Veľkosť textu",
+	"no-result-found": "Neboli nájdené žiadne výsledky",
 	"softkey-done": "Hotovo",
 	"softkey-search": "Hľadať",
 	"search-language-placeholder": "Hľadať jazyky",
@@ -44,7 +45,7 @@
 	"settings-rate": "Ohodnoťte aplikáciu",
 	"settings-help-feedback": "Pomoc a spätná väzba",
 	"settings-about-app": "O aplikácii",
-	"textsize-increase": "Pre zväčšenie textu stlačte 4",
-	"textsize-decrease": "Pre zmenšenie textu stlačte 6",
+	"textsize-increase": "Pre zväčšenie textu stlačte 6",
+	"textsize-decrease": "Pre zmenšenie textu stlačte 4",
 	"textsize-default": "Pre predvolenú veľkosť stlačte 5"
 }

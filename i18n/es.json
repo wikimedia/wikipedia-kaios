@@ -5,7 +5,8 @@
 			"Madamebiblio",
 			"Fitoschido",
 			"Eduardo Addad de Oliveira",
-			"Silverie04"
+			"Silverie04",
+			"Joanmp17"
 		]
 	},
 	"article-action-sections": "Secciones",
@@ -19,8 +20,10 @@
 	"header-search": "Resultados de la búsqueda",
 	"header-sections": "Secciones",
 	"header-settings": "Configuración",
+	"header-textsize": "Tamaño del texto del artículo",
 	"menu-previous": "Artículo anterior",
 	"menu-language": "Idioma",
+	"no-result-found": "No se encontraron resultados",
 	"softkey-done": "Hecho",
 	"softkey-search": "Buscar",
 	"search-language-placeholder": "Buscar idiomas",
@@ -33,8 +36,13 @@
 	"language-setting": "Opciones de idioma",
 	"softkey-ok": "Aceptar",
 	"softkey-read": "Leer",
+	"softkey-next": "Siguiente",
+	"softkey-skip": "Omitir",
+	"softkey-get-started": "Empezar",
 	"reference-title": "Referencia [$1]",
 	"offline-message": "Sin conexión a internet",
+	"onboarding-0-title": "La enciclopedia libre",
+	"onboarding-2-title": "Buscar en más de 300 idiomas",
 	"settings-language": "Idioma",
 	"settings-textsize": "Tamaño de texto",
 	"settings-about-wikipedia": "Acerca de Wikipedia",
@@ -42,5 +50,7 @@
 	"settings-term": "Términos de uso",
 	"settings-rate": "Calificar aplicación",
 	"settings-help-feedback": "Ayuda y comentarios",
-	"settings-about-app": "Acerca de la aplicación"
+	"settings-about-app": "Acerca de la aplicación",
+	"textsize-increase": "Presiona 6 (aumentar tamaño)",
+	"textsize-decrease": "Presiona 4 (disminuir tamaño)"
 }
