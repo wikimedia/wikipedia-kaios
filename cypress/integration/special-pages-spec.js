@@ -1,9 +1,7 @@
 /// <reference types="Cypress" />
 
-import { SearchPage } from '../page-objects/search-page'
 import { ArticlePage } from '../page-objects/article-page'
 
-const searchPage = new SearchPage()
 const articlePage = new ArticlePage()
 
 describe('Special Pages', () => {
@@ -12,12 +10,8 @@ describe('Special Pages', () => {
   })
 
   it('special page article should open', () => {
-    searchPage.search('phoenicia')
-    searchPage.results().first()
-    cy.enter()
-    cy.downArrow()
-    cy.enter()
-    articlePage.title().should('have.text', 'Phoenicia')
-    cy.get('div.article-actions-button:nth-child(1) > img:nth-child(1)').type('{downArrow}')
+    cy.visit('http://127.0.0.1:8080/#/article/en/Help%3AIPA%2FEnglish')
+    articlePage.title().should('have.text', 'Help:IPA/English')
+    cy.get('.article-content').should('contain.text', 'Throughout Wikipedia, the pronunciation of words is indicated by means of the ')
   })
 })
