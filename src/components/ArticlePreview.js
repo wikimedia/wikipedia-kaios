@@ -1,9 +1,11 @@
 import { h } from 'preact'
-import { useArticle, useI18n, useSoftkey, useArticleTextSize } from 'hooks'
+import { useArticleSummary, useI18n, useSoftkey, useArticleTextSize } from 'hooks'
 import { goto } from 'utils'
 
 export const ArticlePreview = ({ lang, title, close }) => {
   const i18n = useI18n()
+  const summary = useArticleSummary(lang, title)
+
   const read = () => {
     close()
     goto.article(lang, title, true)
@@ -14,24 +16,29 @@ export const ArticlePreview = ({ lang, title, close }) => {
     center: i18n.i18n('softkey-read'),
     onKeyCenter: read
   }, [])
-  useArticleTextSize('ArticlePreview')
+  useArticleTextSize('ArticlePreview', [summary])
 
-  const article = useArticle(lang, title)
-  const data = article ? article.sections[0] : {
-    title: title,
-    preview: 'Loading...'
-  }
-
-  return (
+  return summary ? (
     <div class='article-preview'>
       <div class='item'>
-        <div class='info'>
-          <div class='title adjustable-font-size' dangerouslySetInnerHTML={{ __html: data.title }} />
-          <div class='description adjustable-font-size' dangerouslySetInnerHTML={{ __html: data.description }} />
-        </div>
-        { data.imageUrl && <div class='img'><img src={data.imageUrl} /></div> }
+        <div class='title adjustable-font-size' dangerouslySetInnerHTML={{ __html: summary.title }} />
+        { summary.imageUrl && <img class='img' src={summary.imageUrl} /> }
       </div>
-      <div class='preview-text adjustable-font-size' dangerouslySetInnerHTML={{ __html: data.preview }} />
+      <div class='preview-text adjustable-font-size' dangerouslySetInnerHTML={{ __html: summary.preview }} />
     </div>
-  )
+  ) : <LoadingPreview title={title} />
 }
+
+const LoadingPreview = ({ title }) => (
+  <div class='article-preview loading'>
+    <div class='item'>
+      <div class='title adjustable-font-size'>{title}</div>
+      <div class='loading-block img' />
+    </div>
+    <div class='preview-text' >
+      <div class='loading-block full' />
+      <div class='loading-block full' />
+      <div class='loading-block full' />
+    </div>
+  </div>
+)
