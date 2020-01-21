@@ -54,4 +54,14 @@ describe('Article search', () => {
     searchPage.search('adf23cv1')
     searchPage.getEmptyContent().should('have.text', enJson['no-result-found'])
   })
+
+  it('center softkey should change when focus on result and search input', () => {
+    searchPage.search('cat')
+    cy.getCenterSoftkeyButton().should('not.have.text')
+    searchPage.results().first()
+    cy.downArrow().downArrow()
+    cy.getCenterSoftkeyButton().should('have.text', enJson['centerkey-select'])
+    cy.upArrow().upArrow()
+    cy.getCenterSoftkeyButton().should('not.have.text')
+  })
 })
