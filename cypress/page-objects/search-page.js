@@ -7,7 +7,7 @@ export class SearchPage {
     return cy.get('.item')
   }
 
-  getEmptyContent() {
+  getEmptyContent () {
     return cy.get('.empty')
   }
 

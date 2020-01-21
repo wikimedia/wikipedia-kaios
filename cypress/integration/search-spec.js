@@ -50,7 +50,7 @@ describe('Article search', () => {
       .children().first().next().should('have.class', 'img')
   })
 
-  it.only('should show empty result found when search for "adf23cv1"', () => {
+  it('should show empty result found when search for "adf23cv1"', () => {
     searchPage.search('adf23cv1')
     searchPage.getEmptyContent().should('have.text', enJson['no-result-found'])
   })
