@@ -2,6 +2,7 @@
 
 import { SearchPage } from '../page-objects/search-page'
 import { ArticlePage } from '../page-objects/article-page'
+import * as enJson from '../../i18n/en.json'
 
 const searchPage = new SearchPage()
 const articlePage = new ArticlePage()
@@ -47,5 +48,10 @@ describe('Article search', () => {
     cy.clickCloseButton()
     searchPage.results().first()
       .children().first().next().should('have.class', 'img')
+  })
+
+  it.only('should show empty result found when search for "adf23cv1"', () => {
+    searchPage.search('adf23cv1')
+    searchPage.getEmptyContent().should('have.text', enJson['no-result-found'])
   })
 })

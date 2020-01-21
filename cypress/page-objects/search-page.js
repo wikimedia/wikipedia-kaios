@@ -7,6 +7,10 @@ export class SearchPage {
     return cy.get('.item')
   }
 
+  getEmptyContent() {
+    return cy.get('.empty')
+  }
+
   navigateToSettingsPage () {
     cy.clickSettingsButton()
   }
