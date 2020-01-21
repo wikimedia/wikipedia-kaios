@@ -32,7 +32,7 @@ export const Onboarding = () => {
     { left: i18n.i18n('softkey-back'), onKeyLeft: prevOnboard, right: i18n.i18n('softkey-next'), onKeyRight: nextOnboard },
     { left: i18n.i18n('softkey-back'), onKeyLeft: prevOnboard, center: i18n.i18n('softkey-get-started'), onKeyCenter: exitOnboard }
   ]
-  useSoftkey('onboarding', { config: softkeyConfig[currentIndex], replace: true }, [currentIndex])
+  useSoftkey('onboarding', softkeyConfig[currentIndex], [currentIndex], true)
 
   return (
     <div class='onboarding'>
