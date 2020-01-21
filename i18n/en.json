@@ -13,6 +13,7 @@
     "app-title": "Wikipedia",
     "app-subtitle": "The free encyclopedia",
     "app-description": "With the free Wikipedia app, search and explore information from all over the world in 300+ languages.",
+    "content-license": "Content is available under <a class=\"external\" rel=\"mw:ExtLink\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">CC BY-SA 3.0</a> unless otherwise noted.",
     "confirm-section": "Go to Section \"$1\"",
     "header-menu": "Article menu",
     "header-search": "Search results",
@@ -40,6 +41,7 @@
     "softkey-back": "Back",
     "softkey-skip": "Skip",
     "softkey-get-started": "Get started",
+    "suggested-articles": "SUGGESTED ARTICLES",
     "reference-title": "Reference [$1]",
     "offline-message": "No internet connection ",
     "onboarding-0-title": "The free encyclopedia",
@@ -60,5 +62,7 @@
     "settings-about-app": "About the app",
     "textsize-increase": "Press 6 (Increase size)",
     "textsize-decrease": "Press 4 (Decrease size)",
-    "textsize-default": "Press 5 (Default)"
+    "textsize-default": "Press 5 (Default)",
+    "toc-footer": "Suggested articles",
+    "view-in-browser": "View article in browser"
 }

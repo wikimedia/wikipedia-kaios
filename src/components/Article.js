@@ -3,7 +3,7 @@ import { memo } from 'preact/compat'
 import { useState, useRef, useEffect } from 'preact/hooks'
 import {
   ReferencePreview, ArticleToc, ArticleLanguage,
-  ArticleMenu, Loading
+  ArticleMenu, ArticleFooter, Loading
 } from 'components'
 import {
   useArticle, useI18n, useSoftkey,
@@ -22,9 +22,9 @@ const ArticleBody = memo(({ content }) => {
 })
 
 const ArticleSection = ({
-  lang, imageUrl, title, description, hasActions,
-  content, page, showToc, goToSubpage, references,
-  hasInfobox
+  lang, imageUrl, title, description, isFooter,
+  hasActions, content, page, showToc, references,
+  goToSubpage, hasInfobox, articleTitle, suggestedArticles
 }) => {
   const contentRef = useRef()
   const i18n = useI18n()
@@ -75,7 +75,10 @@ const ArticleSection = ({
             ) }
           </div>
         ) }
-        <ArticleBody content={content} />
+        { isFooter
+          ? <ArticleFooter lang={lang} title={articleTitle} items={suggestedArticles} />
+          : <ArticleBody content={content} />
+        }
       </div>
     </div>
   )
@@ -96,7 +99,6 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
   const [showMenuPopup] = usePopup(ArticleMenu, { mode: 'fullscreen' })
   const [currentSection, setCurrentSection, currentPage] = useArticlePagination(containerRef, article, subTitle)
   const section = article.sections[currentSection]
-
   const goToArticleSubpage = ({ sectionIndex, title }) => {
     setCurrentSection(
       sectionIndex !== undefined
@@ -128,17 +130,16 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
   }, [])
 
   return (
-    <div class='article' ref={containerRef}>
+    <div class={'article' + (section.isFooter ? ' footer' : '')} ref={containerRef}>
       <ArticleSection
         key={currentSection}
         lang={lang}
-        title={section.title}
-        description={section.description}
-        imageUrl={section.imageUrl}
+        {...section}
+        articleTitle={articleTitle}
         hasActions={currentSection === 0}
         hasInfobox={!!article.infobox}
-        content={section.content}
         references={article.references}
+        suggestedArticles={article.suggestedArticles}
         showToc={showArticleTocPopup}
         goToSubpage={goToArticleSubpage}
         page={currentPage}
