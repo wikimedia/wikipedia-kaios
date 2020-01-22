@@ -7,21 +7,22 @@ export const ArticlePreview = ({ lang, title, close }) => {
   const summary = useArticleSummary(lang, title)
 
   const read = () => {
+    const readTitle = summary ? summary.titles.canonical : title
     close()
-    goto.article(lang, title, true)
+    goto.article(lang, readTitle, true)
   }
   useSoftkey('ArticlePreview', {
     right: i18n.i18n('softkey-close'),
     onKeyRight: close,
     center: i18n.i18n('softkey-read'),
     onKeyCenter: read
-  }, [])
+  }, [summary])
   useArticleTextSize('ArticlePreview', [summary])
 
   return summary ? (
     <div class='article-preview'>
       <div class='item'>
-        <div class='title adjustable-font-size' dangerouslySetInnerHTML={{ __html: summary.title }} />
+        <div class='title adjustable-font-size' dangerouslySetInnerHTML={{ __html: summary.titles.display }} />
         { summary.imageUrl && <img class='img' src={summary.imageUrl} /> }
       </div>
       <div class='preview-text adjustable-font-size' dangerouslySetInnerHTML={{ __html: summary.preview }} />
