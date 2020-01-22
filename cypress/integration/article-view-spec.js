@@ -18,7 +18,7 @@ describe('Article view', () => {
     cy.enter().downArrow().enter()
     articlePage.title().should('have.text', 'Cat')
     cy.getLeftSoftkeyButton().click()
-    cy.downArrow().downArrow().enter()
+    cy.downArrow().downArrow().downArrow().enter()
     cy.get('input').type('portugues')
     cy.get('.description').should('have.text', 'Gato')
     cy.downArrow().enter()
