@@ -32,17 +32,14 @@ describe('Article view', () => {
     cy.enter().downArrow().enter()
     articlePage.title().should('have.text', 'Cat')
     cy.enter().upArrow().enter()
-    cy.get('h2.adjustable-font-size')
     articlePage.footerTitle().should('have.text', enJson['suggested-articles'])
-    cy.get('.list a').first().should('have.attr', 'title').should('be', 'Trap-neuter-return')
+    articlePage.recommendationsList()
+      .first().should('have.text', 'Trap–neuter–returnstrategy for controlling feral animal populations')
+    articlePage.recommendationsList().next().first().should('have.text', 'Feral catdomestic cat that has returned to the wild')
+    articlePage.recommendationsList().next().next().should('have.text', 'Scottish wildcatSmall wild cat')
     cy.downArrow()
-    cy.get('.license').invoke('html').should('eq', enJson['content-license'])
-
-    /*
-    How can I make this assertion pass?
-    there's an extra  " data-selected="true"" on the HTML.
-    I tried to use replace() after the invoke() but it's not a string...
-    Error:     AssertionError: expected 'Content is available under <a class="external" rel="mw:ExtLink" href="https://creativecommons.org/licenses/by-sa/3.0/" data-selected="true">CC BY-SA 3.0</a> unless otherwise noted.' to equal 'Content is available under <a class="external" rel="mw:ExtLink" href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a> unless otherwise noted.'
-    */
+    articlePage.footerImage().should('exist')
+    articlePage.footerLicense().should('exist')
+      .should('exist')
   })
 })

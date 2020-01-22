@@ -6,4 +6,20 @@ export class ArticlePage {
   footerTitle () {
     return cy.get('.article-footer .content h2')
   }
+
+  recommendationsList () {
+    return cy.get('.list a')
+  }
+
+  footerImage () {
+    return cy.get('img[src="/images/wikipedia-wordmark-en.png"]')
+  }
+
+  footerLicense () {
+    return cy.get('.license')
+  }
+
+  footerLinkToWikipedia () {
+    return cy.get('.browser .external')
+  }
 }
