@@ -11,6 +11,7 @@
 	"app-title": "Википедија",
 	"app-subtitle": "Слободната енциклопедија",
 	"app-description": "Со бесплатниот прилог на Википедија пребарувајте и истражувајте информации од целиот свет на повеќе од 300 јазици.",
+	"content-license": "Содржината е достапна под <a class=\"external\" rel=\"mw:ExtLink\" href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.mk\">CC BY-SA 3.0</a> освен ако не е поинаку наведено.",
 	"confirm-section": "Оди на поднасловот „$1“",
 	"header-menu": "Мени на статијата",
 	"header-search": "Исход од пребарувањето",
@@ -38,6 +39,7 @@
 	"softkey-back": "Назад",
 	"softkey-skip": "Прескокни",
 	"softkey-get-started": "Започни",
+	"suggested-articles": "ПРЕДЛОЖЕНИ СТАТИИ",
 	"reference-title": "Навод [$1]",
 	"offline-message": "Не сте поврзани со семрежјето",
 	"onboarding-0-title": "Слободната енциклопедија",
@@ -58,5 +60,7 @@
 	"settings-about-app": "За прилогот",
 	"textsize-increase": "Стисок на 6 (поголеми)",
 	"textsize-decrease": "Стисок на 4 (помали)",
-	"textsize-default": "Стисок на 5 (по основно)"
+	"textsize-default": "Стисок на 5 (по основно)",
+	"toc-footer": "Предложени статии",
+	"view-in-browser": "Отвори во прелистувач"
 }

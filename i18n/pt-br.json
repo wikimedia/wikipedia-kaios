@@ -11,6 +11,7 @@
 	"app-title": "Wikipédia",
 	"app-subtitle": "A enciclopédia livre",
 	"app-description": "Com o aplicativo grátis da Wikipédia, procure e explore a informação de todo o mundo em mais de 300 idiomas",
+	"content-license": "O conteúdo está disponível sob <a class=\"external\" rel=\"mw:ExtLink\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">CC BY-SA 3.0</a> salvo indicação em contrário.",
 	"confirm-section": "Ir para a secção \"$1\"",
 	"header-menu": "Menu de artigo",
 	"header-search": "Procurar resultados",
@@ -38,6 +39,7 @@
 	"softkey-back": "Voltar",
 	"softkey-skip": "Pular",
 	"softkey-get-started": "Começar",
+	"suggested-articles": "ARTIGOS SUGERIDOS",
 	"reference-title": "Referência [$1]",
 	"offline-message": "Sem conexão com a internet",
 	"onboarding-0-title": "A Enciclopédia Livre",
@@ -58,5 +60,7 @@
 	"settings-about-app": "Sobre o aplicativo",
 	"textsize-increase": "Pressionar 6 (Aumenta tamanho)",
 	"textsize-decrease": "Pressionar 4 (Reduz tamanho)",
-	"textsize-default": "Pressionar 5 (Predefinição)"
+	"textsize-default": "Pressionar 5 (Predefinição)",
+	"toc-footer": "Artigos sugeridos",
+	"view-in-browser": "Ver artigo no navegador"
 }

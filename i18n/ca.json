@@ -3,7 +3,8 @@
 		"authors": [
 			"Fitoschido",
 			"Toniher",
-			"Eduardo Addad de Oliveira"
+			"Eduardo Addad de Oliveira",
+			"Dvpita"
 		]
 	},
 	"article-action-sections": "Seccions",
@@ -13,6 +14,7 @@
 	"app-title": "Viquipèdia",
 	"app-subtitle": "L'enciclopèdia lliure",
 	"app-description": "Amb l'aplicació lliure de la Viquipèdia podeu cercar i explorar informació del món sencer en més de 300 llengües.",
+	"content-license": "El contingut està disponible a <a class=\"external\" rel=\"mw:ExtLink\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\"> CC BY-SA 3.0 </a> tret que sigui contrari va assenyalar.",
 	"confirm-section": "Vés a la secció «$1»",
 	"header-menu": "Menu de l'article",
 	"header-search": "Resultats de cerca",
@@ -40,6 +42,7 @@
 	"softkey-back": "Enrere",
 	"softkey-skip": "Omet",
 	"softkey-get-started": "Primers passos",
+	"suggested-articles": "ARTICLES SUGGERITS",
 	"reference-title": "Referència [$1]",
 	"offline-message": "Sense connexió a Internet",
 	"onboarding-0-title": "L'enciclopèdia lliure",
@@ -60,5 +63,7 @@
 	"settings-about-app": "Quant a l'aplicació",
 	"textsize-increase": "Premeu 6 (augmenta la mida)",
 	"textsize-decrease": "Premeu 4 (redueix la mida)",
-	"textsize-default": "Premeu 5 (per defecte)"
+	"textsize-default": "Premeu 5 (per defecte)",
+	"toc-footer": "Articles suggerits",
+	"view-in-browser": "Veure article al navegador"
 }

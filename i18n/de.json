@@ -1,14 +1,29 @@
 {
 	"@metadata": {
 		"authors": [
-			"Hikemaniac"
+			"Hikemaniac",
+			"HTan (WMF)"
 		]
 	},
+	"article-loading-message": "Die Karte wird geladen …",
 	"app-title": "Wikipedia",
 	"app-subtitle": "Die freie Enzyklopädie",
 	"header-sections": "Abschnitte",
 	"header-settings": "Einstellungen",
+	"menu-textsize": "Textgröße",
+	"softkey-done": "Fertig",
+	"softkey-menu": "Menü",
 	"search-placeholder": "Suchen",
+	"softkey-settings": "Einstellungen",
+	"centerkey-select": "Auswahl",
+	"softkey-close": "Schließen",
+	"language-change": "Sprache ändern",
+	"softkey-next": "Nächste",
+	"softkey-back": "Zurück",
+	"softkey-skip": "Überspringen",
+	"offline-message": "Keine Internetverbindung",
+	"onboarding-0-title": "Die freie Enzyklopädie",
+	"onboarding-2-title": "Suche in fast 300 Sprachen",
 	"settings-language": "Sprache",
 	"settings-textsize": "Textgröße",
 	"settings-about-wikipedia": "Über Wikipedia",
