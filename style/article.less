@@ -106,17 +106,33 @@
 				}
 
 				figure {
-					margin: 10px 0;
+					position: relative;
+					display: inline-block;
+					width: 135px;
+					left: calc( 100vw - 50% - 97.5px );
+					margin: 0;
+					text-align: center;
+					box-shadow: 0 1px 3px 0 rgba( 0, 0, 0, 0.15 );
+					border: solid 0.5px #c8ccd1;
+
+					img {
+						max-height: 90px;
+						width: auto;
+					}
+
+					figcaption {
+						font-size: 71.42%; // 10/14 x 100
+						line-height: normal;
+						padding: 5px;
+						text-align: left;
+						background-color: #eaecf0;
+						margin-top: -10px;
+					}
 				}
 
 				span.mw-ref {
 					font-size: 50%;
 					vertical-align: super;
-				}
-
-				img {
-					max-width: 210px;
-					max-height: 250px;
 				}
 
 				a {
