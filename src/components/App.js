@@ -7,7 +7,7 @@ import { SoftkeyReducer } from 'reducers'
 export const App = ({ i18n }) => {
   // @todo making it used by the global state management
   const [state, dispatch] = useReducer(SoftkeyReducer, {})
-  const [popupState, setPopupState] = useState({})
+  const [popupState, setPopupState] = useState([])
   const [url, setUrl] = useState()
 
   return (
@@ -17,7 +17,7 @@ export const App = ({ i18n }) => {
           <OfflineIndicator routeUrl={url} />
           <Routes onRouteChange={({ url }) => setUrl(url)} />
           <Softkey {...state.current} />
-          <PopupContainer {...popupState} />
+          <PopupContainer popups={popupState} />
         </PopupContext.Provider>
       </SoftkeyContext.Provider>
     </I18nContext.Provider>
