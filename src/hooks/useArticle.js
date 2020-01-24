@@ -3,7 +3,7 @@ import { useI18n } from 'hooks'
 import { getArticle, getSuggestedArticles } from 'api'
 
 export const useArticle = (lang, title) => {
-  const [article, setArticle] = useState()
+  const [article, setArticle] = useState({ loading: true })
   const i18n = useI18n()
 
   useEffect(() => {
@@ -20,6 +20,8 @@ export const useArticle = (lang, title) => {
         const tocWithFooter = toc.concat({ level: 1, line: i18n.i18n('toc-footer'), sectionIndex: sectionsWithFooter.length - 1 })
 
         setArticle({ ...article, sections: sectionsWithFooter, toc: tocWithFooter, suggestedArticles })
+      }, error => {
+        setArticle({ error })
       })
   }, [lang, title])
 

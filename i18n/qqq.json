@@ -10,6 +10,7 @@
 	"article-action-quickfacts": "The action button quick facts text on the first page of the article used to open the quick facts page and the label of the Quick facts item shown in the Menu page.",
 	"article-language-available": "The header title of the article language search page. The word \"available\" refers to the article.",
 	"article-loading-message": "The message when loading the article. Shown in the article page",
+	"article-error-message": "The message when an article cannot be loaded because the device is offline or for any reason.",
 	"app-title": "Title of the application. Shown in the app store and the app launcher.",
 	"app-subtitle": "Subtitle of the application. Shown in the app store.",
 	"app-description": "Description of the application. Shown in the app store. The word \"free\" is in the sense of \"zero dollars, you don't have pay\".",
