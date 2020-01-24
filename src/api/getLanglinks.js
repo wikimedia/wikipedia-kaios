@@ -1,21 +1,13 @@
-import { buildMwApiUrl, cachedFetch } from 'utils'
+import { buildPcsUrl, cachedFetch } from 'utils'
 
 export const getLanglinks = (lang, title) => {
-  const params = {
-    action: 'query',
-    titles: title,
-    prop: 'langlinks',
-    lllimit: 500,
-    llprop: 'langname'
-  }
-  const url = buildMwApiUrl(lang, params)
+  const url = buildPcsUrl(lang, title, 'metadata')
   return cachedFetch(url, response => {
-    const { pages } = response.query
-    return pages[0].langlinks.map(item => (
+    return response.language_links.map(item => (
       {
-        title: item.langname,
+        title: item.lang,
         lang: item.lang,
-        description: item.title
+        description: item.titles.normalized
       }
     )
     )
