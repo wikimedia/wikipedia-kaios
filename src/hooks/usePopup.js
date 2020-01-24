@@ -1,15 +1,8 @@
-import { useContext, useEffect } from 'preact/hooks'
+import { useContext } from 'preact/hooks'
 import { PopupContext } from 'contexts'
 
 export const usePopup = (component, options = {}) => {
   const { setPopupState } = useContext(PopupContext)
-
-  useEffect(() => {
-    return () => {
-      // clear all the popups when the current component unmounts
-      setPopupState([])
-    }
-  }, [])
 
   const close = () => {
     setPopupState(oldState => {
@@ -27,7 +20,8 @@ export const usePopup = (component, options = {}) => {
           ...props,
           close
         },
-        options
+        options,
+        id: Math.random()
       }
       if (options.stack) {
         newState.push(newPopup)

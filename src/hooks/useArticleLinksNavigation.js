@@ -24,7 +24,7 @@ export const useArticleLinksNavigation = (
   const [links, setLinks] = useState([])
   const [currentLink, setCurrentLinkInternal] = useState(null)
 
-  const [showArticlePreview] = usePopup(ArticlePreview, { position: 'bottom', stack: true })
+  const [showArticlePreview] = usePopup(ArticlePreview, { stack: true })
 
   const setCurrentLink = newLink => {
     setCurrentLinkInternal(previousLink => {

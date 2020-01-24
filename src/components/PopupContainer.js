@@ -19,14 +19,18 @@ export const PopupContainer = ({ popups }) => {
     return ''
   }
   let zIndex = 100
-  const popupsBeforeShader = popups.length > 1
-    ? popups.slice(0, -1) : []
-  const lastPopup = popups.slice(-1)[0]
+  const nextZIndex = () => {
+    zIndex += 2
+    return zIndex
+  }
+  // The shader is just before the last popup
+  const shaderZIndex = 100 + popups.length * 2 - 1
   return (
     <div class='popup'>
-      { popupsBeforeShader.map(popup => <Popup {...popup} style={{ zIndex: zIndex++ }} />) }
-      <div class='shader' style={{ zIndex: zIndex++ }} />
-      <Popup {...lastPopup} style={{ zIndex: zIndex++ }} />
+      <div class='shader' style={{ zIndex: shaderZIndex }} />
+      { popups.map(popup => {
+        return <Popup {...popup} key={popup.id} style={{ zIndex: nextZIndex() }} />
+      }) }
     </div>
   )
 }
