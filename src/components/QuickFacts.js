@@ -2,37 +2,42 @@ import { h } from 'preact'
 import { useRef } from 'preact/hooks'
 import { ReferencePreview } from 'components'
 import {
-  useArticle, useScroll, usePopup,
+  useScroll, usePopup, useArticleTextSize,
   useI18n, useSoftkey, useArticleLinksNavigation
 } from 'hooks'
 
-export const QuickFacts = ({ lang, title }) => {
+export const QuickFacts = ({ article, close }) => {
   const i18n = useI18n()
-  const article = useArticle(lang, title)
   const containerRef = useRef()
   const [scrollDown, scrollUp, scrollPosition] = useScroll(containerRef, 20, 'y')
-  const [showReferencePreview] = usePopup(ReferencePreview, { position: 'auto' })
+  const [showReferencePreview] = usePopup(ReferencePreview)
+  const [textSize] = useArticleTextSize('QuickFacts')
   useSoftkey('QuickFacts', {
     right: i18n.i18n('softkey-close'),
-    onKeyRight: () => history.back(),
+    onKeyRight: close,
     onKeyArrowDown: scrollDown,
     onKeyArrowUp: scrollUp
   })
 
-  if (!article) {
-    return 'Loading...'
-  }
-
   const linkHandlers = {
     reference: ({ referenceId }) => {
-      showReferencePreview({ reference: article.references[referenceId], lang })
+      showReferencePreview({
+        reference: article.references[referenceId],
+        lang: article.contentLang
+      })
     }
   }
-  useArticleLinksNavigation('QuickFacts', lang, containerRef, linkHandlers, [scrollPosition])
+  useArticleLinksNavigation(
+    'QuickFacts',
+    article.contentLang,
+    containerRef,
+    linkHandlers,
+    [scrollPosition, textSize]
+  )
 
   return (
     <div
-      class='quickfacts'
+      class='quickfacts adjustable-font-size'
       ref={containerRef}
       dangerouslySetInnerHTML={{ __html: article.infobox }}
     />

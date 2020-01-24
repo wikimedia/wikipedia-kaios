@@ -3,13 +3,42 @@
 	overflow-y: scroll;
 	overflow: -moz-scrollbars-none;
 	height: @availableHeight;
+	width: calc( 100vw );
+
+	& > table {
+		width: calc( 100vw );
+	}
 
 	table {
-		width: 100vw;
-
 		img {
 			max-width: 80vw;
 			height: auto;
 		}
+
+		th:not( [ colspan ] ),
+		td:not( [ colspan ] ) {
+			max-width: 50vw;
+			word-wrap: break-word;
+		}
+
+		.truncate {
+			max-width: 50vw;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+
+		.plainlist {
+			ul {
+				margin: 5px 0;
+				padding: 0;
+			}
+		}
+	}
+
+	.noprint,
+	.wikidata-link,
+	.navigation-only,
+	audio {
+		display: none;
 	}
 }
