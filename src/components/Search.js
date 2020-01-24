@@ -26,8 +26,7 @@ export const Search = () => {
   const [query, setQuery, searchResults] = useSearch(lang)
   const isOnline = useOnlineStatus(online => {
     if (online) {
-      console.log('re setting the query', inputRef.current.value)
-      setQuery(query)
+      setQuery(inputRef.current.value)
     }
   })
   const onKeyCenter = () => {
@@ -41,6 +40,12 @@ export const Search = () => {
     getRandomArticleTitle(lang).then(title => {
       goto.article(lang, title)
     })
+  }
+
+  const onInput = ({ target }) => {
+    if (isOnline) {
+      setQuery(target.value)
+    }
   }
 
   useSoftkey('Search', {
@@ -59,8 +64,8 @@ export const Search = () => {
   return (
     <div class='search'>
       <img class='double-u' src='images/w.svg' style={{ display: ((searchResults || !isOnline) ? 'none' : 'block') }} />
-      <input ref={inputRef} type='text' placeholder={i18n.i18n('search-placeholder')} value={query} onInput={(e) => setQuery(e.target.value)} data-selectable />
-      { searchResults && <ListView header={i18n.i18n('header-search')} items={searchResults} containerRef={containerRef} empty={i18n.i18n('no-result-found')} /> }
+      <input ref={inputRef} type='text' placeholder={i18n.i18n('search-placeholder')} value={query} onInput={onInput} data-selectable />
+      { (isOnline && searchResults) && <ListView header={i18n.i18n('header-search')} items={searchResults} containerRef={containerRef} empty={i18n.i18n('no-result-found')} /> }
       { !isOnline && <SearchOfflinePanel /> }
     </div>
   )
