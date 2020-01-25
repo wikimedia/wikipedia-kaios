@@ -7,13 +7,16 @@ export const cachedFetch = (url, transformFn) => {
     return Promise.resolve(requestCache[url])
   }
 
-  return new Promise(resolve => {
+  return new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest({ mozSystem: true })
     xhr.responseType = 'json'
     xhr.open('GET', url)
     xhr.send()
-    xhr.onload = () => {
+    xhr.addEventListener('load', () => {
       resolve(requestCache[url] = transformFn(xhr.response))
-    }
+    })
+    xhr.addEventListener('error', () => {
+      reject(new Error('XHR Error: ' + xhr.status))
+    })
   })
 }
