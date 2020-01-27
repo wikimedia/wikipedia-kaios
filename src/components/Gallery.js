@@ -1,27 +1,63 @@
 import { h } from 'preact'
 import { useState } from 'preact/hooks'
-import { useI18n, useSoftkey } from 'hooks'
+import { useI18n, useSoftkey, usePopup } from 'hooks'
+
+const AboutContainer = ({ description, author, license, filePage, close }) => {
+  const i18n = useI18n()
+
+  useSoftkey('About', {
+    right: i18n.i18n('softkey-close'),
+    onKeyRight: close,
+    left: 'More Info',
+    onKeyLeft: () => { window.open(filePage) }
+  })
+
+  return (
+    <div class='gallery-about'>
+      <div class='header'>About</div>
+      <div class='sub-header'>Description</div>
+      <p class='description'>{description}</p>
+      <div class='sub-header'>Author and license</div>
+      <p>{author}<br />{license}</p>
+    </div>
+  )
+}
 
 export const Gallery = ({ close, items }) => {
   const i18n = useI18n()
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [showAboutPopup] = usePopup(AboutContainer, { stack: true })
 
+  const onNextImage = () => {
+    const nextIndex = currentIndex + 1
+    setCurrentIndex(nextIndex % items.length)
+  }
+
+  const onPrevImage = () => {
+    const prevIndex = currentIndex - 1
+    setCurrentIndex(prevIndex < 0 ? 0 : prevIndex)
+  }
   useSoftkey('Gallery', {
     right: i18n.i18n('softkey-close'),
     onKeyRight: close,
     center: i18n.i18n('softkey-about'),
-    onKeyCenter: () => {},
-    onKeyArrowRight: () => { setCurrentIndex(currentIndex + 1) },
-    onKeyArrowLeft: () => { setCurrentIndex(currentIndex - 1) }
+    onKeyCenter: () => { showAboutPopup({ ...items[currentIndex] }) },
+    onKeyArrowRight: onNextImage,
+    onKeyArrowLeft: onPrevImage
   }, [currentIndex])
 
-  console.log(items)
-  return <div class='gallery'>
-    <div class='header'>
-      { items[currentIndex].description }
+  return (
+    <div class='gallery'>
+      {
+        items[currentIndex].description && (
+          <div class='header'>
+            { items[currentIndex].description }
+          </div>
+        )
+      }
+      <div class='img'>
+        <img src={items[currentIndex].thumbnail} />
+      </div>
     </div>
-    <div class='img'>
-      <img src={items[currentIndex].thumbnail} />
-    </div>
-  </div>
+  )
 }
