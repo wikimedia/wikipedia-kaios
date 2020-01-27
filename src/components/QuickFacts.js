@@ -10,7 +10,7 @@ export const QuickFacts = ({ article, close }) => {
   const i18n = useI18n()
   const containerRef = useRef()
   const [scrollDown, scrollUp, scrollPosition] = useScroll(containerRef, 20, 'y')
-  const [showReferencePreview] = usePopup(ReferencePreview)
+  const [showReferencePreview] = usePopup(ReferencePreview, { stack: true })
   const [textSize] = useArticleTextSize('QuickFacts')
   useSoftkey('QuickFacts', {
     right: i18n.i18n('softkey-close'),
