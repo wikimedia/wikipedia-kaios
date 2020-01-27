@@ -11,6 +11,11 @@ export const usePopup = (component, options = {}) => {
       return newState
     })
   }
+
+  const closeAll = () => {
+    setPopupState([])
+  }
+
   const show = props => {
     setPopupState(oldState => {
       let newState = [...oldState]
@@ -18,7 +23,8 @@ export const usePopup = (component, options = {}) => {
         component,
         props: {
           ...props,
-          close
+          close,
+          closeAll
         },
         options,
         id: Math.random()
