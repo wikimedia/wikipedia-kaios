@@ -23,7 +23,7 @@ export const Settings = () => {
   }
 
   const onTextsizeSelected = () => {
-    const [showTextSize] = usePopup(TextSize, { position: 'auto' })
+    const [showTextSize] = usePopup(TextSize)
     showTextSize()
   }
 
