@@ -6,7 +6,7 @@ export const useArticle = (lang, title) => {
   const [article, setArticle] = useState({ loading: true })
   const i18n = useI18n()
 
-  useEffect(() => {
+  const loadArticle = () => {
     Promise.all([getArticle(lang, title), getSuggestedArticles(lang, title)])
       .then(([article, suggestedArticles]) => {
         const { sections, toc } = article
@@ -23,7 +23,11 @@ export const useArticle = (lang, title) => {
       }, error => {
         setArticle({ error })
       })
+  }
+
+  useEffect(() => {
+    loadArticle()
   }, [lang, title])
 
-  return article
+  return [article, loadArticle]
 }
