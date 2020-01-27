@@ -8,17 +8,17 @@ const AboutContainer = ({ description, author, license, filePage, close }) => {
   useSoftkey('About', {
     right: i18n.i18n('softkey-close'),
     onKeyRight: close,
-    left: 'More Info',
+    left: i18n.i18n('softkey-more-info'),
     onKeyLeft: () => { window.open(filePage) }
   })
 
   return (
     <div class='gallery-about'>
-      <div class='header'>About</div>
+      <div class='header'>{i18n.i18n('gallery-about-header')}</div>
       {
         description && (
           <div>
-            <div class='sub-header'>Description</div>
+            <div class='sub-header'>{i18n.i18n('gallery-description')}</div>
             <p class='description'>{description}</p>
           </div>
         )
@@ -26,7 +26,7 @@ const AboutContainer = ({ description, author, license, filePage, close }) => {
       {
         (author || license) && (
           <div>
-            <div class='sub-header'>Author and license</div>
+            <div class='sub-header'>{i18n.i18n('gallery-author-license')}</div>
             <p>
               {author}{ author && <br /> }
               {license}
