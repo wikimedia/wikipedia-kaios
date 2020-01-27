@@ -6,7 +6,7 @@ import { ListView, TextSize } from 'components'
 
 export const ArticleMenu = ({
   close, onTocSelected, onLanguageSelected, hasLanguages,
-  onQuickFactsSelected
+  onQuickFactsSelected, hasInfobox
 }) => {
   const containerRef = useRef()
   const i18n = useI18n()
@@ -45,9 +45,15 @@ export const ArticleMenu = ({
 
   const items = [
     { title: i18n.i18n('article-action-sections'), action: onTocSelected },
-    { title: i18n.i18n('menu-textsize'), action: onTextsizeSelected },
-    { title: i18n.i18n('article-action-quickfacts'), action: onQuickFactsSelected }
+    { title: i18n.i18n('menu-textsize'), action: onTextsizeSelected }
   ]
+
+  if (hasInfobox) {
+    items.push({
+      title: i18n.i18n('article-action-quickfacts'),
+      action: onQuickFactsSelected
+    })
+  }
 
   // add Previous Section item
   if (articleHistory.hasPrev()) {

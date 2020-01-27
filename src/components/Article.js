@@ -128,6 +128,7 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
       onTocSelected: showArticleTocPopup,
       onLanguageSelected: showArticleLanguagePopup,
       onQuickFactsSelected: showQuickFacts,
+      hasInfobox: !!article.infobox,
       hasLanguages: article.languageCount
     })
   }
