@@ -2,13 +2,13 @@ import { h } from 'preact'
 import { useArticleSummary, useI18n, useSoftkey, useArticleTextSize } from 'hooks'
 import { goto } from 'utils'
 
-export const ArticlePreview = ({ lang, title, close }) => {
+export const ArticlePreview = ({ lang, title, close, closeAll }) => {
   const i18n = useI18n()
   const summary = useArticleSummary(lang, title)
 
   const read = () => {
     const readTitle = summary ? summary.titles.canonical : title
-    close()
+    closeAll()
     goto.article(lang, readTitle, true)
   }
   useSoftkey('ArticlePreview', {

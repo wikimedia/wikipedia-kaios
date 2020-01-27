@@ -8,8 +8,4 @@ const article = (lang, title, replace = false) => {
   route(`/article/${lang}/${titleStr}`, replace)
 }
 
-const quickfacts = (lang, title) => {
-  route(`/quickfacts/${lang}/${encodeURIComponent(title)}`)
-}
-
-export const goto = { article, quickfacts }
+export const goto = { article }
