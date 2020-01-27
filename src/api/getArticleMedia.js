@@ -6,7 +6,8 @@ export const getArticleMedia = (lang, title) => {
     author: item.artist && item.artist.text,
     description: item.description && item.description.text,
     license: item.license && item.license.type,
-    filePage: item.file_page
+    filePage: item.file_page,
+    thumbnail: item.thumbnail.source
   })
   ))
 }

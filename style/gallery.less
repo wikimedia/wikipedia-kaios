@@ -1,0 +1,29 @@
+.gallery {
+	width: 100%;
+	height: calc( 100vh - @softkeysHeight );
+	background-color: #000;
+
+	.header {
+		font-family: @textFont;
+		font-size: 17px;
+		color: #323232;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		background-color: #d8d8d8;
+		padding: 3px 10px;
+		white-space: nowrap;
+		text-align: center;
+	}
+
+	.img {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		height: calc( 100vh - @softkeysHeight - 27px );
+
+		img {
+			max-width: 100%;
+		}
+	}
+}

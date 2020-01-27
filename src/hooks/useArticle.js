@@ -19,7 +19,7 @@ export const useArticle = (lang, title) => {
         })
         const tocWithFooter = toc.concat({ level: 1, line: i18n.i18n('toc-footer'), sectionIndex: sectionsWithFooter.length - 1 })
 
-        setArticle({ ...article, sections: sectionsWithFooter, toc: tocWithFooter, suggestedArticles })
+        setArticle({ ...article, sections: sectionsWithFooter, toc: tocWithFooter, suggestedArticles, media })
       })
   }, [lang, title])
 
