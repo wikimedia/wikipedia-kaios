@@ -15,10 +15,25 @@ const AboutContainer = ({ description, author, license, filePage, close }) => {
   return (
     <div class='gallery-about'>
       <div class='header'>About</div>
-      <div class='sub-header'>Description</div>
-      <p class='description'>{description}</p>
-      <div class='sub-header'>Author and license</div>
-      <p>{author}<br />{license}</p>
+      {
+        description && (
+          <div>
+            <div class='sub-header'>Description</div>
+            <p class='description'>{description}</p>
+          </div>
+        )
+      }
+      {
+        (author || license) && (
+          <div>
+            <div class='sub-header'>Author and license</div>
+            <p>
+              {author}{ author && <br /> }
+              {license}
+            </p>
+          </div>
+        )
+      }
     </div>
   )
 }
