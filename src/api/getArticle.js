@@ -73,6 +73,7 @@ export const getArticle = (lang, title) => {
     })
 
     return {
+      contentLang: lang,
       sections,
       infobox,
       toc,
@@ -134,7 +135,30 @@ const extractPreview = doc => {
 const extractInfobox = doc => {
   const infoboxNode = doc.querySelector('[class^="infobox"]')
   if (infoboxNode) {
+    // Clear a bunch of style that interfere with the layout
     infoboxNode.style.width = ''
+    infoboxNode.style.fontSize = ''
+    const blackListedProps = ['minWidth', 'whiteSpace', 'width']
+    Array.from(infoboxNode.querySelectorAll('[style]')).forEach(n => {
+      blackListedProps.forEach(propName => {
+        if (n.style[propName]) {
+          n.style[propName] = ''
+        }
+      })
+    })
+
+    // Long URLs in content make the table too wide
+    Array.from(infoboxNode.querySelectorAll('a[href]')).forEach(a => {
+      if (a.href === a.textContent) {
+        // Use a shorter text (strip protocol and path)
+        var u = new URL(a.href)
+        a.textContent = u.hostname
+
+        // Constrain the parent node and truncate if needed
+        a.parentNode.classList.add('truncate')
+      }
+    })
+
     return infoboxNode.outerHTML
   }
 }

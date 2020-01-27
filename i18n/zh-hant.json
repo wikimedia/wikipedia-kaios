@@ -12,6 +12,7 @@
 	"app-title": "維基百科",
 	"app-subtitle": "自由的百科全書",
 	"app-description": "藉由自由的維基百科應用程式，進行搜尋探索來自於全世界三百種以上語言的資訊。",
+	"content-license": "除非另有註明，否則頁面內容均以 <a class=\"external\" rel=\"mw:ExtLink\" href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.zh_TW\">CC BY-SA 3.0</a> 條款授權",
 	"confirm-section": "前往「$1」段落",
 	"header-menu": "條目選單",
 	"header-search": "搜尋結果",
@@ -39,6 +40,7 @@
 	"softkey-back": "上一個",
 	"softkey-skip": "略過",
 	"softkey-get-started": "入門",
+	"suggested-articles": "建議條目",
 	"reference-title": "參考資料[$1]",
 	"offline-message": "無網路連線",
 	"onboarding-0-title": "自由的百科全書",
@@ -59,5 +61,7 @@
 	"settings-about-app": "關於應用程式",
 	"textsize-increase": "按下 6（增加大小）",
 	"textsize-decrease": "按下 4（減少大小）",
-	"textsize-default": "按下 5（預設大小）"
+	"textsize-default": "按下 5（預設大小）",
+	"toc-footer": "建議條目",
+	"view-in-browser": "在瀏覽器裡檢視條目"
 }

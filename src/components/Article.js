@@ -3,7 +3,7 @@ import { memo } from 'preact/compat'
 import { useState, useRef, useEffect } from 'preact/hooks'
 import {
   ReferencePreview, ArticleToc, ArticleLanguage,
-  ArticleMenu, ArticleFooter, Loading
+  ArticleMenu, ArticleFooter, Loading, QuickFacts
 } from 'components'
 import {
   useArticle, useI18n, useSoftkey,
@@ -22,9 +22,9 @@ const ArticleBody = memo(({ content }) => {
 })
 
 const ArticleSection = ({
-  lang, imageUrl, title, description, isFooter,
-  hasActions, content, page, showToc, references,
-  goToSubpage, hasInfobox, articleTitle, suggestedArticles
+  lang, imageUrl, title, description, hasActions, isFooter,
+  content, page, showToc, goToSubpage, references,
+  hasInfobox, articleTitle, suggestedArticles, showQuickFacts
 }) => {
   const contentRef = useRef()
   const i18n = useI18n()
@@ -34,7 +34,7 @@ const ArticleSection = ({
   const linkHandlers = {
     action: ({ action }) => {
       if (action === 'quickfacts') {
-        goto.quickfacts(lang, title)
+        showQuickFacts()
       } else if (action === 'sections') {
         showToc()
       }
@@ -95,6 +95,7 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
 
   const [subTitle, setSubTitle] = useState(initialSubTitle)
   const [showTocPopup] = usePopup(ArticleToc, { mode: 'fullscreen' })
+  const [showQuickFactsPopup] = usePopup(QuickFacts, { mode: 'fullscreen' })
   const [showLanguagePopup] = usePopup(ArticleLanguage, { mode: 'fullscreen' })
   const [showMenuPopup] = usePopup(ArticleMenu, { mode: 'fullscreen' })
   const [currentSection, setCurrentSection, currentPage] = useArticlePagination(containerRef, article, subTitle)
@@ -118,9 +119,22 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
     showLanguagePopup({ lang, title: articleTitle })
   }
 
+  const showQuickFacts = () => {
+    showQuickFactsPopup({ article })
+  }
+
+  const showArticleMenu = () => {
+    showMenuPopup({
+      onTocSelected: showArticleTocPopup,
+      onLanguageSelected: showArticleLanguagePopup,
+      onQuickFactsSelected: showQuickFacts,
+      hasLanguages: article.languageCount
+    })
+  }
+
   useSoftkey('Article', {
     left: i18n.i18n('softkey-menu'),
-    onKeyLeft: () => showMenuPopup({ onTocSelected: showArticleTocPopup, onLanguageSelected: showArticleLanguagePopup, hasLanguages: article.languageCount }),
+    onKeyLeft: showArticleMenu,
     right: i18n.i18n('softkey-close'),
     onKeyRight: () => history.back()
   }, [])
@@ -141,6 +155,7 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
         references={article.references}
         suggestedArticles={article.suggestedArticles}
         showToc={showArticleTocPopup}
+        showQuickFacts={showQuickFacts}
         goToSubpage={goToArticleSubpage}
         page={currentPage}
       />

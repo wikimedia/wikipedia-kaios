@@ -12,6 +12,7 @@
 	"app-title": "Vikipedi",
 	"app-subtitle": "Özgür ansiklopedi",
 	"app-description": "Ücretsiz Vikipedi uygulamasıyla, 300'den fazla dilde dünyanın her yerinden bilgi arayın ve keşfedin.",
+	"content-license": "İçerik, aksi belirtilmedikçe <a class=\"external\" rel=\"mw:ExtLink\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">CC BY-SA 3.0</a> altında bulunabilir.",
 	"confirm-section": "\"$1\" Bölümüne Gidin",
 	"header-menu": "Makale menüsü",
 	"header-search": "Arama sonuçları",
@@ -22,7 +23,7 @@
 	"menu-language": "Dil",
 	"menu-textsize": "Metin boyutu",
 	"no-result-found": "Sonuç bulunamadı",
-	"softkey-done": "Tamamlandı",
+	"softkey-done": "Yapıldı",
 	"softkey-search": "Ara",
 	"search-language-placeholder": "Dil ara",
 	"softkey-menu": "Menü",
@@ -39,6 +40,7 @@
 	"softkey-back": "Geri",
 	"softkey-skip": "Atla",
 	"softkey-get-started": "Başla",
+	"suggested-articles": "ÖNERİLEN MAKALELER",
 	"reference-title": "Referans [$1]",
 	"offline-message": "İnternet bağlantısı yok",
 	"onboarding-0-title": "Özgür ansiklopedi",
@@ -59,5 +61,7 @@
 	"settings-about-app": "Uygulama hakkında",
 	"textsize-increase": "6'ya basın (Boyutu artır)",
 	"textsize-decrease": "4'e basın (Boyutu küçült)",
-	"textsize-default": "5'e basın (Varsayılan)"
+	"textsize-default": "5'e basın (Varsayılan)",
+	"toc-footer": "Önerilen makaleler",
+	"view-in-browser": "Makaleyi tarayıcıda görüntüle"
 }

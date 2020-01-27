@@ -4,7 +4,10 @@ import { useNavigation, useI18n, useSoftkey, usePopup } from 'hooks'
 import { articleHistory, goto } from 'utils'
 import { ListView, TextSize } from 'components'
 
-export const ArticleMenu = ({ close, onTocSelected, onLanguageSelected, hasLanguages }) => {
+export const ArticleMenu = ({
+  close, onTocSelected, onLanguageSelected, hasLanguages,
+  onQuickFactsSelected
+}) => {
   const containerRef = useRef()
   const i18n = useI18n()
   const onKeyCenter = () => {
@@ -42,7 +45,8 @@ export const ArticleMenu = ({ close, onTocSelected, onLanguageSelected, hasLangu
 
   const items = [
     { title: i18n.i18n('article-action-sections'), action: onTocSelected },
-    { title: i18n.i18n('menu-textsize'), action: onTextsizeSelected }
+    { title: i18n.i18n('menu-textsize'), action: onTextsizeSelected },
+    { title: i18n.i18n('article-action-quickfacts'), action: onQuickFactsSelected }
   ]
 
   // add Previous Section item
