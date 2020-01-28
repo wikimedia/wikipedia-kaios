@@ -26,7 +26,7 @@ const ArticleSection = ({
   lang, imageUrl, title, description, hasActions, isFooter,
   content, page, showToc, goToSubpage, references,
   hasInfobox, articleTitle, suggestedArticles, showQuickFacts,
-  showGallery
+  showGallery, hasGallery
 }) => {
   const contentRef = useRef()
   const i18n = useI18n()
@@ -77,10 +77,12 @@ const ArticleSection = ({
                 <label>{i18n.i18n('article-action-quickfacts')}</label>
               </div>
             ) }
-            <div class='article-actions-button' data-action='gallery'>
-              <img src='images/sections.svg' /><br />
-              <label>Gallery</label>
-            </div>
+            { hasGallery && (
+              <div class='article-actions-button' data-action='gallery'>
+                <img src='images/sections.svg' /><br />
+                <label>Gallery</label>
+              </div>
+            ) }
           </div>
         ) }
         { isFooter
@@ -170,6 +172,7 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
         articleTitle={articleTitle}
         hasActions={currentSection === 0}
         hasInfobox={!!article.infobox}
+        hasGallery={!!article.media.length}
         references={article.references}
         suggestedArticles={article.suggestedArticles}
         showToc={showArticleTocPopup}
