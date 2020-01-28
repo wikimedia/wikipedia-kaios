@@ -3,7 +3,8 @@ import { memo } from 'preact/compat'
 import { useState, useRef, useEffect } from 'preact/hooks'
 import {
   ReferencePreview, ArticleToc, ArticleLanguage,
-  ArticleMenu, ArticleFooter, Loading, QuickFacts
+  ArticleMenu, ArticleFooter, Loading, QuickFacts,
+  Gallery
 } from 'components'
 import {
   useArticle, useI18n, useSoftkey,
@@ -24,7 +25,8 @@ const ArticleBody = memo(({ content }) => {
 const ArticleSection = ({
   lang, imageUrl, title, description, hasActions, isFooter,
   content, page, showToc, goToSubpage, references,
-  hasInfobox, articleTitle, suggestedArticles, showQuickFacts
+  hasInfobox, articleTitle, suggestedArticles, showQuickFacts,
+  showGallery
 }) => {
   const contentRef = useRef()
   const i18n = useI18n()
@@ -37,6 +39,8 @@ const ArticleSection = ({
         showQuickFacts()
       } else if (action === 'sections') {
         showToc()
+      } else if (action === 'gallery') {
+        showGallery()
       }
     },
     reference: ({ referenceId }) => {
@@ -73,6 +77,10 @@ const ArticleSection = ({
                 <label>{i18n.i18n('article-action-quickfacts')}</label>
               </div>
             ) }
+            <div class='article-actions-button' data-action='gallery'>
+              <img src='images/sections.svg' /><br />
+              <label>Gallery</label>
+            </div>
           </div>
         ) }
         { isFooter
@@ -98,6 +106,7 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
   const [showQuickFactsPopup] = usePopup(QuickFacts, { mode: 'fullscreen' })
   const [showLanguagePopup] = usePopup(ArticleLanguage, { mode: 'fullscreen' })
   const [showMenuPopup] = usePopup(ArticleMenu, { mode: 'fullscreen' })
+  const [showGalleryPopup] = usePopup(Gallery, { mode: 'fullscreen' })
   const [currentSection, setCurrentSection, currentPage] = useArticlePagination(containerRef, article, subTitle)
   const section = article.sections[currentSection]
   const goToArticleSubpage = ({ sectionIndex, title }) => {
@@ -133,6 +142,10 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
     })
   }
 
+  const showGallery = () => {
+    showGalleryPopup({ items: article.media })
+  }
+
   useSoftkey('Article', {
     left: i18n.i18n('softkey-menu'),
     onKeyLeft: showArticleMenu,
@@ -157,6 +170,7 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
         suggestedArticles={article.suggestedArticles}
         showToc={showArticleTocPopup}
         showQuickFacts={showQuickFacts}
+        showGallery={showGallery}
         goToSubpage={goToArticleSubpage}
         page={currentPage}
       />
