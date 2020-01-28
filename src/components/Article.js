@@ -22,11 +22,24 @@ const ArticleBody = memo(({ content }) => {
   )
 })
 
+const ArticleActions = ({ actions }) => {
+  const i18n = useI18n()
+  return (
+    <div class='article-actions'>
+      { actions.filter(a => a.enabled).map(action => (
+        <div class='article-actions-button' data-action={action.name} key={action.name}>
+          <img src={`images/icon-${action.name}.svg`} />
+          <label>{i18n.i18n(`article-action-${action.name}`)}</label>
+        </div>
+      )) }
+    </div>
+  )
+}
+
 const ArticleSection = ({
-  lang, imageUrl, title, description, hasActions, isFooter,
-  content, page, showToc, goToSubpage, references,
-  hasInfobox, articleTitle, suggestedArticles, showQuickFacts,
-  showGallery, hasGallery
+  lang, imageUrl, title, description, actions, isFooter,
+  content, page, goToSubpage, references,
+  articleTitle, suggestedArticles
 }) => {
   const contentRef = useRef()
   const i18n = useI18n()
@@ -35,12 +48,9 @@ const ArticleSection = ({
 
   const linkHandlers = {
     action: ({ action }) => {
-      if (action === 'quickfacts') {
-        showQuickFacts()
-      } else if (action === 'sections') {
-        showToc()
-      } else if (action === 'gallery') {
-        showGallery()
+      const targetAction = actions.find(a => a.name === action)
+      if (targetAction) {
+        targetAction.handler()
       }
     },
     reference: ({ referenceId }) => {
@@ -65,26 +75,7 @@ const ArticleSection = ({
             <div class='line' />
           </Fragment>
         ) }
-        { hasActions && (
-          <div class='article-actions'>
-            <div class='article-actions-button' data-action='sections'>
-              <img src='images/sections.svg' /><br />
-              <label>{i18n.i18n('article-action-sections')}</label>
-            </div>
-            { hasInfobox && (
-              <div class='article-actions-button' data-action='quickfacts'>
-                <img src='images/quickfacts.svg' /><br />
-                <label>{i18n.i18n('article-action-quickfacts')}</label>
-              </div>
-            ) }
-            { hasGallery && (
-              <div class='article-actions-button' data-action='gallery'>
-                <img src='images/sections.svg' /><br />
-                <label>Gallery</label>
-              </div>
-            ) }
-          </div>
-        ) }
+        { actions && <ArticleActions actions={actions} /> }
         { isFooter
           ? <ArticleFooter lang={lang} title={articleTitle} items={suggestedArticles} />
           : <ArticleBody content={content} />
@@ -163,6 +154,13 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
     articleHistory.add(lang, articleTitle)
   }, [])
 
+  const actions = currentSection === 0 ? [
+    { name: 'sections', enabled: true, handler: showArticleTocPopup },
+    { name: 'quickfacts', enabled: !!article.infobox, handler: showQuickFacts },
+    { name: 'gallery', enabled: !!article.media.length, handler: showGallery },
+    { name: 'languages', enabled: article.languageCount, handler: showArticleLanguagePopup }
+  ] : null
+
   return (
     <div class={'article' + (section.isFooter ? ' footer' : '')} ref={containerRef}>
       <ArticleSection
@@ -170,14 +168,9 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
         lang={lang}
         {...section}
         articleTitle={articleTitle}
-        hasActions={currentSection === 0}
-        hasInfobox={!!article.infobox}
-        hasGallery={!!article.media.length}
+        actions={actions}
         references={article.references}
         suggestedArticles={article.suggestedArticles}
-        showToc={showArticleTocPopup}
-        showQuickFacts={showQuickFacts}
-        showGallery={showGallery}
         goToSubpage={goToArticleSubpage}
         page={currentPage}
       />
