@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from 'preact/hooks'
 import {
   ReferencePreview, ArticleToc, ArticleLanguage,
   ArticleMenu, ArticleFooter, Loading, QuickFacts,
-  Gallery
+  Error, Gallery
 } from 'components'
 import {
   useArticle, useI18n, useSoftkey,
@@ -95,10 +95,14 @@ const ArticleSection = ({
 const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
   const i18n = useI18n()
   const containerRef = useRef()
-  const article = useArticle(lang, articleTitle)
+  const [article, loadArticle] = useArticle(lang, articleTitle)
 
   if (!article) {
     return <Loading message={i18n.i18n('article-loading-message')} />
+  }
+
+  if (article.error) {
+    return <Error message={i18n.i18n('article-error-message')} onRefresh={loadArticle} />
   }
 
   const [subTitle, setSubTitle] = useState(initialSubTitle)
