@@ -29,7 +29,7 @@ export const ArticleMenu = ({
   const [, setNavigation, getCurrent] = useNavigation('Menu', containerRef, 'y')
 
   const onTextsizeSelected = () => {
-    const [showTextSize] = usePopup(TextSize, { position: 'auto' })
+    const [showTextSize] = usePopup(TextSize)
     showTextSize()
   }
 

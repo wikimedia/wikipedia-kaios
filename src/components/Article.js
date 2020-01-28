@@ -28,7 +28,7 @@ const ArticleSection = ({
 }) => {
   const contentRef = useRef()
   const i18n = useI18n()
-  const [showReferencePreview] = usePopup(ReferencePreview, { position: 'auto' })
+  const [showReferencePreview] = usePopup(ReferencePreview)
   const [textSize] = useArticleTextSize('Article')
 
   const linkHandlers = {
