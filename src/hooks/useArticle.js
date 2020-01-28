@@ -3,10 +3,11 @@ import { useI18n } from 'hooks'
 import { getArticle, getSuggestedArticles } from 'api'
 
 export const useArticle = (lang, title) => {
-  const [article, setArticle] = useState({ loading: true })
+  const [article, setArticle] = useState(null)
   const i18n = useI18n()
 
   const loadArticle = () => {
+    setArticle(null)
     Promise.all([getArticle(lang, title), getSuggestedArticles(lang, title)])
       .then(([article, suggestedArticles]) => {
         const { sections, toc } = article

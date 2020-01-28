@@ -90,7 +90,7 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
   const containerRef = useRef()
   const [article, loadArticle] = useArticle(lang, articleTitle)
 
-  if (article.loading) {
+  if (!article) {
     return <Loading message={i18n.i18n('article-loading-message')} />
   }
 
