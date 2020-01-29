@@ -1,7 +1,7 @@
 import { h } from 'preact'
 import { useRef, useEffect, useState } from 'preact/hooks'
 import { useNavigation, useI18n, useSoftkey, useSearchArticleLanguage } from 'hooks'
-import { RadioListView } from 'components'
+import { RadioListView, Loading } from 'components'
 import { goto } from 'utils'
 
 export const ArticleLanguage = ({ lang, title, close }) => {
@@ -11,8 +11,7 @@ export const ArticleLanguage = ({ lang, title, close }) => {
   const [items, query, setQuery, numOfLanglink] = useSearchArticleLanguage(articleLang, title)
   const [, setNavigation, getCurrent] = useNavigation('ArticleLanguage', containerRef, 'y')
 
-  // @todo add loading experience
-  if (!items.length && !query) return 'Loading...'
+  if (!items.length && !query) return <Loading message={i18n.i18n('article-language-loading-message')} />
 
   const onKeyCenter = () => {
     const { index } = getCurrent()

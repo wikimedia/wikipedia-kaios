@@ -9,6 +9,7 @@
     "article-action-sections": "Sections",
     "article-action-quickfacts": "Quick Facts",
     "article-language-available": "Available in $1 {{PLURAL:$1|language|languages}}",
+    "article-language-loading-message": "Loading languages...",
     "article-loading-message": "Loading page...",
     "article-error-message": "Unable to load article",
     "app-title": "Wikipedia",
