@@ -1,6 +1,6 @@
 import { h, Fragment } from 'preact'
 import { memo } from 'preact/compat'
-import { useState, useRef, useEffect } from 'preact/hooks'
+import { useState, useRef, useEffect, useLayoutEffect } from 'preact/hooks'
 import {
   ReferencePreview, ArticleToc, ArticleLanguage,
   ArticleMenu, ArticleFooter, Loading, QuickFacts,
@@ -64,18 +64,41 @@ const ArticleSection = ({
 
   useArticleLinksNavigation('Article', lang, contentRef, linkHandlers, [page, textSize])
 
+  useLayoutEffect(() => {
+    if (!contentRef.current) {
+      return
+    }
+    const MAX_TITLE_HEIGHT = 140
+    const titleNode = contentRef.current.querySelector('.title')
+    if (titleNode.getBoundingClientRect().height > MAX_TITLE_HEIGHT) {
+      titleNode.classList.add('clamp')
+    }
+    if (imageUrl) {
+      const introNode = contentRef.current.querySelector('.intro')
+      let introHeight = introNode.getBoundingClientRect().height
+      introHeight += 34 // Magic number needed to make it work
+      const articleSectionHeight = contentRef.current.getBoundingClientRect().height
+      const marginTop = articleSectionHeight - introHeight
+      const cardNode = contentRef.current.querySelector('.card')
+      cardNode.style.marginTop = `${marginTop}px`
+    }
+  }, [title, imageUrl, textSize])
+
   return (
-    <div class='article-section' ref={contentRef}>
-      { imageUrl && <div class='lead-image' style={{ backgroundImage: `url(${imageUrl})` }} /> }
-      <div class={'card' + (imageUrl ? ' with-image' : '')}>
-        <div class='title adjustable-font-size' dangerouslySetInnerHTML={{ __html: title }} />
-        { description && (
-          <Fragment>
-            <div class='desc adjustable-font-size'>{description}</div>
-            <div class='line' />
-          </Fragment>
-        ) }
-        { actions && <ArticleActions actions={actions} /> }
+    <div
+      class='article-section'
+      ref={contentRef}
+      style={imageUrl ? { backgroundImage: `url(${imageUrl})` } : {}}>
+      <div class='card'>
+        <div class='intro'>
+          <div class='title adjustable-font-size' dangerouslySetInnerHTML={{ __html: title }} />
+          { description && (
+            <Fragment>
+              <div class='desc adjustable-font-size'>{description}</div>
+            </Fragment>
+          ) }
+          { actions && <ArticleActions actions={actions} /> }
+        </div>
         { isFooter
           ? <ArticleFooter lang={lang} title={articleTitle} items={suggestedArticles} />
           : <ArticleBody content={content} />
