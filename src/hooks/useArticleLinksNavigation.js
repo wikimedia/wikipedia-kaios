@@ -101,7 +101,7 @@ export const useArticleLinksNavigation = (
 const makeLinkClickEvent = link => {
   const title = link.getAttribute('title')
   if (title) {
-    if (title.includes(':') && /^http(s?):\/\//.test(link.href)) {
+    if (title.includes(':') && /^http(s?):\/\/(\w+)\.(\w+)\.org/.test(link.getAttribute('href'))) {
       return { type: 'external', href: link.href }
     }
     return { type: 'title', title }
