@@ -12,7 +12,9 @@ export const RadioListView = ({ items = [], header, containerRef, empty }) => {
                 <div class='title'>{item.title}</div>
                 { item.description && <div class='description'>{item.description}</div> }
               </div>
-              <div class={`radio ${item.isSelected ? 'selected' : ''}`} />
+              <div class='radio-container'>
+                <div class={`radio ${item.isSelected ? 'selected' : ''}`} />
+              </div>
             </div>
           )) : <div class='empty'>{empty}</div>
         }
