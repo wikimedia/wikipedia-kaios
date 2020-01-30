@@ -16,6 +16,8 @@
 	"app-subtitle": "الموسوعة الحرة",
 	"app-description": "من خلال تطبيق ويكيبيديا المجاني، ابحث واستكشف المعلومات من جميع أنحاء العالم بأكثر من 300 لغة.",
 	"confirm-section": "قم بزيارة القسم $1",
+	"gallery-description": "الوصف",
+	"gallery-author-license": "المؤلف والترخيص",
 	"header-menu": "قائمة المقالة",
 	"header-search": "نتائج البحث",
 	"header-sections": "الأقسام",
@@ -62,5 +64,7 @@
 	"settings-about-app": "عن التطبيق",
 	"textsize-increase": "اضغط 6 (زيادة الحجم)",
 	"textsize-decrease": "اضغط 4 (تقليل الحجم)",
-	"textsize-default": "اضغط 5 (الافتراضي)"
+	"textsize-default": "اضغط 5 (الافتراضي)",
+	"toc-footer": "مقالات مقترحة",
+	"view-in-browser": "اعرض المقالة في المتصفح"
 }
