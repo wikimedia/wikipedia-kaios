@@ -8,7 +8,7 @@ export class ArticlePage {
   }
 
   recommendationsList () {
-    return cy.get('.list a')
+    return cy.get('.article-footer .list a')
   }
 
   footerImage () {
