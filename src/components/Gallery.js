@@ -2,7 +2,7 @@ import { h } from 'preact'
 import { useState } from 'preact/hooks'
 import { useI18n, useSoftkey, usePopup } from 'hooks'
 
-const AboutContainer = ({ description, author, license, filePage, close }) => {
+const AboutContainer = ({ author, description, license, filePage, close }) => {
   const i18n = useI18n()
 
   useSoftkey('About', {
@@ -62,11 +62,11 @@ export const Gallery = ({ close, items }) => {
   }, [currentIndex])
 
   return (
-    <div class='gallery'>
+    <div class={`gallery ${items[currentIndex].caption ? 'hasHeader' : ''}`}>
       {
-        items[currentIndex].description && (
+        items[currentIndex].caption && (
           <div class='header'>
-            { items[currentIndex].description }
+            { items[currentIndex].caption }
           </div>
         )
       }
