@@ -74,12 +74,16 @@ const ArticleSection = ({
       titleNode.classList.add('clamp')
     }
     if (imageUrl) {
+      const cardNode = contentRef.current.querySelector('.card')
+      // Ensure .intro is completely visible to calculate its size
+      cardNode.style.marginTop = 0
+
       const introNode = contentRef.current.querySelector('.intro')
       let introHeight = introNode.getBoundingClientRect().height
       introHeight += 34 // Magic number needed to make it work
       const articleSectionHeight = contentRef.current.getBoundingClientRect().height
       const marginTop = articleSectionHeight - introHeight
-      const cardNode = contentRef.current.querySelector('.card')
+
       cardNode.style.marginTop = `${marginTop}px`
     }
   }, [title, imageUrl, textSize])
