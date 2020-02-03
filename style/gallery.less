@@ -20,10 +20,16 @@
 		align-items: center;
 		justify-content: center;
 		flex-direction: column;
-		height: calc( 100vh - @softkeysHeight - 27px );
+		height: calc( 100vh - @softkeysHeight );
 
 		img {
 			max-width: 100%;
+		}
+	}
+
+	&.hasHeader {
+		.img {
+			height: calc( 100vh - @softkeysHeight - 27px );
 		}
 	}
 }

@@ -9,6 +9,7 @@
 	"article-action-sections": "Odlomci",
 	"article-action-quickfacts": "Kratke činjenice",
 	"article-language-available": "Dostupno na $1 {{PLURAL:$1|jeziku|jezika}}",
+	"article-language-loading-message": "Učitavanje jezika...",
 	"article-loading-message": "Stranica se učitava...",
 	"app-title": "Wikipedija",
 	"app-subtitle": "Slobodna enciklopedija",

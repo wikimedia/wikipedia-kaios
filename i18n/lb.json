@@ -5,6 +5,7 @@
 		]
 	},
 	"article-action-sections": "Abschnitter",
+	"article-action-quickfacts": "Séier Fakten",
 	"app-title": "Wikipedia",
 	"app-subtitle": "Déi fräi Enzyklopedie",
 	"header-menu": "Menü vum Artikel",
@@ -28,13 +29,17 @@
 	"softkey-back": "Zréck",
 	"softkey-skip": "Iwwersprangen",
 	"softkey-get-started": "Fir unzefänken",
+	"suggested-articles": "PROPOSÉIERT ARTIKELEN",
 	"reference-title": "Referenz [$1]",
 	"offline-message": "Keng Internet Verbindung",
+	"onboarding-0-title": "Déi fräi Enzyklopedie",
 	"onboarding-2-title": "An iwwer 300 Sprooche sichen",
 	"settings-language": "Sprooch",
 	"settings-textsize": "Gréisst vum Text",
 	"settings-about-wikipedia": "Iwwer Wikipedia",
 	"settings-term": "Benotzungs-Bedingungen",
 	"settings-rate": "D'App bewäerten",
-	"settings-help-feedback": "Hëllef a Feedback"
+	"settings-help-feedback": "Hëllef a Feedback",
+	"toc-footer": "Proposéiert Artikelen",
+	"view-in-browser": "Artikel am Browser kucken"
 }

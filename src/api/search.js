@@ -8,10 +8,11 @@ export const search = (lang, term) => {
     pilimit: 15,
     ppprop: 'displaytitle',
     generator: 'prefixsearch',
+    redirects: true,
     pithumbsize: 64,
     gpslimit: 15,
     gpsnamespace: 0,
-    gpssearch: term
+    gpssearch: term.replace(/:/g, ' ')
   }
   const url = buildMwApiUrl(lang, params)
   return cachedFetch(url, data => {

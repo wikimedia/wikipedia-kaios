@@ -12,6 +12,7 @@
 	"app-title": "Wikipédia",
 	"app-subtitle": "Slobodná encyklopédia",
 	"app-description": "S aplikáciou Wikipédie môžete vyhľadávať a objavovať informácie z celého sveta vo viac ako 300 jazykoch.",
+	"content-license": "Obsah je dostupný pod <a class=\"external\" rel=\"mw:ExtLink\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">CC BY-SA 3.0</a>, pokiaľ nie je uvedené inak.",
 	"confirm-section": "Prejsť na sekciu „$1“",
 	"header-menu": "Článkové menu",
 	"header-search": "Výsledky vyhľadávania",
@@ -39,6 +40,7 @@
 	"softkey-back": "Späť",
 	"softkey-skip": "Preskočiť",
 	"softkey-get-started": "Začíname",
+	"suggested-articles": "NAVRHOVANÉ ČLÁNKY",
 	"reference-title": "Referencia [$1]",
 	"offline-message": "Žiadne pripojenie na internet",
 	"onboarding-0-title": "Slobodná encyklopédia",
@@ -59,5 +61,7 @@
 	"settings-about-app": "O aplikácii",
 	"textsize-increase": "Pre zväčšenie textu stlačte 6",
 	"textsize-decrease": "Pre zmenšenie textu stlačte 4",
-	"textsize-default": "Pre predvolenú veľkosť stlačte 5"
+	"textsize-default": "Pre predvolenú veľkosť stlačte 5",
+	"toc-footer": "Navrhované články",
+	"view-in-browser": "Zobraziť článok v prehliadači"
 }

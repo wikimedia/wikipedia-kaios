@@ -1,0 +1,30 @@
+{
+	"@metadata": {
+		"authors": [
+			"Starladin"
+		]
+	},
+	"article-error-message": "Nia poscibl da ciarié l'articul",
+	"gallery-description": "Descriziun",
+	"gallery-author-license": "Autur y lizënza",
+	"header-textsize": "Dimenjiun dl test dla usc",
+	"menu-textsize": "Dimenjiun dl test",
+	"no-result-found": "Degügn resultac ciafá",
+	"softkey-about": "Nfurmazions",
+	"softkey-more-info": "Deplü informaziuns",
+	"softkey-next": "Inant",
+	"softkey-back": "Zoruch",
+	"softkey-skip": "Lascia fora",
+	"softkey-get-started": "Mët man",
+	"softkey-refresh": "Ciaria danü",
+	"suggested-articles": "ARTICUI ACONSIÁ",
+	"onboarding-0-title": "L'enziclopedia lëdia",
+	"onboarding-0-description": "Wikipedia é na ressursa lëdia scrita en colaboraziun da volontars da döt le monn.",
+	"onboarding-2-title": "Chir te deplü co 300 lingac",
+	"onboarding-2-description": "Chir fora i lingac che as plü ion por chirí y lí.",
+	"textsize-increase": "Drüca 6 (aumentëia la dimenjiun)",
+	"textsize-decrease": "Drüca 4 (Smendrësc la dimenjiun)",
+	"textsize-default": "Drüca 5 (Default)",
+	"toc-footer": "Articui acunsiá",
+	"view-in-browser": "Ciari al articul tl browser"
+}

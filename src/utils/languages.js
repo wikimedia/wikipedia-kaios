@@ -1440,11 +1440,6 @@ const languages = [
     canonical_name: 'Herero',
     code: 'hz',
     name: 'Otsiherero'
-  },
-  {
-    canonical_name: 'Test Wiki',
-    code: 'test',
-    name: 'Test Wiki'
   }
 ]
 

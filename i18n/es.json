@@ -45,7 +45,7 @@
 	"softkey-back": "Volver",
 	"softkey-skip": "Saltar",
 	"softkey-get-started": "Empezar",
-	"suggested-articles": "ARTICULOS SUGERIDOS",
+	"suggested-articles": "ARTÍCULOS SUGERIDOS",
 	"reference-title": "Referencia [$1]",
 	"offline-message": "Sin conexión a internet",
 	"onboarding-0-title": "La enciclopedia libre",
@@ -67,6 +67,6 @@
 	"textsize-increase": "Presiona 6 (aumentar tamaño)",
 	"textsize-decrease": "Presiona 4 (disminuir tamaño)",
 	"textsize-default": "Presione 5 (predeterminado)",
-	"toc-footer": "Articulos sugeridos",
+	"toc-footer": "Artículos sugeridos",
 	"view-in-browser": "Ver artículo en el navegador"
 }

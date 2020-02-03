@@ -8,6 +8,7 @@
 	},
 	"article-action-sections": "Sezioni",
 	"article-language-available": "Disponibile in $1 {{PLURAL:$1|lingua|lingue}}",
+	"article-language-loading-message": "Caricamento lingue...",
 	"article-loading-message": "Caricamento pagina...",
 	"app-title": "Wikipedia",
 	"app-subtitle": "L'enciclopedia libera",

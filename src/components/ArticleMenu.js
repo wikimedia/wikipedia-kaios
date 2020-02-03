@@ -67,7 +67,7 @@ export const ArticleMenu = ({
   // add Language Section item
   if (hasLanguages) {
     items.push({
-      title: i18n.i18n('menu-language'),
+      title: i18n.i18n('article-action-languages'),
       action: onLanguageSelected
     })
   }
