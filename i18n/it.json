@@ -7,6 +7,8 @@
 		]
 	},
 	"article-action-sections": "Sezioni",
+	"article-action-gallery": "Galleria",
+	"article-action-languages": "Lingua",
 	"article-language-available": "Disponibile in $1 {{PLURAL:$1|lingua|lingue}}",
 	"article-language-loading-message": "Caricamento lingue...",
 	"article-loading-message": "Caricamento pagina...",
@@ -21,7 +23,6 @@
 	"header-settings": "Impostazioni",
 	"header-textsize": "Dimensione del testo della voce",
 	"menu-previous": "Voce precedente",
-	"menu-language": "Lingua",
 	"no-result-found": "Nessun risultato trovato",
 	"softkey-done": "Fatto",
 	"softkey-search": "Cerca",

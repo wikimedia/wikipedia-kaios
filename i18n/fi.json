@@ -2,12 +2,16 @@
 	"@metadata": {
 		"authors": [
 			"Pyscowicz",
-			"Nike"
+			"Nike",
+			"FinlandMan"
 		]
 	},
 	"article-action-sections": "Osiot",
 	"article-action-quickfacts": "Pikafaktoja",
+	"article-action-gallery": "Galleria",
+	"article-action-languages": "Kieli",
 	"article-language-available": "Saatavilla {{PLURAL:$1}} kielellä",
+	"article-language-loading-message": "Ladataan kieliä...",
 	"article-loading-message": "Ladataan sivua...",
 	"article-error-message": "Sivun lataaminen epäonnistui",
 	"app-title": "Wikipedia",
@@ -24,7 +28,6 @@
 	"header-settings": "Asetukset",
 	"header-textsize": "Artikkelitekstin koko",
 	"menu-previous": "Edellinen artikkeli",
-	"menu-language": "Kieli",
 	"menu-textsize": "Tekstin koko",
 	"no-result-found": "Tuloksia ei löytynyt",
 	"softkey-about": "Tietoja",

@@ -7,6 +7,7 @@
 		]
 	},
 	"article-action-sections": "부분",
+	"article-action-languages": "언어",
 	"article-language-available": "$1개 {{PLURAL:$1|언어}}로 읽을 수 있음",
 	"article-loading-message": "문서를 불러오는 중...",
 	"app-title": "위키백과",
@@ -18,7 +19,6 @@
 	"header-settings": "설정",
 	"header-textsize": "실제 텍스트 크기",
 	"menu-previous": "이전 글",
-	"menu-language": "언어",
 	"menu-textsize": "텍스트 크기",
 	"no-result-found": "결과가 없습니다",
 	"softkey-done": "완료",
