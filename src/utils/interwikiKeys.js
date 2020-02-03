@@ -26,5 +26,4 @@ export const INTERWIKI_KEYS = [
   'testwiki',
   'wikitech',
   'toolforge'
-
 ]
