@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'preact/hooks'
 import { useSoftkey, usePopup, useI18n } from 'hooks'
-import { viewport } from 'utils'
+import { viewport, INTERWIKI_KEYS } from 'utils'
 import { ArticlePreview } from 'components'
 
 const SELECTED_ATTRIBUTE = 'data-selected'
@@ -101,7 +101,7 @@ export const useArticleLinksNavigation = (
 const makeLinkClickEvent = link => {
   const title = link.getAttribute('title')
   if (title) {
-    if (title.includes(':') && /^http(s?):\/\/(\w+)\.(\w+)\.org/.test(link.getAttribute('href'))) {
+    if (title.includes(':') && INTERWIKI_KEYS.includes(title.split(':')[0])) {
       return { type: 'external', href: link.href }
     }
     return { type: 'title', title }
