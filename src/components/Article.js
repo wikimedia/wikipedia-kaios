@@ -156,18 +156,20 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
     showQuickFactsPopup({ article })
   }
 
+  const showGallery = () => {
+    showGalleryPopup({ items: article.media })
+  }
+
   const showArticleMenu = () => {
     showMenuPopup({
       onTocSelected: showArticleTocPopup,
       onLanguageSelected: showArticleLanguagePopup,
       onQuickFactsSelected: showQuickFacts,
+      onGallerySelected: showGallery,
       hasInfobox: !!article.infobox,
-      hasLanguages: article.languageCount
+      hasLanguages: article.languageCount,
+      hasGallery: !!article.media.length
     })
-  }
-
-  const showGallery = () => {
-    showGalleryPopup({ items: article.media })
   }
 
   useSoftkey('Article', {
