@@ -69,5 +69,9 @@
 	"settings-about-app": "Label of the About the app item list. Shown in the Settings menu, used in showing the information of this app",
 	"textsize-increase": "Label of the press key to increase the text size. Shown in the Text Size page.",
 	"textsize-decrease": "Label of the press key to decrease the text size. Shown in the Text Size page.",
-	"textsize-default": "Label of the press key to set the text size to be default. Shown in the Text Size page."
+	"textsize-default": "Label of the press key to set the text size to be default. Shown in the Text Size page.",
+	"content-license": "Text and links for the content license. Shown in the footer",
+	"suggested-articles": "Label of the Suggested articles section. Shown in the footer",
+	"toc-footer": "Label in the sections for the footer link",
+	"view-in-browser": "Label for the view in browser link. Shown in the footer"
 }
