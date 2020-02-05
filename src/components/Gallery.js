@@ -1,6 +1,8 @@
 import { h } from 'preact'
-import { useState } from 'preact/hooks'
+import { useState, useLayoutEffect } from 'preact/hooks'
 import { useI18n, useSoftkey, usePopup } from 'hooks'
+
+const MAX_DESCRIPTION_HEIGHT = 44
 
 const AboutContainer = ({ author, description, license, filePage, close }) => {
   const i18n = useI18n()
@@ -10,6 +12,14 @@ const AboutContainer = ({ author, description, license, filePage, close }) => {
     onKeyRight: close,
     left: i18n.i18n('softkey-more-info'),
     onKeyLeft: () => { window.open(filePage) }
+  })
+
+  useLayoutEffect(() => {
+    const descriptionNode = document.querySelector('.description')
+
+    if (descriptionNode.getBoundingClientRect().height > MAX_DESCRIPTION_HEIGHT) {
+      descriptionNode.classList.add('clamp')
+    }
   })
 
   return (
