@@ -62,29 +62,7 @@
 		overflow: hidden;
 
 		&.description {
-			&.clamp {
-				max-height: 44px;
-				overflow: hidden;
-				position: relative;
-
-				&:before {
-					content: '...';
-					position: absolute;
-					right: 0;
-					bottom: 0;
-					background: #fff;
-				}
-
-				&:after {
-					content: '';
-					position: absolute;
-					right: 1em;
-					width: 1em;
-					height: 1em;
-					margin-top: 0.2em;
-					background: #fff;
-				}
-			}
+			.clampMixin( 44px );
 		}
 	}
 }
