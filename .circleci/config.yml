@@ -10,6 +10,7 @@ jobs:
           command: |
             npm install
             npm run build
+            npm run banana
             npm run start &
             npm test
       - store_artifacts:

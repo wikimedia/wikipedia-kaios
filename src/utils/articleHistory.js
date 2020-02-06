@@ -1,3 +1,5 @@
+import { normalizeTitle } from 'utils'
+
 const KEY = 'article-history'
 
 const get = () => {
@@ -10,7 +12,8 @@ const set = list => {
 
 const add = (lang, title) => {
   const list = JSON.parse(localStorage.getItem(KEY)) || []
-  list.push({ lang, title })
+  const normalizedTitle = normalizeTitle(title)
+  list.push({ lang, title: normalizedTitle })
   set(list)
 }
 
