@@ -5,9 +5,9 @@ import { viewport } from 'utils'
 export const useArticlePagination = (
   elementRef,
   article,
-  subTitle
+  anchor
 ) => {
-  const [currentSection, setCurrentSection] = useState(findSection(article.toc, subTitle))
+  const [currentSection, setCurrentSection] = useState(findSection(article.toc, anchor))
   const [isLastPage, setIsLastPage] = useState(0)
   const [currentPage, setCurrentPage] = useState(0)
   const numOfSection = article.sections.length
@@ -53,20 +53,20 @@ export const useArticlePagination = (
   }, [currentSection])
 
   useLayoutEffect(() => {
-    if (subTitle) {
-      const subTitleElement = Array
+    if (anchor) {
+      const anchorElement = Array
         .from(elementRef.current.querySelectorAll('.title, h3, h4'))
-        .find(e => e.textContent === subTitle)
+        .find(e => e.getAttribute('data-anchor') === anchor)
 
-      if (subTitleElement) {
+      if (anchorElement) {
         const offset = Math.floor(
-          subTitleElement.getBoundingClientRect().left / viewport.width
+          anchorElement.getBoundingClientRect().left / viewport.width
         )
         elementRef.current.scrollLeft += offset * viewport.width
         setCurrentPage(elementRef.current.scrollLeft / viewport.width)
       }
     }
-  }, [subTitle])
+  }, [anchor])
 
   const showNextSection = () => {
     const nextSection = currentSection + 1
@@ -86,9 +86,9 @@ export const useArticlePagination = (
   return [currentSection, setCurrentSection, currentPage]
 }
 
-const findSection = (toc, title) => {
-  if (!title) {
+const findSection = (toc, anchor) => {
+  if (!anchor) {
     return 0
   }
-  return toc.find(item => item.line === title).sectionIndex
+  return toc.find(item => item.anchor === anchor).sectionIndex
 }

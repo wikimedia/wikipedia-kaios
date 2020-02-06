@@ -1,4 +1,3 @@
-
 export const normalizeTitle = title => {
-  return title.replace(' ', '_')
+  return title.split('_').join(' ')
 }

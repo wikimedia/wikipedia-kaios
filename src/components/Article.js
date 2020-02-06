@@ -37,7 +37,7 @@ const ArticleActions = ({ actions }) => {
 }
 
 const ArticleSection = ({
-  lang, imageUrl, title, description, actions, isFooter,
+  lang, imageUrl, anchor, title, description, actions, isFooter,
   content, page, goToSubpage, references,
   articleTitle, suggestedArticles
 }) => {
@@ -95,7 +95,7 @@ const ArticleSection = ({
       style={imageUrl ? { backgroundImage: `url(${imageUrl})` } : {}}>
       <div class='card'>
         <div class='intro'>
-          <div class='title adjustable-font-size' dangerouslySetInnerHTML={{ __html: title }} />
+          <div class='title adjustable-font-size' data-anchor={anchor} dangerouslySetInnerHTML={{ __html: title }} />
           { description && (
             <Fragment>
               <div class='desc adjustable-font-size'>{description}</div>
@@ -112,7 +112,7 @@ const ArticleSection = ({
   )
 }
 
-const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
+const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
   const i18n = useI18n()
   const containerRef = useRef()
   const [article, loadArticle] = useArticle(lang, articleTitle)
@@ -125,27 +125,27 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
     return <Error message={i18n.i18n('article-error-message')} onRefresh={loadArticle} />
   }
 
-  const [subTitle, setSubTitle] = useState(initialSubTitle)
+  const [anchor, setAnchor] = useState(initialAnchor)
   const [showTocPopup] = usePopup(ArticleToc, { mode: 'fullscreen' })
   const [showQuickFactsPopup] = usePopup(QuickFacts, { mode: 'fullscreen' })
   const [showLanguagePopup] = usePopup(ArticleLanguage, { mode: 'fullscreen' })
   const [showMenuPopup] = usePopup(ArticleMenu, { mode: 'fullscreen' })
   const [showGalleryPopup] = usePopup(Gallery, { mode: 'fullscreen' })
-  const [currentSection, setCurrentSection, currentPage] = useArticlePagination(containerRef, article, subTitle)
+  const [currentSection, setCurrentSection, currentPage] = useArticlePagination(containerRef, article, anchor)
   const section = article.sections[currentSection]
-  const goToArticleSubpage = ({ sectionIndex, title }) => {
+  const goToArticleSubpage = ({ sectionIndex, anchor }) => {
     setCurrentSection(
       sectionIndex !== undefined
         ? sectionIndex
-        : article.toc.find(item => item.line === title).sectionIndex
+        : article.toc.find(item => item.anchor === anchor).sectionIndex
     )
-    setSubTitle(title)
-    goto.article(lang, [articleTitle, title], true)
+    setAnchor(anchor)
+    goto.article(lang, [articleTitle, anchor], true)
   }
 
   const showArticleTocPopup = () => {
-    const currentTitle = findCurrentLocatedTitleOrSubtitle(containerRef)
-    showTocPopup({ items: article.toc, currentTitle, onSelectItem: goToArticleSubpage })
+    const currentAnchor = findCurrentLocatedAnchor(containerRef)
+    showTocPopup({ items: article.toc, currentAnchor, onSelectItem: goToArticleSubpage })
   }
 
   const showArticleLanguagePopup = () => {
@@ -205,13 +205,13 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
   )
 }
 
-export const Article = ({ lang, title: articleTitle, subtitle: initialSubTitle }) => {
+export const Article = ({ lang, title: articleTitle, anchor: initialAnchor }) => {
   return (
-    <ArticleInner lang={lang} articleTitle={articleTitle} initialSubTitle={initialSubTitle} key={lang + articleTitle} />
+    <ArticleInner lang={lang} articleTitle={articleTitle} initialAnchor={initialAnchor} key={lang + articleTitle} />
   )
 }
 
-const findCurrentLocatedTitleOrSubtitle = ref => {
+const findCurrentLocatedAnchor = ref => {
   let element
   Array.from(ref.current.querySelectorAll('.title, h3, h4'))
     .find(ref => {
@@ -219,5 +219,5 @@ const findCurrentLocatedTitleOrSubtitle = ref => {
         element = ref
       }
     })
-  return element.textContent
+  return element.getAttribute('data-anchor')
 }

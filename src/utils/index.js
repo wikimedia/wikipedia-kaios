@@ -1,6 +1,7 @@
 export * from './articleTextSize'
 export * from './articleHistory'
 export * from './cachedFetch'
+export * from './canonicalizeTitle'
 export * from './confirm'
 export * from './goto'
 export * from './interwikiKeys'

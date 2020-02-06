@@ -4,7 +4,9 @@
 			"Saederup92"
 		]
 	},
+	"article-action-gallery": "Galleri",
 	"article-action-languages": "Sprog",
+	"article-language-loading-message": "Indlæser sprog...",
 	"article-loading-message": "Indlæser siden...",
 	"app-subtitle": "Den frie encyklopædi",
 	"header-settings": "Indstillinger",
