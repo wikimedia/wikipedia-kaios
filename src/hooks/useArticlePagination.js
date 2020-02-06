@@ -54,13 +54,13 @@ export const useArticlePagination = (
 
   useLayoutEffect(() => {
     if (subTitle) {
-      const subTitleElement = Array
+      const anchorElement = Array
         .from(elementRef.current.querySelectorAll('.title, h3, h4'))
-        .find(e => e.textContent === subTitle)
+        .find(e => e.getAttribute('data-anchor') === subTitle)
 
-      if (subTitleElement) {
+      if (anchorElement) {
         const offset = Math.floor(
-          subTitleElement.getBoundingClientRect().left / viewport.width
+          anchorElement.getBoundingClientRect().left / viewport.width
         )
         elementRef.current.scrollLeft += offset * viewport.width
         setCurrentPage(elementRef.current.scrollLeft / viewport.width)
@@ -90,5 +90,5 @@ const findSection = (toc, title) => {
   if (!title) {
     return 0
   }
-  return toc.find(item => item.line === title).sectionIndex
+  return toc.find(item => item.anchor === title).sectionIndex
 }

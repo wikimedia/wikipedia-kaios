@@ -3,7 +3,7 @@ import { useRef, useLayoutEffect } from 'preact/hooks'
 import { useNavigation, useI18n, useSoftkey } from 'hooks'
 import { ListView } from 'components'
 
-export const ArticleToc = ({ items, currentTitle, onSelectItem, close }) => {
+export const ArticleToc = ({ items, currentAnchor, onSelectItem, close }) => {
   const containerRef = useRef()
   const i18n = useI18n()
   const listItems = parseTocItems(items)
@@ -25,7 +25,7 @@ export const ArticleToc = ({ items, currentTitle, onSelectItem, close }) => {
   })
 
   useLayoutEffect(() => {
-    setNavigation(listItems.findIndex(item => item.title === currentTitle))
+    setNavigation(listItems.findIndex(item => item.anchor === currentAnchor))
   }, [])
 
   return <div class='toc'>
@@ -36,8 +36,9 @@ export const ArticleToc = ({ items, currentTitle, onSelectItem, close }) => {
 const parseTocItems = items => {
   return items.map(item => {
     const title = item.line
+    const anchor = item.anchor
     const sectionIndex = item.sectionIndex
     const titleHtml = item.level > 1 ? `<span class="subheader${item.level}">${item.line}</span>` : ''
-    return { title, sectionIndex, titleHtml }
+    return { anchor, title, sectionIndex, titleHtml }
   })
 }

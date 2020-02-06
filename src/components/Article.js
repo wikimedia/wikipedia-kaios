@@ -37,7 +37,7 @@ const ArticleActions = ({ actions }) => {
 }
 
 const ArticleSection = ({
-  lang, imageUrl, title, description, actions, isFooter,
+  lang, imageUrl, anchor, title, description, actions, isFooter,
   content, page, goToSubpage, references,
   articleTitle, suggestedArticles
 }) => {
@@ -95,7 +95,7 @@ const ArticleSection = ({
       style={imageUrl ? { backgroundImage: `url(${imageUrl})` } : {}}>
       <div class='card'>
         <div class='intro'>
-          <div class='title adjustable-font-size' dangerouslySetInnerHTML={{ __html: title }} />
+          <div class='title adjustable-font-size' data-anchor={anchor} dangerouslySetInnerHTML={{ __html: title }} />
           { description && (
             <Fragment>
               <div class='desc adjustable-font-size'>{description}</div>
@@ -133,19 +133,19 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
   const [showGalleryPopup] = usePopup(Gallery, { mode: 'fullscreen' })
   const [currentSection, setCurrentSection, currentPage] = useArticlePagination(containerRef, article, subTitle)
   const section = article.sections[currentSection]
-  const goToArticleSubpage = ({ sectionIndex, title }) => {
+  const goToArticleSubpage = ({ sectionIndex, anchor }) => {
     setCurrentSection(
       sectionIndex !== undefined
         ? sectionIndex
-        : article.toc.find(item => item.line === title).sectionIndex
+        : article.toc.find(item => item.anchor === anchor).sectionIndex
     )
-    setSubTitle(title)
-    goto.article(lang, [articleTitle, title], true)
+    setSubTitle(anchor)
+    goto.article(lang, [articleTitle, anchor], true)
   }
 
   const showArticleTocPopup = () => {
-    const currentTitle = findCurrentLocatedTitleOrSubtitle(containerRef)
-    showTocPopup({ items: article.toc, currentTitle, onSelectItem: goToArticleSubpage })
+    const currentAnchor = findCurrentLocatedAnchor(containerRef)
+    showTocPopup({ items: article.toc, currentAnchor, onSelectItem: goToArticleSubpage })
   }
 
   const showArticleLanguagePopup = () => {
@@ -211,7 +211,7 @@ export const Article = ({ lang, title: articleTitle, subtitle: initialSubTitle }
   )
 }
 
-const findCurrentLocatedTitleOrSubtitle = ref => {
+const findCurrentLocatedAnchor = ref => {
   let element
   Array.from(ref.current.querySelectorAll('.title, h3, h4'))
     .find(ref => {
@@ -219,5 +219,5 @@ const findCurrentLocatedTitleOrSubtitle = ref => {
         element = ref
       }
     })
-  return element.textContent
+  return element.getAttribute('data-anchor')
 }
