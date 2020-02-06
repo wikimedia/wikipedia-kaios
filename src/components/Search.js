@@ -1,7 +1,10 @@
 import { h } from 'preact'
 import { useRef, useEffect } from 'preact/hooks'
 import { ListView } from 'components'
-import { useNavigation, useSearch, useI18n, useSoftkey, useOnlineStatus } from 'hooks'
+import {
+  useNavigation, useSearch, useI18n, useSoftkey,
+  useOnlineStatus, useTracking
+} from 'hooks'
 import { articleHistory, goto } from 'utils'
 import { getRandomArticleTitle } from 'api'
 
@@ -55,6 +58,8 @@ export const Search = () => {
     onKeyCenter,
     onKeyRight: goToRandomArticle
   }, [current.type])
+
+  useTracking('Search')
 
   useEffect(() => {
     articleHistory.clear()

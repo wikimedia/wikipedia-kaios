@@ -78,6 +78,7 @@ export const getArticle = (lang, title) => {
 
     return {
       contentLang: lang,
+      namespace: data.lead.ns,
       sections,
       infobox,
       toc,

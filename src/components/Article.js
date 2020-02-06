@@ -9,7 +9,7 @@ import {
 import {
   useArticle, useI18n, useSoftkey,
   useArticlePagination, useArticleLinksNavigation, useArticleTextSize,
-  usePopup
+  usePopup, useTracking
 } from 'hooks'
 import { articleHistory, confirmDialog, goto, viewport } from 'utils'
 
@@ -124,6 +124,10 @@ const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
   if (article.error) {
     return <Error message={i18n.i18n('article-error-message')} onRefresh={loadArticle} />
   }
+
+  const sectionCount = article.toc.filter(s => s.level === 1).length
+  const openedSections = 0 // todo
+  useTracking('Article', article.namespace, sectionCount, openedSections)
 
   const [anchor, setAnchor] = useState(initialAnchor)
   const [showTocPopup] = usePopup(ArticleToc, { mode: 'fullscreen' })
