@@ -2,7 +2,7 @@ import { h } from 'preact'
 import { useState, useRef, useLayoutEffect } from 'preact/hooks'
 import { useI18n, useSoftkey, usePopup } from 'hooks'
 
-const MAX_DESCRIPTION_HEIGHT = 44
+const MAX_DESCRIPTION_HEIGHT = 45
 
 const AboutContainer = ({ author, description, license, filePage, close }) => {
   const i18n = useI18n()
