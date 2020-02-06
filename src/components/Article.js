@@ -112,7 +112,7 @@ const ArticleSection = ({
   )
 }
 
-const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
+const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
   const i18n = useI18n()
   const containerRef = useRef()
   const [article, loadArticle] = useArticle(lang, articleTitle)
@@ -125,13 +125,13 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
     return <Error message={i18n.i18n('article-error-message')} onRefresh={loadArticle} />
   }
 
-  const [subTitle, setSubTitle] = useState(initialSubTitle)
+  const [anchor, setAnchor] = useState(initialAnchor)
   const [showTocPopup] = usePopup(ArticleToc, { mode: 'fullscreen' })
   const [showQuickFactsPopup] = usePopup(QuickFacts, { mode: 'fullscreen' })
   const [showLanguagePopup] = usePopup(ArticleLanguage, { mode: 'fullscreen' })
   const [showMenuPopup] = usePopup(ArticleMenu, { mode: 'fullscreen' })
   const [showGalleryPopup] = usePopup(Gallery, { mode: 'fullscreen' })
-  const [currentSection, setCurrentSection, currentPage] = useArticlePagination(containerRef, article, subTitle)
+  const [currentSection, setCurrentSection, currentPage] = useArticlePagination(containerRef, article, anchor)
   const section = article.sections[currentSection]
   const goToArticleSubpage = ({ sectionIndex, anchor }) => {
     setCurrentSection(
@@ -139,7 +139,7 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
         ? sectionIndex
         : article.toc.find(item => item.anchor === anchor).sectionIndex
     )
-    setSubTitle(anchor)
+    setAnchor(anchor)
     goto.article(lang, [articleTitle, anchor], true)
   }
 
@@ -205,9 +205,9 @@ const ArticleInner = ({ lang, articleTitle, initialSubTitle }) => {
   )
 }
 
-export const Article = ({ lang, title: articleTitle, subtitle: initialSubTitle }) => {
+export const Article = ({ lang, title: articleTitle, anchor: initialAnchor }) => {
   return (
-    <ArticleInner lang={lang} articleTitle={articleTitle} initialSubTitle={initialSubTitle} key={lang + articleTitle} />
+    <ArticleInner lang={lang} articleTitle={articleTitle} initialAnchor={initialAnchor} key={lang + articleTitle} />
   )
 }
 
