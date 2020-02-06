@@ -6,6 +6,7 @@
 	},
 	"article-action-sections": "Seções",
 	"article-action-quickfacts": "Fatos rápidos",
+	"article-action-gallery": "Galeria",
 	"article-action-languages": "Idioma",
 	"article-language-available": "Disponível em $1 {{PLURAL:$1|idioma|idiomas}}",
 	"article-language-loading-message": "Carregando idiomas...",

@@ -7,6 +7,7 @@
 	},
 	"article-action-sections": "အပိုင်းများ",
 	"article-action-quickfacts": "အချက်တိုများ",
+	"article-action-gallery": "ပြခန်း",
 	"article-action-languages": "ဘာသာစကား",
 	"article-language-available": "$1 {{PLURAL:$1|ဘာသာစကား|ဘာသာစကားများ}}တွင် ရရှိနိုင်ပါသည်",
 	"article-language-loading-message": "ဘာသာစကားများ ဝန်ဆွဲတင်နေသည်...",

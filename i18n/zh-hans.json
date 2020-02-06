@@ -3,19 +3,24 @@
 		"authors": [
 			"沈澄心",
 			"Josephine W.",
-			"VulpesVulpes825"
+			"VulpesVulpes825",
+			"铁桶"
 		]
 	},
 	"article-action-quickfacts": "快速预览",
+	"article-action-gallery": "图库",
 	"article-action-languages": "语言",
+	"article-language-loading-message": "正在加载语言...",
 	"article-loading-message": "正在加载页面……",
 	"app-title": "维基百科",
 	"app-subtitle": "自由的百科全书",
+	"gallery-about-header": "关于",
 	"header-search": "搜索结果",
 	"header-settings": "设置",
 	"header-textsize": "条目文字大小",
 	"menu-previous": "上一条目",
 	"menu-textsize": "文字大小",
+	"softkey-about": "关于",
 	"softkey-done": "完成",
 	"softkey-search": "搜索",
 	"search-language-placeholder": "搜索语言",
