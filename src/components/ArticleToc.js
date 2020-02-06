@@ -35,10 +35,9 @@ export const ArticleToc = ({ items, currentAnchor, onSelectItem, close }) => {
 
 const parseTocItems = items => {
   return items.map(item => {
-    const title = item.line
     const anchor = item.anchor
     const sectionIndex = item.sectionIndex
-    const titleHtml = item.level > 1 ? `<span class="subheader${item.level}">${item.line}</span>` : ''
-    return { anchor, title, sectionIndex, titleHtml }
+    const displayTitle = item.level > 1 ? `<span class="subheader${item.level}">${item.line}</span>` : item.line
+    return { anchor, title: anchor, sectionIndex, displayTitle }
   })
 }
