@@ -1,4 +1,4 @@
-import { cachedFetch, buildPcsUrl } from 'utils'
+import { cachedFetch, buildPcsUrl, canonicalizeTitle } from 'utils'
 
 export const getArticle = (lang, title) => {
   const url = buildPcsUrl(lang, title, 'mobile-sections')
@@ -19,6 +19,7 @@ export const getArticle = (lang, title) => {
     sections.push({
       imageUrl,
       title: data.lead.displaytitle,
+      anchor: canonicalizeTitle(data.lead.normalizedtitle),
       description: data.lead.description,
       content: fixImageUrl(data.lead.sections[0].text),
       preview
@@ -26,6 +27,7 @@ export const getArticle = (lang, title) => {
     toc.push({
       level: 1,
       line: data.lead.displaytitle,
+      anchor: canonicalizeTitle(data.lead.normalizedtitle),
       sectionIndex: 0
     })
 
@@ -37,6 +39,7 @@ export const getArticle = (lang, title) => {
         const imgFound = searchForFirstImage(sectionDoc)
         sections.push({
           title: s.line,
+          anchor: s.anchor,
           content: fixImageUrl(s.text),
           imageUrl: imgFound || imageUrl
         })
@@ -44,7 +47,7 @@ export const getArticle = (lang, title) => {
         // group into previous section when toclevel > 1
         const previousSection = sections[sections.length - 1]
         const header = 'h' + (s.toclevel + 1)
-        const headerLine = `<${header}>${s.line}</${header}>`
+        const headerLine = `<${header} data-anchor=${s.anchor}>${s.line}</${header}>`
         previousSection.content += fixImageUrl(headerLine + s.text)
 
         if (previousSection.imageUrl === imageUrl) {
@@ -59,6 +62,7 @@ export const getArticle = (lang, title) => {
       s.toclevel <= 3 && toc.push({
         level: s.toclevel,
         line: convertPlainText(s.line),
+        anchor: s.anchor,
         sectionIndex: sections.length - 1
       })
 
