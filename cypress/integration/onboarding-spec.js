@@ -3,6 +3,7 @@
 import { OnboardingPage } from '../page-objects/onboarding-page'
 import { SearchPage } from '../page-objects/search-page'
 import * as enJson from '../../i18n/en.json'
+import * as ptJson from '../../i18n/pt.json'
 
 const onboardingPage = new OnboardingPage()
 const searchPage = new SearchPage()
@@ -69,7 +70,15 @@ describe('Onboarding', () => {
     cy.getRightSoftkeyButton().should('have.text', 'Next')
     cy.getLeftSoftkeyButton().should('have.text', 'Skip')
   })
-})
 
-// TODO: change the browser language and check for the change in the onboarding
-// right now I can't find a way to do this on cypress, all the examples I've found online don't work
+  it('change language and check onboarding', () => {
+    cy.visit('http://127.0.0.1:8080', {
+      onBeforeLoad (win) {
+        Object.defineProperty(win.navigator, 'language', {
+          get: cy.stub().returns('pt-PT').as('language')
+        })
+      }
+    })
+    onboardingPage.getTitle().should('have.text', ptJson['onboarding-0-title'])
+  })
+})
