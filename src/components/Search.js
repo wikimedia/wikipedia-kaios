@@ -53,7 +53,8 @@ export const Search = () => {
     onKeyLeft: () => { window.location.hash = '/settings' },
     center: current.type === 'DIV' ? i18n.i18n('centerkey-select') : '',
     onKeyCenter,
-    onKeyRight: goToRandomArticle
+    onKeyRight: goToRandomArticle,
+    onKeyboard4: () => { window.location.hash = '/testvideo' }
   }, [current.type])
 
   useEffect(() => {
