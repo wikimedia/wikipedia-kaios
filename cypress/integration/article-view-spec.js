@@ -39,4 +39,16 @@ describe('Article view', () => {
     articlePage.footerLicense().should('exist')
       .should('exist')
   })
+
+  it('check image gallery', () => {
+    searchPage.search('cat')
+    searchPage.results().first()
+    cy.enter().downArrow().enter()
+    articlePage.title().should('have.text', 'Cat')
+    cy.rightArrow().rightArrow().enter()
+    articlePage.galleryImage().should('be.visible')
+    cy.enter()
+    articlePage.galleryPopupHeader().should('be.visible')
+    cy.getLeftSoftkeyButton().should('have.text', enJson['softkey-more-info'])
+  })
 })
