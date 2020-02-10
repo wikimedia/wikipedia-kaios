@@ -22,4 +22,12 @@ export class ArticlePage {
   footerLinkToWikipedia () {
     return cy.get('.browser .external')
   }
+
+  galleryImage () {
+    return cy.get('div.gallery > div.img > img')
+  }
+
+  galleryPopupHeader () {
+    return cy.get('div.gallery-about > div.header')
+  }
 }
