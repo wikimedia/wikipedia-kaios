@@ -26,7 +26,7 @@ export const getArticle = (lang, title) => {
     })
     toc.push({
       level: 1,
-      line: data.lead.displaytitle,
+      line: data.lead.normalizedtitle,
       anchor: canonicalizeTitle(data.lead.normalizedtitle),
       sectionIndex: 0
     })
