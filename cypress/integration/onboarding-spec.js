@@ -72,13 +72,7 @@ describe('Onboarding', () => {
   })
 
   it('change language and check onboarding', () => {
-    cy.visit('http://127.0.0.1:8080', {
-      onBeforeLoad (win) {
-        Object.defineProperty(win.navigator, 'language', {
-          get: cy.stub().returns('pt-PT').as('language')
-        })
-      }
-    })
+    cy.changeBrowserLanguageAndGoToHomePage('pt-PT')
     onboardingPage.getTitle().should('have.text', ptJson['onboarding-0-title'])
   })
 })
