@@ -2,10 +2,12 @@
 
 import { SearchPage } from '../page-objects/search-page'
 import { ArticlePage } from '../page-objects/article-page'
+import { QuickFactsPage } from '../page-objects/quick-facts-page'
 import * as enJson from '../../i18n/en.json'
 
 const searchPage = new SearchPage()
 const articlePage = new ArticlePage()
+const quickFactsPage = new QuickFactsPage()
 
 describe('Article view', () => {
   beforeEach(() => {
@@ -50,5 +52,17 @@ describe('Article view', () => {
     cy.enter()
     articlePage.galleryPopupHeader().should('be.visible')
     cy.getLeftSoftkeyButton().should('have.text', enJson['softkey-more-info'])
+  })
+
+  it('check quick facts opens', () => {
+    searchPage.search('cat')
+    searchPage.results().first()
+    cy.enter().downArrow().enter()
+    articlePage.title().should('have.text', 'Cat')
+    articlePage.goToQuickFactsFromArticleLandingPage()
+    quickFactsPage.table().should('contains.text', 'Various types of domestic cat')
+    cy.getRightSoftkeyButton().click()
+    articlePage.goToQuickFactsFromMenu()
+    quickFactsPage.table().should('contains.text', 'Various types of domestic cat')
   })
 })
