@@ -10,7 +10,8 @@ const SUPPORTED_LINKS = [
   'a[title]',
   'a[href^="#cite_note"]',
   'a[rel="mw:ExtLink"]',
-  'a[href^="#"]'
+  'a[href^="#"]',
+  'figure.mw-default-size'
 ].join(',')
 
 export const useArticleLinksNavigation = (
@@ -123,6 +124,13 @@ const makeLinkClickEvent = link => {
 
   if (link.hash) {
     return { type: 'section', text: link.textContent, anchor: link.getAttribute('href').slice(1) }
+  }
+
+  if (link.tagName === 'FIGURE') {
+    const aElement = link.querySelector('a')
+    const href = aElement.getAttribute('href')
+    const fileName = href.slice(6)
+    return { type: 'gallery', fileName }
   }
 }
 

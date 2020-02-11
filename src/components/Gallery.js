@@ -53,9 +53,9 @@ const AboutContainer = ({ author, description, license, filePage, close }) => {
   )
 }
 
-export const Gallery = ({ close, items }) => {
+export const Gallery = ({ close, items, startIndex = 0 }) => {
   const i18n = useI18n()
-  const [currentIndex, setCurrentIndex] = useState(0)
+  const [currentIndex, setCurrentIndex] = useState(startIndex)
   const [showAboutPopup] = usePopup(AboutContainer, { stack: true })
 
   const onNextImage = () => {
