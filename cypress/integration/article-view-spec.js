@@ -54,7 +54,7 @@ describe('Article view', () => {
     cy.getLeftSoftkeyButton().should('have.text', enJson['softkey-more-info'])
   })
 
-  it.only('check quick facts opens', () => {
+  it('check quick facts opens', () => {
     searchPage.search('cat')
     searchPage.results().first()
     cy.enter().downArrow().enter()

@@ -36,7 +36,7 @@ export class ArticlePage {
     cy.downArrow().downArrow()
     cy.enter()
   }
-  
+
   goToQuickFactsFromArticleLandingPage () {
     cy.rightArrow()
     cy.enter()
