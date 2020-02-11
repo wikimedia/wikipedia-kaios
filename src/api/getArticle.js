@@ -26,22 +26,19 @@ export const getArticle = (lang, title) => {
     })
     toc.push({
       level: 1,
-      line: data.lead.displaytitle,
+      line: data.lead.normalizedtitle,
       anchor: canonicalizeTitle(data.lead.normalizedtitle),
       sectionIndex: 0
     })
 
     // parse remaining sections
     data.remaining.sections.forEach((s) => {
-      const sectionDoc = parser.parseFromString(s.text, 'text/html')
       // new section when toclevel 1
       if (s.toclevel === 1) {
-        const imgFound = searchForFirstImage(sectionDoc)
         sections.push({
           title: s.line,
           anchor: s.anchor,
-          content: fixImageUrl(s.text),
-          imageUrl: imgFound || imageUrl
+          content: fixImageUrl(s.text)
         })
       } else {
         // group into previous section when toclevel > 1
@@ -49,13 +46,6 @@ export const getArticle = (lang, title) => {
         const header = 'h' + (s.toclevel + 1)
         const headerLine = `<${header} data-anchor=${s.anchor}>${s.line}</${header}>`
         previousSection.content += fixImageUrl(headerLine + s.text)
-
-        if (previousSection.imageUrl === imageUrl) {
-          const imageFound = searchForFirstImage(sectionDoc)
-          if (imageFound) {
-            previousSection.imageUrl = imageFound
-          }
-        }
       }
 
       // build toc structure (level 1 to 3)
@@ -68,6 +58,7 @@ export const getArticle = (lang, title) => {
 
       // build references list
       if (s.isReferenceSection) {
+        const sectionDoc = parser.parseFromString(s.text, 'text/html')
         const refNodes = sectionDoc.querySelectorAll('li[id^="cite_"]')
         for (const refNode of refNodes) {
           const [id, ref] = extractReference(refNode)
@@ -97,15 +88,6 @@ const convertPlainText = string => {
   var dom = document.createElement('div')
   dom.innerHTML = string
   return dom.textContent
-}
-
-const searchForFirstImage = doc => {
-  for (const imgNode of doc.querySelectorAll('img')) {
-    if (imgNode.getAttribute('width') >= 200) {
-      return 'https:' + imgNode.getAttribute('src')
-    }
-  }
-  return false
 }
 
 const extractReference = refNode => {

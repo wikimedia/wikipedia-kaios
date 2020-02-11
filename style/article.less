@@ -37,31 +37,7 @@
 				font-size: 22px;
 				line-height: 28px;
 
-				&.clamp {
-					max-height: 140px;
-					overflow: hidden;
-					position: relative;
-					margin-right: -1em;
-					padding-right: 1em;
-
-					&:before {
-						content: '...';
-						position: absolute;
-						right: 1em;
-						bottom: 0;
-						background: #fff;
-					}
-
-					&:after {
-						content: '';
-						position: absolute;
-						right: 1em;
-						width: 1em;
-						height: 1em;
-						margin-top: 0.2em;
-						background: #fff;
-					}
-				}
+				.clampMixin( 140px );
 			}
 
 			.desc {

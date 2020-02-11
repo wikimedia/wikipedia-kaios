@@ -5,8 +5,9 @@ import { articleHistory, goto } from 'utils'
 import { ListView, TextSize } from 'components'
 
 export const ArticleMenu = ({
-  close, onTocSelected, onLanguageSelected, hasLanguages,
-  onQuickFactsSelected, hasInfobox
+  close, onTocSelected, onLanguageSelected,
+  onQuickFactsSelected, onGallerySelected,
+  hasLanguages, hasInfobox, hasGallery
 }) => {
   const containerRef = useRef()
   const i18n = useI18n()
@@ -52,6 +53,13 @@ export const ArticleMenu = ({
     items.push({
       title: i18n.i18n('article-action-quickfacts'),
       action: onQuickFactsSelected
+    })
+  }
+
+  if (hasGallery) {
+    items.push({
+      title: i18n.i18n('article-action-gallery'),
+      action: onGallerySelected
     })
   }
 
