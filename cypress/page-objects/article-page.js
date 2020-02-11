@@ -30,4 +30,15 @@ export class ArticlePage {
   galleryPopupHeader () {
     return cy.get('div.gallery-about > div.header')
   }
+
+  goToQuickFactsFromMenu () {
+    cy.getLeftSoftkeyButton().click()
+    cy.downArrow().downArrow()
+    cy.enter()
+  }
+  
+  goToQuickFactsFromArticleLandingPage () {
+    cy.rightArrow()
+    cy.enter()
+  }
 }
