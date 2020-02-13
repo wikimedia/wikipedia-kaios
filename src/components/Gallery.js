@@ -22,7 +22,7 @@ const AboutContainer = ({ author, description, license, filePage, close }) => {
 
     const descriptionNode = containerRef.current.querySelector('.description')
 
-    if (descriptionNode.getBoundingClientRect().height > MAX_DESCRIPTION_HEIGHT) {
+    if (descriptionNode && descriptionNode.getBoundingClientRect().height > MAX_DESCRIPTION_HEIGHT) {
       descriptionNode.classList.add('clamp')
     }
   })
@@ -67,11 +67,16 @@ export const Gallery = ({ close, items }) => {
     const prevIndex = currentIndex - 1
     setCurrentIndex(prevIndex < 0 ? 0 : prevIndex)
   }
+
+  const containsNecessaryFields = () => {
+    return items[currentIndex].description || items[currentIndex].author || items[currentIndex].license
+  }
+
   useSoftkey('Gallery', {
     right: i18n.i18n('softkey-close'),
     onKeyRight: close,
-    center: items[currentIndex].description ? i18n.i18n('softkey-about') : '',
-    onKeyCenter: items[currentIndex].description ? () => { showAboutPopup({ ...items[currentIndex] }) } : null,
+    center: containsNecessaryFields() ? i18n.i18n('softkey-about') : '',
+    onKeyCenter: containsNecessaryFields() ? () => { showAboutPopup({ ...items[currentIndex] }) } : null,
     onKeyArrowRight: onNextImage,
     onKeyArrowLeft: onPrevImage
   }, [currentIndex])
