@@ -3,13 +3,14 @@
 		"authors": [
 			"Patriccck",
 			"Eduardo Addad de Oliveira",
-			"YjM"
+			"YjM",
+			"Matěj Suchánek"
 		]
 	},
 	"article-action-sections": "Sekce",
 	"article-action-quickfacts": "Stručná fakta",
 	"article-action-languages": "Jazyk",
-	"article-language-available": "Dostupné v {{PLURAL:$1|$1 jazyce|$1 jazycích jazyky}}",
+	"article-language-available": "Dostupné v {{PLURAL:$1|$1 jazyce|$1 jazycích}}",
 	"article-loading-message": "Načítání stránky…",
 	"app-title": "Wikipedie",
 	"app-subtitle": "Otevřená encyklopedie",
@@ -28,7 +29,7 @@
 	"softkey-search": "Hledat",
 	"search-language-placeholder": "Hledat jazyky",
 	"softkey-menu": "Menu",
-	"search-placeholder": "Vyhledávání",
+	"search-placeholder": "Hledat ve Wikipedii",
 	"softkey-settings": "Nastavení",
 	"centerkey-select": "Vybrat",
 	"softkey-close": "Zavřít",
