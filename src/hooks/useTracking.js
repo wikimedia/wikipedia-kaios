@@ -69,8 +69,21 @@ export const useTracking = (
     const start = Date.now()
     const userId = getUserId()
     const pageviewToken = generateId()
-    const msPaused = 0 // todo
+    let msPaused = 0
+    let pausedTime
     const isSearch = pageName === 'Search'
+    const onVisibilityChanged = () => {
+      if (document.visibilityState === 'visible') {
+        if (pausedTime) {
+          const now = Date.now()
+          msPaused += now - pausedTime
+          pausedTime = null
+        }
+      } else {
+        pausedTime = Date.now()
+      }
+    }
+    document.addEventListener('visibilitychange', onVisibilityChanged)
 
     return () => {
       const now = Date.now()
@@ -101,6 +114,8 @@ export const useTracking = (
       }
 
       sendEvent(event)
+
+      document.removeEventListener('visibilitychange', onVisibilityChanged)
     }
   }, [])
 }
