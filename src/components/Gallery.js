@@ -70,8 +70,8 @@ export const Gallery = ({ close, items }) => {
   useSoftkey('Gallery', {
     right: i18n.i18n('softkey-close'),
     onKeyRight: close,
-    center: i18n.i18n('softkey-about'),
-    onKeyCenter: () => { showAboutPopup({ ...items[currentIndex] }) },
+    center: items[currentIndex].description ? i18n.i18n('softkey-about') : '',
+    onKeyCenter: items[currentIndex].description ? () => { showAboutPopup({ ...items[currentIndex] }) } : null,
     onKeyArrowRight: onNextImage,
     onKeyArrowLeft: onPrevImage
   }, [currentIndex])
