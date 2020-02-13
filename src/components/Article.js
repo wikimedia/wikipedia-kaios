@@ -60,7 +60,7 @@ const ArticleSection = ({
       // @todo styling to be confirmed with design
       confirmDialog({ message: i18n.i18n('confirm-section', text), onSubmit: () => goToSubpage({ title: anchor }) })
     },
-    gallery: ({ fileName }) => {
+    image: ({ fileName }) => {
       showGallery(fileName)
     }
   }
