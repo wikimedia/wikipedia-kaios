@@ -1,4 +1,4 @@
-import { useEffect } from 'preact/hooks'
+import { useRef, useEffect } from 'preact/hooks'
 
 const SCHEMA_NAME = 'InukaPageView'
 const SCHEMA_REV = 19739286
@@ -63,8 +63,14 @@ export const useTracking = (
   pageName,
   namespace = -1,
   sectionCount = 0,
-  openedSections = 0
+  openedSections = {}
 ) => {
+  const trackingRef = useRef()
+
+  useEffect(() => {
+    trackingRef.openedSectionCount = Object.keys(openedSections).length
+  }, [openedSections])
+
   useEffect(() => {
     const start = Date.now()
     const userId = getUserId()
@@ -101,7 +107,7 @@ export const useTracking = (
           page_open_time: Math.round(totalTime),
           page_visible_time: Math.round(totalTime - msPaused),
           section_count: sectionCount,
-          opened_section_count: openedSections,
+          opened_section_count: trackingRef.openedSectionCount,
           page_namespace: namespace,
           is_main_page: isSearch,
           is_search_page: isSearch

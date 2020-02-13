@@ -126,7 +126,7 @@ const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
   }
 
   const sectionCount = article.toc.filter(s => s.level === 1).length
-  const openedSections = 0 // todo
+  const [openedSections, setOpenedSections] = useState({})
   useTracking('Article', article.namespace, sectionCount, openedSections)
 
   const [anchor, setAnchor] = useState(initialAnchor)
@@ -184,6 +184,13 @@ const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
   useEffect(() => {
     articleHistory.add(lang, articleTitle)
   }, [])
+
+  useEffect(() => {
+    if (currentSection !== 0) { // lead section doesn't count
+      const anchor = article.sections[currentSection].anchor
+      setOpenedSections({ ...openedSections, [anchor]: true })
+    }
+  }, [currentSection])
 
   const actions = currentSection === 0 ? [
     { name: 'sections', enabled: true, handler: showArticleTocPopup },
