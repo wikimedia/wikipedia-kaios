@@ -60,7 +60,9 @@ export const Gallery = ({ close, items }) => {
 
   const onNextImage = () => {
     const nextIndex = currentIndex + 1
-    setCurrentIndex(nextIndex % items.length)
+    if (nextIndex < items.length) {
+      setCurrentIndex(nextIndex)
+    }
   }
 
   const onPrevImage = () => {
