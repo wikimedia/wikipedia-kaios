@@ -28,13 +28,7 @@ export const QuickFacts = ({ article, close }) => {
       })
     },
     image: ({ fileName }) => {
-      let startIndex = 0
-
-      if (fileName) {
-        startIndex = article.media.findIndex(media => media.canonicalizedTitle === fileName)
-      }
-
-      showGalleryPopup({ items: article.media, startIndex })
+      showGalleryPopup({ items: article.media, startFileName: fileName })
     }
   }
 

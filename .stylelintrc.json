@@ -3,7 +3,6 @@
   "rules": {
     "selector-attribute-quotes": null,
     "no-descending-specificity": null,
-    "declaration-no-important": null,
-    "selector-type-no-unknown": null
+    "declaration-no-important": null
   }
 }

@@ -159,14 +159,8 @@ const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
     showQuickFactsPopup({ article })
   }
 
-  const showGallery = fileName => {
-    let startIndex = 0
-
-    if (fileName) {
-      startIndex = article.media.findIndex(media => media.canonicalizedTitle === fileName)
-    }
-
-    showGalleryPopup({ items: article.media, startIndex })
+  const showGallery = startFileName => {
+    showGalleryPopup({ items: article.media, startFileName })
   }
 
   const showArticleMenu = () => {
