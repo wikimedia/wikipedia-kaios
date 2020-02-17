@@ -1,5 +1,6 @@
 import { h } from 'preact'
 import { useRef, useEffect } from 'preact/hooks'
+import { route } from 'preact-router'
 import { useNavigation, useI18n, useSoftkey, usePopup } from 'hooks'
 import { articleHistory, goto } from 'utils'
 import { ListView, TextSize } from 'components'
@@ -29,6 +30,11 @@ export const ArticleMenu = ({
 
   const [, setNavigation, getCurrent] = useNavigation('Menu', containerRef, 'y')
 
+  const onSearchSelected = () => {
+    close()
+    route('/')
+  }
+
   const onTextsizeSelected = () => {
     const [showTextSize] = usePopup(TextSize)
     showTextSize()
@@ -45,6 +51,7 @@ export const ArticleMenu = ({
   }, [])
 
   const items = [
+    { title: i18n.i18n('search-placeholder'), action: onSearchSelected },
     { title: i18n.i18n('article-action-sections'), action: onTocSelected },
     { title: i18n.i18n('menu-textsize'), action: onTextsizeSelected }
   ]
