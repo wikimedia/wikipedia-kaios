@@ -13,6 +13,7 @@
 	"article-language-available": "Dostupno na $1 {{PLURAL:$1|jeziku|jezika}}",
 	"article-language-loading-message": "Učitavanje jezika...",
 	"article-loading-message": "Stranica se učitava...",
+	"article-error-message": "Nije moguće učitati članak",
 	"app-title": "Wikipedija",
 	"app-subtitle": "Slobodna enciklopedija",
 	"confirm-section": "Idi na odlomak \"$1\"",
