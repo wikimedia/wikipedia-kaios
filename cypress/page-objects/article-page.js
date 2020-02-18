@@ -41,4 +41,22 @@ export class ArticlePage {
     cy.rightArrow()
     cy.enter()
   }
+
+  goToLanguageMenuFromArticleLandingPage () {
+    cy.rightArrow().rightArrow().rightArrow()
+    cy.get('[data-action="languages"][data-selected="true"]').should('exist')
+    cy.enter()
+  }
+
+  selectOption (option) {
+    cy
+      .get('.article-actions-button')
+      .each(($el, index, $list) => {
+        if ($el.attr('data-action') === option) {
+          cy.enter()
+        } else {
+          cy.rightArrow()
+        }
+      })
+  }
 }

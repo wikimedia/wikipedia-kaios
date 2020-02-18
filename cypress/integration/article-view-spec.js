@@ -19,12 +19,12 @@ describe('Article view', () => {
   })
 
   it('change article language', () => {
+    console.log('start of test')
     searchPage.search('cat')
     searchPage.results().first()
     cy.enter().downArrow().enter()
     articlePage.title().should('have.text', 'Cat')
-    cy.getLeftSoftkeyButton().click()
-    cy.downArrow().downArrow().downArrow().downArrow().enter()
+    articlePage.selectOption('languages')
     cy.get('input').type('portugues')
     cy.get('.description').should('have.text', 'Gato')
     cy.downArrow().enter()
@@ -76,6 +76,7 @@ describe('Article view', () => {
     cy.enter().downArrow().enter()
     articlePage.title().should('have.text', 'Cat')
     articlePage.goToQuickFactsFromArticleLandingPage()
+    cy.get('.infobox.biota div>a').should('contain.text', 'Conservation status')
     cy.enter()
     articlePreviewPage.getTitle().should('have.text', 'Conservation status')
     cy.enter()
