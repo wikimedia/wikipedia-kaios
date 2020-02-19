@@ -19,7 +19,6 @@ describe('Article view', () => {
   })
 
   it('change article language', () => {
-    console.log('start of test')
     searchPage.search('cat')
     searchPage.results().first()
     cy.enter().downArrow().enter()
