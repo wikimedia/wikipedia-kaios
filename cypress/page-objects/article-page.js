@@ -42,12 +42,6 @@ export class ArticlePage {
     cy.enter()
   }
 
-  goToLanguageMenuFromArticleLandingPage () {
-    cy.rightArrow().rightArrow().rightArrow()
-    cy.get('[data-action="languages"][data-selected="true"]').should('exist')
-    cy.enter()
-  }
-
   selectOption (option) {
     cy
       .get('.article-actions-button')
