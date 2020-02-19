@@ -91,7 +91,7 @@ export const useTracking = (
     }
     document.addEventListener('visibilitychange', onVisibilityChanged)
 
-    return () => {
+    const sendBeacon = () => {
       const now = Date.now()
       const totalTime = now - start
 
@@ -123,5 +123,8 @@ export const useTracking = (
 
       document.removeEventListener('visibilitychange', onVisibilityChanged)
     }
+    window.addEventListener('pagehide', sendBeacon)
+
+    return sendBeacon
   }, [])
 }
