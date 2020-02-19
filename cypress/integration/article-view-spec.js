@@ -53,6 +53,10 @@ describe('Article view', () => {
     articlePage.title().should('have.text', 'Cat')
     cy.rightArrow().rightArrow().enter()
     articlePage.galleryImage().should('be.visible')
+    articlePage.galleryImage().invoke('attr', 'src').then((src) => {
+      cy.rightArrow()
+      articlePage.galleryImage().should('not.have.attr', 'src', src)
+    })
     cy.enter()
     articlePage.galleryPopupHeader().should('be.visible')
     cy.getLeftSoftkeyButton().should('have.text', enJson['softkey-more-info'])
