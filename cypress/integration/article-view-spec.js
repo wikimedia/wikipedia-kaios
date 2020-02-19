@@ -80,7 +80,7 @@ describe('Article view', () => {
     cy.enter().downArrow().enter()
     articlePage.title().should('have.text', 'Cat')
     articlePage.goToQuickFactsFromArticleLandingPage()
-    cy.enter()
+    cy.rightArrow().enter()
     articlePreviewPage.getTitle().should('have.text', 'Conservation status')
     cy.enter()
     articlePage.title().should('have.text', 'Conservation status')
