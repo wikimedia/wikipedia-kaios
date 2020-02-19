@@ -13,8 +13,8 @@ export const QuickFacts = ({ article, close }) => {
   const [showReferencePreview] = usePopup(ReferencePreview, { stack: true })
   const [textSize] = useArticleTextSize('QuickFacts')
   useSoftkey('QuickFacts', {
-    right: i18n.i18n('softkey-close'),
-    onKeyRight: close,
+    left: i18n.i18n('softkey-close'),
+    onKeyLeft: close,
     onKeyArrowDown: scrollDown,
     onKeyArrowUp: scrollUp
   })
