@@ -2,10 +2,16 @@
 
 import { SearchPage } from '../page-objects/search-page'
 import { ArticlePage } from '../page-objects/article-page'
+import { QuickFactsPage } from '../page-objects/quick-facts-page'
 import * as enJson from '../../i18n/en.json'
+import { ArticlePreviewPage } from '../page-objects/article-preview-page'
+import { ArticleMenuPage } from '../page-objects/article-menu-page'
 
 const searchPage = new SearchPage()
 const articlePage = new ArticlePage()
+const quickFactsPage = new QuickFactsPage()
+const articlePreviewPage = new ArticlePreviewPage()
+const articleMenuPage = new ArticleMenuPage()
 
 describe('Article view', () => {
   beforeEach(() => {
@@ -47,8 +53,40 @@ describe('Article view', () => {
     articlePage.title().should('have.text', 'Cat')
     cy.rightArrow().rightArrow().enter()
     articlePage.galleryImage().should('be.visible')
+    articlePage.galleryImage().invoke('attr', 'src').then((src) => {
+      cy.rightArrow()
+      articlePage.galleryImage().should('not.have.attr', 'src', src)
+    })
     cy.enter()
     articlePage.galleryPopupHeader().should('be.visible')
     cy.getLeftSoftkeyButton().should('have.text', enJson['softkey-more-info'])
+  })
+
+  it('check quick facts opens', () => {
+    searchPage.search('cat')
+    searchPage.results().first()
+    cy.enter().downArrow().enter()
+    articlePage.title().should('have.text', 'Cat')
+    articlePage.goToQuickFactsFromArticleLandingPage()
+    quickFactsPage.table().should('contains.text', 'Various types of domestic cat')
+    cy.getRightSoftkeyButton().click()
+    articlePage.goToQuickFactsFromMenu()
+    quickFactsPage.table().should('contains.text', 'Various types of domestic cat')
+  })
+
+  it('check quick facts link opens', () => {
+    searchPage.search('cat')
+    searchPage.results().first()
+    cy.enter().downArrow().enter()
+    articlePage.title().should('have.text', 'Cat')
+    articlePage.goToQuickFactsFromArticleLandingPage()
+    cy.enter()
+    articlePreviewPage.getTitle().should('have.text', 'Conservation status')
+    cy.enter()
+    articlePage.title().should('have.text', 'Conservation status')
+    cy.getLeftSoftkeyButton().click()
+    articleMenuPage.getPreviousArticleName().should('have.text', 'Cat')
+    cy.enter()
+    articlePage.title().should('have.text', 'Cat')
   })
 })

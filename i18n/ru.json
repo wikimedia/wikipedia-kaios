@@ -2,9 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Okras",
-			"Kareyac"
+			"Kareyac",
+			"Pacha Tchernof"
 		]
 	},
+	"article-action-gallery": "Галерея",
+	"article-language-loading-message": "Языки загружаются...",
 	"app-title": "Википедия",
 	"app-subtitle": "Свободная энциклопедия",
 	"header-sections": "Разделы",
@@ -13,6 +16,7 @@
 	"centerkey-select": "Выбрать",
 	"softkey-close": "Закрыть",
 	"softkey-read": "Читать",
+	"suggested-articles": "ПРЕДЛАГАЕМЫЕ СТАТЬИ",
 	"offline-message": "Нет подключения к интернету",
 	"settings-language": "Язык",
 	"settings-textsize": "Размер текста",
