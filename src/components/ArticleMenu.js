@@ -72,7 +72,7 @@ export const ArticleMenu = ({
 
   // add Previous Section item
   if (articleHistory.hasPrev()) {
-    items.unshift({
+    items.splice(1, 0, {
       title: i18n.i18n('menu-previous'),
       description: articleHistory.getPrev().title,
       action: onPreviousSelected
