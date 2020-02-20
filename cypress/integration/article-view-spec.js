@@ -30,7 +30,7 @@ describe('Article view', () => {
 
   it('check footer', () => {
     goToArticleFromTheSearchPage('Cat')
-    //TODO: change the next line to a method on article page
+    // TODO: change the next line to a method on article page
     cy.enter().upArrow().enter()
     articlePage.footerTitle().should('have.text', enJson['suggested-articles'])
     articlePage.recommendationsList().should('have.length', 3)
@@ -55,7 +55,7 @@ describe('Article view', () => {
 
   it('check quick facts opens', () => {
     goToArticleFromTheSearchPage('Cat')
-    articlePage.selectOptionArticleActionsMenu("quickfacts")
+    articlePage.selectOptionArticleActionsMenu('quickfacts')
     quickFactsPage.table().should('contains.text', 'Various types of domestic cat')
     cy.clickCloseButton()
     articlePage.selectOptionFromArticleMenu('Quick Facts')
@@ -64,9 +64,9 @@ describe('Article view', () => {
 
   it('check quick facts link opens', () => {
     goToArticleFromTheSearchPage('Cat')
-    articlePage.selectOptionArticleActionsMenu("quickfacts")
+    articlePage.selectOptionArticleActionsMenu('quickfacts')
     quickFactsPage.table().get('div a ').should('contain.text', 'Conservation status')
-    cy.enter()
+    cy.rightArrow().enter()
     articlePreviewPage.getTitle().should('have.text', 'Conservation status')
     cy.enter()
     articlePage.title().should('have.text', 'Conservation status')
@@ -77,10 +77,9 @@ describe('Article view', () => {
   })
 })
 
-function goToArticleFromTheSearchPage(searchTerm) {
+function goToArticleFromTheSearchPage (searchTerm) {
   searchPage.search(searchTerm)
   searchPage.results().first()
   cy.enter().downArrow().enter()
   articlePage.title().should('have.text', searchTerm)
 }
-

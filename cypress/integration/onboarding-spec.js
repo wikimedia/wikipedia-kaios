@@ -55,7 +55,7 @@ describe('Onboarding', () => {
     cy.getLeftSoftkeyButton().should('have.text', 'Skip').click()
     searchPage.getSearchTextBox().should('be.visible')
     cy.visit('http://127.0.0.1:8080')
-    cy.getLeftSoftkeyButton().should('have.text', 'Settings')
+    cy.getRightSoftkeyButton().should('have.text', 'Settings')
     cy.getLocalStorage('has-onboard-before').should('equal', 'true')
     searchPage.getSearchTextBox().should('be.visible')
   })

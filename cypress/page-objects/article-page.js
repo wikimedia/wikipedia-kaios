@@ -43,14 +43,14 @@ export class ArticlePage {
           cy.enter()
           entered = true
         } else {
-          if(!entered){
+          if (!entered) {
             cy.rightArrow()
           }
         }
       })
   }
 
-  selectOptionFromArticleMenu(option){
+  selectOptionFromArticleMenu (option) {
     cy.clickMenuButton()
     articleMenuPage.selectOptionFromArticleMenu(option)
   }
