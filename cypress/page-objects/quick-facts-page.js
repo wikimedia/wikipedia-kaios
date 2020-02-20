@@ -1,5 +1,5 @@
 export class QuickFactsPage {
   table () {
-    return cy.get('table.infobox.biota')
+    return cy.get('div.quickfacts>table.infobox.biota')
   }
 }
