@@ -102,7 +102,7 @@ export const useArticleLinksNavigation = (
 
 const makeLinkClickEvent = link => {
   const title = link.getAttribute('title')
-  if (title) {
+  if (title && link.pathname !== '/') {
     if (title.includes(':') && INTERWIKI_KEYS.includes(title.split(':')[0])) {
       return { type: 'external', href: link.href }
     }
@@ -124,7 +124,8 @@ const makeLinkClickEvent = link => {
   }
 
   if (link.hash) {
-    return { type: 'section', text: link.textContent, anchor: link.getAttribute('href').slice(1) }
+    const normalizedText = link.hash.slice(1).replace('_', ' ')
+    return { type: 'section', text: normalizedText, anchor: link.getAttribute('href').slice(1) }
   }
 
   if (link.tagName === 'FIGURE' || link.tagName === 'FIGURE-INLINE') {
