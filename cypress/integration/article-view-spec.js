@@ -19,23 +19,18 @@ describe('Article view', () => {
   })
 
   it('change article language', () => {
-    searchPage.search('cat')
-    searchPage.results().first()
-    cy.enter().downArrow().enter()
-    articlePage.title().should('have.text', 'Cat')
-    articlePage.selectOption('languages')
+    goToArticleFromTheSearchPage('Cat')
+    articlePage.selectOptionArticleActionsMenu('languages')
     cy.get('input').type('portugues')
     cy.get('.description').should('have.text', 'Gato')
     cy.downArrow().enter()
-    cy.getRightSoftkeyButton().click()
+    cy.clickDoneButton()
     articlePage.title().should('have.text', 'Gato')
   })
 
   it('check footer', () => {
-    searchPage.search('cat')
-    searchPage.results().first()
-    cy.enter().downArrow().enter()
-    articlePage.title().should('have.text', 'Cat')
+    goToArticleFromTheSearchPage('Cat')
+    //TODO: change the next line to a method on article page
     cy.enter().upArrow().enter()
     articlePage.footerTitle().should('have.text', enJson['suggested-articles'])
     articlePage.recommendationsList().should('have.length', 3)
@@ -46,11 +41,8 @@ describe('Article view', () => {
   })
 
   it('check image gallery', () => {
-    searchPage.search('cat')
-    searchPage.results().first()
-    cy.enter().downArrow().enter()
-    articlePage.title().should('have.text', 'Cat')
-    cy.rightArrow().rightArrow().enter()
+    goToArticleFromTheSearchPage('Cat')
+    articlePage.selectOptionArticleActionsMenu('gallery')
     articlePage.galleryImage().should('be.visible')
     articlePage.galleryImage().invoke('attr', 'src').then((src) => {
       cy.rightArrow()
@@ -58,26 +50,20 @@ describe('Article view', () => {
     })
     cy.enter()
     articlePage.galleryPopupHeader().should('be.visible')
-    cy.getLeftSoftkeyButton().should('have.text', enJson['softkey-more-info'])
+    cy.getRightSoftkeyButton().should('have.text', enJson['softkey-more-info'])
   })
 
-  it('check quick facts opens', () => {
-    searchPage.search('cat')
-    searchPage.results().first()
-    cy.enter().downArrow().enter()
-    articlePage.title().should('have.text', 'Cat')
-    articlePage.goToQuickFactsFromArticleLandingPage()
+  it.only('check quick facts opens', () => {
+    goToArticleFromTheSearchPage('Cat')
+    articlePage.selectOptionArticleActionsMenu("quickfacts")
     quickFactsPage.table().should('contains.text', 'Various types of domestic cat')
-    cy.getRightSoftkeyButton().click()
-    articlePage.goToQuickFactsFromMenu()
+    cy.clickCloseButton()
+    articlePage.selectOptionFromArticleMenu('Quick Facts')
     quickFactsPage.table().should('contains.text', 'Various types of domestic cat')
   })
 
   it('check quick facts link opens', () => {
-    searchPage.search('cat')
-    searchPage.results().first()
-    cy.enter().downArrow().enter()
-    articlePage.title().should('have.text', 'Cat')
+    goToArticleFromTheSearchPage('Cat')
     articlePage.goToQuickFactsFromArticleLandingPage()
     cy.get('.infobox.biota div>a').should('contain.text', 'Conservation status')
     cy.enter()
@@ -90,3 +76,10 @@ describe('Article view', () => {
     articlePage.title().should('have.text', 'Cat')
   })
 })
+function goToArticleFromTheSearchPage(searchTerm) {
+  searchPage.search(searchTerm)
+  searchPage.results().first()
+  cy.enter().downArrow().enter()
+  articlePage.title().should('have.text', searchTerm)
+}
+

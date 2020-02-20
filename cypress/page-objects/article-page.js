@@ -1,3 +1,6 @@
+import { ArticleMenuPage } from '../page-objects/article-menu-page'
+const articleMenuPage = new ArticleMenuPage()
+
 export class ArticlePage {
   title () {
     return cy.get('.title')
@@ -31,18 +34,7 @@ export class ArticlePage {
     return cy.get('div.gallery-about > div.header')
   }
 
-  goToQuickFactsFromMenu () {
-    cy.getLeftSoftkeyButton().click()
-    cy.downArrow().downArrow()
-    cy.enter()
-  }
-
-  goToQuickFactsFromArticleLandingPage () {
-    cy.rightArrow()
-    cy.enter()
-  }
-
-  selectOption (option) {
+  selectOptionArticleActionsMenu (option) {
     cy
       .get('.article-actions-button')
       .each(($el, index, $list) => {
@@ -52,5 +44,10 @@ export class ArticlePage {
           cy.rightArrow()
         }
       })
+  }
+
+  selectOptionFromArticleMenu(option){
+    cy.clickMenuButton()
+    articleMenuPage.selectOptionFromArticleMenu(option)
   }
 }

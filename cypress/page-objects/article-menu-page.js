@@ -3,7 +3,7 @@ export class ArticleMenuPage {
     return cy.get('div.info > div.description')
   }
 
-  selectOption (option) {
+  selectOptionFromArticleMenu (option) {
     cy
       .get('.item')
       .each(($el, index, $list) => {
