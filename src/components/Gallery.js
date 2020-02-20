@@ -53,9 +53,9 @@ const AboutContainer = ({ author, description, license, filePage, close }) => {
   )
 }
 
-export const Gallery = ({ close, items }) => {
+export const Gallery = ({ close, items, startFileName }) => {
   const i18n = useI18n()
-  const [currentIndex, setCurrentIndex] = useState(0)
+  const [currentIndex, setCurrentIndex] = useState(getInitialIndex(items, startFileName))
   const [showAboutPopup] = usePopup(AboutContainer, { stack: true })
 
   const onNextImage = () => {
@@ -97,4 +97,12 @@ export const Gallery = ({ close, items }) => {
       </div>
     </div>
   )
+}
+
+const getInitialIndex = (items, fileName) => {
+  if (fileName) {
+    return items.findIndex(media => media.canonicalizedTitle === fileName)
+  }
+
+  return 0
 }

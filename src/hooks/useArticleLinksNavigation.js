@@ -10,7 +10,9 @@ const SUPPORTED_LINKS = [
   'a[title]',
   'a[href^="#cite_note"]',
   'a[rel="mw:ExtLink"]',
-  'a[href^="#"]'
+  'a[href^="#"]',
+  'figure',
+  'figure-inline'
 ].join(',')
 
 export const useArticleLinksNavigation = (
@@ -123,6 +125,15 @@ const makeLinkClickEvent = link => {
 
   if (link.hash) {
     return { type: 'section', text: link.textContent, anchor: link.getAttribute('href').slice(1) }
+  }
+
+  if (link.tagName === 'FIGURE' || link.tagName === 'FIGURE-INLINE') {
+    const aElement = link.querySelector('a')
+    const href = aElement.getAttribute('href')
+    // file name example in href : /wiki/File:Holly_Christmas_card_from_NLI.jpg
+    // slice(6) to match the api file name
+    const fileName = href.slice(6)
+    return { type: 'image', fileName }
   }
 }
 
