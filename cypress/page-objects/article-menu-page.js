@@ -7,12 +7,14 @@ export class ArticleMenuPage {
     cy
       .get('.item')
       .each(($el, index, $list) => {
-        if ($el.text() === option) {
-          cy.getCenterSoftkeyButton().should('have.text', 'Select')
-            .click()
+        if ($el.attr('data-selected-key') === option) {
+          return false
         } else {
           cy.downArrow()
         }
+      })
+      .then(() => {
+        cy.enter()
       })
   }
 }

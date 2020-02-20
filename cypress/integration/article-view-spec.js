@@ -85,7 +85,7 @@ describe('Article view', () => {
     articlePage.title().should('have.text', 'Conservation status')
     cy.getLeftSoftkeyButton().click()
     articleMenuPage.getPreviousArticleName().should('have.text', 'Cat')
-    cy.enter()
+    articleMenuPage.selectOption('Previous article')
     articlePage.title().should('have.text', 'Cat')
   })
 })
