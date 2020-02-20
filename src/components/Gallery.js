@@ -9,10 +9,10 @@ const AboutContainer = ({ author, description, license, filePage, close }) => {
   const containerRef = useRef()
 
   useSoftkey('About', {
-    right: i18n.i18n('softkey-close'),
-    onKeyRight: close,
-    left: i18n.i18n('softkey-more-info'),
-    onKeyLeft: () => { window.open(filePage) }
+    left: i18n.i18n('softkey-close'),
+    onKeyLeft: close,
+    right: i18n.i18n('softkey-more-info'),
+    onKeyRight: () => { window.open(filePage) }
   })
 
   useLayoutEffect(() => {
@@ -53,9 +53,9 @@ const AboutContainer = ({ author, description, license, filePage, close }) => {
   )
 }
 
-export const Gallery = ({ close, items }) => {
+export const Gallery = ({ close, items, startFileName }) => {
   const i18n = useI18n()
-  const [currentIndex, setCurrentIndex] = useState(0)
+  const [currentIndex, setCurrentIndex] = useState(getInitialIndex(items, startFileName))
   const [showAboutPopup] = usePopup(AboutContainer, { stack: true })
 
   const onNextImage = () => {
@@ -75,8 +75,8 @@ export const Gallery = ({ close, items }) => {
   }
 
   useSoftkey('Gallery', {
-    right: i18n.i18n('softkey-close'),
-    onKeyRight: close,
+    left: i18n.i18n('softkey-close'),
+    onKeyLeft: close,
     center: containsNecessaryFields() ? i18n.i18n('softkey-about') : '',
     onKeyCenter: containsNecessaryFields() ? () => { showAboutPopup({ ...items[currentIndex] }) } : null,
     onKeyArrowRight: onNextImage,
@@ -97,4 +97,12 @@ export const Gallery = ({ close, items }) => {
       </div>
     </div>
   )
+}
+
+const getInitialIndex = (items, fileName) => {
+  if (fileName) {
+    return items.findIndex(media => media.canonicalizedTitle === fileName)
+  }
+
+  return 0
 }

@@ -1,6 +1,6 @@
 import { h } from 'preact'
 import { useRef } from 'preact/hooks'
-import { ReferencePreview } from 'components'
+import { ReferencePreview, Gallery } from 'components'
 import {
   useScroll, usePopup, useArticleTextSize,
   useI18n, useSoftkey, useArticleLinksNavigation
@@ -12,10 +12,11 @@ export const QuickFacts = ({ article, goToArticleSubpage, close }) => {
   const containerRef = useRef()
   const [scrollDown, scrollUp, scrollPosition] = useScroll(containerRef, 20, 'y')
   const [showReferencePreview] = usePopup(ReferencePreview, { stack: true })
+  const [showGalleryPopup] = usePopup(Gallery, { mode: 'fullscreen', stack: true })
   const [textSize] = useArticleTextSize('QuickFacts')
   useSoftkey('QuickFacts', {
-    right: i18n.i18n('softkey-close'),
-    onKeyRight: close,
+    left: i18n.i18n('softkey-close'),
+    onKeyLeft: close,
     onKeyArrowDown: scrollDown,
     onKeyArrowUp: scrollUp
   })
@@ -30,8 +31,12 @@ export const QuickFacts = ({ article, goToArticleSubpage, close }) => {
     section: ({ text, anchor }) => {
       // @todo styling to be confirmed with design
       confirmDialog({ message: i18n.i18n('confirm-section', text), onSubmit: () => goToArticleSubpage({ anchor }) })
+    },
+    image: ({ fileName }) => {
+      showGalleryPopup({ items: article.media, startFileName: fileName })
     }
   }
+
   useArticleLinksNavigation(
     'QuickFacts',
     article.contentLang,

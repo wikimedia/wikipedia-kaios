@@ -9,7 +9,8 @@
 			"Alno",
 			"Thibaut120094",
 			"Symsym",
-			"Choodyam"
+			"Choodyam",
+			"Eneelk"
 		]
 	},
 	"article-action-sections": "Sections",
@@ -56,7 +57,7 @@
 	"softkey-skip": "Passer",
 	"softkey-get-started": "Démarrer",
 	"softkey-refresh": "Rafraîchir",
-	"suggested-articles": "ARTICLES SUGGÉRÉS",
+	"suggested-articles": "Articles suggérés",
 	"reference-title": "Référence [$1]",
 	"offline-message": "Pas de connexion à Internet",
 	"onboarding-0-title": "L’encyclopédie libre",

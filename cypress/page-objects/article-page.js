@@ -1,3 +1,6 @@
+import { ArticleMenuPage } from '../page-objects/article-menu-page'
+const articleMenuPage = new ArticleMenuPage()
+
 export class ArticlePage {
   title () {
     return cy.get('.title')
@@ -31,14 +34,24 @@ export class ArticlePage {
     return cy.get('div.gallery-about > div.header')
   }
 
-  goToQuickFactsFromMenu () {
-    cy.getLeftSoftkeyButton().click()
-    cy.downArrow().downArrow()
-    cy.enter()
+  selectOptionFromActionsMenu (option) {
+    var entered = false
+    cy
+      .get('.article-actions-button')
+      .each(($el, index, $list) => {
+        if ($el.attr('data-action') === option) {
+          cy.enter()
+          entered = true
+        } else {
+          if (!entered) {
+            cy.rightArrow()
+          }
+        }
+      })
   }
 
-  goToQuickFactsFromArticleLandingPage () {
-    cy.rightArrow()
-    cy.enter()
+  selectOptionFromArticleMenu (option) {
+    cy.clickMenuButton()
+    articleMenuPage.selectOptionFromArticleMenu(option)
   }
 }

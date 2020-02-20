@@ -39,7 +39,7 @@ const ArticleActions = ({ actions }) => {
 const ArticleSection = ({
   lang, imageUrl, anchor, title, description, actions, isFooter,
   content, page, goToSubpage, references,
-  articleTitle, suggestedArticles
+  articleTitle, suggestedArticles, showGallery
 }) => {
   const contentRef = useRef()
   const i18n = useI18n()
@@ -59,6 +59,9 @@ const ArticleSection = ({
     section: ({ text, anchor }) => {
       // @todo styling to be confirmed with design
       confirmDialog({ message: i18n.i18n('confirm-section', text), onSubmit: () => goToSubpage({ anchor }) })
+    },
+    image: ({ fileName }) => {
+      showGallery(fileName)
     }
   }
 
@@ -156,8 +159,8 @@ const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
     showQuickFactsPopup({ article, goToArticleSubpage })
   }
 
-  const showGallery = () => {
-    showGalleryPopup({ items: article.media })
+  const showGallery = startFileName => {
+    showGalleryPopup({ items: article.media, startFileName })
   }
 
   const showArticleMenu = () => {
@@ -173,10 +176,10 @@ const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
   }
 
   useSoftkey('Article', {
-    left: i18n.i18n('softkey-menu'),
-    onKeyLeft: showArticleMenu,
-    right: i18n.i18n('softkey-close'),
-    onKeyRight: () => history.back()
+    left: i18n.i18n('softkey-close'),
+    onKeyLeft: () => history.back(),
+    right: i18n.i18n('softkey-menu'),
+    onKeyRight: showArticleMenu
   }, [])
 
   useEffect(() => {
@@ -201,6 +204,7 @@ const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
         references={article.references}
         suggestedArticles={article.suggestedArticles}
         goToSubpage={goToArticleSubpage}
+        showGallery={showGallery}
         page={currentPage}
       />
     </div>

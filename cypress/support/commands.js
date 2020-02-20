@@ -52,11 +52,19 @@ Cypress.Commands.add('getCenterSoftkeyButton', () => {
 })
 
 Cypress.Commands.add('clickCloseButton', () => {
-  cy.getRightSoftkeyButton().contains('Close').click()
+  cy.getLeftSoftkeyButton().contains('Close').click()
 })
 
 Cypress.Commands.add('clickSettingsButton', () => {
-  cy.getLeftSoftkeyButton().contains('Settings').click()
+  cy.getRightSoftkeyButton().contains('Settings').click()
+})
+
+Cypress.Commands.add('clickMenuButton', () => {
+  cy.getRightSoftkeyButton().contains('Menu').click()
+})
+
+Cypress.Commands.add('clickDoneButton', () => {
+  cy.getLeftSoftkeyButton().contains('Done').click()
 })
 
 Cypress.Commands.add('navigateToHomePage', () => {
