@@ -153,7 +153,7 @@ const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
   }
 
   const showQuickFacts = () => {
-    showQuickFactsPopup({ article })
+    showQuickFactsPopup({ article, goToArticleSubpage })
   }
 
   const showGallery = () => {

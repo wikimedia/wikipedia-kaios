@@ -5,8 +5,9 @@ import {
   useScroll, usePopup, useArticleTextSize,
   useI18n, useSoftkey, useArticleLinksNavigation
 } from 'hooks'
+import { confirmDialog } from 'utils'
 
-export const QuickFacts = ({ article, close }) => {
+export const QuickFacts = ({ article, goToArticleSubpage, close }) => {
   const i18n = useI18n()
   const containerRef = useRef()
   const [scrollDown, scrollUp, scrollPosition] = useScroll(containerRef, 20, 'y')
@@ -25,6 +26,10 @@ export const QuickFacts = ({ article, close }) => {
         reference: article.references[referenceId],
         lang: article.contentLang
       })
+    },
+    section: ({ text, anchor }) => {
+      // @todo styling to be confirmed with design
+      confirmDialog({ message: i18n.i18n('confirm-section', text), onSubmit: () => goToArticleSubpage({ anchor }) })
     }
   }
   useArticleLinksNavigation(
