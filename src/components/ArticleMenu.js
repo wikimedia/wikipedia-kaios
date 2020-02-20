@@ -14,7 +14,8 @@ export const ArticleMenu = ({
   const i18n = useI18n()
   const onKeyCenter = () => {
     const { index } = getCurrent()
-    const item = items[index]
+    const enabledItems = items.filter(item => item.enabled)
+    const item = enabledItems[index]
 
     if (item.action) {
       item.action()
