@@ -20,7 +20,7 @@ describe('Article view', () => {
 
   it('change article language', () => {
     goToArticleFromTheSearchPage('Cat')
-    articlePage.selectOptionArticleActionsMenu('languages')
+    articlePage.selectOptionFromActionsMenu('languages')
     cy.get('input').type('portugues')
     cy.get('.description').should('have.text', 'Gato')
     cy.downArrow().enter()
@@ -30,7 +30,7 @@ describe('Article view', () => {
 
   it('check footer', () => {
     goToArticleFromTheSearchPage('Cat')
-    // TODO: change the next line to a method on article page
+    // TODO: change the next line to a method on article menu page going through all the sections to pick the right one
     cy.enter().upArrow().enter()
     articlePage.footerTitle().should('have.text', enJson['suggested-articles'])
     articlePage.recommendationsList().should('have.length', 3)
@@ -42,7 +42,7 @@ describe('Article view', () => {
 
   it('check image gallery', () => {
     goToArticleFromTheSearchPage('Cat')
-    articlePage.selectOptionArticleActionsMenu('gallery')
+    articlePage.selectOptionFromActionsMenu('gallery')
     articlePage.galleryImage().should('be.visible')
     articlePage.galleryImage().invoke('attr', 'src').then((src) => {
       cy.rightArrow()
@@ -55,7 +55,7 @@ describe('Article view', () => {
 
   it('check quick facts opens', () => {
     goToArticleFromTheSearchPage('Cat')
-    articlePage.selectOptionArticleActionsMenu('quickfacts')
+    articlePage.selectOptionFromActionsMenu('quickfacts')
     quickFactsPage.table().should('contains.text', 'Various types of domestic cat')
     cy.clickCloseButton()
     articlePage.selectOptionFromArticleMenu('Quick Facts')
@@ -64,7 +64,7 @@ describe('Article view', () => {
 
   it('check quick facts link opens', () => {
     goToArticleFromTheSearchPage('Cat')
-    articlePage.selectOptionArticleActionsMenu('quickfacts')
+    articlePage.selectOptionFromActionsMenu('quickfacts')
     quickFactsPage.table().get('div a ').should('contain.text', 'Conservation status')
     cy.rightArrow().enter()
     articlePreviewPage.getTitle().should('have.text', 'Conservation status')
@@ -76,7 +76,7 @@ describe('Article view', () => {
     articlePage.title().should('have.text', 'Cat')
   })
 })
-
+// TODO: create test for search and change this to use url to speed up tests
 function goToArticleFromTheSearchPage (searchTerm) {
   searchPage.search(searchTerm)
   searchPage.results().first()

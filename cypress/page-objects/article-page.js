@@ -34,7 +34,7 @@ export class ArticlePage {
     return cy.get('div.gallery-about > div.header')
   }
 
-  selectOptionArticleActionsMenu (option) {
+  selectOptionFromActionsMenu (option) {
     var entered = false
     cy
       .get('.article-actions-button')
