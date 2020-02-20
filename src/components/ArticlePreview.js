@@ -12,8 +12,8 @@ export const ArticlePreview = ({ lang, title, close, closeAll }) => {
     goto.article(lang, readTitle, true)
   }
   useSoftkey('ArticlePreview', {
-    right: i18n.i18n('softkey-close'),
-    onKeyRight: close,
+    left: i18n.i18n('softkey-close'),
+    onKeyLeft: close,
     center: i18n.i18n('softkey-read'),
     onKeyCenter: read
   }, [summary])

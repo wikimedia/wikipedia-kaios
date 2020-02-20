@@ -9,10 +9,10 @@ const AboutContainer = ({ author, description, license, filePage, close }) => {
   const containerRef = useRef()
 
   useSoftkey('About', {
-    right: i18n.i18n('softkey-close'),
-    onKeyRight: close,
-    left: i18n.i18n('softkey-more-info'),
-    onKeyLeft: () => { window.open(filePage) }
+    left: i18n.i18n('softkey-close'),
+    onKeyLeft: close,
+    right: i18n.i18n('softkey-more-info'),
+    onKeyRight: () => { window.open(filePage) }
   })
 
   useLayoutEffect(() => {
@@ -75,8 +75,8 @@ export const Gallery = ({ close, items, startFileName }) => {
   }
 
   useSoftkey('Gallery', {
-    right: i18n.i18n('softkey-close'),
-    onKeyRight: close,
+    left: i18n.i18n('softkey-close'),
+    onKeyLeft: close,
     center: containsNecessaryFields() ? i18n.i18n('softkey-about') : '',
     onKeyCenter: containsNecessaryFields() ? () => { showAboutPopup({ ...items[currentIndex] }) } : null,
     onKeyArrowRight: onNextImage,

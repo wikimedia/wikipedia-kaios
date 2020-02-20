@@ -23,8 +23,8 @@ export const ArticleMenu = ({
   }
 
   useSoftkey('Menu', {
-    right: i18n.i18n('softkey-close'),
-    onKeyRight: close,
+    left: i18n.i18n('softkey-close'),
+    onKeyLeft: close,
     center: i18n.i18n('centerkey-select'),
     onKeyCenter
   })

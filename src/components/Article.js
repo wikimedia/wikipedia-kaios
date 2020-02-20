@@ -176,10 +176,10 @@ const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
   }
 
   useSoftkey('Article', {
-    left: i18n.i18n('softkey-menu'),
-    onKeyLeft: showArticleMenu,
-    right: i18n.i18n('softkey-close'),
-    onKeyRight: () => history.back()
+    left: i18n.i18n('softkey-close'),
+    onKeyLeft: () => history.back(),
+    right: i18n.i18n('softkey-menu'),
+    onKeyRight: showArticleMenu
   }, [])
 
   useEffect(() => {
