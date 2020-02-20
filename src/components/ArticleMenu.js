@@ -51,46 +51,48 @@ export const ArticleMenu = ({
   }, [])
 
   const items = [
-    { title: i18n.i18n('search-placeholder'), action: onSearchSelected },
-    { title: i18n.i18n('article-action-sections'), action: onTocSelected },
-    { title: i18n.i18n('menu-textsize'), action: onTextsizeSelected }
-  ]
-
-  if (hasInfobox) {
-    items.push({
-      title: i18n.i18n('article-action-quickfacts'),
-      action: onQuickFactsSelected
-    })
-  }
-
-  if (hasGallery) {
-    items.push({
-      title: i18n.i18n('article-action-gallery'),
-      action: onGallerySelected
-    })
-  }
-
-  // add Previous Section item
-  if (articleHistory.hasPrev()) {
-    items.splice(1, 0, {
+    {
+      title: i18n.i18n('search-placeholder'),
+      action: onSearchSelected,
+      enabled: true
+    },
+    {
       title: i18n.i18n('menu-previous'),
-      description: articleHistory.getPrev().title,
-      action: onPreviousSelected
-    })
-  }
-
-  // add Language Section item
-  if (hasLanguages) {
-    items.push({
+      description: articleHistory.hasPrev() ? articleHistory.getPrev().title : null,
+      action: onPreviousSelected,
+      enabled: articleHistory.hasPrev()
+    },
+    {
+      title: i18n.i18n('article-action-sections'),
+      action: onTocSelected,
+      enabled: true
+    },
+    {
+      title: i18n.i18n('menu-textsize'),
+      action: onTextsizeSelected,
+      enabled: true
+    },
+    {
+      title: i18n.i18n('article-action-quickfacts'),
+      action: onQuickFactsSelected,
+      enabled: hasInfobox
+    },
+    {
+      title: i18n.i18n('article-action-gallery'),
+      action: onGallerySelected,
+      enabled: hasGallery
+    },
+    {
       title: i18n.i18n('article-action-languages'),
-      action: onLanguageSelected
-    })
-  }
+      action: onLanguageSelected,
+      enabled: hasLanguages
+    }
+  ]
 
   return <div class='menu'>
     <ListView
       header={i18n.i18n('header-menu')}
-      items={items}
+      items={items.filter(item => item.enabled)}
       containerRef={containerRef}
     />
   </div>
