@@ -72,6 +72,11 @@ Cypress.Commands.add('navigateToHomePage', () => {
   cy.visit('http://127.0.0.1:8080')
 })
 
+Cypress.Commands.add('navigateToPageWithoutOnboarding', (page) => {
+  cy.setLocalStorage('has-onboard-before', true)
+  cy.visit('http://127.0.0.1:8080/#/' + page)
+})
+
 Cypress.Commands.add('changeBrowserLanguageAndGoToHomePage', (language) => {
   cy.visit('http://127.0.0.1:8080', {
     onBeforeLoad (win) {

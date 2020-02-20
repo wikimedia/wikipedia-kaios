@@ -1,13 +1,11 @@
 /// <reference types="Cypress" />
 
-import { SearchPage } from '../page-objects/search-page'
 import { ArticlePage } from '../page-objects/article-page'
 import { QuickFactsPage } from '../page-objects/quick-facts-page'
 import * as enJson from '../../i18n/en.json'
 import { ArticlePreviewPage } from '../page-objects/article-preview-page'
 import { ArticleMenuPage } from '../page-objects/article-menu-page'
 
-const searchPage = new SearchPage()
 const articlePage = new ArticlePage()
 const quickFactsPage = new QuickFactsPage()
 const articlePreviewPage = new ArticlePreviewPage()
@@ -19,7 +17,7 @@ describe('Article view', () => {
   })
 
   it('change article language', () => {
-    goToArticleFromTheSearchPage('Cat')
+    goToCatArticle()
     articlePage.selectOptionFromActionsMenu('languages')
     cy.get('input').type('portugues')
     cy.get('.description').should('have.text', 'Gato')
@@ -29,7 +27,7 @@ describe('Article view', () => {
   })
 
   it('check footer', () => {
-    goToArticleFromTheSearchPage('Cat')
+    goToCatArticle()
     // TODO: change the next line to a method on article menu page going through all the sections to pick the right one
     cy.enter().upArrow().enter()
     articlePage.footerTitle().should('have.text', enJson['suggested-articles'])
@@ -41,7 +39,7 @@ describe('Article view', () => {
   })
 
   it('check image gallery', () => {
-    goToArticleFromTheSearchPage('Cat')
+    goToCatArticle()
     articlePage.selectOptionFromActionsMenu('gallery')
     articlePage.galleryImage().should('be.visible')
     articlePage.galleryImage().invoke('attr', 'src').then((src) => {
@@ -54,7 +52,7 @@ describe('Article view', () => {
   })
 
   it('check quick facts opens', () => {
-    goToArticleFromTheSearchPage('Cat')
+    goToCatArticle()
     articlePage.selectOptionFromActionsMenu('quickfacts')
     quickFactsPage.table().should('contains.text', 'Various types of domestic cat')
     cy.clickCloseButton()
@@ -63,7 +61,7 @@ describe('Article view', () => {
   })
 
   it('check quick facts link opens', () => {
-    goToArticleFromTheSearchPage('Cat')
+    goToCatArticle()
     articlePage.selectOptionFromActionsMenu('quickfacts')
     quickFactsPage.table().get('div a ').should('contain.text', 'Conservation status')
     cy.rightArrow().enter()
@@ -76,10 +74,8 @@ describe('Article view', () => {
     articlePage.title().should('have.text', 'Cat')
   })
 })
-// TODO: create test for search and change this to use url to speed up tests
-function goToArticleFromTheSearchPage (searchTerm) {
-  searchPage.search(searchTerm)
-  searchPage.results().first()
-  cy.enter().downArrow().enter()
-  articlePage.title().should('have.text', searchTerm)
+
+function goToCatArticle () {
+  cy.navigateToPageWithoutOnboarding('article/en/Cat')
+  articlePage.title().should('have.text', 'Cat')
 }
