@@ -72,7 +72,7 @@ describe('Article view', () => {
     articlePage.title().should('have.text', 'Conservation status')
     cy.clickMenuButton().click()
     articleMenuPage.getPreviousArticleName().should('have.text', 'Cat')
-    articleMenuPage.selectOptionFromArticleMenu('Previous articleCat')
+    articleMenuPage.selectOptionFromArticleMenu('Previous article')
     articlePage.title().should('have.text', 'Cat')
   })
 })
