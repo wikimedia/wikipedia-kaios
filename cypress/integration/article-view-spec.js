@@ -53,7 +53,7 @@ describe('Article view', () => {
     cy.getRightSoftkeyButton().should('have.text', enJson['softkey-more-info'])
   })
 
-  it.only('check quick facts opens', () => {
+  it('check quick facts opens', () => {
     goToArticleFromTheSearchPage('Cat')
     articlePage.selectOptionArticleActionsMenu("quickfacts")
     quickFactsPage.table().should('contains.text', 'Various types of domestic cat')
@@ -64,18 +64,19 @@ describe('Article view', () => {
 
   it('check quick facts link opens', () => {
     goToArticleFromTheSearchPage('Cat')
-    articlePage.goToQuickFactsFromArticleLandingPage()
-    cy.get('.infobox.biota div>a').should('contain.text', 'Conservation status')
+    articlePage.selectOptionArticleActionsMenu("quickfacts")
+    quickFactsPage.table().get('div a ').should('contain.text', 'Conservation status')
     cy.enter()
     articlePreviewPage.getTitle().should('have.text', 'Conservation status')
     cy.enter()
     articlePage.title().should('have.text', 'Conservation status')
-    cy.getLeftSoftkeyButton().click()
+    cy.clickMenuButton().click()
     articleMenuPage.getPreviousArticleName().should('have.text', 'Cat')
-    cy.enter()
+    articleMenuPage.selectOptionFromArticleMenu('Previous articleCat')
     articlePage.title().should('have.text', 'Cat')
   })
 })
+
 function goToArticleFromTheSearchPage(searchTerm) {
   searchPage.search(searchTerm)
   searchPage.results().first()

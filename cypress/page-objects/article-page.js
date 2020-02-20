@@ -35,13 +35,17 @@ export class ArticlePage {
   }
 
   selectOptionArticleActionsMenu (option) {
+    var entered = false
     cy
       .get('.article-actions-button')
       .each(($el, index, $list) => {
         if ($el.attr('data-action') === option) {
           cy.enter()
+          entered = true
         } else {
-          cy.rightArrow()
+          if(!entered){
+            cy.rightArrow()
+          }
         }
       })
   }
