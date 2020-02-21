@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'preact/hooks'
 import { useSoftkey, usePopup, useI18n } from 'hooks'
-import { viewport, INTERWIKI_KEYS } from 'utils'
+import { viewport, INTERWIKI_KEYS, normalizeTitle } from 'utils'
 import { ArticlePreview } from 'components'
 
 const SELECTED_ATTRIBUTE = 'data-selected'
@@ -124,7 +124,7 @@ const makeLinkClickEvent = link => {
   }
 
   if (link.hash) {
-    const normalizedText = link.hash.slice(1).replace('_', ' ')
+    const normalizedText = normalizeTitle(link.hash.slice(1))
     return { type: 'section', text: normalizedText, anchor: link.getAttribute('href').slice(1) }
   }
 
