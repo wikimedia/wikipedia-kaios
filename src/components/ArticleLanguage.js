@@ -24,7 +24,7 @@ export const ArticleLanguage = ({ lang, title, close }) => {
     }
   }
 
-  const onKeyRight = () => {
+  const onKeyLeft = () => {
     const item = items.find(item => item.isSelected)
     if (item) {
       const { lang, description } = item
@@ -34,12 +34,12 @@ export const ArticleLanguage = ({ lang, title, close }) => {
   }
 
   useSoftkey('ArticleLanguage', {
-    left: i18n.i18n('softkey-search'),
-    onKeyLeft: () => setNavigation(0),
+    left: i18n.i18n('softkey-done'),
+    onKeyLeft,
+    right: i18n.i18n('softkey-search'),
+    onKeyRight: () => setNavigation(0),
     center: i18n.i18n('centerkey-select'),
-    onKeyCenter,
-    right: i18n.i18n('softkey-done'),
-    onKeyRight
+    onKeyCenter
   }, [items])
 
   useEffect(() => {

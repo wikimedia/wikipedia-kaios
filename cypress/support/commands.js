@@ -52,14 +52,37 @@ Cypress.Commands.add('getCenterSoftkeyButton', () => {
 })
 
 Cypress.Commands.add('clickCloseButton', () => {
-  cy.getRightSoftkeyButton().contains('Close').click()
+  cy.getLeftSoftkeyButton().contains('Close').click()
 })
 
 Cypress.Commands.add('clickSettingsButton', () => {
-  cy.getLeftSoftkeyButton().contains('Settings').click()
+  cy.getRightSoftkeyButton().contains('Settings').click()
+})
+
+Cypress.Commands.add('clickMenuButton', () => {
+  cy.getRightSoftkeyButton().contains('Menu').click()
+})
+
+Cypress.Commands.add('clickDoneButton', () => {
+  cy.getLeftSoftkeyButton().contains('Done').click()
 })
 
 Cypress.Commands.add('navigateToHomePage', () => {
   cy.setLocalStorage('has-onboard-before', true)
   cy.visit('http://127.0.0.1:8080')
+})
+
+Cypress.Commands.add('navigateToPageWithoutOnboarding', (page) => {
+  cy.setLocalStorage('has-onboard-before', true)
+  cy.visit('http://127.0.0.1:8080/#/' + page)
+})
+
+Cypress.Commands.add('changeBrowserLanguageAndGoToHomePage', (language) => {
+  cy.visit('http://127.0.0.1:8080', {
+    onBeforeLoad (win) {
+      Object.defineProperty(win.navigator, 'language', {
+        get: cy.stub().returns(language).as('language')
+      })
+    }
+  })
 })

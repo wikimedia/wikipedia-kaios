@@ -52,11 +52,11 @@ export const Search = () => {
   }
 
   useSoftkey('Search', {
-    left: i18n.i18n('softkey-settings'),
-    onKeyLeft: () => { window.location.hash = '/settings' },
+    right: i18n.i18n('softkey-settings'),
+    onKeyRight: () => { window.location.hash = '/settings' },
     center: current.type === 'DIV' ? i18n.i18n('centerkey-select') : '',
     onKeyCenter,
-    onKeyRight: goToRandomArticle
+    onKeyLeft: goToRandomArticle
   }, [current.type])
 
   useTracking('Search')

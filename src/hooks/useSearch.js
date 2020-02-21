@@ -5,7 +5,7 @@ import { search } from 'api'
 export const useSearch = (lang) => {
   const [query, setQuery] = useHistoryState('query', '')
 
-  const [searchResults, setSearchResults] = useState([])
+  const [searchResults, setSearchResults] = useState()
   const counter = useRef(0)
 
   useEffect(() => {

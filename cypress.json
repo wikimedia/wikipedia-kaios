@@ -1,8 +1,10 @@
 {  
     "watchForFileChanges": false,
     "viewportWidth": 240,
-    "viewportHeight": 290,
+    "viewportHeight": 320,
     "videoUploadOnPasses":false,
     "modifyObstructiveCode": false,
-    "baseUrl": "http://127.0.0.1:8080"
+    "baseUrl": "http://127.0.0.1:8080",
+    "defaultCommandTimeout": 6000,
+    "video": false
 }

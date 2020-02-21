@@ -1,19 +1,34 @@
 import { h } from 'preact'
-import { useState } from 'preact/hooks'
+import { useState, useRef, useLayoutEffect } from 'preact/hooks'
 import { useI18n, useSoftkey, usePopup } from 'hooks'
+
+const MAX_DESCRIPTION_HEIGHT = 45
 
 const AboutContainer = ({ author, description, license, filePage, close }) => {
   const i18n = useI18n()
+  const containerRef = useRef()
 
   useSoftkey('About', {
-    right: i18n.i18n('softkey-close'),
-    onKeyRight: close,
-    left: i18n.i18n('softkey-more-info'),
-    onKeyLeft: () => { window.open(filePage) }
+    left: i18n.i18n('softkey-close'),
+    onKeyLeft: close,
+    right: i18n.i18n('softkey-more-info'),
+    onKeyRight: () => { window.open(filePage) }
+  })
+
+  useLayoutEffect(() => {
+    if (!containerRef.current) {
+      return
+    }
+
+    const descriptionNode = containerRef.current.querySelector('.description')
+
+    if (descriptionNode && descriptionNode.getBoundingClientRect().height > MAX_DESCRIPTION_HEIGHT) {
+      descriptionNode.classList.add('clamp')
+    }
   })
 
   return (
-    <div class='gallery-about'>
+    <div class='gallery-about' ref={containerRef}>
       <div class='header'>{i18n.i18n('gallery-about-header')}</div>
       {
         description && (
@@ -38,25 +53,32 @@ const AboutContainer = ({ author, description, license, filePage, close }) => {
   )
 }
 
-export const Gallery = ({ close, items }) => {
+export const Gallery = ({ close, items, startFileName }) => {
   const i18n = useI18n()
-  const [currentIndex, setCurrentIndex] = useState(0)
+  const [currentIndex, setCurrentIndex] = useState(getInitialIndex(items, startFileName))
   const [showAboutPopup] = usePopup(AboutContainer, { stack: true })
 
   const onNextImage = () => {
     const nextIndex = currentIndex + 1
-    setCurrentIndex(nextIndex % items.length)
+    if (nextIndex < items.length) {
+      setCurrentIndex(nextIndex)
+    }
   }
 
   const onPrevImage = () => {
     const prevIndex = currentIndex - 1
     setCurrentIndex(prevIndex < 0 ? 0 : prevIndex)
   }
+
+  const containsNecessaryFields = () => {
+    return items[currentIndex].description || items[currentIndex].author || items[currentIndex].license
+  }
+
   useSoftkey('Gallery', {
-    right: i18n.i18n('softkey-close'),
-    onKeyRight: close,
-    center: i18n.i18n('softkey-about'),
-    onKeyCenter: () => { showAboutPopup({ ...items[currentIndex] }) },
+    left: i18n.i18n('softkey-close'),
+    onKeyLeft: close,
+    center: containsNecessaryFields() ? i18n.i18n('softkey-about') : '',
+    onKeyCenter: containsNecessaryFields() ? () => { showAboutPopup({ ...items[currentIndex] }) } : null,
     onKeyArrowRight: onNextImage,
     onKeyArrowLeft: onPrevImage
   }, [currentIndex])
@@ -75,4 +97,12 @@ export const Gallery = ({ close, items }) => {
       </div>
     </div>
   )
+}
+
+const getInitialIndex = (items, fileName) => {
+  if (fileName) {
+    return items.findIndex(media => media.canonicalizedTitle === fileName)
+  }
+
+  return 0
 }

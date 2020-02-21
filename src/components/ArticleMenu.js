@@ -1,18 +1,21 @@
 import { h } from 'preact'
 import { useRef, useEffect } from 'preact/hooks'
+import { route } from 'preact-router'
 import { useNavigation, useI18n, useSoftkey, usePopup } from 'hooks'
 import { articleHistory, goto } from 'utils'
 import { ListView, TextSize } from 'components'
 
 export const ArticleMenu = ({
-  close, onTocSelected, onLanguageSelected, hasLanguages,
-  onQuickFactsSelected, hasInfobox
+  close, onTocSelected, onLanguageSelected,
+  onQuickFactsSelected, onGallerySelected,
+  hasLanguages, hasInfobox, hasGallery
 }) => {
   const containerRef = useRef()
   const i18n = useI18n()
   const onKeyCenter = () => {
     const { index } = getCurrent()
-    const item = items[index]
+    const enabledItems = items.filter(item => item.enabled)
+    const item = enabledItems[index]
 
     if (item.action) {
       item.action()
@@ -20,13 +23,18 @@ export const ArticleMenu = ({
   }
 
   useSoftkey('Menu', {
-    right: i18n.i18n('softkey-close'),
-    onKeyRight: close,
+    left: i18n.i18n('softkey-close'),
+    onKeyLeft: close,
     center: i18n.i18n('centerkey-select'),
     onKeyCenter
   })
 
   const [, setNavigation, getCurrent] = useNavigation('Menu', containerRef, 'y')
+
+  const onSearchSelected = () => {
+    close()
+    route('/')
+  }
 
   const onTextsizeSelected = () => {
     const [showTextSize] = usePopup(TextSize)
@@ -44,38 +52,48 @@ export const ArticleMenu = ({
   }, [])
 
   const items = [
-    { title: i18n.i18n('article-action-sections'), action: onTocSelected },
-    { title: i18n.i18n('menu-textsize'), action: onTextsizeSelected }
-  ]
-
-  if (hasInfobox) {
-    items.push({
-      title: i18n.i18n('article-action-quickfacts'),
-      action: onQuickFactsSelected
-    })
-  }
-
-  // add Previous Section item
-  if (articleHistory.hasPrev()) {
-    items.unshift({
+    {
+      title: i18n.i18n('search-placeholder'),
+      action: onSearchSelected,
+      enabled: true
+    },
+    {
       title: i18n.i18n('menu-previous'),
-      description: articleHistory.getPrev().title,
-      action: onPreviousSelected
-    })
-  }
-
-  // add Language Section item
-  if (hasLanguages) {
-    items.push({
+      description: articleHistory.hasPrev() ? articleHistory.getPrev().title : null,
+      action: onPreviousSelected,
+      enabled: articleHistory.hasPrev()
+    },
+    {
+      title: i18n.i18n('article-action-sections'),
+      action: onTocSelected,
+      enabled: true
+    },
+    {
+      title: i18n.i18n('menu-textsize'),
+      action: onTextsizeSelected,
+      enabled: true
+    },
+    {
+      title: i18n.i18n('article-action-quickfacts'),
+      action: onQuickFactsSelected,
+      enabled: hasInfobox
+    },
+    {
+      title: i18n.i18n('article-action-gallery'),
+      action: onGallerySelected,
+      enabled: hasGallery
+    },
+    {
       title: i18n.i18n('article-action-languages'),
-      action: onLanguageSelected
-    })
-  }
+      action: onLanguageSelected,
+      enabled: hasLanguages
+    }
+  ]
 
   return <div class='menu'>
     <ListView
       header={i18n.i18n('header-menu')}
-      items={items}
+      items={items.filter(item => item.enabled)}
       containerRef={containerRef}
     />
   </div>

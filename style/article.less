@@ -5,6 +5,7 @@
 	overflow-y: hidden;
 	overflow-x: scroll;
 	overflow: -moz-scrollbars-none;
+	background-color: #fff;
 
 	.article-section {
 		height: calc( 100vh - @softkeysHeight );
@@ -37,31 +38,7 @@
 				font-size: 22px;
 				line-height: 28px;
 
-				&.clamp {
-					max-height: 140px;
-					overflow: hidden;
-					position: relative;
-					margin-right: -1em;
-					padding-right: 1em;
-
-					&:before {
-						content: '...';
-						position: absolute;
-						right: 1em;
-						bottom: 0;
-						background: #fff;
-					}
-
-					&:after {
-						content: '';
-						position: absolute;
-						right: 1em;
-						width: 1em;
-						height: 1em;
-						margin-top: 0.2em;
-						background: #fff;
-					}
-				}
+				.clampMixin( 140px );
 			}
 
 			.desc {
@@ -96,7 +73,7 @@
 						display: none;
 					}
 
-					&[ data-selected='true' ] {
+					@{data-selected-selector} {
 						-moz-outline-radius: 16px;
 						border-radius: 16px;
 						outline: solid 1px rgba( 51, 102, 204, 0.5 );
@@ -144,6 +121,11 @@
 						text-align: left;
 						background-color: #eaecf0;
 						margin-top: -10px;
+					}
+
+					@{data-selected-selector} {
+						outline: solid 1px rgba( 51, 102, 204, 0.5 );
+						background-color: #eaf3ff;
 					}
 				}
 

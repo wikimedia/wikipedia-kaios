@@ -2,18 +2,22 @@
 	"@metadata": {
 		"authors": [
 			"Hikemaniac",
-			"HTan (WMF)"
+			"HTan (WMF)",
+			"1233qwer1234qwer4",
+			"Killarnee"
 		]
 	},
+	"article-action-gallery": "Galerie",
 	"article-loading-message": "Die Karte wird geladen …",
 	"app-title": "Wikipedia",
 	"app-subtitle": "Die freie Enzyklopädie",
+	"gallery-author-license": "Autor und Lizenz",
 	"header-sections": "Abschnitte",
 	"header-settings": "Einstellungen",
 	"menu-textsize": "Textgröße",
 	"softkey-done": "Fertig",
 	"softkey-menu": "Menü",
-	"search-placeholder": "Suchen",
+	"search-placeholder": "Wikipedia durchsuchen",
 	"softkey-settings": "Einstellungen",
 	"centerkey-select": "Auswahl",
 	"softkey-close": "Schließen",
