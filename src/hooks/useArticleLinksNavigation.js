@@ -20,7 +20,8 @@ export const useArticleLinksNavigation = (
   lang,
   contentRef,
   linkHandlers = {},
-  dependencies = []
+  dependencies = [],
+  showArticleMenu = null
 ) => {
   const i18n = useI18n()
   const [links, setLinks] = useState([])
@@ -67,6 +68,8 @@ export const useArticleLinksNavigation = (
     defaultLinkHandlers, linkHandlers)
 
   useSoftkey(origin, {
+    left: i18n.i18n('softkey-close'),
+    onKeyLeft: () => history.back(),
     onKeyArrowLeft: () => {
       if (!hasLinks()) {
         return
@@ -77,6 +80,8 @@ export const useArticleLinksNavigation = (
       }
       setCurrentLink(links[i])
     },
+    right: i18n.i18n('softkey-menu'),
+    onKeyRight: showArticleMenu,
     onKeyArrowRight: () => {
       if (!hasLinks()) {
         return
