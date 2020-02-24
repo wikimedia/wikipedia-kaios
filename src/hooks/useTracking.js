@@ -61,6 +61,7 @@ const sendEvent = event => {
 
 export const useTracking = (
   pageName,
+  language = 'en',
   namespace = -1,
   sectionCount = 0,
   openedSections = {}
@@ -115,8 +116,8 @@ export const useTracking = (
         },
         revision: SCHEMA_REV,
         schema: SCHEMA_NAME,
-        webHost: 'en.wikipedia.org',
-        wiki: 'enwiki'
+        webHost: `${language}.wikipedia.org`,
+        wiki: `${language}wiki`
       }
 
       sendEvent(event)
