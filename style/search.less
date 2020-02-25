@@ -49,4 +49,83 @@
 			}
 		}
 	}
+
+	.carousel-container {
+		background-color: #fff;
+
+		.carousel {
+			display: flex;
+			// justify-content: space-around;
+			overflow: hidden;
+			transition: margin-left 700ms;
+			margin: 0;
+			margin-left: 35px;
+			height: calc( 100vh - @softkeysHeight - 35px );
+
+			.item {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				margin: 0 7.5px;
+
+				figure {
+					position: relative;
+					width: 162px;
+					height: 185px;
+					margin: 0;
+					text-align: left;
+					box-shadow: 0 1px 3px 0 rgba( 0, 0, 0, 0.15 );
+					border: solid 0.5px #c8ccd1;
+					line-height: 32px;
+
+					.image {
+						height: 131.2px;
+						overflow: hidden;
+
+						img {
+							width: 100%;
+							height: auto;
+						}
+					}
+
+					figcaption {
+						font-family: @textFont;
+						// height: 53.8px;
+						line-height: normal;
+						padding: 15px 10px;
+						// text-align: left;
+						// background-color: #eaecf0;
+						// margin-top: -10px;
+
+						p {
+							margin: 0;
+						}
+
+						.title {
+							font-size: 12px;
+							font-weight: 900;
+							letter-spacing: -0.13px;
+							color: #36c;
+						}
+
+						.description {
+							font-size: 8px;
+							font-weight: normal;
+							font-stretch: normal;
+							font-style: normal;
+							line-height: 1.5;
+							letter-spacing: 0.01px;
+							color: #000;
+						}
+					}
+				}
+
+				&[ nav-selected=true ] {
+					figure {
+						// outline: solid 1px rgba( 51, 102, 204, 0.5 );
+					}
+				}
+			}
+		}
+	}
 }

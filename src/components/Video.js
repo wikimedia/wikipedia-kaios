@@ -44,7 +44,11 @@ export const Video = ({ close, items = [] }) => {
   useVideoNavigation('Video', contentRef, linkHandlers, [isPaused])
   useSoftkey('Video', {
     left: i18n.i18n('softkey-close'),
-    onKeyLeft: close
+    onKeyLeft: () => {
+      const videoRef = contentRef.current.querySelector('video')
+      videoRef.pause()
+      close()
+    }
   })
 
   return (
