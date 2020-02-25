@@ -46,7 +46,7 @@
     "eslint-config-standard": "^14.1.0",
     "eslint-config-standard-preact": "^1.1.6",
     "eslint-loader": "^3.0.2",
-    "eslint-plugin-cypress": "2.8.1",
+    "eslint-plugin-cypress": "^2.10.3",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-no-only-tests": "^2.4.0",
     "eslint-plugin-node": "^10.0.0",
