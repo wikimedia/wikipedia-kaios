@@ -2,6 +2,15 @@ import { h } from 'preact'
 import { useRef, useState, useEffect } from 'preact/hooks'
 import { useSoftkey } from 'hooks'
 
+const deentitize = text => {
+  let ret = text.replace(/&gt;/g, '>')
+  ret = ret.replace(/&lt;/g, '<')
+  ret = ret.replace(/&quot;/g, '"')
+  ret = ret.replace(/&apos;/g, "'")
+  ret = ret.replace(/&amp;/g, '&')
+  return ret
+}
+
 export const TestVideo = () => {
   const videoRef = useRef()
   const [videos, setVideos] = useState()
@@ -32,8 +41,17 @@ export const TestVideo = () => {
       const content = (new window.DOMParser()).parseFromString(item.querySelector('description').textContent, 'text/html')
       const html = (new window.DOMParser()).parseFromString(content.body.innerHTML, 'text/html')
 
+      // const videoPayload = deentitize()
       if (html.querySelector('a[href$="webm"]')) {
-        const video = html.querySelector('a[href$="webm"]').getAttribute('href')
+        const videoElement = (new window.DOMParser()).parseFromString(
+          (deentitize(html.body.querySelector('div[videopayload]').getAttribute('videopayload'))), 'text/html'
+        ).querySelector('video')
+        const webm160p = videoElement.querySelector('source[data-transcodekey="160p.webm"]') && videoElement.querySelector('source[data-transcodekey="160p.webm"]').getAttribute('src')
+        const webm240p = videoElement.querySelector('source[data-transcodekey="240p.webm"]') && videoElement.querySelector('source[data-transcodekey="240p.webm"]').getAttribute('src')
+        const webm360p = videoElement.querySelector('source[data-transcodekey="360p.webm"]') && videoElement.querySelector('source[data-transcodekey="360p.webm"]').getAttribute('src')
+        const webm480p = videoElement.querySelector('source[data-transcodekey="480p.webm"]') && videoElement.querySelector('source[data-transcodekey="480p.webm"]').getAttribute('src')
+
+        const video = webm160p || webm240p || webm360p || webm480p
         console.log('play video:', video)
         setVideo(video)
       }
