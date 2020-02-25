@@ -50,6 +50,10 @@ export class ArticlePage {
       })
   }
 
+  getActionsSectionButton (option) {
+    return cy.get('div[class="article-actions-button"][data-action="' + option + '"]')
+  }
+
   selectOptionFromArticleMenu (option) {
     cy.clickMenuButton()
     articleMenuPage.selectOptionFromArticleMenu(option)

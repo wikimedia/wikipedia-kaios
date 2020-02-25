@@ -32,4 +32,8 @@ export class ArticleMenuPage {
         cy.enter()
       })
   }
+
+  getMenuOption (option) {
+    return cy.get('div[data-selected-key="' + option + '"]')
+  }
 }
