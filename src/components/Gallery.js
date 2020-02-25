@@ -101,8 +101,8 @@ export const Gallery = ({ close, items, startFileName }) => {
 
 const getInitialIndex = (items, fileName) => {
   if (fileName) {
-    return items.findIndex(media => media.canonicalizedTitle === fileName)
+    const index = items.findIndex(media => media.canonicalizedTitle === fileName)
+    return index >= 0 ? index : 0
   }
-
   return 0
 }
