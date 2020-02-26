@@ -1440,6 +1440,21 @@ const languages = [
     canonical_name: 'Herero',
     code: 'hz',
     name: 'Otsiherero'
+  },
+  {
+    canonical_name: 'Maithili',
+    code: 'mai',
+    name: '\u092E\u0948\u0925\u093F\u0932\u0940'
+  },
+  {
+    canonical_name: 'Bodo',
+    code: 'brx',
+    name: '\u092C\u0921\u093C\u094B'
+  },
+  {
+    canonical_name: 'Goan Konkani (Devanagari script)',
+    code: 'gom-deva',
+    name: '\u0917\u094B\u0935\u093E \u0915\u094B\u0902\u0915\u0923\u0940'
   }
 ]
 
