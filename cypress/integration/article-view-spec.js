@@ -3,12 +3,12 @@
 import { ArticlePage } from '../page-objects/article-page'
 import { QuickFactsPage } from '../page-objects/quick-facts-page'
 import * as enJson from '../../i18n/en.json'
-import { ArticlePreviewPage } from '../page-objects/article-preview-page'
+import { PopupPage } from '../page-objects/popup-page'
 import { ArticleMenuPage } from '../page-objects/article-menu-page'
 
 const articlePage = new ArticlePage()
 const quickFactsPage = new QuickFactsPage()
-const articlePreviewPage = new ArticlePreviewPage()
+const popupPage = new PopupPage()
 const articleMenuPage = new ArticleMenuPage()
 
 describe('Article view', () => {
@@ -65,7 +65,7 @@ describe('Article view', () => {
     articlePage.selectOptionFromActionsMenu('quickfacts')
     quickFactsPage.table().get('div a ').should('contain.text', 'Conservation status')
     cy.rightArrow().enter()
-    articlePreviewPage.getTitle().should('have.text', 'Conservation status')
+    popupPage.getTitle().should('have.text', 'Conservation status')
     cy.enter()
     articlePage.title().should('have.text', 'Conservation status')
     cy.clickMenuButton().click()
