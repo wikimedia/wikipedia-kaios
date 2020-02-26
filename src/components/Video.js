@@ -8,9 +8,6 @@ export const Video = ({ close, items = [] }) => {
   const [isPaused, togglePause] = useState(false)
   const [itemIndex, setItemIndex] = useState(0)
 
-  // todo: change to item list
-  const video = ['https://upload.wikimedia.org/wikipedia/commons/2/23/2019-05-12_decouv-etape7-TdF2019-Belfort-576p.webm']
-
   const linkHandlers = {
     action: ({ action }) => {
       const videoRef = contentRef.current.querySelector('video')
@@ -18,7 +15,10 @@ export const Video = ({ close, items = [] }) => {
       switch (action) {
         case 'previous' :
           newIndex = itemIndex - 1
-          setItemIndex(newIndex >= 0 ? newIndex : 0)
+          if (newIndex >= 0) {
+            setItemIndex(newIndex)
+            togglePause(false)
+          }
           break
         case 'backforward' :
           videoRef.currentTime -= 10
@@ -36,12 +36,15 @@ export const Video = ({ close, items = [] }) => {
           break
         case 'next' :
           newIndex = itemIndex + 1
-          setItemIndex(newIndex < video.length ? newIndex : video.length - 1)
+          if (newIndex < items.length) {
+            setItemIndex(newIndex)
+            togglePause(false)
+          }
           break
       }
     }
   }
-  useVideoNavigation('Video', contentRef, linkHandlers, [isPaused])
+  useVideoNavigation('Video', contentRef, linkHandlers, [isPaused, itemIndex])
   useSoftkey('Video', {
     left: i18n.i18n('softkey-close'),
     onKeyLeft: () => {
@@ -53,10 +56,10 @@ export const Video = ({ close, items = [] }) => {
 
   return (
     <div class='video' ref={contentRef}>
-      <p class='header'>Video of the day</p>
+      <p class='header'>{items[itemIndex].title}</p>
       <div class='source'>
-        <video key={video[itemIndex]} autoplay='true' loop='true' controls='true' style='width:100%'>
-          <source src={video[itemIndex]} type='video/webm' />
+        <video key={items[itemIndex].source} autoplay='true' loop='true' controls='true' style='width:100%'>
+          <source src={items[itemIndex].source} type='video/webm' />
         Sorry, your browser doesn't support embedded videos.
         </video>
       </div>

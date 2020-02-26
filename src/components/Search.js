@@ -1,7 +1,11 @@
 import { h } from 'preact'
 import { useRef, useEffect } from 'preact/hooks'
 import { ListView, Video } from 'components'
-import { useNavigation, useSearch, useI18n, useSoftkey, useOnlineStatus, usePopup } from 'hooks'
+import {
+  useNavigation, useSearch, useI18n,
+  useSoftkey, useOnlineStatus, usePopup,
+  useMotd
+} from 'hooks'
 import { articleHistory, goto } from 'utils'
 import { getRandomArticleTitle } from 'api'
 
@@ -22,6 +26,8 @@ export const Search = () => {
   const inputRef = useRef()
   const carouselRef = useRef()
   const [showVideo] = usePopup(Video, { mode: 'fullscreen' })
+  const [motd] = useMotd()
+  // const podt = usePodt()
   const i18n = useI18n()
   const [current, setNavigation, getCurrent] = useNavigation('Search', containerRef, 'y')
   const lang = i18n.locale
@@ -35,7 +41,7 @@ export const Search = () => {
     const { index, key } = getCurrent()
 
     if (key === 'motd') {
-      showVideo()
+      showVideo({ items: motd })
     } else if (key === 'potd') {
       // todo
     } else if (index) {
@@ -84,13 +90,15 @@ export const Search = () => {
       { !isOnline && <SearchOfflinePanel /> }
 
       {
-        !query && (
+        (!query && !searchResults) && (
           <div class='carousel-container'>
             <div class='carousel' ref={carouselRef}>
               <div class='item motd' data-selectable data-selected-key='motd' key='motd'>
                 <figure class='mw-halign-right' data-selected='true'>
                   <div class='image'>
-                    <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Carlos_V_en_M%C3%BChlberg%2C_by_Titian%2C_from_Prado_in_Google_Earth.jpg/525px-Carlos_V_en_M%C3%BChlberg%2C_by_Titian%2C_from_Prado_in_Google_Earth.jpg' height='100' width='100' />
+                    {
+                      motd.length ? <img src={motd[0].poster} /> : null
+                    }
                   </div>
                   <figcaption>
                     <p class='title'>Video of the day</p>
