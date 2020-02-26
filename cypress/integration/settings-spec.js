@@ -6,10 +6,12 @@ import * as ptJson from '../../i18n/pt.json'
 import { SettingsPage } from '../page-objects/settings-page'
 import { SearchPage } from '../page-objects/search-page'
 import { LanguageSettingsPage } from '../page-objects/language-settings-page'
+import { PopupPage } from '../page-objects/popup-page.js'
 
 const searchPage = new SearchPage()
 const settingsPage = new SettingsPage()
 const languageSettingsPage = new LanguageSettingsPage()
+const popupPage = new PopupPage()
 const settingsMenuListEnglishText = [enJson['settings-language'],
   enJson['settings-textsize'],
   enJson['settings-about-wikipedia'],
@@ -55,7 +57,7 @@ describe('settings page', () => {
   })
 
   it('language of the app should change', () => {
-    cy.enter()
+    languageSettingsPage.selectOptionFromSettings('Language')
     languageSettingsPage.popupTitleElement().should('have.text', enJson['language-setting'])
     languageSettingsPage.popupTextElement().should('have.text', languageSettingsPopupEnglishText)
     cy.enter()
@@ -67,12 +69,19 @@ describe('settings page', () => {
   })
 
   it('search for language on settings', () => {
-    cy.enter().enter()
+    languageSettingsPage.selectOptionFromSettings('Language')
+    cy.enter()
     cy.getRightSoftkeyButton().click()
     cy.get('div.list').should('not.contain.text', 'Português')
     cy.get('input').type('port')
     cy.get('div.list').should('contain.text', 'Português')
     cy.downArrow().enter()
     languageSettingsPage.headerElement().should('have.text', ptJson['language-change'])
+  })
+
+  it('check text size popup', () => {
+    languageSettingsPage.selectOptionFromSettings('Text size')
+    popupPage.getHeader().should('have.text', enJson['header-textsize'])
+    popupPage.getContent().should('have.text', enJson['textsize-decrease'] + enJson['textsize-default'] + enJson['textsize-increase'])
   })
 })
