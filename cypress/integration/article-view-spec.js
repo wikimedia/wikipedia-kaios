@@ -73,6 +73,28 @@ describe('Article view', () => {
     articleMenuPage.selectOptionFromArticleMenu('Previous article')
     articlePage.title().should('have.text', 'Cat')
   })
+
+  it('check text size change', () => {
+    goToCatArticle()
+    articlePage.selectOptionFromArticleMenu('Text size')
+    popupPage.getHeader().should('have.text', enJson['header-textsize'])
+    popupPage.getContent().should('have.text', enJson['textsize-decrease'] + enJson['textsize-default'] + enJson['textsize-increase'])
+    cy.clickCloseButton()
+    cy.downArrow()
+    cy.downArrow()
+    cy.downArrow()
+    articlePage.getArticleText().should('have.attr', 'style', 'font-size: 16px;')
+    articlePage.decreaseTextSize()
+    articlePage.decreaseTextSize()
+    articlePage.getArticleText().should('have.attr', 'style', 'font-size: 14px;')
+    articlePage.defaultTextSize()
+    articlePage.getArticleText().should('have.attr', 'style', 'font-size: 16px;')
+    articlePage.increaseTextSize()
+    articlePage.increaseTextSize()
+    articlePage.increaseTextSize()
+    articlePage.increaseTextSize()
+    articlePage.getArticleText().should('have.attr', 'style', 'font-size: 20px;')
+  })
 })
 
 function goToCatArticle () {
