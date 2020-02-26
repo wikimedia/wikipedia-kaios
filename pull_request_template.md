@@ -1,4 +1,4 @@
-Phabricator Link : https://phabricator.wikimedia.org/project/view/4301/
+Phabricator Link: https://phabricator.wikimedia.org/project/view/4301/
 
 ### Problem Statement
 
