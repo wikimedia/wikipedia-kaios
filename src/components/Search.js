@@ -1,10 +1,10 @@
 import { h } from 'preact'
 import { useRef, useEffect } from 'preact/hooks'
-import { ListView, Video } from 'components'
+import { ListView, Video, Gallery } from 'components'
 import {
   useNavigation, useSearch, useI18n,
   useSoftkey, useOnlineStatus, usePopup,
-  useMotd
+  useMotd, usePotd
 } from 'hooks'
 import { articleHistory, goto } from 'utils'
 import { getRandomArticleTitle } from 'api'
@@ -26,8 +26,9 @@ export const Search = () => {
   const inputRef = useRef()
   const carouselRef = useRef()
   const [showVideo] = usePopup(Video, { mode: 'fullscreen' })
+  const [showGallery] = usePopup(Gallery, { mode: 'fullscreen' })
   const [motd] = useMotd()
-  // const podt = usePodt()
+  const [potd] = usePotd()
   const i18n = useI18n()
   const [current, setNavigation, getCurrent] = useNavigation('Search', containerRef, 'y')
   const lang = i18n.locale
@@ -43,7 +44,7 @@ export const Search = () => {
     if (key === 'motd') {
       showVideo({ items: motd })
     } else if (key === 'potd') {
-      // todo
+      showGallery({ items: [potd] })
     } else if (index) {
       goto.article(lang, key)
     }
@@ -109,7 +110,9 @@ export const Search = () => {
               <div class='item potd' data-selectable data-selected-key='potd' key='potd'>
                 <figure class='mw-halign-right' data-selected='true'>
                   <div class='image'>
-                    <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Copyright.svg/100px-Copyright.svg.png' />
+                    {
+                      potd ? <img src={potd.thumbnail} /> : null
+                    }
                   </div>
                   <figcaption>
                     <p class='title'>Picture of the day</p>
