@@ -9,5 +9,10 @@ export class PopupPage {
 
   getContent () {
     return cy.get('.popup .popup-content .content')
+    // preview-text adjustable-font-size
+  }
+
+  getText () {
+    return cy.get('.preview-text.adjustable-font-size')
   }
 }

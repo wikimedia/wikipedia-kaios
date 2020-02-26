@@ -5,11 +5,13 @@ import { QuickFactsPage } from '../page-objects/quick-facts-page'
 import * as enJson from '../../i18n/en.json'
 import { PopupPage } from '../page-objects/popup-page'
 import { ArticleMenuPage } from '../page-objects/article-menu-page'
+import { SearchPage } from '../page-objects/search-page'
 
 const articlePage = new ArticlePage()
 const quickFactsPage = new QuickFactsPage()
 const popupPage = new PopupPage()
 const articleMenuPage = new ArticleMenuPage()
+const searchPage = new SearchPage()
 
 describe('Article view', () => {
   beforeEach(() => {
@@ -94,6 +96,55 @@ describe('Article view', () => {
     articlePage.increaseTextSize()
     articlePage.increaseTextSize()
     articlePage.getArticleText().should('have.attr', 'style', 'font-size: 20px;')
+  })
+
+  it('check text size remains after switching sections', () => {
+    goToCatArticle()
+    articlePage.getArticleText().should('have.attr', 'style', 'font-size: 16px;')
+    articlePage.decreaseTextSize()
+    articlePage.decreaseTextSize()
+    articlePage.getArticleText().should('have.attr', 'style', 'font-size: 14px;')
+    articlePage.selectOptionFromActionsMenu('sections')
+    articleMenuPage.selectOptionFromSections('Cats_by_location')
+    articlePage.getArticleText().should('have.attr', 'style', 'font-size: 14px;')
+  })
+
+  it('check text size remains after new search', () => {
+    goToCatArticle()
+    articlePage.getArticleText().should('have.attr', 'style', 'font-size: 16px;')
+    articlePage.decreaseTextSize()
+    articlePage.decreaseTextSize()
+    articlePage.getArticleText().should('have.attr', 'style', 'font-size: 14px;')
+    articlePage.selectOptionFromArticleMenu('Search Wikipedia')
+    cy.get('input[type=text]').type('cattle')
+    searchPage.results().first()
+    cy.downArrow()
+    cy.enter()
+    articlePage.getArticleText().should('have.attr', 'style', 'font-size: 14px;')
+  })
+
+  it('check text size remains after going to new article', () => {
+    goToCatArticle()
+    articlePage.getArticleText().should('have.attr', 'style', 'font-size: 16px;')
+    articlePage.decreaseTextSize()
+    articlePage.decreaseTextSize()
+    articlePage.getArticleText().should('have.attr', 'style', 'font-size: 14px;')
+    articlePage.selectOptionFromActionsMenu('quickfacts')
+    cy.rightArrow().enter()
+    popupPage.getText().should('have.attr', 'style', 'font-size: 14px;')
+    cy.enter()
+    articlePage.getArticleText().should('have.attr', 'style', 'font-size: 14px;')
+  })
+
+  it('check text size remains after changing on preview', () => {
+    goToCatArticle()
+    articlePage.getArticleText().should('have.attr', 'style', 'font-size: 16px;')
+    cy.downArrow().downArrow().downArrow().enter()
+    articlePage.decreaseTextSize()
+    articlePage.decreaseTextSize()
+    popupPage.getText().should('have.attr', 'style', 'font-size: 14px;')
+    cy.enter()
+    articlePage.getArticleText().should('have.attr', 'style', 'font-size: 14px;')
   })
 })
 
