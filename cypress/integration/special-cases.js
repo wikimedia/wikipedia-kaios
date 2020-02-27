@@ -27,4 +27,18 @@ describe('special cases tests', () => {
     cy.clickMenuButton()
     articleMenuPage.getMenuOption('Language').should('not.exist')
   })
+
+  it('check goto quickfacts', () => {
+    cy.navigateToPageWithoutOnboarding('article/en/Holly')
+    articlePage.title().should('have.text', 'Holly')
+    articlePage.selectOptionFromActionsMenu('quickfacts')
+    Cypress._.times(20, (i) => {
+      cy.downArrow()
+    })
+    cy.leftArrow()
+    cy.enter()
+    cy.get('.info > .title').should('have.text', 'Go to Section "Selected species"')
+    cy.enter()
+    cy.get('.title').should('have.text', 'Selected species')
+  })
 })
