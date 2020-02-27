@@ -28,7 +28,7 @@ describe('special cases tests', () => {
     articleMenuPage.getMenuOption('Language').should('not.exist')
   })
 
-  it('gallery opens from a non-english article', () => {
+  it.skip('gallery opens from a non-english article', () => {
     cy.navigateToPageWithoutOnboarding('article/pl/Tupolew_Tu-154')
     articlePage.title().should('have.text', 'Tu-154')
     for (let index = 0; index < 15; index++) {
