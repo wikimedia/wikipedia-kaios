@@ -11,7 +11,7 @@ import {
   useArticlePagination, useArticleLinksNavigation, useArticleTextSize,
   usePopup
 } from 'hooks'
-import { articleHistory, confirmDialog, goto, viewport } from 'utils'
+import { articleHistory, confirmDialog, goto, getViewport } from 'utils'
 
 const ArticleBody = memo(({ content }) => {
   return (
@@ -221,7 +221,7 @@ const findCurrentLocatedAnchor = ref => {
   let element
   Array.from(ref.current.querySelectorAll('.title, h3, h4'))
     .find(ref => {
-      if (ref.getBoundingClientRect().left < viewport.width) {
+      if (ref.getBoundingClientRect().left < getViewport().width) {
         element = ref
       }
     })

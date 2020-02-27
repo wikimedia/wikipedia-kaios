@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'preact/hooks'
 import { useSoftkey, usePopup, useI18n } from 'hooks'
-import { viewport, INTERWIKI_KEYS } from 'utils'
+import { getViewport, INTERWIKI_KEYS } from 'utils'
 import { ArticlePreview } from 'components'
 
 const SELECTED_ATTRIBUTE = 'data-selected'
@@ -140,6 +140,7 @@ const makeLinkClickEvent = link => {
 const findVisibleLinks = container => {
   const links = container.querySelectorAll(SUPPORTED_LINKS)
   const visibleLinks = []
+  const viewport = getViewport()
   let rect
   for (const link of links) {
     rect = link.getBoundingClientRect()

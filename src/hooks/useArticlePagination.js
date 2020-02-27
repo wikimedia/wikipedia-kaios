@@ -1,6 +1,6 @@
 import { useState, useLayoutEffect } from 'preact/hooks'
 import { useSoftkey } from 'hooks'
-import { viewport } from 'utils'
+import { getViewport } from 'utils'
 
 export const useArticlePagination = (
   elementRef,
@@ -11,6 +11,7 @@ export const useArticlePagination = (
   const [isLastPage, setIsLastPage] = useState(0)
   const [currentPage, setCurrentPage] = useState(0)
   const numOfSection = article.sections.length
+  const viewport = getViewport()
 
   useSoftkey('Article', {
     onKeyArrowDown: () => {
