@@ -58,4 +58,20 @@ export class ArticlePage {
     cy.clickMenuButton()
     articleMenuPage.selectOptionFromArticleMenu(option)
   }
+
+  getArticleText () {
+    return cy.get('.article-content.adjustable-font-size')
+  }
+
+  decreaseTextSize () {
+    cy.get('body').type('4')
+  }
+
+  defaultTextSize () {
+    cy.get('body').type('5')
+  }
+
+  increaseTextSize () {
+    cy.get('body').type('6')
+  }
 }
