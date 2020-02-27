@@ -50,8 +50,28 @@ export class ArticlePage {
       })
   }
 
+  getActionsSectionButton (option) {
+    return cy.get('div[class="article-actions-button"][data-action="' + option + '"]')
+  }
+
   selectOptionFromArticleMenu (option) {
     cy.clickMenuButton()
     articleMenuPage.selectOptionFromArticleMenu(option)
+  }
+
+  getArticleText () {
+    return cy.get('.article-content.adjustable-font-size')
+  }
+
+  decreaseTextSize () {
+    cy.get('body').type('4')
+  }
+
+  defaultTextSize () {
+    cy.get('body').type('5')
+  }
+
+  increaseTextSize () {
+    cy.get('body').type('6')
   }
 }
