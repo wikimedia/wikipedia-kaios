@@ -39,7 +39,7 @@ describe('special cases tests', () => {
     cy.get('.gallery.hasHeader>.header').should('be.visible')
     cy.get('.gallery.hasHeader>.img>img').should('be.visible').should('have.attr', 'src', 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Tupolev_Tu-154B%2C_Tarom_AN0679876.jpg/320px-Tupolev_Tu-154B%2C_Tarom_AN0679876.jpg')
   })
-  
+
   it('check goto quickfacts', () => {
     cy.navigateToPageWithoutOnboarding('article/en/Holly')
     articlePage.title().should('have.text', 'Holly')
