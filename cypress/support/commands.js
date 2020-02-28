@@ -1,5 +1,7 @@
 
+import 'cypress-wait-until'
 import 'cypress-localstorage-commands'
+
 import * as enJson from '../../i18n/en.json'
 [
   'downArrow',

@@ -43,6 +43,7 @@
     "css-loader": "^3.2.0",
     "cypress": "^4.0.2",
     "cypress-localstorage-commands": "^1.1.6",
+    "cypress-wait-until": "^1.6.1",
     "eslint": "^6.6.0",
     "eslint-config-standard": "^14.1.0",
     "eslint-config-standard-preact": "^1.1.6",

@@ -28,12 +28,16 @@ describe('special cases tests', () => {
     articleMenuPage.getMenuOption('Language').should('not.exist')
   })
 
-  it.skip('gallery opens from a non-english article', () => {
+  it('gallery opens from a non-english article', () => {
     cy.navigateToPageWithoutOnboarding('article/pl/Tupolew_Tu-154')
     articlePage.title().should('have.text', 'Tu-154')
-    for (let index = 0; index < 15; index++) {
-      cy.downArrow()
-    }
+    cy.waitUntil(() => {
+      if (Cypress.$('a[href="#cite_note-24"][data-selected="true"]').length) {
+        return true
+      } else {
+        return cy.downArrow().then(() => false)
+      }
+    })
     cy.rightArrow()
     cy.enter()
     cy.get('.gallery.hasHeader>.header').should('be.visible')
