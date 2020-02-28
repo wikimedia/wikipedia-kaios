@@ -4,7 +4,7 @@
 
 The official Wikipedia KaiOS app. [KaiOS](https://developer.kaiostech.com/) is a web-based mobile operating system that enables a new category of smart feature phones, a successor of the discontinued Firefox OS.
 
-The Wikipedia KaiOS app is built with [Preact](https://github.com/preactjs/preact) and we use [Cypress](https://github.com/cypress-io/cypress) for testing. Tasks and issues are tracked on [Phabricator](https://phabricator.wikimedia.org/project/profile/4305/).
+The Wikipedia KaiOS app is built with [Preact](https://github.com/preactjs/preact), we use [Cypress](https://github.com/cypress-io/cypress) for testing, and [Translatewiki](https://github.com/wikimedia/translatewiki) for translations. Tasks and issues are tracked on [Phabricator](https://phabricator.wikimedia.org/project/profile/4305/).
 
 ## Installation requirements (for macOS)
 
@@ -44,8 +44,6 @@ Now the app is running on your computer at http://127.0.0.1:8080  in Firefox. Yo
 1. Connect your device to your computer using a USB cable
 2. Enable debug mode on the device by typing: `*#*#33284#*#*`
 3. Check that adb is running and sees your device: `adb devices`
-
-_Steps 2, 3 and 4 need to be redone when you disconnect and reconnect your device or restart your computer._
 
 ### Deploy the app to the device
 1. Deploy to device, this will take a few minutes: `npm run deploy`
