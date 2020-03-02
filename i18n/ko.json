@@ -7,6 +7,7 @@
 		]
 	},
 	"article-action-sections": "부분",
+	"article-action-quickfacts": "간략 정보",
 	"article-action-gallery": "갤러리",
 	"article-action-languages": "언어",
 	"article-language-available": "$1개 {{PLURAL:$1|언어}}로 읽을 수 있음",
