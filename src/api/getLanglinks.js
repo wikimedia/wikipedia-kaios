@@ -13,7 +13,8 @@ export const getLanglinks = (lang, title) => {
     const { pages } = response.query
     return pages[0].langlinks.map(item => (
       {
-        title: [item.langname, item.autonym],
+        title: item.langname,
+        autonym: item.autonym,
         lang: item.lang,
         description: item.title
       }
