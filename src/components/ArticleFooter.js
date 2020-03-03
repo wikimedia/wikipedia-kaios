@@ -2,14 +2,13 @@ import { h } from 'preact'
 import { useI18n } from 'hooks'
 import { buildWpMobileWebUrl, canonicalizeTitle } from 'utils'
 
-export const ArticleFooter = ({ lang, title, items = [] }) => {
+export const ArticleFooter = ({ lang, title, items = [], headerTitle }) => {
   const i18n = useI18n()
-  const header = i18n.i18n('suggested-articles')
 
   return (
     <div class='article-footer'>
       <div class='content'>
-        <h2 class='adjustable-font-size' data-anchor={canonicalizeTitle(header)}>{header}</h2>
+        <h2 class='adjustable-font-size' data-anchor={canonicalizeTitle(headerTitle)}>{headerTitle}</h2>
         <div class='list'>
           { items.map(item => {
             return (
