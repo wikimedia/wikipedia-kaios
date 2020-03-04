@@ -1,6 +1,6 @@
 import { h } from 'preact'
-import { useState, useRef, useLayoutEffect } from 'preact/hooks'
-import { useI18n, useSoftkey, usePopup } from 'hooks'
+import { useRef, useLayoutEffect } from 'preact/hooks'
+import { useI18n, useSoftkey, usePopup, useRange } from 'hooks'
 
 const MAX_DESCRIPTION_HEIGHT = 45
 
@@ -55,19 +55,15 @@ const AboutContainer = ({ author, description, license, filePage, close }) => {
 
 export const Gallery = ({ close, items, startFileName }) => {
   const i18n = useI18n()
-  const [currentIndex, setCurrentIndex] = useState(getInitialIndex(items, startFileName))
+  const [currentIndex, setCurrentIndex] = useRange(getInitialIndex(items, startFileName), 2)
   const [showAboutPopup] = usePopup(AboutContainer, { stack: true })
 
   const onNextImage = () => {
-    const nextIndex = currentIndex + 1
-    if (nextIndex < items.length) {
-      setCurrentIndex(nextIndex)
-    }
+    setCurrentIndex(currentIndex + 1)
   }
 
   const onPrevImage = () => {
-    const prevIndex = currentIndex - 1
-    setCurrentIndex(prevIndex < 0 ? 0 : prevIndex)
+    setCurrentIndex(currentIndex - 1)
   }
 
   const containsNecessaryFields = () => {

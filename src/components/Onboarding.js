@@ -1,12 +1,11 @@
 import { h } from 'preact'
-import { useState } from 'preact/hooks'
 import { route } from 'preact-router'
-import { useSoftkey, useI18n } from 'hooks'
+import { useSoftkey, useI18n, useRange } from 'hooks'
 import { onboarding } from 'utils'
 
 export const Onboarding = () => {
   const i18n = useI18n()
-  const [currentIndex, setCurrentIndex] = useState(0)
+  const [currentIndex, setCurrentIndex] = useRange(0, 2)
 
   const exitOnboard = () => {
     onboarding.markAsDone()
