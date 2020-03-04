@@ -38,6 +38,7 @@ const filterFirst10Language = (languages, text) => {
   for (let i = 0; foundList.length < 10 && i < languages.length; i++) {
     if (
       languages[i].title.toLowerCase().indexOf(lowerCaseText) > -1 ||
+      languages[i].langname.toLowerCase().indexOf(lowerCaseText) > -1 ||
       languages[i].description.toLowerCase().indexOf(lowerCaseText) > -1 ||
       languages[i].lang.toLowerCase().indexOf(lowerCaseText) > -1
     ) {
