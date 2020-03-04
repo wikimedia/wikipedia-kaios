@@ -5,19 +5,11 @@ import { onboarding } from 'utils'
 
 export const Onboarding = () => {
   const i18n = useI18n()
-  const [currentIndex, setCurrentIndex] = useRange(0, 3)
+  const [currentIndex, prevOnboard, nextOnboard] = useRange(0, 3)
 
   const exitOnboard = () => {
     onboarding.markAsDone()
     route('/')
-  }
-
-  const nextOnboard = () => {
-    setCurrentIndex(currentIndex + 1)
-  }
-
-  const prevOnboard = () => {
-    setCurrentIndex(currentIndex - 1)
   }
 
   const getImageBackgroundStyle = index => {

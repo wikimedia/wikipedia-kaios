@@ -13,5 +13,14 @@ export const useRange = (initialValue, range) => {
       setValue(newValue)
     }
   }
-  return [value, setRangeValue]
+
+  const setPrevValue = () => {
+    setRangeValue(value - 1)
+  }
+
+  const setNextValue = () => {
+    setRangeValue(value + 1)
+  }
+
+  return [value, setPrevValue, setNextValue, setRangeValue]
 }

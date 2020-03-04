@@ -7,7 +7,7 @@ export const useArticlePagination = (
   article,
   anchor
 ) => {
-  const [currentSection, setCurrentSection] = useRange(findSection(article.toc, anchor), article.sections.length - 1)
+  const [currentSection, showPrevSection, showNextSection, setCurrentSection] = useRange(findSection(article.toc, anchor), article.sections.length - 1)
   const [isLastPage, setIsLastPage] = useState(0)
   const [currentPage, setCurrentPage] = useState(0)
 
@@ -32,6 +32,9 @@ export const useArticlePagination = (
       // show the previous section of the article
       if (previous === after) {
         showPrevSection()
+        if (currentSection > 0) {
+          setIsLastPage(true)
+        }
       } else {
         setCurrentPage(p => p - 1)
       }
@@ -66,15 +69,6 @@ export const useArticlePagination = (
       }
     }
   }, [anchor])
-
-  const showNextSection = () => {
-    setCurrentSection(currentSection + 1)
-  }
-
-  const showPrevSection = () => {
-    setCurrentSection(currentSection - 1)
-    setIsLastPage(true)
-  }
 
   return [currentSection, setCurrentSection, currentPage]
 }

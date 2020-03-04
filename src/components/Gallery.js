@@ -55,16 +55,10 @@ const AboutContainer = ({ author, description, license, filePage, close }) => {
 
 export const Gallery = ({ close, items, startFileName }) => {
   const i18n = useI18n()
-  const [currentIndex, setCurrentIndex] = useRange(getInitialIndex(items, startFileName), 2)
+  const [
+    currentIndex, onPrevImage, onNextImage
+  ] = useRange(getInitialIndex(items, startFileName), items.length - 1)
   const [showAboutPopup] = usePopup(AboutContainer, { stack: true })
-
-  const onNextImage = () => {
-    setCurrentIndex(currentIndex + 1)
-  }
-
-  const onPrevImage = () => {
-    setCurrentIndex(currentIndex - 1)
-  }
 
   const containsNecessaryFields = () => {
     return items[currentIndex].description || items[currentIndex].author || items[currentIndex].license
