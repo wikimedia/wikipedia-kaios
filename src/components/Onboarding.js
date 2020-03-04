@@ -5,7 +5,7 @@ import { onboarding } from 'utils'
 
 export const Onboarding = () => {
   const i18n = useI18n()
-  const [currentIndex, setCurrentIndex] = useRange(0, 2)
+  const [currentIndex, setCurrentIndex] = useRange(0, 3)
 
   const exitOnboard = () => {
     onboarding.markAsDone()
