@@ -1,16 +1,21 @@
 import { useState, useEffect } from 'preact/hooks'
-import { getArticle, getArticleMedia, getSuggestedArticles, loadMessages } from 'api'
+import { useI18n } from 'hooks'
+import { getArticle, getArticleMedia, getSuggestedArticles } from 'api'
 import { canonicalizeTitle } from 'utils'
 
 export const useArticle = (lang, title) => {
   const [article, setArticle] = useState(null)
+  const i18n = useI18n()
 
   const loadArticle = () => {
     setArticle(null)
-    Promise.all([getArticle(lang, title), getArticleMedia(lang, title), getSuggestedArticles(lang, title), loadMessages(lang)])
-      .then(([article, media, suggestedArticles, messages]) => {
+    Promise.all([getArticle(lang, title), getArticleMedia(lang, title), getSuggestedArticles(lang, title)])
+      .then(([article, media, suggestedArticles]) => {
         const { sections, toc } = article
-        const footerTitle = messages[lang] && messages[lang]['suggested-articles'] ? messages[lang]['suggested-articles'] : messages.en['suggested-articles']
+        const i18nLocale = i18n.locale
+
+        i18n.setLocale(article.contentLang)
+        const footerTitle = i18n.i18n('toc-footer')
         const anchor = canonicalizeTitle(footerTitle)
 
         // build footer used section and toc
@@ -22,6 +27,8 @@ export const useArticle = (lang, title) => {
           isFooter: true
         })
         const tocWithFooter = toc.concat({ level: 1, line: footerTitle, anchor, sectionIndex: sectionsWithFooter.length - 1 })
+
+        i18n.setLocale(i18nLocale)
 
         setArticle({ ...article, sections: sectionsWithFooter, toc: tocWithFooter, suggestedArticles, media })
       }, error => {
