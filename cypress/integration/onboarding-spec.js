@@ -37,15 +37,6 @@ describe('Onboarding', () => {
     onboardingPage.getTitle().should('have.text', enJson['onboarding-2-title'])
     onboardingPage.getDescription().should('have.text', enJson['onboarding-2-description'])
     cy.getLeftSoftkeyButton().should('have.text', enJson['softkey-back'])
-    cy.getRightSoftkeyButton().should('have.text', enJson['softkey-next'])
-    cy.getRightSoftkeyButton().click()
-
-    // Page 3
-    onboardingPage.getMainImage().should('be.visible').should('have.attr', 'src').and('contains', 'onboarding-3.png')
-    onboardingPage.getBackgroundImage().should('be.visible').should('have.attr', 'style').and('contains', 'onboarding-3-background.png')
-    onboardingPage.getTitle().should('have.text', enJson['onboarding-3-title'])
-    onboardingPage.getDescription().should('have.text', enJson['onboarding-3-description'])
-    cy.getLeftSoftkeyButton().should('have.text', enJson['softkey-back'])
     cy.getRightSoftkeyButton().should('have.text', '')
     cy.getCenterSoftkeyButton().should('have.text', enJson['softkey-get-started']).click()
     searchPage.getSearchTextBox().should('be.visible')
@@ -60,12 +51,23 @@ describe('Onboarding', () => {
     searchPage.getSearchTextBox().should('be.visible')
   })
 
-  it('check forward and back movements', () => {
+  it('check forward and back movements with soft keys', () => {
     onboardingPage.getMainImage().should('be.visible').should('have.attr', 'src').and('contains', 'onboarding-0.png')
     cy.getRightSoftkeyButton().should('have.text', 'Next').click()
     onboardingPage.getMainImage().should('be.visible').should('have.attr', 'src').and('contains', 'onboarding-1.png')
     cy.getRightSoftkeyButton().should('have.text', 'Next')
     cy.getLeftSoftkeyButton().should('have.text', 'Back').click()
+    onboardingPage.getMainImage().should('be.visible').should('have.attr', 'src').and('contains', 'onboarding-0.png')
+    cy.getRightSoftkeyButton().should('have.text', 'Next')
+    cy.getLeftSoftkeyButton().should('have.text', 'Skip')
+  })
+
+  it('check forward and back movements with DPad keys', () => {
+    onboardingPage.getMainImage().should('be.visible').should('have.attr', 'src').and('contains', 'onboarding-0.png')
+    cy.rightArrow()
+    onboardingPage.getMainImage().should('be.visible').should('have.attr', 'src').and('contains', 'onboarding-1.png')
+    cy.getRightSoftkeyButton().should('have.text', 'Next')
+    cy.leftArrow()
     onboardingPage.getMainImage().should('be.visible').should('have.attr', 'src').and('contains', 'onboarding-0.png')
     cy.getRightSoftkeyButton().should('have.text', 'Next')
     cy.getLeftSoftkeyButton().should('have.text', 'Skip')
