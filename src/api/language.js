@@ -1,3 +1,4 @@
+import { allLanguages } from 'utils'
 
 const load = (lang) => {
   return new Promise((resolve, reject) => {
@@ -24,6 +25,16 @@ const loadMessages = (lang) => {
     .then((messages) => Object.assign.apply({}, messages))
 }
 
+const loadAllLanguagesMessages = () => {
+  return Promise.all(allLanguages.map((language) => {
+    return load(language.lang)
+  }))
+    .then((allMessages) => {
+      return Object.assign.apply({}, allMessages)
+    })
+}
+
 export {
-  loadMessages
+  loadMessages,
+  loadAllLanguagesMessages
 }
