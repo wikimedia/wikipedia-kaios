@@ -51,12 +51,23 @@ describe('Onboarding', () => {
     searchPage.getSearchTextBox().should('be.visible')
   })
 
-  it('check forward and back movements', () => {
+  it('check forward and back movements with soft keys', () => {
     onboardingPage.getMainImage().should('be.visible').should('have.attr', 'src').and('contains', 'onboarding-0.png')
     cy.getRightSoftkeyButton().should('have.text', 'Next').click()
     onboardingPage.getMainImage().should('be.visible').should('have.attr', 'src').and('contains', 'onboarding-1.png')
     cy.getRightSoftkeyButton().should('have.text', 'Next')
     cy.getLeftSoftkeyButton().should('have.text', 'Back').click()
+    onboardingPage.getMainImage().should('be.visible').should('have.attr', 'src').and('contains', 'onboarding-0.png')
+    cy.getRightSoftkeyButton().should('have.text', 'Next')
+    cy.getLeftSoftkeyButton().should('have.text', 'Skip')
+  })
+
+  it('check forward and back movements with DPad keys', () => {
+    onboardingPage.getMainImage().should('be.visible').should('have.attr', 'src').and('contains', 'onboarding-0.png')
+    cy.rightArrow()
+    onboardingPage.getMainImage().should('be.visible').should('have.attr', 'src').and('contains', 'onboarding-1.png')
+    cy.getRightSoftkeyButton().should('have.text', 'Next')
+    cy.leftArrow()
     onboardingPage.getMainImage().should('be.visible').should('have.attr', 'src').and('contains', 'onboarding-0.png')
     cy.getRightSoftkeyButton().should('have.text', 'Next')
     cy.getLeftSoftkeyButton().should('have.text', 'Skip')
