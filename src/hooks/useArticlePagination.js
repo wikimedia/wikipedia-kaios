@@ -70,7 +70,7 @@ export const useArticlePagination = (
     }
   }, [anchor])
 
-  return [currentSection, setCurrentSection, currentPage]
+  return [currentSection, setCurrentSection, currentPage, setCurrentPage]
 }
 
 const findSection = (toc, anchor) => {

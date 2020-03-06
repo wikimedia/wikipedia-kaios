@@ -8,6 +8,7 @@
     },
     "article-action-sections": "Sections",
     "article-action-quickfacts": "Quick Facts",
+    "article-action-read": "Read",
     "article-action-gallery": "Gallery",
     "article-action-languages": "Language",
     "article-language-available": "Available in $1 {{PLURAL:$1|language|languages}}",

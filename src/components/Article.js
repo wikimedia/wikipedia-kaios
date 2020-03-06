@@ -134,7 +134,7 @@ const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
   const [showLanguagePopup] = usePopup(ArticleLanguage, { mode: 'fullscreen' })
   const [showMenuPopup] = usePopup(ArticleMenu, { mode: 'fullscreen' })
   const [showGalleryPopup] = usePopup(Gallery, { mode: 'fullscreen' })
-  const [currentSection, setCurrentSection, currentPage] = useArticlePagination(containerRef, article, anchor)
+  const [currentSection, setCurrentSection, currentPage, setCurrentPage] = useArticlePagination(containerRef, article, anchor)
   const section = article.sections[currentSection]
   const goToArticleSubpage = ({ sectionIndex, anchor }) => {
     setCurrentSection(
@@ -175,6 +175,12 @@ const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
     })
   }
 
+  const startReading = () => {
+    // @todo find a way to trigger onKeyArrowDown event
+    containerRef.current.scrollLeft += viewport.width
+    setCurrentPage(1)
+  }
+
   useSoftkey('Article', {
     left: i18n.i18n('softkey-close'),
     onKeyLeft: () => history.back(),
@@ -189,6 +195,7 @@ const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
   const actions = currentSection === 0 ? [
     { name: 'sections', enabled: true, handler: showArticleTocPopup },
     { name: 'quickfacts', enabled: !!article.infobox, handler: showQuickFacts },
+    { name: 'read', enabled: true, handler: startReading },
     { name: 'gallery', enabled: !!article.media.length, handler: showGallery },
     { name: 'languages', enabled: article.languageCount, handler: showArticleLanguagePopup }
   ] : null
