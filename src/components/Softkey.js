@@ -17,6 +17,7 @@ export const Softkey = ({
   onKeyArrowUp,
   onKeyArrowLeft,
   onKeyArrowRight,
+  onKeyboard1,
   onKeyboard4,
   onKeyboard5,
   onKeyboard6
@@ -30,6 +31,7 @@ export const Softkey = ({
     ArrowUp: onKeyArrowUp,
     ArrowLeft: onKeyArrowLeft,
     ArrowRight: onKeyArrowRight,
+    1: onKeyboard1,
     4: onKeyboard4,
     5: onKeyboard5,
     6: onKeyboard6
