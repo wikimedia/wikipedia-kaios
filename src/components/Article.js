@@ -71,7 +71,7 @@ const ArticleSection = ({
     if (!contentRef.current) {
       return
     }
-    const MAX_TITLE_HEIGHT = 140
+    const MAX_TITLE_HEIGHT = 170
     const titleNode = contentRef.current.querySelector('.title')
     if (titleNode.getBoundingClientRect().height > MAX_TITLE_HEIGHT) {
       titleNode.classList.add('clamp')
@@ -83,7 +83,7 @@ const ArticleSection = ({
 
       const introNode = contentRef.current.querySelector('.intro')
       let introHeight = introNode.getBoundingClientRect().height
-      introHeight += 34 // Magic number needed to make it work
+      introHeight += 21 // Magic number needed to make it work
       const articleSectionHeight = contentRef.current.getBoundingClientRect().height
       const marginTop = articleSectionHeight - introHeight
 
@@ -105,6 +105,11 @@ const ArticleSection = ({
             </Fragment>
           ) }
           { actions && <ArticleActions actions={actions} /> }
+          { imageUrl && (
+            <div class='indicator'>
+              <img src='images/icon-down-arrow.svg' />
+            </div>
+          ) }
         </div>
         { isFooter
           ? <ArticleFooter lang={lang} title={articleTitle} items={suggestedArticles} />
