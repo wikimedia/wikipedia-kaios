@@ -49,7 +49,7 @@ export const Search = () => {
   useSoftkey('Search', {
     right: i18n.i18n('softkey-settings'),
     onKeyRight: () => { window.location.hash = '/settings' },
-    center: current.type === 'DIV' ? i18n.i18n('centerkey-select') : '',
+    center: current.type === 'DIV' ? i18n.i18n('centerkey-select') : i18n.i18n('softkey-search'),
     onKeyCenter,
     left: i18n.i18n('settings-language'),
     onKeyLeft: goToLanguage
