@@ -46,10 +46,10 @@ describe('Article search', () => {
       .children().first().next().should('have.class', 'img')
   })
 
-  // it('should show empty result found when search for "adf23cv1"', () => {
-  //   searchPage.search('adf23cv1')
-  //   searchPage.getEmptyContent().should('have.text', enJson['no-result-found'])
-  // })
+  it('should show empty result found when search for "adf23cv1"', () => {
+    searchPage.search('adf23cv1')
+    searchPage.getEmptyContent().should('have.text', enJson['no-result-found'])
+  })
 
   it('center softkey should change when focus on result and search input', () => {
     searchPage.search('cat')

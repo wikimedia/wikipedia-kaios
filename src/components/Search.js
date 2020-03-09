@@ -4,7 +4,6 @@ import { useRef, useEffect } from 'preact/hooks'
 import { ListView } from 'components'
 import { useNavigation, useSearch, useI18n, useSoftkey, useOnlineStatus } from 'hooks'
 import { articleHistory, goto } from 'utils'
-import { getRandomArticleTitle } from 'api'
 
 const SearchOfflinePanel = () => {
   const i18n = useI18n()
@@ -41,12 +40,6 @@ export const Search = () => {
     route('/language')
   }
 
-  const goToRandomArticle = () => {
-    getRandomArticleTitle(lang).then(title => {
-      goto.article(lang, title)
-    })
-  }
-
   const onInput = ({ target }) => {
     if (isOnline) {
       setQuery(target.value)
@@ -58,8 +51,8 @@ export const Search = () => {
     onKeyRight: () => { window.location.hash = '/settings' },
     center: current.type === 'DIV' ? i18n.i18n('centerkey-select') : '',
     onKeyCenter,
-    onKeyLeft: goToRandomArticle,
-    onKeyboard1: goToLanguage
+    left: i18n.i18n('settings-language'),
+    onKeyLeft: goToLanguage
   }, [current.type])
 
   useEffect(() => {
@@ -76,11 +69,6 @@ export const Search = () => {
         </div>
       </div>
       <input ref={inputRef} type='text' placeholder={i18n.i18n('search-placeholder')} value={query} onInput={onInput} data-selectable />
-      <div class='home-text-box' style={{ display: ((searchResults || !isOnline) ? 'none' : 'block') }}>
-        <div class='language-text'>
-          {i18n.i18n('change-language-text')}
-        </div>
-      </div>
       { (isOnline && searchResults) && <ListView header={i18n.i18n('header-search')} items={searchResults} containerRef={containerRef} empty={i18n.i18n('no-result-found')} /> }
       { !isOnline && <SearchOfflinePanel /> }
     </div>
