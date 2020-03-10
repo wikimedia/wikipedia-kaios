@@ -1,14 +1,11 @@
 import { h } from 'preact'
-import { useI18n } from 'hooks'
 import { buildWpMobileWebUrl, canonicalizeTitle } from 'utils'
 
-export const ArticleFooter = ({ lang, title, items = [], headerTitle }) => {
-  const i18n = useI18n()
-
+export const ArticleFooter = ({ lang, title, items = [], labels }) => {
   return (
     <div class='article-footer'>
       <div class='content'>
-        <h2 class='adjustable-font-size' data-anchor={canonicalizeTitle(headerTitle)}>{headerTitle}</h2>
+        <h2 class='adjustable-font-size' data-anchor={canonicalizeTitle(labels.title)}>{labels.title}</h2>
         <div class='list'>
           { items.map(item => {
             return (
@@ -25,10 +22,10 @@ export const ArticleFooter = ({ lang, title, items = [], headerTitle }) => {
         <h2 class='img'>
           <img src='/images/wikipedia-wordmark-en.png' height='18' width='116' />
         </h2>
-        <p class='license adjustable-font-size' dangerouslySetInnerHTML={{ __html: i18n.i18n('content-license') }} />
+        <p class='license adjustable-font-size' dangerouslySetInnerHTML={{ __html: labels.contentLicense }} />
         <p class='browser'>
           <a class='external adjustable-font-size' rel='mw:ExtLink' href={buildWpMobileWebUrl(lang, title)}>
-            {i18n.i18n('view-in-browser')}
+            {labels.viewInBrowser}
           </a>
         </p>
       </div>
