@@ -1,4 +1,9 @@
 import { allLanguages } from 'utils'
+import en from '../../i18n/en.json'
+import fr from '../../i18n/fr.json'
+import es from '../../i18n/es.json'
+import hi from '../../i18n/hi.json'
+import pt from '../../i18n/pt.json'
 
 const load = (lang) => {
   return new Promise((resolve, reject) => {
@@ -34,7 +39,12 @@ const loadAllLanguagesMessages = () => {
     })
 }
 
+const loadSupportedLanguageMessages = () => {
+  return { en, fr, es, hi, pt }
+}
+
 export {
   loadMessages,
-  loadAllLanguagesMessages
+  loadAllLanguagesMessages,
+  loadSupportedLanguageMessages
 }
