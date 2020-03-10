@@ -23,13 +23,14 @@ const ArticleBody = memo(({ content }) => {
 })
 
 const ArticleActions = ({ actions }) => {
-  const i18n = useI18n()
+  const articleLanguage = actions.find(a => a.isLang).lang
+
   return (
     <div class='article-actions'>
       { actions.filter(a => a.enabled).map(action => (
         <div class='article-actions-button' data-action={action.name} key={action.name}>
           <img src={`images/icon-${action.name}.svg`} />
-          <label>{i18n.i18n(`article-action-${action.name}`)}</label>
+          <label>{getActionLabelInArticleLanguage(articleLanguage, action.name)}</label>
         </div>
       )) }
     </div>
@@ -188,10 +189,11 @@ const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
   }, [])
 
   const actions = currentSection === 0 ? [
-    { name: 'sections', enabled: true, handler: showArticleTocPopup },
-    { name: 'quickfacts', enabled: !!article.infobox, handler: showQuickFacts },
-    { name: 'gallery', enabled: !!article.media.length, handler: showGallery },
-    { name: 'languages', enabled: article.languageCount, handler: showArticleLanguagePopup }
+    { name: 'sections', enabled: true, handler: showArticleTocPopup, isLang: false },
+    { name: 'quickfacts', enabled: !!article.infobox, handler: showQuickFacts, isLang: false },
+    { name: 'gallery', enabled: !!article.media.length, handler: showGallery, isLang: false },
+    { name: 'languages', enabled: article.languageCount, handler: showArticleLanguagePopup, isLang: false },
+    { isLang: true, lang: lang }
   ] : null
 
   return (
@@ -228,4 +230,19 @@ const findCurrentLocatedAnchor = ref => {
       }
     })
   return element.getAttribute('data-anchor')
+}
+
+const getActionLabelInArticleLanguage = (lang, actionName) => {
+  const i18n = useI18n()
+  const i18nLocale = i18n.locale
+
+  // switch locale temporarily to article languague
+  i18n.setLocale(lang)
+
+  const actionLabel = i18n.i18n(`article-action-${actionName}`)
+
+  // restore app locale
+  i18n.setLocale(i18nLocale)
+
+  return actionLabel
 }
