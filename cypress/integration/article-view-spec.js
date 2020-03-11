@@ -3,13 +3,15 @@
 import { ArticlePage } from '../page-objects/article-page'
 import { QuickFactsPage } from '../page-objects/quick-facts-page'
 import * as enJson from '../../i18n/en.json'
-import { ArticlePreviewPage } from '../page-objects/article-preview-page'
+import { PopupPage } from '../page-objects/popup-page'
 import { ArticleMenuPage } from '../page-objects/article-menu-page'
+import { SearchPage } from '../page-objects/search-page'
 
 const articlePage = new ArticlePage()
 const quickFactsPage = new QuickFactsPage()
-const articlePreviewPage = new ArticlePreviewPage()
+const popupPage = new PopupPage()
 const articleMenuPage = new ArticleMenuPage()
+const searchPage = new SearchPage()
 
 describe('Article view', () => {
   beforeEach(() => {
@@ -19,7 +21,7 @@ describe('Article view', () => {
   it('change article language', () => {
     goToCatArticle()
     articlePage.selectOptionFromActionsMenu('languages')
-    cy.get('input').type('portugues')
+    cy.get('input').type('português')
     cy.get('.description').should('have.text', 'Gato')
     cy.downArrow().enter()
     cy.clickDoneButton()
@@ -28,8 +30,8 @@ describe('Article view', () => {
 
   it('check footer', () => {
     goToCatArticle()
-    // TODO: change the next line to a method on article menu page going through all the sections to pick the right one
-    cy.enter().upArrow().enter()
+    articlePage.selectOptionFromActionsMenu('sections')
+    articleMenuPage.selectOptionFromSections('Suggested_articles')
     articlePage.footerTitle().should('have.text', enJson['suggested-articles'])
     articlePage.recommendationsList().should('have.length', 3)
     cy.downArrow()
@@ -54,10 +56,10 @@ describe('Article view', () => {
   it('check quick facts opens', () => {
     goToCatArticle()
     articlePage.selectOptionFromActionsMenu('quickfacts')
-    quickFactsPage.table().should('contains.text', 'Various types of domestic cat')
+    quickFactsPage.table().should('contains.text', 'Various types of the domestic cat')
     cy.clickCloseButton()
     articlePage.selectOptionFromArticleMenu('Quick Facts')
-    quickFactsPage.table().should('contains.text', 'Various types of domestic cat')
+    quickFactsPage.table().should('contains.text', 'Various types of the domestic cat')
   })
 
   it('check quick facts link opens', () => {
@@ -65,13 +67,84 @@ describe('Article view', () => {
     articlePage.selectOptionFromActionsMenu('quickfacts')
     quickFactsPage.table().get('div a ').should('contain.text', 'Conservation status')
     cy.rightArrow().enter()
-    articlePreviewPage.getTitle().should('have.text', 'Conservation status')
+    popupPage.getTitle().should('have.text', 'Conservation status')
     cy.enter()
     articlePage.title().should('have.text', 'Conservation status')
     cy.clickMenuButton().click()
     articleMenuPage.getPreviousArticleName().should('have.text', 'Cat')
     articleMenuPage.selectOptionFromArticleMenu('Previous article')
     articlePage.title().should('have.text', 'Cat')
+  })
+
+  it('check text size change', () => {
+    goToCatArticle()
+    articlePage.selectOptionFromArticleMenu('Text size')
+    popupPage.getHeader().should('have.text', enJson['header-textsize'])
+    popupPage.getContent().should('have.text', enJson['textsize-decrease'] + enJson['textsize-default'] + enJson['textsize-increase'])
+    cy.clickCloseButton()
+    cy.downArrow()
+    cy.downArrow()
+    cy.downArrow()
+    articlePage.getArticleText().should('have.attr', 'style', 'font-size: 16px;')
+    articlePage.decreaseTextSize()
+    articlePage.decreaseTextSize()
+    articlePage.getArticleText().should('have.attr', 'style', 'font-size: 14px;')
+    articlePage.defaultTextSize()
+    articlePage.getArticleText().should('have.attr', 'style', 'font-size: 16px;')
+    articlePage.increaseTextSize()
+    articlePage.increaseTextSize()
+    articlePage.increaseTextSize()
+    articlePage.increaseTextSize()
+    articlePage.getArticleText().should('have.attr', 'style', 'font-size: 20px;')
+  })
+
+  it('check text size remains after switching sections', () => {
+    goToCatArticle()
+    articlePage.getArticleText().should('have.attr', 'style', 'font-size: 16px;')
+    articlePage.decreaseTextSize()
+    articlePage.decreaseTextSize()
+    articlePage.getArticleText().should('have.attr', 'style', 'font-size: 14px;')
+    articlePage.selectOptionFromActionsMenu('sections')
+    articleMenuPage.selectOptionFromSections('Cats_by_location')
+    articlePage.getArticleText().should('have.attr', 'style', 'font-size: 14px;')
+  })
+
+  it('check text size remains after new search', () => {
+    goToCatArticle()
+    articlePage.getArticleText().should('have.attr', 'style', 'font-size: 16px;')
+    articlePage.decreaseTextSize()
+    articlePage.decreaseTextSize()
+    articlePage.getArticleText().should('have.attr', 'style', 'font-size: 14px;')
+    articlePage.selectOptionFromArticleMenu('Search Wikipedia')
+    cy.get('input[type=text]').type('cattle')
+    searchPage.results().first()
+    cy.downArrow()
+    cy.enter()
+    articlePage.getArticleText().should('have.attr', 'style', 'font-size: 14px;')
+  })
+
+  it('check text size remains after going to new article', () => {
+    goToCatArticle()
+    articlePage.getArticleText().should('have.attr', 'style', 'font-size: 16px;')
+    articlePage.decreaseTextSize()
+    articlePage.decreaseTextSize()
+    articlePage.getArticleText().should('have.attr', 'style', 'font-size: 14px;')
+    articlePage.selectOptionFromActionsMenu('quickfacts')
+    cy.rightArrow().enter()
+    popupPage.getText().should('have.attr', 'style', 'font-size: 14px;')
+    cy.enter()
+    articlePage.getArticleText().should('have.attr', 'style', 'font-size: 14px;')
+  })
+
+  it('check text size remains after changing on preview', () => {
+    goToCatArticle()
+    articlePage.getArticleText().should('have.attr', 'style', 'font-size: 16px;')
+    cy.downArrow().downArrow().downArrow().enter()
+    articlePage.decreaseTextSize()
+    articlePage.decreaseTextSize()
+    popupPage.getText().should('have.attr', 'style', 'font-size: 14px;')
+    cy.enter()
+    articlePage.getArticleText().should('have.attr', 'style', 'font-size: 14px;')
   })
 })
 

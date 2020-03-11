@@ -1,24 +1,15 @@
 import { h } from 'preact'
-import { useState } from 'preact/hooks'
 import { route } from 'preact-router'
-import { useSoftkey, useI18n } from 'hooks'
+import { useSoftkey, useI18n, useRange } from 'hooks'
 import { onboarding } from 'utils'
 
 export const Onboarding = () => {
   const i18n = useI18n()
-  const [currentIndex, setCurrentIndex] = useState(0)
+  const [currentIndex, prevOnboard, nextOnboard] = useRange(0, 3)
 
   const exitOnboard = () => {
     onboarding.markAsDone()
     route('/')
-  }
-
-  const nextOnboard = () => {
-    setCurrentIndex(currentIndex + 1)
-  }
-
-  const prevOnboard = () => {
-    setCurrentIndex(currentIndex - 1)
   }
 
   const getImageBackgroundStyle = index => {
@@ -27,10 +18,9 @@ export const Onboarding = () => {
   }
 
   const softkeyConfig = [
-    { left: i18n.i18n('softkey-skip'), onKeyLeft: exitOnboard, right: i18n.i18n('softkey-next'), onKeyRight: nextOnboard },
-    { left: i18n.i18n('softkey-back'), onKeyLeft: prevOnboard, right: i18n.i18n('softkey-next'), onKeyRight: nextOnboard },
-    { left: i18n.i18n('softkey-back'), onKeyLeft: prevOnboard, right: i18n.i18n('softkey-next'), onKeyRight: nextOnboard },
-    { left: i18n.i18n('softkey-back'), onKeyLeft: prevOnboard, center: i18n.i18n('softkey-get-started'), onKeyCenter: exitOnboard }
+    { left: i18n.i18n('softkey-skip'), onKeyLeft: exitOnboard, right: i18n.i18n('softkey-next'), onKeyRight: nextOnboard, onKeyArrowRight: nextOnboard },
+    { left: i18n.i18n('softkey-back'), onKeyLeft: prevOnboard, onKeyArrowLeft: prevOnboard, right: i18n.i18n('softkey-next'), onKeyRight: nextOnboard, onKeyArrowRight: nextOnboard },
+    { left: i18n.i18n('softkey-back'), onKeyLeft: prevOnboard, onKeyArrowLeft: prevOnboard, center: i18n.i18n('softkey-get-started'), onKeyCenter: exitOnboard }
   ]
   useSoftkey('onboarding', softkeyConfig[currentIndex], [currentIndex], true)
 
@@ -44,6 +34,11 @@ export const Onboarding = () => {
       </div>
       <div class='description'>
         {i18n.i18n(`onboarding-${currentIndex}-description`)}
+      </div>
+      <div class='indicator'>
+        <div class={`dot ${currentIndex === 0 ? 'selected' : ''}`} />
+        <div class={`dot ${currentIndex === 1 ? 'selected' : ''}`} />
+        <div class={`dot ${currentIndex === 2 ? 'selected' : ''}`} />
       </div>
     </div>
   )

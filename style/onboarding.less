@@ -1,7 +1,6 @@
 .onboarding {
-	font-family: @textFont;
 	height: calc( 100vh );
-	padding: 0 20px;
+	padding: 0 15px;
 	background-color: #fff;
 
 	.image {
@@ -9,11 +8,23 @@
 		padding: 15px 0;
 		background-position: center center;
 		background-repeat: no-repeat;
-		background-size: 140px;
 
-		img {
-			width: 90px;
-			height: 90px;
+		@media ( min-width: 200px ) {
+			background-size: 140px;
+
+			img {
+				width: 85px;
+				height: 85px;
+			}
+		}
+
+		@media ( min-width: 250px ) {
+			background-size: 100px;
+
+			img {
+				width: 60px;
+				height: 60px;
+			}
 		}
 	}
 
@@ -26,6 +37,27 @@
 	.description {
 		font-size: 12px;
 		line-height: 17px;
-		margin-top: 11px;
+		margin-top: 5px;
+	}
+
+	.indicator {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		position: fixed;
+		bottom: @softkeysHeight + 9px;
+		width: calc( 100% - 30px );
+
+		.dot {
+			margin: 0 6px;
+			width: 6px;
+			height: 6px;
+			border: solid 1px #54595d;
+			border-radius: 3px;
+
+			&.selected {
+				background-color: #54595d;
+			}
+		}
 	}
 }

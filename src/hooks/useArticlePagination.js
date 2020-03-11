@@ -1,5 +1,5 @@
 import { useState, useLayoutEffect } from 'preact/hooks'
-import { useSoftkey } from 'hooks'
+import { useSoftkey, useRange } from 'hooks'
 import { viewport } from 'utils'
 
 export const useArticlePagination = (
@@ -7,10 +7,9 @@ export const useArticlePagination = (
   article,
   anchor
 ) => {
-  const [currentSection, setCurrentSection] = useState(findSection(article.toc, anchor))
+  const [currentSection, showPrevSection, showNextSection, setCurrentSection] = useRange(findSection(article.toc, anchor), article.sections.length - 1)
   const [isLastPage, setIsLastPage] = useState(0)
   const [currentPage, setCurrentPage] = useState(0)
-  const numOfSection = article.sections.length
 
   useSoftkey('Article', {
     onKeyArrowDown: () => {
@@ -33,6 +32,9 @@ export const useArticlePagination = (
       // show the previous section of the article
       if (previous === after) {
         showPrevSection()
+        if (currentSection > 0) {
+          setIsLastPage(true)
+        }
       } else {
         setCurrentPage(p => p - 1)
       }
@@ -67,21 +69,6 @@ export const useArticlePagination = (
       }
     }
   }, [anchor])
-
-  const showNextSection = () => {
-    const nextSection = currentSection + 1
-    if (nextSection < numOfSection) {
-      setCurrentSection(nextSection)
-    }
-  }
-
-  const showPrevSection = () => {
-    const prevSection = currentSection - 1
-    if (prevSection >= 0) {
-      setCurrentSection(prevSection)
-      setIsLastPage(true)
-    }
-  }
 
   return [currentSection, setCurrentSection, currentPage]
 }

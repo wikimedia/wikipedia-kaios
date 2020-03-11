@@ -1,6 +1,6 @@
 import { h } from 'preact'
-import { useState, useRef, useLayoutEffect } from 'preact/hooks'
-import { useI18n, useSoftkey, usePopup } from 'hooks'
+import { useRef, useLayoutEffect } from 'preact/hooks'
+import { useI18n, useSoftkey, usePopup, useRange } from 'hooks'
 
 const MAX_DESCRIPTION_HEIGHT = 45
 
@@ -55,20 +55,10 @@ const AboutContainer = ({ author, description, license, filePage, close }) => {
 
 export const Gallery = ({ close, items, startFileName }) => {
   const i18n = useI18n()
-  const [currentIndex, setCurrentIndex] = useState(getInitialIndex(items, startFileName))
+  const [
+    currentIndex, onPrevImage, onNextImage
+  ] = useRange(getInitialIndex(items, startFileName), items.length - 1)
   const [showAboutPopup] = usePopup(AboutContainer, { stack: true })
-
-  const onNextImage = () => {
-    const nextIndex = currentIndex + 1
-    if (nextIndex < items.length) {
-      setCurrentIndex(nextIndex)
-    }
-  }
-
-  const onPrevImage = () => {
-    const prevIndex = currentIndex - 1
-    setCurrentIndex(prevIndex < 0 ? 0 : prevIndex)
-  }
 
   const containsNecessaryFields = () => {
     return items[currentIndex].description || items[currentIndex].author || items[currentIndex].license
@@ -101,8 +91,8 @@ export const Gallery = ({ close, items, startFileName }) => {
 
 const getInitialIndex = (items, fileName) => {
   if (fileName) {
-    return items.findIndex(media => media.canonicalizedTitle === fileName)
+    const index = items.findIndex(media => media.canonicalizedTitle === fileName)
+    return index >= 0 ? index : 0
   }
-
   return 0
 }

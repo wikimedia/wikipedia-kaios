@@ -3,20 +3,22 @@
 		"authors": [
 			"Okras",
 			"Kareyac",
-			"Pacha Tchernof"
+			"Pacha Tchernof",
+			"Movses"
 		]
 	},
 	"article-action-gallery": "Галерея",
 	"article-language-loading-message": "Языки загружаются...",
 	"app-title": "Википедия",
 	"app-subtitle": "Свободная энциклопедия",
+	"content-license": "Если не указано иное, содержание доступно в соответствии с <a class=\"external\" rel=\"mw:ExtLink\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">CC BY-SA 3.0</a>.",
 	"header-sections": "Разделы",
 	"header-settings": "Настройки",
-	"search-placeholder": "Поиск",
+	"search-placeholder": "Поиск по Википедии",
 	"centerkey-select": "Выбрать",
 	"softkey-close": "Закрыть",
 	"softkey-read": "Читать",
-	"suggested-articles": "ПРЕДЛАГАЕМЫЕ СТАТЬИ",
+	"suggested-articles": "Предлагаемые статьи",
 	"offline-message": "Нет подключения к интернету",
 	"settings-language": "Язык",
 	"settings-textsize": "Размер текста",

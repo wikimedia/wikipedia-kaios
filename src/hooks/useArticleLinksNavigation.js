@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'preact/hooks'
 import { useSoftkey, usePopup, useI18n } from 'hooks'
-import { viewport, INTERWIKI_KEYS } from 'utils'
+import { viewport, INTERWIKI_KEYS, normalizeTitle } from 'utils'
 import { ArticlePreview } from 'components'
 
 const SELECTED_ATTRIBUTE = 'data-selected'
@@ -102,7 +102,7 @@ export const useArticleLinksNavigation = (
 
 const makeLinkClickEvent = link => {
   const title = link.getAttribute('title')
-  if (title) {
+  if (title && link.pathname !== '/') {
     if (title.includes(':') && INTERWIKI_KEYS.includes(title.split(':')[0])) {
       return { type: 'external', href: link.href }
     }
@@ -124,7 +124,8 @@ const makeLinkClickEvent = link => {
   }
 
   if (link.hash) {
-    return { type: 'section', text: link.textContent, anchor: link.getAttribute('href').slice(1) }
+    const normalizedText = normalizeTitle(link.hash.slice(1))
+    return { type: 'section', text: normalizedText, anchor: link.getAttribute('href').slice(1) }
   }
 
   if (link.tagName === 'FIGURE' || link.tagName === 'FIGURE-INLINE') {
