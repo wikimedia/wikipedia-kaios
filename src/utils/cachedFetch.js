@@ -20,7 +20,7 @@ export const cachedFetch = (url, transformFn, abortAllXhr = false, cache = true)
     xhr.responseType = 'json'
     xhr.open('GET', url)
     // eslint-disable-next-line no-undef
-    xhr.setRequestHeader('User-Agent', navigator.userAgent + ' WikipediaApp/' + APP_VERSION)
+    xhr.setRequestHeader('User-Agent', `WikipediaApp/${APP_VERSION} ${navigator.userAgent}`)
     xhr.send()
     xhr.addEventListener('load', () => {
       const transformResponse = transformFn(xhr.response)
