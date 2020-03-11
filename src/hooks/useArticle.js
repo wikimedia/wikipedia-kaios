@@ -18,18 +18,13 @@ export const useArticle = (lang, title) => {
         const footerTitle = i18n.i18n('toc-footer')
         const anchor = canonicalizeTitle(footerTitle)
 
-        const footerContentLicense = i18n.i18n('content-license')
-        const footerViewInBrowser = i18n.i18n('view-in-browser')
-
         // build footer used section and toc
         // with header title in the same language as article
         const sectionsWithFooter = sections.concat({
           title: footerTitle,
           anchor,
           imageUrl: false,
-          isFooter: true,
-          contentLicenseLabel: footerContentLicense,
-          viewInBrowserLabel: footerViewInBrowser
+          isFooter: true
         })
         const tocWithFooter = toc.concat({ level: 1, line: footerTitle, anchor, sectionIndex: sectionsWithFooter.length - 1 })
 

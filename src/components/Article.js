@@ -39,7 +39,7 @@ const ArticleActions = ({ actions }) => {
 const ArticleSection = ({
   lang, imageUrl, anchor, title, description, actions, isFooter,
   content, page, goToSubpage, references,
-  articleTitle, suggestedArticles, showGallery, footerSectionLabels
+  articleTitle, suggestedArticles, showGallery, footerSectionHeader
 }) => {
   const contentRef = useRef()
   const i18n = useI18n()
@@ -107,7 +107,7 @@ const ArticleSection = ({
           { actions && <ArticleActions actions={actions} /> }
         </div>
         { isFooter
-          ? <ArticleFooter lang={lang} title={articleTitle} items={suggestedArticles} labels={footerSectionLabels} />
+          ? <ArticleFooter lang={lang} title={articleTitle} items={suggestedArticles} headerTitle={footerSectionHeader} />
           : <ArticleBody content={content} />
         }
       </div>
@@ -136,11 +136,7 @@ const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
   const [showGalleryPopup] = usePopup(Gallery, { mode: 'fullscreen' })
   const [currentSection, setCurrentSection, currentPage] = useArticlePagination(containerRef, article, anchor)
   const section = article.sections[currentSection]
-  const footerLabels = {
-    title: article.sections.find(item => item.isFooter).title,
-    contentLicense: article.sections.find(item => item.isFooter).contentLicenseLabel,
-    viewInBrowser: article.sections.find(item => item.isFooter).viewInBrowserLabel
-  }
+  const footerSectionHeader = article.sections.find(item => item.isFooter).title
   const goToArticleSubpage = ({ sectionIndex, anchor }) => {
     setCurrentSection(
       sectionIndex !== undefined
@@ -211,7 +207,7 @@ const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
         goToSubpage={goToArticleSubpage}
         showGallery={showGallery}
         page={currentPage}
-        footerSectionLabels={footerLabels}
+        footerSectionHeader={footerSectionHeader}
       />
     </div>
   )
