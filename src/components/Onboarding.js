@@ -1,24 +1,15 @@
 import { h } from 'preact'
-import { useState } from 'preact/hooks'
 import { route } from 'preact-router'
-import { useSoftkey, useI18n } from 'hooks'
+import { useSoftkey, useI18n, useRange } from 'hooks'
 import { onboarding } from 'utils'
 
 export const Onboarding = () => {
   const i18n = useI18n()
-  const [currentIndex, setCurrentIndex] = useState(0)
+  const [currentIndex, prevOnboard, nextOnboard] = useRange(0, 3)
 
   const exitOnboard = () => {
     onboarding.markAsDone()
     route('/')
-  }
-
-  const nextOnboard = () => {
-    setCurrentIndex(currentIndex + 1)
-  }
-
-  const prevOnboard = () => {
-    setCurrentIndex(currentIndex - 1)
   }
 
   const getImageBackgroundStyle = index => {
