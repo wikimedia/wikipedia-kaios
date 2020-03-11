@@ -19,6 +19,7 @@ export const cachedFetch = (url, transformFn, abortAllXhr = false, cache = true)
     xhrList[timestamp] = xhr
     xhr.responseType = 'json'
     xhr.open('GET', url)
+    xhr.setRequestHeader('User-Agent', navigator.userAgent + ' WikipediaApp/1.0')
     xhr.send()
     xhr.addEventListener('load', () => {
       const transformResponse = transformFn(xhr.response)
