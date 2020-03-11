@@ -103,6 +103,7 @@ export const useTracking = (
           session_id: getSessionId(),
           pageview_token: pageviewToken,
           client_type: 'kaios-app',
+          app_version: '1.0.0',
           referring_domain: history.length > 1 ? 'kaios-app' : null,
           load_dt: new Date(start).toISOString(),
           page_open_time: Math.round(totalTime),
