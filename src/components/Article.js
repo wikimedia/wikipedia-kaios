@@ -9,7 +9,7 @@ import {
 import {
   useArticle, useI18n, useSoftkey,
   useArticlePagination, useArticleLinksNavigation, useArticleTextSize,
-  usePopup
+  usePopup, useTracking
 } from 'hooks'
 import { articleHistory, confirmDialog, goto, viewport } from 'utils'
 
@@ -128,6 +128,10 @@ const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
     return <Error message={i18n.i18n('article-error-message')} onRefresh={loadArticle} />
   }
 
+  const sectionCount = article.toc.filter(s => s.level === 1).length
+  const [openedSections, setOpenedSections] = useState({})
+  useTracking('Article', lang, article.namespace, sectionCount, openedSections)
+
   const [anchor, setAnchor] = useState(initialAnchor)
   const [showTocPopup] = usePopup(ArticleToc, { mode: 'fullscreen' })
   const [showQuickFactsPopup] = usePopup(QuickFacts, { mode: 'fullscreen' })
@@ -185,6 +189,13 @@ const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
   useEffect(() => {
     articleHistory.add(lang, articleTitle)
   }, [])
+
+  useEffect(() => {
+    if (currentSection !== 0) { // lead section doesn't count
+      const anchor = article.sections[currentSection].anchor
+      setOpenedSections({ ...openedSections, [anchor]: true })
+    }
+  }, [currentSection])
 
   const actions = currentSection === 0 ? [
     { name: 'sections', enabled: true, handler: showArticleTocPopup },
