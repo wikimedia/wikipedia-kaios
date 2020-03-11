@@ -71,7 +71,7 @@ const ArticleSection = ({
     if (!contentRef.current) {
       return
     }
-    const MAX_TITLE_HEIGHT = 170
+    const MAX_TITLE_HEIGHT = 140
     const titleNode = contentRef.current.querySelector('.title')
     if (titleNode.getBoundingClientRect().height > MAX_TITLE_HEIGHT) {
       titleNode.classList.add('clamp')
