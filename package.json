@@ -12,7 +12,7 @@
     "adb:connect": "adb forward tcp:6000 localfilesystem:/data/local/debugger-socket",
     "b2g:uninstall": "./node_modules/b2g-cli-tool/b2g.js uninstall Wikipedia",
     "b2g:install": "./node_modules/b2g-cli-tool/b2g.js install .",
-    "deploy": "npm run adb:connect && ( npm run b2g:uninstall; npm run b2g:install )",
+    "deploy": "npm run build && npm run adb:connect && ( npm run b2g:uninstall; npm run b2g:install )",
     "cypress:lint": "eslint cypress/",
     "cypress:fix-lint": "eslint cypress/ --fix",
     "cypress:run": "cypress run",
