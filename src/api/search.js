@@ -28,5 +28,5 @@ export const search = (lang, term) => {
         imageUrl: p.thumbnail && p.thumbnail.source
       }
     })
-  })
+  }, true)
 }

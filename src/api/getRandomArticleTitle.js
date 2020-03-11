@@ -1,10 +1,7 @@
-import { buildPcsUrl } from 'utils'
+import { buildPcsUrl, cachedFetch } from 'utils'
 
 export const getRandomArticleTitle = lang => {
   const url = buildPcsUrl(lang, 'title', 'random')
-  return fetch(url)
-    .then(response => response.json())
-    .then(data => {
-      return data.items[0].title
-    })
+
+  return cachedFetch(url, data => data.items[0].title, true, false)
 }
