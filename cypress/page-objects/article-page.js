@@ -74,4 +74,8 @@ export class ArticlePage {
   increaseTextSize () {
     cy.get('body').type('6')
   }
+
+  getDownArrowIndicator () {
+    return cy.get('div.indicator>img')
+  }
 }

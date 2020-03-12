@@ -146,6 +146,21 @@ describe('Article view', () => {
     cy.enter()
     articlePage.getArticleText().should('have.attr', 'style', 'font-size: 14px;')
   })
+
+  it('check down arrow to hint user to use dpad down', () => {
+    goToCatArticle()
+    articlePage.getDownArrowIndicator().should('be.visible')
+    cy.downArrow()
+    articlePage.getDownArrowIndicator().should('not.be.visible')
+  })
+
+  it('check down arrow doesnt show', () => {
+    cy.navigateToPageWithoutOnboarding('article/en/Catt')
+    articlePage.title().should('have.text', 'Catt')
+    articlePage.getDownArrowIndicator().should('not.be.visible')
+    cy.downArrow()
+    articlePage.getDownArrowIndicator().should('not.be.visible')
+  })
 })
 
 function goToCatArticle () {
