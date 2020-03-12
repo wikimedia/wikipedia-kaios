@@ -21,7 +21,6 @@ export const SoftkeyReducer = (state, action) => {
     case 'pop':
       stack = state.stack || []
       current = state.current
-
       if (current.name !== action.origin) {
         // The component order called of unmount doesn't follow the stack order
         // therefore searching for the right stack to minus the counter
