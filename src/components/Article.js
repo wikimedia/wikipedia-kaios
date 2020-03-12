@@ -83,7 +83,7 @@ const ArticleSection = ({
 
       const introNode = contentRef.current.querySelector('.intro')
       let introHeight = introNode.getBoundingClientRect().height
-      introHeight += 34 // Magic number needed to make it work
+      introHeight += 21 // Magic number needed to make it work
       const articleSectionHeight = contentRef.current.getBoundingClientRect().height
       const marginTop = articleSectionHeight - introHeight
 
@@ -105,6 +105,11 @@ const ArticleSection = ({
             </Fragment>
           ) }
           { actions && <ArticleActions actions={actions} /> }
+          { imageUrl && (
+            <div class='indicator'>
+              <img src='images/icon-down-arrow.svg' />
+            </div>
+          ) }
         </div>
         { isFooter
           ? <ArticleFooter lang={lang} title={articleTitle} items={suggestedArticles} />
