@@ -1,4 +1,3 @@
-import { allLanguages } from 'utils'
 import en from 'i18n/en.json'
 import fr from 'i18n/fr.json'
 import es from 'i18n/es.json'
@@ -30,21 +29,11 @@ const loadMessages = (lang) => {
     .then((messages) => Object.assign.apply({}, messages))
 }
 
-const loadAllLanguagesMessages = () => {
-  return Promise.all(allLanguages.map((language) => {
-    return load(language.lang)
-  }))
-    .then((allMessages) => {
-      return Object.assign.apply({}, allMessages)
-    })
-}
-
 const loadSupportedLanguageMessages = () => {
   return { en, fr, es, hi, pt }
 }
 
 export {
   loadMessages,
-  loadAllLanguagesMessages,
   loadSupportedLanguageMessages
 }
