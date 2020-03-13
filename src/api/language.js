@@ -1,8 +1,4 @@
-import en from 'i18n/en.json'
-import fr from 'i18n/fr.json'
-import es from 'i18n/es.json'
-import hi from 'i18n/hi.json'
-import pt from 'i18n/pt.json'
+import { allLanguages } from 'utils'
 
 const load = (lang) => {
   return new Promise((resolve, reject) => {
@@ -29,11 +25,20 @@ const loadMessages = (lang) => {
     .then((messages) => Object.assign.apply({}, messages))
 }
 
-const loadSupportedLanguageMessages = () => {
-  return { en, fr, es, hi, pt }
+const loadAllLanguagesMessages = () => {
+  const messages = {}
+  allLanguages.forEach(language => {
+    try {
+      messages[language.lang] = require(`../../i18n/${language.lang}.json`)
+    } catch (error) {
+      // Translation not available, discard
+    }
+  })
+
+  return messages
 }
 
 export {
   loadMessages,
-  loadSupportedLanguageMessages
+  loadAllLanguagesMessages
 }
