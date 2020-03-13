@@ -76,16 +76,7 @@ module.exports = {
           'css-loader',
           { loader: 'less-loader', options: { sourceMap: true } },
         ]
-      },
-      {
-        test: /\.json$/,
-        include: [path.resolve(__dirname, "i18n")],
-        use: [
-          {
-            loader: 'banana-i18n-loader',
-          },
-        ],
-      },
+      }
     ]
   }
 };

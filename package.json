@@ -40,7 +40,6 @@
     "b2g-cli-tool": "github:fabricedesre/b2gclitool",
     "babel-loader": "^8.0.6",
     "babel-plugin-module-resolver": "^3.2.0",
-    "banana-i18n-loader": "^0.1.0",
     "css-loader": "^3.2.0",
     "cypress": "^4.0.2",
     "cypress-localstorage-commands": "^1.1.6",
