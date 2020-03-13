@@ -1,3 +1,5 @@
+import { isProd } from 'utils'
+
 // todo: Implement a real cache that keeps
 // the last N requests to keep memory usage
 // under control.
@@ -19,8 +21,10 @@ export const cachedFetch = (url, transformFn, abortAllXhr = false, cache = true)
     xhrList[timestamp] = xhr
     xhr.responseType = 'json'
     xhr.open('GET', url)
-    // eslint-disable-next-line no-undef
-    xhr.setRequestHeader('User-Agent', `WikipediaApp/${APP_VERSION} ${navigator.userAgent}`)
+    if (isProd()) {
+      // eslint-disable-next-line no-undef
+      xhr.setRequestHeader('User-Agent', `WikipediaApp/${APP_VERSION} ${navigator.userAgent}`)
+    }
     xhr.send()
     xhr.addEventListener('load', () => {
       const transformResponse = transformFn(xhr.response)
