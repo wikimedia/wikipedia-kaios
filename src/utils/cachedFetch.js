@@ -19,8 +19,10 @@ export const cachedFetch = (url, transformFn, abortAllXhr = false, cache = true)
     xhrList[timestamp] = xhr
     xhr.responseType = 'json'
     xhr.open('GET', url)
-    // eslint-disable-next-line no-undef
-    xhr.setRequestHeader('User-Agent', `WikipediaApp/${APP_VERSION} ${navigator.userAgent}`)
+    if (process.env.NODE_ENV === 'production') {
+      // eslint-disable-next-line no-undef
+      xhr.setRequestHeader('User-Agent', `WikipediaApp/${APP_VERSION} ${navigator.userAgent}`)
+    }
     xhr.send()
     xhr.addEventListener('load', () => {
       const transformResponse = transformFn(xhr.response)
