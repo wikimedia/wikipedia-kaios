@@ -65,6 +65,7 @@
 	"settings-privacy": "Label of the Privacy policy item list. Shown in the Settings menu, redirect to the privacy policy browser page.",
 	"settings-term": "Label of Terms of use. Shown in the Settings menu, redirect to the Terms of use browser page.",
 	"settings-rate": "Label of the Rate item list. Shown in the Settings menu, used in rating the app.",
+	"settings-help-feedback": "Label of Help and feedback item list. Shown in the Settings menu, to find help and give feedback.",
 	"settings-about-app": "Label of the About the app item list. Shown in the Settings menu, used in showing the information of this app",
 	"textsize-increase": "Label of the press key to increase the text size. Shown in the Text Size page.",
 	"textsize-decrease": "Label of the press key to decrease the text size. Shown in the Text Size page.",
