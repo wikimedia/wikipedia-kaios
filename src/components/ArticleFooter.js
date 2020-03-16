@@ -5,11 +5,14 @@ import { buildWpMobileWebUrl, canonicalizeTitle } from 'utils'
 export const ArticleFooter = ({ lang, title, items = [] }) => {
   const i18n = useI18n()
   const i18nLocale = i18n.locale
+  let headerTitle
 
-  i18n.setLocale(lang)
-  const headerTitle = i18n.i18n('toc-footer')
-
-  i18n.setLocale(i18nLocale)
+  try {
+    i18n.setLocale(lang)
+    headerTitle = i18n.i18n('toc-footer')
+  } finally {
+    i18n.setLocale(i18nLocale)
+  }
 
   return (
     <div class='article-footer'>
