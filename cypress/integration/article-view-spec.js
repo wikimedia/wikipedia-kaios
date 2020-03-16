@@ -21,7 +21,7 @@ describe('Article view', () => {
   it('change article language', () => {
     goToCatArticle()
     articlePage.selectOptionFromActionsMenu('languages')
-    cy.get('input').type('portugues')
+    cy.get('input').type('portuguese')
     cy.get('.description').should('have.text', 'Gato')
     cy.downArrow().enter()
     cy.clickDoneButton()
