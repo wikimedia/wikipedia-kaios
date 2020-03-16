@@ -18,7 +18,7 @@ describe('Article view', () => {
     cy.navigateToHomePage()
   })
 
-  it.only('change article language', () => {
+  it('change article language', () => {
     goToCatArticle()
     articlePage.selectOptionFromActionsMenu('languages')
     cy.get('input').type('português')
