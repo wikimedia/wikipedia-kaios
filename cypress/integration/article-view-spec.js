@@ -3,6 +3,7 @@
 import { ArticlePage } from '../page-objects/article-page'
 import { QuickFactsPage } from '../page-objects/quick-facts-page'
 import * as enJson from '../../i18n/en.json'
+import * as ptJson from '../../i18n/pt.json'
 import { PopupPage } from '../page-objects/popup-page'
 import { ArticleMenuPage } from '../page-objects/article-menu-page'
 import { SearchPage } from '../page-objects/search-page'
@@ -38,6 +39,19 @@ describe('Article view', () => {
     articlePage.footerImage().should('exist')
     articlePage.footerLicense().should('exist')
       .should('exist')
+  })
+
+  it('check footer changes language', () => {
+    goToCatArticle()
+    articlePage.selectOptionFromActionsMenu('languages')
+    cy.get('input').type('português')
+    cy.get('.description').should('have.text', 'Gato')
+    cy.downArrow().enter()
+    cy.clickDoneButton()
+    articlePage.title().should('have.text', 'Gato')
+    articlePage.selectOptionFromActionsMenu('sections')
+    articleMenuPage.selectOptionFromSections('Artigos_sugeridos')
+    articlePage.footerTitle().should('have.text', ptJson['suggested-articles'])
   })
 
   it('check image gallery', () => {
