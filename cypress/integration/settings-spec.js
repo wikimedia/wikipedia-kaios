@@ -17,7 +17,6 @@ const settingsMenuListEnglishText = [enJson['settings-language'],
   enJson['settings-about-wikipedia'],
   enJson['settings-privacy'],
   enJson['settings-term'],
-  enJson['settings-rate'],
   enJson['settings-about-app']]
 const languageSettingsPopupEnglishText = enJson['language-setting-message']
 const languageChangeDutchText = nlJson['language-change']
@@ -26,7 +25,6 @@ const settingsMenuListDutchText = [nlJson['settings-language'],
   nlJson['settings-about-wikipedia'],
   nlJson['settings-privacy'],
   nlJson['settings-term'],
-  nlJson['settings-rate'],
   nlJson['settings-about-app']]
 
 describe('settings page', () => {

@@ -46,8 +46,8 @@ export const Settings = () => {
     { title: i18n.i18n('settings-about-wikipedia') },
     { title: i18n.i18n('settings-privacy'), link: 'https://foundation.m.wikimedia.org/wiki/Privacy_policy' },
     { title: i18n.i18n('settings-term'), link: `https://foundation.m.wikimedia.org/wiki/Terms_of_Use/${lang}` },
-    { title: i18n.i18n('settings-rate') },
     // @todo will have this soon and don't delete it from the language json
+    // { title: i18n.i18n('settings-rate') },
     // { title: i18n.i18n('settings-help-feedback') },
     { title: i18n.i18n('settings-about-app') }
   ]
