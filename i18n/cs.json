@@ -4,7 +4,8 @@
 			"Patriccck",
 			"Eduardo Addad de Oliveira",
 			"YjM",
-			"Matěj Suchánek"
+			"Matěj Suchánek",
+			"Dvorapa"
 		]
 	},
 	"article-action-sections": "Sekce",
@@ -56,9 +57,9 @@
 	"offline-message": "Nejste připojeni k internetu",
 	"onboarding-0-title": "Otevřená encyklopedie",
 	"onboarding-0-description": "Wikipedie je otevřený zdroj, který píší dobrovolníci z celého světa.",
-	"onboarding-1-title": "Přístup k otevřeným otevřeným znalostem",
+	"onboarding-1-title": "Vyhledávejte ve stovkách jazyků",
 	"onboarding-1-description": "Čtěte více než 40 miliónů článků bez reklam! Aktualizace a nové články jsou pravidelně přinášeny.",
-	"onboarding-2-title": "Vyhledávejte ve více než 300 jazycích",
+	"onboarding-2-title": "Získejte otevřené vědomosti",
 	"onboarding-2-description": "Vyberte si preferovaný jazyk nebo jazyky, ve kterých chcete vyhledávat a číst",
 	"settings-language": "Jazyk",
 	"settings-textsize": "Velikost textu",
