@@ -59,8 +59,6 @@
 	"onboarding-1-description": "Second onboarding description message when the user first time start the application.",
 	"onboarding-2-title": "Third onboarding title message when the user first time start the application.",
 	"onboarding-2-description": "Third onboarding description message when the user first time start the application.",
-	"onboarding-3-title": "Forth onboarding title message when the user first time start the application.",
-	"onboarding-3-description": "Forth onboarding description message when the user first time start the application.",
 	"settings-language": "Label of the language item list. Shown in the Settings menu, used in language setting.",
 	"settings-textsize": "Label of the Text size item list. Shown in the Settings menu, used in text size setting.",
 	"settings-about-wikipedia": "Label of the About Wikipedia item list. Shown in the Settings menu, used in showing the information of Wikipedia.",

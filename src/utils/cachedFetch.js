@@ -1,22 +1,49 @@
+import { isProd } from 'utils'
+
 // todo: Implement a real cache that keeps
 // the last N requests to keep memory usage
 // under control.
 const requestCache = {}
-export const cachedFetch = (url, transformFn) => {
-  if (requestCache[url]) {
+const xhrList = {}
+
+export const cachedFetch = (url, transformFn, abortAllXhr = false, cache = true) => {
+  if (abortAllXhr) {
+    abortAllFetch()
+  }
+
+  if (cache && requestCache[url]) {
     return Promise.resolve(requestCache[url])
   }
 
   return new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest({ mozSystem: true })
+    const timestamp = (new Date()).valueOf()
+    xhrList[timestamp] = xhr
     xhr.responseType = 'json'
     xhr.open('GET', url)
+    if (isProd()) {
+      // eslint-disable-next-line no-undef
+      xhr.setRequestHeader('User-Agent', `WikipediaApp/${APP_VERSION} ${navigator.userAgent}`)
+    }
     xhr.send()
     xhr.addEventListener('load', () => {
-      resolve(requestCache[url] = transformFn(xhr.response))
+      const transformResponse = transformFn(xhr.response)
+      resolve(transformResponse)
+      if (cache) {
+        requestCache[url] = transformResponse
+      }
+      delete xhrList[timestamp]
     })
     xhr.addEventListener('error', () => {
+      delete xhrList[timestamp]
       reject(new Error('XHR Error: ' + xhr.status))
     })
+  })
+}
+
+const abortAllFetch = () => {
+  Object.keys(xhrList).forEach(key => {
+    xhrList[key].abort()
+    delete xhrList[key]
   })
 }

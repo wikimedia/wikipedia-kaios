@@ -10,7 +10,8 @@
 			"Thibaut120094",
 			"Symsym",
 			"Choodyam",
-			"Eneelk"
+			"Eneelk",
+			"Derugon"
 		]
 	},
 	"article-action-sections": "Sections",
@@ -61,13 +62,11 @@
 	"reference-title": "Référence [$1]",
 	"offline-message": "Pas de connexion à Internet",
 	"onboarding-0-title": "L’encyclopédie libre",
-	"onboarding-0-description": "Wikipédia est une ressource gratuite écrite collaborativement par des bénévoles du monde entier.",
-	"onboarding-1-title": "Accédez à la connaissance libre",
-	"onboarding-1-description": "Lisez plus de 40 millions d'articles, sans aucune publicité ! Des mises à jour et de nouveaux articles sont ajoutés régulièrement.",
-	"onboarding-2-title": "Rechercher dans plus de 300 langues",
-	"onboarding-2-description": "Choisissez votre langage préféré ou des langages avec lesquels rechercher et lire.",
-	"onboarding-3-title": "Apprenez de nouveaux faits et des anecdotes",
-	"onboarding-3-description": "Explorez le « Mot du jour », découvrez de belles images et apprenez de nouvelles informations chaque jour sur Wikipédia !",
+	"onboarding-0-description": "Wikipédia est une ressource de connaissances libre remplie d’articles sur des personnes, lieux et choses du monde entier.",
+	"onboarding-1-title": "Rechercher dans des centaines de langues",
+	"onboarding-1-description": "Choisissez votre langage préféré ou des langages avec lesquels rechercher et lire.",
+	"onboarding-2-title": "Accéder à des connaissances libres",
+	"onboarding-2-description": "Lisez plus de 40 millions d’articles, sans aucune publicité ! Des mises à jour et de nouveaux articles sont ajoutés régulièrement.",
 	"settings-language": "Langue",
 	"settings-textsize": "Taille du texte",
 	"settings-about-wikipedia": "À propos de Wikipédia",
