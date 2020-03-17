@@ -1,7 +1,7 @@
 import { h } from 'preact'
 import { Router, route } from 'preact-router'
 import { createHashHistory } from 'history'
-import { Article, Search, Settings, Language, Onboarding } from 'components'
+import { Article, Search, Settings, Language, Onboarding, AboutApp } from 'components'
 import { onboarding } from 'utils'
 
 export const Routes = ({ onRouteChange }) => {
@@ -18,6 +18,7 @@ export const Routes = ({ onRouteChange }) => {
       <Settings path='/settings' />
       <Article path='/article/:lang/:title/:anchor?' />
       <Language path='/language' />
+      <AboutApp path='/about-app' />
     </Router>
   )
 }

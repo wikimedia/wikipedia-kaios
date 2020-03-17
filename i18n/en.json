@@ -71,5 +71,8 @@
     "textsize-decrease": "Press 4 (Decrease size)",
     "textsize-default": "Press 5 (Default)",
     "toc-footer": "Suggested articles",
-    "view-in-browser": "View article in browser"
+    "view-in-browser": "View article in browser",
+    "about-app-message": "Made by the Wikimedia Foundation with the help of volunteers like you.",
+    "softkey-read-more": "Read More"
+
 }
