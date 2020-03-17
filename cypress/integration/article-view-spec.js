@@ -42,7 +42,7 @@ describe('Article view', () => {
   })
 
   it('check footer changes language', () => {
-    goToCatArticle()
+    goToDogArticle()
     articlePage.selectOptionFromActionsMenu('languages')
     cy.get('input').type('português')
     cy.get('.description').should('have.text', 'Gato')
