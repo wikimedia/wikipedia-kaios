@@ -1,6 +1,5 @@
 import { h } from 'preact'
 import { useState, useRef, useEffect } from 'preact/hooks'
-import { loadMessages } from 'api'
 import { useNavigation, useI18n, useSoftkey, usePopup, useSearchLanguage } from 'hooks'
 import { RadioListView } from 'components'
 import { setAppLanguage } from 'utils'
@@ -20,13 +19,9 @@ export const Language = () => {
       const itemIndex = index - 1
       const item = items[itemIndex]
 
-      // load new language json file
-      loadMessages(item.lang).then((messages) => {
-        i18n.setLocale(item.lang)
-        i18n.load(messages)
-        setLang(i18n.locale)
-        setAppLanguage(item.lang)
-      })
+      i18n.setLocale(item.lang)
+      setLang(i18n.locale)
+      setAppLanguage(item.lang)
     }
   }
 

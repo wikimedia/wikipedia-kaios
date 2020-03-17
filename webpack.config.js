@@ -59,7 +59,8 @@ module.exports = {
                     components: './src/components',
                     hooks: './src/hooks',
                     api: './src/api',
-                    contexts: './src/contexts'
+                    contexts: './src/contexts',
+                    i18n: './i18n'
                   }
                 }
               ]
