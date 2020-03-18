@@ -14,7 +14,7 @@ export const AboutApp = () => {
 
   return (
     <div class='aboutapp'>
-      <div class='header'>{i18n.i18n('gallery-about-header')}</div>
+      <div class='header'>{i18n.i18n('about-header')}</div>
       <div class='body'>
         <div class='image'>
           <img src='/images/onboarding-0.png' />
