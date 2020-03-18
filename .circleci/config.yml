@@ -13,3 +13,4 @@ jobs:
             npm run banana
             npm run start &
             npm test
+            ./script/app.sh
