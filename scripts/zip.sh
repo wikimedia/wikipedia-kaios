@@ -6,7 +6,7 @@ mkdir Wikipedia
 rm -rf dist
 
 node scripts/manifest.js > Wikipedia/manifest.webapp
-npm run Wikipedia
+npm run build
 cp -r dist Wikipedia/
 cp -r images Wikipedia/
 cp index.html Wikipedia/
