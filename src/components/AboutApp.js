@@ -3,7 +3,6 @@ import { useI18n, useSoftkey } from 'hooks'
 
 export const AboutApp = () => {
   const i18n = useI18n()
-  const APP_VERSION = JSON.stringify(require('../../package.json').version).slice(1, -1)
 
   useSoftkey('AboutApp', {
     right: i18n.i18n('softkey-read-more'),
@@ -23,6 +22,7 @@ export const AboutApp = () => {
           <img src='/images/wikipedia-wordmark-en.png' />
         </div>
         <div class='version'>
+          {/* eslint-disable-next-line no-undef */}
           <p>{APP_VERSION}</p>
         </div>
         <div class='message'>
