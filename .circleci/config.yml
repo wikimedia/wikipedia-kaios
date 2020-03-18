@@ -14,3 +14,5 @@ jobs:
             npm run start &
             npm test
             ./scripts/zip.sh
+      - store_artifacts:
+          path: app.zip
