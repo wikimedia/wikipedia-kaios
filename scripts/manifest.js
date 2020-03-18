@@ -20,6 +20,7 @@ fs.readdirSync('./i18n').forEach(file => {
 
 	if (lang === 'en') {
 		manifest.name = messages['app-title']
+		manifest.display = messages['app-title']
 		manifest.subtitle = messages['app-subtitle']
 		manifest.description = messages['app-description']
 	}
