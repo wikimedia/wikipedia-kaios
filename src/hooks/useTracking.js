@@ -1,4 +1,5 @@
 import { useRef, useEffect } from 'preact/hooks'
+import { appVersion } from 'utils'
 
 const SCHEMA_NAME = 'InukaPageView'
 const SCHEMA_REV = 19739286
@@ -103,8 +104,7 @@ export const useTracking = (
           session_id: getSessionId(),
           pageview_token: pageviewToken,
           client_type: 'kaios-app',
-          // eslint-disable-next-line no-undef
-          app_version: APP_VERSION,
+          app_version: appVersion(),
           referring_domain: history.length > 1 ? 'kaios-app' : null,
           load_dt: new Date(start).toISOString(),
           page_open_time: Math.round(totalTime),
