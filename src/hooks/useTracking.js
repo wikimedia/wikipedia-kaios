@@ -2,7 +2,7 @@ import { useRef, useEffect } from 'preact/hooks'
 import { appVersion } from 'utils'
 
 const SCHEMA_NAME = 'InukaPageView'
-const SCHEMA_REV = 19739286
+const SCHEMA_REV = 19883738
 const USER_ID_KEY = 'INUKA-PV-U'
 const SESSION_ID_KEY = 'INUKA-PV-S'
 const ONE_HOUR = 3600 * 1000
@@ -105,7 +105,7 @@ export const useTracking = (
           pageview_token: pageviewToken,
           client_type: 'kaios-app',
           app_version: appVersion(),
-          referring_domain: history.length > 1 ? 'kaios-app' : null,
+          referring_domain: 'kaios-app',
           load_dt: new Date(start).toISOString(),
           page_open_time: Math.round(totalTime),
           page_visible_time: Math.round(totalTime - msPaused),
