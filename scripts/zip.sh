@@ -1,15 +1,14 @@
 #!/bin/bash
 
-# Reset build dir
-rm -rf build
-mkdir build
+rm -rf Wikipedia
+mkdir Wikipedia
 
 rm -rf dist
 
-node scripts/manifest.js > build/manifest.webapp
-npm run build
-cp -r dist build/
-cp -r images build/
-cp index.html build/
+node scripts/manifest.js > Wikipedia/manifest.webapp
+npm run Wikipedia
+cp -r dist Wikipedia/
+cp -r images Wikipedia/
+cp index.html Wikipedia/
 
-zip -r app.zip build
+zip -r app.zip Wikipedia
