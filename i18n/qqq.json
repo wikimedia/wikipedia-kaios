@@ -19,7 +19,7 @@
 	"app-description": "Description of the application. Shown in the app store. The word \"free\" is in the sense of \"zero dollars, you don't have pay\".",
 	"content-license": "Text and links for the content license. Shown in the footer",
 	"confirm-section": "Confirm message switch to the selected section page. Shown in the Article page.\n* $1 - Selected section name",
-	"gallery-about-header": "The header title of the gallery about page. Shown in the Gallery page",
+	"about-header": "The header title of the gallery about page. Shown in the Gallery page",
 	"gallery-description": "The sub header of the description of the gallery about page. Shown in the Gallery page\n{{Identical|Description}}",
 	"gallery-author-license": "The sub header of the author and license of the gallery about page. Shown in the Gallery page",
 	"header-menu": "The header title of the menu page",
