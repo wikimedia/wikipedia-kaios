@@ -12,17 +12,23 @@ export const useArticle = (lang, title) => {
     Promise.all([getArticle(lang, title), getArticleMedia(lang, title), getSuggestedArticles(lang, title)])
       .then(([article, media, suggestedArticles]) => {
         const { sections, toc } = article
+        const i18nLocale = i18n.locale
+
+        i18n.setLocale(article.contentLang)
         const footerTitle = i18n.i18n('toc-footer')
         const anchor = canonicalizeTitle(footerTitle)
 
         // build footer used section and toc
+        // with header title in the same language as article
         const sectionsWithFooter = sections.concat({
           title: footerTitle,
           anchor,
           imageUrl: false,
           isFooter: true
         })
-        const tocWithFooter = toc.concat({ level: 1, line: i18n.i18n('toc-footer'), anchor, sectionIndex: sectionsWithFooter.length - 1 })
+        const tocWithFooter = toc.concat({ level: 1, line: footerTitle, anchor, sectionIndex: sectionsWithFooter.length - 1 })
+
+        i18n.setLocale(i18nLocale)
 
         setArticle({ ...article, sections: sectionsWithFooter, toc: tocWithFooter, suggestedArticles, media })
       }, error => {

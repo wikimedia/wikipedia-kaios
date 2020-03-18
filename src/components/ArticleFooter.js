@@ -4,12 +4,20 @@ import { buildWpMobileWebUrl, canonicalizeTitle } from 'utils'
 
 export const ArticleFooter = ({ lang, title, items = [] }) => {
   const i18n = useI18n()
-  const header = i18n.i18n('suggested-articles')
+  const i18nLocale = i18n.locale
+  let headerTitle
+
+  try {
+    i18n.setLocale(lang)
+    headerTitle = i18n.i18n('toc-footer')
+  } finally {
+    i18n.setLocale(i18nLocale)
+  }
 
   return (
     <div class='article-footer'>
       <div class='content'>
-        <h2 class='adjustable-font-size' data-anchor={canonicalizeTitle(header)}>{header}</h2>
+        <h2 class='adjustable-font-size' data-anchor={canonicalizeTitle(headerTitle)}>{headerTitle}</h2>
         <div class='list'>
           { items.map(item => {
             return (
