@@ -1,5 +1,6 @@
 import { h } from 'preact'
 import { useI18n, useSoftkey } from 'hooks'
+import { appVersion } from 'utils'
 
 export const AboutApp = () => {
   const i18n = useI18n()
@@ -22,8 +23,7 @@ export const AboutApp = () => {
           <img src='/images/wikipedia-wordmark-en.png' />
         </div>
         <div class='version'>
-          {/* eslint-disable-next-line no-undef */}
-          <p>{APP_VERSION}</p>
+          <p>{appVersion()}</p>
         </div>
         <div class='message'>
           <p>{i18n.i18n('about-app-message')}</p>
