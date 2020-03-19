@@ -8,6 +8,9 @@ module.exports = {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
   },
+  performance: {
+    hints: false
+  },
   devServer: {
     publicPath: '/dist/',
     watchOptions: {
