@@ -29,6 +29,7 @@
 	"header-textsize": "The header title of the text size page",
 	"menu-previous": "Label of the Previous article item. Shown in the Menu page.",
 	"menu-textsize": "Label of the Text size item list. Shown in the Menu menu.",
+	"more-information": "Label of the Text \"more information\". Used in Collapsed Table in Article page.",
 	"no-result-found": "No result found text. Shown in the search and language list view",
 	"softkey-about": "Label of the about softkey. Shown in image gallery page.",
 	"softkey-more-info": "Label of the more info softkey. Shown in image gallery page.",

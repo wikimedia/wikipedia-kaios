@@ -4,7 +4,7 @@ import { useState, useRef, useEffect, useLayoutEffect } from 'preact/hooks'
 import {
   ReferencePreview, ArticleToc, ArticleLanguage,
   ArticleMenu, ArticleFooter, Loading, QuickFacts,
-  Error, Gallery
+  Error, Gallery, Table
 } from 'components'
 import {
   useArticle, useI18n, useSoftkey,
@@ -44,6 +44,7 @@ const ArticleSection = ({
   const contentRef = useRef()
   const i18n = useI18n()
   const [showReferencePreview] = usePopup(ReferencePreview)
+  const [showTable] = usePopup(Table, { mode: 'fullscreen' })
   const [textSize] = useArticleTextSize('Article')
 
   const linkHandlers = {
@@ -62,6 +63,9 @@ const ArticleSection = ({
     },
     image: ({ fileName }) => {
       showGallery(fileName)
+    },
+    table: ({ content }) => {
+      showTable({ content })
     }
   }
 
