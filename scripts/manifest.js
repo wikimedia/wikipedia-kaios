@@ -30,4 +30,4 @@ fs.readdirSync('./i18n').forEach(file => {
 manifest.version = require('../package.json').version
 
 // Send output to stdout
-console.log(manifest)
+console.log(JSON.stringify(manifest, null, 2))
