@@ -4,7 +4,8 @@
 			"Okras",
 			"Kareyac",
 			"Pacha Tchernof",
-			"Movses"
+			"Movses",
+			"Alexander Yukal"
 		]
 	},
 	"article-action-gallery": "Галерея",
@@ -20,6 +21,11 @@
 	"softkey-read": "Читать",
 	"suggested-articles": "Предлагаемые статьи",
 	"offline-message": "Нет подключения к интернету",
+	"onboarding-0-description": "Википедия – это бесплатный источник знаний, содержащий статьи о людях, местах и ​​вещах со всего мира.",
+	"onboarding-1-title": "Поиск на сотнях языков",
+	"onboarding-1-description": "Выберите предпочитаемый язык или языки для поиска и чтения.",
+	"onboarding-2-title": "Получить бесплатные знания",
+	"onboarding-2-description": "Прочитайте более 50 миллионов статей, полностью без рекламы! Обновления и новые статьи добавляются регулярно.",
 	"settings-language": "Язык",
 	"settings-textsize": "Размер текста",
 	"settings-about-wikipedia": "О Википедии",
