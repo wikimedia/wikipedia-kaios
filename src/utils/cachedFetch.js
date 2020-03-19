@@ -27,10 +27,14 @@ export const cachedFetch = (url, transformFn, abortAllXhr = false, cache = true)
     }
     xhr.send()
     xhr.addEventListener('load', () => {
-      const transformResponse = transformFn(xhr.response)
-      resolve(transformResponse)
-      if (cache) {
-        requestCache[url] = transformResponse
+      if (xhr.statusText === 'OK') {
+        const transformResponse = transformFn(xhr.response)
+        resolve(transformResponse)
+        if (cache) {
+          requestCache[url] = transformResponse
+        }
+      } else {
+        reject(new Error('XHR Error: ' + xhr.status))
       }
       delete xhrList[timestamp]
     })
