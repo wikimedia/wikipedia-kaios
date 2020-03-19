@@ -53,7 +53,7 @@ const fixTableCaption = (htmlString, i18n) => {
   const hiddenClassName = 'hidden-in-table'
   const parser = new DOMParser()
   const node = parser.parseFromString(htmlString, 'text/html')
-  const tableNodes = node.querySelectorAll('table.wikitable')
+  const tableNodes = node.querySelectorAll('table.wikitable, table.multicol')
   for (const tableNode of tableNodes) {
     const thContent = Array.from(tableNode.querySelectorAll('th')).map(th => th.textContent).join(', ')
     const normalizedThContent = thContent.replace(/\[\d+]/g, '')

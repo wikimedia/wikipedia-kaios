@@ -13,7 +13,8 @@ const SUPPORTED_LINKS = [
   'a[href^="#"]',
   'figure',
   'figure-inline',
-  'table.wikitable'
+  'table.wikitable',
+  'table.multicol'
 ].join(',')
 
 export const useArticleLinksNavigation = (
