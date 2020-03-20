@@ -27,7 +27,8 @@ export const cachedFetch = (url, transformFn, abortAllXhr = false, cache = true)
     }
     xhr.send()
     xhr.addEventListener('load', () => {
-      if (xhr.statusText === 'OK') {
+      // Accept all of 2xx and 3xx
+      if (xhr.status >= 200 && xhr.status < 400) {
         const transformResponse = transformFn(xhr.response)
         resolve(transformResponse)
         if (cache) {
