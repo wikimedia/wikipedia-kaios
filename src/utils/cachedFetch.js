@@ -27,10 +27,15 @@ export const cachedFetch = (url, transformFn, abortAllXhr = false, cache = true)
     }
     xhr.send()
     xhr.addEventListener('load', () => {
-      const transformResponse = transformFn(xhr.response)
-      resolve(transformResponse)
-      if (cache) {
-        requestCache[url] = transformResponse
+      // Accept all of 2xx and 3xx
+      if (xhr.status >= 200 && xhr.status < 400) {
+        const transformResponse = transformFn(xhr.response)
+        resolve(transformResponse)
+        if (cache) {
+          requestCache[url] = transformResponse
+        }
+      } else {
+        reject(new Error('XHR Error: ' + xhr.status))
       }
       delete xhrList[timestamp]
     })
