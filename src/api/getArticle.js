@@ -1,7 +1,14 @@
 import { cachedFetch, buildPcsUrl, canonicalizeTitle } from 'utils'
 
-export const getArticle = (lang, title) => {
+export const getArticle = (lang, title, i18n) => {
   const url = buildPcsUrl(lang, title, 'mobile-sections')
+
+  // retrieve content language and set it back to app language
+  const i18nLocale = i18n.locale
+  i18n.setLocale(lang)
+  const moreInformationText = i18n.i18n('more-information')
+  i18n.setLocale(i18nLocale)
+
   return cachedFetch(url, data => {
     const parser = new DOMParser()
     const imageUrl = data.lead.image && data.lead.image.urls['320']
@@ -33,19 +40,20 @@ export const getArticle = (lang, title) => {
 
     // parse remaining sections
     data.remaining.sections.forEach((s) => {
+      const modifiedTextContent = modifyHtmlText(s.text, moreInformationText)
       // new section when toclevel 1
       if (s.toclevel === 1) {
         sections.push({
           title: s.line,
           anchor: s.anchor,
-          content: fixImageUrl(s.text)
+          content: modifiedTextContent
         })
       } else {
         // group into previous section when toclevel > 1
         const previousSection = sections[sections.length - 1]
         const header = 'h' + (s.toclevel + 1)
         const headerLine = `<${header} data-anchor=${s.anchor}>${s.line}</${header}>`
-        previousSection.content += fixImageUrl(headerLine + s.text)
+        previousSection.content += headerLine + modifiedTextContent
       }
 
       // build toc structure (level 1 to 3)
@@ -83,6 +91,31 @@ const fixImageUrl = (htmlString) => {
   // The app is served from the app:// protocol so protocol-relative
   // image sources don't work.
   return htmlString.replace(/src="\/\//gi, 'src="https://')
+}
+
+const fixTableCaption = (htmlString, moreInformationText) => {
+  const hiddenClassName = 'hidden-in-table'
+  const parser = new DOMParser()
+  const node = parser.parseFromString(htmlString, 'text/html')
+  const tableNodes = node.querySelectorAll('table.wikitable, table.multicol')
+  for (const tableNode of tableNodes) {
+    const thContent = Array.from(tableNode.querySelectorAll('th')).map(th => th.textContent).join(', ')
+    const normalizedThContent = thContent.replace(/\[\d+]/g, '')
+    if (tableNode.caption && tableNode.caption.textContent) {
+      tableNode.caption.innerHTML = `<b class='${hiddenClassName}'>${moreInformationText}:</b><p class='${hiddenClassName}'>${normalizedThContent}</p><span>${tableNode.caption.textContent}</span>`
+    } else {
+      const caption = tableNode.createCaption()
+      caption.className = hiddenClassName
+      caption.innerHTML = `<b class='${hiddenClassName}'>${moreInformationText}:</b><p class='${hiddenClassName}'>${normalizedThContent}</p>Table`
+    }
+  }
+
+  return node.childNodes[0].innerHTML
+}
+
+const modifyHtmlText = (text, moreInformationText) => {
+  const fixedImageUrlText = fixImageUrl(text)
+  return fixTableCaption(fixedImageUrlText, moreInformationText)
 }
 
 const convertPlainText = string => {
