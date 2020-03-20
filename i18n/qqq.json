@@ -20,6 +20,7 @@
 	"content-license": "Text and links for the content license. Shown in the footer",
 	"confirm-section": "Confirm message switch to the selected section page. Shown in the Article page.\n* $1 - Selected section name",
 	"about-header": "The header title of the gallery about page. Shown in the Gallery page",
+	"about-wikipedia-header": "The header title shown in the About Wikipedia page",
 	"gallery-description": "The sub header of the description of the gallery about page. Shown in the Gallery page\n{{Identical|Description}}",
 	"gallery-author-license": "The sub header of the author and license of the gallery about page. Shown in the Gallery page",
 	"header-menu": "The header title of the menu page",

@@ -1,0 +1,55 @@
+.about-wikipedia {
+	height: calc( 100vh );
+	background-color: #fff;
+
+	.header {
+		height: @pageHeaderHeight;
+		max-height: @pageHeaderHeight;
+		background-color: #d8d8d8;
+		box-sizing: border-box;
+		padding: 3px 0;
+		font-size: 17px;
+		text-align: center;
+	}
+
+	.body {
+		padding: 0 15px;
+
+		.image {
+			text-align: center;
+			padding: 15px 0;
+			background-position: center center;
+			background-repeat: no-repeat;
+
+			@media ( min-width: 200px ) {
+				background-size: 130px;
+
+				img {
+					width: 74px;
+					height: 74px;
+				}
+			}
+
+			@media ( min-width: 250px ) {
+				background-size: 90px;
+
+				img {
+					width: 50px;
+					height: 50px;
+				}
+			}
+		}
+
+		.title {
+			font-weight: bold;
+			font-size: 22px;
+			line-height: 26px;
+		}
+
+		.description {
+			font-size: 12px;
+			line-height: 17px;
+			margin-top: 5px;
+		}
+	}
+}
