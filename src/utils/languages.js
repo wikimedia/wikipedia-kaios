@@ -1466,6 +1466,19 @@ export const allLanguages = languages.map(language => {
   }
 })
 
+export const loadAllLanguagesMessages = () => {
+  const messages = {}
+  allLanguages.forEach(language => {
+    try {
+      messages[language.lang] = require(`../../i18n/${language.lang}.json`)
+    } catch (error) {
+      // Translation not available, discard
+    }
+  })
+
+  return messages
+}
+
 export const setAppLanguage = lang => {
   localStorage.setItem('language-app', lang)
 }

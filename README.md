@@ -38,7 +38,6 @@ Now the app is running on your computer at http://127.0.0.1:8080  in Firefox. Yo
 
 ### Build the app
 1. Install app dependencies: `npm install`
-2. Build the app: `npm run build`
 
 ### Connect your device
 1. Connect your device to your computer using a USB cable

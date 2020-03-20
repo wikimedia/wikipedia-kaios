@@ -8,6 +8,9 @@ module.exports = {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
   },
+  performance: {
+    hints: false
+  },
   devServer: {
     publicPath: '/dist/',
     watchOptions: {
@@ -22,7 +25,8 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       APP_VERSION: JSON.stringify(require('./package.json').version)
-    })
+    }),
+    new webpack.EnvironmentPlugin()
   ],
   module: {
     rules: [
@@ -58,7 +62,8 @@ module.exports = {
                     components: './src/components',
                     hooks: './src/hooks',
                     api: './src/api',
-                    contexts: './src/contexts'
+                    contexts: './src/contexts',
+                    i18n: './i18n'
                   }
                 }
               ]
