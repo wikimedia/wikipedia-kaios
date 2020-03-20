@@ -71,5 +71,6 @@
 	"textsize-decrease": "Label of the press key to decrease the text size. Shown in the Text Size page.",
 	"textsize-default": "Label of the press key to set the text size to be default. Shown in the Text Size page.",
 	"toc-footer": "Label in the sections for the footer link",
-	"view-in-browser": "Label for the view in browser link. Shown in the footer"
+	"view-in-browser": "Label for the view in browser link. Shown in the footer",
+	"welcome-search-text": "Text to welcome and incite user to search, shown in the home Search screen"
 }

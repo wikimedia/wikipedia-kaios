@@ -41,7 +41,6 @@ export const Settings = () => {
   }, [])
 
   const items = [
-    { title: i18n.i18n('settings-language'), path: '/language' },
     { title: i18n.i18n('settings-textsize'), action: onTextsizeSelected },
     { title: i18n.i18n('settings-about-wikipedia') },
     { title: i18n.i18n('settings-privacy'), link: 'https://foundation.m.wikimedia.org/wiki/Privacy_policy' },
