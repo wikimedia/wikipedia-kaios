@@ -7,11 +7,13 @@ import { SettingsPage } from '../page-objects/settings-page'
 import { SearchPage } from '../page-objects/search-page'
 import { LanguageSettingsPage } from '../page-objects/language-settings-page'
 import { PopupPage } from '../page-objects/popup-page.js'
+import { AboutAppPage } from '../page-objects/about-app-page.js'
 
 const searchPage = new SearchPage()
 const settingsPage = new SettingsPage()
 const languageSettingsPage = new LanguageSettingsPage()
 const popupPage = new PopupPage()
+const aboutAppPage = new AboutAppPage()
 const settingsMenuListEnglishText = [enJson['settings-language'],
   enJson['settings-textsize'],
   enJson['settings-about-wikipedia'],
@@ -79,5 +81,13 @@ describe('settings page', () => {
     languageSettingsPage.selectOptionFromSettings('Text size')
     popupPage.getHeader().should('have.text', enJson['header-textsize'])
     popupPage.getContent().should('have.text', enJson['textsize-decrease'] + enJson['textsize-default'] + enJson['textsize-increase'])
+  })
+
+  it('check about app page', () => {
+    languageSettingsPage.selectOptionFromSettings('About the app')
+    aboutAppPage.getHeader().should('have.text', enJson['about-header'])
+    aboutAppPage.getImage().should('have.attr', 'src', '/images/onboarding-0.png')
+    aboutAppPage.getVersion().should('have.text', '1.0.0')
+    aboutAppPage.getMessage().should('have.text', enJson['about-app-message'])
   })
 })
