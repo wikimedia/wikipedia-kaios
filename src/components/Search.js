@@ -6,7 +6,7 @@ import {
   useNavigation, useSearch, useI18n, useSoftkey,
   useOnlineStatus, useTracking
 } from 'hooks'
-import { articleHistory, goto } from 'utils'
+import { articleHistory, goto, getSearchLanguage } from 'utils'
 // import { getRandomArticleTitle } from 'api'
 
 const SearchOfflinePanel = () => {
@@ -26,7 +26,7 @@ export const Search = () => {
   const inputRef = useRef()
   const i18n = useI18n()
   const [current, setNavigation, getCurrent] = useNavigation('Search', containerRef, 'y')
-  const lang = i18n.locale
+  const lang = getSearchLanguage() || navigator.language.substr(0, 2)
   const [query, setQuery, searchResults] = useSearch(lang)
   const isOnline = useOnlineStatus(online => {
     if (online) {

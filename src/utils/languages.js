@@ -1486,3 +1486,11 @@ export const setAppLanguage = lang => {
 export const getAppLanguage = () => {
   return localStorage.getItem('language-app')
 }
+
+export const setSearchLanguage = lang => {
+  localStorage.setItem('language-search', lang)
+}
+
+export const getSearchLanguage = () => {
+  return localStorage.getItem('language-search')
+}
