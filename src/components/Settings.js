@@ -48,7 +48,7 @@ export const Settings = () => {
     // @todo will have this soon and don't delete it from the language json
     // { title: i18n.i18n('settings-rate') },
     // { title: i18n.i18n('settings-help-feedback') },
-    { title: i18n.i18n('settings-about-app') }
+    { title: i18n.i18n('settings-about-app'), path: '/about-app' }
   ]
 
   return <div class='settings'>

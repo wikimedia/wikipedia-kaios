@@ -20,7 +20,7 @@
     "centerkey-select": "Select",
     "content-license": "Content is available under <a class=\"external\" rel=\"mw:ExtLink\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">CC BY-SA 3.0</a> unless otherwise noted.",
     "confirm-section": "Go to Section \"$1\"",
-    "gallery-about-header": "About",
+    "about-header": "About",
     "gallery-description": "Description",
     "gallery-author-license": "Author and license",
     "header-menu": "Article menu",
@@ -72,5 +72,7 @@
     "textsize-default": "Press 5 (Default)",
     "toc-footer": "Suggested articles",
     "view-in-browser": "View article in browser",
-    "welcome-search-text": "Hi, what would you like to learn today? Search below."
+    "welcome-search-text": "Hi, what would you like to learn today? Search below.",
+    "about-app-message": "Made by the Wikimedia Foundation with the help of volunteers like you.",
+    "softkey-read-more": "Read More"
 }

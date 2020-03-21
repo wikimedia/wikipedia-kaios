@@ -22,10 +22,20 @@ export const SoftkeyReducer = (state, action) => {
       stack = state.stack || []
       current = state.current
       if (current.name !== action.origin) {
-        // This unusual order of events happens when navigating
-        // to a new section from the TOC. Commenting out this
-        // code doesn't seem to cause any issues.
-        // throw new Error(`Unexpected origin: ${action.origin}. Expected: ${current.name}`)
+        // The component order called of unmount doesn't follow the stack order
+        // therefore searching for the right stack to minus the counter
+        // and remove it from the stack
+        let searchIndex = stack.length
+        while (searchIndex--) {
+          const searchStack = stack[searchIndex]
+          if (searchStack.name === action.origin) {
+            searchStack.counter--
+            if (searchStack.counter === 0) {
+              stack.splice(searchIndex, 1)
+            }
+            break
+          }
+        }
       } else {
         current.counter--
         if (current.counter === 0) {

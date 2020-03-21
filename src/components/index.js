@@ -1,3 +1,4 @@
+export * from './AboutApp'
 export * from './App'
 export * from './Article'
 export * from './ArticleFooter'
