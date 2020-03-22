@@ -9,12 +9,12 @@ export const ArticleLanguage = ({ lang, title, close }) => {
   const i18n = useI18n()
   const [articleLang, setArticleLang] = useState(lang)
   const [items, query, setQuery, numOfLanglink] = useSearchArticleLanguage(articleLang, title)
-  const [, setNavigation, getCurrent] = useNavigation('ArticleLanguage', containerRef, 'y')
 
   if (!items.length && !query) {
-    return <Loading message={i18n.i18n('article-language-loading-message')} />
+    return <Loading message={i18n.i18n('article-language-loading-message')} onClose={close} />
   }
 
+  const [, setNavigation, getCurrent] = useNavigation('ArticleLanguage', containerRef, 'y')
   const onKeyCenter = () => {
     const { index } = getCurrent()
     if (index > 0) {
