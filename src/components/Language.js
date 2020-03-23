@@ -7,7 +7,7 @@ import { setSearchLanguage } from 'utils'
 export const Language = () => {
   const containerRef = useRef()
   const i18n = useI18n()
-  const [lang, setLang] = useState(i18n.locale) // would this still be needed?
+  const [lang, setLang] = useState(i18n.locale)
   const [items, query, setQuery] = useSearchLanguage(lang)
   const [showLanguagePopup] = usePopup(LanguagePopup)
   const [, setNavigation, getCurrent] = useNavigation('Language', containerRef, 'y')
@@ -19,9 +19,7 @@ export const Language = () => {
       const itemIndex = index - 1
       const item = items[itemIndex]
 
-      // i18n.setLocale(item.lang)
-      setLang(i18n.locale)
-      // setAppLanguage(item.lang)
+      setLang(item.lang)
       setSearchLanguage(item.lang)
     }
   }
