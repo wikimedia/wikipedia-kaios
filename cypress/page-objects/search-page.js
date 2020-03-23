@@ -8,7 +8,7 @@ export class SearchPage {
   }
 
   getEmptyContent () {
-    return cy.get('.empty')
+    return cy.get('.empty-search')
   }
 
   navigateToSettingsPage () {
