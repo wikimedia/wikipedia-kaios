@@ -21,7 +21,7 @@
 	"app-description": "S aplikací Wikipedie můžete vyhledávat a objevovat informace z celého světa ve více než 300 jazycích.",
 	"content-license": "Obsah je dostupný pod <a class=\"external\" rel=\"mw:ExtLink\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">CC BY-SA 3.0</a>, pokud není uvedeno jinak.",
 	"confirm-section": "Přejít na sekci $1",
-	"gallery-about-header": "Více informací",
+	"about-header": "Více informací",
 	"gallery-description": "Popis",
 	"gallery-author-license": "Autor a licence",
 	"header-menu": "Nabídka u článku",
