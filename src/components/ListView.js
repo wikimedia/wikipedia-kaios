@@ -4,7 +4,7 @@ import { h } from 'preact'
  * The containerRef is suggested to be used together with the hooks useNavigation
  * without the containerRef, the view won't scroll to the selected row
  */
-export const ListView = ({ items = [], header, containerRef, empty }) => {
+export const ListView = ({ items = [], header, containerRef, empty, emptySubText }) => {
   return (
     <div class='listview'>
       { header && <div class='header'>{header}</div> }
@@ -19,7 +19,15 @@ export const ListView = ({ items = [], header, containerRef, empty }) => {
               { item.imageUrl && <div class='img' style={{ backgroundImage: `url(${item.imageUrl})` }} /> }
               { item.link && <div class='link'><img src='/images/link.svg' /></div> }
             </div>
-          )) : <div class='empty'>{empty}</div>
+          ))
+            : <div>
+              <div class={emptySubText ? 'empty-search' : 'empty'}>
+                {empty}
+              </div>
+              <div class='empty-search-explainer'>
+                {emptySubText}
+              </div>
+            </div>
         }
       </div>
     </div>

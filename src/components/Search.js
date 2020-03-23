@@ -7,7 +7,6 @@ import {
   useOnlineStatus, useTracking
 } from 'hooks'
 import { articleHistory, goto, getSearchLanguage } from 'utils'
-// import { getRandomArticleTitle } from 'api'
 
 const SearchOfflinePanel = () => {
   const i18n = useI18n()
@@ -39,12 +38,6 @@ export const Search = () => {
       goto.article(lang, key)
     }
   }
-
-  // const goToRandomArticle = () => {
-  //   getRandomArticleTitle(lang).then(title => {
-  //     goto.article(lang, title)
-  //   })
-  // }
 
   const goToLanguage = () => {
     route('/language')
@@ -81,7 +74,7 @@ export const Search = () => {
         </div>
       </div>
       <input ref={inputRef} type='text' placeholder={i18n.i18n('search-placeholder')} value={query} onInput={onInput} data-selectable />
-      { (isOnline && searchResults) && <ListView header={i18n.i18n('header-search')} items={searchResults} containerRef={containerRef} empty={i18n.i18n('no-result-found')} /> }
+      { (isOnline && searchResults) && <ListView header={i18n.i18n('header-search')} items={searchResults} containerRef={containerRef} empty={i18n.i18n('no-result-found')} emptySubText={i18n.i18n('no-result-found-explainer-tip')} /> }
       { !isOnline && <SearchOfflinePanel /> }
     </div>
   )
