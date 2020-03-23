@@ -18,7 +18,7 @@
 	"app-subtitle": "우리 모두의 백과사전",
 	"app-description": "위키백과 앱을 통해 전 세계 300개 이상의 언어로 정보를 검색하고 둘러보세요.",
 	"confirm-section": "\"$1\" 문단으로 이동",
-	"gallery-about-header": "정보",
+	"about-header": "정보",
 	"gallery-description": "설명",
 	"gallery-author-license": "개발자 및 라이선스",
 	"header-menu": "문서 메뉴",
@@ -54,7 +54,7 @@
 	"offline-message": "인터넷 연결 없음",
 	"onboarding-0-title": "우리 모두의 백과사전",
 	"onboarding-0-description": "위키백과는 전 세계 자원봉사자들에 의해 협동하여 만들어나가는 자유로운 자원입니다.",
-	"onboarding-1-title": "자유로운 지식에 접근하세요",
+	"onboarding-1-title": "수백가지 언어로 검색하세요",
 	"onboarding-2-title": "약 300개의 언어에서 검색",
 	"onboarding-2-description": "검색하고 읽기 위해 선호하는 언어를 선택하십시오.",
 	"settings-language": "언어",
@@ -68,5 +68,6 @@
 	"textsize-increase": "6 누르기 (크기 증가)",
 	"textsize-decrease": "4 누르기 (크기 감소)",
 	"toc-footer": "문서 제안",
-	"view-in-browser": "브라우저에서 문서 보기"
+	"view-in-browser": "브라우저에서 문서 보기",
+	"softkey-read-more": "더 보기"
 }

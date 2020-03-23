@@ -18,7 +18,7 @@
 	"app-description": "Ücretsiz Vikipedi uygulamasıyla, 300'den fazla dilde dünyanın her yerinden bilgi arayın ve keşfedin.",
 	"content-license": "İçerik, aksi belirtilmedikçe <a class=\"external\" rel=\"mw:ExtLink\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">CC BY-SA 3.0</a> altında bulunabilir.",
 	"confirm-section": "\"$1\" Bölümüne Gidin",
-	"gallery-about-header": "Hakkında",
+	"about-header": "Hakkında",
 	"gallery-description": "Açıklama",
 	"gallery-author-license": "Yazar ve lisans",
 	"header-menu": "Makale menüsü",
@@ -70,5 +70,7 @@
 	"textsize-decrease": "4'e basın (Boyutu küçült)",
 	"textsize-default": "5'e basın (Varsayılan)",
 	"toc-footer": "Önerilen makaleler",
-	"view-in-browser": "Makaleyi tarayıcıda görüntüle"
+	"view-in-browser": "Makaleyi tarayıcıda görüntüle",
+	"about-app-message": "Wikimedia Vakfı tarafından sizin gibi gönüllülerin yardımıyla yapılmıştır.",
+	"softkey-read-more": "Daha Fazla Oku"
 }

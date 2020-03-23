@@ -22,7 +22,7 @@
 	"app-description": "من خلال تطبيق ويكيبيديا المجاني، ابحث واستكشف المعلومات من جميع أنحاء العالم بأكثر من 300 لغة.",
 	"content-license": "المحتوى متوفر تحت <a class=\"external\" rel=\"mw:ExtLink\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">CC BY-SA 3.0</a> ما لم يذكر خلاف ذلك.",
 	"confirm-section": "قم بزيارة القسم $1",
-	"gallery-about-header": "حول",
+	"about-header": "حول",
 	"gallery-description": "الوصف",
 	"gallery-author-license": "المؤلف والترخيص",
 	"header-menu": "قائمة المقالة",
@@ -74,5 +74,6 @@
 	"textsize-decrease": "اضغط 4 (تقليل الحجم)",
 	"textsize-default": "اضغط 5 (الافتراضي)",
 	"toc-footer": "مقالات مقترحة",
-	"view-in-browser": "اعرض المقالة في المتصفح"
+	"view-in-browser": "اعرض المقالة في المتصفح",
+	"softkey-read-more": "اقرأ المزيد"
 }

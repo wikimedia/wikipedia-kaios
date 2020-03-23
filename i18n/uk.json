@@ -20,7 +20,7 @@
 	"app-description": "З допомогою безкоштовного додатку Вікіпедія, ви можете шукати та читати інформацію зі всього світу понад 300 мовами.",
 	"content-license": "Контент доступний на умовах ліцензії <a class=\"external\" rel=\"mw:ExtLink\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">CC BY-SA 3.0</a>, якщо не вказано інше.",
 	"confirm-section": "Перейти до розділу «$1»",
-	"gallery-about-header": "Про сторінку",
+	"about-header": "Про сторінку",
 	"gallery-description": "Опис",
 	"gallery-author-license": "Автор і ліцензія",
 	"header-menu": "Меню статті",
@@ -72,5 +72,7 @@
 	"textsize-decrease": "Натисніть 4 (зменшити розмір)",
 	"textsize-default": "Натисніть 5 (стандартно)",
 	"toc-footer": "Пропоновані статті",
-	"view-in-browser": "Переглянути статтю в браузері"
+	"view-in-browser": "Переглянути статтю в браузері",
+	"about-app-message": "Створено Фондом Вікімедіа з допомогою таких волонтерів, як ви.",
+	"softkey-read-more": "Читати більше"
 }
