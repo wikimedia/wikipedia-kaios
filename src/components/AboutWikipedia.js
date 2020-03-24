@@ -13,7 +13,7 @@ export const AboutWikipedia = () => {
   const softkeyConfig = [
     { left: i18n.i18n('softkey-close'), onKeyLeft: () => history.back(), right: i18n.i18n('softkey-next'), onKeyRight: nextOnboard, onKeyArrowRight: nextOnboard },
     { left: i18n.i18n('softkey-back'), onKeyLeft: prevOnboard, onKeyArrowLeft: prevOnboard, right: i18n.i18n('softkey-next'), onKeyRight: nextOnboard, onKeyArrowRight: nextOnboard },
-    { left: i18n.i18n('softkey-back'), onKeyLeft: prevOnboard, onKeyArrowLeft: prevOnboard }
+    { left: i18n.i18n('softkey-back'), onKeyLeft: prevOnboard, onKeyArrowLeft: prevOnboard, center: i18n.i18n('softkey-exit'), onKeyCenter: () => history.back() }
   ]
   useSoftkey('AboutWikipedia', softkeyConfig[currentIndex], [currentIndex], true)
 

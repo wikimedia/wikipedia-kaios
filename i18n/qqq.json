@@ -41,6 +41,7 @@
 	"softkey-settings": "Label of the settings softkey",
 	"centerkey-select": "Label of the center key to choose the selected element. This is used in several contexts when the arrow keys are used to move the focus between visual elements.",
 	"softkey-close": "Label of the close softkey\n{{Identical|Close}}",
+	"softkey-exit": "Label of the exit softkey",
 	"language-change": "Title of the language settings page",
 	"language-setting": "Title of the popup message in the language settings page",
 	"language-setting-message": "Message shown in the popup message in the language settings page",

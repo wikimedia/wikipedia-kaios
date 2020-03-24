@@ -41,6 +41,7 @@
     "softkey-settings": "Settings",
     "centerkey-select": "Select",
     "softkey-close": "Close",
+    "softkey-exit": "Exit",
     "language-change": "Change app language",
     "language-setting": "Language settings",
     "language-setting-message": "Changing the language here will change the language throughout the app. You can also change the language on each article using the article menu.",
