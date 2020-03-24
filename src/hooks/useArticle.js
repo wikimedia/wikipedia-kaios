@@ -7,12 +7,9 @@ export const useArticle = (lang, title) => {
   const [article, setArticle] = useState(null)
   const i18n = useI18n()
 
-  // retrieve content language and set it back to app language
-  const i18nLocale = i18n.locale
-  i18n.setLocale(lang)
-  const moreInformationText = i18n.i18n('more-information')
+  // compile translation in content language
+  const moreInformationText = i18n.getTranslation(lang, 'more-information')
   const translation = { moreInformationText }
-  i18n.setLocale(i18nLocale)
 
   const loadArticle = () => {
     setArticle(null)
