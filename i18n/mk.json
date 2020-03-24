@@ -17,7 +17,7 @@
 	"app-description": "Со бесплатниот прилог на Википедија пребарувајте и истражувајте информации од целиот свет на повеќе од 300 јазици.",
 	"content-license": "Содржината е достапна под <a class=\"external\" rel=\"mw:ExtLink\" href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.mk\">CC BY-SA 3.0</a> освен ако не е поинаку наведено.",
 	"confirm-section": "Оди на поднасловот „$1“",
-	"gallery-about-header": "За ова",
+	"about-header": "За ова",
 	"gallery-description": "Опис",
 	"gallery-author-license": "Автор и лиценца",
 	"header-menu": "Мени на статијата",
@@ -69,5 +69,7 @@
 	"textsize-decrease": "Стисок на 4 (помали)",
 	"textsize-default": "Стисок на 5 (по основно)",
 	"toc-footer": "Предложени статии",
-	"view-in-browser": "Отвори во прелистувач"
+	"view-in-browser": "Отвори во прелистувач",
+	"about-app-message": "Изработено од Фондацијата Викимедија со помош од доброволци како вас.",
+	"softkey-read-more": "Прочитајте повеќе"
 }

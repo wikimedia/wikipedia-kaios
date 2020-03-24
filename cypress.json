@@ -1,7 +1,7 @@
 {  
     "watchForFileChanges": false,
     "viewportWidth": 240,
-    "viewportHeight": 320,
+    "viewportHeight": 290,
     "videoUploadOnPasses":false,
     "modifyObstructiveCode": false,
     "baseUrl": "http://127.0.0.1:8080",

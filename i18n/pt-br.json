@@ -17,7 +17,7 @@
 	"app-description": "Com o aplicativo grátis da Wikipédia, procure e explore a informação de todo o mundo em mais de 300 idiomas",
 	"content-license": "O conteúdo está disponível sob <a class=\"external\" rel=\"mw:ExtLink\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">CC BY-SA 3.0</a> salvo indicação em contrário.",
 	"confirm-section": "Ir para a secção \"$1\"",
-	"gallery-about-header": "Sobre",
+	"about-header": "Sobre",
 	"gallery-description": "Descrição",
 	"gallery-author-license": "Autor e licença",
 	"header-menu": "Menu de artigo",
@@ -69,5 +69,7 @@
 	"textsize-decrease": "Pressionar 4 (Reduz tamanho)",
 	"textsize-default": "Pressionar 5 (Predefinição)",
 	"toc-footer": "Artigos sugeridos",
-	"view-in-browser": "Ver artigo no navegador"
+	"view-in-browser": "Ver artigo no navegador",
+	"about-app-message": "Feito pela Fundação Wikimedia com a ajuda de voluntários como você.",
+	"softkey-read-more": "Ler mais"
 }
