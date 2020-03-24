@@ -112,7 +112,17 @@ describe('settings page', () => {
     cy.getLeftSoftkeyButton().click()
     cy.getLeftSoftkeyButton().click()
     cy.getLeftSoftkeyButton().click()
+    cy.get('.item>.info>.title').first().should('have.text', enJson['settings-language'])
+  })
+
+  it('check exit about wikipedia page', () => {
     languageSettingsPage.selectOptionFromSettings('About Wikipedia')
     aboutWikipediaPage.getHeader().should('have.text', enJson['about-wikipedia-header'])
+    cy.getRightSoftkeyButton().click()
+    aboutWikipediaPage.getImage().should('have.attr', 'src', '/images/onboarding-1.png')
+    cy.getRightSoftkeyButton().click()
+    cy.getCenterSoftkeyButton().should('have.text', enJson['softkey-exit'])
+    cy.getCenterSoftkeyButton().click()
+    cy.get('.item>.info>.title').first().should('have.text', enJson['settings-language'])
   })
 })
