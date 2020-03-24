@@ -1,13 +1,7 @@
 import { cachedFetch, buildPcsUrl, canonicalizeTitle } from 'utils'
 
-export const getArticle = (lang, title, i18n) => {
+export const getArticle = (lang, title, { moreInformationText }) => {
   const url = buildPcsUrl(lang, title, 'mobile-sections')
-
-  // retrieve content language and set it back to app language
-  const i18nLocale = i18n.locale
-  i18n.setLocale(lang)
-  const moreInformationText = i18n.i18n('more-information')
-  i18n.setLocale(i18nLocale)
 
   return cachedFetch(url, data => {
     const parser = new DOMParser()

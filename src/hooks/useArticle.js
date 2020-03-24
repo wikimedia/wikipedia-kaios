@@ -7,9 +7,16 @@ export const useArticle = (lang, title) => {
   const [article, setArticle] = useState(null)
   const i18n = useI18n()
 
+  // retrieve content language and set it back to app language
+  const i18nLocale = i18n.locale
+  i18n.setLocale(lang)
+  const moreInformationText = i18n.i18n('more-information')
+  const translation = { moreInformationText }
+  i18n.setLocale(i18nLocale)
+
   const loadArticle = () => {
     setArticle(null)
-    Promise.all([getArticle(lang, title, i18n), getArticleMedia(lang, title), getSuggestedArticles(lang, title)])
+    Promise.all([getArticle(lang, title, translation), getArticleMedia(lang, title), getSuggestedArticles(lang, title)])
       .then(([article, media, suggestedArticles]) => {
         const { sections, toc } = article
         const i18nLocale = i18n.locale
