@@ -6,7 +6,6 @@ import {
   useOnlineStatus, useTracking
 } from 'hooks'
 import { articleHistory, goto } from 'utils'
-import { getRandomArticleTitle } from 'api'
 
 const SearchOfflinePanel = () => {
   const i18n = useI18n()
@@ -39,12 +38,6 @@ export const Search = () => {
     }
   }
 
-  const goToRandomArticle = () => {
-    getRandomArticleTitle(lang).then(title => {
-      goto.article(lang, title)
-    })
-  }
-
   const onInput = ({ target }) => {
     if (isOnline) {
       setQuery(target.value)
@@ -55,8 +48,7 @@ export const Search = () => {
     right: i18n.i18n('softkey-settings'),
     onKeyRight: () => { window.location.hash = '/settings' },
     center: current.type === 'DIV' ? i18n.i18n('centerkey-select') : '',
-    onKeyCenter,
-    onKeyLeft: goToRandomArticle
+    onKeyCenter
   }, [current.type])
 
   useTracking('Search')

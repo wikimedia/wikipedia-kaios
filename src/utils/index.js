@@ -1,3 +1,4 @@
+export * from './appVersion'
 export * from './articleTextSize'
 export * from './articleHistory'
 export * from './cachedFetch'

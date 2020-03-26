@@ -134,8 +134,8 @@ const makeLinkClickEvent = link => {
     const aElement = link.querySelector('a')
     const href = aElement.getAttribute('href')
     // file name example in href : /wiki/File:Holly_Christmas_card_from_NLI.jpg
-    // slice(6) to match the api file name
-    const fileName = href.slice(6)
+    // split to match the api file name
+    const fileName = href.split(':')[1]
     return { type: 'image', fileName }
   }
 

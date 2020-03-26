@@ -18,7 +18,7 @@
 	"app-description": "藉由自由的維基百科應用程式，進行搜尋探索來自於全世界三百種以上語言的資訊。",
 	"content-license": "除非另有註明，否則頁面內容均以 <a class=\"external\" rel=\"mw:ExtLink\" href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.zh_TW\">CC BY-SA 3.0</a> 條款授權",
 	"confirm-section": "前往「$1」段落",
-	"gallery-about-header": "關於",
+	"about-header": "關於",
 	"gallery-description": "描述",
 	"gallery-author-license": "作者與授權條款",
 	"header-menu": "條目選單",
@@ -70,5 +70,7 @@
 	"textsize-decrease": "按下 4（減少大小）",
 	"textsize-default": "按下 5（預設大小）",
 	"toc-footer": "建議條目",
-	"view-in-browser": "在瀏覽器裡檢視條目"
+	"view-in-browser": "在瀏覽器裡檢視條目",
+	"about-app-message": "由維基媒體基金會在像您這樣的志工們協助下所製作。",
+	"softkey-read-more": "延伸閱讀"
 }

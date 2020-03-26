@@ -10,7 +10,7 @@
 	"article-language-loading-message": "Sprooche lueden...",
 	"app-title": "Wikipedia",
 	"app-subtitle": "Déi fräi Enzyklopedie",
-	"gallery-about-header": "Iwwer",
+	"about-header": "Iwwer",
 	"gallery-description": "Beschreiwung",
 	"gallery-author-license": "Auteur a Lizenz",
 	"header-menu": "Menü vum Artikel",
@@ -53,5 +53,6 @@
 	"settings-rate": "D'App bewäerten",
 	"settings-help-feedback": "Hëllef a Feedback",
 	"toc-footer": "Proposéiert Artikelen",
-	"view-in-browser": "Artikel am Browser kucken"
+	"view-in-browser": "Artikel am Browser kucken",
+	"softkey-read-more": "Liest méi"
 }

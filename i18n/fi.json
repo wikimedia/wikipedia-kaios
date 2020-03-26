@@ -19,7 +19,7 @@
 	"app-description": "Ilmaisella Wikipedia-sovelluksella, haet ja tutkit tietoa ympäri maailmaa yli 300 kielellä.",
 	"content-license": "Sisältö on saatavilla <a class=\"external\" rel=\"mw:ExtLink\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">CC BY-SA 3.0</a> -lisenssillä ellei toisin mainittu.",
 	"confirm-section": "Siirry osioon ”$1”",
-	"gallery-about-header": "Tietoja",
+	"about-header": "Tietoja",
 	"gallery-description": "Kuvaus",
 	"gallery-author-license": "Tekijä ja lisenssi",
 	"header-menu": "Artikkelivalikko",

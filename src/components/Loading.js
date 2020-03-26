@@ -1,12 +1,18 @@
 import { h } from 'preact'
 import { useSoftkey, useI18n } from 'hooks'
-export const Loading = ({ message }) => {
+export const Loading = ({ message, onClose }) => {
   const i18n = useI18n()
 
   useSoftkey('Loading', {
     left: i18n.i18n('softkey-close'),
-    onKeyLeft: () => history.back()
-  })
+    onKeyLeft: () => {
+      if (onClose) {
+        onClose()
+      } else {
+        history.back()
+      }
+    }
+  }, [])
 
   return (
     <div class='loading-planet'>

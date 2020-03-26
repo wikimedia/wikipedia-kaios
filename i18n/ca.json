@@ -20,7 +20,7 @@
 	"app-description": "Amb l'aplicació lliure de la Viquipèdia podeu cercar i explorar informació del món sencer en més de 300 llengües.",
 	"content-license": "El contingut és disponible en virtut dels termes de la llicència <a class=\"external\" rel=\"mw:ExtLink\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">CC BY-SA 3.0</a>, tret que s'indiqui el contrari.",
 	"confirm-section": "Vés a la secció «$1»",
-	"gallery-about-header": "Quant a",
+	"about-header": "Quant a",
 	"gallery-description": "Descripció",
 	"gallery-author-license": "Autor i llicència",
 	"header-menu": "Menu de l'article",
@@ -72,5 +72,7 @@
 	"textsize-decrease": "Premeu 4 (redueix la mida)",
 	"textsize-default": "Premeu 5 (per defecte)",
 	"toc-footer": "Articles suggerits",
-	"view-in-browser": "Mostra l’article al navegador"
+	"view-in-browser": "Mostra l’article al navegador",
+	"about-app-message": "Creat per la Fundació Wikimedia amb l'ajuda de voluntaris.",
+	"softkey-read-more": "Més informació"
 }

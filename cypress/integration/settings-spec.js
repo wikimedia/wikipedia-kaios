@@ -7,11 +7,15 @@ import { SettingsPage } from '../page-objects/settings-page'
 import { SearchPage } from '../page-objects/search-page'
 import { LanguageSettingsPage } from '../page-objects/language-settings-page'
 import { PopupPage } from '../page-objects/popup-page.js'
+import { AboutAppPage } from '../page-objects/about-app-page.js'
+import { AboutWikipediaPage } from '../page-objects/about-wikipedia-page.js'
 
 const searchPage = new SearchPage()
 const settingsPage = new SettingsPage()
 const languageSettingsPage = new LanguageSettingsPage()
 const popupPage = new PopupPage()
+const aboutAppPage = new AboutAppPage()
+const aboutWikipediaPage = new AboutWikipediaPage()
 const settingsMenuListEnglishText = [enJson['settings-language'],
   enJson['settings-textsize'],
   enJson['settings-about-wikipedia'],
@@ -79,5 +83,46 @@ describe('settings page', () => {
     languageSettingsPage.selectOptionFromSettings('Text size')
     popupPage.getHeader().should('have.text', enJson['header-textsize'])
     popupPage.getContent().should('have.text', enJson['textsize-decrease'] + enJson['textsize-default'] + enJson['textsize-increase'])
+  })
+
+  it('check about app page', () => {
+    languageSettingsPage.selectOptionFromSettings('About the app')
+    aboutAppPage.getHeader().should('have.text', enJson['about-header'])
+    aboutAppPage.getImage().should('have.attr', 'src', '/images/onboarding-0.png')
+    aboutAppPage.getVersion().should('have.text', '1.0.0')
+    aboutAppPage.getMessage().should('have.text', enJson['about-app-message'])
+  })
+
+  it('check about wikipedia page', () => {
+    languageSettingsPage.selectOptionFromSettings('About Wikipedia')
+    aboutWikipediaPage.getHeader().should('have.text', enJson['about-wikipedia-header'])
+    aboutWikipediaPage.getImage().should('have.attr', 'src', '/images/onboarding-0.png')
+    aboutWikipediaPage.getTitle().should('have.text', enJson['onboarding-0-title'])
+    aboutWikipediaPage.getDescription().should('have.text', enJson['onboarding-0-description'])
+    cy.getRightSoftkeyButton().click()
+
+    aboutWikipediaPage.getImage().should('have.attr', 'src', '/images/onboarding-1.png')
+    aboutWikipediaPage.getTitle().should('have.text', enJson['onboarding-1-title'])
+    aboutWikipediaPage.getDescription().should('have.text', enJson['onboarding-1-description'])
+    cy.getRightSoftkeyButton().click()
+
+    aboutWikipediaPage.getImage().should('have.attr', 'src', '/images/onboarding-2.png')
+    aboutWikipediaPage.getTitle().should('have.text', enJson['onboarding-2-title'])
+    aboutWikipediaPage.getDescription().should('have.text', enJson['onboarding-2-description'])
+    cy.getLeftSoftkeyButton().click()
+    cy.getLeftSoftkeyButton().click()
+    cy.getLeftSoftkeyButton().click()
+    cy.get('.item>.info>.title').first().should('have.text', enJson['settings-language'])
+  })
+
+  it('check close about wikipedia page', () => {
+    languageSettingsPage.selectOptionFromSettings('About Wikipedia')
+    aboutWikipediaPage.getHeader().should('have.text', enJson['about-wikipedia-header'])
+    cy.getRightSoftkeyButton().click()
+    aboutWikipediaPage.getImage().should('have.attr', 'src', '/images/onboarding-1.png')
+    cy.getRightSoftkeyButton().click()
+    cy.getCenterSoftkeyButton().should('have.text', enJson['softkey-close'])
+    cy.getCenterSoftkeyButton().click()
+    cy.get('.item>.info>.title').first().should('have.text', enJson['settings-language'])
   })
 })

@@ -29,7 +29,7 @@ const AboutContainer = ({ author, description, license, filePage, close }) => {
 
   return (
     <div class='gallery-about' ref={containerRef}>
-      <div class='header'>{i18n.i18n('gallery-about-header')}</div>
+      <div class='header'>{i18n.i18n('about-header')}</div>
       {
         description && (
           <div>
