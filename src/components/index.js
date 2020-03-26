@@ -1,5 +1,4 @@
 export * from './AboutApp'
-export * from './AboutWikipedia'
 export * from './App'
 export * from './Article'
 export * from './ArticleFooter'

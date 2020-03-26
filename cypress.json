@@ -6,5 +6,5 @@
     "modifyObstructiveCode": false,
     "baseUrl": "http://127.0.0.1:8080",
     "defaultCommandTimeout": 6000,
-    "video": true
+    "video": false
 }
