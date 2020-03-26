@@ -10,9 +10,7 @@ export const getArticleMedia = (lang, title) => {
         // description: item.description && item.description.text,
         // license: item.license && item.license.type,
         // filePage: item.file_page,
-        thumbnail:
-          (item.thumbnail && item.thumbnail.source) ||
-          (item.srcset && item.srcset[0] && item.srcset[0].src),
+        thumbnail: item && item.srcset && `https:${item.srcset[0].src}`,
         canonicalizedTitle:
           item.title && canonicalizeTitle(item.title.split(':')[1])
       }
