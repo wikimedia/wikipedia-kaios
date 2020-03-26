@@ -6,7 +6,7 @@ export const getArticleMedia = (lang, title) => {
     if (item.showInGallery) {
       const media = {
         // author: item.artist && item.artist.text,
-        // caption: item.caption && item.caption.text,
+        caption: item.caption && item.caption.text,
         // description: item.description && item.description.text,
         // license: item.license && item.license.type,
         // filePage: item.file_page,
