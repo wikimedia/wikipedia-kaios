@@ -3,7 +3,7 @@ import { cachedFetch, buildPcsUrl, canonicalizeTitle } from 'utils'
 export const getArticleMedia = (lang, title) => {
   const url = buildPcsUrl(lang, title, 'media-list')
   return cachedFetch(url, data => data.items.reduce((mediaArray, item) => {
-    if (item.showInGallery) {
+    if (item.showInGallery && item.type === 'image') {
       const media = {
         // author: item.artist && item.artist.text,
         caption: item.caption && item.caption.text,
