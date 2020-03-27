@@ -22,7 +22,7 @@ export const getArticle = (lang, title, { moreInformationText }) => {
       title: data.lead.displaytitle,
       anchor: canonicalizeTitle(data.lead.normalizedtitle),
       description: data.lead.description,
-      content: fixImageUrl(data.lead.sections[0].text),
+      content: modifyHtmlText(data.lead.sections[0].text, moreInformationText),
       preview
     })
     toc.push({
