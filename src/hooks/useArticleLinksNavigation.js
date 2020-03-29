@@ -12,7 +12,9 @@ const SUPPORTED_LINKS = [
   'a[rel="mw:ExtLink"]',
   'a[href^="#"]',
   'figure',
-  'figure-inline'
+  'figure-inline',
+  'table.wikitable',
+  'table.multicol'
 ].join(',')
 
 export const useArticleLinksNavigation = (
@@ -135,6 +137,10 @@ const makeLinkClickEvent = link => {
     // split to match the api file name
     const fileName = href.split(':')[1]
     return { type: 'image', fileName }
+  }
+
+  if (link.tagName === 'TABLE') {
+    return { type: 'table', content: link.innerHTML }
   }
 }
 
