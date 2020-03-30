@@ -5,12 +5,9 @@ export const getArticleMediaList = (lang, title) => {
   return cachedFetch(url, data => data.items.reduce((mediaArray, item) => {
     if (item.showInGallery && item.type === 'image') {
       const media = {
-        // author: item.artist && item.artist.text,
         caption: item.caption && item.caption.text,
-        // description: item.description && item.description.text,
-        // license: item.license && item.license.type,
-        // filePage: item.file_page,
         thumbnail: item && item.srcset && `https:${item.srcset[0].src}`,
+        title: item.title,
         canonicalizedTitle:
           item.title && canonicalizeTitle(item.title.split(':')[1])
       }

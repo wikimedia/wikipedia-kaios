@@ -1,4 +1,5 @@
 export * from './getArticle'
+export * from './getArticleMediaInfo'
 export * from './getArticleMediaList'
 export * from './getArticleSummary'
 export * from './getLanglinks'
