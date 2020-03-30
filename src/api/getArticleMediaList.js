@@ -1,6 +1,6 @@
 import { cachedFetch, buildPcsUrl, canonicalizeTitle } from 'utils'
 
-export const getArticleMedia = (lang, title) => {
+export const getArticleMediaList = (lang, title) => {
   const url = buildPcsUrl(lang, title, 'media-list')
   return cachedFetch(url, data => data.items.reduce((mediaArray, item) => {
     if (item.showInGallery && item.type === 'image') {
