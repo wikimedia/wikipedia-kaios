@@ -188,12 +188,21 @@ const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
     })
   }
 
+  const handleKeyBackspace = () => {
+    if (articleHistory.hasPrev()) {
+      const { lang, title } = articleHistory.prev()
+      goto.article(lang, title, true)
+    } else {
+      history.back()
+    }
+  }
+
   useSoftkey('Article', {
     left: i18n.i18n('softkey-close'),
     onKeyLeft: () => history.back(),
     right: i18n.i18n('softkey-menu'),
     onKeyRight: showArticleMenu,
-    onKeyBackspace: () => history.back()
+    onKeyBackspace: handleKeyBackspace
   }, [])
 
   useEffect(() => {
