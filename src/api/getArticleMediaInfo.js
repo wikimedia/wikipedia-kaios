@@ -1,4 +1,4 @@
-import { cachedFetch, buildMwApiUrl } from 'utils'
+import { cachedFetch, buildCommonsApiUrl } from 'utils'
 
 export const getArticleMediaInfo = (lang, title) => {
   const params = {
@@ -11,11 +11,16 @@ export const getArticleMediaInfo = (lang, title) => {
     titles: title
   }
 
-  const url = buildMwApiUrl(lang, params)
+  const url = buildCommonsApiUrl(params)
   return cachedFetch(url, data => {
     const pages = data.query.pages
-    const imageInfo = pages[0].imageinfo[0]
-    const { Artist, ImageDescription, LicenseShortName } = imageInfo.extmetadata
+    const imageInfo = pages[0].imageinfo
+
+    if (!imageInfo) {
+      return {}
+    }
+
+    const { Artist, ImageDescription, LicenseShortName } = imageInfo[0].extmetadata
     const author = Artist && strip(Artist.value)
     const description = ImageDescription && strip(
       (typeof ImageDescription.value === 'string' && ImageDescription.value) ||
@@ -25,7 +30,7 @@ export const getArticleMediaInfo = (lang, title) => {
       author,
       description,
       license: LicenseShortName && LicenseShortName.value,
-      filePage: imageInfo.descriptionshorturl
+      filePage: imageInfo[0].descriptionshorturl
     }
   })
 }
