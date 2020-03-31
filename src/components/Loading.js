@@ -4,7 +4,7 @@ export const Loading = ({ message, onClose }) => {
   const i18n = useI18n()
 
   useSoftkey('Loading', {
-    left: i18n.i18n('softkey-close'),
+    left: i18n('softkey-close'),
     onKeyLeft: () => {
       if (onClose) {
         onClose()
