@@ -31,7 +31,8 @@ export const Language = () => {
     center: i18n.i18n('centerkey-select'),
     onKeyCenter,
     left: i18n.i18n('softkey-done'),
-    onKeyLeft: () => history.back()
+    onKeyLeft: () => history.back(),
+    onKeyBackspace: () => history.back()
   }, [lang, items])
 
   useEffect(() => {
