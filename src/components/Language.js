@@ -19,7 +19,6 @@ export const Language = () => {
       const itemIndex = index - 1
       const item = items[itemIndex]
 
-      // i18n.setLocale(item.lang)
       setLang(item.lang)
       setAppLanguage(item.lang)
     }
