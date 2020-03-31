@@ -8,9 +8,14 @@ export const useI18n = lang => {
   return (key, ...args) => {
     if (lang) {
       const locale = banana.locale
-      banana.setLocale(lang)
-      const msg = banana.i18n(key, ...args)
-      banana.setLocale(locale)
+      let msg
+      try {
+        banana.setLocale(lang)
+      } finally {
+        msg = banana.i18n(key, ...args)
+        banana.setLocale(locale)
+      }
+
       return msg
     }
 
