@@ -53,11 +53,11 @@
 	"reference-title": "Referencia [$1]",
 	"offline-message": "Ensin conexón a internet",
 	"onboarding-0-title": "La enciclopedia llibre",
-	"onboarding-0-description": "Wikipedia ye un recursu gratuitu escritu en collaboración por voluntarios de tol mundu.",
-	"onboarding-1-title": "Apuerta a la conocencia llibre",
-	"onboarding-1-description": "Llei más de 40 millones d'artículos, ¡dafechu ensin publicidá! Con regularidá añádense actualizaciones y artículos nuevos.",
-	"onboarding-2-title": "Guetar en más de 300 llingües",
-	"onboarding-2-description": "Escueye'l to idioma o idiomes preferíos pa buscar y lleer.",
+	"onboarding-0-description": "Wikipedia ye un recursu de conocencia llibre llenu d'artículos sobro persones, llugares y coses del mundu enteru.",
+	"onboarding-1-title": "Busca en centenares de llingües",
+	"onboarding-1-description": "Escueye'l to idioma o idiomes preferíos pa buscar y lleer.",
+	"onboarding-2-title": "Llogra conocencia llibre",
+	"onboarding-2-description": "Llei más de 40 millones d'artículos, ¡dafechu ensin publicidá! Con regularidá añádense actualizaciones y artículos nuevos.",
 	"settings-language": "Llingua",
 	"settings-textsize": "Tamañu de testu",
 	"settings-about-wikipedia": "Tocante a Wikipedia",
@@ -70,5 +70,7 @@
 	"textsize-decrease": "Primi 4 (menguar tamañu)",
 	"textsize-default": "Primi 5 (predeterminao)",
 	"toc-footer": "Artículos suxeríos",
-	"view-in-browser": "Ver artículu nel navegador"
+	"view-in-browser": "Ver artículu nel navegador",
+	"about-app-message": "Creáu pola Fundación Wikimedia con ayuda de voluntarios como tu.",
+	"softkey-read-more": "Lleer más"
 }

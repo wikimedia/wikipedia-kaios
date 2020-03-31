@@ -3,7 +3,8 @@
 		"authors": [
 			"Ykhwong",
 			"Gongsoonyee",
-			"Eduardo Addad de Oliveira"
+			"Eduardo Addad de Oliveira",
+			"아라"
 		]
 	},
 	"article-action-sections": "부분",
@@ -19,6 +20,7 @@
 	"app-description": "위키백과 앱을 통해 전 세계 300개 이상의 언어로 정보를 검색하고 둘러보세요.",
 	"confirm-section": "\"$1\" 문단으로 이동",
 	"about-header": "정보",
+	"about-wikipedia-header": "위키백과 정보",
 	"gallery-description": "설명",
 	"gallery-author-license": "개발자 및 라이선스",
 	"header-menu": "문서 메뉴",
@@ -28,6 +30,7 @@
 	"header-textsize": "실제 텍스트 크기",
 	"menu-previous": "이전 글",
 	"menu-textsize": "텍스트 크기",
+	"more-information": "자세한 정보",
 	"no-result-found": "결과가 없습니다",
 	"softkey-about": "정보",
 	"softkey-more-info": "자세한 정보",
@@ -60,7 +63,7 @@
 	"settings-language": "언어",
 	"settings-textsize": "텍스트 크기",
 	"settings-about-wikipedia": "위키백과 정보",
-	"settings-privacy": "개인정보 정책",
+	"settings-privacy": "개인정보처리방침",
 	"settings-term": "이용 약관",
 	"settings-rate": "앱 평가",
 	"settings-help-feedback": "도움말 및 의견",

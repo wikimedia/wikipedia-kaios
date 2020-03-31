@@ -4,7 +4,8 @@
 			"沈澄心",
 			"Josephine W.",
 			"VulpesVulpes825",
-			"铁桶"
+			"铁桶",
+			"500000000006城"
 		]
 	},
 	"article-action-quickfacts": "快速预览",
@@ -48,5 +49,7 @@
 	"settings-rate": "评价应用程序",
 	"settings-help-feedback": "帮助和反馈",
 	"settings-about-app": "关于维基百科应用程序",
+	"view-in-browser": "在浏览器查看条目",
+	"about-app-message": "由维基媒体基金会在像你这样的志愿者的帮助下制作。",
 	"softkey-read-more": "阅读更多"
 }
