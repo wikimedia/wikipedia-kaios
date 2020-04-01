@@ -21,7 +21,8 @@ export const ArticleToc = ({ items, currentAnchor, onSelectItem, close }) => {
     left: i18n.i18n('softkey-close'),
     onKeyLeft: () => close(),
     center: i18n.i18n('centerkey-select'),
-    onKeyCenter
+    onKeyCenter,
+    onKeyBackspace: () => close()
   })
 
   useLayoutEffect(() => {

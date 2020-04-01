@@ -12,7 +12,8 @@ const AboutContainer = ({ author, description, license, filePage, close }) => {
     left: i18n.i18n('softkey-close'),
     onKeyLeft: close,
     right: i18n.i18n('softkey-more-info'),
-    onKeyRight: () => { window.open(filePage) }
+    onKeyRight: () => { window.open(filePage) },
+    onKeyBackspace: close
   })
 
   useLayoutEffect(() => {
@@ -70,7 +71,8 @@ export const Gallery = ({ close, items, startFileName }) => {
     center: containsNecessaryFields() ? i18n.i18n('softkey-about') : '',
     onKeyCenter: containsNecessaryFields() ? () => { showAboutPopup({ ...items[currentIndex] }) } : null,
     onKeyArrowRight: onNextImage,
-    onKeyArrowLeft: onPrevImage
+    onKeyArrowLeft: onPrevImage,
+    onKeyBackspace: close
   }, [currentIndex])
 
   return (

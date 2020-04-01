@@ -26,7 +26,8 @@ export const ArticleMenu = ({
     left: i18n.i18n('softkey-close'),
     onKeyLeft: close,
     center: i18n.i18n('centerkey-select'),
-    onKeyCenter
+    onKeyCenter,
+    onKeyBackspace: close
   })
 
   const [, setNavigation, getCurrent] = useNavigation('Menu', containerRef, 'y')

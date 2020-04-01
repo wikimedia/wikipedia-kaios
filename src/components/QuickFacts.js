@@ -18,7 +18,8 @@ export const QuickFacts = ({ article, goToArticleSubpage, close }) => {
     left: i18n.i18n('softkey-close'),
     onKeyLeft: close,
     onKeyArrowDown: scrollDown,
-    onKeyArrowUp: scrollUp
+    onKeyArrowUp: scrollUp,
+    onKeyBackspace: close
   })
 
   const linkHandlers = {

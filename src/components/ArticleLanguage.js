@@ -39,7 +39,8 @@ export const ArticleLanguage = ({ lang, title, close }) => {
     right: i18n.i18n('softkey-search'),
     onKeyRight: () => setNavigation(0),
     center: i18n.i18n('centerkey-select'),
-    onKeyCenter
+    onKeyCenter,
+    onKeyBackspace: close
   }, [items])
 
   useEffect(() => {
