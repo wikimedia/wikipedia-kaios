@@ -125,6 +125,7 @@ export const useTracking = (
       sendEvent(event)
 
       document.removeEventListener('visibilitychange', onVisibilityChanged)
+      window.removeEventListener('pagehide', sendBeacon)
     }
     window.addEventListener('pagehide', sendBeacon)
 

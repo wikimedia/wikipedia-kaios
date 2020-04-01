@@ -9,9 +9,9 @@ const AboutContainer = ({ author, description, license, filePage, close }) => {
   const containerRef = useRef()
 
   useSoftkey('About', {
-    left: i18n.i18n('softkey-close'),
+    left: i18n('softkey-close'),
     onKeyLeft: close,
-    right: i18n.i18n('softkey-more-info'),
+    right: i18n('softkey-more-info'),
     onKeyRight: () => { window.open(filePage) },
     onKeyBackspace: close
   })
@@ -30,11 +30,11 @@ const AboutContainer = ({ author, description, license, filePage, close }) => {
 
   return (
     <div class='gallery-about' ref={containerRef}>
-      <div class='header'>{i18n.i18n('about-header')}</div>
+      <div class='header'>{i18n('about-header')}</div>
       {
         description && (
           <div>
-            <div class='sub-header'>{i18n.i18n('gallery-description')}</div>
+            <div class='sub-header'>{i18n('gallery-description')}</div>
             <p class='description'>{description}</p>
           </div>
         )
@@ -42,7 +42,7 @@ const AboutContainer = ({ author, description, license, filePage, close }) => {
       {
         (author || license) && (
           <div>
-            <div class='sub-header'>{i18n.i18n('gallery-author-license')}</div>
+            <div class='sub-header'>{i18n('gallery-author-license')}</div>
             <p>
               {author}{ author && <br /> }
               {license}
@@ -66,9 +66,9 @@ export const Gallery = ({ close, items, startFileName }) => {
   }
 
   useSoftkey('Gallery', {
-    left: i18n.i18n('softkey-close'),
+    left: i18n('softkey-close'),
     onKeyLeft: close,
-    center: containsNecessaryFields() ? i18n.i18n('softkey-about') : '',
+    center: containsNecessaryFields() ? i18n('softkey-about') : '',
     onKeyCenter: containsNecessaryFields() ? () => { showAboutPopup({ ...items[currentIndex] }) } : null,
     onKeyArrowRight: onNextImage,
     onKeyArrowLeft: onPrevImage,

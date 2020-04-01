@@ -23,9 +23,9 @@ export const ArticleMenu = ({
   }
 
   useSoftkey('Menu', {
-    left: i18n.i18n('softkey-close'),
+    left: i18n('softkey-close'),
     onKeyLeft: close,
-    center: i18n.i18n('centerkey-select'),
+    center: i18n('centerkey-select'),
     onKeyCenter,
     onKeyBackspace: close
   })
@@ -54,38 +54,38 @@ export const ArticleMenu = ({
 
   const items = [
     {
-      title: i18n.i18n('search-placeholder'),
+      title: i18n('search-placeholder'),
       action: onSearchSelected,
       enabled: true
     },
     {
-      title: i18n.i18n('menu-previous'),
+      title: i18n('menu-previous'),
       description: articleHistory.hasPrev() ? articleHistory.getPrev().title : null,
       action: onPreviousSelected,
       enabled: articleHistory.hasPrev()
     },
     {
-      title: i18n.i18n('article-action-sections'),
+      title: i18n('article-action-sections'),
       action: onTocSelected,
       enabled: true
     },
     {
-      title: i18n.i18n('menu-textsize'),
+      title: i18n('menu-textsize'),
       action: onTextsizeSelected,
       enabled: true
     },
     {
-      title: i18n.i18n('article-action-quickfacts'),
+      title: i18n('article-action-quickfacts'),
       action: onQuickFactsSelected,
       enabled: hasInfobox
     },
     {
-      title: i18n.i18n('article-action-gallery'),
+      title: i18n('article-action-gallery'),
       action: onGallerySelected,
       enabled: hasGallery
     },
     {
-      title: i18n.i18n('article-action-languages'),
+      title: i18n('article-action-languages'),
       action: onLanguageSelected,
       enabled: hasLanguages
     }
@@ -93,7 +93,7 @@ export const ArticleMenu = ({
 
   return <div class='menu'>
     <ListView
-      header={i18n.i18n('header-menu')}
+      header={i18n('header-menu')}
       items={items.filter(item => item.enabled)}
       containerRef={containerRef}
     />

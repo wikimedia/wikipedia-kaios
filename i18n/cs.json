@@ -22,6 +22,7 @@
 	"content-license": "Obsah je dostupný pod <a class=\"external\" rel=\"mw:ExtLink\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">CC BY-SA 3.0</a>, pokud není uvedeno jinak.",
 	"confirm-section": "Přejít na sekci $1",
 	"about-header": "Více informací",
+	"about-wikipedia-header": "O Wikipedii",
 	"gallery-description": "Popis",
 	"gallery-author-license": "Autor a licence",
 	"header-menu": "Nabídka u článku",
@@ -73,5 +74,7 @@
 	"textsize-decrease": "Pro zmenšení textu stiskněte 4",
 	"textsize-default": "Pro výchozí velikost stiskněte 5",
 	"toc-footer": "Navrhované články",
-	"view-in-browser": "Zobrazit článek v prohlížeči"
+	"view-in-browser": "Zobrazit článek v prohlížeči",
+	"about-app-message": "Vytvořila nadace Wikimedia s dobrovolníky, jako jste vy.",
+	"softkey-read-more": "Číst dál"
 }

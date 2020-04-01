@@ -5,17 +5,17 @@ export const TextSize = ({ close }) => {
   const i18n = useI18n()
 
   useSoftkey('TextSize', {
-    left: i18n.i18n('softkey-close'),
+    left: i18n('softkey-close'),
     onKeyLeft: close,
     onKeyBackspace: close
   })
 
   return <div class='textsize'>
-    <div class='header'>{i18n.i18n('header-textsize')}</div>
+    <div class='header'>{i18n('header-textsize')}</div>
     <div class='content'>
-      <p>{i18n.i18n('textsize-decrease')}</p>
-      <p>{i18n.i18n('textsize-default')}</p>
-      <p>{i18n.i18n('textsize-increase')}</p>
+      <p>{i18n('textsize-decrease')}</p>
+      <p>{i18n('textsize-default')}</p>
+      <p>{i18n('textsize-increase')}</p>
     </div>
   </div>
 }

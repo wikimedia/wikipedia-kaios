@@ -55,6 +55,7 @@ Cypress.Commands.add('navigateToPageWithoutOnboarding', (page) => {
 })
 
 Cypress.Commands.add('changeBrowserLanguageAndGoToHomePage', (language) => {
+  cy.removeLocalStorage('language-app')
   cy.visit('http://127.0.0.1:8080', {
     onBeforeLoad (win) {
       Object.defineProperty(win.navigator, 'language', {

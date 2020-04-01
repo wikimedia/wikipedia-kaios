@@ -29,7 +29,7 @@ const ArticleActions = ({ actions }) => {
       { actions.filter(a => a.enabled).map(action => (
         <div class='article-actions-button' data-action={action.name} key={action.name}>
           <img src={`images/icon-${action.name}.svg`} />
-          <label>{i18n.i18n(`article-action-${action.name}`)}</label>
+          <label>{i18n(`article-action-${action.name}`)}</label>
         </div>
       )) }
     </div>
@@ -59,7 +59,7 @@ const ArticleSection = ({
     },
     section: ({ text, anchor }) => {
       // @todo styling to be confirmed with design
-      confirmDialog({ message: i18n.i18n('confirm-section', text), onSubmit: () => goToSubpage({ anchor }) })
+      confirmDialog({ message: i18n('confirm-section', text), onSubmit: () => goToSubpage({ anchor }) })
     },
     image: ({ fileName }) => {
       showGallery(fileName)
@@ -130,11 +130,11 @@ const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
   const [article, loadArticle] = useArticle(lang, articleTitle)
 
   if (!article) {
-    return <Loading message={i18n.i18n('article-loading-message')} />
+    return <Loading message={i18n('article-loading-message')} />
   }
 
   if (article.error) {
-    return <Error message={i18n.i18n('article-error-message')} onRefresh={loadArticle} />
+    return <Error message={i18n('article-error-message')} onRefresh={loadArticle} />
   }
 
   const sectionCount = article.toc.filter(s => s.level === 1).length
@@ -198,9 +198,9 @@ const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
   }
 
   useSoftkey('Article', {
-    left: i18n.i18n('softkey-close'),
+    left: i18n('softkey-close'),
     onKeyLeft: () => history.back(),
-    right: i18n.i18n('softkey-menu'),
+    right: i18n('softkey-menu'),
     onKeyRight: showArticleMenu,
     onKeyBackspace: handleKeyBackspace
   }, [])

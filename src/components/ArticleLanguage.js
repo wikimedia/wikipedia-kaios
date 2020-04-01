@@ -11,7 +11,7 @@ export const ArticleLanguage = ({ lang, title, close }) => {
   const [items, query, setQuery, numOfLanglink] = useSearchArticleLanguage(articleLang, title)
 
   if (!items.length && !query) {
-    return <Loading message={i18n.i18n('article-language-loading-message')} onClose={close} />
+    return <Loading message={i18n('article-language-loading-message')} onClose={close} />
   }
 
   const [, setNavigation, getCurrent] = useNavigation('ArticleLanguage', containerRef, 'y')
@@ -34,11 +34,11 @@ export const ArticleLanguage = ({ lang, title, close }) => {
   }
 
   useSoftkey('ArticleLanguage', {
-    left: i18n.i18n('softkey-done'),
+    left: i18n('softkey-done'),
     onKeyLeft,
-    right: i18n.i18n('softkey-search'),
+    right: i18n('softkey-search'),
     onKeyRight: () => setNavigation(0),
-    center: i18n.i18n('centerkey-select'),
+    center: i18n('centerkey-select'),
     onKeyCenter,
     onKeyBackspace: close
   }, [items])
@@ -48,7 +48,7 @@ export const ArticleLanguage = ({ lang, title, close }) => {
   }, [])
 
   return <div class='articlelanguage'>
-    <input type='text' placeholder={i18n.i18n('search-language-placeholder')} value={query} onInput={(e) => setQuery(e.target.value)} data-selectable />
-    <RadioListView header={i18n.i18n('article-language-available', numOfLanglink)} items={items} containerRef={containerRef} empty={i18n.i18n('no-result-found')} />
+    <input type='text' placeholder={i18n('search-language-placeholder')} value={query} onInput={(e) => setQuery(e.target.value)} data-selectable />
+    <RadioListView header={i18n('article-language-available', numOfLanglink)} items={items} containerRef={containerRef} empty={i18n('no-result-found')} />
   </div>
 }

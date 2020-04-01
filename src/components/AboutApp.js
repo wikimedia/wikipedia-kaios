@@ -6,16 +6,16 @@ export const AboutApp = () => {
   const i18n = useI18n()
 
   useSoftkey('AboutApp', {
-    right: i18n.i18n('softkey-read-more'),
+    right: i18n('softkey-read-more'),
     onKeyRight: () => window.open('https://wikimediafoundation.org/'),
-    left: i18n.i18n('softkey-close'),
+    left: i18n('softkey-close'),
     onKeyLeft: () => history.back(),
     onKeyBackspace: () => history.back()
   }, [])
 
   return (
     <div class='aboutapp'>
-      <div class='header'>{i18n.i18n('about-header')}</div>
+      <div class='header'>{i18n('about-header')}</div>
       <div class='body'>
         <div class='image'>
           <img src='/images/onboarding-0.png' />
@@ -27,7 +27,7 @@ export const AboutApp = () => {
           <p>{appVersion()}</p>
         </div>
         <div class='message'>
-          <p>{i18n.i18n('about-app-message')}</p>
+          <p>{i18n('about-app-message')}</p>
         </div>
       </div>
     </div>
