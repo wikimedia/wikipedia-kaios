@@ -3,11 +3,12 @@ import { route } from 'preact-router'
 import { useRef, useEffect } from 'preact/hooks'
 import { useNavigation, useI18n, useSoftkey, usePopup } from 'hooks'
 import { ListView, TextSize } from 'components'
+import { getAppLanguage } from 'utils'
 
 export const Settings = () => {
   const containerRef = useRef()
   const i18n = useI18n()
-  const lang = i18n.locale
+  const lang = getAppLanguage()
   const onKeyCenter = () => {
     const { index } = getCurrent()
     const item = items[index]
@@ -28,9 +29,9 @@ export const Settings = () => {
   }
 
   useSoftkey('Settings', {
-    left: i18n.i18n('softkey-close'),
+    left: i18n('softkey-close'),
     onKeyLeft: () => history.back(),
-    center: i18n.i18n('centerkey-select'),
+    center: i18n('centerkey-select'),
     onKeyCenter
   })
 
@@ -41,20 +42,20 @@ export const Settings = () => {
   }, [])
 
   const items = [
-    { title: i18n.i18n('settings-language'), path: '/language' },
-    { title: i18n.i18n('settings-textsize'), action: onTextsizeSelected },
-    { title: i18n.i18n('settings-about-wikipedia'), path: '/about-wikipedia' },
-    { title: i18n.i18n('settings-privacy'), link: 'https://foundation.m.wikimedia.org/wiki/Privacy_policy' },
-    { title: i18n.i18n('settings-term'), link: `https://foundation.m.wikimedia.org/wiki/Terms_of_Use/${lang}` },
+    { title: i18n('settings-language'), path: '/language' },
+    { title: i18n('settings-textsize'), action: onTextsizeSelected },
+    { title: i18n('settings-about-wikipedia'), path: '/about-wikipedia' },
+    { title: i18n('settings-privacy'), link: 'https://foundation.m.wikimedia.org/wiki/Privacy_policy' },
+    { title: i18n('settings-term'), link: `https://foundation.m.wikimedia.org/wiki/Terms_of_Use/${lang}` },
     // @todo will have this soon and don't delete it from the language json
-    // { title: i18n.i18n('settings-rate') },
-    // { title: i18n.i18n('settings-help-feedback') },
-    { title: i18n.i18n('settings-about-app'), path: '/about-app' }
+    // { title: i18n('settings-rate') },
+    // { title: i18n('settings-help-feedback') },
+    { title: i18n('settings-about-app'), path: '/about-app' }
   ]
 
   return <div class='settings'>
     <ListView
-      header={i18n.i18n('header-settings')}
+      header={i18n('header-settings')}
       items={items}
       containerRef={containerRef}
     />

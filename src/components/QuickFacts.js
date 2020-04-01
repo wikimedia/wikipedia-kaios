@@ -15,7 +15,7 @@ export const QuickFacts = ({ article, goToArticleSubpage, close }) => {
   const [showGalleryPopup] = usePopup(Gallery, { mode: 'fullscreen', stack: true })
   const [textSize] = useArticleTextSize('QuickFacts')
   useSoftkey('QuickFacts', {
-    left: i18n.i18n('softkey-close'),
+    left: i18n('softkey-close'),
     onKeyLeft: close,
     onKeyArrowDown: scrollDown,
     onKeyArrowUp: scrollUp
@@ -30,7 +30,7 @@ export const QuickFacts = ({ article, goToArticleSubpage, close }) => {
     },
     section: ({ text, anchor }) => {
       // @todo styling to be confirmed with design
-      confirmDialog({ message: i18n.i18n('confirm-section', text), onSubmit: () => goToArticleSubpage({ anchor }) })
+      confirmDialog({ message: i18n('confirm-section', text), onSubmit: () => goToArticleSubpage({ anchor }) })
     },
     image: ({ fileName }) => {
       showGalleryPopup({ items: article.media, startFileName: fileName })

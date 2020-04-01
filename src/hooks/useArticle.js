@@ -5,24 +5,16 @@ import { canonicalizeTitle } from 'utils'
 
 export const useArticle = (lang, title) => {
   const [article, setArticle] = useState(null)
-  const i18n = useI18n()
-
-  // retrieve content language and set it back to app language
-  const i18nLocale = i18n.locale
-  i18n.setLocale(lang)
-  const moreInformationText = i18n.i18n('more-information')
+  const contentI18n = useI18n(lang)
+  const moreInformationText = contentI18n('more-information')
   const translation = { moreInformationText }
-  i18n.setLocale(i18nLocale)
 
   const loadArticle = () => {
     setArticle(null)
     Promise.all([getArticle(lang, title, translation), getArticleMediaList(lang, title), getSuggestedArticles(lang, title)])
       .then(([article, media, suggestedArticles]) => {
         const { sections, toc } = article
-        const i18nLocale = i18n.locale
-
-        i18n.setLocale(article.contentLang)
-        const footerTitle = i18n.i18n('toc-footer')
+        const footerTitle = contentI18n('toc-footer')
         const anchor = canonicalizeTitle(footerTitle)
 
         // build footer used section and toc
@@ -34,8 +26,6 @@ export const useArticle = (lang, title) => {
           isFooter: true
         })
         const tocWithFooter = toc.concat({ level: 1, line: footerTitle, anchor, sectionIndex: sectionsWithFooter.length - 1 })
-
-        i18n.setLocale(i18nLocale)
 
         setArticle({ ...article, sections: sectionsWithFooter, toc: tocWithFooter, suggestedArticles, media })
       }, error => {

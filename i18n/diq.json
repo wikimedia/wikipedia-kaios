@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Mirzali",
-			"1917 Ekim Devrimi"
+			"1917 Ekim Devrimi",
+			"Orbot707"
 		]
 	},
 	"article-action-sections": "Letey",
@@ -19,6 +20,7 @@
 	"content-license": "Zerrek, çina ver niro se bınê <a class=\"external\" rel=\"mw:ExtLink\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">CC BY-SA 3.0</a> beno.",
 	"confirm-section": "Ravêrê letey \"$1\"",
 	"about-header": "Heqê cı",
+	"about-wikipedia-header": "Heqê Wikipedia",
 	"gallery-description": "Şınasnayış",
 	"gallery-author-license": "Nuştekar u lisans",
 	"header-menu": "Menuy meqaley",
@@ -28,6 +30,7 @@
 	"header-textsize": "Gırdiya metinê meqaley",
 	"menu-previous": "Meqaleyo verên",
 	"menu-textsize": "Gırdiya metini",
+	"more-information": "Tayêna melumat",
 	"no-result-found": "Neticeyi nêvêniyayi",
 	"softkey-about": "Heqa",
 	"softkey-more-info": "Tayêna melumat",
@@ -70,5 +73,7 @@
 	"textsize-decrease": "4i bıploğnê (ebati kemeynena)",
 	"textsize-default": "5i bıploğnê (hesabyaye)",
 	"toc-footer": "Wesıbnaye meqaley",
-	"view-in-browser": "Meqaleyi browseri sero bıvinê"
+	"view-in-browser": "Meqaleyi browseri sero bıvinê",
+	"about-app-message": "Weqıfa Wikimedia Vakfı pheştiya pê zey şıma zerriwaştoğana vıraziyaya",
+	"softkey-read-more": "Tayêna bıwane"
 }

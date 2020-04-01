@@ -5,7 +5,7 @@ import {
   useNavigation, useSearch, useI18n, useSoftkey,
   useOnlineStatus, useTracking
 } from 'hooks'
-import { articleHistory, goto } from 'utils'
+import { articleHistory, goto, getAppLanguage } from 'utils'
 
 const SearchOfflinePanel = () => {
   const i18n = useI18n()
@@ -13,7 +13,7 @@ const SearchOfflinePanel = () => {
     <div class='search-offline-panel'>
       <div class='search-offline-content'>
         <img src='images/search-offline.svg' />
-        <div class='message'>{i18n.i18n('offline-message')}</div>
+        <div class='message'>{i18n('offline-message')}</div>
       </div>
     </div>
   )
@@ -24,7 +24,7 @@ export const Search = () => {
   const inputRef = useRef()
   const i18n = useI18n()
   const [current, setNavigation, getCurrent] = useNavigation('Search', containerRef, 'y')
-  const lang = i18n.locale
+  const lang = getAppLanguage()
   const [query, setQuery, searchResults] = useSearch(lang)
   const isOnline = useOnlineStatus(online => {
     if (online) {
@@ -45,9 +45,9 @@ export const Search = () => {
   }
 
   useSoftkey('Search', {
-    right: i18n.i18n('softkey-settings'),
+    right: i18n('softkey-settings'),
     onKeyRight: () => { window.location.hash = '/settings' },
-    center: current.type === 'DIV' ? i18n.i18n('centerkey-select') : '',
+    center: current.type === 'DIV' ? i18n('centerkey-select') : '',
     onKeyCenter
   }, [current.type])
 
@@ -61,8 +61,8 @@ export const Search = () => {
   return (
     <div class='search'>
       <img class='double-u' src='images/w.svg' style={{ display: ((searchResults || !isOnline) ? 'none' : 'block') }} />
-      <input ref={inputRef} type='text' placeholder={i18n.i18n('search-placeholder')} value={query} onInput={onInput} data-selectable />
-      { (isOnline && searchResults) && <ListView header={i18n.i18n('header-search')} items={searchResults} containerRef={containerRef} empty={i18n.i18n('no-result-found')} /> }
+      <input ref={inputRef} type='text' placeholder={i18n('search-placeholder')} value={query} onInput={onInput} data-selectable />
+      { (isOnline && searchResults) && <ListView header={i18n('header-search')} items={searchResults} containerRef={containerRef} empty={i18n('no-result-found')} /> }
       { !isOnline && <SearchOfflinePanel /> }
     </div>
   )

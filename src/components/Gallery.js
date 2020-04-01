@@ -11,9 +11,9 @@ const AboutContainer = ({ title, close }) => {
   const mediaInfo = useArticleMediaInfo(lang, title)
 
   useSoftkey('About', {
-    left: i18n.i18n('softkey-close'),
+    left: i18n('softkey-close'),
     onKeyLeft: close,
-    right: mediaInfo && mediaInfo.filePage ? i18n.i18n('softkey-more-info') : '',
+    right: mediaInfo && mediaInfo.filePage ? i18n('softkey-more-info') : '',
     onKeyRight: () => {
       if (mediaInfo && mediaInfo.filePage) {
         window.open(mediaInfo.filePage)
@@ -39,11 +39,11 @@ const AboutContainer = ({ title, close }) => {
 
   return (
     <div class='gallery-about' ref={containerRef}>
-      <div class='header'>{i18n.i18n('about-header')}</div>
+      <div class='header'>{i18n('about-header')}</div>
       {
         mediaInfo.description && (
           <div>
-            <div class='sub-header'>{i18n.i18n('gallery-description')}</div>
+            <div class='sub-header'>{i18n('gallery-description')}</div>
             <p class='description'>{mediaInfo.description}</p>
           </div>
         )
@@ -51,7 +51,7 @@ const AboutContainer = ({ title, close }) => {
       {
         (mediaInfo.author || mediaInfo.license) && (
           <div>
-            <div class='sub-header'>{i18n.i18n('gallery-author-license')}</div>
+            <div class='sub-header'>{i18n('gallery-author-license')}</div>
             <p>
               {mediaInfo.author}{ mediaInfo.author && <br /> }
               {mediaInfo.license}
@@ -67,15 +67,15 @@ const LoadingAbout = () => {
   const i18n = useI18n()
   return (
     <div class='gallery-about loading'>
-      <div class='header'>{i18n.i18n('about-header')}</div>
+      <div class='header'>{i18n('about-header')}</div>
       <div>
-        <div class='sub-header'>{i18n.i18n('gallery-description')}</div>
+        <div class='sub-header'>{i18n('gallery-description')}</div>
         <p>
           <div class='loading-block full' />
         </p>
       </div>
       <div>
-        <div class='sub-header'>{i18n.i18n('gallery-author-license')}</div>
+        <div class='sub-header'>{i18n('gallery-author-license')}</div>
         <p>
           <div class='loading-block full' />
           <div class='loading-block full last' />
@@ -93,9 +93,9 @@ export const Gallery = ({ close, items, startFileName }) => {
   const [showAboutPopup] = usePopup(AboutContainer, { stack: true })
 
   useSoftkey('Gallery', {
-    left: i18n.i18n('softkey-close'),
+    left: i18n('softkey-close'),
     onKeyLeft: close,
-    center: i18n.i18n('softkey-about'),
+    center: i18n('softkey-about'),
     onKeyCenter: () => showAboutPopup({ ...items[currentIndex] }),
     onKeyArrowRight: onNextImage,
     onKeyArrowLeft: onPrevImage

@@ -18,9 +18,9 @@ export const Onboarding = () => {
   }
 
   const softkeyConfig = [
-    { left: i18n.i18n('softkey-skip'), onKeyLeft: exitOnboard, right: i18n.i18n('softkey-next'), onKeyRight: nextOnboard, onKeyArrowRight: nextOnboard },
-    { left: i18n.i18n('softkey-back'), onKeyLeft: prevOnboard, onKeyArrowLeft: prevOnboard, right: i18n.i18n('softkey-next'), onKeyRight: nextOnboard, onKeyArrowRight: nextOnboard },
-    { left: i18n.i18n('softkey-back'), onKeyLeft: prevOnboard, onKeyArrowLeft: prevOnboard, center: i18n.i18n('softkey-get-started'), onKeyCenter: exitOnboard }
+    { left: i18n('softkey-skip'), onKeyLeft: exitOnboard, right: i18n('softkey-next'), onKeyRight: nextOnboard, onKeyArrowRight: nextOnboard },
+    { left: i18n('softkey-back'), onKeyLeft: prevOnboard, onKeyArrowLeft: prevOnboard, right: i18n('softkey-next'), onKeyRight: nextOnboard, onKeyArrowRight: nextOnboard },
+    { left: i18n('softkey-back'), onKeyLeft: prevOnboard, onKeyArrowLeft: prevOnboard, center: i18n('softkey-get-started'), onKeyCenter: exitOnboard }
   ]
   useSoftkey('onboarding', softkeyConfig[currentIndex], [currentIndex], true)
 
@@ -30,10 +30,10 @@ export const Onboarding = () => {
         <img src={`/images/onboarding-${currentIndex}.png`} />
       </div>
       <div class='title'>
-        {i18n.i18n(`onboarding-${currentIndex}-title`)}
+        {i18n(`onboarding-${currentIndex}-title`)}
       </div>
       <div class='description'>
-        {i18n.i18n(`onboarding-${currentIndex}-description`)}
+        {i18n(`onboarding-${currentIndex}-description`)}
       </div>
       <div class='indicator'>
         <div class={`dot ${currentIndex === 0 ? 'selected' : ''}`} />
