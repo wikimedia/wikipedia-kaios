@@ -54,7 +54,7 @@ const AboutContainer = ({ author, description, license, filePage, close }) => {
   )
 }
 
-export const Gallery = ({ close, items, startFileName }) => {
+export const Gallery = ({ close, items, startFileName, closeAll }) => {
   const i18n = useI18n()
   const [
     currentIndex, onPrevImage, onNextImage
@@ -67,7 +67,7 @@ export const Gallery = ({ close, items, startFileName }) => {
 
   useSoftkey('Gallery', {
     left: i18n('softkey-close'),
-    onKeyLeft: close,
+    onKeyLeft: closeAll,
     center: containsNecessaryFields() ? i18n('softkey-about') : '',
     onKeyCenter: containsNecessaryFields() ? () => { showAboutPopup({ ...items[currentIndex] }) } : null,
     onKeyArrowRight: onNextImage,

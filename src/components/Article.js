@@ -142,11 +142,11 @@ const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
   useTracking('Article', lang, article.namespace, sectionCount, openedSections)
 
   const [anchor, setAnchor] = useState(initialAnchor)
-  const [showTocPopup] = usePopup(ArticleToc, { mode: 'fullscreen' })
-  const [showQuickFactsPopup] = usePopup(QuickFacts, { mode: 'fullscreen' })
-  const [showLanguagePopup] = usePopup(ArticleLanguage, { mode: 'fullscreen' })
+  const [showTocPopup] = usePopup(ArticleToc, { mode: 'fullscreen', stack: true })
+  const [showQuickFactsPopup] = usePopup(QuickFacts, { mode: 'fullscreen', stack: true })
+  const [showLanguagePopup] = usePopup(ArticleLanguage, { mode: 'fullscreen', stack: true })
   const [showMenuPopup] = usePopup(ArticleMenu, { mode: 'fullscreen' })
-  const [showGalleryPopup] = usePopup(Gallery, { mode: 'fullscreen' })
+  const [showGalleryPopup] = usePopup(Gallery, { mode: 'fullscreen', stack: true })
   const [currentSection, setCurrentSection, currentPage] = useArticlePagination(containerRef, article, anchor)
   const section = article.sections[currentSection]
   const goToArticleSubpage = ({ sectionIndex, anchor }) => {
