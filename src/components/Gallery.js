@@ -4,9 +4,8 @@ import { useI18n, useSoftkey, usePopup, useRange, useArticleMediaInfo } from 'ho
 
 const MAX_DESCRIPTION_HEIGHT = 45
 
-const AboutContainer = ({ title, caption, close }) => {
+const AboutContainer = ({ lang, title, caption, close }) => {
   const i18n = useI18n()
-  const lang = i18n.locale
   const containerRef = useRef()
   const mediaInfo = useArticleMediaInfo(lang, title)
 
@@ -77,7 +76,7 @@ const LoadingAbout = () => {
   )
 }
 
-export const Gallery = ({ close, items, startFileName }) => {
+export const Gallery = ({ close, items, startFileName, lang }) => {
   const i18n = useI18n()
   const [
     currentIndex, onPrevImage, onNextImage
@@ -88,7 +87,7 @@ export const Gallery = ({ close, items, startFileName }) => {
     left: i18n('softkey-close'),
     onKeyLeft: close,
     center: i18n('softkey-about'),
-    onKeyCenter: () => showAboutPopup({ ...items[currentIndex] }),
+    onKeyCenter: () => showAboutPopup({ ...items[currentIndex], lang }),
     onKeyArrowRight: onNextImage,
     onKeyArrowLeft: onPrevImage
   }, [currentIndex])
