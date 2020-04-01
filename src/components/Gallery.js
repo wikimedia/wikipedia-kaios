@@ -4,7 +4,7 @@ import { useI18n, useSoftkey, usePopup, useRange, useArticleMediaInfo } from 'ho
 
 const MAX_DESCRIPTION_HEIGHT = 45
 
-const AboutContainer = ({ title, close }) => {
+const AboutContainer = ({ title, caption, close }) => {
   const i18n = useI18n()
   const lang = i18n.locale
   const containerRef = useRef()
@@ -40,25 +40,17 @@ const AboutContainer = ({ title, close }) => {
   return (
     <div class='gallery-about' ref={containerRef}>
       <div class='header'>{i18n('about-header')}</div>
-      {
-        mediaInfo.description && (
-          <div>
-            <div class='sub-header'>{i18n('gallery-description')}</div>
-            <p class='description'>{mediaInfo.description}</p>
-          </div>
-        )
-      }
-      {
-        (mediaInfo.author || mediaInfo.license) && (
-          <div>
-            <div class='sub-header'>{i18n('gallery-author-license')}</div>
-            <p>
-              {mediaInfo.author}{ mediaInfo.author && <br /> }
-              {mediaInfo.license}
-            </p>
-          </div>
-        )
-      }
+      <div>
+        <div class='sub-header'>{i18n('gallery-description')}</div>
+        <p class='description'>{mediaInfo.description || caption || title}</p>
+      </div>
+      <div>
+        <div class='sub-header'>{i18n('gallery-author-license')}</div>
+        <p>
+          {mediaInfo.author || i18n('gallery-unknown-author')}<br />
+          {mediaInfo.license || i18n('gallery-unknown-license')}
+        </p>
+      </div>
     </div>
   )
 }

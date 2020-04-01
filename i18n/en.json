@@ -23,6 +23,8 @@
     "about-wikipedia-header": "About Wikipedia",
     "gallery-description": "Description",
     "gallery-author-license": "Author and license",
+    "gallery-unknown-author": "Author unknown",
+    "gallery-unknown-license": "License unknown",
     "header-menu": "Article menu",
     "header-search": "Search results",
     "header-sections": "Sections",
