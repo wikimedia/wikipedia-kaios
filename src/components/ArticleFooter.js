@@ -4,15 +4,8 @@ import { buildWpMobileWebUrl, canonicalizeTitle } from 'utils'
 
 export const ArticleFooter = ({ lang, title, items = [] }) => {
   const i18n = useI18n()
-  const i18nLocale = i18n.locale
-  let headerTitle
-
-  try {
-    i18n.setLocale(lang)
-    headerTitle = i18n.i18n('toc-footer')
-  } finally {
-    i18n.setLocale(i18nLocale)
-  }
+  const contentI18n = useI18n(lang)
+  const headerTitle = contentI18n('toc-footer')
 
   return (
     <div class='article-footer'>
@@ -34,10 +27,10 @@ export const ArticleFooter = ({ lang, title, items = [] }) => {
         <h2 class='img'>
           <img src='/images/wikipedia-wordmark-en.png' height='18' width='116' />
         </h2>
-        <p class='license adjustable-font-size' dangerouslySetInnerHTML={{ __html: i18n.i18n('content-license') }} />
+        <p class='license adjustable-font-size' dangerouslySetInnerHTML={{ __html: i18n('content-license') }} />
         <p class='browser'>
           <a class='external adjustable-font-size' rel='mw:ExtLink' href={buildWpMobileWebUrl(lang, title)}>
-            {i18n.i18n('view-in-browser')}
+            {i18n('view-in-browser')}
           </a>
         </p>
       </div>

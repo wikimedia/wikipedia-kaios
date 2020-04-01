@@ -5,9 +5,9 @@ export const Error = ({ message, onRefresh }) => {
   const i18n = useI18n()
 
   useSoftkey('Error', {
-    center: i18n.i18n('softkey-refresh'),
+    center: i18n('softkey-refresh'),
     onKeyCenter: onRefresh,
-    left: i18n.i18n('softkey-close'),
+    left: i18n('softkey-close'),
     onKeyLeft: () => history.back()
   })
 

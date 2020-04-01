@@ -18,9 +18,9 @@ export const ArticleToc = ({ items, currentAnchor, onSelectItem, close }) => {
     }
   }
   useSoftkey('ArticleToc', {
-    left: i18n.i18n('softkey-close'),
+    left: i18n('softkey-close'),
     onKeyLeft: () => close(),
-    center: i18n.i18n('centerkey-select'),
+    center: i18n('centerkey-select'),
     onKeyCenter
   })
 
@@ -29,7 +29,7 @@ export const ArticleToc = ({ items, currentAnchor, onSelectItem, close }) => {
   }, [])
 
   return <div class='toc'>
-    <ListView header={i18n.i18n('header-sections')} items={listItems} containerRef={containerRef} />
+    <ListView header={i18n('header-sections')} items={listItems} containerRef={containerRef} />
   </div>
 }
 

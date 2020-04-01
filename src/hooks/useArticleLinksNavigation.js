@@ -86,7 +86,7 @@ export const useArticleLinksNavigation = (
       const i = (links.indexOf(currentLink) + 1) % links.length
       setCurrentLink(links[i])
     },
-    center: currentLink ? i18n.i18n('centerkey-select') : '',
+    center: currentLink ? i18n('centerkey-select') : '',
     onKeyCenter: () => {
       if (!currentLink) {
         return

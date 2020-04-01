@@ -15,6 +15,6 @@ export const OfflineIndicator = ({ routeUrl }) => {
   }, [isOnline, routeUrl])
 
   if (isVisible) {
-    return <div class='offline'>{i18n.i18n('offline-message')}</div>
+    return <div class='offline'>{i18n('offline-message')}</div>
   }
 }

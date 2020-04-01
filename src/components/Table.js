@@ -9,7 +9,7 @@ export const Table = ({ close, content }) => {
   const [scrollRight, scrollLeft] = useScroll(containerRef, 20, 'x')
 
   useSoftkey('Table', {
-    left: i18n.i18n('softkey-close'),
+    left: i18n('softkey-close'),
     onKeyLeft: () => close(),
     onKeyArrowDown: scrollDown,
     onKeyArrowUp: scrollUp,
