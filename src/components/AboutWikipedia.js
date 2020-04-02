@@ -11,24 +11,24 @@ export const AboutWikipedia = () => {
   }
 
   const softkeyConfig = [
-    { left: i18n.i18n('softkey-close'), onKeyLeft: () => history.back(), right: i18n.i18n('softkey-next'), onKeyRight: nextOnboard, onKeyArrowRight: nextOnboard },
-    { left: i18n.i18n('softkey-back'), onKeyLeft: prevOnboard, onKeyArrowLeft: prevOnboard, right: i18n.i18n('softkey-next'), onKeyRight: nextOnboard, onKeyArrowRight: nextOnboard },
-    { left: i18n.i18n('softkey-back'), onKeyLeft: prevOnboard, onKeyArrowLeft: prevOnboard, center: i18n.i18n('softkey-close'), onKeyCenter: () => history.back() }
+    { left: i18n('softkey-close'), onKeyLeft: () => history.back(), right: i18n('softkey-next'), onKeyRight: nextOnboard, onKeyArrowRight: nextOnboard },
+    { left: i18n('softkey-back'), onKeyLeft: prevOnboard, onKeyArrowLeft: prevOnboard, right: i18n('softkey-next'), onKeyRight: nextOnboard, onKeyArrowRight: nextOnboard },
+    { left: i18n('softkey-back'), onKeyLeft: prevOnboard, onKeyArrowLeft: prevOnboard, center: i18n('softkey-close'), onKeyCenter: () => history.back() }
   ]
   useSoftkey('AboutWikipedia', softkeyConfig[currentIndex], [currentIndex], true)
 
   return (
     <div class='about-wikipedia'>
-      <div class='header'>{i18n.i18n('about-wikipedia-header')}</div>
+      <div class='header'>{i18n('about-wikipedia-header')}</div>
       <div class='body'>
         <div class='image' style={getImageBackgroundStyle(currentIndex)}>
           <img src={`/images/onboarding-${currentIndex}.png`} />
         </div>
         <div class='title'>
-          {i18n.i18n(`onboarding-${currentIndex}-title`)}
+          {i18n(`onboarding-${currentIndex}-title`)}
         </div>
         <div class='description'>
-          {i18n.i18n(`onboarding-${currentIndex}-description`)}
+          {i18n(`onboarding-${currentIndex}-description`)}
         </div>
       </div>
     </div>
