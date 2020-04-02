@@ -4,10 +4,10 @@ import { useI18n, useSoftkey, usePopup, useRange, useArticleMediaInfo } from 'ho
 
 const MAX_DESCRIPTION_HEIGHT = 45
 
-const AboutContainer = ({ lang, title, caption, close }) => {
+const AboutContainer = ({ lang, title, caption, fromCommon, close }) => {
   const i18n = useI18n()
   const containerRef = useRef()
-  const mediaInfo = useArticleMediaInfo(lang, title)
+  const mediaInfo = useArticleMediaInfo(lang, title, fromCommon)
 
   useSoftkey('About', {
     left: i18n('softkey-close'),
