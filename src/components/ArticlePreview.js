@@ -15,7 +15,8 @@ export const ArticlePreview = ({ lang, title, close, closeAll }) => {
     left: i18n('softkey-close'),
     onKeyLeft: close,
     center: i18n('softkey-read'),
-    onKeyCenter: read
+    onKeyCenter: read,
+    onKeyBackspace: close
   }, [summary])
   useArticleTextSize('ArticlePreview', [summary])
 

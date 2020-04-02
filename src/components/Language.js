@@ -48,7 +48,8 @@ export const Language = () => {
 const LanguagePopup = ({ close, i18n }) => {
   useSoftkey('LanguageMessage', {
     center: i18n('softkey-ok'),
-    onKeyCenter: close
+    onKeyCenter: close,
+    onKeyBackspace: () => { close(); history.back() }
   }, [])
 
   return <div class='language-message'>
