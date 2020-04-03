@@ -36,6 +36,6 @@ export const getArticleMediaInfo = (lang, title, fromCommon) => {
 }
 
 const strip = html => {
-  var doc = new DOMParser().parseFromString(html, 'text/html')
+  const doc = new DOMParser().parseFromString(html, 'text/html')
   return doc.body.textContent || ''
 }
