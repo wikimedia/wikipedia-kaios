@@ -24,6 +24,16 @@ export const Language = () => {
     }
   }
 
+  const handleInput = (e) => {
+    const inputQuery = e.target.value
+
+    if (e.inputType === 'deleteContentBackward') {
+      return setQuery(inputQuery)
+    }
+
+    return setQuery(inputQuery.trim())
+  }
+
   useSoftkey('Language', {
     right: i18n('softkey-search'),
     onKeyRight: () => setNavigation(0),
@@ -39,7 +49,7 @@ export const Language = () => {
   }, [])
 
   return <div class='language'>
-    <input type='text' placeholder={i18n('search-language-placeholder')} value={query} onInput={(e) => setQuery(e.target.value.trim())} data-selectable />
+    <input type='text' placeholder={i18n('search-language-placeholder')} value={query} onInput={e => handleInput(e)} data-selectable />
     <RadioListView header={i18n('language-change')} items={items} containerRef={containerRef} empty={i18n('no-result-found')} />
   </div>
 }
