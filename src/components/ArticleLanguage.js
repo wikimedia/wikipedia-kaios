@@ -40,7 +40,7 @@ export const ArticleLanguage = ({ lang, title, close, closeAll }) => {
     onKeyRight: () => setNavigation(0),
     center: i18n('centerkey-select'),
     onKeyCenter,
-    onKeyBackspace: close
+    onKeyBackspace: () => !query ? close() : setQuery(query.slice(0, -1))
   }, [items])
 
   useEffect(() => {

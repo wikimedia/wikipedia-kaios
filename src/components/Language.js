@@ -31,7 +31,7 @@ export const Language = () => {
     onKeyCenter,
     left: i18n('softkey-done'),
     onKeyLeft: () => history.back(),
-    onKeyBackspace: () => history.back()
+    onKeyBackspace: () => !query ? history.back() : setQuery(query.slice(0, -1))
   }, [lang, items])
 
   useEffect(() => {
