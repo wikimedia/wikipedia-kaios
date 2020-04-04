@@ -30,12 +30,13 @@
 				}
 			}
 
-			@media ( min-width: 250px ) {
+			@media @landscape {
 				background-size: 90px;
+				padding: 15px 0 8px 0;
 
 				img {
-					width: 50px;
-					height: 50px;
+					width: 45px;
+					height: 45px;
 				}
 			}
 		}
@@ -44,12 +45,22 @@
 			font-weight: bold;
 			font-size: 22px;
 			line-height: 26px;
+
+			@media @landscape {
+				font-size: 17px;
+				line-height: 22px;
+			}
 		}
 
 		.description {
 			font-size: 12px;
 			line-height: 17px;
 			margin-top: 5px;
+
+			@media @landscape {
+				line-height: 16px;
+				margin-top: 2px;
+			}
 		}
 	}
 }
