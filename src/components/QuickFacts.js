@@ -33,7 +33,7 @@ export const QuickFacts = ({ article, goToArticleSubpage, close }) => {
       confirmDialog({ message: i18n('confirm-section', text), onSubmit: () => goToArticleSubpage({ anchor }) })
     },
     image: ({ fileName }) => {
-      showGalleryPopup({ items: article.media, startFileName: fileName })
+      showGalleryPopup({ items: article.media, startFileName: fileName, lang: article.contentLang })
     }
   }
 

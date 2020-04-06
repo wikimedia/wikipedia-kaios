@@ -6,14 +6,6 @@ const articlePage = new ArticlePage()
 const articleMenuPage = new ArticleMenuPage()
 
 describe('special cases tests', () => {
-  it('image without necessary fields should not show the about button', () => {
-    cy.navigateToPageWithoutOnboarding('article/mr/%E0%A4%AD%E0%A4%BE%E0%A4%B0%E0%A4%A4%E0%A5%80%E0%A4%AF_%E0%A4%B0%E0%A5%87%E0%A4%B2%E0%A5%8D%E0%A4%B5%E0%A5%87')
-    articlePage.title().should('have.text', 'भारतीय रेल्वे')
-    articlePage.selectOptionFromActionsMenu('gallery')
-    articlePage.galleryImage().should('be.visible')
-    cy.getCenterSoftkeyButton().should('have.text', '')
-  })
-
   it('special page article should open', () => {
     cy.navigateToPageWithoutOnboarding('article/en/Help%3AIPA%2FEnglish')
     articlePage.title().should('have.text', 'Help:IPA/English')

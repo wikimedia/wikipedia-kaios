@@ -1,5 +1,6 @@
 export * from './useArticle'
 export * from './useArticleLinksNavigation'
+export * from './useArticleMediaInfo'
 export * from './useArticlePagination'
 export * from './useArticleSummary'
 export * from './useArticleTextSize'
