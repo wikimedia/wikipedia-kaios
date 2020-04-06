@@ -62,9 +62,9 @@ describe('Article view', () => {
       cy.rightArrow()
       articlePage.galleryImage().should('not.have.attr', 'src', src)
     })
-    // cy.enter()
-    // articlePage.galleryPopupHeader().should('be.visible')
-    // cy.getRightSoftkeyButton().should('have.text', enJson['softkey-more-info'])
+    cy.enter()
+    articlePage.galleryPopupHeader().should('be.visible')
+    cy.getRightSoftkeyButton().should('have.text', enJson['softkey-more-info'])
   })
 
   it('check quick facts opens', () => {

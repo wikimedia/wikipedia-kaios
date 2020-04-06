@@ -23,6 +23,8 @@
 	"about-wikipedia-header": "The header title shown in the About Wikipedia page",
 	"gallery-description": "The sub header of the description of the gallery about page. Shown in the Gallery page\n{{Identical|Description}}",
 	"gallery-author-license": "The sub header of the author and license of the gallery about page. Shown in the Gallery page",
+	"gallery-unknown-author": "Text for the author when the image info is unknown. Shown in the Gallery page",
+	"gallery-unknown-license": "Text for the license when the image info unknown. Shown in the Gallery page",
 	"header-menu": "The header title of the menu page",
 	"header-search": "The header title of the search page",
 	"header-sections": "The header title of the sections(ToC) page",
