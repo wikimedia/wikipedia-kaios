@@ -33,6 +33,16 @@ export const ArticleLanguage = ({ lang, title, close, closeAll }) => {
     closeAll()
   }
 
+  const onKeyBackspace = () => {
+    const selectedElement = document.querySelector('[nav-selected=true]')
+
+    if (query && selectedElement.tagName === 'INPUT') {
+      setQuery(query.slice(0, -1))
+    } else {
+      close()
+    }
+  }
+
   useSoftkey('ArticleLanguage', {
     left: i18n('softkey-done'),
     onKeyLeft,
@@ -40,7 +50,7 @@ export const ArticleLanguage = ({ lang, title, close, closeAll }) => {
     onKeyRight: () => setNavigation(0),
     center: i18n('centerkey-select'),
     onKeyCenter,
-    onKeyBackspace: () => !query ? close() : setQuery(query.slice(0, -1))
+    onKeyBackspace
   }, [items])
 
   useEffect(() => {
