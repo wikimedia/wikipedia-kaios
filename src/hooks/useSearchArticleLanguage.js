@@ -33,7 +33,7 @@ export const useSearchArticleLanguage = (lang, title) => {
 }
 
 const filterFirst10Language = (languages, text) => {
-  const lowerCaseText = text.toLowerCase()
+  const lowerCaseText = text.toLowerCase().trim()
   const foundList = []
   for (let i = 0; foundList.length < 10 && i < languages.length; i++) {
     if (

@@ -33,16 +33,6 @@ export const ArticleLanguage = ({ lang, title, close }) => {
     close()
   }
 
-  const handleInput = (e) => {
-    const inputQuery = e.target.value
-
-    if (e.inputType === 'deleteContentBackward') {
-      return setQuery(inputQuery)
-    }
-
-    return setQuery(inputQuery.trim())
-  }
-
   useSoftkey('ArticleLanguage', {
     left: i18n('softkey-done'),
     onKeyLeft,
@@ -57,7 +47,7 @@ export const ArticleLanguage = ({ lang, title, close }) => {
   }, [])
 
   return <div class='articlelanguage'>
-    <input type='text' placeholder={i18n('search-language-placeholder')} value={query} onInput={e => handleInput(e)} data-selectable />
+    <input type='text' placeholder={i18n('search-language-placeholder')} value={query} onInput={e => setQuery(e.target.value)} data-selectable />
     <RadioListView header={i18n('article-language-available', numOfLanglink)} items={items} containerRef={containerRef} empty={i18n('no-result-found')} />
   </div>
 }
