@@ -20,10 +20,11 @@
 
 		@media @landscape {
 			background-size: 100px;
+			padding: 15px 0 8px 0;
 
 			img {
-				width: 60px;
-				height: 60px;
+				width: 55px;
+				height: 55px;
 			}
 		}
 	}
@@ -32,12 +33,22 @@
 		font-weight: bold;
 		font-size: 22px;
 		line-height: 26px;
+
+		@media @landscape {
+			font-size: 17px;
+			line-height: 22px;
+		}
 	}
 
 	.description {
 		font-size: 12px;
 		line-height: 17px;
 		margin-top: 5px;
+
+		@media @landscape {
+			line-height: 16px;
+			margin-top: 2px;
+		}
 	}
 
 	.indicator {
