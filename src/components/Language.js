@@ -25,9 +25,7 @@ export const Language = () => {
   }
 
   const onKeyBackspace = () => {
-    const selectedElement = document.querySelector('[nav-selected=true]')
-
-    if (query && selectedElement.tagName === 'INPUT') {
+    if (query && getCurrent().type === 'INPUT') {
       setQuery(query.slice(0, -1))
     } else {
       history.back()
