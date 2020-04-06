@@ -62,9 +62,9 @@ describe('Article view', () => {
       cy.rightArrow()
       articlePage.galleryImage().should('not.have.attr', 'src', src)
     })
-    // cy.enter()
-    // articlePage.galleryPopupHeader().should('be.visible')
-    // cy.getRightSoftkeyButton().should('have.text', enJson['softkey-more-info'])
+    cy.enter()
+    articlePage.galleryPopupHeader().should('be.visible')
+    cy.getRightSoftkeyButton().should('have.text', enJson['softkey-more-info'])
   })
 
   it('check quick facts opens', () => {
@@ -174,6 +174,18 @@ describe('Article view', () => {
     articlePage.getDownArrowIndicator().should('not.be.visible')
     cy.downArrow()
     articlePage.getDownArrowIndicator().should('not.be.visible')
+  })
+
+  it('check table is showing', () => {
+    cy.navigateToPageWithoutOnboarding('article/en/2020_coronavirus_pandemic_in_Portugal')
+    articlePage.title().should('have.text', '2020 coronavirus pandemic in Portugal')
+    articlePage.selectOptionFromActionsMenu('sections')
+    articleMenuPage.selectOptionFromSections('Hospitals_for_COVID-19')
+    cy.rightArrow()
+    cy.get('table.wikitable>caption>b').should('have.text', 'More Information:')
+    cy.enter()
+    cy.get('div.popup-content.fullscreen').should('be.visible')
+    cy.get('div.popup-content.fullscreen tr>th').should('be.visible')
   })
 })
 

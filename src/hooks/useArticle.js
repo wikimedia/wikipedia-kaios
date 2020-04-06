@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'preact/hooks'
 import { useI18n } from 'hooks'
-import { getArticle, getArticleMedia, getSuggestedArticles } from 'api'
+import { getArticle, getArticleMediaList, getSuggestedArticles } from 'api'
 import { canonicalizeTitle } from 'utils'
 
 export const useArticle = (lang, title) => {
@@ -11,7 +11,7 @@ export const useArticle = (lang, title) => {
 
   const loadArticle = () => {
     setArticle(null)
-    Promise.all([getArticle(lang, title, translation), getArticleMedia(lang, title), getSuggestedArticles(lang, title)])
+    Promise.all([getArticle(lang, title, translation), getArticleMediaList(lang, title), getSuggestedArticles(lang, title)])
       .then(([article, media, suggestedArticles]) => {
         const { sections, toc } = article
         const footerTitle = contentI18n('toc-footer')
