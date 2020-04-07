@@ -24,7 +24,7 @@ export const useSearchLanguage = (lang) => {
 }
 
 const filterFirst10Language = text => {
-  const lowerCaseText = text.toLowerCase()
+  const lowerCaseText = text.toLowerCase().trim()
   const foundList = []
   for (let i = 0; foundList.length < 10 && i < allLanguages.length; i++) {
     if (
