@@ -2,7 +2,7 @@ import { h } from 'preact'
 import { route } from 'preact-router'
 import { useRef, useEffect } from 'preact/hooks'
 import { useNavigation, useI18n, useSoftkey, usePopup } from 'hooks'
-import { ListView, TextSize } from 'components'
+import { ListView, TextSize, AboutApp } from 'components'
 import { getAppLanguage } from 'utils'
 
 export const Settings = () => {
@@ -28,6 +28,11 @@ export const Settings = () => {
     showTextSize()
   }
 
+  const onAboutAppSelected = () => {
+    const [showAboutApp] = usePopup(AboutApp, { mode: 'fullscreen' })
+    showAboutApp()
+  }
+
   useSoftkey('Settings', {
     left: i18n('softkey-close'),
     onKeyLeft: () => history.back(),
@@ -50,7 +55,7 @@ export const Settings = () => {
     // @todo will have this soon and don't delete it from the language json
     // { title: i18n('settings-rate') },
     // { title: i18n('settings-help-feedback') },
-    { title: i18n('settings-about-app'), path: '/about-app' }
+    { title: i18n('settings-about-app'), action: onAboutAppSelected }
   ]
 
   return <div class='settings'>
