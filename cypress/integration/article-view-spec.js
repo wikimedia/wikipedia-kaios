@@ -96,6 +96,7 @@ describe('Article view', () => {
     popupPage.getHeader().should('have.text', enJson['header-textsize'])
     popupPage.getContent().should('have.text', enJson['textsize-decrease'] + enJson['textsize-default'] + enJson['textsize-increase'])
     cy.clickCloseButton()
+    cy.clickCloseButton()
     cy.downArrow()
     cy.downArrow()
     cy.downArrow()
