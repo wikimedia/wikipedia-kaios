@@ -9,6 +9,10 @@ export const Settings = () => {
   const containerRef = useRef()
   const i18n = useI18n()
   const lang = getAppLanguage()
+  const [showTextSize] = usePopup(TextSize)
+  const [showAboutApp] = usePopup(AboutApp, { mode: 'fullscreen' })
+  const [showAboutWikipedia] = usePopup(AboutWikipedia, { mode: 'fullscreen' })
+
   const onKeyCenter = () => {
     const { index } = getCurrent()
     const item = items[index]
@@ -24,17 +28,14 @@ export const Settings = () => {
   }
 
   const onTextsizeSelected = () => {
-    const [showTextSize] = usePopup(TextSize)
     showTextSize()
   }
 
   const onAboutAppSelected = () => {
-    const [showAboutApp] = usePopup(AboutApp, { mode: 'fullscreen' })
     showAboutApp()
   }
 
   const onAboutWikipediaSelected = () => {
-    const [showAboutWikipedia] = usePopup(AboutWikipedia, { mode: 'fullscreen' })
     showAboutWikipedia()
   }
 
