@@ -111,6 +111,28 @@ describe('Article view', () => {
     articlePage.increaseTextSize()
     articlePage.getArticleText().should('have.attr', 'style', 'font-size: 20px;')
   })
+  
+  it('check text size change with letters', () => {
+    goToCatArticle()
+    articlePage.selectOptionFromArticleMenu('Text size')
+    popupPage.getHeader().should('have.text', enJson['header-textsize'])
+    popupPage.getContent().should('have.text', enJson['textsize-decrease'] + enJson['textsize-default'] + enJson['textsize-increase'])
+    cy.clickCloseButton()
+    cy.downArrow()
+    cy.downArrow()
+    cy.downArrow()
+    articlePage.getArticleText().should('have.attr', 'style', 'font-size: 16px;')
+    cy.get('body').type('s')
+    cy.get('body').type('s')
+    articlePage.getArticleText().should('have.attr', 'style', 'font-size: 14px;')
+    cy.get('body').type('d')
+    articlePage.getArticleText().should('have.attr', 'style', 'font-size: 16px;')
+    cy.get('body').type('f')
+    cy.get('body').type('f')
+    cy.get('body').type('f')
+    cy.get('body').type('f')
+    articlePage.getArticleText().should('have.attr', 'style', 'font-size: 20px;')
+  })
 
   it('check text size remains after switching sections', () => {
     goToCatArticle()
