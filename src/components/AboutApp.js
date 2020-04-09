@@ -9,7 +9,8 @@ export const AboutApp = () => {
     right: i18n('softkey-read-more'),
     onKeyRight: () => window.open('https://wikimediafoundation.org/'),
     left: i18n('softkey-close'),
-    onKeyLeft: () => history.back()
+    onKeyLeft: () => history.back(),
+    onKeyBackspace: () => history.back()
   }, [])
 
   return (

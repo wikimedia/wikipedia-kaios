@@ -32,7 +32,8 @@ export const Settings = () => {
     left: i18n('softkey-close'),
     onKeyLeft: () => history.back(),
     center: i18n('centerkey-select'),
-    onKeyCenter
+    onKeyCenter,
+    onKeyBackspace: () => history.back()
   })
 
   const [, setNavigation, getCurrent] = useNavigation('Settings', containerRef, 'y')

@@ -4,7 +4,7 @@ import { useNavigation, useI18n, useSoftkey, useSearchArticleLanguage } from 'ho
 import { RadioListView, Loading } from 'components'
 import { goto } from 'utils'
 
-export const ArticleLanguage = ({ lang, title, close }) => {
+export const ArticleLanguage = ({ lang, title, close, closeAll }) => {
   const containerRef = useRef()
   const i18n = useI18n()
   const [articleLang, setArticleLang] = useState(lang)
@@ -30,7 +30,15 @@ export const ArticleLanguage = ({ lang, title, close }) => {
       const { lang, description } = item
       goto.article(lang, description, true)
     }
-    close()
+    closeAll()
+  }
+
+  const onKeyBackspace = () => {
+    if (query && getCurrent().type === 'INPUT') {
+      setQuery(query.slice(0, -1))
+    } else {
+      close()
+    }
   }
 
   useSoftkey('ArticleLanguage', {
@@ -39,7 +47,8 @@ export const ArticleLanguage = ({ lang, title, close }) => {
     right: i18n('softkey-search'),
     onKeyRight: () => setNavigation(0),
     center: i18n('centerkey-select'),
-    onKeyCenter
+    onKeyCenter,
+    onKeyBackspace
   }, [items])
 
   useEffect(() => {

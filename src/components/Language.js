@@ -24,13 +24,22 @@ export const Language = () => {
     }
   }
 
+  const onKeyBackspace = () => {
+    if (query && getCurrent().type === 'INPUT') {
+      setQuery(query.slice(0, -1))
+    } else {
+      history.back()
+    }
+  }
+
   useSoftkey('Language', {
     right: i18n('softkey-search'),
     onKeyRight: () => setNavigation(0),
     center: i18n('centerkey-select'),
     onKeyCenter,
     left: i18n('softkey-done'),
-    onKeyLeft: () => history.back()
+    onKeyLeft: () => history.back(),
+    onKeyBackspace
   }, [lang, items])
 
   useEffect(() => {
@@ -47,7 +56,8 @@ export const Language = () => {
 const LanguagePopup = ({ close, i18n }) => {
   useSoftkey('LanguageMessage', {
     center: i18n('softkey-ok'),
-    onKeyCenter: close
+    onKeyCenter: close,
+    onKeyBackspace: () => { close(); history.back() }
   }, [])
 
   return <div class='language-message'>

@@ -26,7 +26,8 @@ export const ArticleMenu = ({
     left: i18n('softkey-close'),
     onKeyLeft: close,
     center: i18n('centerkey-select'),
-    onKeyCenter
+    onKeyCenter,
+    onKeyBackspace: close
   })
 
   const [, setNavigation, getCurrent] = useNavigation('Menu', containerRef, 'y')
@@ -37,7 +38,7 @@ export const ArticleMenu = ({
   }
 
   const onTextsizeSelected = () => {
-    const [showTextSize] = usePopup(TextSize)
+    const [showTextSize] = usePopup(TextSize, { stack: true })
     showTextSize()
   }
 

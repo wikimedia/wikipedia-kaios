@@ -11,6 +11,13 @@ export const Loading = ({ message, onClose }) => {
       } else {
         history.back()
       }
+    },
+    onKeyBackspace: () => {
+      if (onClose) {
+        onClose()
+      } else {
+        history.back()
+      }
     }
   }, [])
 

@@ -12,6 +12,7 @@ const AboutContainer = ({ lang, title, caption, fromCommon, close }) => {
   useSoftkey('About', {
     left: i18n('softkey-close'),
     onKeyLeft: close,
+    onKeyBackspace: close,
     right: mediaInfo && mediaInfo.filePage ? i18n('softkey-more-info') : '',
     onKeyRight: () => {
       if (mediaInfo && mediaInfo.filePage) {
@@ -76,7 +77,7 @@ const LoadingAbout = () => {
   )
 }
 
-export const Gallery = ({ close, items, startFileName, lang }) => {
+export const Gallery = ({ close, closeAll, items, startFileName, lang }) => {
   const i18n = useI18n()
   const [
     currentIndex, onPrevImage, onNextImage
@@ -85,11 +86,12 @@ export const Gallery = ({ close, items, startFileName, lang }) => {
 
   useSoftkey('Gallery', {
     left: i18n('softkey-close'),
-    onKeyLeft: close,
+    onKeyLeft: closeAll,
     center: i18n('softkey-about'),
     onKeyCenter: () => showAboutPopup({ ...items[currentIndex], lang }),
     onKeyArrowRight: onNextImage,
-    onKeyArrowLeft: onPrevImage
+    onKeyArrowLeft: onPrevImage,
+    onKeyBackspace: close
   }, [currentIndex])
 
   return (

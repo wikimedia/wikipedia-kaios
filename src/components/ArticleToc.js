@@ -3,7 +3,7 @@ import { useRef, useLayoutEffect } from 'preact/hooks'
 import { useNavigation, useI18n, useSoftkey } from 'hooks'
 import { ListView } from 'components'
 
-export const ArticleToc = ({ items, currentAnchor, onSelectItem, close }) => {
+export const ArticleToc = ({ items, currentAnchor, onSelectItem, close, closeAll }) => {
   const containerRef = useRef()
   const i18n = useI18n()
   const listItems = parseTocItems(items)
@@ -19,9 +19,10 @@ export const ArticleToc = ({ items, currentAnchor, onSelectItem, close }) => {
   }
   useSoftkey('ArticleToc', {
     left: i18n('softkey-close'),
-    onKeyLeft: () => close(),
+    onKeyLeft: () => closeAll(),
     center: i18n('centerkey-select'),
-    onKeyCenter
+    onKeyCenter,
+    onKeyBackspace: () => close()
   })
 
   useLayoutEffect(() => {
