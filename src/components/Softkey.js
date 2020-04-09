@@ -20,7 +20,10 @@ export const Softkey = ({
   onKeyBackspace,
   onKeyboard4,
   onKeyboard5,
-  onKeyboard6
+  onKeyboard6,
+  onKeyS,
+  onKeyD,
+  onKeyF
 }) => {
   const handlersRef = useRef()
   handlersRef.current = {
@@ -34,7 +37,10 @@ export const Softkey = ({
     Backspace: onKeyBackspace,
     4: onKeyboard4,
     5: onKeyboard5,
-    6: onKeyboard6
+    6: onKeyboard6,
+    s: onKeyS,
+    d: onKeyD,
+    f: onKeyF
   }
   const onKeyDown = (e) => {
     const key = e.key.toString()
