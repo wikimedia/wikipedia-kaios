@@ -6,7 +6,8 @@ export const TextSize = ({ close }) => {
 
   useSoftkey('TextSize', {
     left: i18n('softkey-close'),
-    onKeyLeft: close
+    onKeyLeft: close,
+    onKeyBackspace: close
   })
 
   return <div class='textsize'>

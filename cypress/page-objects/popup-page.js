@@ -4,7 +4,7 @@ export class PopupPage {
   }
 
   getHeader () {
-    return cy.get('.popup .popup-content .header')
+    return cy.get('.popup .popup-content .header').last()
   }
 
   getContent () {
