@@ -14,7 +14,7 @@ export const getLanglinks = (lang, title) => {
     return pages[0].langlinks
       .filter(item => isSupportedForReading(item.lang))
       .map(item => ({
-        title: item.lang + ' | ' + item.autonym,
+        title: item.autonym,
         langname: item.langname,
         lang: item.lang,
         description: item.title
