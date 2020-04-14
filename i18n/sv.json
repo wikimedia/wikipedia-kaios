@@ -1,11 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"WikiPhoenix",
+			"Eduardo Addad de Oliveira",
 			"Mjälten",
 			"ProletariatetsBefrielseOrkester",
-			"Eduardo Addad de Oliveira",
-			"Tölvuforritari"
+			"Tölvuforritari",
+			"WikiPhoenix"
 		]
 	},
 	"article-action-sections": "Avsnitt",
@@ -25,6 +25,8 @@
 	"about-wikipedia-header": "Om Wikipedia",
 	"gallery-description": "Beskrivning",
 	"gallery-author-license": "Författare och licens",
+	"gallery-unknown-author": "Okänd författare",
+	"gallery-unknown-license": "Okänd licens",
 	"header-menu": "Artikelmeny",
 	"header-search": "Sökresultat",
 	"header-sections": "Avsnitt",

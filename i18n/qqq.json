@@ -1,9 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Stephane Bisson",
+			"Amire80",
 			"Robby",
-			"Amire80"
+			"Stephane Bisson",
+			"Ubahnverleih"
 		]
 	},
 	"article-action-sections": "The action button sections text on the first page of the article used to open the section page and the label of the Section item shown in the Menu page.",
@@ -77,5 +78,5 @@
 	"toc-footer": "Label in the sections for the footer link",
 	"view-in-browser": "Label for the view in browser link. Shown in the footer",
 	"about-app-message": "Main message in About App page",
-	"softkey-read-more": "Label of hte read more softkey"
+	"softkey-read-more": "Label of the read more softkey"
 }

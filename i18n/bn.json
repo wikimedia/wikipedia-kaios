@@ -1,9 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"আফতাবুজ্জামান",
+			"MKaur",
 			"Sohom Datta",
-			"MKaur"
+			"Tahmid02016",
+			"আফতাবুজ্জামান"
 		]
 	},
 	"article-action-sections": "বিভাগ",
@@ -17,6 +18,8 @@
 	"app-description": "উইকিপিডিয়া অ্যাপের সাহায্য ৩০০ এর বেশি ভাষায় বিশ্বজুড়ের তথ্য অনুসন্ধান এবং অন্বেষণ করুন।",
 	"confirm-section": "\"$1\" অনুচ্ছেদে যান",
 	"about-wikipedia-header": "উইকিপিডিয়া সম্পর্কে",
+	"gallery-unknown-author": "অজানা লেখক",
+	"gallery-unknown-license": "অজানা লাইসেন্স",
 	"header-menu": "নিবন্ধের মেনু",
 	"header-search": "অনুসন্ধানের ফলাফল",
 	"header-sections": "অনুচ্ছেদ",

@@ -1,14 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ihojose",
-			"Madamebiblio",
-			"Fitoschido",
-			"Eduardo Addad de Oliveira",
-			"Silverie04",
-			"Joanmp17",
+			"Alcarazzam",
 			"Dvpita",
-			"Alcarazzam"
+			"Eduardo Addad de Oliveira",
+			"Fitoschido",
+			"Ihojose",
+			"Joanmp17",
+			"Madamebiblio",
+			"Silverie04"
 		]
 	},
 	"article-action-sections": "Secciones",
@@ -28,6 +28,8 @@
 	"about-wikipedia-header": "Acerca de Wikipedia",
 	"gallery-description": "Descripción",
 	"gallery-author-license": "Autor y licencia",
+	"gallery-unknown-author": "Autoría desconocida",
+	"gallery-unknown-license": "Licencia desconocida",
 	"header-menu": "Menú de artículo",
 	"header-search": "Resultados de la búsqueda",
 	"header-sections": "Secciones",

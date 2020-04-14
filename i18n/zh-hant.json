@@ -1,8 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kly",
-			"HTan (WMF)"
+			"HTan (WMF)",
+			"Kly"
 		]
 	},
 	"article-action-sections": "段落",
@@ -22,6 +22,8 @@
 	"about-wikipedia-header": "關於維基百科",
 	"gallery-description": "描述",
 	"gallery-author-license": "作者與授權條款",
+	"gallery-unknown-author": "未知作者",
+	"gallery-unknown-license": "不明授權條款",
 	"header-menu": "條目選單",
 	"header-search": "搜尋結果",
 	"header-sections": "段落",

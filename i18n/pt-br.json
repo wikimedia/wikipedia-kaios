@@ -21,6 +21,8 @@
 	"about-wikipedia-header": "Sobre Wikipédia",
 	"gallery-description": "Descrição",
 	"gallery-author-license": "Autor e licença",
+	"gallery-unknown-author": "Autor desconhecido",
+	"gallery-unknown-license": "Licença desconhecida",
 	"header-menu": "Menu de artigo",
 	"header-search": "Procurar resultados",
 	"header-sections": "Seções",
