@@ -1458,13 +1458,37 @@ const languages = [
   }
 ]
 
-export const allLanguages = languages.map(language => {
-  return {
-    lang: language.code,
-    title: language.name,
-    canonicalName: language.canonical_name
-  }
-})
+const missingFont = [
+  'si',
+  'dv',
+  'lez',
+  'arc',
+  'lo',
+  'chr',
+  'got',
+  'iu',
+  'ii',
+  'bug',
+  'cu',
+  'nqo',
+  'sat'
+]
+
+export const isSupportedForReading = langCode => {
+  return missingFont.indexOf(langCode) === -1
+}
+
+export const allLanguages = languages
+  .filter(language => {
+    return isSupportedForReading(language.code)
+  })
+  .map(language => {
+    return {
+      lang: language.code,
+      title: language.name,
+      canonicalName: language.canonical_name
+    }
+  })
 
 export const loadAllLanguagesMessages = () => {
   const messages = {}
