@@ -1488,9 +1488,7 @@ export const getAppLanguage = () => {
 }
 
 export const setDeviceLanguage = () => {
-  const navigatorLang = navigator.language
-  const lang = navigatorLang.substr(0, navigatorLang.indexOf('-'))
-  localStorage.setItem('language-device', lang)
+  localStorage.setItem('language-device', getCurrentDeviceLanguage())
 }
 
 export const getDeviceLanguage = () => {
@@ -1498,8 +1496,10 @@ export const getDeviceLanguage = () => {
 }
 
 export const checkHasDeviceLanguageChanged = () => {
-  const navigatorLang = navigator.language
-  const lang = navigatorLang.substr(0, navigatorLang.indexOf('-'))
+  return getCurrentDeviceLanguage() !== localStorage.getItem('language-device')
+}
 
-  return lang !== localStorage.getItem('language-device')
+const getCurrentDeviceLanguage = () => {
+  const navigatorLang = navigator.language
+  return navigatorLang.substr(0, navigatorLang.indexOf('-'))
 }
