@@ -2,13 +2,17 @@ import { h } from 'preact'
 import { route } from 'preact-router'
 import { useRef, useEffect } from 'preact/hooks'
 import { useNavigation, useI18n, useSoftkey, usePopup } from 'hooks'
-import { ListView, TextSize } from 'components'
+import { ListView, TextSize, AboutApp, AboutWikipedia } from 'components'
 import { getAppLanguage } from 'utils'
 
 export const Settings = () => {
   const containerRef = useRef()
   const i18n = useI18n()
   const lang = getAppLanguage()
+  const [showTextSize] = usePopup(TextSize)
+  const [showAboutApp] = usePopup(AboutApp, { mode: 'fullscreen' })
+  const [showAboutWikipedia] = usePopup(AboutWikipedia, { mode: 'fullscreen' })
+
   const onKeyCenter = () => {
     const { index } = getCurrent()
     const item = items[index]
@@ -24,8 +28,15 @@ export const Settings = () => {
   }
 
   const onTextsizeSelected = () => {
-    const [showTextSize] = usePopup(TextSize)
     showTextSize()
+  }
+
+  const onAboutAppSelected = () => {
+    showAboutApp()
+  }
+
+  const onAboutWikipediaSelected = () => {
+    showAboutWikipedia()
   }
 
   useSoftkey('Settings', {
@@ -45,13 +56,13 @@ export const Settings = () => {
   const items = [
     { title: i18n('settings-language'), path: '/language' },
     { title: i18n('settings-textsize'), action: onTextsizeSelected },
-    { title: i18n('settings-about-wikipedia'), path: '/about-wikipedia' },
+    { title: i18n('settings-about-wikipedia'), action: onAboutWikipediaSelected },
     { title: i18n('settings-privacy'), link: 'https://foundation.m.wikimedia.org/wiki/Privacy_policy' },
     { title: i18n('settings-term'), link: `https://foundation.m.wikimedia.org/wiki/Terms_of_Use/${lang}` },
     // @todo will have this soon and don't delete it from the language json
     // { title: i18n('settings-rate') },
     // { title: i18n('settings-help-feedback') },
-    { title: i18n('settings-about-app'), path: '/about-app' }
+    { title: i18n('settings-about-app'), action: onAboutAppSelected }
   ]
 
   return <div class='settings'>
