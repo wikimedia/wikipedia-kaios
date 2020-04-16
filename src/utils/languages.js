@@ -1474,8 +1474,33 @@ const missingFont = [
   'sat'
 ]
 
+const rtl = [
+  'ar',
+  'arc',
+  'arz',
+  'dv',
+  'fa',
+  'ha',
+  'he',
+  'khw',
+  'ks',
+  'ku',
+  'ps',
+  'ur',
+  'yi',
+  'pnb',
+  'ckb',
+  'mzn',
+  'glk',
+  'ug',
+  'sd',
+  'azb',
+  'lrc'
+]
+
 export const isSupportedForReading = langCode => {
-  return missingFont.indexOf(langCode) === -1
+  return missingFont.indexOf(langCode) === -1 &&
+    rtl.indexOf(langCode) === -1
 }
 
 export const allLanguages = languages
