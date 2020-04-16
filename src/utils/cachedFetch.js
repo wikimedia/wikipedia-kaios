@@ -23,6 +23,7 @@ export const cachedFetch = (url, transformFn, abortAllXhr = false, cache = true)
     xhr.open('GET', url)
     if (isProd()) {
       xhr.setRequestHeader('User-Agent', `WikipediaApp/${appVersion()} ${navigator.userAgent}`)
+      xhr.setRequestHeader('Referer', 'https://www.wikipedia.org')
     }
     xhr.send()
     xhr.addEventListener('load', () => {
