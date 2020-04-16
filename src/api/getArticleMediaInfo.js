@@ -30,9 +30,13 @@ export const getArticleMediaInfo = (lang, title, fromCommon) => {
       author,
       description,
       license: LicenseShortName && LicenseShortName.value,
-      filePage: imageInfo[0].descriptionshorturl
+      filePage: convertUrlToMobile(imageInfo[0].descriptionshorturl)
     }
   })
+}
+
+const convertUrlToMobile = url => {
+  return url.replace(/https:\/\/(.*?)\./, subDomain => subDomain + 'm.')
 }
 
 const strip = html => {

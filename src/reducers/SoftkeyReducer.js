@@ -5,7 +5,9 @@ export const SoftkeyReducer = (state, action) => {
     case 'set':
       return { ...state, current: { ...state.current, ...action.config } }
     case 'replace':
-      return { ...state, current: { ...action.config } }
+      // eslint-disable-next-line no-case-declarations
+      const { name, counter } = state.current
+      return { ...state, current: { name, counter, ...action.config } }
     case 'push':
       stack = state.stack || []
       current = state.current
