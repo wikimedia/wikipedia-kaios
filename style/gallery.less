@@ -14,17 +14,32 @@
 		text-align: center;
 	}
 
-	.img {
+	.thumbnail-container {
+		border: solid #d8dd;
 		display: flex;
-		align-items: center;
-		justify-content: center;
 		flex-direction: column;
-		height: calc( 100vh - @softkeysHeight );
 
-		img {
-			max-width: 100%;
-			background-color: #fff;
-			object-fit: contain;
+		.img {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+			height: calc( 100vh - @softkeysHeight );
+			flex: 1 1 auto;
+			position: relative;
+
+			img {
+				max-width: 100%;
+				max-height: 100%;
+				background-color: #fff;
+				align-self: center;
+				position: absolute;
+				left: 50%;
+				right: 50%;
+				transform: translate( -50%, -50% );
+				width: auto;
+				height: auto;
+			}
 		}
 	}
 

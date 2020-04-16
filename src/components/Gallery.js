@@ -103,8 +103,10 @@ export const Gallery = ({ close, closeAll, items, startFileName, lang }) => {
           </div>
         )
       }
-      <div class='img'>
-        <img src={items[currentIndex].thumbnail} />
+      <div class='thumbnail-container'>
+        <div class='img'>
+          <img src={items[currentIndex].thumbnail} />
+        </div>
       </div>
     </div>
   )
