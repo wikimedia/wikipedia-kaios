@@ -22,7 +22,7 @@ export const ArticleMenu = ({
     }
   }
 
-  useSoftkey('Menu', {
+  useSoftkey('ArticleMenu', {
     left: i18n('softkey-close'),
     onKeyLeft: close,
     center: i18n('centerkey-select'),
@@ -30,7 +30,7 @@ export const ArticleMenu = ({
     onKeyBackspace: close
   })
 
-  const [, setNavigation, getCurrent] = useNavigation('Menu', containerRef, 'y')
+  const [, setNavigation, getCurrent] = useNavigation('ArticleMenu', containerRef, 'y')
 
   const onSearchSelected = () => {
     close()
@@ -49,6 +49,7 @@ export const ArticleMenu = ({
   }
 
   useEffect(() => {
+    // console.log('ArticleMenu.js - useEffect()')
     setNavigation(0)
   }, [])
 

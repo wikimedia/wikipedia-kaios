@@ -4,7 +4,33 @@ import { useSoftkey } from 'hooks'
 export const useNavigation = (origin, containerRef, axis, elementsSelector = '[data-selectable]') => {
   const [current, setCurrent] = useState({ type: null, index: 0, key: null })
 
-  const getAllElements = () => document.querySelectorAll(elementsSelector)
+  const getAllElements = () => {
+    // eslint-disable-next-line no-debugger
+    // debugger
+    const allElements = document.querySelectorAll(elementsSelector)
+    if (origin === 'ArticleLanguage') {
+      return getAllArticleLanguageElements(allElements)
+    } else {
+      return allElements
+    }
+  }
+
+  const getAllArticleLanguageElements = (allElements) => {
+    // eslint-disable-next-line no-debugger
+    // debugger
+    const allElementsArray = Array.from(allElements)
+    console.log('useNavigation - getAllArticleLanguageElements() - allElementsArray...', allElementsArray)
+    // console.log('useNavigation - getAllArticleLanguageElements() - allElementsArray.slice(7)...', allElementsArray.slice(7))
+
+    const firstArticleLanguageElement = allElementsArray.find(element => {
+      return element.nodeName === 'INPUT'
+    })
+
+    // console.log('firstArticleLanguageElement...', firstArticleLanguageElement.getAttribute('nav-index'))
+    // console.log('firstArticleLanguageElement.attributes...', firstArticleLanguageElement.attributes)
+    console.log('allElementsArray.indexOf(firstArticleLanguageElement)...', allElementsArray.indexOf(firstArticleLanguageElement))
+    return allElementsArray.slice(allElementsArray.indexOf(firstArticleLanguageElement))
+  }
 
   const getSelectedElement = () => {
     return document.querySelector('[nav-selected=true]')
@@ -15,7 +41,18 @@ export const useNavigation = (origin, containerRef, axis, elementsSelector = '[d
     return element ? parseInt(element.getAttribute('nav-index')) : 0
   }
 
-  const setNavigation = index => selectElement(getAllElements()[index] || document.body)
+  const setNavigation = index => {
+    // eslint-disable-next-line no-debugger
+    // debugger
+    // console.log('useNavigation.js - setNavigation- origin...', origin)
+    // if (origin === 'ArticleLanguage') {
+    //   selectElement(getAllArticleLanguageElements()[index] || document.body)
+    // } else {
+    //   selectElement(getAllElements()[index] || document.body)
+    // }
+
+    selectElement(getAllElements()[index] || document.body)
+  }
 
   const navigatePrevious = () => {
     const allElements = getAllElements()
@@ -34,6 +71,10 @@ export const useNavigation = (origin, containerRef, axis, elementsSelector = '[d
   }
 
   const selectElement = (selectElement, setIndex = 0) => {
+    // eslint-disable-next-line no-debugger
+    // debugger
+    console.log('useNavigation - selectElement() - origin...', origin)
+    console.log('useNavigation - selectElement() - selectElement...', selectElement)
     if (selectElement) {
       [].forEach.call(getAllElements(), (element, index) => {
         const selectThisElement = element === selectElement

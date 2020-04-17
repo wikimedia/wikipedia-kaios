@@ -34,7 +34,8 @@ export const ArticleLanguage = ({ lang, title, close, closeAll }) => {
   }
 
   const onKeyBackspace = () => {
-    if (query && getCurrent().type === 'INPUT') {
+    // console.log('ArticleLanguage.js - getCurrent().type...', getCurrent().type)
+    if (query && (getCurrent().type === 'INPUT' || getCurrent().type === 'DIV')) {
       setQuery(query.slice(0, -1))
     } else {
       close()
@@ -52,6 +53,7 @@ export const ArticleLanguage = ({ lang, title, close, closeAll }) => {
   }, [items])
 
   useEffect(() => {
+    console.log('ArticleLanguage.js - useEffect()')
     setNavigation(0)
   }, [])
 

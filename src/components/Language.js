@@ -25,6 +25,7 @@ export const Language = () => {
   }
 
   const onKeyBackspace = () => {
+    // console.log('Language.js - getCurrent().type...', getCurrent().type)
     if (query && getCurrent().type === 'INPUT') {
       setQuery(query.slice(0, -1))
     } else {
