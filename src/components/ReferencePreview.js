@@ -1,11 +1,12 @@
 import { h } from 'preact'
 import { useRef } from 'preact/hooks'
-import { useI18n, useSoftkey, useArticleLinksNavigation, useArticleTextSize } from 'hooks'
+import { useI18n, useSoftkey, useArticleLinksNavigation, useArticleTextSize, useErrorLogging } from 'hooks'
 
 export const ReferencePreview = ({ reference, lang, close }) => {
   const i18n = useI18n()
   const contentRef = useRef()
   useArticleLinksNavigation('ReferencePreview', lang, contentRef)
+  useErrorLogging('ReferencePreview')
   useSoftkey('ReferencePreview', {
     left: i18n('softkey-close'),
     onKeyLeft: close,

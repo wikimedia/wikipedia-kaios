@@ -9,7 +9,7 @@ import {
 import {
   useArticle, useI18n, useSoftkey,
   useArticlePagination, useArticleLinksNavigation, useArticleTextSize,
-  usePopup, useTracking
+  usePopup, useTracking, useErrorLogging
 } from 'hooks'
 import { articleHistory, confirmDialog, goto, viewport } from 'utils'
 
@@ -140,7 +140,7 @@ const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
   const sectionCount = article.toc.filter(s => s.level === 1).length
   const [openedSections, setOpenedSections] = useState({})
   useTracking('Article', lang, article.namespace, sectionCount, openedSections)
-
+  useErrorLogging('Article')
   const [anchor, setAnchor] = useState(initialAnchor)
   const [showTocPopup] = usePopup(ArticleToc, { mode: 'fullscreen', stack: true })
   const [showQuickFactsPopup] = usePopup(QuickFacts, { mode: 'fullscreen', stack: true })

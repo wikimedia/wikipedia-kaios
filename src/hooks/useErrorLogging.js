@@ -3,7 +3,7 @@ import { isProd, appVersion } from 'utils'
 
 const intakeUrl = 'https://intake-logging.wikimedia.org'
 
-export const useErrorLogging = () => {
+export const useErrorLogging = origin => {
   if (!isProd()) {
     return
   }
@@ -14,7 +14,7 @@ export const useErrorLogging = () => {
       meta: {
         stream: 'mediawiki.client.error'
       },
-      error_class: componentStack,
+      error_class: `[${origin}] ${componentStack}`,
       message: error,
       url: null,
       file_url: null

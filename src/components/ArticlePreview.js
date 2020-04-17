@@ -1,5 +1,5 @@
 import { h } from 'preact'
-import { useArticleSummary, useI18n, useSoftkey, useArticleTextSize } from 'hooks'
+import { useArticleSummary, useI18n, useSoftkey, useArticleTextSize, useErrorLogging } from 'hooks'
 import { goto } from 'utils'
 
 export const ArticlePreview = ({ lang, title, close, closeAll }) => {
@@ -11,6 +11,7 @@ export const ArticlePreview = ({ lang, title, close, closeAll }) => {
     closeAll()
     goto.article(lang, readTitle, true)
   }
+  useErrorLogging('ArticlePreview')
   useSoftkey('ArticlePreview', {
     left: i18n('softkey-close'),
     onKeyLeft: close,

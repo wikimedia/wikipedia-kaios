@@ -3,7 +3,7 @@ import { useRef, useEffect } from 'preact/hooks'
 import { ListView } from 'components'
 import {
   useNavigation, useSearch, useI18n, useSoftkey,
-  useOnlineStatus, useTracking
+  useOnlineStatus, useTracking, useErrorLogging
 } from 'hooks'
 import { articleHistory, goto, getAppLanguage } from 'utils'
 
@@ -52,6 +52,7 @@ export const Search = () => {
   }, [current.type])
 
   useTracking('Search')
+  useErrorLogging('Search')
 
   useEffect(() => {
     articleHistory.clear()

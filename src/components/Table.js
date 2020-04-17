@@ -1,6 +1,6 @@
 import { h } from 'preact'
 import { useRef } from 'preact/hooks'
-import { useI18n, useSoftkey, useScroll } from 'hooks'
+import { useI18n, useSoftkey, useScroll, useErrorLogging } from 'hooks'
 
 export const Table = ({ close, content }) => {
   const containerRef = useRef()
@@ -8,6 +8,7 @@ export const Table = ({ close, content }) => {
   const [scrollDown, scrollUp] = useScroll(containerRef, 20, 'y')
   const [scrollRight, scrollLeft] = useScroll(containerRef, 20, 'x')
 
+  useErrorLogging('Table')
   useSoftkey('Table', {
     left: i18n('softkey-close'),
     onKeyLeft: () => close(),
