@@ -7,7 +7,16 @@ export const useNavigation = (origin, containerRef, axis, elementsSelector = '[d
   const getAllElements = () => document.querySelectorAll(elementsSelector)
 
   const getSelectedElement = () => {
-    return document.querySelector('[nav-selected=true]')
+    const allNavSelectedTrue = document.querySelectorAll('[nav-selected=true]')
+    const currentSelector = elementsSelector.slice(1, -1)
+    let selectedElement
+    allNavSelectedTrue.forEach(element => {
+      if (element.getAttribute(currentSelector)) {
+        selectedElement = element
+      }
+    })
+
+    return selectedElement
   }
 
   const getTheIndexOfTheSelectedElement = () => {
@@ -15,7 +24,9 @@ export const useNavigation = (origin, containerRef, axis, elementsSelector = '[d
     return element ? parseInt(element.getAttribute('nav-index')) : 0
   }
 
-  const setNavigation = index => selectElement(getAllElements()[index] || document.body)
+  const setNavigation = index => {
+    selectElement(getAllElements()[index] || document.body)
+  }
 
   const navigatePrevious = () => {
     const allElements = getAllElements()
