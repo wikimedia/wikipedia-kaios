@@ -1,9 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"דגש חזק",
 			"Amire80",
-			"IKhitron"
+			"IKhitron",
+			"דגש חזק"
 		]
 	},
 	"article-action-sections": "פסקאות",
@@ -20,8 +20,11 @@
 	"content-license": "התוכן זמין לפי תנאי <a class=\"external\" rel=\"mw:ExtLink\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">CC BY-SA 3.0</a> אלא אם צוין אחרת",
 	"confirm-section": "מעבר לפסקה \"$1\"",
 	"about-header": "אודות",
+	"about-wikipedia-header": "אודות ויקיפדיה",
 	"gallery-description": "תיאור",
 	"gallery-author-license": "מחבר ורישיון",
+	"gallery-unknown-author": "מחבר לא ידוע",
+	"gallery-unknown-license": "רישיון לא ידוע",
 	"header-menu": "תפריט ערך",
 	"header-search": "תוצאות חיפוש",
 	"header-sections": "פסקאות",
@@ -29,6 +32,7 @@
 	"header-textsize": "גודל טקסט הערך",
 	"menu-previous": "הערך הקודם",
 	"menu-textsize": "גודל טקסט",
+	"more-information": "מידע נוסף",
 	"no-result-found": "לא נמצאו תוצאות",
 	"softkey-about": "אודות",
 	"softkey-more-info": "מידע נוסף",

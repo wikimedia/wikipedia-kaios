@@ -2,8 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Beta16",
-			"Eduardo Addad de Oliveira",
-			"Dansita"
+			"Dansita",
+			"Eduardo Addad de Oliveira"
 		]
 	},
 	"article-action-sections": "Sezioni",
@@ -18,6 +18,8 @@
 	"content-license": "Il contenuto è disponibile in base alla licenza <a class=\"external\" rel=\"mw:ExtLink\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">CC BY-SA 3.0</a> se non diversamente specificato.",
 	"confirm-section": "Vai alla sezione \"$1\"",
 	"about-wikipedia-header": "Informazioni su Wikipedia",
+	"gallery-unknown-author": "Autore sconosciuto",
+	"gallery-unknown-license": "Licenza sconosciuta",
 	"header-menu": "Menu della voce",
 	"header-search": "Risultati della ricerca",
 	"header-sections": "Sezioni",

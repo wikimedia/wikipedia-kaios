@@ -1,10 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Movses",
-			"Ата",
 			"Alexander Yukal",
-			"Piramidion"
+			"Movses",
+			"Piramidion",
+			"Ата"
 		]
 	},
 	"article-action-sections": "Розділи",
@@ -24,6 +24,8 @@
 	"about-wikipedia-header": "Про Вікіпедію",
 	"gallery-description": "Опис",
 	"gallery-author-license": "Автор і ліцензія",
+	"gallery-unknown-author": "Невідомий автор",
+	"gallery-unknown-license": "Невідома ліцензія",
 	"header-menu": "Меню статті",
 	"header-search": "Результати пошуку",
 	"header-sections": "Розділи",

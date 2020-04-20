@@ -1,17 +1,17 @@
 {
 	"@metadata": {
 		"authors": [
-			"Gomoko",
-			"Fitoschido",
-			"Eihel",
-			"Verdy p",
-			"Wladek92",
 			"Alno",
-			"Thibaut120094",
-			"Symsym",
 			"Choodyam",
+			"Derugon",
+			"Eihel",
 			"Eneelk",
-			"Derugon"
+			"Fitoschido",
+			"Gomoko",
+			"Symsym",
+			"Thibaut120094",
+			"Verdy p",
+			"Wladek92"
 		]
 	},
 	"article-action-sections": "Sections",
@@ -31,6 +31,8 @@
 	"about-wikipedia-header": "À propos de Wikipédia",
 	"gallery-description": "Description",
 	"gallery-author-license": "Auteur et licence",
+	"gallery-unknown-author": "Auteur inconnu",
+	"gallery-unknown-license": "Licence inconnue",
 	"header-menu": "Menu de l’article",
 	"header-search": "Résultats de la recherche",
 	"header-sections": "Sections",

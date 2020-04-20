@@ -1,9 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ykhwong",
-			"Gongsoonyee",
 			"Eduardo Addad de Oliveira",
+			"Gongsoonyee",
+			"Ykhwong",
 			"아라"
 		]
 	},
@@ -63,7 +63,7 @@
 	"settings-language": "언어",
 	"settings-textsize": "텍스트 크기",
 	"settings-about-wikipedia": "위키백과 정보",
-	"settings-privacy": "개인정보처리방침",
+	"settings-privacy": "개인정보보호정책",
 	"settings-term": "이용 약관",
 	"settings-rate": "앱 평가",
 	"settings-help-feedback": "도움말 및 의견",

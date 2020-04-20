@@ -1,10 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Fitoschido",
-			"Toniher",
+			"Dvpita",
 			"Eduardo Addad de Oliveira",
-			"Dvpita"
+			"Fitoschido",
+			"Toniher"
 		]
 	},
 	"article-action-sections": "Seccions",
@@ -24,6 +24,8 @@
 	"about-wikipedia-header": "Quant a la Viquipèdia",
 	"gallery-description": "Descripció",
 	"gallery-author-license": "Autor i llicència",
+	"gallery-unknown-author": "Autoria desconeguda",
+	"gallery-unknown-license": "Llicència desconeguda",
 	"header-menu": "Menu de l'article",
 	"header-search": "Resultats de cerca",
 	"header-sections": "Seccions",
