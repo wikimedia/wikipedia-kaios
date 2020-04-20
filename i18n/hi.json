@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"MKaur",
-			"Sudhanshu"
+			"Sudhanshu",
+			"गोपाल"
 		]
 	},
 	"article-action-sections": "अनुभाग",
@@ -28,6 +29,7 @@
 	"header-textsize": "लेख के शब्दों का आकार",
 	"menu-previous": "पिछला लेख",
 	"menu-textsize": "अक्षर आकार",
+	"more-information": "अधिक जानकारी",
 	"no-result-found": "कोई परिणाम नहीं मिले",
 	"softkey-about": "परिचय",
 	"softkey-more-info": "और जानकारी",
