@@ -14,7 +14,7 @@ export const ArticleToc = ({ items, currentAnchor, onSelectItem, close, closeAll
 
     if (item && item.title) {
       onSelectItem(item)
-      close()
+      closeAll()
     }
   }
   useSoftkey('ArticleToc', {
