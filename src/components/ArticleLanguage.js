@@ -14,7 +14,7 @@ export const ArticleLanguage = ({ lang, title, close, closeAll }) => {
     return <Loading message={i18n('article-language-loading-message')} onClose={close} />
   }
 
-  const [, setNavigation, getCurrent] = useNavigation('ArticleLanguage', containerRef, 'y', '[data-selectable-radio-list]')
+  const [, setNavigation, getCurrent] = useNavigation('ArticleLanguage', containerRef, 'y')
   const onKeyCenter = () => {
     const { index } = getCurrent()
     if (index > 0) {
@@ -56,7 +56,7 @@ export const ArticleLanguage = ({ lang, title, close, closeAll }) => {
   }, [])
 
   return <div class='articlelanguage'>
-    <input type='text' placeholder={i18n('search-language-placeholder')} value={query} onInput={e => setQuery(e.target.value)} data-selectable-radio-list />
+    <input type='text' placeholder={i18n('search-language-placeholder')} value={query} onInput={e => setQuery(e.target.value)} data-selectable />
     <RadioListView header={i18n('article-language-available', numOfLanglink)} items={items} containerRef={containerRef} empty={i18n('no-result-found')} />
   </div>
 }

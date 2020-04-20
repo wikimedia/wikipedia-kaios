@@ -4,19 +4,18 @@ import { useSoftkey } from 'hooks'
 export const useNavigation = (origin, containerRef, axis, elementsSelector = '[data-selectable]') => {
   const [current, setCurrent] = useState({ type: null, index: 0, key: null })
 
-  const getAllElements = () => document.querySelectorAll(elementsSelector)
+  const getAllElements = () => {
+    if (containerRef.current === undefined) {
+      return document.querySelectorAll(elementsSelector)
+    }
+
+    const grandparentContainer = containerRef.current.parentNode.parentNode
+    return grandparentContainer.querySelectorAll(elementsSelector)
+  }
 
   const getSelectedElement = () => {
-    const allNavSelectedTrue = document.querySelectorAll('[nav-selected=true]')
-    const currentSelector = elementsSelector.slice(1, -1)
-    let selectedElement
-    allNavSelectedTrue.forEach(element => {
-      if (element.getAttribute(currentSelector)) {
-        selectedElement = element
-      }
-    })
-
-    return selectedElement
+    const grandparentContainer = containerRef.current.parentNode.parentNode
+    return grandparentContainer.querySelector('[nav-selected=true]')
   }
 
   const getTheIndexOfTheSelectedElement = () => {
