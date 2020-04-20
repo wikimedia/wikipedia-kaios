@@ -1,7 +1,5 @@
 import { useErrorBoundary } from 'preact/hooks'
-import { isProd, appVersion } from 'utils'
-
-const intakeUrl = 'https://intake-logging.wikimedia.org'
+import { isProd, sendErrorLog } from 'utils'
 
 export const useErrorLogging = origin => {
   if (!isProd()) {
@@ -9,16 +7,6 @@ export const useErrorLogging = origin => {
   }
 
   useErrorBoundary((error, { componentStack }) => {
-    navigator.sendBeacon(intakeUrl, JSON.stringify({
-      $schema: `/mediawiki/client/error/${appVersion}`,
-      meta: {
-        stream: 'mediawiki.client.error'
-      },
-      error_class: `[${origin}] ${componentStack}`,
-      message: error,
-      url: null,
-      file_url: null
-    })
-    )
+    sendErrorLog(error, `[${origin}] ${componentStack}`)
   })
 }
