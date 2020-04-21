@@ -23,9 +23,7 @@ export const useNavigation = (origin, containerRef, axis, elementsSelector = '[d
     return element ? parseInt(element.getAttribute('nav-index')) : 0
   }
 
-  const setNavigation = index => {
-    selectElement(getAllElements()[index] || document.body)
-  }
+  const setNavigation = index => selectElement(getAllElements()[index] || document.body)
 
   const navigatePrevious = () => {
     const allElements = getAllElements()
