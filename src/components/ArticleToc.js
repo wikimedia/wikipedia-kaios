@@ -5,9 +5,10 @@ import { ListView } from 'components'
 
 export const ArticleToc = ({ items, currentAnchor, onSelectItem, close, closeAll }) => {
   const containerRef = useRef()
+  const listRef = useRef()
   const i18n = useI18n()
   const listItems = parseTocItems(items)
-  const [, setNavigation, getCurrent] = useNavigation('ArticleToc', containerRef, 'y')
+  const [, setNavigation, getCurrent] = useNavigation('ArticleToc', containerRef, listRef, 'y')
   const onKeyCenter = () => {
     const { index } = getCurrent()
     const item = listItems[index]
@@ -29,8 +30,8 @@ export const ArticleToc = ({ items, currentAnchor, onSelectItem, close, closeAll
     setNavigation(listItems.findIndex(item => item.anchor === currentAnchor))
   }, [])
 
-  return <div class='toc'>
-    <ListView header={i18n('header-sections')} items={listItems} containerRef={containerRef} />
+  return <div class='toc' ref={containerRef}>
+    <ListView header={i18n('header-sections')} items={listItems} containerRef={listRef} />
   </div>
 }
 

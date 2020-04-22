@@ -7,6 +7,7 @@ import { getAppLanguage } from 'utils'
 
 export const Settings = () => {
   const containerRef = useRef()
+  const listRef = useRef()
   const i18n = useI18n()
   const lang = getAppLanguage()
   const [showTextSize] = usePopup(TextSize)
@@ -47,7 +48,7 @@ export const Settings = () => {
     onKeyBackspace: () => history.back()
   })
 
-  const [, setNavigation, getCurrent] = useNavigation('Settings', containerRef, 'y')
+  const [, setNavigation, getCurrent] = useNavigation('Settings', containerRef, listRef, 'y')
 
   useEffect(() => {
     setNavigation(0)
@@ -65,11 +66,11 @@ export const Settings = () => {
     { title: i18n('settings-about-app'), action: onAboutAppSelected }
   ]
 
-  return <div class='settings'>
+  return <div class='settings' ref={containerRef}>
     <ListView
       header={i18n('header-settings')}
       items={items}
-      containerRef={containerRef}
+      containerRef={listRef}
     />
   </div>
 }

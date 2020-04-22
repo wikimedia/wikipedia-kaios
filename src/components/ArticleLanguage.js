@@ -6,6 +6,7 @@ import { goto } from 'utils'
 
 export const ArticleLanguage = ({ lang, title, close, closeAll }) => {
   const containerRef = useRef()
+  const listRef = useRef()
   const i18n = useI18n()
   const [articleLang, setArticleLang] = useState(lang)
   const [items, query, setQuery, numOfLanglink] = useSearchArticleLanguage(articleLang, title)
@@ -14,7 +15,7 @@ export const ArticleLanguage = ({ lang, title, close, closeAll }) => {
     return <Loading message={i18n('article-language-loading-message')} onClose={close} />
   }
 
-  const [, setNavigation, getCurrent] = useNavigation('ArticleLanguage', containerRef, 'y')
+  const [, setNavigation, getCurrent] = useNavigation('ArticleLanguage', containerRef, listRef, 'y')
   const onKeyCenter = () => {
     const { index } = getCurrent()
     if (index > 0) {
@@ -55,8 +56,8 @@ export const ArticleLanguage = ({ lang, title, close, closeAll }) => {
     setNavigation(0)
   }, [])
 
-  return <div class='articlelanguage'>
+  return <div class='articlelanguage' ref={containerRef}>
     <input type='text' placeholder={i18n('search-language-placeholder')} value={query} onInput={e => setQuery(e.target.value)} data-selectable />
-    <RadioListView header={i18n('article-language-available', numOfLanglink)} items={items} containerRef={containerRef} empty={i18n('no-result-found')} />
+    <RadioListView header={i18n('article-language-available', numOfLanglink)} items={items} containerRef={listRef} empty={i18n('no-result-found')} />
   </div>
 }

@@ -1,22 +1,12 @@
 import { useState, useEffect } from 'preact/hooks'
 import { useSoftkey } from 'hooks'
 
-export const useNavigation = (origin, containerRef, axis, elementsSelector = '[data-selectable]') => {
+export const useNavigation = (origin, containerRef, listRef, axis, elementsSelector = '[data-selectable]') => {
   const [current, setCurrent] = useState({ type: null, index: 0, key: null })
 
-  const getAllElements = () => {
-    if (containerRef.current === undefined) {
-      return document.querySelectorAll(elementsSelector)
-    }
+  const getAllElements = () => containerRef.current.querySelectorAll(elementsSelector)
 
-    const grandparentContainer = containerRef.current.parentNode.parentNode
-    return grandparentContainer.querySelectorAll(elementsSelector)
-  }
-
-  const getSelectedElement = () => {
-    const grandparentContainer = containerRef.current.parentNode.parentNode
-    return grandparentContainer.querySelector('[nav-selected=true]')
-  }
+  const getSelectedElement = () => containerRef.current.querySelector('[nav-selected=true]')
 
   const getTheIndexOfTheSelectedElement = () => {
     const element = getSelectedElement()
@@ -79,21 +69,21 @@ export const useNavigation = (origin, containerRef, axis, elementsSelector = '[d
   })
 
   useEffect(() => {
-    if (!containerRef.current) return
+    if (!listRef.current) return
     const element = getSelectedElement()
     if (!element) return
     if (element.tagName === 'INPUT') return
 
     // todo: cache the next line since it doesn't change
-    const containerRect = containerRef.current.getBoundingClientRect()
+    const containerRect = listRef.current.getBoundingClientRect()
     const rect = element.getBoundingClientRect()
     if (rect.bottom > containerRect.bottom) {
       // scroll down
-      containerRef.current.scrollTop += (rect.bottom - containerRect.bottom)
+      listRef.current.scrollTop += (rect.bottom - containerRect.bottom)
     }
     if (rect.top < containerRect.top) {
       // scroll up
-      containerRef.current.scrollTop -= (containerRect.top - rect.top)
+      listRef.current.scrollTop -= (containerRect.top - rect.top)
     }
   })
 

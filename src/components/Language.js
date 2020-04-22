@@ -6,11 +6,13 @@ import { setAppLanguage, getAppLanguage } from 'utils'
 
 export const Language = () => {
   const containerRef = useRef()
+  const listRef = useRef()
+
   const i18n = useI18n()
   const [lang, setLang] = useState(getAppLanguage())
   const [items, query, setQuery] = useSearchLanguage(lang)
   const [showLanguagePopup] = usePopup(LanguagePopup)
-  const [, setNavigation, getCurrent] = useNavigation('Language', containerRef, 'y')
+  const [, setNavigation, getCurrent] = useNavigation('Language', containerRef, listRef, 'y')
 
   const onKeyCenter = () => {
     const { index } = getCurrent()
@@ -47,9 +49,9 @@ export const Language = () => {
     showLanguagePopup({ i18n })
   }, [])
 
-  return <div class='language'>
+  return <div class='language' ref={containerRef}>
     <input type='text' placeholder={i18n('search-language-placeholder')} value={query} onInput={e => setQuery(e.target.value)} data-selectable />
-    <RadioListView header={i18n('language-change')} items={items} containerRef={containerRef} empty={i18n('no-result-found')} />
+    <RadioListView header={i18n('language-change')} items={items} containerRef={listRef} empty={i18n('no-result-found')} />
   </div>
 }
 
