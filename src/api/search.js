@@ -16,7 +16,7 @@ export const search = (lang, term) => {
   }
   const url = buildMwApiUrl(lang, params)
   return cachedFetch(url, data => {
-    if (!data.query || !data.query.pages) {
+    if (!data.query?.pages) {
       return []
     }
     data.query.pages.sort((a, b) => a.index - b.index)
