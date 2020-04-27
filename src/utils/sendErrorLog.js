@@ -1,3 +1,5 @@
+import { appVersion } from 'utils'
+
 const intakeUrl = 'https://intake-logging.wikimedia.org'
 
 export const sendErrorLog = ({ message, stack = '', url = '' }) => {
@@ -7,7 +9,7 @@ export const sendErrorLog = ({ message, stack = '', url = '' }) => {
       stream: 'kaios_app.error'
     },
     error_class: stack,
-    message,
+    message: message + `/${appVersion()}`,
     url,
     file_url: ''
   })
