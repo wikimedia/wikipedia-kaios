@@ -2,9 +2,7 @@ import { useState } from 'preact/hooks'
 
 export const useHistoryState = (key, initialValue) => {
   const [current, setCurrent] = useState(() => {
-    return (history.state && history.state[key])
-      ? history.state[key]
-      : initialValue
+    return history?.state[key] || initialValue
   })
   const setCurrentWrapper = (value) => {
     setCurrent(value)

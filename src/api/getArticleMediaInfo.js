@@ -29,7 +29,7 @@ export const getArticleMediaInfo = (lang, title, fromCommon) => {
     return {
       author,
       description,
-      license: LicenseShortName && LicenseShortName.value,
+      license: LicenseShortName?.value,
       filePage: convertUrlToMobile(imageInfo[0].descriptionshorturl)
     }
   })

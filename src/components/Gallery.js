@@ -13,9 +13,9 @@ const AboutContainer = ({ lang, title, caption, fromCommon, close }) => {
     left: i18n('softkey-close'),
     onKeyLeft: close,
     onKeyBackspace: close,
-    right: mediaInfo && mediaInfo.filePage ? i18n('softkey-more-info') : '',
+    right: mediaInfo?.filePage ? i18n('softkey-more-info') : '',
     onKeyRight: () => {
-      if (mediaInfo && mediaInfo.filePage) {
+      if (mediaInfo?.filePage) {
         window.open(mediaInfo.filePage)
       }
     }
@@ -32,7 +32,7 @@ const AboutContainer = ({ lang, title, caption, fromCommon, close }) => {
 
     const descriptionNode = containerRef.current.querySelector('.description')
 
-    if (descriptionNode && descriptionNode.getBoundingClientRect().height > MAX_DESCRIPTION_HEIGHT) {
+    if (descriptionNode?.getBoundingClientRect().height > MAX_DESCRIPTION_HEIGHT) {
       descriptionNode.classList.add('clamp')
     }
   })

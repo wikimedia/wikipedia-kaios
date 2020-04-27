@@ -39,12 +39,12 @@ const clear = () => {
 }
 
 const isEmpty = () => {
-  return !(get() && get().length)
+  return !(get()?.length)
 }
 
 const hasPrev = () => {
   const list = get()
-  return list && (list.length > 1)
+  return list?.length > 1
 }
 
 const getPrev = () => {

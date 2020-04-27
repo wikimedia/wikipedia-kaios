@@ -3,7 +3,7 @@ import { h } from 'preact'
 export const Popup = ({ component, props, options, style }) => {
   if (component) {
     let contentClasses = 'popup-content'
-    if (options && options.mode === 'fullscreen') {
+    if (options?.mode === 'fullscreen') {
       contentClasses += ' fullscreen'
     }
     return (

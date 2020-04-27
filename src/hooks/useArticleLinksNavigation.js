@@ -42,7 +42,7 @@ export const useArticleLinksNavigation = (
     })
   }
 
-  const hasLinks = () => links && links.length
+  const hasLinks = () => links?.length
 
   useEffect(() => {
     const visibleLinks = findVisibleLinks(contentRef.current)

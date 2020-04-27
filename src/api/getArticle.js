@@ -5,7 +5,7 @@ export const getArticle = (lang, title, { moreInformationText }) => {
 
   return cachedFetch(url, data => {
     const parser = new DOMParser()
-    const imageUrl = data.lead.image && data.lead.image.urls['320']
+    const imageUrl = data.lead.image?.urls['320']
     const toc = []
     const references = {}
     const languageCount = data.lead.languagecount
@@ -95,7 +95,7 @@ const fixTableCaption = (htmlString, moreInformationText) => {
   for (const tableNode of tableNodes) {
     const thContent = Array.from(tableNode.querySelectorAll('th')).map(th => th.textContent).join(', ')
     const normalizedThContent = thContent.replace(/\[\d+]/g, '')
-    if (tableNode.caption && tableNode.caption.textContent) {
+    if (tableNode.caption?.textContent) {
       tableNode.caption.innerHTML = `<b class='${hiddenClassName}'>${moreInformationText}:</b><p class='${hiddenClassName}'>${normalizedThContent}</p><span>${tableNode.caption.textContent}</span>`
     } else {
       const caption = tableNode.createCaption()

@@ -13,7 +13,7 @@ export const ArticleToc = ({ items, currentAnchor, onSelectItem, close, closeAll
     const { index } = getCurrent()
     const item = listItems[index]
 
-    if (item && item.title) {
+    if (item?.title) {
       onSelectItem(item)
       closeAll()
     }

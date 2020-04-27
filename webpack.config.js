@@ -54,6 +54,7 @@ module.exports = {
                   throwIfNamespace: false // defaults to true
                 }
               ],
+              "@babel/plugin-proposal-optional-chaining",
               [
                 "module-resolver",
                 {

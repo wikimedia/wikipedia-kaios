@@ -25,7 +25,7 @@ export const search = (lang, term) => {
         title: p.title,
         titleHtml: p.title.replace(term, `<span class="searchmatch">${term}</span>`),
         description: p.description,
-        imageUrl: p.thumbnail && p.thumbnail.source
+        imageUrl: p.thumbnail?.source
       }
     })
   }, true)
