@@ -5,6 +5,7 @@
 			"Eyas",
 			"Meno25",
 			"NEHAOUA",
+			"Tala Ali",
 			"ديفيد",
 			"محمد أحمد عبد الفتاح"
 		]
@@ -26,6 +27,8 @@
 	"about-wikipedia-header": "حول ويكيبيديا",
 	"gallery-description": "الوصف",
 	"gallery-author-license": "المؤلف والترخيص",
+	"gallery-unknown-author": "مؤلف مجهول",
+	"gallery-unknown-license": "رخصة مجهولة",
 	"header-menu": "قائمة المقالة",
 	"header-search": "نتائج البحث",
 	"header-sections": "الأقسام",

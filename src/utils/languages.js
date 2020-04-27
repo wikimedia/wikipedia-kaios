@@ -1535,3 +1535,20 @@ export const setAppLanguage = lang => {
 export const getAppLanguage = () => {
   return localStorage.getItem('language-app')
 }
+
+export const setDeviceLanguage = () => {
+  localStorage.setItem('language-device', getCurrentDeviceLanguage())
+}
+
+export const getDeviceLanguage = () => {
+  return localStorage.getItem('language-device')
+}
+
+export const checkHasDeviceLanguageChanged = () => {
+  return getCurrentDeviceLanguage() !== localStorage.getItem('language-device')
+}
+
+const getCurrentDeviceLanguage = () => {
+  const navigatorLang = navigator.language
+  return navigatorLang.substr(0, navigatorLang.indexOf('-'))
+}

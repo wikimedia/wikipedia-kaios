@@ -1,11 +1,34 @@
 {
 	"@metadata": {
 		"authors": [
+			"Chrumps",
 			"Rail"
 		]
 	},
+	"article-action-sections": "Sekcje",
+	"article-action-gallery": "Galeria",
+	"article-action-languages": "Język",
+	"app-title": "Wikipedia",
 	"app-subtitle": "Wolna encyklopedia",
-	"search-placeholder": "Szukaj",
-	"settings": "Ustawienia",
-	"centerkey-select": "Wybierz"
+	"gallery-description": "Opis",
+	"gallery-unknown-author": "Autor nieznany",
+	"gallery-unknown-license": "Nieznana licencja",
+	"header-sections": "Sekcje",
+	"header-settings": "Ustawienia",
+	"more-information": "Więcej informacji",
+	"no-result-found": "Brak wyników",
+	"softkey-menu": "Menu",
+	"search-placeholder": "Szukaj w Wikipedii",
+	"softkey-settings": "Ustawienia",
+	"centerkey-select": "Wybierz",
+	"softkey-close": "Zamknij",
+	"settings-language": "Język",
+	"settings-textsize": "Rozmiar tekstu",
+	"settings-about-wikipedia": "O Wikipedii",
+	"settings-privacy": "Polityka prywatności",
+	"settings-term": "Warunki użytkowania",
+	"settings-rate": "Oceń aplikację",
+	"settings-help-feedback": "Pomoc i opinie",
+	"settings-about-app": "O aplikacji",
+	"softkey-read-more": "Czytaj więcej"
 }
