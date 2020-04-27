@@ -11,6 +11,7 @@ export const ArticleMenu = ({
   hasLanguages, hasInfobox, hasGallery
 }) => {
   const containerRef = useRef()
+  const listRef = useRef()
   const i18n = useI18n()
   const onKeyCenter = () => {
     const { index } = getCurrent()
@@ -30,7 +31,7 @@ export const ArticleMenu = ({
     onKeyBackspace: close
   })
 
-  const [, setNavigation, getCurrent] = useNavigation('Menu', containerRef, 'y')
+  const [, setNavigation, getCurrent] = useNavigation('Menu', containerRef, listRef, 'y')
 
   const onSearchSelected = () => {
     close()
@@ -91,11 +92,11 @@ export const ArticleMenu = ({
     }
   ]
 
-  return <div class='menu'>
+  return <div class='menu' ref={containerRef}>
     <ListView
       header={i18n('header-menu')}
       items={items.filter(item => item.enabled)}
-      containerRef={containerRef}
+      containerRef={listRef}
     />
   </div>
 }

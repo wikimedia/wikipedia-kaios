@@ -22,8 +22,9 @@ const SearchOfflinePanel = () => {
 export const Search = () => {
   const containerRef = useRef()
   const inputRef = useRef()
+  const listRef = useRef()
   const i18n = useI18n()
-  const [current, setNavigation, getCurrent] = useNavigation('Search', containerRef, 'y')
+  const [current, setNavigation, getCurrent] = useNavigation('Search', containerRef, listRef, 'y')
   const lang = getAppLanguage()
   const [query, setQuery, searchResults] = useSearch(lang)
   const isOnline = useOnlineStatus(online => {
@@ -59,10 +60,10 @@ export const Search = () => {
   }, [])
 
   return (
-    <div class='search'>
+    <div class='search' ref={containerRef}>
       <img class='double-u' src='images/w.svg' style={{ display: ((searchResults || !isOnline) ? 'none' : 'block') }} />
       <input ref={inputRef} type='text' placeholder={i18n('search-placeholder')} value={query} onInput={onInput} data-selectable />
-      { (isOnline && searchResults) && <ListView header={i18n('header-search')} items={searchResults} containerRef={containerRef} empty={i18n('no-result-found')} /> }
+      { (isOnline && searchResults) && <ListView header={i18n('header-search')} items={searchResults} containerRef={listRef} empty={i18n('no-result-found')} /> }
       { !isOnline && <SearchOfflinePanel /> }
     </div>
   )
