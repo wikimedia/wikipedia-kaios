@@ -1,6 +1,6 @@
 import { h } from 'preact'
 import { useRef, useLayoutEffect } from 'preact/hooks'
-import { useI18n, useSoftkey, usePopup, useRange, useArticleMediaInfo, useErrorLogging } from 'hooks'
+import { useI18n, useSoftkey, usePopup, useRange, useArticleMediaInfo } from 'hooks'
 
 const MAX_DESCRIPTION_HEIGHT = 45
 
@@ -84,7 +84,6 @@ export const Gallery = ({ close, closeAll, items, startFileName, lang }) => {
   ] = useRange(getInitialIndex(items, startFileName), items.length - 1)
   const [showAboutPopup] = usePopup(AboutContainer, { stack: true })
 
-  useErrorLogging('Gallery')
   useSoftkey('Gallery', {
     left: i18n('softkey-close'),
     onKeyLeft: closeAll,

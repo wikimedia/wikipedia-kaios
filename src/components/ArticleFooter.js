@@ -1,13 +1,11 @@
 import { h } from 'preact'
-import { useI18n, useErrorLogging } from 'hooks'
+import { useI18n } from 'hooks'
 import { buildWpMobileWebUrl, canonicalizeTitle } from 'utils'
 
 export const ArticleFooter = ({ lang, title, items = [] }) => {
   const i18n = useI18n()
   const contentI18n = useI18n(lang)
   const headerTitle = contentI18n('toc-footer')
-
-  useErrorLogging('ArticleFooter')
 
   return (
     <div class='article-footer'>

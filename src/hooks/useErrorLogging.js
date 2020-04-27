@@ -1,12 +1,10 @@
 import { useErrorBoundary } from 'preact/hooks'
 import { isProd, sendErrorLog } from 'utils'
 
-export const useErrorLogging = origin => {
+export const useErrorLogging = () => {
   if (!isProd()) {
     return
   }
 
-  useErrorBoundary((error, { componentStack }) => {
-    sendErrorLog(error, `[${origin}] ${componentStack}`)
-  })
+  return useErrorBoundary(sendErrorLog)
 }

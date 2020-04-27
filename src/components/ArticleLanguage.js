@@ -1,6 +1,6 @@
 import { h } from 'preact'
 import { useRef, useEffect, useState } from 'preact/hooks'
-import { useNavigation, useI18n, useSoftkey, useSearchArticleLanguage, useErrorLogging } from 'hooks'
+import { useNavigation, useI18n, useSoftkey, useSearchArticleLanguage } from 'hooks'
 import { RadioListView, Loading } from 'components'
 import { goto } from 'utils'
 
@@ -9,8 +9,6 @@ export const ArticleLanguage = ({ lang, title, close, closeAll }) => {
   const i18n = useI18n()
   const [articleLang, setArticleLang] = useState(lang)
   const [items, query, setQuery, numOfLanglink] = useSearchArticleLanguage(articleLang, title)
-
-  useErrorLogging('ArticleLanguage')
 
   if (!items.length && !query) {
     return <Loading message={i18n('article-language-loading-message')} onClose={close} />
