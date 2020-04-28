@@ -10,7 +10,8 @@ export const Table = ({ close, content }) => {
 
   useSoftkey('Table', {
     left: i18n('softkey-close'),
-    onKeyLeft: () => close(),
+    onKeyLeft: close,
+    onKeyBackspace: close,
     onKeyArrowDown: scrollDown,
     onKeyArrowUp: scrollUp,
     onKeyArrowLeft: scrollLeft,

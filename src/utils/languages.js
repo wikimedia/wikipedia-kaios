@@ -1550,5 +1550,7 @@ export const checkHasDeviceLanguageChanged = () => {
 
 const getCurrentDeviceLanguage = () => {
   const navigatorLang = navigator.language
-  return navigatorLang.substr(0, navigatorLang.indexOf('-'))
+  return navigatorLang.includes('-')
+    ? navigatorLang.substr(0, navigatorLang.indexOf('-'))
+    : navigatorLang
 }
