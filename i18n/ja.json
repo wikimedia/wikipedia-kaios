@@ -4,6 +4,7 @@
 			"Aefgh39622",
 			"Buntschann",
 			"Kkairri",
+			"Omotecho",
 			"Rootflag",
 			"きこねす"
 		]
@@ -33,8 +34,8 @@
 	"softkey-skip": "スキップ",
 	"softkey-refresh": "更新",
 	"onboarding-0-title": "フリー百科事典",
-	"onboarding-2-title": "300以上の言語から検索",
-	"onboarding-2-description": "優先して使用する言語または検索と閲覧に使用する言語を選択してください。",
+	"onboarding-2-title": "無料の知識を得る",
+	"onboarding-2-description": "5000万本超の記事が、広告にわずらわされずに読めます！ 記事は定期的に更新され、新しい記事も増えていきます。",
 	"settings-language": "言語",
 	"settings-textsize": "文字の大きさ",
 	"settings-about-wikipedia": "ウィキペディアについて",
