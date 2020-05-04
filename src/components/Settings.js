@@ -2,7 +2,7 @@ import { h } from 'preact'
 import { route } from 'preact-router'
 import { useRef, useEffect } from 'preact/hooks'
 import { useNavigation, useI18n, useSoftkey, usePopup } from 'hooks'
-import { ListView, TextSize, AboutApp, AboutWikipedia } from 'components'
+import { ListView, TextSize, AboutApp, AboutWikipedia, Feedback } from 'components'
 import { getAppLanguage } from 'utils'
 
 export const Settings = () => {
@@ -13,6 +13,7 @@ export const Settings = () => {
   const [showTextSize] = usePopup(TextSize)
   const [showAboutApp] = usePopup(AboutApp, { mode: 'fullscreen' })
   const [showAboutWikipedia] = usePopup(AboutWikipedia, { mode: 'fullscreen' })
+  const [showFeedback] = usePopup(Feedback, { mode: 'fullscreen' })
 
   const onKeyCenter = () => {
     const { index } = getCurrent()
@@ -40,6 +41,10 @@ export const Settings = () => {
     showAboutWikipedia()
   }
 
+  const onFeedbackSelected = () => {
+    showFeedback()
+  }
+
   useSoftkey('Settings', {
     left: i18n('softkey-close'),
     onKeyLeft: () => history.back(),
@@ -62,7 +67,7 @@ export const Settings = () => {
     { title: i18n('settings-term'), link: `https://foundation.m.wikimedia.org/wiki/Terms_of_Use/${lang}` },
     // @todo will have this soon and don't delete it from the language json
     // { title: i18n('settings-rate') },
-    // { title: i18n('settings-help-feedback') },
+    { title: i18n('settings-help-feedback'), action: onFeedbackSelected },
     { title: i18n('settings-about-app'), action: onAboutAppSelected }
   ]
 

@@ -1,0 +1,57 @@
+.feedback {
+	.header {
+		height: @pageHeaderHeight;
+		max-height: @pageHeaderHeight;
+		background-color: #d8d8d8;
+		box-sizing: border-box;
+		padding: 3px 0;
+		font-size: 17px;
+		text-align: center;
+	}
+
+	.body {
+		background-color: #f8f9fa;
+		height: @availableHeight;
+		text-align: center;
+
+		@media @landscape {
+			padding-top: 2px;
+		}
+
+		.text-box {
+			padding-top: 3px;
+
+			textarea {
+				width: 228px;
+				height: 136px;
+				border-radius: 2px;
+				border: solid 0.1px #979797;
+				background-color: #fff;
+				resize: none;
+
+				@media @landscape {
+					width: 290px;
+					height: 78px;
+				}
+			}
+		}
+
+		.message-box {
+			font-size: 14px;
+			font-weight: normal;
+			font-stretch: normal;
+			font-style: normal;
+			line-height: 1.2;
+			letter-spacing: normal;
+			color: #afb3bf;
+			text-align: left;
+			padding-left: 10px;
+			padding-right: 10px;
+
+			@media @landscape {
+				padding-left: 16px;
+				padding-right: 16px;
+			}
+		}
+	}
+}
