@@ -202,7 +202,7 @@ describe('Article view', () => {
 
   it('check table is showing', () => {
     cy.navigateToPageWithoutOnboarding('article/en/2020_coronavirus_pandemic_in_Portugal')
-    articlePage.title().should('have.text', '2020 coronavirus pandemic in Portugal')
+    articlePage.title().should('have.text', 'COVID-19 pandemic in Portugal')
     articlePage.selectOptionFromActionsMenu('sections')
     articleMenuPage.selectOptionFromSections('Hospitals_for_COVID-19')
     cy.rightArrow()
