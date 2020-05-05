@@ -78,5 +78,7 @@
 	"toc-footer": "Label in the sections for the footer link",
 	"view-in-browser": "Label for the view in browser link. Shown in the footer",
 	"about-app-message": "Main message in About App page",
-	"softkey-read-more": "Label of the read more softkey"
+	"softkey-read-more": "Label of the read more softkey",
+	"settings-privacy-terms": "Label of the Privacy and Terms item list. Shown in the Settings menu.",
+	"privacy-terms-header": "The header title shown in the Privacy and Terms page"
 }
