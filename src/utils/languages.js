@@ -1453,7 +1453,7 @@ const languages = [
   },
   {
     canonical_name: 'Goan Konkani (Devanagari script)',
-    code: 'gom-deva',
+    code: 'gom',
     name: '\u0917\u094B\u0935\u093E \u0915\u094B\u0902\u0915\u0923\u0940'
   }
 ]
@@ -1548,8 +1548,17 @@ export const checkHasDeviceLanguageChanged = () => {
   return getCurrentDeviceLanguage() !== localStorage.getItem('language-device')
 }
 
+const getAlias = lang => {
+  // Jio uses `kok-IN` for Konkani but Wikipedia uses `gom`
+  const aliases = {
+    'kok-IN': 'gom'
+  }
+
+  return aliases[lang] || lang
+}
+
 const getCurrentDeviceLanguage = () => {
-  const navigatorLang = navigator.language
+  const navigatorLang = getAlias(navigator.language)
   return navigatorLang.includes('-')
     ? navigatorLang.substr(0, navigatorLang.indexOf('-'))
     : navigatorLang
