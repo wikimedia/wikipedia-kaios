@@ -5,7 +5,7 @@ const isUrlValid = url => url.length <= MAX_URL_LENGTH
 
 const buildBeaconUrl = event => {
   const queryString = encodeURIComponent(JSON.stringify(event))
-  return `${BASE_URL}?${queryString};`
+  return `${BASE_URL}?${queryString}`
 }
 
 export const sendEvent = (schema, revision, language, event) => {
