@@ -66,7 +66,6 @@ export const Settings = () => {
     // { title: i18n('settings-help-feedback') },
     { title: i18n('settings-about-app'), action: onAboutAppSelected },
     { title: i18n('settings-privacy-terms'), action: onPrivacyTermsSelected }
-
   ]
 
   return <div class='settings' ref={containerRef}>
