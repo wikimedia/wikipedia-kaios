@@ -40,7 +40,7 @@ export const UsageReportConsent = ({ close }) => {
         <div class='message'>
           <p> {i18n('usage-consent-explanation')} </p>
         </div>
-        <RadioListView items={items} containerRef={listRef} />
+        <RadioListView items={items} containerRef={listRef} darkerSelectedBackgroundColor />
       </div>
     </div>
   )
