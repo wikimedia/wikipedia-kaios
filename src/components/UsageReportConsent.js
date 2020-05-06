@@ -2,12 +2,14 @@ import { h } from 'preact'
 import { useState, useRef, useEffect } from 'preact/hooks'
 import { useNavigation, useI18n, useSoftkey } from 'hooks'
 import { RadioListView } from 'components'
+import { getConsentStatus, setConsentStatus } from 'utils'
 
 export const UsageReportConsent = ({ close }) => {
   const i18n = useI18n()
   const containerRef = useRef()
   const listRef = useRef()
-  const [items, setItems] = useState([{ title: 'Yes', isSelected: true }, { title: 'No', isSelected: false }]) // TODO: where to grab current consent state
+  const hasConsented = getConsentStatus()
+  const [items, setItems] = useState([{ title: 'Yes', isSelected: hasConsented }, { title: 'No', isSelected: !hasConsented }])
   const [, setNavigation, getCurrent] = useNavigation('UsageReportConsent', containerRef, listRef, 'y')
 
   const onKeyCenter = () => {
@@ -16,7 +18,7 @@ export const UsageReportConsent = ({ close }) => {
       i === index ? item.isSelected = true : item.isSelected = false
       return item
     }))
-    // TODO: trigger consent setting callback to actually update consent state
+    index === 0 ? setConsentStatus(true) : setConsentStatus(false)
   }
 
   useSoftkey('UsageReportConsent', {
