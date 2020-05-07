@@ -9,6 +9,7 @@
 	},
 	"article-action-sections": "Kopjes",
 	"article-action-quickfacts": "Snelle feiten",
+	"article-action-gallery": "Galerij",
 	"article-action-languages": "Taal",
 	"article-language-available": "Beschikbaar in $1 {{PLURAL:$1|taal|talen}}",
 	"article-language-loading-message": "Talen laden...",
@@ -19,6 +20,7 @@
 	"app-description": "Zoek en verken informatie van over de gehele wereld in meer dan 300 talen met de gratis Wikipedia app",
 	"content-license": "De inhoud is beschikbaar onder <a class=\"external\" rel=\"mw:ExtLink\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">CC BY-SA 3.0</a> tenzij anders vermeld.",
 	"about-header": "Over",
+	"about-wikipedia-header": "Over Wikipedia",
 	"gallery-description": "Beschrijving",
 	"gallery-author-license": "Auteur en licentie",
 	"gallery-unknown-author": "Onbekende auteur",
@@ -30,6 +32,7 @@
 	"header-textsize": "Artikel tekstgrootte",
 	"menu-previous": "Vorig artikel",
 	"menu-textsize": "Tekstgrootte",
+	"more-information": "Meer informatie",
 	"no-result-found": "Geen resultaten gevonden",
 	"softkey-about": "Over",
 	"softkey-more-info": "Meer info",
@@ -67,5 +70,6 @@
 	"settings-help-feedback": "Hulp en feedback",
 	"settings-about-app": "Over de app",
 	"toc-footer": "Aanbevolen berichten",
-	"view-in-browser": "Bericht in bladerprogramma weergeven"
+	"view-in-browser": "Bericht in bladerprogramma weergeven",
+	"softkey-read-more": "Meer lezen"
 }

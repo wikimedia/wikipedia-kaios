@@ -1,5 +1,6 @@
 import 'preact/debug'
 import { h, render } from 'preact'
+import 'intl-pluralrules'
 import Banana from 'banana-i18n'
 import {
   setAppLanguage, getAppLanguage, setDeviceLanguage, getDeviceLanguage,

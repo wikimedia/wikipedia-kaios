@@ -1,24 +1,37 @@
 {
 	"@metadata": {
 		"authors": [
-			"BadDog"
+			"BadDog",
+			"MarinaSimic"
 		]
 	},
+	"article-action-sections": "Одељци",
 	"article-action-gallery": "Галерија",
+	"article-action-languages": "Језик",
+	"article-language-available": "Доступно на $1 {{PLURAL:$1|језику|језика}}",
 	"article-language-loading-message": "Учитавање језика…",
 	"article-error-message": "Није могуће учитати чланак",
 	"app-title": "Википедија",
 	"app-subtitle": "Слободна енциклопедија",
 	"app-description": "Са бесплатном апликацијом Википедија, претражујте и истражујте информације из целог света на више од 300 језика",
 	"about-header": "О нама",
+	"about-wikipedia-header": "О Википедији",
 	"gallery-description": "Опис",
 	"gallery-author-license": "Аутор и лиценца",
+	"gallery-unknown-author": "Непознат аутор",
+	"gallery-unknown-license": "Непозната лиценца",
+	"header-search": "Резултати претраге",
+	"header-sections": "Одељци",
 	"header-settings": "Подешавања",
+	"menu-previous": "Претходни чланак",
+	"menu-textsize": "Величина текста",
+	"more-information": "Више информација",
 	"softkey-about": "О нама",
 	"softkey-more-info": "Више информација",
 	"softkey-done": "Готово",
 	"softkey-search": "Претражи",
 	"search-language-placeholder": "Изаберите језике",
+	"softkey-menu": "Мени",
 	"search-placeholder": "Претражите Википедију",
 	"softkey-settings": "Подешавања",
 	"centerkey-select": "Изабери",
@@ -26,8 +39,15 @@
 	"language-change": "Промена језика апликације",
 	"language-setting": "Подешавања језика",
 	"softkey-ok": "У реду",
+	"softkey-read": "Прочитај",
+	"softkey-back": "Назад",
+	"softkey-skip": "Прескочи",
+	"softkey-get-started": "Почни",
 	"softkey-refresh": "Освежи",
 	"suggested-articles": "Предложени чланци",
+	"reference-title": "Референца [$1]",
+	"offline-message": "Нема интернет везе",
+	"onboarding-0-title": "Слободна енциклопедија",
 	"settings-language": "Језик",
 	"settings-textsize": "Величина текста",
 	"settings-about-wikipedia": "О Википедији",
@@ -37,5 +57,6 @@
 	"settings-help-feedback": "Помоћ и повратне информације",
 	"settings-about-app": "О апликацији",
 	"toc-footer": "Предложени чланци",
-	"view-in-browser": "Прикажи чланак у прегледачу"
+	"view-in-browser": "Прикажи чланак у прегледачу",
+	"softkey-read-more": "Детаљније"
 }
