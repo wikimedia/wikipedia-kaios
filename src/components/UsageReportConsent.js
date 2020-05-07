@@ -15,10 +15,10 @@ export const UsageReportConsent = ({ close }) => {
   const onKeyCenter = () => {
     const { index } = getCurrent()
     setItems(items.map((item, i) => {
-      i === index ? item.isSelected = true : item.isSelected = false
+      item.isSelected = (i === index)
       return item
     }))
-    index === 0 ? setConsentStatus(true) : setConsentStatus(false)
+    setConsentStatus(index === 0)
   }
 
   useSoftkey('UsageReportConsent', {
