@@ -82,6 +82,9 @@
     "privacy-terms-header": "Privacy and Terms",
     "settings-usage-reports": "Send usage reports",
     "usage-consent-header": "Send usage reports",
-    "usage-consent-explanation": "Help make the app better by letting us know how you use it. Data collected is anonymous. Read privacy policy for more details."
-    
+    "usage-consent-explanation": "Help make the app better by letting us know how you use it. Data collected is anonymous. Read privacy policy for more details.",
+    "softkey-yes": "Yes",
+    "softkey-no": "No",
+    "usage-consent-prompt": "Help make the app better by letting us know how you use it. Data collected is anonymous. Read privacy policy in settings menu for more details.",
+    "usage-consent-prompt-header": "Usage data"
 }
