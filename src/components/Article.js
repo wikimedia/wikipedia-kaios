@@ -140,7 +140,6 @@ const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
   const sectionCount = article.toc.filter(s => s.level === 1).length
   const [openedSections, setOpenedSections] = useState({})
   useTracking('Article', lang, article.namespace, sectionCount, openedSections)
-
   const [anchor, setAnchor] = useState(initialAnchor)
   const [showTocPopup] = usePopup(ArticleToc, { mode: 'fullscreen', stack: true })
   const [showQuickFactsPopup] = usePopup(QuickFacts, { mode: 'fullscreen', stack: true })

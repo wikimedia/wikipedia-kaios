@@ -3,12 +3,15 @@ import { useReducer, useState } from 'preact/hooks'
 import { Routes, Softkey, PopupContainer, OfflineIndicator } from 'components'
 import { I18nContext, SoftkeyContext, PopupContext } from 'contexts'
 import { SoftkeyReducer } from 'reducers'
+import { useErrorLogging } from 'hooks'
 
 export const App = ({ i18n }) => {
   // @todo making it used by the global state management
   const [state, dispatch] = useReducer(SoftkeyReducer, {})
   const [popupState, setPopupState] = useState([])
   const [url, setUrl] = useState()
+
+  useErrorLogging()
 
   return (
     <I18nContext.Provider value={i18n}>
