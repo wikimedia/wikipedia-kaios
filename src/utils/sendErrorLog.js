@@ -8,7 +8,7 @@ export const sendErrorLog = ({ message, stack = '', url = '' }) => {
     meta: {
       stream: 'kaios_app.error'
     },
-    error_class: stack,
+    stack_trace: stack,
     message: message + `/${appVersion()}`,
     url
   })
