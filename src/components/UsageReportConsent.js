@@ -9,7 +9,10 @@ export const UsageReportConsent = ({ close }) => {
   const containerRef = useRef()
   const listRef = useRef()
   const hasConsented = getConsentStatus()
-  const [items, setItems] = useState([{ title: i18n('usage-consent-yes'), isSelected: hasConsented }, { title: i18n('usage-consent-no'), isSelected: !hasConsented }])
+  const [items, setItems] = useState([
+    { title: i18n('usage-consent-yes'), isSelected: hasConsented },
+    { title: i18n('usage-consent-no'), isSelected: !hasConsented }
+  ])
   const [, setNavigation, getCurrent] = useNavigation('UsageReportConsent', containerRef, listRef, 'y')
 
   const onKeyCenter = () => {
