@@ -7,3 +7,7 @@ export const getConsentStatus = () => {
 export const setConsentStatus = consent => {
   localStorage.setItem(KEY, !!consent)
 }
+
+export const getConsentConfirmationStatus = () => {
+  return (localStorage.getItem(KEY) === null || localStorage.getItem(KEY) === undefined)
+}
