@@ -52,7 +52,7 @@ export const Search = () => {
     onKeyCenter
   }, [current.type])
 
-  useTracking('Search')
+  useTracking('Search', lang)
 
   useEffect(() => {
     articleHistory.clear()

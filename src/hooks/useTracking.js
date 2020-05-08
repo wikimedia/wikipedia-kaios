@@ -1,15 +1,11 @@
 import { useRef, useEffect } from 'preact/hooks'
-import { getConsentStatus, appVersion } from 'utils'
+import { appVersion, sendEvent, getConsentStatus } from 'utils'
 
 const SCHEMA_NAME = 'InukaPageView'
 const SCHEMA_REV = 19883738
 const USER_ID_KEY = 'INUKA-PV-U'
 const SESSION_ID_KEY = 'INUKA-PV-S'
 const ONE_HOUR = 3600 * 1000
-const BASE_URL = 'https://en.wikipedia.org/beacon/event'
-const MAX_URL_LENGTH = 2000
-// todo: find a place for a global debug flag in the app
-const DEBUG = false
 
 const generateId = () => {
   const rnds = new Uint16Array(5)
@@ -32,104 +28,104 @@ const getUserId = () => {
 
 const getSessionId = () => {
   const now = Date.now()
+  let changed = false
   let { id, ts } = JSON.parse(localStorage.getItem(SESSION_ID_KEY)) || {}
   if (!id || (now - ts) > ONE_HOUR) {
     // Never existed or is expired
     id = generateId()
+    changed = true
   }
   ts = now
   localStorage.setItem(SESSION_ID_KEY, JSON.stringify({ id, ts }))
-  return id
-}
-
-const isUrlValid = url => url.length <= MAX_URL_LENGTH
-
-const buildBeaconUrl = event => {
-  const queryString = encodeURIComponent(JSON.stringify(event))
-  return `${BASE_URL}?${queryString};`
-}
-
-const sendEvent = event => {
-  if (DEBUG) {
-    console.log(event)
-  } else {
-    const url = buildBeaconUrl(event)
-    if (isUrlValid(url)) {
-      navigator.sendBeacon(url)
-    }
-  }
+  return [id, changed]
 }
 
 export const useTracking = (
   pageName,
-  language = 'en',
+  language,
   namespace = -1,
   sectionCount = 0,
   openedSections = {}
 ) => {
-  const trackingRef = useRef()
+  const userId = getUserId()
+  const isSearch = pageName === 'Search'
 
+  const trackingRef = useRef()
   useEffect(() => {
     trackingRef.openedSectionCount = Object.keys(openedSections).length
   }, [openedSections])
 
+  let start
+  let pageviewToken
+  let msPaused
+  let pausedTime
+
+  const initEvent = () => {
+    start = Date.now()
+    pageviewToken = generateId()
+    msPaused = 0
+    pausedTime = null
+  }
+
+  const onShow = () => {
+    const [, changed] = getSessionId()
+    if (changed) {
+      // The page has been hidden for too long, the session has expired.
+      // We consider this a new pageview, reset the event data (start time, etc)
+      initEvent()
+    } else if (pausedTime) {
+      const now = Date.now()
+      msPaused += now - pausedTime
+      pausedTime = null
+    }
+  }
+
+  const onHide = () => {
+    pausedTime = Date.now()
+    // Log the event now since we don't know if the user is ever coming back.
+    logInukaPageView()
+  }
+
+  const onVisibilityChanged = () => {
+    document.visibilityState === 'visible' ? onShow() : onHide()
+  }
+
+  const logInukaPageView = () => {
+    const now = Date.now()
+    const totalTime = now - start
+    const [sessionId] = getSessionId()
+
+    const event = {
+      /* eslint-disable camelcase */
+      user_id: userId,
+      session_id: sessionId,
+      pageview_token: pageviewToken,
+      client_type: 'kaios-app',
+      app_version: appVersion(),
+      referring_domain: 'kaios-app',
+      load_dt: new Date(start).toISOString(),
+      page_open_time: Math.round(totalTime),
+      page_visible_time: Math.round(totalTime - msPaused),
+      section_count: sectionCount,
+      opened_section_count: trackingRef.openedSectionCount,
+      page_namespace: namespace,
+      is_main_page: isSearch,
+      is_search_page: isSearch
+      /* eslint-enable camelcase */
+    }
+
+    sendEvent(SCHEMA_NAME, SCHEMA_REV, language, event)
+  }
+
   useEffect(() => {
     if (!getConsentStatus()) return
-    const start = Date.now()
-    const userId = getUserId()
-    const pageviewToken = generateId()
-    let msPaused = 0
-    let pausedTime
-    const isSearch = pageName === 'Search'
-    const onVisibilityChanged = () => {
-      if (document.visibilityState === 'visible') {
-        if (pausedTime) {
-          const now = Date.now()
-          msPaused += now - pausedTime
-          pausedTime = null
-        }
-      } else {
-        pausedTime = Date.now()
-      }
-    }
+    // Make sure the session id is set and its timer is updated
+    getSessionId()
+    initEvent()
     document.addEventListener('visibilitychange', onVisibilityChanged)
-
-    const sendBeacon = () => {
-      const now = Date.now()
-      const totalTime = now - start
-
-      const event = {
-        event: {
-          /* eslint-disable camelcase */
-          user_id: userId,
-          session_id: getSessionId(),
-          pageview_token: pageviewToken,
-          client_type: 'kaios-app',
-          app_version: appVersion(),
-          referring_domain: 'kaios-app',
-          load_dt: new Date(start).toISOString(),
-          page_open_time: Math.round(totalTime),
-          page_visible_time: Math.round(totalTime - msPaused),
-          section_count: sectionCount,
-          opened_section_count: trackingRef.openedSectionCount,
-          page_namespace: namespace,
-          is_main_page: isSearch,
-          is_search_page: isSearch
-          /* eslint-enable camelcase */
-        },
-        revision: SCHEMA_REV,
-        schema: SCHEMA_NAME,
-        webHost: `${language}.wikipedia.org`,
-        wiki: `${language}wiki`
-      }
-
-      sendEvent(event)
-
+    return () => {
       document.removeEventListener('visibilitychange', onVisibilityChanged)
-      window.removeEventListener('pagehide', sendBeacon)
+      logInukaPageView()
     }
-    window.addEventListener('pagehide', sendBeacon)
-
-    return sendBeacon
   }, [])
 }
