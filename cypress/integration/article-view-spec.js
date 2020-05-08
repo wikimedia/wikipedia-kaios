@@ -16,6 +16,7 @@ const searchPage = new SearchPage()
 
 describe('Article view', () => {
   beforeEach(() => {
+    localStorage.setItem('usage-data-consent', false) // Don't display usage data consent prompt
     cy.navigateToHomePage()
   })
 

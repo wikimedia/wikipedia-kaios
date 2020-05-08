@@ -10,6 +10,7 @@ const searchPage = new SearchPage()
 
 describe('Onboarding', () => {
   beforeEach(() => {
+    localStorage.setItem('usage-data-consent', false) // Don't display usage data consent prompt
     cy.visit('http://127.0.0.1:8080')
   })
 
