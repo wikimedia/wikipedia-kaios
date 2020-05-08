@@ -9,8 +9,9 @@ export const sendErrorLog = ({ message, stack = '', url = '' }) => {
       stream: 'kaios_app.error'
     },
     stack_trace: stack,
-    message: message + `/${appVersion()}`,
-    url
+    message: message,
+    url,
+    tags: { app_version: appVersion() }
   })
   )
 }
