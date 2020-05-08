@@ -77,5 +77,12 @@
     "toc-footer": "Suggested articles",
     "view-in-browser": "View article in browser",
     "about-app-message": "Made by the Wikimedia Foundation with the help of volunteers like you.",
-    "softkey-read-more": "Read More"
+    "softkey-read-more": "Read More",
+    "settings-privacy-terms": "Privacy and Terms",
+    "privacy-terms-header": "Privacy and Terms",
+    "settings-usage-reports": "Send usage reports",
+    "usage-consent-header": "Send usage reports",
+    "usage-consent-explanation": "Help make the app better by letting us know how you use it. Data collected is anonymous. Read privacy policy for more details.",
+    "usage-consent-yes": "Yes",
+    "usage-consent-no": "No"
 }

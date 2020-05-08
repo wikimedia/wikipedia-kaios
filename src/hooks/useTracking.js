@@ -1,5 +1,5 @@
 import { useRef, useEffect } from 'preact/hooks'
-import { appVersion, sendEvent } from 'utils'
+import { appVersion, sendEvent, getConsentStatus } from 'utils'
 
 const SCHEMA_NAME = 'InukaPageView'
 const SCHEMA_REV = 19883738
@@ -118,6 +118,7 @@ export const useTracking = (
   }
 
   useEffect(() => {
+    if (!getConsentStatus()) return
     // Make sure the session id is set and its timer is updated
     getSessionId()
     initEvent()
