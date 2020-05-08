@@ -30,7 +30,7 @@ export const UsageReportConsent = ({ close }) => {
   }, [])
 
   useEffect(() => {
-    setNavigation(0)
+    setNavigation(items.findIndex(item => item.isSelected))
   }, [])
 
   return (

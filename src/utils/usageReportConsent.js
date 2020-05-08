@@ -1,7 +1,8 @@
 const KEY = 'usage-data-consent'
 
 export const getConsentStatus = () => {
-  return localStorage.getItem(KEY)
+  const consent = (localStorage.getItem(KEY) === 'true')
+  return consent
 }
 
 export const setConsentStatus = (consent) => {
