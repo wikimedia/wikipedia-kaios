@@ -19,17 +19,15 @@ const aboutWikipediaPage = new AboutWikipediaPage()
 const settingsMenuListEnglishText = [enJson['settings-language'],
   enJson['settings-textsize'],
   enJson['settings-about-wikipedia'],
-  enJson['settings-privacy'],
-  enJson['settings-term'],
-  enJson['settings-about-app']]
+  enJson['settings-about-app'],
+  enJson['settings-privacy-terms']]
 const languageSettingsPopupEnglishText = enJson['language-setting-message']
 const languageChangeDutchText = nlJson['language-change']
 const settingsMenuListDutchText = [nlJson['settings-language'],
   nlJson['settings-textsize'],
   nlJson['settings-about-wikipedia'],
-  nlJson['settings-privacy'],
-  nlJson['settings-term'],
-  nlJson['settings-about-app']]
+  nlJson['settings-about-app'],
+  enJson['settings-privacy-terms']] // TODO: update to nlJson when translations is available
 
 describe('settings page', () => {
   var firstElementOfTheSettingsMenuList
