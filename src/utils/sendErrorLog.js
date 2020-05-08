@@ -10,8 +10,7 @@ export const sendErrorLog = ({ message, stack = '', url = '' }) => {
     },
     error_class: stack,
     message: message + `/${appVersion()}`,
-    url,
-    file_url: ''
+    url
   })
   )
 }
