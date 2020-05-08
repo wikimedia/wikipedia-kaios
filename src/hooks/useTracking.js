@@ -1,5 +1,5 @@
 import { useRef, useEffect } from 'preact/hooks'
-import { appVersion } from 'utils'
+import { getConsentStatus, appVersion } from 'utils'
 
 const SCHEMA_NAME = 'InukaPageView'
 const SCHEMA_REV = 19883738
@@ -74,6 +74,7 @@ export const useTracking = (
   }, [openedSections])
 
   useEffect(() => {
+    if (!getConsentStatus()) return
     const start = Date.now()
     const userId = getUserId()
     const pageviewToken = generateId()

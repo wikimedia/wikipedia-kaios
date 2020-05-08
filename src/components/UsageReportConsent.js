@@ -9,16 +9,19 @@ export const UsageReportConsent = ({ close }) => {
   const containerRef = useRef()
   const listRef = useRef()
   const hasConsented = getConsentStatus()
-  const [items, setItems] = useState([{ title: 'Yes', isSelected: hasConsented }, { title: 'No', isSelected: !hasConsented }])
+  const [items, setItems] = useState([
+    { title: i18n('usage-consent-yes'), isSelected: hasConsented },
+    { title: i18n('usage-consent-no'), isSelected: !hasConsented }
+  ])
   const [, setNavigation, getCurrent] = useNavigation('UsageReportConsent', containerRef, listRef, 'y')
 
   const onKeyCenter = () => {
     const { index } = getCurrent()
     setItems(items.map((item, i) => {
-      i === index ? item.isSelected = true : item.isSelected = false
+      item.isSelected = (i === index)
       return item
     }))
-    index === 0 ? setConsentStatus(true) : setConsentStatus(false)
+    setConsentStatus(index === 0)
   }
 
   useSoftkey('UsageReportConsent', {
@@ -30,7 +33,7 @@ export const UsageReportConsent = ({ close }) => {
   }, [])
 
   useEffect(() => {
-    setNavigation(0)
+    setNavigation(items.findIndex(item => item.isSelected))
   }, [])
 
   return (
@@ -40,7 +43,7 @@ export const UsageReportConsent = ({ close }) => {
         <div class='message'>
           <p> {i18n('usage-consent-explanation')} </p>
         </div>
-        <RadioListView items={items} containerRef={listRef} darkerSelectedBackgroundColor />
+        <RadioListView items={items} containerRef={listRef} />
       </div>
     </div>
   )

@@ -47,11 +47,13 @@ export const PrivacyTerms = ({ close }) => {
     { title: i18n('settings-term'), link: `https://foundation.m.wikimedia.org/wiki/Terms_of_Use/${lang}` }
   ]
 
-  return <div class='privacyterms' ref={containerRef}>
-    <ListView
-      header={i18n('privacy-terms-header')}
-      items={items}
-      containerRef={listRef}
-    />
-  </div>
+  return (
+    <div class='privacyterms' ref={containerRef}>
+      <ListView
+        header={i18n('privacy-terms-header')}
+        items={items}
+        containerRef={listRef}
+      />
+    </div>
+  )
 }

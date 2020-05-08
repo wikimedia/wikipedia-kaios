@@ -87,5 +87,7 @@
 	"softkey-yes": "Label of the Yes softkey",
 	"softkey-no": "Label of the No softkey",
 	"usage-consent-prompt": "Message displayed in usage data prompt popup in Search home screen",
-  "usage-consent-prompt-header": "Usage data prompt popup header"
+  "usage-consent-prompt-header": "Usage data prompt popup header",
+	"usage-consent-yes": "Label used to grant usage data consent in Send usage reports page",
+  "usage-consent-no": "Label used to deny usage data consent in Send usage reports page"
 }
