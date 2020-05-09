@@ -1,12 +1,24 @@
 const path = require('path')
 const webpack = require('webpack');
 const StylelintPlugin = require('stylelint-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
+  },
+  optimization: {
+    minimizer: [
+      // keep the name when sending the error logging
+      new TerserPlugin({
+        terserOptions: {
+          keep_classnames: true,
+          keep_fnames: true
+        }
+      })
+    ]
   },
   performance: {
     hints: false

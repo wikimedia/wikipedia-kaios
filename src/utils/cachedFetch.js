@@ -1,4 +1,4 @@
-import { isProd, appVersion } from 'utils'
+import { isProd, appVersion, sendErrorLog } from 'utils'
 
 // todo: Implement a real cache that keeps
 // the last N requests to keep memory usage
@@ -37,9 +37,11 @@ export const cachedFetch = (url, transformFn, abortAllXhr = false, cache = true)
       } else {
         reject(new Error('XHR Error: ' + xhr.status))
       }
+      sendLogWhenError(xhr, url)
       delete xhrList[timestamp]
     })
     xhr.addEventListener('error', () => {
+      sendLogWhenError(xhr, url)
       delete xhrList[timestamp]
       reject(new Error('XHR Error: ' + xhr.status))
     })
@@ -51,4 +53,16 @@ const abortAllFetch = () => {
     xhrList[key].abort()
     delete xhrList[key]
   })
+}
+
+const sendLogWhenError = ({ status, response }, url) => {
+  if (!isProd()) {
+    return
+  }
+
+  if (response.error) {
+    sendErrorLog({ message: response.error.info, url })
+  } else if (status >= 500 && status < 600) {
+    sendErrorLog({ message: `${status} ${url}`, url })
+  }
 }

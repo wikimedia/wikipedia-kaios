@@ -82,5 +82,12 @@
 	"feedback-header": "Header title shown in Feedback component, selected from Settings menu",
 	"feedback-explanation": "Message displained in Feedback component that explains how feedback information will be used",
 	"send": "Label of the send softkey, shown in Feedback component",
-	"cancel": "Label of the cancel softkey, shown in Feedback component"
+	"cancel": "Label of the cancel softkey, shown in Feedback component",
+	"settings-privacy-terms": "Label of the Privacy and Terms item list. Shown in the Settings menu.",
+	"privacy-terms-header": "The header title shown in the Privacy and Terms page",
+	"settings-usage-reports": "Label of the usage reports consent item list. Shown in the Settings menu, under privacy and terms",
+	"usage-consent-header": "The header title shown in the Send usage reports page",
+	"usage-consent-explanation": "Message displayed in Send usage reports page that explains how the info collected is used",
+	"usage-consent-yes": "Label used to grant usage data consent in Send usage reports page",
+	"usage-consent-no": "Label used to deny usage data consent in Send usage reports page"
 }
