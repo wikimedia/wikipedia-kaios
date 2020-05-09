@@ -13,8 +13,8 @@ export const ConsentPopup = ({ close }) => {
   }
 
   useSoftkey('ConsentMessage', {
-    right: i18n('softkey-yes'),
-    onKeyRight: handleConsent(true),
+    center: i18n('softkey-yes'),
+    onKeyCenter: handleConsent(true),
     left: i18n('softkey-no'),
     onKeyLeft: handleConsent(false)
   }, [])

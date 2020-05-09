@@ -87,6 +87,6 @@
     "usage-consent-no": "No",
     "softkey-yes": "Yes",
     "softkey-no": "No",
-    "usage-consent-prompt": "Help make the app better by letting us know how you use it. Data collected is anonymous. Read privacy policy in settings menu for more details.",
-    "usage-consent-prompt-header": "Usage data"
+    "usage-consent-prompt": "Help make the app better by letting us know how you use it. You can change your preference at anytime from the settings menu. Data collected is anonymous.",
+    "usage-consent-prompt-header": "Anonymous data"
 }
