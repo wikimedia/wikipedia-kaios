@@ -11,7 +11,7 @@ export const getArticle = (lang, title, { moreInformationText }) => {
     const languageCount = data.lead.languagecount
 
     // parse info box
-    const doc = parser.parseFromString(fixImageUrl(data.lead.sections[0].text), 'text/html')
+    const doc = parser.parseFromString(fixImageUrl(data.lead.sections[0].text, lang), 'text/html')
     const infobox = extractInfobox(doc)
     const preview = extractPreview(doc)
 
@@ -22,7 +22,7 @@ export const getArticle = (lang, title, { moreInformationText }) => {
       title: data.lead.displaytitle,
       anchor: canonicalizeTitle(data.lead.normalizedtitle),
       description: data.lead.description,
-      content: modifyHtmlText(data.lead.sections[0].text, moreInformationText),
+      content: modifyHtmlText(data.lead.sections[0].text, moreInformationText, lang),
       preview
     })
     toc.push({
@@ -34,7 +34,7 @@ export const getArticle = (lang, title, { moreInformationText }) => {
 
     // parse remaining sections
     data.remaining.sections.forEach((s) => {
-      const modifiedTextContent = modifyHtmlText(s.text, moreInformationText)
+      const modifiedTextContent = modifyHtmlText(s.text, moreInformationText, lang)
       // new section when toclevel 1
       if (s.toclevel === 1) {
         sections.push({
@@ -81,10 +81,12 @@ export const getArticle = (lang, title, { moreInformationText }) => {
   })
 }
 
-const fixImageUrl = (htmlString) => {
+const fixImageUrl = (htmlString, lang) => {
   // The app is served from the app:// protocol so protocol-relative
   // image sources don't work.
-  return htmlString.replace(/src="\/\//gi, 'src="https://')
+  return htmlString
+    .replace(/src="\/\//gi, 'src="https://')
+    .replace(/src="\/w\/extensions\//gi, `src="https://${lang}.wikipedia.org/w/extensions/`)
 }
 
 const fixTableCaption = (htmlString, moreInformationText) => {
@@ -107,8 +109,8 @@ const fixTableCaption = (htmlString, moreInformationText) => {
   return node.childNodes[0].innerHTML
 }
 
-const modifyHtmlText = (text, moreInformationText) => {
-  const fixedImageUrlText = fixImageUrl(text)
+const modifyHtmlText = (text, moreInformationText, lang) => {
+  const fixedImageUrlText = fixImageUrl(text, lang)
   return fixTableCaption(fixedImageUrlText, moreInformationText)
 }
 
