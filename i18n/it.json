@@ -57,5 +57,12 @@
 	"settings-about-app": "Informazioni sull'app",
 	"textsize-increase": "Premi 6 (aumenta dimensioni)",
 	"textsize-decrease": "Premi 4 (diminuisci dimensioni)",
-	"toc-footer": "Voci suggerite"
+	"toc-footer": "Voci suggerite",
+	"settings-privacy-terms": "Privacy e condizioni",
+	"privacy-terms-header": "Privacy e condizioni",
+	"settings-usage-reports": "Invia rapporti sull'utilizzo",
+	"usage-consent-header": "Invia rapporti sull'utilizzo",
+	"usage-consent-explanation": "Contribuisci a migliorare l'applicazione facendoci sapere come la usi. I dati raccolti sono anonimi. Leggi la politica sulla privacy per maggiori dettagli.",
+	"usage-consent-yes": "Sì",
+	"usage-consent-no": "No"
 }

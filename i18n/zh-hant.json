@@ -76,5 +76,12 @@
 	"toc-footer": "建議條目",
 	"view-in-browser": "在瀏覽器裡檢視條目",
 	"about-app-message": "由維基媒體基金會在像您這樣的志工們協助下所製作。",
-	"softkey-read-more": "延伸閱讀"
+	"softkey-read-more": "延伸閱讀",
+	"settings-privacy-terms": "隱私與條款",
+	"privacy-terms-header": "隱私與條款",
+	"settings-usage-reports": "傳送使用情況報告",
+	"usage-consent-header": "傳送使用情況報告",
+	"usage-consent-explanation": "請讓我們了解您是如何使用它，以讓應用程式能變得更好，另外資料收集都是採用匿名方式的。請閱讀隱私與條款來了解更多。",
+	"usage-consent-yes": "是",
+	"usage-consent-no": "否"
 }
