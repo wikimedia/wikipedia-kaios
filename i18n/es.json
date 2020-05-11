@@ -5,6 +5,7 @@
 			"Dvpita",
 			"Eduardo Addad de Oliveira",
 			"Fitoschido",
+			"Geryescalier",
 			"Ihojose",
 			"Joanmp17",
 			"Madamebiblio",
@@ -82,5 +83,12 @@
 	"toc-footer": "Artículos sugeridos",
 	"view-in-browser": "Ver artículo en el navegador",
 	"about-app-message": "Creado por la Fundación Wikimedia con ayuda de voluntarios como tú.",
-	"softkey-read-more": "Leer más"
+	"softkey-read-more": "Leer más",
+	"settings-privacy-terms": "Privacidad y términos",
+	"privacy-terms-header": "Privacidad y términos",
+	"settings-usage-reports": "Enviar informes de uso",
+	"usage-consent-header": "Enviar informes de uso",
+	"usage-consent-explanation": "Ayude a mejorar la aplicación informándonos cómo la usa. Los datos recopilados son anónimos. Lea la política de privacidad para más detalles.",
+	"usage-consent-yes": "Sí",
+	"usage-consent-no": "No"
 }

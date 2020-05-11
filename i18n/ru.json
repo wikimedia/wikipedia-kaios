@@ -66,5 +66,7 @@
 	"toc-footer": "Предлагаемые статьи",
 	"view-in-browser": "Просмотреть статью в браузере",
 	"about-app-message": "Сделано Фондом Викимедиа с помощью таких же добровольцев, как вы.",
-	"softkey-read-more": "Подробнее"
+	"softkey-read-more": "Подробнее",
+	"usage-consent-yes": "Да",
+	"usage-consent-no": "Нет"
 }

@@ -4,6 +4,7 @@
 			"Aefgh39622",
 			"Buntschann",
 			"Kkairri",
+			"Object＊tofu",
 			"Omotecho",
 			"Rootflag",
 			"きこねす"
@@ -43,5 +44,10 @@
 	"settings-term": "利用規約",
 	"settings-rate": "このアプリを評価",
 	"settings-about-app": "このアプリについて",
-	"view-in-browser": "記事をブラウザで表示する"
+	"view-in-browser": "記事をブラウザで表示する",
+	"settings-privacy-terms": "プライバシーと利用規約",
+	"privacy-terms-header": "プライバシーと利用規約",
+	"usage-consent-explanation": "アプリの使い方を教えて機能の向上にご協力いただけませんか。収集されるデータは匿名です。詳細はプライバシーの方針をご参照ください。",
+	"usage-consent-yes": "はい",
+	"usage-consent-no": "いいえ"
 }

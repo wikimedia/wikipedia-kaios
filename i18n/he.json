@@ -77,5 +77,12 @@
 	"toc-footer": "ערכים מוצעים",
 	"view-in-browser": "הצגת הערך בדפדפן",
 	"about-app-message": "נוצר על־ידי קרן ויקימדיה בעזרת מתנדבים כמוך.",
-	"softkey-read-more": "מידע נוסף"
+	"softkey-read-more": "מידע נוסף",
+	"settings-privacy-terms": "פרטיות ותנאי שימוש",
+	"privacy-terms-header": "פרטיות ותנאי שימוש",
+	"settings-usage-reports": "שליחת דיווחי שימוש",
+	"usage-consent-header": "שליחת דיווחי שימוש",
+	"usage-consent-explanation": "עזרו לנו לשפר את היישום על־ידי זה שתאפשרו לנו ללמוד איך אתם משתמשים בו. הנתונים שנאספים אלמוניים. יש לקרוא את מדיניות הפרטיות לפרטים נוספים.",
+	"usage-consent-yes": "כן",
+	"usage-consent-no": "לא"
 }

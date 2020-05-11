@@ -75,5 +75,12 @@
 	"toc-footer": "Artigos sugeridos",
 	"view-in-browser": "Ver artigo no navegador",
 	"about-app-message": "Feito pela Fundação Wikimedia com a ajuda de voluntários como você.",
-	"softkey-read-more": "Ler mais"
+	"softkey-read-more": "Ler mais",
+	"settings-privacy-terms": "Privacidade e termos",
+	"privacy-terms-header": "Privacidade e termos",
+	"settings-usage-reports": "Enviar relatórios de uso",
+	"usage-consent-header": "Enviar relatórios de uso",
+	"usage-consent-explanation": "Ajude a melhorar o aplicativo, informando como você o usa. Os dados coletados são anônimos. Leia a política de privacidade para mais detalhes.",
+	"usage-consent-yes": "Sim",
+	"usage-consent-no": "Não"
 }

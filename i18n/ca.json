@@ -78,5 +78,11 @@
 	"toc-footer": "Articles suggerits",
 	"view-in-browser": "Mostra l’article al navegador",
 	"about-app-message": "Creat per la Fundació Wikimedia amb l'ajuda de voluntaris.",
-	"softkey-read-more": "Més informació"
+	"softkey-read-more": "Més informació",
+	"settings-privacy-terms": "Privadesa i condicions",
+	"privacy-terms-header": "Privadesa i condicions",
+	"settings-usage-reports": "Envia informes d’ús",
+	"usage-consent-header": "Envia informes d’ús",
+	"usage-consent-yes": "Sí",
+	"usage-consent-no": "No"
 }
