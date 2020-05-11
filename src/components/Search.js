@@ -5,7 +5,7 @@ import {
   useNavigation, useSearch, useI18n, useSoftkey,
   useOnlineStatus, useTracking, usePopup
 } from 'hooks'
-import { articleHistory, goto, getAppLanguage, getConsentConfirmationStatus } from 'utils'
+import { articleHistory, goto, getAppLanguage, hasConsentBeenAnswered } from 'utils'
 
 const SearchOfflinePanel = () => {
   const i18n = useI18n()
@@ -58,7 +58,7 @@ export const Search = () => {
   useEffect(() => {
     articleHistory.clear()
     setNavigation(0)
-    if (getConsentConfirmationStatus()) {
+    if (hasConsentBeenAnswered()) {
       showConsentPopup()
     }
   }, [])
