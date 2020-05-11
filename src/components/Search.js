@@ -28,6 +28,7 @@ export const Search = () => {
   const [showConsentPopup] = usePopup(ConsentPopup)
   const lang = getAppLanguage()
   const [query, setQuery, searchResults] = useSearch(lang)
+  const hasUserConsentBeenAnswered = hasConsentBeenAnswered()
   const isOnline = useOnlineStatus(online => {
     if (online) {
       setQuery(inputRef.current.value)
@@ -57,11 +58,12 @@ export const Search = () => {
 
   useEffect(() => {
     articleHistory.clear()
-    setNavigation(0)
-    if (hasConsentBeenAnswered()) {
+    if (hasUserConsentBeenAnswered) {
       showConsentPopup()
+    } else {
+      setNavigation(0)
     }
-  }, [])
+  }, [hasUserConsentBeenAnswered])
 
   return (
     <div class='search' ref={containerRef}>
