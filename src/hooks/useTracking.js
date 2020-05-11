@@ -47,6 +47,8 @@ export const useTracking = (
   sectionCount = 0,
   openedSections = {}
 ) => {
+  if (getConsentStatus() === false) return
+
   const userId = getUserId()
   const isSearch = pageName === 'Search'
 
