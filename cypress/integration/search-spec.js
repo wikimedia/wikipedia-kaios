@@ -8,7 +8,6 @@ const searchPage = new SearchPage()
 const articlePage = new ArticlePage()
 describe('Article search', () => {
   beforeEach(() => {
-    localStorage.setItem('usage-data-consent', false) // Don't display usage data consent prompt
     cy.navigateToHomePage()
   })
 

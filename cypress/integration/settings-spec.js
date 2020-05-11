@@ -32,7 +32,6 @@ const settingsMenuListDutchText = [nlJson['settings-language'],
 describe('settings page', () => {
   var firstElementOfTheSettingsMenuList
   beforeEach(() => {
-    localStorage.setItem('usage-data-consent', false) // Don't display usage data consent prompt
     cy.navigateToHomePage()
     searchPage.navigateToSettingsPage()
     firstElementOfTheSettingsMenuList = settingsPage.settingsList().children().first()

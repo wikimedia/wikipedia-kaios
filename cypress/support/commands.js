@@ -46,6 +46,7 @@ Cypress.Commands.add('clickDoneButton', () => {
 
 Cypress.Commands.add('navigateToHomePage', () => {
   cy.setLocalStorage('has-onboard-before', true)
+  cy.setLocalStorage('usage-data-consent', false) // Don't display usage data consent prompt
   cy.visit('http://127.0.0.1:8080')
 })
 
