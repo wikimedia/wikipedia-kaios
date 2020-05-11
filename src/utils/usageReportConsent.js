@@ -9,5 +9,5 @@ export const setConsentStatus = consent => {
 }
 
 export const hasConsentBeenAnswered = () => {
-  return (localStorage.getItem(KEY) === null)
+  return (localStorage.getItem(KEY) !== null)
 }

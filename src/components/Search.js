@@ -58,7 +58,7 @@ export const Search = () => {
 
   useEffect(() => {
     articleHistory.clear()
-    if (hasUserConsentBeenAnswered) {
+    if (!hasUserConsentBeenAnswered) {
       showConsentPopup()
     } else {
       setNavigation(0)
