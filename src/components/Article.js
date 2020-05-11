@@ -55,7 +55,9 @@ const ArticleSection = ({
       }
     },
     reference: ({ referenceId }) => {
-      showReferencePreview({ reference: references[referenceId], lang })
+      if (references[referenceId]) {
+        showReferencePreview({ reference: references[referenceId], lang })
+      }
     },
     section: ({ text, anchor }) => {
       // @todo styling to be confirmed with design
