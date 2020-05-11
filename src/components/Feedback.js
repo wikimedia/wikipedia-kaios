@@ -1,14 +1,14 @@
 import { h } from 'preact'
 import { useState } from 'preact/hooks'
 import { useI18n, useSoftkey } from 'hooks'
+import { sendFeedback } from 'utils'
 
 export const Feedback = ({ close }) => {
   const i18n = useI18n()
   const [message, setMessage] = useState()
 
   const onKeyRight = () => {
-    console.log('onKeyRight - message...', message)
-    // TODO: store feedback
+    sendFeedback(message)
   }
 
   useSoftkey('Feedback', {
