@@ -1,5 +1,5 @@
 import { useRef, useEffect } from 'preact/hooks'
-import { appVersion, sendEvent, getConsentStatus } from 'utils'
+import { appVersion, sendEvent, getConsentStatus, isInstrumentationEnabled } from 'utils'
 
 const SCHEMA_NAME = 'InukaPageView'
 const SCHEMA_REV = 19883738
@@ -47,6 +47,9 @@ export const useTracking = (
   sectionCount = 0,
   openedSections = {}
 ) => {
+  if (!isInstrumentationEnabled()) {
+    return
+  }
   const userId = getUserId()
   const isSearch = pageName === 'Search'
 
