@@ -47,7 +47,7 @@ export const useTracking = (
   sectionCount = 0,
   openedSections = {}
 ) => {
-  if (!isInstrumentationEnabled()) {
+  if (!isInstrumentationEnabled() || getConsentStatus() === false) {
     return
   }
   const userId = getUserId()
@@ -117,11 +117,12 @@ export const useTracking = (
       /* eslint-enable camelcase */
     }
 
-    sendEvent(SCHEMA_NAME, SCHEMA_REV, language, event)
+    if (getConsentStatus()) {
+      sendEvent(SCHEMA_NAME, SCHEMA_REV, language, event)
+    }
   }
 
   useEffect(() => {
-    if (!getConsentStatus()) return
     // Make sure the session id is set and its timer is updated
     getSessionId()
     initEvent()

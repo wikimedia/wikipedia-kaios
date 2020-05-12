@@ -24,10 +24,12 @@ export const QuickFacts = ({ article, goToArticleSubpage, close, closeAll }) => 
 
   const linkHandlers = {
     reference: ({ referenceId }) => {
-      showReferencePreview({
-        reference: article.references[referenceId],
-        lang: article.contentLang
-      })
+      if (article.references[referenceId]) {
+        showReferencePreview({
+          reference: article.references[referenceId],
+          lang: article.contentLang
+        })
+      }
     },
     section: ({ text, anchor }) => {
       // @todo styling to be confirmed with design
