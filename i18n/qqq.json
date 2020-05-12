@@ -81,6 +81,7 @@
 	"softkey-read-more": "Label of the read more softkey",
 	"feedback-header": "Header title shown in Feedback component, selected from Settings menu",
 	"feedback-explanation": "Message displained in Feedback component that explains how feedback information will be used",
+	"feedback-placeholder": "Placeholder message shown in textarea of Feedback component",
 	"send": "Label of the send softkey, shown in Feedback component",
 	"cancel": "Label of the cancel softkey, shown in Feedback component",
 	"settings-privacy-terms": "Label of the Privacy and Terms item list. Shown in the Settings menu.",
