@@ -36,7 +36,8 @@ module.exports = {
       fix: true
     }),
     new webpack.DefinePlugin({
-      APP_VERSION: JSON.stringify(require('./package.json').version)
+      APP_VERSION: JSON.stringify(require('./package.json').version),
+      INSTRUMENTATION: JSON.stringify(!!parseInt(process.env.INSTRUMENTATION))
     }),
     new webpack.EnvironmentPlugin()
   ],
