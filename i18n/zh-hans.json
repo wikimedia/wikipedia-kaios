@@ -3,6 +3,7 @@
 		"authors": [
 			"500000000006城",
 			"Josephine W.",
+			"Nadine Siak",
 			"VulpesVulpes825",
 			"沈澄心",
 			"铁桶"
@@ -79,5 +80,7 @@
 	"toc-footer": "建议条目",
 	"view-in-browser": "在浏览器查看条目",
 	"about-app-message": "由维基媒体基金会在像您这样的志愿者的帮助下制作。",
-	"softkey-read-more": "阅读更多"
+	"softkey-read-more": "阅读更多",
+	"usage-consent-yes": "是",
+	"usage-consent-no": "否"
 }

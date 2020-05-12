@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amir1arch",
 			"FarsiNevis"
 		]
 	},
@@ -35,11 +36,21 @@
 	"language-setting": "تنظیمات زبان",
 	"softkey-next": "بعدی",
 	"softkey-back": "بازگشت",
+	"softkey-get-started": "شروع شد",
+	"reference-title": "مرجع [$1]",
 	"offline-message": "عدم اتصال به اینترنت",
 	"onboarding-0-title": "دانشنامهٔ آزاد",
 	"settings-language": "زبان",
 	"settings-textsize": "اندازهٔ متن",
+	"settings-privacy": "سیاست محرمانگی",
+	"textsize-increase": "کلید ۶ را بفشارید (افزایش اندازه)",
+	"textsize-decrease": "کلید ۴ را بفشارید (کاهش اندازه)",
+	"textsize-default": "کلید ۵ را بفشارید (پیش‌فرض)",
 	"toc-footer": "مقاله‌های پیشنهادی",
 	"view-in-browser": "مقاله را در مرورگر ببینید",
-	"softkey-read-more": "بیشتر بخوانید"
+	"softkey-read-more": "بیشتر بخوانید",
+	"settings-privacy-terms": "سیاست‌ها و محرمانگی",
+	"privacy-terms-header": "سیاست‌ها و محرمانگی",
+	"usage-consent-yes": "بله",
+	"usage-consent-no": "نه"
 }

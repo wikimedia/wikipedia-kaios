@@ -76,5 +76,12 @@
 	"toc-footer": "Önerilen makaleler",
 	"view-in-browser": "Makaleyi tarayıcıda görüntüle",
 	"about-app-message": "Wikimedia Vakfı tarafından sizin gibi gönüllülerin yardımıyla yapılmıştır.",
-	"softkey-read-more": "Daha Fazla Oku"
+	"softkey-read-more": "Daha Fazla Oku",
+	"settings-privacy-terms": "Gizlilik ve Şartlar",
+	"privacy-terms-header": "Gizlilik ve Şartlar",
+	"settings-usage-reports": "Kullanım raporlarını gönder",
+	"usage-consent-header": "Kullanım raporlarını gönder",
+	"usage-consent-explanation": "Nasıl kullandığınızı bize bildirerek uygulamayı daha iyi hale getirmemize yardımcı olun.  Toplanan veriler anonimdir. Daha fazla ayrıntı için gizlilik politikasını okuyun",
+	"usage-consent-yes": "Evet",
+	"usage-consent-no": "Hayır"
 }

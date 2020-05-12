@@ -4,6 +4,31 @@
 			"Kareyac"
 		]
 	},
+	"article-action-sections": "Բաժիններ",
+	"article-action-gallery": "Պատկերասրահ",
+	"article-action-languages": "Լեզու",
 	"app-title": "Վիքիպեդիա",
-	"search-placeholder": "Որոնել"
+	"about-wikipedia-header": "Վիքիպեդիայի մասին",
+	"gallery-description": "Նկարագրություն",
+	"gallery-unknown-author": "Անքայտ հեղինակ",
+	"gallery-unknown-license": "Անհայտ արտոնություն",
+	"header-settings": "Կարգավորումներ",
+	"more-information": "Մանրամասն տեղեկատվություն",
+	"softkey-done": "Արված է",
+	"softkey-search": "Որոնել",
+	"search-placeholder": "Որոնել",
+	"centerkey-select": "Ընտրել",
+	"softkey-close": "Փակել",
+	"softkey-ok": "Բարի",
+	"softkey-read": "Կարդալ",
+	"softkey-next": "Հաջորդ",
+	"softkey-back": "Հետ",
+	"softkey-skip": "Բաց թողնել",
+	"softkey-refresh": "Թարմացնել",
+	"onboarding-0-title": "Ազատ հանրագիտարան",
+	"settings-language": "Լեզու",
+	"settings-about-wikipedia": "Վիքիպեդիայի մասին",
+	"softkey-read-more": "Կարդալ ավելին",
+	"usage-consent-yes": "Այո",
+	"usage-consent-no": "Ոչ"
 }

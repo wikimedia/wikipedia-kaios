@@ -1,11 +1,11 @@
 import { h } from 'preact'
 import { useRef, useEffect } from 'preact/hooks'
-import { ListView } from 'components'
+import { ListView, ConsentPopup } from 'components'
 import {
   useNavigation, useSearch, useI18n, useSoftkey,
-  useOnlineStatus, useTracking
+  useOnlineStatus, useTracking, usePopup
 } from 'hooks'
-import { articleHistory, goto, getAppLanguage } from 'utils'
+import { articleHistory, goto, getAppLanguage, hasConsentBeenAnswered } from 'utils'
 
 const SearchOfflinePanel = () => {
   const i18n = useI18n()
@@ -25,8 +25,10 @@ export const Search = () => {
   const listRef = useRef()
   const i18n = useI18n()
   const [current, setNavigation, getCurrent] = useNavigation('Search', containerRef, listRef, 'y')
+  const [showConsentPopup] = usePopup(ConsentPopup)
   const lang = getAppLanguage()
   const [query, setQuery, searchResults] = useSearch(lang)
+  const hasUserConsentBeenAnswered = hasConsentBeenAnswered()
   const isOnline = useOnlineStatus(online => {
     if (online) {
       setQuery(inputRef.current.value)
@@ -56,8 +58,12 @@ export const Search = () => {
 
   useEffect(() => {
     articleHistory.clear()
-    setNavigation(0)
-  }, [])
+    if (!hasUserConsentBeenAnswered) {
+      showConsentPopup()
+    } else {
+      setNavigation(0)
+    }
+  }, [hasUserConsentBeenAnswered])
 
   return (
     <div class='search' ref={containerRef}>

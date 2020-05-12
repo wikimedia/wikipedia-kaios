@@ -79,5 +79,12 @@
 	"toc-footer": "Föredragna artiklar",
 	"view-in-browser": "Visa artikeln i webbläsaren",
 	"about-app-message": "Skapad av Wikimedia Foundation med hjälp av frivilliga som dig.",
-	"softkey-read-more": "Läs mer"
+	"softkey-read-more": "Läs mer",
+	"settings-privacy-terms": "Integritet och villkor",
+	"privacy-terms-header": "Integritet och villkor",
+	"settings-usage-reports": "Skicka användningsrapporter",
+	"usage-consent-header": "Skicka användningsrapporter",
+	"usage-consent-explanation": "Hjälp till att göra appen bättre genom att låta oss veta hur du använder den. Data som samlas in är anonym. Läs integritetspolicyn för mer information.",
+	"usage-consent-yes": "Ja",
+	"usage-consent-no": "Nej"
 }

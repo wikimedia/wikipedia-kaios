@@ -30,5 +30,11 @@
 	"settings-rate": "Oceń aplikację",
 	"settings-help-feedback": "Pomoc i opinie",
 	"settings-about-app": "O aplikacji",
-	"softkey-read-more": "Czytaj więcej"
+	"softkey-read-more": "Czytaj więcej",
+	"settings-privacy-terms": "Prywatność i warunki",
+	"privacy-terms-header": "Prywatność i warunki",
+	"settings-usage-reports": "Wysyłaj informacje o użytkowaniu",
+	"usage-consent-header": "Wysyłaj informacje o użytkowaniu",
+	"usage-consent-yes": "Tak",
+	"usage-consent-no": "Nie"
 }
