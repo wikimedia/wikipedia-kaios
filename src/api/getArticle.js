@@ -91,7 +91,7 @@ const fixTableCaption = (htmlString, moreInformationText) => {
   const hiddenClassName = 'hidden-in-table'
   const parser = new DOMParser()
   const node = parser.parseFromString(htmlString, 'text/html')
-  const tableNodes = node.querySelectorAll('table.wikitable, table.multicol')
+  const tableNodes = node.querySelectorAll('table')
   for (const tableNode of tableNodes) {
     const thContent = Array.from(tableNode.querySelectorAll('th')).map(th => th.textContent).join(', ')
     const normalizedThContent = thContent.replace(/\[\d+]/g, '')
@@ -102,6 +102,7 @@ const fixTableCaption = (htmlString, moreInformationText) => {
       caption.className = hiddenClassName
       caption.innerHTML = `<b class='${hiddenClassName}'>${moreInformationText}:</b><p class='${hiddenClassName}'>${normalizedThContent}</p>Table`
     }
+    tableNode.style = ''
   }
 
   return node.childNodes[0].innerHTML
