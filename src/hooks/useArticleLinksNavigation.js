@@ -13,7 +13,7 @@ const SUPPORTED_LINKS = [
   'a[href^="#"]',
   'figure',
   'figure-inline',
-  'table'
+  'table:not([class^="infobox"])'
 ].join(',')
 
 export const useArticleLinksNavigation = (
