@@ -41,7 +41,7 @@
     "babel-loader": "^8.1.0",
     "babel-plugin-module-resolver": "^3.2.0",
     "css-loader": "^3.5.3",
-    "cypress": "4.4.1",
+    "cypress": "4.5.0",
     "cypress-localstorage-commands": "^1.1.8",
     "cypress-wait-until": "^1.6.1",
     "eslint": "^6.8.0",
