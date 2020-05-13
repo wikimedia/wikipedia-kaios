@@ -7,10 +7,16 @@ export const Feedback = ({ close }) => {
   const containerRef = useRef()
   const i18n = useI18n()
   const [message, setMessage] = useState()
+  const [validInput, setValidInput] = useState(null)
   const [, setNavigation, getCurrent] = useNavigation('Feedback', containerRef, containerRef, 'y')
 
   const onKeyRight = () => {
-    sendFeedback(message)
+    if (message) {
+      sendFeedback(message)
+      setValidInput(true)
+    } else {
+      setValidInput(false)
+    }
   }
 
   const onKeyBackspace = () => {
@@ -19,6 +25,11 @@ export const Feedback = ({ close }) => {
     } else {
       close()
     }
+  }
+
+  const handleChange = (message) => {
+    setMessage(message)
+    setValidInput(null)
   }
 
   useSoftkey('Feedback', {
@@ -31,18 +42,31 @@ export const Feedback = ({ close }) => {
 
   useEffect(() => {
     setNavigation(0)
-  }, [])
+  }, [validInput])
+
+  useEffect(() => {
+    if (validInput === true) {
+      const timer = setTimeout(() => {
+        setValidInput(null)
+      }, 4000)
+      return () => clearTimeout(timer)
+    }
+  }, [validInput])
 
   return (
     <div class='feedback' ref={containerRef}>
-      <div class='header'>{i18n('feedback-header')}</div>
+      <div class='header'>
+        {i18n('feedback-header')}
+        {validInput === true ? <div class='success'><span>{i18n('feedback-success')}</span></div> : null}
+      </div>
       <div class='body'>
-        <div class='text-box'>
+        <div class='textarea-box'>
           <form>
-            <textarea value={message} placeholder={i18n('feedback-placeholder')} onChange={e => setMessage(e.target.value)} data-selectable />
+            <textarea class={validInput === false ? 'border-error' : 'border-regular'} value={message} placeholder={i18n('feedback-placeholder')} onChange={e => handleChange(e.target.value)} data-selectable />
+            {validInput === false ? <div class='error'>{i18n('feedback-error')}</div> : null}
           </form>
         </div>
-        <div class='message-box'>
+        <div class='explanation-box'>
           <p> {i18n('feedback-explanation')} </p>
         </div>
       </div>
