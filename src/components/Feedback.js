@@ -48,9 +48,9 @@ export const Feedback = ({ close }) => {
   }
 
   useSoftkey('Feedback', {
-    right: i18n('send'),
+    right: i18n('softkey-send'),
     onKeyRight,
-    left: i18n('softkey-close'),
+    left: i18n('softkey-cancel'),
     onKeyLeft: close,
     onKeyBackspace,
     onKeyCenter
