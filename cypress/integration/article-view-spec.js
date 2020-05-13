@@ -211,7 +211,7 @@ describe('Article view', () => {
 //     cy.get('div.popup-content.fullscreen').should('be.visible')
 //     cy.get('div.popup-content.fullscreen tr>th').should('be.visible')
 //   })
-// })
+})
 
 function goToCatArticle () {
   cy.navigateToPageWithoutOnboarding('article/en/Cat')
