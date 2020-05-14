@@ -32,8 +32,8 @@ describe('special cases tests', () => {
     })
     cy.rightArrow()
     cy.enter()
-    cy.get('.gallery.hasHeader>.header').should('be.visible')
-    cy.get('.gallery.hasHeader>.img>img').should('be.visible').should('have.attr', 'src', 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Tupolev_Tu-154B%2C_Tarom_AN0679876.jpg/640px-Tupolev_Tu-154B%2C_Tarom_AN0679876.jpg')
+    cy.get('.gallery-view.hasHeader>.header').should('be.visible')
+    cy.get('.gallery-view.hasHeader>.img>img').should('be.visible').should('have.attr', 'src', 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Tupolev_Tu-154B%2C_Tarom_AN0679876.jpg/640px-Tupolev_Tu-154B%2C_Tarom_AN0679876.jpg')
   })
 
   it('check goto quickfacts holly', () => {
