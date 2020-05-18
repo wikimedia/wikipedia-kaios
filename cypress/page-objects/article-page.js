@@ -27,7 +27,7 @@ export class ArticlePage {
   }
 
   galleryImage () {
-    return cy.get('div.gallery > div.img > img')
+    return cy.get('div.gallery-view > div.img > img')
   }
 
   galleryPopupHeader () {

@@ -95,7 +95,7 @@ export const Gallery = ({ close, closeAll, items, startFileName, lang }) => {
   }, [currentIndex])
 
   return (
-    <div class={`gallery ${items[currentIndex].caption ? 'hasHeader' : ''}`}>
+    <div class={`gallery-view ${items[currentIndex].caption ? 'hasHeader' : ''}`}>
       {
         items[currentIndex].caption && (
           <div class='header'>
