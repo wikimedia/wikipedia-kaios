@@ -82,7 +82,7 @@
     "feedback-explanation": "We will use the information you give us to help address technical issues and to improve our services, subject to our $1, $2 and $3.",
     "feedback-placeholder": "Start writing here...",
     "feedback-success": "Thank you for your feedback",
-    "feedback-error": "Please write feedback before sending",
+    "feedback-success-header": "Feedback sent",
     "feedback-terms-of-survey": "Terms of survey statement",
     "feedback-privacy-policy": "Privacy policy",
     "feedback-terms-of-use": "Terms of use",

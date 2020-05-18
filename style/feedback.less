@@ -26,6 +26,7 @@
 				height: 136px;
 				border-radius: 2px;
 				background-color: #fff;
+				border: solid 0.5px #000;
 				resize: none;
 
 				@media @landscape {
@@ -34,13 +35,13 @@
 				}
 			}
 
-			.border-regular {
-				border: solid 0.5px #000;
-			}
+			// .border-regular {
+			// 	border: solid 0.5px #000;
+			// }
 
-			.border-error {
-				border: solid 0.5px #d33;
-			}
+			// .border-error {
+			// 	border: solid 0.5px #d33;
+			// }
 		}
 
 		.explanation-box {
@@ -73,45 +74,63 @@
 		}
 	}
 
-	.error {
-		position: relative;
-		bottom: 92px;
-		color: #d33;
-		height: 0;
-		font-size: 14px;
-		font-weight: normal;
-		font-stretch: normal;
-		font-style: normal;
-		line-height: normal;
-		letter-spacing: normal;
+	// .error {
+	// 	position: relative;
+	// 	bottom: 92px;
+	// 	color: #d33;
+	// 	height: 0;
+	// 	font-size: 14px;
+	// 	font-weight: normal;
+	// 	font-stretch: normal;
+	// 	font-style: normal;
+	// 	line-height: normal;
+	// 	letter-spacing: normal;
 
-		@media @landscape {
-			bottom: 45px;
-		}
+	// 	@media @landscape {
+	// 		bottom: 45px;
+	// 	}
+	// }
+
+	// .success {
+	// 	position: relative;
+	// 	bottom: 20px;
+	// 	height: 25px;
+	// 	background-color: #323232;
+	// 	color: #fff;
+	// 	font-size: 17px;
+	// 	font-weight: normal;
+	// 	font-stretch: normal;
+	// 	font-style: normal;
+	// 	line-height: normal;
+	// 	letter-spacing: normal;
+	// 	text-align: center;
+
+	// 	span {
+	// 		position: absolute;
+	// 		top: 0;
+	// 		bottom: 0;
+	// 		left: 0;
+	// 		right: 0;
+	// 		height: 50%;
+	// 		margin: auto;
+	// 	}
+	// }
+}
+
+.success-message {
+	text-align: center;
+
+	.header {
+		height: @pageHeaderHeight;
+		max-height: @pageHeaderHeight;
+		background-color: #d8d8d8;
+		box-sizing: border-box;
+		padding: 3px 0;
+		font-size: 17px;
 	}
 
-	.success {
-		position: relative;
-		bottom: 20px;
-		height: 25px;
-		background-color: #323232;
-		color: #fff;
-		font-size: 17px;
-		font-weight: normal;
-		font-stretch: normal;
-		font-style: normal;
-		line-height: normal;
-		letter-spacing: normal;
-		text-align: center;
-
-		span {
-			position: absolute;
-			top: 0;
-			bottom: 0;
-			left: 0;
-			right: 0;
-			height: 50%;
-			margin: auto;
-		}
+	p.preview-text {
+		font-size: 15px;
+		height: 30px;
 	}
 }
