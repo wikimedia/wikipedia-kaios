@@ -36,5 +36,6 @@
 	"settings-usage-reports": "Wysyłaj informacje o użytkowaniu",
 	"usage-consent-header": "Wysyłaj informacje o użytkowaniu",
 	"usage-consent-yes": "Tak",
-	"usage-consent-no": "Nie"
+	"usage-consent-no": "Nie",
+	"usage-consent-prompt-header": "Anonimowe dane"
 }

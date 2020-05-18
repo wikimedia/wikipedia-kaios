@@ -92,5 +92,7 @@
 	"usage-consent-header": "Envoyer les rapports d’utilisation",
 	"usage-consent-explanation": "Aidez nous à améliorer l'application en nous indiquant la manière dont vous l'utilisez. Les données collectées sont anonymes. Voir les règles de confidentialité pour plus de détails.",
 	"usage-consent-yes": "Oui",
-	"usage-consent-no": "Non"
+	"usage-consent-no": "Non",
+	"usage-consent-prompt": "Aider à rendre l’application meilleure en nous faisant savoir comment vous l’utilisez. Vous pouvez modifier vos préférences à tout moment depuis le menu des paramètres. Les données collectées sont anonymes.",
+	"usage-consent-prompt-header": "Données anonymes"
 }

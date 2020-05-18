@@ -64,11 +64,11 @@
 	"reference-title": "Referencia [$1]",
 	"offline-message": "Sin conexión a internet",
 	"onboarding-0-title": "La enciclopedia libre",
-	"onboarding-0-description": "Wikipedia es un recurso gratuito escrito en colaboración por voluntarios de todo el mundo.",
+	"onboarding-0-description": "Wikipedia es un recurso de conocimiento gratuito lleno de artículos sobre personas, lugares y cosas de todo el mundo.",
 	"onboarding-1-title": "Buscar en cientos de idiomas",
-	"onboarding-1-description": "Lee más de 40 millones de artículos, ¡completamente sin publicidad! Se añaden con regularidad actualizaciones y artículos nuevos.",
-	"onboarding-2-title": "Busca en más de 300 idiomas",
-	"onboarding-2-description": "Elige tu idioma o idiomas preferidos para buscar y leer.",
+	"onboarding-1-description": "Elija su idioma o idiomas preferidos para buscar y leer.",
+	"onboarding-2-title": "Obtenga conocimiento libre",
+	"onboarding-2-description": "¡Lea más de 50 millones de artículos, completamente sin publicidad! Actualizaciones y nuevos artículos agregados regularmente.",
 	"settings-language": "Idioma",
 	"settings-textsize": "Tamaño de texto",
 	"settings-about-wikipedia": "Acerca de Wikipedia",
@@ -90,5 +90,7 @@
 	"usage-consent-header": "Enviar informes de uso",
 	"usage-consent-explanation": "Ayude a mejorar la aplicación informándonos cómo la usa. Los datos recopilados son anónimos. Lea la política de privacidad para más detalles.",
 	"usage-consent-yes": "Sí",
-	"usage-consent-no": "No"
+	"usage-consent-no": "No",
+	"usage-consent-prompt": "Ayude a mejorar la aplicación informándonos cómo la usa. Puede cambiar su preferencia en cualquier momento desde el menú de configuración. Los datos recopilados son anónimos.",
+	"usage-consent-prompt-header": "Datos anónimos"
 }

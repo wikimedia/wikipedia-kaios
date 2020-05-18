@@ -83,5 +83,7 @@
 	"usage-consent-header": "Kullanım raporlarını gönder",
 	"usage-consent-explanation": "Nasıl kullandığınızı bize bildirerek uygulamayı daha iyi hale getirmemize yardımcı olun.  Toplanan veriler anonimdir. Daha fazla ayrıntı için gizlilik politikasını okuyun",
 	"usage-consent-yes": "Evet",
-	"usage-consent-no": "Hayır"
+	"usage-consent-no": "Hayır",
+	"usage-consent-prompt": "Nasıl kullandığınızı bize bildirerek uygulamayı daha iyi hale getirmemize yardımcı olun. Tercihlerinizi istediğiniz zaman ayarlar menüsünden değiştirebilirsiniz. Toplanan veriler anonimdir.",
+	"usage-consent-prompt-header": "Anonim verisi"
 }

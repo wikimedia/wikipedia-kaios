@@ -64,5 +64,6 @@
 	"settings-term": "Uvjeti uporabe",
 	"settings-rate": "Ocijenite aplikaciju",
 	"settings-help-feedback": "Pomoć i povratne informacije",
-	"toc-footer": "Predloženi članci"
+	"toc-footer": "Predloženi članci",
+	"usage-consent-prompt-header": "Podatci dani anonomno"
 }

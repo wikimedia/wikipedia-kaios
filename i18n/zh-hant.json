@@ -83,5 +83,7 @@
 	"usage-consent-header": "傳送使用情況報告",
 	"usage-consent-explanation": "請讓我們了解您是如何使用它，以讓應用程式能變得更好，另外資料收集都是採用匿名方式的。請閱讀隱私與條款來了解更多。",
 	"usage-consent-yes": "是",
-	"usage-consent-no": "否"
+	"usage-consent-no": "否",
+	"usage-consent-prompt": "藉由讓我們瞭解您是如何使用，來協助此應用程式可以變得更好。您可以隨時從設定選單裡，更改您的偏好設定。資料是以匿名方式收集。",
+	"usage-consent-prompt-header": "匿名資料"
 }
