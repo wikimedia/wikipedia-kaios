@@ -81,8 +81,10 @@ const SuccessConfirmationPopup = ({ closeAll }) => {
     onKeyBackspace: closeAll
   }, [])
 
-  return <div class='success-message'>
-    <div class='header'>{i18n('feedback-success-header')}</div>
-    <p class='preview-text'>{i18n('feedback-success')}</p>
-  </div>
+  return (
+    <div class='success-message'>
+      <div class='header'>{i18n('feedback-success-header')}</div>
+      <p class='preview-text'>{i18n('feedback-success')}</p>
+    </div>
+  )
 }
