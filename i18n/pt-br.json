@@ -82,5 +82,7 @@
 	"usage-consent-header": "Enviar relatórios de uso",
 	"usage-consent-explanation": "Ajude a melhorar o aplicativo, informando como você o usa. Os dados coletados são anônimos. Leia a política de privacidade para mais detalhes.",
 	"usage-consent-yes": "Sim",
-	"usage-consent-no": "Não"
+	"usage-consent-no": "Não",
+	"usage-consent-prompt": "Ajude a melhorar o aplicativo, informando como você o usa. Você pode alterar sua preferência a qualquer momento no menu de configurações. Os dados coletados são anônimos.",
+	"usage-consent-prompt-header": "Dados anônimos"
 }

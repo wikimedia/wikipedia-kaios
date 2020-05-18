@@ -7,6 +7,7 @@
 			"NEHAOUA",
 			"Tala Ali",
 			"ديفيد",
+			"عبد الإله صديقي",
 			"محمد أحمد عبد الفتاح",
 			"مصعب"
 		]
@@ -89,5 +90,6 @@
 	"usage-consent-header": "إرسال تقارير الاستخدام",
 	"usage-consent-explanation": "ساعد في تحسين التطبيق بالسماح لنا بمعرفة كيفية استخدامك له، البيانات المجموعة ستكون مجهولة، إقرأ سياسة الخصوصية لتفاصيل إضافية.",
 	"usage-consent-yes": "نعم",
-	"usage-consent-no": "لا"
+	"usage-consent-no": "لا",
+	"usage-consent-prompt-header": "معطيات مجهولة"
 }

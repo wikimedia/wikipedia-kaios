@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"1233qwer1234qwer4",
+			"CloeRiva",
 			"FF11",
 			"HTan (WMF)",
 			"Hikemaniac",
@@ -79,5 +80,10 @@
 	"toc-footer": "Vorgeschlagene Artikel",
 	"view-in-browser": "Artikel im Browser ansehen",
 	"about-app-message": "Entwickelt von der Wikimedia Foundation mit der Hilfe von Freiwilligen wie dir.",
-	"softkey-read-more": "Mehr Info"
+	"softkey-read-more": "Mehr Info",
+	"settings-privacy-terms": "Datenschutz und Bedingungen",
+	"usage-consent-yes": "Ja",
+	"usage-consent-no": "Nein",
+	"usage-consent-prompt": "Hilf uns diese App zu verbessern in dem du uns sagst wie du sie benutzt. Du kannst deine Preferenzen jederzeit von dem Einstellungsmen~u ~andern. Die Daten die vererbeitet werden sind Anonym.",
+	"usage-consent-prompt-header": "Anonyme Daten"
 }

@@ -86,5 +86,7 @@
 	"usage-consent-header": "Skicka användningsrapporter",
 	"usage-consent-explanation": "Hjälp till att göra appen bättre genom att låta oss veta hur du använder den. Data som samlas in är anonym. Läs integritetspolicyn för mer information.",
 	"usage-consent-yes": "Ja",
-	"usage-consent-no": "Nej"
+	"usage-consent-no": "Nej",
+	"usage-consent-prompt": "Hjälp oss göra appen bättre genom att låta oss veta hur du använder den. Du kan ändra detta när som helst i inställningarna. Data som samlas in är anonym.",
+	"usage-consent-prompt-header": "Anonym data"
 }

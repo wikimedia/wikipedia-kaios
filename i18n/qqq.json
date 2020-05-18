@@ -84,8 +84,8 @@
 	"settings-usage-reports": "Label of the usage reports consent item list. Shown in the Settings menu, under privacy and terms",
 	"usage-consent-header": "The header title shown in the Send usage reports page",
 	"usage-consent-explanation": "Message displayed in Send usage reports page that explains how the info collected is used",
-	"usage-consent-prompt": "Message displayed in usage data prompt popup in Search home screen",
-	"usage-consent-prompt-header": "Usage data prompt popup header",
 	"usage-consent-yes": "Label used to grant usage data consent in Send usage reports page\n{{identical|Yes}}",
-	"usage-consent-no": "Label used to deny usage data consent in Send usage reports page\n{{identical|No}}"
+	"usage-consent-no": "Label used to deny usage data consent in Send usage reports page\n{{identical|No}}",
+	"usage-consent-prompt": "Message displayed in usage data prompt popup in Search home screen",
+	"usage-consent-prompt-header": "Usage data prompt popup header"
 }

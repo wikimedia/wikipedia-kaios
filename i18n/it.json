@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Beta16",
+			"CloeRiva",
 			"Dansita",
 			"Eduardo Addad de Oliveira"
 		]
@@ -64,5 +65,7 @@
 	"usage-consent-header": "Invia rapporti sull'utilizzo",
 	"usage-consent-explanation": "Contribuisci a migliorare l'applicazione facendoci sapere come la usi. I dati raccolti sono anonimi. Leggi la politica sulla privacy per maggiori dettagli.",
 	"usage-consent-yes": "Sì",
-	"usage-consent-no": "No"
+	"usage-consent-no": "No",
+	"usage-consent-prompt": "Aiutaci a migliorare l'applicazione facendoci sapere come la usi. Puoi cambiare le tue preferenze in qualsiasi momento dalle impostazioni. I dati che raccogliamo sono anonimi.",
+	"usage-consent-prompt-header": "Dati anonimi"
 }
