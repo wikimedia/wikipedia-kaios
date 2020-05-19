@@ -1,5 +1,5 @@
 import { h } from 'preact'
-import { useRef, useLayoutEffect } from 'preact/hooks'
+import { useRef, useLayoutEffect, useState } from 'preact/hooks'
 import { useI18n, useSoftkey, usePopup, useRange, useArticleMediaInfo } from 'hooks'
 
 const MAX_DESCRIPTION_HEIGHT = 45
@@ -83,6 +83,12 @@ export const Gallery = ({ close, closeAll, items, startFileName, lang }) => {
     currentIndex, onPrevImage, onNextImage
   ] = useRange(getInitialIndex(items, startFileName), items.length - 1)
   const [showAboutPopup] = usePopup(AboutContainer, { stack: true })
+  const [isPortrait, setIsPortrait] = useState()
+
+  const onImageLoad = ({ target: img }) => {
+    console.log('onImageLoad - img...', img)
+    img.height >= img.width ? setIsPortrait(true) : setIsPortrait(false) // TODO: if they are equal?
+  }
 
   useSoftkey('Gallery', {
     left: i18n('softkey-close'),
@@ -95,7 +101,7 @@ export const Gallery = ({ close, closeAll, items, startFileName, lang }) => {
   }, [currentIndex])
 
   return (
-    <div class={`gallery-view ${items[currentIndex].caption ? 'hasHeader' : ''}`}>
+    <div class={`gallery-view ${items[currentIndex].caption ? 'hasHeader' : ''} ${isPortrait ? 'portrait' : 'landscape'}`}>
       {
         items[currentIndex].caption && (
           <div class='header'>
@@ -104,7 +110,7 @@ export const Gallery = ({ close, closeAll, items, startFileName, lang }) => {
         )
       }
       <div class='img'>
-        <img src={items[currentIndex].thumbnail} />
+        <img onLoad={e => onImageLoad(e)} src={items[currentIndex].thumbnail} />
       </div>
     </div>
   )
