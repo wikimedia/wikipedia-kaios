@@ -61,7 +61,7 @@
     "less": "^3.11.1",
     "less-loader": "^5.0.0",
     "style-loader": "^1.2.0",
-    "stylelint": "^12.0.1",
+    "stylelint": "^13.5.0",
     "stylelint-config-wikimedia": "^0.10.1",
     "stylelint-webpack-plugin": "^1.2.3",
     "terser-webpack-plugin": "^3.0.1",
