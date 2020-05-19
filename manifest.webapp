@@ -3,7 +3,7 @@
   "name": "Wikipedia",
   "description": "With the free Wikipedia app, search and explore information from all over the world in 300+ languages.",
   "type": "privileged",
-  "csp": "default-src *; script-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline'",
+  "csp": "default-src *; script-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline'; require-trusted-types-for 'script'",
   "launch_path": "/index.html",
   "icons": {
     "56": "/images/56px.png",
