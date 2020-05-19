@@ -18,8 +18,9 @@ export const Feedback = ({ close }) => {
   const hyperlinks = items.map(i => i.text)
 
   const onKeyRight = () => {
-    if (message) {
-      sendFeedback(message)
+    const userMessage = message.trim()
+    if (userMessage) {
+      sendFeedback(userMessage)
       showSuccessConfirmation()
     }
   }
@@ -41,7 +42,7 @@ export const Feedback = ({ close }) => {
   }
 
   useSoftkey('Feedback', {
-    right: message ? i18n('softkey-send') : '',
+    right: message && message.trim() ? i18n('softkey-send') : '',
     onKeyRight,
     left: i18n('softkey-cancel'),
     onKeyLeft: close,
