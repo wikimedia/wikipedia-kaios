@@ -5,7 +5,11 @@ import {
   useNavigation, useSearch, useI18n, useSoftkey,
   useOnlineStatus, useTracking, usePopup
 } from 'hooks'
-import { articleHistory, goto, getAppLanguage, hasConsentBeenAnswered } from 'utils'
+import {
+  articleHistory, goto, getAppLanguage, hasConsentBeenAnswered,
+  isRandomEnabled
+} from 'utils'
+import { getRandomArticleTitle } from 'api'
 
 const SearchOfflinePanel = () => {
   const i18n = useI18n()
@@ -47,11 +51,18 @@ export const Search = () => {
     }
   }
 
+  const goToRandomArticle = () => {
+    getRandomArticleTitle(lang).then(title => {
+      goto.article(lang, title)
+    })
+  }
+
   useSoftkey('Search', {
     right: i18n('softkey-settings'),
     onKeyRight: () => { window.location.hash = '/settings' },
     center: current.type === 'DIV' ? i18n('centerkey-select') : '',
-    onKeyCenter
+    onKeyCenter,
+    onKeyLeft: isRandomEnabled() ? goToRandomArticle : null
   }, [current.type])
 
   useTracking('Search', lang)
