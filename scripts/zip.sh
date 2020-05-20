@@ -7,7 +7,7 @@ rm app.zip
 mkdir Wikipedia
 
 node scripts/manifest.js > Wikipedia/manifest.webapp
-INSTRUMENTATION=1 npm run build
+cross-env INSTRUMENTATION=1 npm run build
 cp -r dist Wikipedia/
 cp -r images Wikipedia/
 cp index.html Wikipedia/
