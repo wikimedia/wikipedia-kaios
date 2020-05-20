@@ -1559,7 +1559,8 @@ const getAlias = lang => {
 
 const getCurrentDeviceLanguage = () => {
   const navigatorLang = getAlias(navigator.language)
-  return navigatorLang.includes('-')
+  const code = navigatorLang.includes('-')
     ? navigatorLang.substr(0, navigatorLang.indexOf('-'))
     : navigatorLang
+  return isSupportedForReading(code) ? code : 'en'
 }
