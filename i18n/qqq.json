@@ -97,5 +97,9 @@
 	"usage-consent-yes": "Label used to grant usage data consent in Send usage reports page\n{{identical|Yes}}",
 	"usage-consent-no": "Label used to deny usage data consent in Send usage reports page\n{{identical|No}}",
 	"usage-consent-prompt": "Message displayed in usage data prompt popup in Search home screen",
-	"usage-consent-prompt-header": "Usage data prompt popup header"
+	"usage-consent-prompt-header": "Usage data prompt popup header",
+	"feedback-cancel": "Message shown upon attempting to cancel the sending of feedback in Feedback component",
+	"feedback-cancel-header": "Message shown upon attempting to cancel the sending of feedback in Feedback component",
+	"softkey-yes": "Label for the yes key",
+	"softkey-no": "Label for the no key"
 }

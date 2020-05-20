@@ -96,5 +96,9 @@
     "usage-consent-yes": "Yes",
     "usage-consent-no": "No",
     "usage-consent-prompt": "Help make the app better by letting us know how you use it. You can change your preference at anytime from the settings menu. Data collected is anonymous.",
-    "usage-consent-prompt-header": "Anonymous data"
+    "usage-consent-prompt-header": "Anonymous data",
+    "feedback-cancel": "Are you sure you want to leave? All your feedback will be lost",
+    "feedback-cancel-header": "Discard",
+    "softkey-yes": "Yes",
+    "softkey-no": "No"
 }

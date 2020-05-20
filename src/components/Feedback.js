@@ -8,6 +8,7 @@ export const Feedback = ({ close }) => {
   const i18n = useI18n()
   const [message, setMessage] = useState()
   const [showSuccessConfirmation] = usePopup(SuccessConfirmationPopup, { stack: true })
+  const [showCancelConfirmation] = usePopup(CancelConfirmationPopup, { stack: true })
   const [, setNavigation, getCurrent] = useNavigation('Feedback', containerRef, containerRef, 'y')
 
   const items = [
@@ -41,11 +42,19 @@ export const Feedback = ({ close }) => {
     }
   }
 
+  const onKeyLeft = () => {
+    if (message) {
+      showCancelConfirmation()
+    } else {
+      close()
+    }
+  }
+
   useSoftkey('Feedback', {
     right: message && message.trim() ? i18n('softkey-send') : '',
     onKeyRight,
     left: i18n('softkey-cancel'),
-    onKeyLeft: close,
+    onKeyLeft,
     onKeyBackspace,
     onKeyCenter
   }, [message])
@@ -83,9 +92,28 @@ const SuccessConfirmationPopup = ({ closeAll }) => {
   }, [])
 
   return (
-    <div class='success-message'>
+    <div class='confirmation-popup'>
       <div class='header'>{i18n('feedback-success-header')}</div>
-      <p class='preview-text'>{i18n('feedback-success')}</p>
+      <p class='preview-text success'>{i18n('feedback-success')}</p>
+    </div>
+  )
+}
+
+const CancelConfirmationPopup = ({ close, closeAll }) => {
+  const i18n = useI18n()
+
+  useSoftkey('FeedbackCancelMessage', {
+    right: i18n('softkey-yes'),
+    onKeyRight: closeAll,
+    left: i18n('softkey-no'),
+    onKeyLeft: close,
+    onKeyBackspace: close
+  }, [])
+
+  return (
+    <div class='confirmation-popup'>
+      <div class='header'>{i18n('feedback-cancel-header')}</div>
+      <p class='preview-text cancel'>{i18n('feedback-cancel')}</p>
     </div>
   )
 }
