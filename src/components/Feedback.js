@@ -22,6 +22,7 @@ export const Feedback = ({ close }) => {
     const userMessage = message.trim()
     if (userMessage) {
       sendFeedback(userMessage)
+      if (getCurrent().type === 'TEXTAREA') blurTextarea()
       showSuccessConfirmation()
     }
   }
@@ -44,10 +45,16 @@ export const Feedback = ({ close }) => {
 
   const onKeyLeft = () => {
     if (message) {
+      if (getCurrent().type === 'TEXTAREA') blurTextarea()
       showCancelConfirmation()
     } else {
       close()
     }
+  }
+
+  const blurTextarea = () => {
+    const element = containerRef.current.querySelector('textarea')
+    element.blur()
   }
 
   useSoftkey('Feedback', {
