@@ -79,6 +79,7 @@ const LoadingAbout = () => {
 
 export const Gallery = ({ close, closeAll, items, startFileName, lang }) => {
   const i18n = useI18n()
+  const containerRef = useRef()
   const [
     currentIndex, onPrevImage, onNextImage
   ] = useRange(getInitialIndex(items, startFileName), items.length - 1)
@@ -100,8 +101,15 @@ export const Gallery = ({ close, closeAll, items, startFileName, lang }) => {
     onKeyBackspace: close
   }, [currentIndex])
 
+  useLayoutEffect(() => {
+    if (!containerRef.current) return
+
+    const descriptionNode = containerRef.current
+    isPortrait ? descriptionNode.classList.add('portrait') : descriptionNode.classList.remove('portrait')
+  })
+
   return (
-    <div class={`gallery-view ${items[currentIndex].caption ? 'hasHeader' : ''} ${isPortrait ? 'portrait' : 'landscape'}`}>
+    <div class={`gallery-view ${items[currentIndex].caption ? 'hasHeader' : ''}`} ref={containerRef}>
       {
         items[currentIndex].caption && (
           <div class='header'>
