@@ -30,7 +30,7 @@
   "author": "Wikimedia Foundation",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/wikimedia/wikipedia-kaios/issues"
+    "url": "https://phabricator.wikimedia.org/project/profile/4305/"
   },
   "homepage": "https://github.com/wikimedia/wikipedia-kaios#readme",
   "devDependencies": {
