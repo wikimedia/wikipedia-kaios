@@ -1,5 +1,5 @@
 import { useRef, useEffect } from 'preact/hooks'
-import { appVersion, sendEvent, getConsentStatus, isInstrumentationEnabled } from 'utils'
+import { appVersion, sendEvent, isInstrumentationEnabled } from 'utils'
 
 const SCHEMA_NAME = 'InukaPageView'
 const SCHEMA_REV = 19883738
@@ -47,7 +47,7 @@ export const useTracking = (
   sectionCount = 0,
   openedSections = {}
 ) => {
-  if (!isInstrumentationEnabled() || getConsentStatus() === false) {
+  if (!isInstrumentationEnabled()) {
     return
   }
   const userId = getUserId()
@@ -117,9 +117,7 @@ export const useTracking = (
       /* eslint-enable camelcase */
     }
 
-    if (getConsentStatus()) {
-      sendEvent(SCHEMA_NAME, SCHEMA_REV, language, event)
-    }
+    sendEvent(SCHEMA_NAME, SCHEMA_REV, language, event)
   }
 
   useEffect(() => {

@@ -1,7 +1,6 @@
 import { h } from 'preact'
-import { route } from 'preact-router'
 import { useSoftkey, useI18n, useRange } from 'hooks'
-import { onboarding } from 'utils'
+import { onboarding, goto } from 'utils'
 
 export const Onboarding = () => {
   const i18n = useI18n()
@@ -9,7 +8,7 @@ export const Onboarding = () => {
 
   const exitOnboard = () => {
     onboarding.markAsDone()
-    route('/')
+    goto.consent()
   }
 
   const getImageBackgroundStyle = index => {
