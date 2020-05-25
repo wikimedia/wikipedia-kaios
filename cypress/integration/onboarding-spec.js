@@ -8,7 +8,7 @@ import * as ptJson from '../../i18n/pt.json'
 const onboardingPage = new OnboardingPage()
 const searchPage = new SearchPage()
 
-describe('Onboarding', () => {
+describe('Onboarding (skipping consent)', () => {
   beforeEach(() => {
     localStorage.setItem('usage-data-consent', '{}') // Don't display consent screen
     cy.visit('http://127.0.0.1:8080')
@@ -78,4 +78,25 @@ describe('Onboarding', () => {
     cy.changeBrowserLanguageAndGoToHomePage('pt-PT')
     onboardingPage.getTitle().should('have.text', ptJson['onboarding-0-title'])
   })
+})
+
+describe('Onboarding', () => {
+  beforeEach(() => {
+    cy.visit('http://127.0.0.1:8080')
+  })
+
+  it('shows consent form after skipping onboarding', () => {
+    cy.getLeftSoftkeyButton().should('have.text', 'Skip').click()
+    cy.getCenterSoftkeyButton().should('have.text', 'Agree').click()
+    searchPage.getSearchTextBox().should('be.visible')
+  })
+
+  it('shows consent form after going through onboarding', () => {
+    cy.getRightSoftkeyButton().click()
+    cy.getRightSoftkeyButton().click()
+    cy.getCenterSoftkeyButton().should('have.text', 'Get started').click()
+    cy.getCenterSoftkeyButton().should('have.text', 'Agree').click()
+    searchPage.getSearchTextBox().should('be.visible')
+  })
+
 })

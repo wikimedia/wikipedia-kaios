@@ -8,7 +8,7 @@ export const Onboarding = () => {
 
   const exitOnboard = () => {
     onboarding.markAsDone()
-    goto.consent()
+    goto.search()
   }
 
   const getImageBackgroundStyle = index => {

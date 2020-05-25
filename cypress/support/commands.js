@@ -52,6 +52,7 @@ Cypress.Commands.add('navigateToHomePage', () => {
 
 Cypress.Commands.add('navigateToPageWithoutOnboarding', (page) => {
   cy.setLocalStorage('has-onboard-before', true)
+  cy.setLocalStorage('usage-data-consent', '{}') // Don't display consent screen
   cy.visit('http://127.0.0.1:8080/#/' + page)
 })
 
