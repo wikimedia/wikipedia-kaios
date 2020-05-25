@@ -98,5 +98,4 @@ describe('Onboarding', () => {
     cy.getCenterSoftkeyButton().should('have.text', 'Agree').click()
     searchPage.getSearchTextBox().should('be.visible')
   })
-
 })
