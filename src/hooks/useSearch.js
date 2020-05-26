@@ -9,10 +9,9 @@ export const useSearch = (lang) => {
 
   useEffect(() => {
     if (query) {
-      search(lang, query)
-        .then(results => {
-          setSearchResults(results)
-        })
+      const [request, abort] = search(lang, query)
+      request.then(setSearchResults)
+      return abort
     } else {
       setSearchResults(null)
     }

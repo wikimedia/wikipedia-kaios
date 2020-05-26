@@ -7,11 +7,12 @@ export const useSearchArticleLanguage = (lang, title) => {
   const [allLanguages, setAllLanguages] = useState([])
 
   useEffect(() => {
-    getLanglinks(lang, title)
-      .then(languages => {
-        setAllLanguages(languages)
-        setItems(getInitialLangList(languages))
-      })
+    const [promise, abort] = getLanglinks(lang, title)
+    promise.then(languages => {
+      setAllLanguages(languages)
+      setItems(getInitialLangList(languages))
+    })
+    return abort
   }, [])
 
   useLayoutEffect(() => {
