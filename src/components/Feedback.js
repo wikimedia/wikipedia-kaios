@@ -12,7 +12,6 @@ export const Feedback = ({ close }) => {
   const [, setNavigation, getCurrent] = useNavigation('Feedback', containerRef, containerRef, 'y')
 
   const items = [
-    { text: `<a data-selectable>${i18n('feedback-terms-of-survey')}</a>`, link: 'https://wikimediafoundation.org/' }, // TODO: link not provided yet
     { text: `<a data-selectable>${i18n('feedback-privacy-policy')}</a>`, link: 'https://foundation.m.wikimedia.org/wiki/Privacy_policy' },
     { text: `<a data-selectable>${i18n('feedback-terms-of-use')}</a>`, link: 'https://foundation.m.wikimedia.org/wiki/Terms_of_Use/en' }
   ]
