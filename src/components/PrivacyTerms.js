@@ -33,8 +33,8 @@ export const PrivacyTerms = ({ close }) => {
   }, [])
 
   const items = [
-    { title: i18n('settings-privacy'), action: goto.privacyPolicy },
-    { title: i18n('settings-term'), action: goto.termsOfUse }
+    { title: i18n('settings-privacy'), action: goto.privacyPolicy, link: true },
+    { title: i18n('settings-term'), action: goto.termsOfUse, link: true }
   ]
 
   return (
