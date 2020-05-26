@@ -83,6 +83,9 @@
 	"privacy-terms-header": "Privadesa i condicions",
 	"settings-usage-reports": "Envia informes d’ús",
 	"usage-consent-header": "Envia informes d’ús",
+	"usage-consent-explanation": "Ajuda'ns a millorar l'aplicació fent-nos saber com l'utilitzeu. Les dades recollides són anònimes. Llegiu la política de privadesa per a més informació.",
 	"usage-consent-yes": "Sí",
-	"usage-consent-no": "No"
+	"usage-consent-no": "No",
+	"usage-consent-prompt": "Ajuda'ns a millorar l'aplicació fent-nos saber com l'utilitzeu. Podeu canviar-ne les preferències en qualsevol moment des del menú respectiu. Les dades recollides són anònimes.",
+	"usage-consent-prompt-header": "Dades anònimes"
 }
