@@ -20,7 +20,8 @@ const add = (lang, title, anchor) => {
 const update = (lang, title, anchor) => {
   const list = JSON.parse(localStorage.getItem(KEY)) || []
   if (list.length) {
-    list[list.length - 1] = { lang, title, anchor }
+    const normalizedTitle = normalizeTitle(title)
+    list[list.length - 1] = { lang, title: normalizedTitle, anchor }
     set(list)
   }
 }
