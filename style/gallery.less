@@ -19,24 +19,37 @@
 		align-items: center;
 		justify-content: center;
 		flex-direction: column;
-		height: calc( 100vh - @softkeysHeight );
+
+		img {
+			background-color: #fff;
+			object-fit: contain;
+		}
+	}
+
+	&.portrait {
+		.img {
+			height: calc( 100vh - @softkeysHeight );
+		}
+
+		img {
+			height: 100%;
+			width: auto;
+		}
+	}
+
+	&.landscape {
+		.img {
+			height: calc( 100vh - @softkeysHeight );
+		}
 
 		img {
 			max-width: 100%;
-			background-color: #fff;
-			object-fit: contain;
 		}
 	}
 
 	&.hasHeader {
 		.img {
 			height: calc( 100vh - @softkeysHeight - 27px );
-		}
-	}
-
-	&.portrait {
-		.img {
-			border: solid #ffa500; // Testing...
 		}
 	}
 }

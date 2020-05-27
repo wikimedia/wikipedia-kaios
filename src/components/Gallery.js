@@ -1,5 +1,5 @@
 import { h } from 'preact'
-import { useRef, useLayoutEffect, useState } from 'preact/hooks'
+import { useRef, useLayoutEffect } from 'preact/hooks'
 import { useI18n, useSoftkey, usePopup, useRange, useArticleMediaInfo } from 'hooks'
 
 const MAX_DESCRIPTION_HEIGHT = 45
@@ -84,11 +84,17 @@ export const Gallery = ({ close, closeAll, items, startFileName, lang }) => {
     currentIndex, onPrevImage, onNextImage
   ] = useRange(getInitialIndex(items, startFileName), items.length - 1)
   const [showAboutPopup] = usePopup(AboutContainer, { stack: true })
-  const [isPortrait, setIsPortrait] = useState()
 
   const onImageLoad = ({ target: img }) => {
-    console.log('onImageLoad - img...', img)
-    img.height >= img.width ? setIsPortrait(true) : setIsPortrait(false) // TODO: if they are equal?
+    const galleryNode = containerRef.current
+    const galleryClasses = ['hasHeader', 'portrait', 'landscape']
+
+    galleryClasses.forEach(galleryClass => {
+      galleryNode.classList.remove(galleryClass)
+    })
+
+    img.height >= img.width ? galleryNode.classList.add('portrait') : galleryNode.classList.add('landscape')
+    if (items[currentIndex].caption) galleryNode.classList.add('hasHeader')
   }
 
   useSoftkey('Gallery', {
@@ -101,15 +107,8 @@ export const Gallery = ({ close, closeAll, items, startFileName, lang }) => {
     onKeyBackspace: close
   }, [currentIndex])
 
-  useLayoutEffect(() => {
-    if (!containerRef.current) return
-
-    const descriptionNode = containerRef.current
-    isPortrait ? descriptionNode.classList.add('portrait') : descriptionNode.classList.remove('portrait')
-  })
-
   return (
-    <div class={`gallery-view ${items[currentIndex].caption ? 'hasHeader' : ''}`} ref={containerRef}>
+    <div class='gallery-view' ref={containerRef}>
       {
         items[currentIndex].caption && (
           <div class='header'>
