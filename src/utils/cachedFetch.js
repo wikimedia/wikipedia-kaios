@@ -4,21 +4,15 @@ import { isProd, appVersion, sendErrorLog } from 'utils'
 // the last N requests to keep memory usage
 // under control.
 const requestCache = {}
-const xhrList = {}
+const noopAbort = () => {}
 
-export const cachedFetch = (url, transformFn, abortAllXhr = false, cache = true) => {
-  if (abortAllXhr) {
-    abortAllFetch()
-  }
-
+export const cachedFetch = (url, transformFn, cache = true) => {
   if (cache && requestCache[url]) {
-    return Promise.resolve(requestCache[url])
+    return [Promise.resolve(requestCache[url]), noopAbort]
   }
 
-  return new Promise((resolve, reject) => {
-    const xhr = new XMLHttpRequest({ mozSystem: true })
-    const timestamp = (new Date()).valueOf()
-    xhrList[timestamp] = xhr
+  const xhr = new XMLHttpRequest({ mozSystem: true })
+  const promise = new Promise((resolve, reject) => {
     xhr.responseType = 'json'
     xhr.open('GET', url)
     if (isProd()) {
@@ -38,21 +32,20 @@ export const cachedFetch = (url, transformFn, abortAllXhr = false, cache = true)
         reject(new Error('XHR Error: ' + xhr.status))
       }
       sendLogWhenError(xhr, url)
-      delete xhrList[timestamp]
     })
     xhr.addEventListener('error', () => {
       sendLogWhenError(xhr, url)
-      delete xhrList[timestamp]
       reject(new Error('XHR Error: ' + xhr.status))
     })
   })
-}
 
-const abortAllFetch = () => {
-  Object.keys(xhrList).forEach(key => {
-    xhrList[key].abort()
-    delete xhrList[key]
-  })
+  const abort = () => {
+    if (xhr) {
+      xhr.abort()
+    }
+  }
+
+  return [promise, abort]
 }
 
 const sendLogWhenError = ({ status, response }, url) => {
