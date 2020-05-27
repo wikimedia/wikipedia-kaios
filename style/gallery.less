@@ -1,6 +1,6 @@
 .gallery-view {
 	width: 100%;
-	height: calc( 100vh - @softkeysHeight );
+	height: @availableHeight;
 	background-color: #000;
 
 	.header {
@@ -28,7 +28,7 @@
 
 	&.portrait {
 		.img {
-			height: calc( 100vh - @softkeysHeight );
+			height: @availableHeight; // Required under portrait for black background to work on device
 		}
 
 		img {
@@ -39,7 +39,7 @@
 
 	&.landscape {
 		.img {
-			height: calc( 100vh - @softkeysHeight );
+			height: @availableHeight; // Required under landscape for black background to work on device
 		}
 
 		img {
