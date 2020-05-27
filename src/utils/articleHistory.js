@@ -10,11 +10,19 @@ const set = list => {
   localStorage.setItem(KEY, JSON.stringify(list))
 }
 
-const add = (lang, title) => {
+const add = (lang, title, anchor) => {
   const list = JSON.parse(localStorage.getItem(KEY)) || []
   const normalizedTitle = normalizeTitle(title)
-  list.push({ lang, title: normalizedTitle })
+  list.push({ lang, title: normalizedTitle, anchor })
   set(list)
+}
+
+const update = (lang, title, anchor) => {
+  const list = JSON.parse(localStorage.getItem(KEY)) || []
+  if (list.length) {
+    list[list.length - 1] = { lang, title, anchor }
+    set(list)
+  }
 }
 
 const prev = () => {
@@ -53,5 +61,5 @@ const getPrev = () => {
 }
 
 export const articleHistory = {
-  get, set, add, prev, clear, isEmpty, hasPrev, getPrev
+  get, set, add, update, prev, clear, isEmpty, hasPrev, getPrev
 }

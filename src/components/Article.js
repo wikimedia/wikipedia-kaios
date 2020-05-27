@@ -207,13 +207,19 @@ const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
   }, [])
 
   useEffect(() => {
-    articleHistory.add(lang, articleTitle)
+    articleHistory.add(lang, articleTitle, anchor)
   }, [])
 
   useEffect(() => {
-    if (currentSection !== 0) { // lead section doesn't count
-      const anchor = article.sections[currentSection].anchor
+    const anchor = article.sections[currentSection].anchor
+    if (currentSection !== 0) {
+      // lead section doesn't count as opened sections
       setOpenedSections({ ...openedSections, [anchor]: true })
+      goto.article(lang, [articleTitle, anchor], true)
+      articleHistory.update(lang, articleTitle, anchor)
+    } else {
+      goto.article(lang, articleTitle, true)
+      articleHistory.update(lang, articleTitle)
     }
   }, [currentSection])
 
