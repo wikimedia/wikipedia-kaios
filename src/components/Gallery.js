@@ -93,8 +93,12 @@ export const Gallery = ({ close, closeAll, items, startFileName, lang }) => {
       galleryNode.classList.remove(galleryClass)
     })
 
-    img.height >= img.width ? galleryNode.classList.add('portrait') : galleryNode.classList.add('landscape')
-    if (items[currentIndex].caption) galleryNode.classList.add('hasHeader')
+    const orientationClass = img.height >= img.width ? 'portrait' : 'landscape'
+    galleryNode.classList.add(orientationClass)
+
+    if (items[currentIndex].caption) {
+      galleryNode.classList.add('hasHeader')
+    }
   }
 
   useSoftkey('Gallery', {
@@ -117,7 +121,7 @@ export const Gallery = ({ close, closeAll, items, startFileName, lang }) => {
         )
       }
       <div class='img'>
-        <img onLoad={e => onImageLoad(e)} src={items[currentIndex].thumbnail} />
+        <img onLoad={onImageLoad} src={items[currentIndex].thumbnail} />
       </div>
     </div>
   )
