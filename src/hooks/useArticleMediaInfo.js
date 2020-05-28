@@ -5,8 +5,9 @@ export const useArticleMediaInfo = (lang, title, fromCommon) => {
   const [media, setMedia] = useState()
 
   useEffect(() => {
-    getArticleMediaInfo(lang, title, fromCommon)
-      .then(media => setMedia(media))
+    const [promise, abort] = getArticleMediaInfo(lang, title, fromCommon)
+    promise.then(setMedia)
+    return abort
   }, [])
 
   return media

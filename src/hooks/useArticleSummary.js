@@ -5,8 +5,9 @@ export const useArticleSummary = (lang, title) => {
   const [summary, setSummary] = useState()
 
   useEffect(() => {
-    getArticleSummary(lang, title)
-      .then(summary => setSummary(summary))
+    const [promise, abort] = getArticleSummary(lang, title)
+    promise.then(setSummary)
+    return abort
   }, [lang, title])
 
   return summary
