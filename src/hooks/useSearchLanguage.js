@@ -1,5 +1,5 @@
 import { useState, useLayoutEffect } from 'preact/hooks'
-import { allLanguages } from 'utils'
+import { allLanguages, prioritizedLanguages } from 'utils'
 
 export const useSearchLanguage = (lang) => {
   const [items, setItems] = useState(getInitialLangList(lang))
@@ -39,7 +39,7 @@ const filterFirst10Language = text => {
 }
 
 const getInitialLangList = lang => {
-  const list = allLanguages.slice(0, 10)
+  const list = prioritizedLanguages
 
   if (!list.find(language => language.lang === lang)) {
     list.unshift(allLanguages.find(language => language.lang === lang))
