@@ -14,8 +14,9 @@ jobs:
             npm run start &
             npm test
             ./scripts/zip.sh
+            ./scripts/zip.sh jio
       - store_artifacts:
-          path: app.zip
+          path: WikipediaKaiOS*.zip
       - store_artifacts:
           path: cypress/screenshots
           destination: screenshots
