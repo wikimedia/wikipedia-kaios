@@ -1,4 +1,4 @@
 
 export const canonicalizeTitle = title => {
-  return title.split(' ').join('_')
+  return String(title).split(' ').join('_')
 }

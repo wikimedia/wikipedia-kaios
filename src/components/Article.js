@@ -126,7 +126,7 @@ const ArticleSection = ({
   )
 }
 
-const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
+const ArticleInner = ({ lang, articleTitle, initialAnchor, initialPage }) => {
   const i18n = useI18n()
   const containerRef = useRef()
   const [article, loadArticle] = useArticle(lang, articleTitle)
@@ -148,7 +148,7 @@ const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
   const [showLanguagePopup] = usePopup(ArticleLanguage, { mode: 'fullscreen', stack: true })
   const [showMenuPopup] = usePopup(ArticleMenu, { mode: 'fullscreen' })
   const [showGalleryPopup] = usePopup(Gallery, { mode: 'fullscreen', stack: true })
-  const [currentSection, setCurrentSection, currentPage] = useArticlePagination(containerRef, article, anchor)
+  const [currentSection, setCurrentSection, currentPage] = useArticlePagination(containerRef, article, anchor, initialPage)
   const section = article.sections[currentSection]
   const goToArticleSubpage = ({ sectionIndex, anchor }) => {
     setCurrentSection(
@@ -191,8 +191,8 @@ const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
 
   const onKeyBackspace = () => {
     if (articleHistory.hasPrev()) {
-      const { lang, title } = articleHistory.prev()
-      goto.article(lang, title, true)
+      const { lang, title, anchor, page } = articleHistory.prev()
+      goto.article(lang, [title, anchor, page], true)
     } else {
       history.back()
     }
@@ -207,7 +207,7 @@ const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
   }, [])
 
   useEffect(() => {
-    articleHistory.add(lang, articleTitle, anchor)
+    articleHistory.add(lang, articleTitle, anchor, initialPage)
   }, [])
 
   useEffect(() => {
@@ -220,8 +220,8 @@ const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
 
   useEffect(() => {
     const currentAnchor = findCurrentLocatedAnchor(containerRef)
-    articleHistory.update(lang, articleTitle, currentAnchor)
-    goto.article(lang, [articleTitle, currentAnchor], true)
+    articleHistory.update(lang, articleTitle, currentAnchor, currentPage)
+    goto.article(lang, [articleTitle, currentAnchor, currentPage], true)
   }, [currentPage])
 
   const actions = currentSection === 0 ? [
@@ -249,9 +249,9 @@ const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
   )
 }
 
-export const Article = ({ lang, title: articleTitle, anchor: initialAnchor }) => {
+export const Article = ({ lang, title: articleTitle, anchor: initialAnchor, page: initialPage }) => {
   return (
-    <ArticleInner lang={lang} articleTitle={articleTitle} initialAnchor={initialAnchor} key={lang + articleTitle} />
+    <ArticleInner lang={lang} articleTitle={articleTitle} initialAnchor={initialAnchor} initialPage={initialPage} key={lang + articleTitle} />
   )
 }
 

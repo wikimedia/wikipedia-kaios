@@ -44,8 +44,8 @@ export const ArticleMenu = ({
   }
 
   const onPreviousSelected = () => {
-    const { lang, title, anchor } = articleHistory.prev()
-    goto.article(lang, [title, anchor], true)
+    const { lang, title, anchor, page } = articleHistory.prev()
+    goto.article(lang, [title, anchor, page], true)
     close()
   }
 

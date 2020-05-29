@@ -5,11 +5,12 @@ import { viewport } from 'utils'
 export const useArticlePagination = (
   elementRef,
   article,
-  anchor
+  anchor,
+  page
 ) => {
   const [currentSection, showPrevSection, showNextSection, setCurrentSection] = useRange(findSection(article.toc, anchor), article.sections.length - 1)
   const [isLastPage, setIsLastPage] = useState(0)
-  const [currentPage, setCurrentPage] = useState(0)
+  const [currentPage, setCurrentPage] = useState(page || 0)
 
   useSoftkey('Article', {
     onKeyArrowDown: () => {
@@ -69,6 +70,12 @@ export const useArticlePagination = (
       }
     }
   }, [anchor])
+
+  useLayoutEffect(() => {
+    if (page !== 0) {
+      elementRef.current.scrollLeft = page * viewport.width
+    }
+  }, [])
 
   return [currentSection, setCurrentSection, currentPage]
 }

@@ -16,7 +16,7 @@ export const Routes = ({ onRouteChange }) => {
       <Onboarding path='/onboarding' />
       <Search path='/' />
       <Settings path='/settings' />
-      <Article path='/article/:lang/:title/:anchor?' />
+      <Article path='/article/:lang/:title/:anchor?/:page?' />
       <Language path='/language' />
     </Router>
   )

@@ -10,18 +10,18 @@ const set = list => {
   localStorage.setItem(KEY, JSON.stringify(list))
 }
 
-const add = (lang, title, anchor) => {
+const add = (lang, title, anchor, page) => {
   const list = JSON.parse(localStorage.getItem(KEY)) || []
   const normalizedTitle = normalizeTitle(title)
-  list.push({ lang, title: normalizedTitle, anchor })
+  list.push({ lang, title: normalizedTitle, anchor, page })
   set(list)
 }
 
-const update = (lang, title, anchor) => {
+const update = (lang, title, anchor, page) => {
   const list = JSON.parse(localStorage.getItem(KEY)) || []
   if (list.length) {
     const normalizedTitle = normalizeTitle(title)
-    list[list.length - 1] = { lang, title: normalizedTitle, anchor }
+    list[list.length - 1] = { lang, title: normalizedTitle, anchor, page }
     set(list)
   }
 }
