@@ -79,10 +79,27 @@ const LoadingAbout = () => {
 
 export const Gallery = ({ close, closeAll, items, startFileName, lang }) => {
   const i18n = useI18n()
+  const containerRef = useRef()
   const [
     currentIndex, onPrevImage, onNextImage
   ] = useRange(getInitialIndex(items, startFileName), items.length - 1)
   const [showAboutPopup] = usePopup(AboutContainer, { stack: true })
+
+  const onImageLoad = ({ target: img }) => {
+    const galleryNode = containerRef.current
+    const galleryClasses = ['hasHeader', 'portrait', 'landscape']
+
+    galleryClasses.forEach(galleryClass => {
+      galleryNode.classList.remove(galleryClass)
+    })
+
+    const orientationClass = img.height >= img.width ? 'portrait' : 'landscape'
+    galleryNode.classList.add(orientationClass)
+
+    if (items[currentIndex].caption) {
+      galleryNode.classList.add('hasHeader')
+    }
+  }
 
   useSoftkey('Gallery', {
     left: i18n('softkey-close'),
@@ -95,7 +112,7 @@ export const Gallery = ({ close, closeAll, items, startFileName, lang }) => {
   }, [currentIndex])
 
   return (
-    <div class={`gallery-view ${items[currentIndex].caption ? 'hasHeader' : ''}`}>
+    <div class='gallery-view' ref={containerRef}>
       {
         items[currentIndex].caption && (
           <div class='header'>
@@ -104,7 +121,7 @@ export const Gallery = ({ close, closeAll, items, startFileName, lang }) => {
         )
       }
       <div class='img'>
-        <img src={items[currentIndex].thumbnail} />
+        <img onLoad={onImageLoad} src={items[currentIndex].thumbnail} />
       </div>
     </div>
   )
