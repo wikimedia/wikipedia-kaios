@@ -215,13 +215,14 @@ const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
     if (currentSection !== 0) {
       // lead section doesn't count as opened sections
       setOpenedSections({ ...openedSections, [anchor]: true })
-      goto.article(lang, [articleTitle, anchor], true)
-      articleHistory.update(lang, articleTitle, anchor)
-    } else {
-      goto.article(lang, articleTitle, true)
-      articleHistory.update(lang, articleTitle)
     }
   }, [currentSection])
+
+  useEffect(() => {
+    const currentAnchor = findCurrentLocatedAnchor(containerRef)
+    articleHistory.update(lang, articleTitle, currentAnchor)
+    goto.article(lang, [articleTitle, currentAnchor], true)
+  }, [currentPage])
 
   const actions = currentSection === 0 ? [
     { name: 'sections', enabled: true, handler: showArticleTocPopup },
