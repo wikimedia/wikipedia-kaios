@@ -45,7 +45,8 @@ export const QuickFacts = ({ article, goToArticleSubpage, close, closeAll }) => 
     article.contentLang,
     containerRef,
     linkHandlers,
-    [scrollPosition, textSize]
+    [scrollPosition, textSize],
+    article.media
   )
 
   return (
