@@ -177,9 +177,7 @@ describe('Article view', () => {
   it('check text size remains after changing on preview', () => {
     goToCatArticle()
     articlePage.getArticleText().should('have.attr', 'style', 'font-size: 16px;')
-    articlePage.selectOptionFromActionsMenu('sections')
-    articleMenuPage.selectOptionFromSections('Taxonomy')
-    cy.enter()
+    cy.downArrow().enter()
     articlePage.decreaseTextSize()
     articlePage.decreaseTextSize()
     popupPage.getText().should('have.attr', 'style', 'font-size: 14px;')
