@@ -15,7 +15,7 @@
     "deploy": "cross-env INSTRUMENTATION=1 RAND=1 npm run build && npm run adb:connect && ( npm run b2g:uninstall || echo ) && npm run b2g:install",
     "cypress:lint": "eslint cypress/",
     "cypress:fix-lint": "eslint cypress/ --fix",
-    "cypress:run": "cypress run",
+    "cypress:run": "cypress run --browser firefox",
     "cypress:open": "cypress open",
     "testlocal": "npm run cypress:fix-lint && npm run cypress:run"
   },

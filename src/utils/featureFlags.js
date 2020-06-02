@@ -6,3 +6,6 @@ export const isInstrumentationEnabled = () => INSTRUMENTATION
 
 /* eslint-disable-next-line no-undef */
 export const isRandomEnabled = () => RANDOM
+
+/* eslint-disable-next-line no-undef */
+export const isRequestHeaderDisabled = () => DISABLE_REQUEST_HEADER

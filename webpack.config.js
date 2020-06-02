@@ -39,7 +39,8 @@ module.exports = {
       APP_VERSION: JSON.stringify(require('./package.json').version),
       INSTRUMENTATION: JSON.stringify(!!parseInt(process.env.INSTRUMENTATION)),
       // "RANDOM" is already used in the terminal, so using just "RAND"
-      RANDOM: JSON.stringify(!!parseInt(process.env.RAND))
+      RANDOM: JSON.stringify(!!parseInt(process.env.RAND)),
+      DISABLE_REQUEST_HEADER: JSON.stringify(!!parseInt(process.env.DISABLE_REQUEST_HEADER))
     }),
     new webpack.EnvironmentPlugin()
   ],
