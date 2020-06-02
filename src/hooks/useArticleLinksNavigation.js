@@ -132,10 +132,7 @@ const makeLinkClickEvent = link => {
 
   if (link.tagName === 'FIGURE' || link.tagName === 'FIGURE-INLINE') {
     const aElement = link.querySelector('a')
-    const href = aElement.getAttribute('href')
-    // file name example in href : /wiki/File:Holly_Christmas_card_from_NLI.jpg
-    // split to match the api file name
-    const fileName = href.split(':')[1]
+    const fileName = getFileNameFromAnchorElement(aElement)
     return { type: 'image', fileName }
   }
 
@@ -179,7 +176,13 @@ const isImageInGallery = (galleryItems, link) => {
     return false
   }
 
-  const href = aElement.getAttribute('href')
-  const fileName = href.split(':')[1]
+  const fileName = getFileNameFromAnchorElement(aElement)
   return galleryItems.find(media => media.canonicalizedTitle === fileName)
+}
+
+const getFileNameFromAnchorElement = (aElement) => {
+  // file name example in href : /wiki/File:Holly_Christmas_card_from_NLI.jpg
+  // split to match the api file name
+  const href = aElement.getAttribute('href')
+  return href.split(':')[1]
 }
