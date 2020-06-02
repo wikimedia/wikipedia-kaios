@@ -49,7 +49,7 @@ export const cachedFetch = (url, transformFn, cache = true) => {
 }
 
 const sendLogWhenError = ({ status, response }, url) => {
-  if (isProd()) {
+  if (!isProd()) {
     return
   }
 
