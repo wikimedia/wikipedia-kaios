@@ -15,7 +15,7 @@ export const cachedFetch = (url, transformFn, cache = true) => {
   const promise = new Promise((resolve, reject) => {
     xhr.responseType = 'json'
     xhr.open('GET', url)
-    if (isProd() && !isRequestHeaderDisabled()) {
+    if (!isRequestHeaderDisabled()) {
       xhr.setRequestHeader('User-Agent', `WikipediaApp/${appVersion()} ${navigator.userAgent}`)
       xhr.setRequestHeader('Referer', 'https://www.wikipedia.org')
     }
