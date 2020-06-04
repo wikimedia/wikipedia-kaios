@@ -31,7 +31,9 @@ export const Feedback = ({ close }) => {
   }
 
   const onKeyBackspace = () => {
-    if (isOnline && message && getCurrent().type === 'TEXTAREA') {
+    if (!isOnline && message) {
+      showCancelConfirmation()
+    } else if (message && getCurrent().type === 'TEXTAREA') {
       setMessage(message.slice(0, -1))
     } else {
       close()
@@ -47,8 +49,8 @@ export const Feedback = ({ close }) => {
   }
 
   const onKeyLeft = () => {
-    if (isOnline && message) {
-      if (getCurrent().type === 'TEXTAREA') {
+    if (message) {
+      if (isOnline && getCurrent().type === 'TEXTAREA') {
         blurTextarea()
       }
       showCancelConfirmation()
