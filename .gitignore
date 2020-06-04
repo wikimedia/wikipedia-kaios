@@ -5,4 +5,4 @@ cypress/videos/
 cypress/fixtures
 .vscode
 Wikipedia
-app.zip
+WikipediaKaiOS*.zip
