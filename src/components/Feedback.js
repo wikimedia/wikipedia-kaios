@@ -1,7 +1,8 @@
 import { h } from 'preact'
 import { useState, useRef, useEffect } from 'preact/hooks'
-import { useI18n, useSoftkey, useNavigation, usePopup } from 'hooks'
+import { useI18n, useSoftkey, useNavigation, usePopup, useOnlineStatus } from 'hooks'
 import { sendFeedback } from 'utils'
+import { SearchOfflinePanel } from 'components'
 
 export const Feedback = ({ close }) => {
   const containerRef = useRef()
@@ -10,6 +11,7 @@ export const Feedback = ({ close }) => {
   const [showSuccessConfirmation] = usePopup(SuccessConfirmationPopup, { stack: true })
   const [showCancelConfirmation] = usePopup(CancelConfirmationPopup, { stack: true })
   const [, setNavigation, getCurrent] = useNavigation('Feedback', containerRef, containerRef, 'y')
+  const isOnline = useOnlineStatus()
 
   const items = [
     { text: `<a data-selectable>${i18n('feedback-privacy-policy')}</a>`, link: 'https://foundation.m.wikimedia.org/wiki/Privacy_policy' },
@@ -19,15 +21,17 @@ export const Feedback = ({ close }) => {
 
   const onKeyRight = () => {
     const userMessage = message.trim()
-    if (userMessage) {
+    if (isOnline && userMessage) {
       sendFeedback(userMessage)
-      if (getCurrent().type === 'TEXTAREA') blurTextarea()
+      if (getCurrent().type === 'TEXTAREA') {
+        blurTextarea()
+      }
       showSuccessConfirmation()
     }
   }
 
   const onKeyBackspace = () => {
-    if (message && getCurrent().type === 'TEXTAREA') {
+    if (isOnline && message && getCurrent().type === 'TEXTAREA') {
       setMessage(message.slice(0, -1))
     } else {
       close()
@@ -43,8 +47,10 @@ export const Feedback = ({ close }) => {
   }
 
   const onKeyLeft = () => {
-    if (message) {
-      if (getCurrent().type === 'TEXTAREA') blurTextarea()
+    if (isOnline && message) {
+      if (getCurrent().type === 'TEXTAREA') {
+        blurTextarea()
+      }
       showCancelConfirmation()
     } else {
       close()
@@ -57,17 +63,17 @@ export const Feedback = ({ close }) => {
   }
 
   useSoftkey('Feedback', {
-    right: message && message.trim() ? i18n('softkey-send') : '',
+    right: isOnline && message && message.trim() ? i18n('softkey-send') : '',
     onKeyRight,
     left: i18n('softkey-cancel'),
     onKeyLeft,
     onKeyBackspace,
     onKeyCenter
-  }, [message])
+  }, [message, isOnline])
 
   useEffect(() => {
     setNavigation(0)
-  }, [])
+  }, [isOnline])
 
   return (
     <div class='feedback' ref={containerRef}>
@@ -75,14 +81,19 @@ export const Feedback = ({ close }) => {
         {i18n('feedback-header')}
       </div>
       <div class='body'>
-        <div class='textarea-box'>
-          <form>
-            <textarea value={message} placeholder={i18n('feedback-placeholder')} onChange={e => setMessage(e.target.value)} data-selectable />
-          </form>
-        </div>
-        <div class='explanation-box'>
-          <p dangerouslySetInnerHTML={{ __html: i18n('feedback-explanation', ...hyperlinks) }}> </p>
-        </div>
+        { isOnline
+          ? <div>
+            <div class='textarea-box'>
+              <form>
+                <textarea value={message} placeholder={i18n('feedback-placeholder')} onChange={e => setMessage(e.target.value)} data-selectable />
+              </form>
+            </div>
+            <div class='explanation-box'>
+              <p dangerouslySetInnerHTML={{ __html: i18n('feedback-explanation', ...hyperlinks) }}> </p>
+            </div>
+          </div>
+          : <SearchOfflinePanel />
+        }
       </div>
     </div>
   )

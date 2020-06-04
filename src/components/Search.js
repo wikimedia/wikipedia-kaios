@@ -1,23 +1,11 @@
 import { h } from 'preact'
 import { useRef, useEffect } from 'preact/hooks'
-import { ListView, ConsentPopup } from 'components'
+import { ListView, ConsentPopup, SearchOfflinePanel } from 'components'
 import {
   useNavigation, useSearch, useI18n, useSoftkey,
   useOnlineStatus, useTracking, usePopup
 } from 'hooks'
 import { articleHistory, goto, getAppLanguage, hasConsentBeenAnswered } from 'utils'
-
-const SearchOfflinePanel = () => {
-  const i18n = useI18n()
-  return (
-    <div class='search-offline-panel'>
-      <div class='search-offline-content'>
-        <img src='images/search-offline.svg' />
-        <div class='message'>{i18n('offline-message')}</div>
-      </div>
-    </div>
-  )
-}
 
 export const Search = () => {
   const containerRef = useRef()
