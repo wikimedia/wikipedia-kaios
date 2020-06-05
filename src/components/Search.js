@@ -50,7 +50,9 @@ export const Search = () => {
   }
 
   const goToRandomArticle = () => {
-    getRandomArticleTitle(lang).then(title => {
+    const [promise] = getRandomArticleTitle(lang)
+
+    promise.then(title => {
       goto.article(lang, title)
     })
   }

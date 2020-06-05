@@ -1,6 +1,7 @@
 .gallery-view {
 	width: 100%;
-	height: calc( 100vh - @softkeysHeight );
+	height: @availableHeight;
+	background-color: #000;
 
 	.header {
 		font-size: 17px;
@@ -18,12 +19,31 @@
 		align-items: center;
 		justify-content: center;
 		flex-direction: column;
-		height: calc( 100vh - @softkeysHeight );
+
+		img {
+			background-color: #fff;
+			object-fit: contain;
+		}
+	}
+
+	&.portrait {
+		.img {
+			height: @availableHeight; // Required under portrait for black background to work on device
+		}
+
+		img {
+			height: 100%;
+			width: auto;
+		}
+	}
+
+	&.landscape {
+		.img {
+			height: @availableHeight; // Required under landscape for black background to work on device
+		}
 
 		img {
 			max-width: 100%;
-			background-color: #fff;
-			object-fit: contain;
 		}
 	}
 

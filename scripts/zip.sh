@@ -1,16 +1,19 @@
 #!/bin/bash
 
+TARGET=$1
+FILENAME=WikipediaKaiOS$TARGET
+
 rm -rf Wikipedia
 rm -rf dist
-rm app.zip
+rm $FILENAME.zip
 
 mkdir Wikipedia
 
 node scripts/manifest.js > Wikipedia/manifest.webapp
-cross-env INSTRUMENTATION=1 npm run build
+LANG_LIST=$TARGET INSTRUMENTATION=1 npm run build
 cp -r dist Wikipedia/
 cp -r images Wikipedia/
 cp index.html Wikipedia/
 
 cd Wikipedia
-zip -r ../app.zip *
+zip -r ../$FILENAME.zip *
