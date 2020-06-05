@@ -82,8 +82,5 @@
     "privacy-terms-header": "Privacy and terms",
     "softkey-consent-agree": "Agree",
     "softkey-consent-terms": "Terms",
-    "softkey-consent-policy": "Policy",
-    "consent-title": "Welcome to Wikipedia",
-    "consent-subtitle": "The free encyclopedia",
-    "consent-message": "By continuing, you agree to our Terms of use and Privacy policy."
+    "softkey-consent-policy": "Policy"
 }

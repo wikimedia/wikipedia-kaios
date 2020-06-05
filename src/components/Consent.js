@@ -21,13 +21,11 @@ export const Consent = () => {
   }, [])
 
   return (
-    <div class='usageconsent'>
+    <div class='consent'>
       <div class='header'>{i18n('app-title')}</div>
       <div class='body'>
-        <img src='/images/w-icon.svg' />
-        <div class='title'>{i18n('consent-title')}</div>
-        <div class='subtitle'>{i18n('consent-subtitle')}</div>
-        <div class='message'>{i18n('consent-message')}</div>
+        <div class='message'>{i18n('consent-policy-message')}</div>
+        <div class='message'>{i18n('consent-terms-message')}</div>
       </div>
     </div>
   )
