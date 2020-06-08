@@ -1,30 +1,21 @@
 import { h } from 'preact'
 import { useRef, useEffect } from 'preact/hooks'
-import { useNavigation, useI18n, useSoftkey, usePopup } from 'hooks'
-import { ListView, UsageReportConsent } from 'components'
-import { getAppLanguage } from 'utils'
+import { useNavigation, useI18n, useSoftkey } from 'hooks'
+import { ListView } from 'components'
+import { goto } from 'utils'
 
 export const PrivacyTerms = ({ close }) => {
   const containerRef = useRef()
   const listRef = useRef()
   const i18n = useI18n()
-  const lang = getAppLanguage()
-  const [showUsageReportConsent] = usePopup(UsageReportConsent, { mode: 'fullscreen', stack: true })
 
   const onKeyCenter = () => {
     const { index } = getCurrent()
     const item = items[index]
 
-    // open link
-    if (item.link) {
-      window.open(item.link)
-    } else if (item.action) {
+    if (item.action) {
       item.action()
     }
-  }
-
-  const onUsageReportConsentSelected = () => {
-    showUsageReportConsent()
   }
 
   useSoftkey('PrivacyTerms', {
@@ -42,9 +33,8 @@ export const PrivacyTerms = ({ close }) => {
   }, [])
 
   const items = [
-    { title: i18n('settings-usage-reports'), action: onUsageReportConsentSelected },
-    { title: i18n('settings-privacy'), link: 'https://foundation.m.wikimedia.org/wiki/Privacy_policy' },
-    { title: i18n('settings-term'), link: `https://foundation.m.wikimedia.org/wiki/Terms_of_Use/${lang}` }
+    { title: i18n('settings-privacy'), action: goto.privacyPolicy, link: true },
+    { title: i18n('settings-term'), action: goto.termsOfUse, link: true }
   ]
 
   return (

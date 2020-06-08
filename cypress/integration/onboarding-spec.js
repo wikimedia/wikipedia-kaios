@@ -8,10 +8,9 @@ import * as ptJson from '../../i18n/pt.json'
 const onboardingPage = new OnboardingPage()
 const searchPage = new SearchPage()
 
-describe('Onboarding', () => {
+describe('Onboarding (skipping consent)', () => {
   beforeEach(() => {
-    localStorage.setItem('usage-data-consent', false) // Don't display usage data consent prompt
-    cy.visit('http://127.0.0.1:8080')
+    cy.navigateToPageWithoutConsent()
   })
 
   it('onboarding elements should be present', () => {
@@ -46,7 +45,7 @@ describe('Onboarding', () => {
   it('skip button skips onboarding and sets localStorage variable', () => {
     cy.getLeftSoftkeyButton().should('have.text', 'Skip').click()
     searchPage.getSearchTextBox().should('be.visible')
-    cy.visit('http://127.0.0.1:8080')
+    cy.visit('/')
     cy.getRightSoftkeyButton().should('have.text', 'Settings')
     cy.getLocalStorage('has-onboard-before').should('equal', 'true')
     searchPage.getSearchTextBox().should('be.visible')
@@ -77,5 +76,25 @@ describe('Onboarding', () => {
   it('change language and check onboarding', () => {
     cy.changeBrowserLanguageAndGoToHomePage('pt-PT')
     onboardingPage.getTitle().should('have.text', ptJson['onboarding-0-title'])
+  })
+})
+
+describe('Onboarding', () => {
+  beforeEach(() => {
+    cy.visit('/')
+  })
+
+  it('shows consent form after skipping onboarding', () => {
+    cy.getLeftSoftkeyButton().should('have.text', 'Skip').click()
+    cy.getCenterSoftkeyButton().should('have.text', 'Agree').click()
+    searchPage.getSearchTextBox().should('be.visible')
+  })
+
+  it('shows consent form after going through onboarding', () => {
+    cy.getRightSoftkeyButton().click()
+    cy.getRightSoftkeyButton().click()
+    cy.getCenterSoftkeyButton().should('have.text', 'Get started').click()
+    cy.getCenterSoftkeyButton().should('have.text', 'Agree').click()
+    searchPage.getSearchTextBox().should('be.visible')
   })
 })

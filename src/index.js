@@ -4,7 +4,7 @@ import 'intl-pluralrules'
 import Banana from 'banana-i18n'
 import {
   setAppLanguage, getAppLanguage, setDeviceLanguage, getDeviceLanguage,
-  checkHasDeviceLanguageChanged, loadAllLanguagesMessages
+  checkHasDeviceLanguageChanged, loadAllLanguagesMessages, consentMessages
 } from 'utils'
 import { App } from 'components'
 
@@ -18,5 +18,6 @@ if (checkHasDeviceLanguageChanged()) {
 const lang = getAppLanguage()
 const banana = new Banana(lang)
 banana.load(loadAllLanguagesMessages())
+banana.load(consentMessages)
 
 render(<App i18n={banana} />, document.querySelector('.root'))
