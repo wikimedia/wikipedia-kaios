@@ -1,4 +1,4 @@
-import { isProd, appVersion, sendErrorLog } from 'utils'
+import { isProd, appVersion, sendErrorLog, isRequestHeaderDisabled } from 'utils'
 
 // todo: Implement a real cache that keeps
 // the last N requests to keep memory usage
@@ -15,7 +15,7 @@ export const cachedFetch = (url, transformFn, cache = true) => {
   const promise = new Promise((resolve, reject) => {
     xhr.responseType = 'json'
     xhr.open('GET', url)
-    if (isProd()) {
+    if (!isRequestHeaderDisabled()) {
       xhr.setRequestHeader('User-Agent', `WikipediaApp/${appVersion()} ${navigator.userAgent}`)
       xhr.setRequestHeader('Referer', 'https://www.wikipedia.org')
     }

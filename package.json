@@ -6,7 +6,8 @@
   "scripts": {
     "test": "npm run cypress:lint && npm run cypress:run",
     "build": "webpack --mode production",
-    "dev": "cross-env INSTRUMENTATION=1 RAND=1 webpack-dev-server --mode development",
+    "build:ci": "cross-env DISABLE_REQUEST_HEADER=1 npm run build",
+    "dev": "cross-env DISABLE_REQUEST_HEADER=1 INSTRUMENTATION=1 RAND=1 webpack-dev-server --mode development",
     "start": "http-server -p 8080",
     "banana": "banana-checker i18n/",
     "adb:connect": "adb forward tcp:6000 localfilesystem:/data/local/debugger-socket",
@@ -15,7 +16,7 @@
     "deploy": "cross-env INSTRUMENTATION=1 RAND=1 npm run build && npm run adb:connect && ( npm run b2g:uninstall || echo ) && npm run b2g:install",
     "cypress:lint": "eslint cypress/",
     "cypress:fix-lint": "eslint cypress/ --fix",
-    "cypress:run": "cypress run",
+    "cypress:run": "cypress run --browser firefox",
     "cypress:open": "cypress open",
     "testlocal": "npm run cypress:fix-lint && npm run cypress:run"
   },
