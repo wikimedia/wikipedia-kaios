@@ -10,8 +10,7 @@ const searchPage = new SearchPage()
 
 describe('Onboarding (skipping consent)', () => {
   beforeEach(() => {
-    localStorage.setItem('usage-data-consent', '{}') // Don't display consent screen
-    cy.visit('http://127.0.0.1:8080')
+    cy.navigateToPageWithoutConsent()
   })
 
   it('onboarding elements should be present', () => {
@@ -46,7 +45,7 @@ describe('Onboarding (skipping consent)', () => {
   it('skip button skips onboarding and sets localStorage variable', () => {
     cy.getLeftSoftkeyButton().should('have.text', 'Skip').click()
     searchPage.getSearchTextBox().should('be.visible')
-    cy.visit('http://127.0.0.1:8080')
+    cy.visit('/')
     cy.getRightSoftkeyButton().should('have.text', 'Settings')
     cy.getLocalStorage('has-onboard-before').should('equal', 'true')
     searchPage.getSearchTextBox().should('be.visible')
@@ -82,7 +81,7 @@ describe('Onboarding (skipping consent)', () => {
 
 describe('Onboarding', () => {
   beforeEach(() => {
-    cy.visit('http://127.0.0.1:8080')
+    cy.visit('/')
   })
 
   it('shows consent form after skipping onboarding', () => {
