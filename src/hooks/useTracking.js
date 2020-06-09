@@ -1,30 +1,13 @@
 import { useRef, useEffect } from 'preact/hooks'
-import { appVersion, sendEvent, isInstrumentationEnabled } from 'utils'
+import {
+  appVersion, appInstallId, generateRandomId, sendEvent,
+  isInstrumentationEnabled
+} from 'utils'
 
 const SCHEMA_NAME = 'InukaPageView'
 const SCHEMA_REV = 19883738
-const USER_ID_KEY = 'INUKA-PV-U'
 const SESSION_ID_KEY = 'INUKA-PV-S'
 const ONE_HOUR = 3600 * 1000
-
-const generateId = () => {
-  const rnds = new Uint16Array(5)
-  crypto.getRandomValues(rnds)
-  return (rnds[0] + 0x10000).toString(16).slice(1) +
-          (rnds[1] + 0x10000).toString(16).slice(1) +
-          (rnds[2] + 0x10000).toString(16).slice(1) +
-          (rnds[3] + 0x10000).toString(16).slice(1) +
-          (rnds[4] + 0x10000).toString(16).slice(1)
-}
-
-const getUserId = () => {
-  let userId = localStorage.getItem(USER_ID_KEY)
-  if (!userId) {
-    userId = generateId()
-    localStorage.setItem(USER_ID_KEY, userId)
-  }
-  return userId
-}
 
 const getSessionId = () => {
   const now = Date.now()
@@ -32,7 +15,7 @@ const getSessionId = () => {
   let { id, ts } = JSON.parse(localStorage.getItem(SESSION_ID_KEY)) || {}
   if (!id || (now - ts) > ONE_HOUR) {
     // Never existed or is expired
-    id = generateId()
+    id = generateRandomId()
     changed = true
   }
   ts = now
@@ -50,7 +33,7 @@ export const useTracking = (
   if (!isInstrumentationEnabled()) {
     return
   }
-  const userId = getUserId()
+  const userId = appInstallId()
   const isSearch = pageName === 'Search'
 
   const trackingRef = useRef()
@@ -65,7 +48,7 @@ export const useTracking = (
 
   const initEvent = () => {
     start = Date.now()
-    pageviewToken = generateId()
+    pageviewToken = generateRandomId()
     msPaused = 0
     pausedTime = null
   }
