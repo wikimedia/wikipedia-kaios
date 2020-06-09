@@ -103,7 +103,7 @@ export const useArticleLinksNavigation = (
 
 const makeLinkClickEvent = link => {
   const title = link.getAttribute('title')
-  if (title && link.pathname !== '/') {
+  if (title && !['/', '/index.html'].includes(link.pathname)) {
     if (title.includes(':') && INTERWIKI_KEYS.includes(title.split(':')[0])) {
       return { type: 'external', href: link.href }
     }

@@ -1,3 +1,5 @@
+import { prioritizedLanguageListName } from 'utils'
+
 // json language file given by iOS team
 const languages = [
   {
@@ -1498,10 +1500,32 @@ const rtl = [
   'lrc'
 ]
 
+const prioritizedLists = {
+  default: ['en', 'nl', 'de', 'sv', 'fr', 'it', 'ru', 'es', 'pl', 'war'],
+  jio: ['en', 'ji', 'as', 'bn', 'gu', 'kn', 'ks', 'ml', 'mr', 'ne', 'or', 'pa', 'sa', 'sd', 'ta', 'te', 'und', 'mai', 'kok', 'mni', 'doi', 'ur']
+}
+
 export const isSupportedForReading = langCode => {
   return missingFont.indexOf(langCode) === -1 &&
     rtl.indexOf(langCode) === -1
 }
+
+export const prioritizedLanguages = languages
+  .filter(language => {
+    const list = prioritizedLists[prioritizedLanguageListName] ||
+      prioritizedLists.default
+    return list.indexOf(language.code) !== -1
+  })
+  .filter(language => {
+    return isSupportedForReading(language.code)
+  })
+  .map(language => {
+    return {
+      lang: language.code,
+      title: language.name,
+      canonicalName: language.canonical_name
+    }
+  })
 
 export const allLanguages = languages
   .filter(language => {
@@ -1559,7 +1583,8 @@ const getAlias = lang => {
 
 const getCurrentDeviceLanguage = () => {
   const navigatorLang = getAlias(navigator.language)
-  return navigatorLang.includes('-')
+  const code = navigatorLang.includes('-')
     ? navigatorLang.substr(0, navigatorLang.indexOf('-'))
     : navigatorLang
+  return isSupportedForReading(code) ? code : 'en'
 }

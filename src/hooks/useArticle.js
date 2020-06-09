@@ -9,9 +9,21 @@ export const useArticle = (lang, title) => {
   const moreInformationText = contentI18n('more-information')
   const translation = { moreInformationText }
 
+  let abortFunctions = []
+
+  const abortAll = () => {
+    if (abortFunctions) {
+      abortFunctions.forEach(f => f())
+    }
+  }
+
   const loadArticle = () => {
     setArticle(null)
-    Promise.all([getArticle(lang, title, translation), getArticleMediaList(lang, title), getSuggestedArticles(lang, title)])
+    const [articlePromise, articleAbort] = getArticle(lang, title, translation)
+    const [mediaPromise, mediaAbort] = getArticleMediaList(lang, title)
+    const [suggestionsPromise, suggestionsAbort] = getSuggestedArticles(lang, title)
+    abortFunctions = [articleAbort, mediaAbort, suggestionsAbort]
+    Promise.all([articlePromise, mediaPromise, suggestionsPromise])
       .then(([article, media, suggestedArticles]) => {
         const { sections, toc } = article
         const footerTitle = contentI18n('toc-footer')
@@ -35,6 +47,7 @@ export const useArticle = (lang, title) => {
 
   useEffect(() => {
     loadArticle()
+    return abortAll
   }, [lang, title])
 
   return [article, loadArticle]

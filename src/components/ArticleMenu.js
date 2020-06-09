@@ -1,6 +1,5 @@
 import { h } from 'preact'
 import { useRef, useEffect } from 'preact/hooks'
-import { route } from 'preact-router'
 import { useNavigation, useI18n, useSoftkey, usePopup } from 'hooks'
 import { articleHistory, goto } from 'utils'
 import { ListView, TextSize } from 'components'
@@ -35,7 +34,7 @@ export const ArticleMenu = ({
 
   const onSearchSelected = () => {
     close()
-    route('/')
+    goto.search()
   }
 
   const onTextsizeSelected = () => {

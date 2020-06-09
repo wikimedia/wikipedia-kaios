@@ -1,11 +1,15 @@
 import { h } from 'preact'
 import { useRef, useEffect } from 'preact/hooks'
-import { ListView, ConsentPopup, OfflinePanel } from 'components'
+import { ListView, OfflinePanel } from 'components'
 import {
   useNavigation, useSearch, useI18n, useSoftkey,
-  useOnlineStatus, useTracking, usePopup
+  useOnlineStatus, useTracking
 } from 'hooks'
-import { articleHistory, goto, getAppLanguage, hasConsentBeenAnswered } from 'utils'
+import {
+  articleHistory, goto, getAppLanguage,
+  isRandomEnabled
+} from 'utils'
+import { getRandomArticleTitle } from 'api'
 
 export const Search = () => {
   const containerRef = useRef()
@@ -13,10 +17,8 @@ export const Search = () => {
   const listRef = useRef()
   const i18n = useI18n()
   const [current, setNavigation, getCurrent] = useNavigation('Search', containerRef, listRef, 'y')
-  const [showConsentPopup] = usePopup(ConsentPopup)
   const lang = getAppLanguage()
   const [query, setQuery, searchResults] = useSearch(lang)
-  const hasUserConsentBeenAnswered = hasConsentBeenAnswered()
   const isOnline = useOnlineStatus(online => {
     if (online) {
       setQuery(inputRef.current.value)
@@ -35,23 +37,28 @@ export const Search = () => {
     }
   }
 
+  const goToRandomArticle = () => {
+    const [promise] = getRandomArticleTitle(lang)
+
+    promise.then(title => {
+      goto.article(lang, title)
+    })
+  }
+
   useSoftkey('Search', {
     right: i18n('softkey-settings'),
     onKeyRight: () => { window.location.hash = '/settings' },
     center: current.type === 'DIV' ? i18n('centerkey-select') : '',
-    onKeyCenter
+    onKeyCenter,
+    onKeyLeft: isRandomEnabled() ? goToRandomArticle : null
   }, [current.type])
 
   useTracking('Search', lang)
 
   useEffect(() => {
     articleHistory.clear()
-    if (!hasUserConsentBeenAnswered) {
-      showConsentPopup()
-    } else {
-      setNavigation(0)
-    }
-  }, [hasUserConsentBeenAnswered])
+    setNavigation(0)
+  }, [])
 
   return (
     <div class='search' ref={containerRef}>
