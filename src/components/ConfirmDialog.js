@@ -7,6 +7,7 @@ export const ConfirmDialog = ({ message, onSubmit, close, closeAll }) => {
   useSoftkey('ConfirmDialog', {
     left: i18n('softkey-close'),
     onKeyLeft: close,
+    onKeyBackspace: close,
     center: i18n('softkey-ok'),
     onKeyCenter: () => { onSubmit(); closeAll() }
   }, [])
