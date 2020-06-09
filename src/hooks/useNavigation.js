@@ -37,7 +37,7 @@ export const useNavigation = (origin, containerRef, listRef, axis, elementsSelec
         const selectThisElement = element === selectElement
         element.setAttribute('nav-selected', selectThisElement)
         element.setAttribute('nav-index', index)
-        if (element.nodeName === 'INPUT') {
+        if (element.nodeName === 'INPUT' || element.nodeName === 'TEXTAREA') {
           if (selectThisElement) {
             element.focus()
             element.selectionStart = element.selectionEnd = element.value.length

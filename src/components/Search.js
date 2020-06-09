@@ -1,6 +1,6 @@
 import { h } from 'preact'
 import { useRef, useEffect } from 'preact/hooks'
-import { ListView } from 'components'
+import { ListView, OfflinePanel } from 'components'
 import {
   useNavigation, useSearch, useI18n, useSoftkey,
   useOnlineStatus, useTracking
@@ -10,18 +10,6 @@ import {
   isRandomEnabled
 } from 'utils'
 import { getRandomArticleTitle } from 'api'
-
-const SearchOfflinePanel = () => {
-  const i18n = useI18n()
-  return (
-    <div class='search-offline-panel'>
-      <div class='search-offline-content'>
-        <img src='images/search-offline.svg' />
-        <div class='message'>{i18n('offline-message')}</div>
-      </div>
-    </div>
-  )
-}
 
 export const Search = () => {
   const containerRef = useRef()
@@ -77,7 +65,7 @@ export const Search = () => {
       <img class='double-u' src='images/w.svg' style={{ display: ((searchResults || !isOnline) ? 'none' : 'block') }} />
       <input ref={inputRef} type='text' placeholder={i18n('search-placeholder')} value={query} onInput={onInput} data-selectable />
       { (isOnline && searchResults) && <ListView header={i18n('header-search')} items={searchResults} containerRef={listRef} empty={i18n('no-result-found')} /> }
-      { !isOnline && <SearchOfflinePanel /> }
+      { !isOnline && <OfflinePanel /> }
     </div>
   )
 }
