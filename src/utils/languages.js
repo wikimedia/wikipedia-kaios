@@ -1502,7 +1502,7 @@ const rtl = [
 
 const prioritizedLists = {
   default: ['en', 'nl', 'de', 'sv', 'fr', 'it', 'ru', 'es', 'pl', 'war'],
-  jio: ['en', 'ji', 'as', 'bn', 'gu', 'kn', 'ks', 'ml', 'mr', 'ne', 'or', 'pa', 'sa', 'sd', 'ta', 'te', 'und', 'mai', 'kok', 'mni', 'doi', 'ur']
+  jio: ['en', 'hi', 'ji', 'as', 'bn', 'gu', 'kn', 'ks', 'ml', 'mr', 'ne', 'or', 'pa', 'sa', 'sd', 'ta', 'te', 'und', 'mai', 'kok', 'mni', 'doi', 'ur']
 }
 
 export const isSupportedForReading = langCode => {
