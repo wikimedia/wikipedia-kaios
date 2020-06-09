@@ -21,7 +21,8 @@ export const useArticleLinksNavigation = (
   lang,
   contentRef,
   linkHandlers = {},
-  dependencies = []
+  dependencies = [],
+  galleryItems = []
 ) => {
   const i18n = useI18n()
   const [links, setLinks] = useState([])
@@ -44,7 +45,7 @@ export const useArticleLinksNavigation = (
   const hasLinks = () => links && links.length
 
   useEffect(() => {
-    const visibleLinks = findVisibleLinks(contentRef.current)
+    const visibleLinks = findVisibleLinks(contentRef.current, galleryItems)
     setLinks(visibleLinks)
     if (visibleLinks.length) {
       if (visibleLinks.indexOf(currentLink) === -1) {
@@ -131,10 +132,7 @@ const makeLinkClickEvent = link => {
 
   if (link.tagName === 'FIGURE' || link.tagName === 'FIGURE-INLINE') {
     const aElement = link.querySelector('a')
-    const href = aElement.getAttribute('href')
-    // file name example in href : /wiki/File:Holly_Christmas_card_from_NLI.jpg
-    // split to match the api file name
-    const fileName = href.split(':')[1]
+    const fileName = getFileNameFromAnchorElement(aElement)
     return { type: 'image', fileName }
   }
 
@@ -143,7 +141,7 @@ const makeLinkClickEvent = link => {
   }
 }
 
-const findVisibleLinks = container => {
+const findVisibleLinks = (container, galleryItems) => {
   const links = container.querySelectorAll(SUPPORTED_LINKS)
   const visibleLinks = []
   let rect
@@ -160,6 +158,9 @@ const findVisibleLinks = container => {
     if (rect.y < 0 && (rect.y + rect.height < 0)) {
       continue
     }
+    if ((link.tagName === 'FIGURE' || link.tagName === 'FIGURE-INLINE') && !isImageInGallery(galleryItems, link)) {
+      continue
+    }
     if (rect.x > viewport.width || rect.y > (viewport.height - 30)) {
       // After the current page
       break
@@ -167,4 +168,21 @@ const findVisibleLinks = container => {
     visibleLinks.push(link)
   }
   return visibleLinks
+}
+
+const isImageInGallery = (galleryItems, link) => {
+  const aElement = link.querySelector('a')
+  if (!aElement) {
+    return false
+  }
+
+  const fileName = getFileNameFromAnchorElement(aElement)
+  return galleryItems.find(media => media.canonicalizedTitle === fileName)
+}
+
+const getFileNameFromAnchorElement = (aElement) => {
+  // file name example in href : /wiki/File:Holly_Christmas_card_from_NLI.jpg
+  // split to match the api file name
+  const href = aElement.getAttribute('href')
+  return href.split(':')[1]
 }
