@@ -2,7 +2,7 @@ import { h } from 'preact'
 import { useState, useRef, useEffect } from 'preact/hooks'
 import { useI18n, useSoftkey, useNavigation, usePopup, useOnlineStatus } from 'hooks'
 import { sendFeedback } from 'utils'
-import { SearchOfflinePanel } from 'components'
+import { OfflinePanel } from 'components'
 
 export const Feedback = ({ close }) => {
   const containerRef = useRef()
@@ -94,7 +94,7 @@ export const Feedback = ({ close }) => {
               <p dangerouslySetInnerHTML={{ __html: i18n('feedback-explanation', ...hyperlinks) }}> </p>
             </div>
           </div>
-          : <SearchOfflinePanel />
+          : <OfflinePanel />
         }
       </div>
     </div>
