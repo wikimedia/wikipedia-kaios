@@ -11,7 +11,7 @@ import {
   useArticlePagination, useArticleLinksNavigation, useArticleTextSize,
   usePopup, useTracking
 } from 'hooks'
-import { articleHistory, confirmDialog, goto, viewport, rtl } from 'utils'
+import { articleHistory, confirmDialog, goto, viewport } from 'utils'
 
 const ArticleBody = memo(({ content }) => {
   return (
@@ -243,16 +243,15 @@ const ArticleInner = ({ lang, articleTitle, initialAnchor, rtl }) => {
         showGallery={showGallery}
         galleryItems={article.media}
         page={currentPage}
-        rtl={rtl}
+        rtl={article.rtl}
       />
     </div>
   )
 }
 
 export const Article = ({ lang, title: articleTitle, anchor: initialAnchor }) => {
-  const isRtl = rtl.includes(lang)
   return (
-    <ArticleInner lang={lang} articleTitle={articleTitle} initialAnchor={initialAnchor} key={lang + articleTitle} rtl={isRtl} />
+    <ArticleInner lang={lang} articleTitle={articleTitle} initialAnchor={initialAnchor} key={lang + articleTitle} />
   )
 }
 
