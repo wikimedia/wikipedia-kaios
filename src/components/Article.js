@@ -131,7 +131,7 @@ const ArticleSection = ({
   )
 }
 
-const ArticleInner = ({ lang, articleTitle, initialAnchor, rtl }) => {
+const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
   const i18n = useI18n()
   const containerRef = useRef()
   const [article, loadArticle] = useArticle(lang, articleTitle)
@@ -175,7 +175,7 @@ const ArticleInner = ({ lang, articleTitle, initialAnchor, rtl }) => {
   }
 
   const showQuickFacts = () => {
-    showQuickFactsPopup({ article, goToArticleSubpage, rtl })
+    showQuickFactsPopup({ article, goToArticleSubpage, rtl: article.rtl })
   }
 
   const showGallery = startFileName => {
