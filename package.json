@@ -17,8 +17,7 @@
     "cypress:lint": "eslint cypress/",
     "cypress:fix-lint": "eslint cypress/ --fix",
     "cypress:run": "cypress run --browser firefox",
-    "cypress:open": "cypress open",
-    "testlocal": "npm run cypress:fix-lint && npm run cypress:run"
+    "cypress:open": "cypress open"
   },
   "repository": {
     "type": "git",
