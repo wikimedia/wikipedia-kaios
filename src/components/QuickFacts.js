@@ -1,5 +1,5 @@
 import { h } from 'preact'
-import { useRef } from 'preact/hooks'
+import { useRef, useLayoutEffect } from 'preact/hooks'
 import { ReferencePreview, Gallery } from 'components'
 import {
   useScroll, usePopup, useArticleTextSize,
@@ -7,7 +7,7 @@ import {
 } from 'hooks'
 import { confirmDialog } from 'utils'
 
-export const QuickFacts = ({ article, goToArticleSubpage, close, closeAll }) => {
+export const QuickFacts = ({ article, goToArticleSubpage, close, closeAll, rtl }) => {
   const i18n = useI18n()
   const containerRef = useRef()
   const [scrollDown, scrollUp, scrollPosition] = useScroll(containerRef, 20, 'y')
@@ -27,7 +27,8 @@ export const QuickFacts = ({ article, goToArticleSubpage, close, closeAll }) => 
       if (article.references[referenceId]) {
         showReferencePreview({
           reference: article.references[referenceId],
-          lang: article.contentLang
+          lang: article.contentLang,
+          rtl
         })
       }
     },
@@ -42,12 +43,18 @@ export const QuickFacts = ({ article, goToArticleSubpage, close, closeAll }) => 
 
   useArticleLinksNavigation(
     'QuickFacts',
-    article.contentLang,
+    { lang: article.contentLang, rtl },
     containerRef,
     linkHandlers,
     [scrollPosition, textSize],
     article.media
   )
+
+  useLayoutEffect(() => {
+    if (rtl) {
+      containerRef.current.style.direction = 'rtl'
+    }
+  }, [])
 
   return (
     <div

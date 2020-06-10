@@ -1,8 +1,10 @@
 import { h } from 'preact'
+import { useLayoutEffect, useRef } from 'preact/hooks'
 import { useArticleSummary, useI18n, useSoftkey, useArticleTextSize } from 'hooks'
 import { goto } from 'utils'
 
-export const ArticlePreview = ({ lang, title, close, closeAll }) => {
+export const ArticlePreview = ({ lang, title, close, closeAll, rtl }) => {
+  const containerRef = useRef()
   const i18n = useI18n()
   const summary = useArticleSummary(lang, title)
 
@@ -20,8 +22,14 @@ export const ArticlePreview = ({ lang, title, close, closeAll }) => {
   }, [summary])
   useArticleTextSize('ArticlePreview', [summary])
 
+  useLayoutEffect(() => {
+    if (containerRef.current && rtl) {
+      containerRef.current.style.direction = 'rtl'
+    }
+  }, [summary])
+
   return summary ? (
-    <div class='article-preview'>
+    <div class='article-preview' ref={containerRef}>
       <div class='item'>
         <div class='title adjustable-font-size' dangerouslySetInnerHTML={{ __html: summary.titles.display }} />
         { summary.imageUrl && <img class='img' src={summary.imageUrl} /> }

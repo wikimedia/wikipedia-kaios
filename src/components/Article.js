@@ -11,7 +11,7 @@ import {
   useArticlePagination, useArticleLinksNavigation, useArticleTextSize,
   usePopup, useTracking
 } from 'hooks'
-import { articleHistory, confirmDialog, goto, viewport } from 'utils'
+import { articleHistory, confirmDialog, goto, viewport, rtl } from 'utils'
 
 const ArticleBody = memo(({ content }) => {
   return (
@@ -37,7 +37,7 @@ const ArticleActions = ({ actions }) => {
 }
 
 const ArticleSection = ({
-  lang, imageUrl, anchor, title, description, actions, isFooter,
+  lang, imageUrl, anchor, title, description, actions, isFooter, rtl,
   content, page, goToSubpage, references,
   articleTitle, suggestedArticles, showGallery, galleryItems
 }) => {
@@ -56,7 +56,7 @@ const ArticleSection = ({
     },
     reference: ({ referenceId }) => {
       if (references[referenceId]) {
-        showReferencePreview({ reference: references[referenceId], lang })
+        showReferencePreview({ reference: references[referenceId], lang, rtl })
       }
     },
     section: ({ text, anchor }) => {
@@ -67,16 +67,21 @@ const ArticleSection = ({
       showGallery(fileName)
     },
     table: ({ content }) => {
-      showTable({ content })
+      showTable({ content, rtl })
     }
   }
 
-  useArticleLinksNavigation('Article', lang, contentRef, linkHandlers, [page, textSize], galleryItems)
+  useArticleLinksNavigation('Article', { lang, rtl }, contentRef, linkHandlers, [page, textSize], galleryItems)
 
   useLayoutEffect(() => {
     if (!contentRef.current) {
       return
     }
+
+    if (rtl) {
+      contentRef.current.querySelector('.card').style.direction = 'rtl'
+    }
+
     const MAX_TITLE_HEIGHT = 140
     const titleNode = contentRef.current.querySelector('.title')
     if (titleNode.getBoundingClientRect().height > MAX_TITLE_HEIGHT) {
@@ -126,7 +131,7 @@ const ArticleSection = ({
   )
 }
 
-const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
+const ArticleInner = ({ lang, articleTitle, initialAnchor, rtl }) => {
   const i18n = useI18n()
   const containerRef = useRef()
   const [article, loadArticle] = useArticle(lang, articleTitle)
@@ -170,7 +175,7 @@ const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
   }
 
   const showQuickFacts = () => {
-    showQuickFactsPopup({ article, goToArticleSubpage })
+    showQuickFactsPopup({ article, goToArticleSubpage, rtl })
   }
 
   const showGallery = startFileName => {
@@ -238,14 +243,16 @@ const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
         showGallery={showGallery}
         galleryItems={article.media}
         page={currentPage}
+        rtl={rtl}
       />
     </div>
   )
 }
 
 export const Article = ({ lang, title: articleTitle, anchor: initialAnchor }) => {
+  const isRtl = rtl.includes(lang)
   return (
-    <ArticleInner lang={lang} articleTitle={articleTitle} initialAnchor={initialAnchor} key={lang + articleTitle} />
+    <ArticleInner lang={lang} articleTitle={articleTitle} initialAnchor={initialAnchor} key={lang + articleTitle} rtl={isRtl} />
   )
 }
 

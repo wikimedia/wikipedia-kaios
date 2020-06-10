@@ -1476,7 +1476,7 @@ const missingFont = [
   'sat'
 ]
 
-const rtl = [
+export const rtl = [
   'ar',
   'arc',
   'arz',
@@ -1506,8 +1506,7 @@ const prioritizedLists = {
 }
 
 export const isSupportedForReading = langCode => {
-  return missingFont.indexOf(langCode) === -1 &&
-    rtl.indexOf(langCode) === -1
+  return missingFont.indexOf(langCode) === -1
 }
 
 export const prioritizedLanguages = languages

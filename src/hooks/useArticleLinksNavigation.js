@@ -18,7 +18,7 @@ const SUPPORTED_LINKS = [
 
 export const useArticleLinksNavigation = (
   origin,
-  lang,
+  { lang, rtl = false },
   contentRef,
   linkHandlers = {},
   dependencies = [],
@@ -58,7 +58,7 @@ export const useArticleLinksNavigation = (
 
   const defaultLinkHandlers = {
     title: ({ title }) => {
-      showArticlePreview({ title, lang })
+      showArticlePreview({ title, lang, rtl })
     },
     external: ({ href }) => {
       window.open(href)
@@ -69,7 +69,7 @@ export const useArticleLinksNavigation = (
     defaultLinkHandlers, linkHandlers)
 
   useSoftkey(origin, {
-    onKeyArrowLeft: () => {
+    [rtl ? 'onKeyArrowRight' : 'onKeyArrowLeft']: () => {
       if (!hasLinks()) {
         return
       }
@@ -79,7 +79,7 @@ export const useArticleLinksNavigation = (
       }
       setCurrentLink(links[i])
     },
-    onKeyArrowRight: () => {
+    [rtl ? 'onKeyArrowLeft' : 'onKeyArrowRight']: () => {
       if (!hasLinks()) {
         return
       }
