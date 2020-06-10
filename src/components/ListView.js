@@ -11,7 +11,7 @@ export const ListView = ({ items = [], header, containerRef, empty }) => {
       <div class='list' ref={containerRef}>
         {
           items.length ? items.map(item => (
-            <div class='item' data-selectable data-title={item.title} data-selected-key={item.title} key={item.title}>
+            <div class={item.rtl ? 'item right' : 'item'} data-selectable data-title={item.title} data-selected-key={item.title} key={item.title}>
               <div class='info'>
                 <div class='title' dangerouslySetInnerHTML={{ __html: item.displayTitle || item.title }} />
                 { item.description && <div class='description'>{item.description}</div> }

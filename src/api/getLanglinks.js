@@ -1,4 +1,4 @@
-import { buildMwApiUrl, cachedFetch, isSupportedForReading } from 'utils'
+import { buildMwApiUrl, cachedFetch, isSupportedForReading, rtl } from 'utils'
 
 export const getLanglinks = (lang, title) => {
   const params = {
@@ -17,7 +17,8 @@ export const getLanglinks = (lang, title) => {
         title: item.autonym,
         langname: item.langname,
         lang: item.lang,
-        description: item.title
+        description: item.title,
+        rtl: rtl.includes(item.lang)
       })
       )
   })
