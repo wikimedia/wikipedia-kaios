@@ -77,12 +77,5 @@
 	"about-app-message": "Realizat de Fundația Wikimedia cu ajutorul voluntarilor ca tine.",
 	"softkey-read-more": "Citește mai mult",
 	"settings-privacy-terms": "Confidențialitate și Termeni",
-	"privacy-terms-header": "Confidențialitate și Termeni",
-	"settings-usage-reports": "Trimite rapoarte de utilizare",
-	"usage-consent-header": "Trimite rapoarte de utilizare",
-	"usage-consent-explanation": "Ajutați la îmbunătățirea aplicației, informându-ne cum o utilizați. Datele colectate sunt anonime. Citiți politica de confidențialitate pentru mai multe detalii.",
-	"usage-consent-yes": "Da",
-	"usage-consent-no": "Nu",
-	"usage-consent-prompt": "Ajutați la îmbunătățirea aplicației, informându-ne cum o utilizați. Puteți schimba oricând preferințele din meniul de setări. Datele colectate sunt anonime.",
-	"usage-consent-prompt-header": "Date anonime"
+	"privacy-terms-header": "Confidențialitate și Termeni"
 }

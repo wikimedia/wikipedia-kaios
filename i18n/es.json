@@ -85,12 +85,5 @@
 	"about-app-message": "Creado por la Fundación Wikimedia con ayuda de voluntarios como tú.",
 	"softkey-read-more": "Leer más",
 	"settings-privacy-terms": "Privacidad y términos",
-	"privacy-terms-header": "Privacidad y términos",
-	"settings-usage-reports": "Enviar informes de uso",
-	"usage-consent-header": "Enviar informes de uso",
-	"usage-consent-explanation": "Ayude a mejorar la aplicación informándonos cómo la usa. Los datos recopilados son anónimos. Lea la política de privacidad para más detalles.",
-	"usage-consent-yes": "Sí",
-	"usage-consent-no": "No",
-	"usage-consent-prompt": "Ayude a mejorar la aplicación informándonos cómo la usa. Puede cambiar su preferencia en cualquier momento desde el menú de configuración. Los datos recopilados son anónimos.",
-	"usage-consent-prompt-header": "Datos anónimos"
+	"privacy-terms-header": "Privacidad y términos"
 }

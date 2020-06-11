@@ -63,7 +63,19 @@
 	"settings-privacy": "Pravila privatnosti",
 	"settings-term": "Uvjeti uporabe",
 	"settings-rate": "Ocijenite aplikaciju",
-	"settings-help-feedback": "Pomoć i povratne informacije",
+	"settings-help-feedback": "Pošalji povratne informacije",
 	"toc-footer": "Predloženi članci",
-	"usage-consent-prompt-header": "Podatci dani anonomno"
+	"feedback-header": "Slanje povratnih informacija",
+	"feedback-placeholder": "Počnite pisati ovdje...",
+	"feedback-success": "Hvala Vam na povratnim informacijama!",
+	"feedback-success-header": "Povratne informacije su poslane",
+	"feedback-terms-of-survey": "Izjava o uvjetima istraživanja",
+	"feedback-privacy-policy": "Pravila privatnosti",
+	"feedback-terms-of-use": "Uvjeti upotrebe",
+	"softkey-send": "Pošalji",
+	"softkey-cancel": "Otkaži",
+	"feedback-cancel": "Jeste li sigurni da želite odustati od slanja? Sve Vaše povratne informacije bit će izgubljene.",
+	"feedback-cancel-header": "Odbaci",
+	"softkey-yes": "Da",
+	"softkey-no": "Ne"
 }

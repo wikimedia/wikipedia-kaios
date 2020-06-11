@@ -5,6 +5,7 @@
 			"Eduardo Addad de Oliveira",
 			"Gongsoonyee",
 			"Ykhwong",
+			"YuzaTea",
 			"그냥기여자",
 			"아라"
 		]
@@ -79,14 +80,11 @@
 	"textsize-default": "5를 누르세요 (기본값)",
 	"toc-footer": "문서 제안",
 	"view-in-browser": "브라우저에서 문서 보기",
+	"about-app-message": "위키미디어 재단은 여러분과 같은 자원봉사자들의 도움을 받아 만들어졌습니다.",
 	"softkey-read-more": "더 보기",
 	"settings-privacy-terms": "개인정보 및 약관",
 	"privacy-terms-header": "개인정보 및 약관",
-	"settings-usage-reports": "사용 보고서 보내기",
-	"usage-consent-header": "사용 보고서 보내기",
-	"usage-consent-explanation": "앱 개선 지원을 위해 앱을 어떻게 사용하는지 알려주세요. 수집된 데이터는 익명으로 처리됩니다. 더 자세한 사항은 개인정보보호정책을 참고하세요.",
-	"usage-consent-yes": "예",
-	"usage-consent-no": "아니오",
-	"usage-consent-prompt": "앱 개선 지원을 위해 어떻게 사용하는고 계신지 알려 주세요. 설정 메뉴에서 언제든지 환경 설정을 변경할 수 있습니다. 수집되는 데이터는 익명 처리됩니다.",
-	"usage-consent-prompt-header": "익명 데이터"
+	"softkey-consent-agree": "동의",
+	"softkey-consent-terms": "약관",
+	"softkey-consent-policy": "정책"
 }

@@ -82,12 +82,5 @@
 	"about-app-message": "由维基媒体基金会在像您这样的志愿者的帮助下制作。",
 	"softkey-read-more": "阅读更多",
 	"settings-privacy-terms": "隐私和条款",
-	"privacy-terms-header": "隐私和条款",
-	"settings-usage-reports": "发送使用情况报告",
-	"usage-consent-header": "发送使用情况报告",
-	"usage-consent-explanation": "通过让我们知道您如何使用它，帮助应用做得更好。数据收集是匿名的。请阅读隐私政策以了解详情。",
-	"usage-consent-yes": "是",
-	"usage-consent-no": "否",
-	"usage-consent-prompt": "通过让我们知道您如何使用它，帮助应用做得更好。您可以随时在设置菜单中更改您的设置。数据收集是匿名的。",
-	"usage-consent-prompt-header": "匿名数据"
+	"privacy-terms-header": "隐私和条款"
 }

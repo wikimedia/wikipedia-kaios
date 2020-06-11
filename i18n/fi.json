@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"FinlandMan",
+			"Muovipullo",
 			"Nike",
 			"Pyscowicz"
 		]
@@ -69,5 +70,9 @@
 	"textsize-decrease": "Paina 4 (pienennä kokoa)",
 	"textsize-default": "Paina 5 (oletus)",
 	"toc-footer": "Ehdotetut artikkelit",
-	"view-in-browser": "Näytä artikkeli selaimessa"
+	"view-in-browser": "Näytä artikkeli selaimessa",
+	"feedback-success-header": "Palaute lähetetty",
+	"softkey-yes": "Kyllä",
+	"softkey-no": "Ei",
+	"softkey-consent-agree": "Hyväksy"
 }
