@@ -2,7 +2,7 @@ import { h } from 'preact'
 import { useArticleSummary, useI18n, useSoftkey, useArticleTextSize } from 'hooks'
 import { goto } from 'utils'
 
-export const ArticlePreview = ({ lang, title, close, closeAll }) => {
+export const ArticlePreview = ({ lang, title, dir, close, closeAll }) => {
   const i18n = useI18n()
   const summary = useArticleSummary(lang, title)
 
@@ -21,18 +21,18 @@ export const ArticlePreview = ({ lang, title, close, closeAll }) => {
   useArticleTextSize('ArticlePreview', [summary])
 
   return summary ? (
-    <div class='article-preview'>
+    <div class={`article-preview ${dir}`}>
       <div class='item'>
         <div class='title adjustable-font-size' dangerouslySetInnerHTML={{ __html: summary.titles.display }} />
         { summary.imageUrl && <img class='img' src={summary.imageUrl} /> }
       </div>
       <div class='preview-text adjustable-font-size' dangerouslySetInnerHTML={{ __html: summary.preview }} />
     </div>
-  ) : <LoadingPreview title={title} />
+  ) : <LoadingPreview title={title} dir={dir} />
 }
 
-const LoadingPreview = ({ title }) => (
-  <div class='article-preview loading'>
+const LoadingPreview = ({ title, dir }) => (
+  <div class={`article-preview loading ${dir}`}>
     <div class='item'>
       <div class='title adjustable-font-size'>{title}</div>
       <div class='loading-block img' />

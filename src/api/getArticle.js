@@ -1,7 +1,8 @@
-import { cachedFetch, buildPcsUrl, canonicalizeTitle } from 'utils'
+import { cachedFetch, buildPcsUrl, canonicalizeTitle, getDirection } from 'utils'
 
 export const getArticle = (lang, title, { moreInformationText }) => {
   const url = buildPcsUrl(lang, title, 'mobile-sections')
+  const dir = getDirection(lang)
 
   return cachedFetch(url, data => {
     const parser = new DOMParser()
@@ -76,7 +77,8 @@ export const getArticle = (lang, title, { moreInformationText }) => {
       infobox,
       toc,
       references,
-      languageCount
+      languageCount,
+      dir
     }
   })
 }

@@ -7,7 +7,7 @@ import {
 } from 'hooks'
 import { confirmDialog } from 'utils'
 
-export const QuickFacts = ({ article, goToArticleSubpage, close, closeAll }) => {
+export const QuickFacts = ({ article, goToArticleSubpage, dir, close, closeAll }) => {
   const i18n = useI18n()
   const containerRef = useRef()
   const [scrollDown, scrollUp, scrollPosition] = useScroll(containerRef, 20, 'y')
@@ -51,7 +51,7 @@ export const QuickFacts = ({ article, goToArticleSubpage, close, closeAll }) => 
 
   return (
     <div
-      class='quickfacts adjustable-font-size'
+      class={`quickfacts adjustable-font-size ${dir}`}
       ref={containerRef}
       dangerouslySetInnerHTML={{ __html: article.infobox }}
     />
