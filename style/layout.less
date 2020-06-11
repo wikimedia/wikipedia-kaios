@@ -4,14 +4,20 @@
 	.rtl {
 		direction: rtl;
 
-		.article-content figure > figcaption {
-			text-align: right;
+		.article-content {
+			figure > figcaption,
+			table > caption {
+				text-align: right;
+			}
 		}
 	}
 
 	.ltr {
-		.article-content figure > figcaption {
-			text-align: left;
+		.article-content {
+			figure > figcaption,
+			table > caption {
+				text-align: left;
+			}
 		}
 	}
 }
