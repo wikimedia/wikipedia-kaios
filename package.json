@@ -42,7 +42,7 @@
     "babel-plugin-module-resolver": "^3.2.0",
     "cross-env": "^7.0.2",
     "css-loader": "^3.5.3",
-    "cypress": "4.7.0",
+    "cypress": "4.8.0",
     "cypress-localstorage-commands": "^1.1.8",
     "cypress-wait-until": "^1.6.1",
     "eslint": "^6.8.0",
