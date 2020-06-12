@@ -24,6 +24,16 @@
 			display: flex;
 			justify-content: space-between;
 
+			&.rtl {
+				direction: ltr;
+				justify-content: flex-end;
+				text-align: right;
+
+				.info {
+					padding-right: 6px;
+				}
+			}
+
 			.info {
 				height: 100%;
 				overflow: hidden;
