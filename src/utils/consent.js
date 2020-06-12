@@ -22,7 +22,11 @@ export const grantConsent = () => {
 // value and are translated by legal experts. (more languages to come)
 export const consentMessages = {
   en: {
-    'consent-policy-message': 'I understand and accept the terms of the Privacy Policy and consent to the processing of my personal information in accordance with such terms.',
-    'consent-terms-message': 'I understand and accept the Terms of Service.'
+    'consent-message-policy': 'I understand and accept the terms of the Privacy Policy and consent to the processing of my personal information in accordance with such terms.',
+    'consent-message-and': 'And',
+    'consent-message-terms': 'I understand and accept the Terms of Service.',
+    'consent-softkeys-policy': 'Policy',
+    'consent-softkeys-agree': 'Agree',
+    'consent-softkeys-terms': 'Terms'
   }
 }

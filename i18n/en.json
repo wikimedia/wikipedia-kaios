@@ -93,8 +93,5 @@
     "softkey-yes": "Yes",
     "softkey-no": "No",
     "settings-privacy-terms": "Privacy and terms",
-    "privacy-terms-header": "Privacy and terms",
-    "softkey-consent-agree": "Agree",
-    "softkey-consent-terms": "Terms",
-    "softkey-consent-policy": "Policy"
+    "privacy-terms-header": "Privacy and terms"
 }
