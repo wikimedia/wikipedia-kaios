@@ -4,7 +4,7 @@ import { useI18n, useSoftkey, usePopup, useRange, useArticleMediaInfo } from 'ho
 
 const MAX_DESCRIPTION_HEIGHT = 45
 
-const AboutContainer = ({ lang, title, caption, fromCommon, close }) => {
+const AboutContainer = ({ lang, dir, title, caption, fromCommon, close }) => {
   const i18n = useI18n()
   const containerRef = useRef()
   const mediaInfo = useArticleMediaInfo(lang, title, fromCommon)
@@ -42,11 +42,13 @@ const AboutContainer = ({ lang, title, caption, fromCommon, close }) => {
       <div class='header'>{i18n('about-header')}</div>
       <div>
         <div class='sub-header'>{i18n('gallery-description')}</div>
-        <p class='description'>{mediaInfo.description || caption || title}</p>
+        <p class={`description ${mediaInfo.descriptionDir || dir}`}>
+          {mediaInfo.description || caption || title}
+        </p>
       </div>
       <div>
         <div class='sub-header'>{i18n('gallery-author-license')}</div>
-        <p>
+        <p class={dir}>
           {mediaInfo.author || i18n('gallery-unknown-author')}<br />
           {mediaInfo.license || i18n('gallery-unknown-license')}
         </p>
@@ -77,7 +79,7 @@ const LoadingAbout = () => {
   )
 }
 
-export const Gallery = ({ close, closeAll, items, startFileName, lang }) => {
+export const Gallery = ({ close, closeAll, items, startFileName, lang, dir }) => {
   const i18n = useI18n()
   const containerRef = useRef()
   const [
@@ -105,7 +107,7 @@ export const Gallery = ({ close, closeAll, items, startFileName, lang }) => {
     left: i18n('softkey-close'),
     onKeyLeft: closeAll,
     center: i18n('softkey-about'),
-    onKeyCenter: () => showAboutPopup({ ...items[currentIndex], lang }),
+    onKeyCenter: () => showAboutPopup({ ...items[currentIndex], lang, dir }),
     onKeyArrowRight: onNextImage,
     onKeyArrowLeft: onPrevImage,
     onKeyBackspace: close

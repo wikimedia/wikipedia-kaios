@@ -175,7 +175,7 @@ const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
   }
 
   const showGallery = startFileName => {
-    showGalleryPopup({ items: article.media, startFileName, lang })
+    showGalleryPopup({ items: article.media, startFileName, lang, dir })
   }
 
   const showArticleMenu = () => {
