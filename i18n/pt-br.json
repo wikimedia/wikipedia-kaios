@@ -91,5 +91,8 @@
 	"softkey-yes": "Sim",
 	"softkey-no": "Não",
 	"settings-privacy-terms": "Privacidade e termos",
-	"privacy-terms-header": "Privacidade e termos"
+	"privacy-terms-header": "Privacidade e termos",
+	"softkey-consent-agree": "Concordo",
+	"softkey-consent-terms": "Termos",
+	"softkey-consent-policy": "Política"
 }

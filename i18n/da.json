@@ -30,5 +30,8 @@
 	"onboarding-2-title": "Få fri viden",
 	"settings-language": "Sprog",
 	"settings-textsize": "Tekststørrelse",
-	"settings-about-wikipedia": "Om Wikipedia"
+	"settings-about-wikipedia": "Om Wikipedia",
+	"softkey-yes": "Ja",
+	"softkey-no": "Nej",
+	"softkey-consent-policy": "Politik"
 }

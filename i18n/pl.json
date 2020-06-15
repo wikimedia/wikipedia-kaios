@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Chrumps",
-			"Rail"
+			"Rail",
+			"WaldiSt"
 		]
 	},
 	"article-action-sections": "Sekcje",
@@ -28,9 +29,21 @@
 	"settings-privacy": "Polityka prywatności",
 	"settings-term": "Warunki użytkowania",
 	"settings-rate": "Oceń aplikację",
-	"settings-help-feedback": "Pomoc i opinie",
+	"settings-help-feedback": "Prześlij opinię",
 	"settings-about-app": "O aplikacji",
 	"softkey-read-more": "Czytaj więcej",
+	"feedback-explanation": "Wykorzystamy Twoją opinię, aby ulepszyć tę aplikację. Twoja odpowiedź będzie przechowywana przez 90 dni, z zastrzeżeniem naszych $1 i $2",
+	"feedback-placeholder": "Zacznij pisać tutaj...",
+	"feedback-success": "Dziękujemy za opinię",
+	"feedback-privacy-policy": "Polityka prywatności",
+	"feedback-terms-of-use": "Warunki użytkowania",
+	"softkey-send": "Wyślij",
+	"softkey-cancel": "Anuluj",
+	"feedback-cancel": "Czy na pewno chcesz odejść? Wszystkie twoje opinie zostaną utracone",
+	"feedback-cancel-header": "Porzuć",
+	"softkey-yes": "Tak",
+	"softkey-no": "Nie",
 	"settings-privacy-terms": "Prywatność i warunki",
-	"privacy-terms-header": "Prywatność i warunki"
+	"privacy-terms-header": "Prywatność i warunki",
+	"softkey-consent-agree": "Akceptuję"
 }

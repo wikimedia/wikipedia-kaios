@@ -9,7 +9,8 @@
 			"Ihojose",
 			"Joanmp17",
 			"Madamebiblio",
-			"Silverie04"
+			"Silverie04",
+			"Whytheonlyone"
 		]
 	},
 	"article-action-sections": "Secciones",
@@ -84,6 +85,18 @@
 	"view-in-browser": "Ver artículo en el navegador",
 	"about-app-message": "Creado por la Fundación Wikimedia con ayuda de voluntarios como tú.",
 	"softkey-read-more": "Leer más",
+	"feedback-header": "Enviar comentarios",
+	"feedback-explanation": "Usaremos sus comentarios para improvisar esta aplicación. Tu respuesta va ser guardada para 90 días, temando al nuestro $1 y $2",
+	"feedback-placeholder": "Empieza a escribir aquí...",
+	"feedback-success": "Gracias por sus comentarios",
+	"feedback-success-header": "Comentarios enviados",
+	"feedback-terms-of-survey": "Plazos de declaración de encuesta",
+	"feedback-privacy-policy": "Política de privacidad",
+	"feedback-terms-of-use": "Condiciones del uso",
+	"softkey-send": "Enviar",
+	"feedback-cancel": "Estás seguro tu quieres salir? Todo sus comentarios será perdida",
+	"feedback-cancel-header": "Deshechar",
+	"softkey-yes": "Sí",
 	"settings-privacy-terms": "Privacidad y términos",
 	"privacy-terms-header": "Privacidad y términos"
 }

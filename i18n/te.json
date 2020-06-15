@@ -36,5 +36,8 @@
 	"settings-rate": "రేటింగ్ ఇవ్వండి",
 	"settings-help-feedback": "సహాయము, ప్రతిస్పందన",
 	"settings-about-app": "యాప్ గురించి",
-	"settings-privacy-terms": "గోప్యత, నియమాలు"
+	"softkey-cancel": "రద్దుచేయి",
+	"softkey-yes": "అవును",
+	"settings-privacy-terms": "గోప్యత, నియమాలు",
+	"softkey-consent-policy": "విధానం"
 }
