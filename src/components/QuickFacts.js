@@ -27,16 +27,17 @@ export const QuickFacts = ({ article, goToArticleSubpage, dir, close, closeAll }
       if (article.references[referenceId]) {
         showReferencePreview({
           reference: article.references[referenceId],
-          lang: article.contentLang
+          lang: article.contentLang,
+          dir
         })
       }
     },
     section: ({ text, anchor }) => {
       // @todo styling to be confirmed with design
-      confirmDialog({ message: i18n('confirm-section', text), onSubmit: () => goToArticleSubpage({ anchor }) })
+      confirmDialog({ message: i18n('confirm-section', text), dir, onSubmit: () => goToArticleSubpage({ anchor }) })
     },
     image: ({ fileName }) => {
-      showGalleryPopup({ items: article.media, startFileName: fileName, lang: article.contentLang })
+      showGalleryPopup({ items: article.media, startFileName: fileName, lang: article.contentLang, dir })
     }
   }
 
