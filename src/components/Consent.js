@@ -8,21 +8,25 @@ export const Consent = () => {
   const isOnline = useOnlineStatus()
 
   const onAgree = () => {
-    if (isOnline) {
-      grantConsent()
-      goto.search()
-    }
+    grantConsent()
+    goto.search()
   }
 
-  useSoftkey('ConsentMessage', {
-    center: isOnline ? i18n('softkey-consent-agree') : '',
-    onKeyCenter: onAgree,
-    left: isOnline ? i18n('softkey-consent-terms') : '',
-    onKeyLeft: () => { isOnline && goto.termsOfUse() },
-    right: isOnline ? i18n('softkey-consent-policy') : '',
-    onKeyRight: () => { isOnline && goto.privacyPolicy() },
-    backspace: () => { window.exit() }
-  }, [isOnline])
+  const softkeyConfig = {
+    offline: {
+      backspace: () => { window.exit() }
+    },
+    online: {
+      center: i18n('softkey-consent-agree'),
+      onKeyCenter: onAgree,
+      left: i18n('softkey-consent-terms'),
+      onKeyLeft: goto.termsOfUse,
+      right: i18n('softkey-consent-policy'),
+      onKeyRight: goto.privacyPolicy,
+      backspace: () => { window.exit() }
+    }
+  }
+  useSoftkey('ConsentMessage', softkeyConfig[isOnline ? 'online' : 'offline'], [isOnline], true)
 
   return (
     <div class='consent'>
