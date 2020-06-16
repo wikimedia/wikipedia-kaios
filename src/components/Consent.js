@@ -18,9 +18,9 @@ export const Consent = () => {
     center: isOnline ? i18n('softkey-consent-agree') : '',
     onKeyCenter: onAgree,
     left: isOnline ? i18n('softkey-consent-terms') : '',
-    onKeyLeft: () => isOnline && goto.termsOfUse,
+    onKeyLeft: () => { isOnline && goto.termsOfUse() },
     right: isOnline ? i18n('softkey-consent-policy') : '',
-    onKeyRight: () => isOnline && goto.privacyPolicy,
+    onKeyRight: () => { isOnline && goto.privacyPolicy() },
     backspace: () => { window.exit() }
   }, [isOnline])
 
