@@ -59,8 +59,45 @@ export const Feedback = ({ close }) => {
     }
   }
 
+  const onKeyArrowRight = () => {
+    const { index } = getCurrent()
+    if (index > 0) {
+      if (items[index]) {
+        setNavigation(index + 1)
+      } else {
+        setNavigation(1)
+      }
+    } else {
+      const element = getTextareaElement()
+      const cursorPosition = element.selectionStart
+      element.setSelectionRange(cursorPosition + 1, cursorPosition + 1)
+    }
+  }
+
+  const onKeyArrowLeft = () => {
+    const { index } = getCurrent()
+    if (index > 0) {
+      if (items[index - 2]) {
+        setNavigation(index - 1)
+      } else {
+        setNavigation(items.length)
+      }
+    } else {
+      const element = getTextareaElement()
+      const cursorPosition = element.selectionStart
+      element.setSelectionRange(cursorPosition - 1, cursorPosition - 1)
+    }
+  }
+
+  const handleUpOrDownArrowKey = () => {
+    const { index } = getCurrent()
+    index === 0 ? setNavigation(1) : setNavigation(0)
+  }
+
+  const getTextareaElement = () => containerRef.current.querySelector('textarea')
+
   const blurTextarea = () => {
-    const element = containerRef.current.querySelector('textarea')
+    const element = getTextareaElement()
     element.blur()
   }
 
@@ -70,7 +107,11 @@ export const Feedback = ({ close }) => {
     left: i18n('softkey-cancel'),
     onKeyLeft,
     onKeyBackspace,
-    onKeyCenter
+    onKeyCenter,
+    onKeyArrowRight,
+    onKeyArrowLeft,
+    onKeyArrowDown: handleUpOrDownArrowKey,
+    onKeyArrowUp: handleUpOrDownArrowKey
   }, [message, isOnline])
 
   useEffect(() => {
