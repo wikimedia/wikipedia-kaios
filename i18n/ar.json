@@ -84,7 +84,11 @@
 	"view-in-browser": "اعرض المقالة في المتصفح",
 	"about-app-message": "صنع بواسطة مؤسسة ويكيميديا بمساعدة متطوعين مثلك.",
 	"softkey-read-more": "اقرأ المزيد",
+	"feedback-privacy-policy": "سياسة الخصوصية",
 	"feedback-terms-of-use": "شروط الاستخدام",
+	"softkey-yes": "نعم",
 	"settings-privacy-terms": "الخصوصية والشروط",
-	"privacy-terms-header": "الشروط والخصوصية"
+	"privacy-terms-header": "الشروط والخصوصية",
+	"softkey-consent-agree": "أوافق",
+	"softkey-consent-policy": "السياسة"
 }

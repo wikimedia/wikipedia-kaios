@@ -19,5 +19,18 @@
 	"softkey-ok": "Baiklah",
 	"softkey-read": "Baca",
 	"reference-title": "Rujukan [$1]",
-	"offline-message": "Tiada sambungan internet"
+	"offline-message": "Tiada sambungan internet",
+	"settings-help-feedback": "Hantar maklum balas",
+	"feedback-header": "Hantar maklum balas",
+	"feedback-placeholder": "Mula menulis di sini...",
+	"feedback-success-header": "Maklum balas dihantar",
+	"feedback-privacy-policy": "Dasar kebersendirian",
+	"softkey-cancel": "Batalkan",
+	"softkey-yes": "Ya",
+	"softkey-no": "Tidak",
+	"settings-privacy-terms": "Kebersendirian dan terma",
+	"privacy-terms-header": "Kebersendirian dan terma",
+	"softkey-consent-agree": "Setuju",
+	"softkey-consent-terms": "Terma",
+	"softkey-consent-policy": "Dasar"
 }

@@ -10,6 +10,7 @@
 			"Joanmp17",
 			"Madamebiblio",
 			"Silverie04",
+			"Suecarmol",
 			"Whytheonlyone"
 		]
 	},
@@ -92,10 +93,10 @@
 	"feedback-success-header": "Comentarios enviados",
 	"feedback-terms-of-survey": "Plazos de declaración de encuesta",
 	"feedback-privacy-policy": "Política de privacidad",
-	"feedback-terms-of-use": "Condiciones del uso",
+	"feedback-terms-of-use": "Términos de uso",
 	"softkey-send": "Enviar",
-	"feedback-cancel": "Estás seguro tu quieres salir? Todo sus comentarios será perdida",
-	"feedback-cancel-header": "Deshechar",
+	"feedback-cancel": "¿Estás seguro que quieres salir? Todo sus comentarios se perderán",
+	"feedback-cancel-header": "Desechar",
 	"softkey-yes": "Sí",
 	"settings-privacy-terms": "Privacidad y términos",
 	"privacy-terms-header": "Privacidad y términos"

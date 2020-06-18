@@ -72,7 +72,7 @@
 	"settings-privacy": "隐私政策",
 	"settings-term": "使用条款",
 	"settings-rate": "评价应用程序",
-	"settings-help-feedback": "帮助和反馈",
+	"settings-help-feedback": "发送反馈",
 	"settings-about-app": "关于维基百科应用程序",
 	"textsize-increase": "按6 (增大字号)",
 	"textsize-decrease": "按4 (减小字号)",
@@ -81,6 +81,18 @@
 	"view-in-browser": "在浏览器查看条目",
 	"about-app-message": "由维基媒体基金会在像您这样的志愿者的帮助下制作。",
 	"softkey-read-more": "阅读更多",
+	"feedback-header": "发送反馈",
+	"feedback-success": "感谢您的反馈！",
+	"feedback-privacy-policy": "隐私政策",
+	"feedback-terms-of-use": "使用条款",
+	"softkey-send": "发送",
+	"softkey-cancel": "取消",
+	"feedback-cancel-header": "舍弃",
+	"softkey-yes": "是",
+	"softkey-no": "否",
 	"settings-privacy-terms": "隐私和条款",
-	"privacy-terms-header": "隐私和条款"
+	"privacy-terms-header": "隐私和条款",
+	"softkey-consent-agree": "同意",
+	"softkey-consent-terms": "条件",
+	"softkey-consent-policy": "方针"
 }
