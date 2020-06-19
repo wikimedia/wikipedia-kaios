@@ -10,7 +10,7 @@ export const Feedback = ({ close }) => {
   const [message, setMessage] = useState()
   const [showSuccessConfirmation] = usePopup(SuccessConfirmationPopup, { stack: true })
   const [showCancelConfirmation] = usePopup(CancelConfirmationPopup, { stack: true })
-  const [, setNavigation, getCurrent] = useNavigation('Feedback', containerRef, containerRef, 'y')
+  const [current, setNavigation, getCurrent] = useNavigation('Feedback', containerRef, containerRef, 'y')
   const isOnline = useOnlineStatus()
 
   const items = [
@@ -30,11 +30,9 @@ export const Feedback = ({ close }) => {
     }
   }
 
-  const onKeyBackspace = () => {
-    if (!isOnline && message) {
+  const onKeyBackspaceHandler = () => {
+    if (message) {
       showCancelConfirmation()
-    } else if (message && getCurrent().type === 'TEXTAREA') {
-      setMessage(message.slice(0, -1))
     } else {
       close()
     }
@@ -59,33 +57,21 @@ export const Feedback = ({ close }) => {
     }
   }
 
-  const onKeyArrowRight = () => {
+  const onKeyArrowRightHandler = () => {
     const { index } = getCurrent()
-    if (index > 0) {
-      if (items[index]) {
-        setNavigation(index + 1)
-      } else {
-        setNavigation(1)
-      }
+    if (items[index]) {
+      setNavigation(index + 1)
     } else {
-      const element = getTextareaElement()
-      const cursorPosition = element.selectionStart
-      element.setSelectionRange(cursorPosition + 1, cursorPosition + 1)
+      setNavigation(1)
     }
   }
 
-  const onKeyArrowLeft = () => {
+  const onKeyArrowLeftHandler = () => {
     const { index } = getCurrent()
-    if (index > 0) {
-      if (items[index - 2]) {
-        setNavigation(index - 1)
-      } else {
-        setNavigation(items.length)
-      }
+    if (items[index - 2]) {
+      setNavigation(index - 1)
     } else {
-      const element = getTextareaElement()
-      const cursorPosition = element.selectionStart
-      element.setSelectionRange(cursorPosition - 1, cursorPosition - 1)
+      setNavigation(items.length)
     }
   }
 
@@ -101,11 +87,11 @@ export const Feedback = ({ close }) => {
     onKeyRight,
     left: i18n('softkey-cancel'),
     onKeyLeft,
-    onKeyBackspace,
+    onKeyBackspace: !(message && current.type === 'TEXTAREA') && (() => onKeyBackspaceHandler()),
     onKeyCenter,
-    onKeyArrowRight,
-    onKeyArrowLeft
-  }, [message, isOnline])
+    onKeyArrowRight: !(current.type === 'TEXTAREA') && (() => onKeyArrowRightHandler()),
+    onKeyArrowLeft: !(current.type === 'TEXTAREA') && (() => onKeyArrowLeftHandler())
+  }, [message, isOnline, current])
 
   useEffect(() => {
     setNavigation(0)
