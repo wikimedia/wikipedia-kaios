@@ -89,11 +89,6 @@ export const Feedback = ({ close }) => {
     }
   }
 
-  const handleUpOrDownArrowKey = () => {
-    const { index } = getCurrent()
-    index === 0 ? setNavigation(1) : setNavigation(0)
-  }
-
   const getTextareaElement = () => containerRef.current.querySelector('textarea')
 
   const blurTextarea = () => {
@@ -109,9 +104,7 @@ export const Feedback = ({ close }) => {
     onKeyBackspace,
     onKeyCenter,
     onKeyArrowRight,
-    onKeyArrowLeft,
-    onKeyArrowDown: handleUpOrDownArrowKey,
-    onKeyArrowUp: handleUpOrDownArrowKey
+    onKeyArrowLeft
   }, [message, isOnline])
 
   useEffect(() => {
