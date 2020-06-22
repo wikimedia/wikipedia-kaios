@@ -133,7 +133,7 @@ const SuccessConfirmationPopup = ({ closeAll }) => {
   return (
     <div class='confirmation-popup'>
       <div class='header'>{i18n('feedback-success-header')}</div>
-      <p class='preview-text success'>{i18n('feedback-success')}</p>
+      <p class='preview-text'>{i18n('feedback-success')}</p>
     </div>
   )
 }
@@ -152,7 +152,7 @@ const CancelConfirmationPopup = ({ close, closeAll }) => {
   return (
     <div class='confirmation-popup'>
       <div class='header'>{i18n('feedback-cancel-header')}</div>
-      <p class='preview-text cancel'>{i18n('feedback-cancel')}</p>
+      <p class='preview-text'>{i18n('feedback-cancel')}</p>
     </div>
   )
 }
