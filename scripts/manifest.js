@@ -159,8 +159,9 @@ manifest.display = translations['en'].name
 manifest.subtitle = translations['en'].subtitle
 manifest.description = translations['en'].description
 
-// Use the package version as the source of truth
-manifest.version = require('../package.json').version
+// Use the package version and build number
+const buildNumber = process.env.CIRCLE_BUILD_NUM || 0
+manifest.version = require('../package.json').version + '.' + buildNumber
 
 // Send output to stdout
 console.log(JSON.stringify(manifest, null, 2))
