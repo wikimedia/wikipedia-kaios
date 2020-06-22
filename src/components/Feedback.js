@@ -10,7 +10,7 @@ export const Feedback = ({ close }) => {
   const [message, setMessage] = useState()
   const [showSuccessConfirmation] = usePopup(SuccessConfirmationPopup, { stack: true })
   const [showCancelConfirmation] = usePopup(CancelConfirmationPopup, { stack: true })
-  const [current, setNavigation, getCurrent] = useNavigation('Feedback', containerRef, containerRef, 'y')
+  const [, setNavigation, getCurrent] = useNavigation('Feedback', containerRef, containerRef, 'y')
   const isOnline = useOnlineStatus()
 
   const items = [
@@ -30,9 +30,11 @@ export const Feedback = ({ close }) => {
     }
   }
 
-  const onKeyBackspaceHandler = () => {
-    if (message) {
+  const onKeyBackspace = () => {
+    if (!isOnline && message) {
       showCancelConfirmation()
+    } else if (message && getCurrent().type === 'TEXTAREA') {
+      setMessage(message.slice(0, -1))
     } else {
       close()
     }
@@ -57,28 +59,8 @@ export const Feedback = ({ close }) => {
     }
   }
 
-  const onKeyArrowRightHandler = () => {
-    const { index } = getCurrent()
-    if (items[index]) {
-      setNavigation(index + 1)
-    } else {
-      setNavigation(1)
-    }
-  }
-
-  const onKeyArrowLeftHandler = () => {
-    const { index } = getCurrent()
-    if (items[index - 2]) {
-      setNavigation(index - 1)
-    } else {
-      setNavigation(items.length)
-    }
-  }
-
-  const getTextareaElement = () => containerRef.current.querySelector('textarea')
-
   const blurTextarea = () => {
-    const element = getTextareaElement()
+    const element = containerRef.current.querySelector('textarea')
     element.blur()
   }
 
@@ -87,11 +69,9 @@ export const Feedback = ({ close }) => {
     onKeyRight,
     left: i18n('softkey-cancel'),
     onKeyLeft,
-    onKeyBackspace: !(message && current.type === 'TEXTAREA') && (() => onKeyBackspaceHandler()),
-    onKeyCenter,
-    onKeyArrowRight: !(current.type === 'TEXTAREA') && (() => onKeyArrowRightHandler()),
-    onKeyArrowLeft: !(current.type === 'TEXTAREA') && (() => onKeyArrowLeftHandler())
-  }, [message, isOnline, current])
+    onKeyBackspace,
+    onKeyCenter
+  }, [message, isOnline])
 
   useEffect(() => {
     setNavigation(0)
