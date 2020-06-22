@@ -94,8 +94,5 @@
 	"softkey-yes": "Label for the yes key\n{{identical|Yes}}",
 	"softkey-no": "Label for the no key\n{{identical|No}}",
 	"settings-privacy-terms": "Label of the Privacy and Terms item list. Shown in the Settings menu.",
-	"privacy-terms-header": "The header title shown in the Privacy and Terms page",
-	"softkey-consent-agree": "Option to agree to the personal data and usage consent.",
-	"softkey-consent-terms": "Option to go to the application's terms of service.",
-	"softkey-consent-policy": "Option to go to the application's privacy policy."
+	"privacy-terms-header": "The header title shown in the Privacy and Terms page"
 }

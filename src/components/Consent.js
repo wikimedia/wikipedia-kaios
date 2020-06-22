@@ -17,11 +17,11 @@ export const Consent = () => {
       backspace: () => { window.exit() }
     },
     online: {
-      center: i18n('softkey-consent-agree'),
+      center: i18n('consent-softkeys-agree'),
       onKeyCenter: onAgree,
-      left: i18n('softkey-consent-terms'),
+      left: i18n('consent-softkeys-terms'),
       onKeyLeft: goto.termsOfUse,
-      right: i18n('softkey-consent-policy'),
+      right: i18n('consent-softkeys-policy'),
       onKeyRight: goto.privacyPolicy,
       backspace: () => { window.exit() }
     }
@@ -34,11 +34,11 @@ export const Consent = () => {
       <div class='body'>
         {
           isOnline ? <div>
-            <div class='message'>{i18n('consent-policy-message')}</div>
-            <div class='message'>{i18n('consent-terms-message')}</div>
+            <div class='message'>{i18n('consent-message-policy')}</div>
+            <div class='message'>{i18n('consent-message-and')}</div>
+            <div class='message'>{i18n('consent-message-terms')}</div>
           </div> : <OfflinePanel />
         }
-
       </div>
     </div>
   )
