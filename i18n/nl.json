@@ -67,9 +67,21 @@
 	"settings-privacy": "Privacybeleid",
 	"settings-term": "Gebruiksvoorwaarden",
 	"settings-rate": "App beoordelen",
-	"settings-help-feedback": "Hulp en feedback",
+	"settings-help-feedback": "Terugkoppeling verzenden",
 	"settings-about-app": "Over de app",
 	"toc-footer": "Aanbevolen berichten",
 	"view-in-browser": "Bericht in bladerprogramma weergeven",
-	"softkey-read-more": "Meer lezen"
+	"softkey-read-more": "Meer lezen",
+	"feedback-header": "Terugkoppeling verzenden",
+	"feedback-success": "Bedankt voor uw terugkoppeling",
+	"feedback-success-header": "Terugkoppeling verstuurd",
+	"feedback-privacy-policy": "Privacybeleid",
+	"feedback-terms-of-use": "Gebruiksvoorwaarden",
+	"softkey-send": "Verzenden",
+	"softkey-cancel": "Annuleren",
+	"softkey-yes": "Ja",
+	"softkey-no": "Nee",
+	"privacy-terms-header": "Privacy en voorwaarden",
+	"softkey-consent-terms": "Voorwaarden",
+	"softkey-consent-policy": "Beleid"
 }

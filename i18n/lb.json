@@ -55,8 +55,15 @@
 	"settings-about-wikipedia": "Iwwer Wikipedia",
 	"settings-term": "Benotzungs-Bedingungen",
 	"settings-rate": "D'App bewäerten",
-	"settings-help-feedback": "Hëllef a Feedback",
+	"settings-help-feedback": "Feedback schécken",
 	"toc-footer": "Proposéiert Artikelen",
 	"view-in-browser": "Artikel am Browser kucken",
-	"softkey-read-more": "Liest méi"
+	"softkey-read-more": "Liest méi",
+	"feedback-placeholder": "Fänkt hei u mat schreiwen...",
+	"softkey-send": "Schécken",
+	"softkey-cancel": "Ofbriechen",
+	"feedback-cancel-header": "Verwerfen",
+	"softkey-yes": "Jo",
+	"softkey-no": "Neen",
+	"softkey-consent-agree": "Akzeptéieren"
 }

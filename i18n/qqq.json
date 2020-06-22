@@ -87,12 +87,12 @@
 	"feedback-terms-of-survey": "Text for Terms of survey statement in feedback explanation",
 	"feedback-privacy-policy": "Text for Privacy policy in feedback explanation",
 	"feedback-terms-of-use": "Text for Terms of use in feedback explanation",
-	"softkey-send": "Label of the send softkey, shown in Feedback component",
-	"softkey-cancel": "Label of the cancel softkey, shown in Feedback component",
+	"softkey-send": "Label of the send softkey, shown in Feedback component\n{{identical|Send}}",
+	"softkey-cancel": "Label of the cancel softkey, shown in Feedback component\n{{identical|Cancel}}",
 	"feedback-cancel": "Message shown upon attempting to cancel the sending of feedback in Feedback component",
 	"feedback-cancel-header": "Message shown upon attempting to cancel the sending of feedback in Feedback component",
-	"softkey-yes": "Label for the yes key",
-	"softkey-no": "Label for the no key",
+	"softkey-yes": "Label for the yes key\n{{identical|Yes}}",
+	"softkey-no": "Label for the no key\n{{identical|No}}",
 	"settings-privacy-terms": "Label of the Privacy and Terms item list. Shown in the Settings menu.",
 	"privacy-terms-header": "The header title shown in the Privacy and Terms page"
 }

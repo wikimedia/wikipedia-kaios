@@ -95,8 +95,8 @@
 	"feedback-privacy-policy": "Política de privacidad",
 	"feedback-terms-of-use": "Términos de uso",
 	"softkey-send": "Enviar",
-	"feedback-cancel": "¿Estás seguro que quieres salir? Todo sus comentarios se perderán",
-	"feedback-cancel-header": "Desechar",
+	"feedback-cancel": "¿Confirmas que quieres salir? Se perderán todos tus comentarios",
+	"feedback-cancel-header": "Descartar",
 	"softkey-yes": "Sí",
 	"settings-privacy-terms": "Privacidad y términos",
 	"privacy-terms-header": "Privacidad y términos"
