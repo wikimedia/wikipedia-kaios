@@ -19,7 +19,7 @@ export const grantConsent = () => {
 }
 
 // Those messages are not in i18n/*.json because they have a legal
-// value and are translated by legal experts. (more languages to come)
+// value and are translated by legal experts.
 export const consentMessages = {
   en: {
     'consent-message-policy': 'I understand and accept the terms of the Privacy Policy and consent to the processing of my personal information in accordance with such terms.',
@@ -122,7 +122,7 @@ export const consentMessages = {
     'consent-message-and': 'तथा',
     'consent-message-terms': 'अहं सेवानां नियमान् सम्यकतया जानामि स्वीकारम्  च करोमि |',
     'consent-softkeys-policy': 'नीति',
-    // 'consent-softkeys-agree': 'Agree',
+    'consent-softkeys-agree': 'स्वीकारम्',
     'consent-softkeys-terms': 'प्रबन्धनम्'
   },
   sd: {
@@ -162,7 +162,7 @@ export const consentMessages = {
     'consent-message-and': 'आओर',
     'consent-message-terms': 'हम सेवा के नियम सभ बुझै छी आ एकरा स्वीकार करै छी ।',
     'consent-softkeys-policy': 'नीति',
-    // 'consent-softkeys-agree': 'Agree',
+    'consent-softkeys-agree': 'स्वीकार करै छी',
     'consent-softkeys-terms': 'नियम सभ'
   },
   gom: {
@@ -170,7 +170,7 @@ export const consentMessages = {
     'consent-message-and': 'आनी',
     'consent-message-terms': 'म्हाका सेवेच्यो अटी समजल्यात आनी हांव त्यो स्विकारता.',
     'consent-softkeys-policy': 'धोरण',
-    // 'consent-softkeys-agree': 'Agree',
+    'consent-softkeys-agree': 'स्विकारता',
     'consent-softkeys-terms': 'अटी'
   },
   bpy: {
@@ -181,12 +181,12 @@ export const consentMessages = {
     // 'consent-softkeys-agree': 'Agree',
     'consent-softkeys-terms': 'তার্মশিং'
   },
-  dogri: {
+  doi: {
     'consent-message-policy': 'में निजता पालिसी दी शर्तें गी समझनां ते मंजूर करनां ते इ’नें शर्तें दे अनुसार अपनी निजी जानकारी गी प्रोसेस करने लेई रजामंदी दिन्नां।',
     'consent-message-and': 'ते',
     'consent-message-terms': 'में सेवाएं दी शर्तें गी समझनां ते मंजूर करनां।',
     'consent-softkeys-policy': 'पालिसी',
-    // 'consent-softkeys-agree': 'Agree',
+    'consent-softkeys-agree': 'मंजूर',
     'consent-softkeys-terms': 'शर्तां'
   },
   ur: {
