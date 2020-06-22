@@ -31,13 +31,13 @@ export const Search = () => {
     }
   }
 
-  const onKeyBackspace = () => {
-    if (query && getCurrent().type === 'INPUT') {
-      setQuery(query.slice(0, -1))
-    } else {
-      window.close()
-    }
-  }
+  // const onKeyBackspace = () => {
+  //   if (query && getCurrent().type === 'INPUT') {
+  //     setQuery(query.slice(0, -1))
+  //   } else {
+  //     window.close()
+  //   }
+  // }
 
   const onInput = ({ target }) => {
     if (isOnline) {
@@ -59,7 +59,7 @@ export const Search = () => {
     center: current.type === 'DIV' ? i18n('centerkey-select') : '',
     onKeyCenter,
     onKeyLeft: isRandomEnabled() ? goToRandomArticle : null,
-    onKeyBackspace
+    onKeyBackspace: !(query && current.type === 'INPUT') && (() => window.close())
   }, [current.type, query])
 
   useTracking('Search', lang)
