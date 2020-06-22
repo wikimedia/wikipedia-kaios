@@ -3,6 +3,7 @@
 		"authors": [
 			"1233qwer1234qwer4",
 			"CloeRiva",
+			"Druesenfieber",
 			"FF11",
 			"HTan (WMF)",
 			"Hikemaniac",
@@ -90,5 +91,6 @@
 	"feedback-cancel-header": "Verwerfen",
 	"softkey-yes": "Ja",
 	"softkey-no": "Nein",
-	"settings-privacy-terms": "Datenschutz und Bedingungen"
+	"settings-privacy-terms": "Datenschutz und Bedingungen",
+	"softkey-consent-agree": "Zustimmen"
 }

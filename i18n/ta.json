@@ -34,6 +34,11 @@
 	"settings-privacy": "தனியுரிமைக் கொள்கை",
 	"settings-term": "பயன்பாட்டு விதிமுறைகள்",
 	"settings-rate": "செயலியில் தரத்தை நிர்ணயி",
-	"settings-help-feedback": "உதவி மற்றும் பின்னூட்டம்",
-	"settings-about-app": "செயலி பற்றி"
+	"settings-help-feedback": "பின்னூட்டம் அனுப்புக",
+	"settings-about-app": "செயலி பற்றி",
+	"softkey-send": "அனுப்பு",
+	"softkey-cancel": "கைவிடுக",
+	"softkey-yes": "ஆம்",
+	"softkey-no": "இல்லை",
+	"softkey-consent-policy": "கொள்கை"
 }
