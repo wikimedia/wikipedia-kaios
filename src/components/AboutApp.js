@@ -1,6 +1,6 @@
 import { h } from 'preact'
 import { useI18n, useSoftkey } from 'hooks'
-import { appVersion, appInstallId, buildNumber } from 'utils'
+import { appVersion, appInstallId } from 'utils'
 
 export const AboutApp = ({ close }) => {
   const i18n = useI18n()
@@ -24,7 +24,7 @@ export const AboutApp = ({ close }) => {
           <img src='/images/wikipedia-wordmark-en.png' />
         </div>
         <div class='version'>
-          <p>{appVersion() + '.' + buildNumber} ({appInstallId()})</p>
+          <p>{appVersion()} ({appInstallId()})</p>
         </div>
         <div class='message'>
           <p>{i18n('about-app-message')}</p>
