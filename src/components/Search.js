@@ -31,14 +31,6 @@ export const Search = () => {
     }
   }
 
-  // const onKeyBackspace = () => {
-  //   if (query && getCurrent().type === 'INPUT') {
-  //     setQuery(query.slice(0, -1))
-  //   } else {
-  //     window.close()
-  //   }
-  // }
-
   const onInput = ({ target }) => {
     if (isOnline) {
       setQuery(target.value)
