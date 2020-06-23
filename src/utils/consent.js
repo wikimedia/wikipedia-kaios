@@ -34,7 +34,7 @@ export const consentMessages = {
     'consent-message-and': 'और',
     'consent-message-terms': 'मैं सेवाओं की शर्तों को समझता हूँ और स्वीकार करता हूँ।',
     'consent-softkeys-policy': 'नीति',
-    'consent-softkeys-agree': 'मैं सहमत हूँ',
+    'consent-softkeys-agree': 'सहमत',
     'consent-softkeys-terms': 'शर्तें'
   },
   as: {
@@ -42,7 +42,7 @@ export const consentMessages = {
     'consent-message-and': 'আৰু',
     'consent-message-terms': 'সেৱাসমূহৰ চৰ্তসমূহ বুজি  পাইছো আৰু স্বীকাৰ কৰিছো |',
     'consent-softkeys-policy': 'পলিচি',
-    'consent-softkeys-agree': 'মই সম্মত',
+    'consent-softkeys-agree': 'সন্মত',
     'consent-softkeys-terms': 'চৰ্তসমূহ'
   },
   bn: {
@@ -50,7 +50,7 @@ export const consentMessages = {
     'consent-message-and': 'এবং',
     'consent-message-terms': 'আমি পরিষেবার শর্তগুলি বুঝতে পেরেছি ও স্বীকার করছি।',
     'consent-softkeys-policy': 'নীতি',
-    'consent-softkeys-agree': 'আমি সম্মত',
+    'consent-softkeys-agree': 'সম্মত',
     'consent-softkeys-terms': 'শর্ত'
   },
   gu: {
@@ -58,7 +58,7 @@ export const consentMessages = {
     'consent-message-and': 'અને',
     'consent-message-terms': 'હું નિયમો અને શરતો સમજુ છુ અને સ્વીકારુ છુ.',
     'consent-softkeys-policy': 'નીતિ',
-    'consent-softkeys-agree': 'સહમત',
+    'consent-softkeys-agree': 'સંમત',
     'consent-softkeys-terms': 'શરતો'
   },
   kn: {
@@ -66,7 +66,7 @@ export const consentMessages = {
     'consent-message-and': 'ಮತ್ತು',
     'consent-message-terms': 'ನಾನು ಸೇವೆಗಳ ನಿಯಮಗಳನ್ನು ಅರ್ಥಮಾಡಿಕೊಂಡಿರುತ್ತೇನೆ ಮತ್ತು ಸ್ವೀಕರಿಸುತ್ತೇನೆ.',
     'consent-softkeys-policy': 'ನೀತಿ',
-    'consent-softkeys-agree': 'ಒಪ್ಪು',
+    'consent-softkeys-agree': 'ಒಪ್ಪುತ್ತೇನೆ',
     'consent-softkeys-terms': 'ನಿಯಮಗಳು'
   },
   ks: {
@@ -74,7 +74,7 @@ export const consentMessages = {
     'consent-message-and': 'اور',
     'consent-message-terms': 'خدمات کی شرائط کو میں سمجھتا ہوں اور قبول کرتا ہوں۔',
     'consent-softkeys-policy': 'پالیسی',
-    // 'consent-softkeys-agree': 'Agree',
+    'consent-softkeys-agree': 'متفق چھُس',
     'consent-softkeys-terms': 'شرائط'
   },
   ml: {
@@ -82,7 +82,7 @@ export const consentMessages = {
     'consent-message-and': 'കൂടാതെ',
     'consent-message-terms': 'ഞാൻ സേവനങ്ങൾക്കായുള്ള വ്യവസ്ഥകൾ മനസിലാക്കുകയും സമ്മതിക്കുകയും ചെയ്യുന്നു.',
     'consent-softkeys-policy': 'നയം',
-    'consent-softkeys-agree': 'സമ്മതം',
+    'consent-softkeys-agree': 'സമ്മതിക്കുന്നു',
     'consent-softkeys-terms': 'വ്യവസ്ഥകൾ'
   },
   mr: {
@@ -90,7 +90,7 @@ export const consentMessages = {
     'consent-message-and': 'आणि',
     'consent-message-terms': 'मी सेवेसंबधीच्या अटी समजतो आणि स्वीकारतो.',
     'consent-softkeys-policy': 'धोरण',
-    'consent-softkeys-agree': 'मी सहमत आहे',
+    'consent-softkeys-agree': 'सहमत',
     'consent-softkeys-terms': 'अटी'
   },
   ne: {
@@ -106,7 +106,7 @@ export const consentMessages = {
     'consent-message-and': 'ଏବଂ',
     'consent-message-terms': 'ମୁଁ ସେବାର ସର୍ତ୍ତାବଳି ବୁଝିଛି ଏବଂ ସ୍ୱୀକାର କରୁଛି|',
     'consent-softkeys-policy': 'ନୀତି',
-    'consent-softkeys-agree': 'ସହମତ',
+    'consent-softkeys-agree': 'ସମ୍ମତ',
     'consent-softkeys-terms': 'ଅବଧି'
   },
   pa: {
@@ -114,7 +114,7 @@ export const consentMessages = {
     'consent-message-and': 'ਅਤੇ',
     'consent-message-terms': 'ਮੈਂ ਸੇਵਾ ਦੀਆਂ ਸ਼ਰਤਾਂ ਨੂੰ  ਸਮਝਦਾ ਅਤੇ ਸਵੀਕਾਰ ਕਰਦਾ ਹਾਂ।',
     'consent-softkeys-policy': 'ਨੀਤੀ',
-    'consent-softkeys-agree': 'ਮੈਂ ਸਹਿਮਤ ਹਾਂ',
+    'consent-softkeys-agree': 'ਸਹਿਮਤ',
     'consent-softkeys-terms': 'ਸ਼ਰਤਾਂ'
   },
   sa: {
@@ -122,7 +122,7 @@ export const consentMessages = {
     'consent-message-and': 'तथा',
     'consent-message-terms': 'अहं सेवानां नियमान् सम्यकतया जानामि स्वीकारम्  च करोमि |',
     'consent-softkeys-policy': 'नीति',
-    'consent-softkeys-agree': 'स्वीकारम्',
+    'consent-softkeys-agree': 'अङ्गीकारः',
     'consent-softkeys-terms': 'प्रबन्धनम्'
   },
   sd: {
@@ -130,7 +130,7 @@ export const consentMessages = {
     'consent-message-and': '۽',
     'consent-message-terms': 'مان خدمات جي شرطن کي سمجھان ٿو ۽ قبول ڪيان ٿو.',
     'consent-softkeys-policy': 'اصول',
-    // 'consent-softkeys-agree': 'Agree',
+    'consent-softkeys-agree': 'राजी',
     'consent-softkeys-terms': 'شرائط'
   },
   ta: {
@@ -138,7 +138,7 @@ export const consentMessages = {
     'consent-message-and': 'மேலும்',
     'consent-message-terms': 'சேவை விதிமுறைகளை நான் புரிந்துகொண்டேன் மற்றும் ஒப்புக்கொள்ளுகிறேன்',
     'consent-softkeys-policy': 'கொள்கை',
-    'consent-softkeys-agree': 'ஏற்றுக் கொள்',
+    'consent-softkeys-agree': 'உடன்படு',
     'consent-softkeys-terms': 'விதிமுறைகள்'
   },
   te: {
@@ -146,7 +146,7 @@ export const consentMessages = {
     'consent-message-and': 'మరియు',
     'consent-message-terms': 'నేను సేవా నిబంధనలను అర్థం చేసుకున్నాను మరియు అంగీకరిస్తున్నాను.',
     'consent-softkeys-policy': 'పాలసీ',
-    'consent-softkeys-agree': 'నేను అంగీకరిస్తున్నాను',
+    'consent-softkeys-agree': 'ఒప్పుకుంటున్నాను',
     'consent-softkeys-terms': 'నిబంధనలు'
   },
   brx: {
@@ -154,7 +154,7 @@ export const consentMessages = {
     'consent-message-and': 'आरो',
     'consent-message-terms': 'आं बुजियो आरो सिबिथाइफोरनि रादायफोरखौ गनायनानै लायो।',
     'consent-softkeys-policy': 'बिथांखि',
-    // 'consent-softkeys-agree': 'Agree',
+    'consent-softkeys-agree': 'য়াবা',
     'consent-softkeys-terms': 'रादायफोर'
   },
   mai: {
@@ -162,7 +162,7 @@ export const consentMessages = {
     'consent-message-and': 'आओर',
     'consent-message-terms': 'हम सेवा के नियम सभ बुझै छी आ एकरा स्वीकार करै छी ।',
     'consent-softkeys-policy': 'नीति',
-    'consent-softkeys-agree': 'स्वीकार करै छी',
+    'consent-softkeys-agree': 'स्वीकार करब',
     'consent-softkeys-terms': 'नियम सभ'
   },
   gom: {
@@ -170,7 +170,7 @@ export const consentMessages = {
     'consent-message-and': 'आनी',
     'consent-message-terms': 'म्हाका सेवेच्यो अटी समजल्यात आनी हांव त्यो स्विकारता.',
     'consent-softkeys-policy': 'धोरण',
-    'consent-softkeys-agree': 'स्विकारता',
+    'consent-softkeys-agree': 'मान्य',
     'consent-softkeys-terms': 'अटी'
   },
   bpy: {
@@ -178,7 +178,7 @@ export const consentMessages = {
     'consent-message-and': 'অমসুং',
     'consent-message-terms': 'ঐহাক সার্ভিসশিং অসিগী তার্মশিং খঙঙি অমসুং য়াই।',
     'consent-softkeys-policy': 'পোলিসি',
-    // 'consent-softkeys-agree': 'Agree',
+    'consent-softkeys-agree': 'राजि जानाय',
     'consent-softkeys-terms': 'তার্মশিং'
   },
   doi: {
@@ -194,7 +194,7 @@ export const consentMessages = {
     'consent-message-and': 'اور',
     'consent-message-terms': 'میں خدمات کی شرائط کو سمجھتا ہوں اور قبول کرتا ہوں',
     'consent-softkeys-policy': 'پالیسی',
-    // 'consent-softkeys-agree': 'Agree',
+    'consent-softkeys-agree': 'راضی',
     'consent-softkeys-terms': 'شرائط'
   }
 }
