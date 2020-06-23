@@ -130,7 +130,7 @@ export const consentMessages = {
     'consent-message-and': '۽',
     'consent-message-terms': 'مان خدمات جي شرطن کي سمجھان ٿو ۽ قبول ڪيان ٿو.',
     'consent-softkeys-policy': 'اصول',
-    'consent-softkeys-agree': 'राजी',
+    // 'consent-softkeys-agree': '',
     'consent-softkeys-terms': 'شرائط'
   },
   ta: {
@@ -154,7 +154,7 @@ export const consentMessages = {
     'consent-message-and': 'आरो',
     'consent-message-terms': 'आं बुजियो आरो सिबिथाइफोरनि रादायफोरखौ गनायनानै लायो।',
     'consent-softkeys-policy': 'बिथांखि',
-    'consent-softkeys-agree': 'য়াবা',
+    'consent-softkeys-agree': 'राजि जानाय',
     'consent-softkeys-terms': 'रादायफोर'
   },
   mai: {
@@ -178,7 +178,7 @@ export const consentMessages = {
     'consent-message-and': 'অমসুং',
     'consent-message-terms': 'ঐহাক সার্ভিসশিং অসিগী তার্মশিং খঙঙি অমসুং য়াই।',
     'consent-softkeys-policy': 'পোলিসি',
-    'consent-softkeys-agree': 'राजि जानाय',
+    'consent-softkeys-agree': 'য়াবা',
     'consent-softkeys-terms': 'তার্মশিং'
   },
   doi: {
