@@ -12,7 +12,7 @@ export const Language = () => {
   const [lang, setLang] = useState(getAppLanguage())
   const [items, query, setQuery] = useSearchLanguage(lang)
   const [showLanguagePopup] = usePopup(LanguagePopup)
-  const [, setNavigation, getCurrent] = useNavigation('Language', containerRef, listRef, 'y')
+  const [current, setNavigation, getCurrent] = useNavigation('Language', containerRef, listRef, 'y')
 
   const onKeyCenter = () => {
     const { index } = getCurrent()
@@ -26,14 +26,6 @@ export const Language = () => {
     }
   }
 
-  const onKeyBackspace = () => {
-    if (query && getCurrent().type === 'INPUT') {
-      setQuery(query.slice(0, -1))
-    } else {
-      history.back()
-    }
-  }
-
   useSoftkey('Language', {
     right: i18n('softkey-search'),
     onKeyRight: () => setNavigation(0),
@@ -41,8 +33,8 @@ export const Language = () => {
     onKeyCenter,
     left: i18n('softkey-done'),
     onKeyLeft: () => history.back(),
-    onKeyBackspace
-  }, [lang, items])
+    onKeyBackspace: !(query && current.type === 'INPUT') && (() => history.back())
+  }, [lang, items, current.type])
 
   useEffect(() => {
     setNavigation(items.findIndex(item => item.isSelected) + 1)
