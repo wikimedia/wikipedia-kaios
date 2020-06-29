@@ -33,7 +33,7 @@ export const Consent = () => {
       <div class='header'>{i18n('app-title')}</div>
       <div class='body'>
         {
-          isOnline ? <div>
+          isOnline ? <div class='messages'>
             <div class='message'>{i18n('consent-message-policy')}</div>
             <div class='message'>{i18n('consent-message-and')}</div>
             <div class='message'>{i18n('consent-message-terms')}</div>
