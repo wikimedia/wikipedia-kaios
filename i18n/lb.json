@@ -64,6 +64,5 @@
 	"softkey-cancel": "Ofbriechen",
 	"feedback-cancel-header": "Verwerfen",
 	"softkey-yes": "Jo",
-	"softkey-no": "Neen",
-	"softkey-consent-agree": "Akzeptéieren"
+	"softkey-no": "Neen"
 }

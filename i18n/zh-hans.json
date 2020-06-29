@@ -91,8 +91,5 @@
 	"softkey-yes": "是",
 	"softkey-no": "否",
 	"settings-privacy-terms": "隐私和条款",
-	"privacy-terms-header": "隐私和条款",
-	"softkey-consent-agree": "同意",
-	"softkey-consent-terms": "条件",
-	"softkey-consent-policy": "方针"
+	"privacy-terms-header": "隐私和条款"
 }

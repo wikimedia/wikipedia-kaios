@@ -101,8 +101,5 @@
 	"softkey-yes": "Oui",
 	"softkey-no": "Non",
 	"settings-privacy-terms": "Confidentialité et conditions",
-	"privacy-terms-header": "Confidentialité et conditions",
-	"softkey-consent-agree": "Accepter",
-	"softkey-consent-terms": "Conditions",
-	"softkey-consent-policy": "Politique"
+	"privacy-terms-header": "Confidentialité et conditions"
 }

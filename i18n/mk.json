@@ -91,8 +91,5 @@
 	"softkey-yes": "Да",
 	"softkey-no": "Не",
 	"settings-privacy-terms": "Лични податоци и услови",
-	"privacy-terms-header": "Лични податоци и услови",
-	"softkey-consent-agree": "Се согласувам",
-	"softkey-consent-terms": "Услови",
-	"softkey-consent-policy": "Правила"
+	"privacy-terms-header": "Лични податоци и услови"
 }
