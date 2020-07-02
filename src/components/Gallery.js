@@ -43,7 +43,7 @@ const AboutContainer = ({ lang, dir, title, caption, fromCommon, close }) => {
       <div>
         <div class='sub-header'>{i18n('gallery-description')}</div>
         <p class={`description ${mediaInfo.descriptionDir || dir}`}>
-          {mediaInfo.description || caption || title}
+          <bdi>{mediaInfo.description || caption || title}</bdi>
         </p>
       </div>
       <div>

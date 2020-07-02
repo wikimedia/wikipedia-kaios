@@ -16,7 +16,9 @@ export const ReferencePreview = ({ reference, lang, dir, close }) => {
   return (
     <div class={`reference-preview adjustable-font-size ${dir}`} ref={contentRef}>
       <div class='ref-title'>{i18n('reference-title', reference.number)}</div>
-      <div class='ref-content' dangerouslySetInnerHTML={{ __html: reference.content }} />
+      <div class='ref-content'>
+        <bdi dangerouslySetInnerHTML={{ __html: reference.content }} />
+      </div>
     </div>
   )
 }
