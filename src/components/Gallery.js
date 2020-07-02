@@ -49,8 +49,10 @@ const AboutContainer = ({ lang, dir, title, caption, fromCommon, close }) => {
       <div>
         <div class='sub-header'>{i18n('gallery-author-license')}</div>
         <p class={dir}>
-          {mediaInfo.author || i18n('gallery-unknown-author')}<br />
-          {mediaInfo.license || i18n('gallery-unknown-license')}
+          <bdi>
+            {mediaInfo.author || i18n('gallery-unknown-author')}<br />
+            {mediaInfo.license || i18n('gallery-unknown-license')}
+          </bdi>
         </p>
       </div>
     </div>
