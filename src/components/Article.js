@@ -118,7 +118,7 @@ const ArticleSection = ({
           ) }
         </div>
         { isFooter
-          ? <ArticleFooter lang={lang} title={articleTitle} items={suggestedArticles} />
+          ? <ArticleFooter lang={lang} title={articleTitle} items={suggestedArticles} dir={dir} />
           : <ArticleBody content={content} />
         }
       </div>
