@@ -73,7 +73,7 @@
 	"settings-privacy": "개인정보보호정책",
 	"settings-term": "이용 약관",
 	"settings-rate": "앱 평가",
-	"settings-help-feedback": "도움말 및 의견",
+	"settings-help-feedback": "피드백 전송",
 	"settings-about-app": "앱 정보",
 	"textsize-increase": "6 누르기 (크기 증가)",
 	"textsize-decrease": "4 누르기 (크기 감소)",
@@ -82,6 +82,8 @@
 	"view-in-browser": "브라우저에서 문서 보기",
 	"about-app-message": "위키미디어 재단은 여러분과 같은 자원봉사자들의 도움을 받아 만들어졌습니다.",
 	"softkey-read-more": "더 보기",
+	"softkey-yes": "예",
+	"softkey-no": "아니요",
 	"settings-privacy-terms": "개인정보 및 약관",
 	"privacy-terms-header": "개인정보 및 약관"
 }

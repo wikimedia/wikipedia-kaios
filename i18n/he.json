@@ -3,6 +3,7 @@
 		"authors": [
 			"Amire80",
 			"IKhitron",
+			"Steeve815",
 			"YaronSh",
 			"דגש חזק"
 		]
@@ -70,7 +71,7 @@
 	"settings-privacy": "מדיניות פרטיות",
 	"settings-term": "תנאי שימוש",
 	"settings-rate": "דירוג היישום",
-	"settings-help-feedback": "עזרה ומשוב",
+	"settings-help-feedback": "שליחת משוב",
 	"settings-about-app": "אודות היישום",
 	"textsize-increase": "ללחוץ 6 (להגדיל)",
 	"textsize-decrease": "ללחוץ 4 (להקטין)",
@@ -79,6 +80,16 @@
 	"view-in-browser": "הצגת הערך בדפדפן",
 	"about-app-message": "נוצר על־ידי קרן ויקימדיה בעזרת מתנדבים כמוך.",
 	"softkey-read-more": "מידע נוסף",
+	"feedback-explanation": "אנחנו נשתמש במשוב שלך על מנת לסייע לשפר את היישום הזה. התגובה שלך תישאר אצלנו למשך 90 ימים, בהתאם ל$1 ול$2",
+	"feedback-success": "תודה על המשוב שלך",
+	"feedback-success-header": "המשוב נשלח",
+	"feedback-privacy-policy": "מדיניות הפרטיות",
+	"feedback-terms-of-use": "תנאי השימוש",
+	"softkey-send": "שליחה",
+	"softkey-cancel": "ביטול",
+	"feedback-cancel-header": "ביטול",
+	"softkey-yes": "כן",
+	"softkey-no": "לא",
 	"settings-privacy-terms": "פרטיות ותנאי שימוש",
 	"privacy-terms-header": "פרטיות ותנאי שימוש"
 }
