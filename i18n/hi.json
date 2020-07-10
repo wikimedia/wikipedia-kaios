@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"MKaur",
+			"Satdeep gill",
 			"Sudhanshu",
 			"गोपाल"
 		]
@@ -62,7 +63,7 @@
 	"onboarding-1-title": "सैकड़ों भाषाओं में खोजें",
 	"onboarding-1-description": "खोजने और पढ़ने के लिए अपनी पसंदीदा भाषा चुनें।",
 	"onboarding-2-title": "नि: शुल्क ज्ञान प्राप्त करें",
-	"onboarding-2-description": "50 मिलियन से अधिक लेख पढ़ें, पूरी तरह से विज्ञापन-मुक्त! अपडेट और नए लेख नियमित रूप से जोड़े जाते हैं।",
+	"onboarding-2-description": "5 करोड़ से अधिक लेख पढ़ें, पूरी तरह से विज्ञापन-मुक्त! अपडेट और नए लेख नियमित रूप से जोड़े जाते हैं।",
 	"settings-language": "भाषा",
 	"settings-textsize": "अक्षर आकार",
 	"settings-about-wikipedia": "विकिपीडिया के बारे में",
@@ -88,7 +89,7 @@
 	"feedback-terms-of-use": "उपयोग की शर्तें",
 	"softkey-send": "भेजें",
 	"softkey-cancel": "रद्द करें",
-	"feedback-cancel": "क्या आप  इसे पक्का छोड़ना चाहते हैं? आपके द्वारा दी गई सारी प्रतिक्रिया हटा दी जाएंगी।",
+	"feedback-cancel": "क्या आप  इसे पक्का छोड़ना चाहते हैं? आपके द्वारा दी गई सारी प्रतिक्रिया हट जाएगी।",
 	"feedback-cancel-header": "रद्द करें",
 	"softkey-yes": "हाँ",
 	"softkey-no": "नहीं",

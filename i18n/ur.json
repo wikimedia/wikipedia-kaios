@@ -1,13 +1,19 @@
 {
 	"@metadata": {
 		"authors": [
-			"MKaur"
+			"MKaur",
+			"Satdeep gill"
 		]
 	},
 	"article-action-sections": "حصے",
+	"article-action-gallery": "نگارخانہ",
+	"article-action-languages": "زبان",
 	"app-title": "ویکیپیڈیا",
 	"app-subtitle": "آزاد دائرۃ المعارف",
 	"app-description": "آزاد ویکی پیڈیا ایپ کے ذریعہ پوری دنیا سے 300+ زبانوں میں معلومات تلاش کریں۔",
+	"about-header": "متعلق",
+	"about-wikipedia-header": "ویکیپیڈیا کے بارے ميں",
+	"gallery-description": "وضاحت",
 	"header-menu": "آرٹیکل مینو",
 	"header-search": "تلاش کے نتائج",
 	"header-sections": "حصے",
