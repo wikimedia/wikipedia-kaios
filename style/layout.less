@@ -1,9 +1,7 @@
 * {
 	box-sizing: border-box;
 
-	.rtl {
-		direction: rtl;
-
+	[ dir='rtl' ] {
 		.article-content {
 			figure > figcaption,
 			table > caption {
@@ -12,7 +10,7 @@
 		}
 	}
 
-	.ltr {
+	[ dir='ltr' ] {
 		.article-content {
 			figure > figcaption,
 			table > caption {

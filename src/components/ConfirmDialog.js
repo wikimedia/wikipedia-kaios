@@ -15,7 +15,7 @@ export const ConfirmDialog = ({ message, dir, onSubmit, close, closeAll }) => {
   useArticleTextSize('ConfirmDialog')
 
   return (
-    <div class={`confirm-dialog adjustable-font-size ${dir}`}>
+    <div class='confirm-dialog adjustable-font-size' dir={dir}>
       <div class='info'>
         <div class='title'>{message}</div>
       </div>

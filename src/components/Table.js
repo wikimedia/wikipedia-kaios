@@ -19,7 +19,7 @@ export const Table = ({ dir, close, content }) => {
   })
 
   return (
-    <div class={`table ${dir}`} ref={containerRef}>
+    <div class='table' dir={dir} ref={containerRef}>
       <table dangerouslySetInnerHTML={{ __html: content }} />
     </div>
   )

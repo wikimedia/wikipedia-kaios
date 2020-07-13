@@ -21,7 +21,7 @@ export const ArticlePreview = ({ lang, title, dir, close, closeAll }) => {
   useArticleTextSize('ArticlePreview', [summary])
 
   return summary ? (
-    <div class={`article-preview ${dir}`}>
+    <div class='article-preview' dir={dir}>
       <div class='item'>
         <div class='title adjustable-font-size' dangerouslySetInnerHTML={{ __html: summary.titles.display }} />
         { summary.imageUrl && <img class='img' src={summary.imageUrl} /> }
@@ -32,7 +32,7 @@ export const ArticlePreview = ({ lang, title, dir, close, closeAll }) => {
 }
 
 const LoadingPreview = ({ title, dir }) => (
-  <div class={`article-preview loading ${dir}`}>
+  <div class='article-preview loading' dir={dir}>
     <div class='item'>
       <div class='title adjustable-font-size'>{title}</div>
       <div class='loading-block img' />

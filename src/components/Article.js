@@ -102,7 +102,7 @@ const ArticleSection = ({
       class='article-section'
       ref={contentRef}
       style={imageUrl ? { backgroundImage: `url(${imageUrl})` } : {}}>
-      <div class={`card ${dir}`}>
+      <div class='card' dir={dir}>
         <div class='intro'>
           <div class='title adjustable-font-size' data-anchor={anchor} dangerouslySetInnerHTML={{ __html: title }} />
           { description && (

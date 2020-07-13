@@ -1,4 +1,4 @@
-import { cachedFetch, buildMwApiUrl, buildCommonsApiUrl, getDirection } from 'utils'
+import { cachedFetch, buildMwApiUrl, buildCommonsApiUrl } from 'utils'
 
 export const getArticleMediaInfo = (lang, title, fromCommon) => {
   const params = {
@@ -26,19 +26,10 @@ export const getArticleMediaInfo = (lang, title, fromCommon) => {
       (typeof ImageDescription.value === 'string' && ImageDescription.value) ||
       (ImageDescription.value[lang] || ImageDescription.value[Object.keys(ImageDescription.value)[0]])
     )
-    const descriptionDir = ImageDescription && (
-      (typeof ImageDescription.value === 'string' && 'ltr') ||
-      getDirection(
-        (
-          ImageDescription.value[lang] && lang) ||
-          Object.keys(ImageDescription.value)[0]
-      )
-    )
 
     return {
       author,
       description,
-      descriptionDir,
       license: LicenseShortName && LicenseShortName.value,
       filePage: convertUrlToMobile(imageInfo[0].descriptionshorturl)
     }

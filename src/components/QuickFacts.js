@@ -52,7 +52,8 @@ export const QuickFacts = ({ article, goToArticleSubpage, dir, close, closeAll }
 
   return (
     <div
-      class={`quickfacts adjustable-font-size ${dir}`}
+      class='quickfacts adjustable-font-size'
+      dir={dir}
       ref={containerRef}
       dangerouslySetInnerHTML={{ __html: article.infobox }}
     />

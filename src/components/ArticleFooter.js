@@ -14,7 +14,7 @@ export const ArticleFooter = ({ lang, title, items = [], dir }) => {
         <div class='list'>
           { items.map(item => {
             return (
-              <a class={`item ${dir}`} title={item.title} key={item.title}>
+              <a class='item' dir={dir} title={item.title} key={item.title}>
                 <div class='info'>
                   <div class='article-title adjustable-font-size'>{item.title}</div>
                   <div class='description adjustable-font-size'>{item.description}</div>
