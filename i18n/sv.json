@@ -4,6 +4,7 @@
 			"Eduardo Addad de Oliveira",
 			"Mjälten",
 			"ProletariatetsBefrielseOrkester",
+			"Sabelöga",
 			"Tölvuforritari",
 			"WikiPhoenix"
 		]
@@ -59,7 +60,7 @@
 	"suggested-articles": "Föreslagna artiklar",
 	"reference-title": "Referens [$1]",
 	"offline-message": "Ingen Internetanslutning",
-	"onboarding-0-title": "Den fria encyklopedin",
+	"onboarding-0-title": "Om Wikipedia",
 	"onboarding-0-description": "Wikipedia är en fri kunskapsresurs fylld med artiklar om personer, platser och saker från hela jordklotet.",
 	"onboarding-1-title": "Sök på hundratals språk",
 	"onboarding-1-description": "Välj ditt föredragna språk eller språk att söka och läsa på.",
@@ -85,6 +86,7 @@
 	"feedback-placeholder": "Börja skriva här...",
 	"feedback-success": "Tack för din återkoppling",
 	"feedback-success-header": "Återkoppling skickades",
+	"feedback-terms-of-survey": "Villkor för enkätuttalande",
 	"feedback-privacy-policy": "Integritetspolicy",
 	"feedback-terms-of-use": "Användarvillkor",
 	"softkey-send": "Skicka",
