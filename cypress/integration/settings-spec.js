@@ -29,7 +29,7 @@ const settingsMenuListDutchText = [nlJson['settings-language'],
   nlJson['settings-about-wikipedia'],
   nlJson['settings-help-feedback'],
   nlJson['settings-about-app'],
-  enJson['settings-privacy-terms']] // TODO: update to nlJson when translations is available
+  nlJson['settings-privacy-terms']]
 
 describe('settings page', () => {
   var firstElementOfTheSettingsMenuList
