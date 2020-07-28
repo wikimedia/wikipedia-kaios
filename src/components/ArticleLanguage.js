@@ -20,18 +20,11 @@ export const ArticleLanguage = ({ lang, title, close, closeAll }) => {
     const { index } = getCurrent()
     if (index > 0) {
       const itemIndex = index - 1
-      const item = items[itemIndex]
-      setArticleLang(item.lang)
-    }
-  }
-
-  const onKeyLeft = () => {
-    const item = items.find(item => item.isSelected)
-    if (item) {
-      const { lang, description } = item
+      const { lang, description } = items[itemIndex]
+      setArticleLang(lang)
       goto.article(lang, description, true)
+      closeAll()
     }
-    closeAll()
   }
 
   const onKeyBackspace = () => {
@@ -43,8 +36,8 @@ export const ArticleLanguage = ({ lang, title, close, closeAll }) => {
   }
 
   useSoftkey('ArticleLanguage', {
-    left: i18n('softkey-done'),
-    onKeyLeft,
+    left: i18n('softkey-cancel'),
+    onKeyLeft: () => closeAll(),
     right: i18n('softkey-search'),
     onKeyRight: () => setNavigation(0),
     center: i18n('centerkey-select'),
