@@ -63,8 +63,6 @@ describe('settings page', () => {
     cy.enter()
     cy.getRightSoftkeyButton().should('have.text', enJson['softkey-search'])
     cy.downArrow().enter()
-    languageSettingsPage.headerElement().should('have.text', languageChangeDutchText)
-    cy.getLeftSoftkeyButton().click()
     settingsPage.settingsList().should('have.text', settingsMenuListDutchText.join(''))
   })
 
@@ -75,8 +73,6 @@ describe('settings page', () => {
     cy.get('div.list').should('not.contain.text', 'Português')
     cy.get('input').type('port')
     cy.get('div.list').should('contain.text', 'Português')
-    cy.downArrow().enter()
-    languageSettingsPage.headerElement().should('have.text', ptJson['language-change'])
   })
 
   it('check text size popup', () => {

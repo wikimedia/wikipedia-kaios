@@ -1,7 +1,7 @@
 import { h } from 'preact'
 import { useState, useRef, useEffect } from 'preact/hooks'
 import { useNavigation, useI18n, useSoftkey, usePopup, useSearchLanguage } from 'hooks'
-import { RadioListView } from 'components'
+import { ListView } from 'components'
 import { setAppLanguage, getAppLanguage } from 'utils'
 
 export const Language = () => {
@@ -23,6 +23,7 @@ export const Language = () => {
 
       setLang(item.lang)
       setAppLanguage(item.lang)
+      history.back()
     }
   }
 
@@ -31,8 +32,6 @@ export const Language = () => {
     onKeyRight: () => setNavigation(0),
     center: i18n('centerkey-select'),
     onKeyCenter,
-    left: i18n('softkey-done'),
-    onKeyLeft: () => history.back(),
     onKeyBackspace: !(query && current.type === 'INPUT') && (() => history.back())
   }, [lang, items, current.type])
 
@@ -43,7 +42,7 @@ export const Language = () => {
 
   return <div class='language' ref={containerRef}>
     <input type='text' placeholder={i18n('search-language-placeholder')} value={query} onInput={e => setQuery(e.target.value)} data-selectable />
-    <RadioListView header={i18n('language-change')} items={items} containerRef={listRef} empty={i18n('no-result-found')} />
+    <ListView header={i18n('language-change')} items={items} containerRef={listRef} empty={i18n('no-result-found')} />
   </div>
 }
 

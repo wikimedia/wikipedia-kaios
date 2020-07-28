@@ -37,7 +37,6 @@
 	"no-result-found": "No result found text. Shown in the search and language list view",
 	"softkey-about": "Label of the about softkey. Shown in image gallery page.",
 	"softkey-more-info": "Label of the more info softkey. Shown in image gallery page.",
-	"softkey-done": "Label of the done softkey",
 	"softkey-search": "Label of the search softkey",
 	"search-language-placeholder": "Placeholder of input in the language settings page",
 	"softkey-menu": "Label of the menu softkey",

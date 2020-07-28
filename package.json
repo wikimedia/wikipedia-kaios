@@ -17,6 +17,7 @@
     "cypress:lint": "eslint cypress/",
     "cypress:fix-lint": "eslint cypress/ --fix",
     "cypress:run": "cypress run --browser firefox",
+    "cypress:run:chrome": "cypress run",
     "cypress:open": "cypress open"
   },
   "repository": {
