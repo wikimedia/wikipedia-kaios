@@ -2,7 +2,6 @@
 
 import * as enJson from '../../i18n/en.json'
 import * as nlJson from '../../i18n/nl.json'
-import * as ptJson from '../../i18n/pt.json'
 import { SettingsPage } from '../page-objects/settings-page'
 import { SearchPage } from '../page-objects/search-page'
 import { LanguageSettingsPage } from '../page-objects/language-settings-page'
@@ -23,7 +22,6 @@ const settingsMenuListEnglishText = [enJson['settings-language'],
   enJson['settings-about-app'],
   enJson['settings-privacy-terms']]
 const languageSettingsPopupEnglishText = enJson['language-setting-message']
-const languageChangeDutchText = nlJson['language-change']
 const settingsMenuListDutchText = [nlJson['settings-language'],
   nlJson['settings-textsize'],
   nlJson['settings-about-wikipedia'],
