@@ -26,6 +26,7 @@ export const getArticleMediaInfo = (lang, title, fromCommon) => {
       (typeof ImageDescription.value === 'string' && ImageDescription.value) ||
       (ImageDescription.value[lang] || ImageDescription.value[Object.keys(ImageDescription.value)[0]])
     )
+
     return {
       author,
       description,

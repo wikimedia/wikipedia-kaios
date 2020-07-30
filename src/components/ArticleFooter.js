@@ -2,7 +2,7 @@ import { h } from 'preact'
 import { useI18n } from 'hooks'
 import { buildWpMobileWebUrl, canonicalizeTitle } from 'utils'
 
-export const ArticleFooter = ({ lang, title, items = [] }) => {
+export const ArticleFooter = ({ lang, title, items = [], dir }) => {
   const i18n = useI18n()
   const contentI18n = useI18n(lang)
   const headerTitle = contentI18n('toc-footer')
@@ -14,7 +14,7 @@ export const ArticleFooter = ({ lang, title, items = [] }) => {
         <div class='list'>
           { items.map(item => {
             return (
-              <a class='item' title={item.title} key={item.title}>
+              <a class='item' dir={dir} title={item.title} key={item.title}>
                 <div class='info'>
                   <div class='article-title adjustable-font-size'>{item.title}</div>
                   <div class='description adjustable-font-size'>{item.description}</div>

@@ -31,6 +31,17 @@
 					background-color: #eaf3ff;
 				}
 
+				&[ dir='rtl' ] {
+					direction: ltr;
+					justify-content: flex-end;
+					text-align: right;
+
+					.info {
+						padding-right: 6px;
+						direction: rtl;
+					}
+				}
+
 				.info {
 					height: 100%;
 					overflow: hidden;
