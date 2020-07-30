@@ -25,7 +25,6 @@ describe('Article view', () => {
     cy.get('input').type('português')
     cy.get('.description').should('have.text', 'Gato')
     cy.downArrow().enter()
-    cy.clickDoneButton()
     articlePage.title().should('have.text', 'Gato')
   })
 
@@ -47,7 +46,6 @@ describe('Article view', () => {
     cy.get('input').type('português')
     cy.get('.description').should('have.text', 'Gato')
     cy.downArrow().enter()
-    cy.clickDoneButton()
     articlePage.title().should('have.text', 'Gato')
     articlePage.selectOptionFromActionsMenu('sections')
     articleMenuPage.selectOptionFromSections('Artigos_sugeridos')

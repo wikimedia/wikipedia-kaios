@@ -4,7 +4,7 @@
   "description": "Wikipedia KaiOS app",
   "private": true,
   "scripts": {
-    "test": "npm run cypress:lint && npm run cypress:run",
+    "test": "npm run cypress:lint && npm run cypress:run:firefox",
     "build": "webpack --mode production",
     "build:ci": "cross-env DISABLE_REQUEST_HEADER=1 npm run build",
     "dev": "cross-env DISABLE_REQUEST_HEADER=1 INSTRUMENTATION=1 RAND=1 webpack-dev-server --mode development",
@@ -16,7 +16,8 @@
     "deploy": "cross-env INSTRUMENTATION=1 RAND=1 npm run build && npm run adb:connect && ( npm run b2g:uninstall || echo ) && npm run b2g:install",
     "cypress:lint": "eslint cypress/",
     "cypress:fix-lint": "eslint cypress/ --fix",
-    "cypress:run": "cypress run --browser firefox",
+    "cypress:run": "cypress run",
+    "cypress:run:firefox": "cypress run --browser firefox",
     "cypress:open": "cypress open"
   },
   "repository": {

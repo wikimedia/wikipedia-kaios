@@ -40,10 +40,6 @@ Cypress.Commands.add('clickMenuButton', () => {
   cy.getRightSoftkeyButton().contains(enJson['softkey-menu']).click()
 })
 
-Cypress.Commands.add('clickDoneButton', () => {
-  cy.getLeftSoftkeyButton().contains(enJson['softkey-done']).click()
-})
-
 Cypress.Commands.add('navigateToHomePage', () => {
   cy.setLocalStorage('has-onboard-before', true)
   cy.setLocalStorage('usage-data-consent', '{}') // Don't display consent screen
