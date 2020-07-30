@@ -1,5 +1,23 @@
 * {
 	box-sizing: border-box;
+
+	[ dir='rtl' ] {
+		.article-content {
+			figure > figcaption,
+			table > caption {
+				text-align: right;
+			}
+		}
+	}
+
+	[ dir='ltr' ] {
+		.article-content {
+			figure > figcaption,
+			table > caption {
+				text-align: left;
+			}
+		}
+	}
 }
 
 body {

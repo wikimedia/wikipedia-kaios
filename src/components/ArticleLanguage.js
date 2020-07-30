@@ -1,7 +1,7 @@
 import { h } from 'preact'
 import { useRef, useEffect, useState } from 'preact/hooks'
 import { useNavigation, useI18n, useSoftkey, useSearchArticleLanguage } from 'hooks'
-import { RadioListView, Loading } from 'components'
+import { ListView, Loading } from 'components'
 import { goto } from 'utils'
 
 export const ArticleLanguage = ({ lang, title, close, closeAll }) => {
@@ -20,18 +20,11 @@ export const ArticleLanguage = ({ lang, title, close, closeAll }) => {
     const { index } = getCurrent()
     if (index > 0) {
       const itemIndex = index - 1
-      const item = items[itemIndex]
-      setArticleLang(item.lang)
-    }
-  }
-
-  const onKeyLeft = () => {
-    const item = items.find(item => item.isSelected)
-    if (item) {
-      const { lang, description } = item
+      const { lang, description } = items[itemIndex]
+      setArticleLang(lang)
       goto.article(lang, description, true)
+      closeAll()
     }
-    closeAll()
   }
 
   const onKeyBackspace = () => {
@@ -43,8 +36,8 @@ export const ArticleLanguage = ({ lang, title, close, closeAll }) => {
   }
 
   useSoftkey('ArticleLanguage', {
-    left: i18n('softkey-done'),
-    onKeyLeft,
+    left: i18n('softkey-cancel'),
+    onKeyLeft: () => closeAll(),
     right: i18n('softkey-search'),
     onKeyRight: () => setNavigation(0),
     center: i18n('centerkey-select'),
@@ -58,6 +51,6 @@ export const ArticleLanguage = ({ lang, title, close, closeAll }) => {
 
   return <div class='articlelanguage' ref={containerRef}>
     <input type='text' placeholder={i18n('search-language-placeholder')} value={query} onInput={e => setQuery(e.target.value)} data-selectable />
-    <RadioListView header={i18n('article-language-available', numOfLanglink)} items={items} containerRef={listRef} empty={i18n('no-result-found')} />
+    <ListView header={i18n('article-language-available', numOfLanglink)} items={items} containerRef={listRef} empty={i18n('no-result-found')} />
   </div>
 }

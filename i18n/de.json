@@ -8,7 +8,8 @@
 			"HTan (WMF)",
 			"Hikemaniac",
 			"Killarnee",
-			"Ubahnverleih"
+			"Ubahnverleih",
+			"WikiBayer"
 		]
 	},
 	"article-action-sections": "Abschnitte",
@@ -62,7 +63,7 @@
 	"reference-title": "Einzelnachweis $1",
 	"offline-message": "Keine Internetverbindung",
 	"onboarding-0-title": "Die freie Enzyklopädie",
-	"onboarding-0-description": "Wikipedia ist eine freie Wissenssammlung mit Artikeln über Menschen, Orte und allerlei Dingen rund um den Erdball",
+	"onboarding-0-description": "Wikipedia ist eine kostenlose Wissenssammlung, die von Freiwilligen auf der ganzen Welt gemeinsam verfasst wurde.",
 	"onboarding-1-title": "Suche in hunderten von Sprachen",
 	"onboarding-1-description": "Wähle deine bevorzugten Sprachen in denen du lesen und suchen möchstes.",
 	"onboarding-2-title": "Freies Wissen",
@@ -83,7 +84,9 @@
 	"about-app-message": "Entwickelt von der Wikimedia Foundation mit der Hilfe von Freiwilligen wie dir.",
 	"softkey-read-more": "Mehr Info",
 	"feedback-header": "Rückmeldung senden",
+	"feedback-placeholder": "Fangen Sie an hier zu schreiben...",
 	"feedback-success": "Vielen Dank für die Rückmeldung!",
+	"feedback-success-header": "Rückmeldung geben",
 	"feedback-privacy-policy": "Datenschutzbestimmungen",
 	"feedback-terms-of-use": "Nutzungsbedingungen",
 	"softkey-send": "Senden",
@@ -91,5 +94,6 @@
 	"feedback-cancel-header": "Verwerfen",
 	"softkey-yes": "Ja",
 	"softkey-no": "Nein",
-	"settings-privacy-terms": "Datenschutz und Bedingungen"
+	"settings-privacy-terms": "Datenschutz und Bedingungen",
+	"privacy-terms-header": "Datenschutz und Bedingungen"
 }

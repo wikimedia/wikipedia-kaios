@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'preact/hooks'
 import { useSoftkey, usePopup, useI18n } from 'hooks'
-import { viewport, INTERWIKI_KEYS, normalizeTitle } from 'utils'
+import { viewport, INTERWIKI_KEYS, normalizeTitle, getDirection } from 'utils'
 import { ArticlePreview } from 'components'
 
 const SELECTED_ATTRIBUTE = 'data-selected'
@@ -29,6 +29,7 @@ export const useArticleLinksNavigation = (
   const [currentLink, setCurrentLinkInternal] = useState(null)
 
   const [showArticlePreview] = usePopup(ArticlePreview, { stack: true })
+  const dir = getDirection(lang)
 
   const setCurrentLink = newLink => {
     setCurrentLinkInternal(previousLink => {
@@ -58,7 +59,7 @@ export const useArticleLinksNavigation = (
 
   const defaultLinkHandlers = {
     title: ({ title }) => {
-      showArticlePreview({ title, lang })
+      showArticlePreview({ title, lang, dir })
     },
     external: ({ href }) => {
       window.open(href)
@@ -69,7 +70,7 @@ export const useArticleLinksNavigation = (
     defaultLinkHandlers, linkHandlers)
 
   useSoftkey(origin, {
-    onKeyArrowLeft: () => {
+    [dir === 'rtl' ? 'onKeyArrowRight' : 'onKeyArrowLeft']: () => {
       if (!hasLinks()) {
         return
       }
@@ -79,7 +80,7 @@ export const useArticleLinksNavigation = (
       }
       setCurrentLink(links[i])
     },
-    onKeyArrowRight: () => {
+    [dir === 'rtl' ? 'onKeyArrowLeft' : 'onKeyArrowRight']: () => {
       if (!hasLinks()) {
         return
       }

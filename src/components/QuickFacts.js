@@ -7,7 +7,7 @@ import {
 } from 'hooks'
 import { confirmDialog } from 'utils'
 
-export const QuickFacts = ({ article, goToArticleSubpage, close, closeAll }) => {
+export const QuickFacts = ({ article, goToArticleSubpage, dir, close, closeAll }) => {
   const i18n = useI18n()
   const containerRef = useRef()
   const [scrollDown, scrollUp, scrollPosition] = useScroll(containerRef, 20, 'y')
@@ -27,16 +27,17 @@ export const QuickFacts = ({ article, goToArticleSubpage, close, closeAll }) => 
       if (article.references[referenceId]) {
         showReferencePreview({
           reference: article.references[referenceId],
-          lang: article.contentLang
+          lang: article.contentLang,
+          dir
         })
       }
     },
     section: ({ text, anchor }) => {
       // @todo styling to be confirmed with design
-      confirmDialog({ message: i18n('confirm-section', text), onSubmit: () => goToArticleSubpage({ anchor }) })
+      confirmDialog({ message: i18n('confirm-section', text), dir, onSubmit: () => goToArticleSubpage({ anchor }) })
     },
     image: ({ fileName }) => {
-      showGalleryPopup({ items: article.media, startFileName: fileName, lang: article.contentLang })
+      showGalleryPopup({ items: article.media, startFileName: fileName, lang: article.contentLang, dir })
     }
   }
 
@@ -52,6 +53,7 @@ export const QuickFacts = ({ article, goToArticleSubpage, close, closeAll }) => 
   return (
     <div
       class='quickfacts adjustable-font-size'
+      dir={dir}
       ref={containerRef}
       dangerouslySetInnerHTML={{ __html: article.infobox }}
     />

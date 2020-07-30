@@ -23,6 +23,7 @@ export const Language = () => {
 
       setLang(item.lang)
       setAppLanguage(item.lang)
+      history.back()
     }
   }
 
@@ -31,7 +32,7 @@ export const Language = () => {
     onKeyRight: () => setNavigation(0),
     center: i18n('centerkey-select'),
     onKeyCenter,
-    left: i18n('softkey-done'),
+    left: i18n('softkey-cancel'),
     onKeyLeft: () => history.back(),
     onKeyBackspace: !(query && current.type === 'INPUT') && (() => history.back())
   }, [lang, items, current.type])

@@ -8,6 +8,7 @@
 			"Omotecho",
 			"Rootflag",
 			"Siglite3",
+			"Tmv",
 			"きこねす"
 		]
 	},
@@ -52,10 +53,11 @@
 	"suggested-articles": "おすすめの記事",
 	"reference-title": "情報源 [$1]",
 	"offline-message": "インターネットに接続されていません",
-	"onboarding-0-title": "フリー百科事典",
+	"onboarding-0-title": "ウィキペディアについて",
+	"onboarding-0-description": "ウィキペディアは世界中のボランティアたちによって書き込まれた無料の知識源です。",
 	"onboarding-1-title": "何百もの言語で検索",
 	"onboarding-2-title": "無料の知識を得る",
-	"onboarding-2-description": "5000万本超の記事が、広告にわずらわされずに読めます！ 記事は定期的に更新され、新しい記事も増えていきます。",
+	"onboarding-2-description": "世界中の人や場所や物についての5000万本以上の記事を読むことができます。記事の更新や新しい記事の追加も定期的に行われています。",
 	"settings-language": "言語",
 	"settings-textsize": "文字の大きさ",
 	"settings-about-wikipedia": "ウィキペディアについて",

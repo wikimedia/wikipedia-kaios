@@ -37,8 +37,8 @@ const ArticleActions = ({ actions }) => {
 }
 
 const ArticleSection = ({
-  lang, imageUrl, anchor, title, description, actions, isFooter,
-  content, page, goToSubpage, references,
+  lang, dir, imageUrl, anchor, title, description, actions,
+  isFooter, content, page, goToSubpage, references,
   articleTitle, suggestedArticles, showGallery, galleryItems
 }) => {
   const contentRef = useRef()
@@ -56,18 +56,18 @@ const ArticleSection = ({
     },
     reference: ({ referenceId }) => {
       if (references[referenceId]) {
-        showReferencePreview({ reference: references[referenceId], lang })
+        showReferencePreview({ reference: references[referenceId], lang, dir })
       }
     },
     section: ({ text, anchor }) => {
       // @todo styling to be confirmed with design
-      confirmDialog({ message: i18n('confirm-section', text), onSubmit: () => goToSubpage({ anchor }) })
+      confirmDialog({ message: i18n('confirm-section', text), dir, onSubmit: () => goToSubpage({ anchor }) })
     },
     image: ({ fileName }) => {
       showGallery(fileName)
     },
     table: ({ content }) => {
-      showTable({ content })
+      showTable({ content, dir })
     }
   }
 
@@ -102,7 +102,7 @@ const ArticleSection = ({
       class='article-section'
       ref={contentRef}
       style={imageUrl ? { backgroundImage: `url(${imageUrl})` } : {}}>
-      <div class='card'>
+      <div class='card' dir={dir}>
         <div class='intro'>
           <div class='title adjustable-font-size' data-anchor={anchor} dangerouslySetInnerHTML={{ __html: title }} />
           { description && (
@@ -118,7 +118,7 @@ const ArticleSection = ({
           ) }
         </div>
         { isFooter
-          ? <ArticleFooter lang={lang} title={articleTitle} items={suggestedArticles} />
+          ? <ArticleFooter lang={lang} title={articleTitle} items={suggestedArticles} dir={dir} />
           : <ArticleBody content={content} />
         }
       </div>
@@ -139,6 +139,7 @@ const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
     return <Error message={i18n('article-error-message')} onRefresh={loadArticle} />
   }
 
+  const dir = article.dir
   const sectionCount = article.toc.filter(s => s.level === 1).length
   const [openedSections, setOpenedSections] = useState({})
   useTracking('Article', lang, article.namespace, sectionCount, openedSections)
@@ -170,11 +171,11 @@ const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
   }
 
   const showQuickFacts = () => {
-    showQuickFactsPopup({ article, goToArticleSubpage })
+    showQuickFactsPopup({ article, goToArticleSubpage, dir })
   }
 
   const showGallery = startFileName => {
-    showGalleryPopup({ items: article.media, startFileName, lang })
+    showGalleryPopup({ items: article.media, startFileName, lang, dir })
   }
 
   const showArticleMenu = () => {
@@ -229,6 +230,7 @@ const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
       <ArticleSection
         key={currentSection}
         lang={lang}
+        dir={dir}
         {...section}
         articleTitle={articleTitle}
         actions={actions}

@@ -1505,9 +1505,12 @@ const prioritizedLists = {
   jio: ['en', 'hi', 'ji', 'as', 'bn', 'gu', 'kn', 'ks', 'ml', 'mr', 'ne', 'or', 'pa', 'sa', 'sd', 'ta', 'te', 'und', 'mai', 'kok', 'mni', 'doi', 'ur']
 }
 
+export const getDirection = langCode => {
+  return rtl.includes(langCode) ? 'rtl' : 'ltr'
+}
+
 export const isSupportedForReading = langCode => {
-  return missingFont.indexOf(langCode) === -1 &&
-    rtl.indexOf(langCode) === -1
+  return missingFont.indexOf(langCode) === -1
 }
 
 export const prioritizedLanguages = languages

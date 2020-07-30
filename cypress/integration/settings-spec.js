@@ -2,7 +2,6 @@
 
 import * as enJson from '../../i18n/en.json'
 import * as nlJson from '../../i18n/nl.json'
-import * as ptJson from '../../i18n/pt.json'
 import { SettingsPage } from '../page-objects/settings-page'
 import { SearchPage } from '../page-objects/search-page'
 import { LanguageSettingsPage } from '../page-objects/language-settings-page'
@@ -23,13 +22,12 @@ const settingsMenuListEnglishText = [enJson['settings-language'],
   enJson['settings-about-app'],
   enJson['settings-privacy-terms']]
 const languageSettingsPopupEnglishText = enJson['language-setting-message']
-const languageChangeDutchText = nlJson['language-change']
 const settingsMenuListDutchText = [nlJson['settings-language'],
   nlJson['settings-textsize'],
   nlJson['settings-about-wikipedia'],
   nlJson['settings-help-feedback'],
   nlJson['settings-about-app'],
-  enJson['settings-privacy-terms']] // TODO: update to nlJson when translations is available
+  nlJson['settings-privacy-terms']]
 
 describe('settings page', () => {
   var firstElementOfTheSettingsMenuList
@@ -63,8 +61,6 @@ describe('settings page', () => {
     cy.enter()
     cy.getRightSoftkeyButton().should('have.text', enJson['softkey-search'])
     cy.downArrow().enter()
-    languageSettingsPage.headerElement().should('have.text', languageChangeDutchText)
-    cy.getLeftSoftkeyButton().click()
     settingsPage.settingsList().should('have.text', settingsMenuListDutchText.join(''))
   })
 
@@ -75,8 +71,6 @@ describe('settings page', () => {
     cy.get('div.list').should('not.contain.text', 'Português')
     cy.get('input').type('port')
     cy.get('div.list').should('contain.text', 'Português')
-    cy.downArrow().enter()
-    languageSettingsPage.headerElement().should('have.text', ptJson['language-change'])
   })
 
   it('check text size popup', () => {

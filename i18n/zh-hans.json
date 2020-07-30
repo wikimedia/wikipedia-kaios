@@ -5,6 +5,7 @@
 			"Josephine W.",
 			"Nadine Siak",
 			"VulpesVulpes825",
+			"列维劳德",
 			"沈澄心",
 			"铁桶"
 		]
@@ -60,12 +61,12 @@
 	"suggested-articles": "建议条目",
 	"reference-title": "参考文献[$1]",
 	"offline-message": "无互联网连接",
-	"onboarding-0-title": "自由的百科全书",
-	"onboarding-0-description": "维基百科是一个免费的知识资源，里面充满了关于全球各地的人、地、事的文章。",
+	"onboarding-0-title": "关于维基百科",
+	"onboarding-0-description": "维基百科是一个免费的知识资源，世界各地的志愿者合作性编写。",
 	"onboarding-1-title": "在数百种语言中搜索",
 	"onboarding-1-description": "选择你喜欢的语言或语言进行搜索和阅读。",
 	"onboarding-2-title": "获取免费知识",
-	"onboarding-2-description": "阅读超过5000万篇文章，完全无广告! 定期更新和新增文章。",
+	"onboarding-2-description": "阅读超过5000万篇关于人物、场所和来自世界各地的事物的文章。定期更新和新增文章。",
 	"settings-language": "语言",
 	"settings-textsize": "文字大小",
 	"settings-about-wikipedia": "关于维基百科",
