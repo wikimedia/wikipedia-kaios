@@ -23,6 +23,7 @@
 			padding: 6px 10px;
 			display: flex;
 			justify-content: space-between;
+			text-align: left;
 
 			.info {
 				height: 100%;
@@ -31,6 +32,7 @@
 				flex: calc( 100vw - 96px );
 				flex-direction: column;
 				justify-content: center;
+				padding-right: 5px;
 
 				.title {
 					font-size: 15px;
@@ -76,6 +78,21 @@
 			padding: 0 10px;
 			font-size: 17px;
 			color: #323232;
+		}
+	}
+}
+
+[ dir='rtl' ] {
+	.listview {
+		.list {
+			.item {
+				direction: ltr;
+
+				.info {
+					direction: rtl;
+					text-align: right;
+				}
+			}
 		}
 	}
 }
