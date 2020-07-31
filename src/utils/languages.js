@@ -1555,8 +1555,19 @@ export const loadAllLanguagesMessages = () => {
   return messages
 }
 
+export const setAppDirection = (lang = getAppLanguage(), element = 'body') => {
+  const direction = getDirection(lang)
+  document.querySelector(element).setAttribute('dir', direction)
+  localStorage.setItem('language-app-direction', direction)
+}
+
+export const getAppDirection = () => {
+  return localStorage.getItem('language-app-direction')
+}
+
 export const setAppLanguage = lang => {
   localStorage.setItem('language-app', lang)
+  setAppDirection(lang)
 }
 
 export const getAppLanguage = () => {
