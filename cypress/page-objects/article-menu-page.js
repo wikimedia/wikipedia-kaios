@@ -1,6 +1,6 @@
 export class ArticleMenuPage {
   getPreviousArticleName () {
-    return cy.get('div.info > div.description')
+    return cy.get('.info > .description')
   }
 
   selectOptionFromArticleMenu (option) {
