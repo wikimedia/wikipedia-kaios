@@ -226,7 +226,7 @@ const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
   ] : null
 
   return (
-    <div class={'article' + (section.isFooter ? ' footer' : '')} ref={containerRef}>
+    <div class={'article' + (section.isFooter ? ' footer' : '')} ref={containerRef} dir='ltr'>
       <ArticleSection
         key={currentSection}
         lang={lang}
