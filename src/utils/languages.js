@@ -1538,7 +1538,8 @@ export const allLanguages = languages
     return {
       lang: language.code,
       title: language.name,
-      canonicalName: language.canonical_name
+      canonicalName: language.canonical_name,
+      dir: getDirection(language.code)
     }
   })
 

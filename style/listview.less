@@ -25,6 +25,10 @@
 			justify-content: space-between;
 			text-align: left;
 
+			&[ dir='rtl' ] {
+				text-align: right;
+			}
+
 			.info {
 				height: 100%;
 				overflow: hidden;
@@ -87,10 +91,10 @@
 		.list {
 			.item {
 				direction: ltr;
+				text-align: right;
 
-				.info {
-					direction: rtl;
-					text-align: right;
+				&[ dir='ltr' ] {
+					text-align: left;
 				}
 			}
 		}
