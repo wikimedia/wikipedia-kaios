@@ -1,11 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"MKaur",
 			"Satdeep gill"
 		]
 	},
 	"article-action-sections": "حصے",
+	"article-action-quickfacts": "اجمالی معلومات",
 	"article-action-gallery": "نگارخانہ",
 	"article-action-languages": "زبان",
 	"app-title": "ویکیپیڈیا",
@@ -14,10 +16,14 @@
 	"about-header": "متعلق",
 	"about-wikipedia-header": "ویکیپیڈیا کے بارے ميں",
 	"gallery-description": "وضاحت",
+	"gallery-unknown-license": "نامعلوم اجازت نامہ",
 	"header-menu": "آرٹیکل مینو",
 	"header-search": "تلاش کے نتائج",
 	"header-sections": "حصے",
 	"header-settings": "ترتیبات",
+	"menu-previous": "پچھلا مضمون",
+	"menu-textsize": "متن کا سائز",
+	"softkey-about": "تعارف",
 	"softkey-done": "تکمیل",
 	"softkey-search": "تلاش کریں",
 	"search-language-placeholder": "زبان منتخب کریں",
@@ -31,8 +37,11 @@
 	"language-setting-message": " یہاں زبان کو تبدیل کرنے سے پوری ایپ میں زبان بدل جائے گی۔ آپ آرٹیکل مینو کا استعمال کرتے ہوئے ہر مضمون کی زبان بھی تبدیل کرسکتے ہیں۔",
 	"softkey-ok": "ٹھیک ہے",
 	"softkey-read": "پڑھیں",
+	"softkey-get-started": "شروع کریں",
+	"softkey-refresh": "تازہ کریں",
 	"reference-title": "حوالہ جات$1",
 	"offline-message": "انٹرنیٹ کنکشن دستیاب نہیں ہے",
+	"onboarding-0-title": "ویکیپیڈیا کے بارے ميں",
 	"settings-language": "زبانیں",
 	"settings-textsize": "متن کا سائز",
 	"settings-about-wikipedia": "ویکیپیڈیا کے بارے ميں",
@@ -40,5 +49,8 @@
 	"settings-term": "استعمال کے شرائط",
 	"settings-rate": "ایپ کو ریٹ کریں",
 	"settings-help-feedback": "مدد اور ردعمل",
-	"settings-about-app": "ایپ کے بارے ميں"
+	"settings-about-app": "ایپ کے بارے ميں",
+	"feedback-header": "اپنے تاثرات ارسال کریں",
+	"feedback-privacy-policy": "اخفائے راز کے اصول",
+	"feedback-terms-of-use": "استعمال کے شرائط"
 }
