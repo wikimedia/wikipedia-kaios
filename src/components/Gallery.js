@@ -1,6 +1,7 @@
 import { h } from 'preact'
 import { useRef, useLayoutEffect } from 'preact/hooks'
 import { useI18n, useSoftkey, usePopup, useRange, useArticleMediaInfo } from 'hooks'
+import { getAppDirection } from 'utils'
 
 const MAX_DESCRIPTION_HEIGHT = 45
 
@@ -84,6 +85,7 @@ const LoadingAbout = () => {
 export const Gallery = ({ close, closeAll, items, startFileName, lang, dir }) => {
   const i18n = useI18n()
   const containerRef = useRef()
+  const appDir = getAppDirection()
   const [
     currentIndex, onPrevImage, onNextImage
   ] = useRange(getInitialIndex(items, startFileName), items.length - 1)
@@ -105,13 +107,14 @@ export const Gallery = ({ close, closeAll, items, startFileName, lang, dir }) =>
     }
   }
 
+  const [arrowLeftListener, arrowRightListener] = appDir === 'ltr' ? ['onKeyArrowLeft', 'onKeyArrowRight'] : ['onKeyArrowRight', 'onKeyArrowLeft']
   useSoftkey('Gallery', {
     left: i18n('softkey-close'),
     onKeyLeft: closeAll,
     center: i18n('softkey-about'),
     onKeyCenter: () => showAboutPopup({ ...items[currentIndex], lang, dir }),
-    onKeyArrowRight: onNextImage,
-    onKeyArrowLeft: onPrevImage,
+    [arrowRightListener]: onNextImage,
+    [arrowLeftListener]: onPrevImage,
     onKeyBackspace: close
   }, [currentIndex])
 
