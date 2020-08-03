@@ -4,7 +4,7 @@ export const RadioListView = ({ items = [], header, containerRef, empty }) => {
   return (
     <div class='radiolistview'>
       { header && <div class='header'>{header}</div> }
-      <div class='list' ref={containerRef} dir='ltr'>
+      <div class='list' ref={containerRef}>
         {
           items.length ? items.map(item => (
             <div class='item' dir={item.dir} data-selectable data-title={item.title} data-selected-key={item.title} key={item.title}>
