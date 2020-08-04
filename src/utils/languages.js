@@ -1482,7 +1482,6 @@ const rtl = [
   'arz',
   'dv',
   'fa',
-  'ha',
   'he',
   'khw',
   'ks',
