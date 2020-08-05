@@ -23,9 +23,16 @@ export const Softkey = ({
   onKeyboard6,
   onKeyS,
   onKeyD,
-  onKeyF
+  onKeyF,
+  dir = 'ltr'
 }) => {
   const handlersRef = useRef()
+
+  if (dir === 'rtl') {
+    [left, right] = [right, left];
+    [onKeyLeft, onKeyRight] = [onKeyRight, onKeyLeft]
+  }
+
   handlersRef.current = {
     SoftLeft: onKeyLeft,
     Enter: onKeyCenter,
