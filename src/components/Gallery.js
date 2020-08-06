@@ -110,10 +110,9 @@ export const Gallery = ({ close, closeAll, items, startFileName, lang, dir }) =>
     onKeyLeft: closeAll,
     center: i18n('softkey-about'),
     onKeyCenter: () => showAboutPopup({ ...items[currentIndex], lang, dir }),
-    onKeyArrowRight: onNextImage,
-    onKeyArrowLeft: onPrevImage,
-    onKeyBackspace: close,
-    dir
+    [dir === 'rtl' ? 'onKeyFixedArrowLeft' : 'onKeyFixedArrowRight']: onNextImage,
+    [dir === 'rtl' ? 'onKeyFixedArrowRight' : 'onKeyFixedArrowLeft']: onPrevImage,
+    onKeyBackspace: close
   }, [currentIndex])
 
   return (

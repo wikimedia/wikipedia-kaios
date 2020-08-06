@@ -70,7 +70,7 @@ export const useArticleLinksNavigation = (
     defaultLinkHandlers, linkHandlers)
 
   useSoftkey(origin, {
-    [dir === 'rtl' ? 'onKeyArrowRight' : 'onKeyArrowLeft']: () => {
+    [dir === 'rtl' ? 'onKeyFixedArrowRight' : 'onKeyFixedArrowLeft']: () => {
       if (!hasLinks()) {
         return
       }
@@ -80,7 +80,7 @@ export const useArticleLinksNavigation = (
       }
       setCurrentLink(links[i])
     },
-    [dir === 'rtl' ? 'onKeyArrowLeft' : 'onKeyArrowRight']: () => {
+    [dir === 'rtl' ? 'onKeyFixedArrowLeft' : 'onKeyFixedArrowRight']: () => {
       if (!hasLinks()) {
         return
       }
@@ -97,8 +97,7 @@ export const useArticleLinksNavigation = (
       if (handler) {
         handler(clickEvent)
       }
-    },
-    dir: 'ltr'
+    }
   }, [links, currentLink])
 
   return [currentLink]
