@@ -15,7 +15,8 @@ export const Table = ({ dir, close, content }) => {
     onKeyArrowDown: scrollDown,
     onKeyArrowUp: scrollUp,
     onKeyArrowLeft: scrollLeft,
-    onKeyArrowRight: scrollRight
+    onKeyArrowRight: scrollRight,
+    dir: 'ltr'
   })
 
   return (

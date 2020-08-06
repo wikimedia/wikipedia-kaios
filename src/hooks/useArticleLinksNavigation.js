@@ -97,7 +97,8 @@ export const useArticleLinksNavigation = (
       if (handler) {
         handler(clickEvent)
       }
-    }
+    },
+    dir: 'ltr'
   }, [links, currentLink])
 
   return [currentLink]

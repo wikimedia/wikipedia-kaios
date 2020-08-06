@@ -112,7 +112,8 @@ export const Gallery = ({ close, closeAll, items, startFileName, lang, dir }) =>
     onKeyCenter: () => showAboutPopup({ ...items[currentIndex], lang, dir }),
     onKeyArrowRight: onNextImage,
     onKeyArrowLeft: onPrevImage,
-    onKeyBackspace: close
+    onKeyBackspace: close,
+    dir
   }, [currentIndex])
 
   return (

@@ -30,7 +30,8 @@ export const Softkey = ({
 
   if (dir === 'rtl') {
     [left, right] = [right, left];
-    [onKeyLeft, onKeyRight] = [onKeyRight, onKeyLeft]
+    [onKeyLeft, onKeyRight] = [onKeyRight, onKeyLeft];
+    [onKeyArrowLeft, onKeyArrowRight] = [onKeyArrowRight, onKeyArrowLeft]
   }
 
   handlersRef.current = {

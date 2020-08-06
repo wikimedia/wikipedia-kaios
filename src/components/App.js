@@ -27,7 +27,7 @@ export const App = ({ i18n, dir }) => {
           <DirectionContext.Provider value={{ dirState, setDirState }}>
             <OfflineIndicator routeUrl={url} />
             <Routes onRouteChange={({ url }) => setUrl(url)} />
-            <Softkey {...state.current} dir={dirState} />
+            <Softkey dir={dirState} {...state.current} />
             <PopupContainer popups={popupState} />
           </DirectionContext.Provider>
         </PopupContext.Provider>
