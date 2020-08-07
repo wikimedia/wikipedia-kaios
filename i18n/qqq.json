@@ -48,7 +48,7 @@
 	"language-change": "Title of the language settings page",
 	"language-setting": "Title of the popup message in the language settings page",
 	"language-setting-message": "Message shown in the popup message in the language settings page",
-	"softkey-ok": "Label of the word \"ok\" shown in the popup message in the language settings page",
+	"softkey-ok": "Label of the word \"ok\" shown in the popup message in the language settings page.\n\n{{Identical|OK}}",
 	"softkey-read": "Text of the read option in the softkey. Used to read the selected article in the article preview.\n{{Identical|Read}}",
 	"softkey-next": "Label of the next softkey",
 	"softkey-back": "Label of the back softkey",

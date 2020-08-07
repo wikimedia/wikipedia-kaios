@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"HTan (WMF)",
-			"Kly"
+			"Kly",
+			"沈澄心"
 		]
 	},
 	"article-action-sections": "段落",
@@ -56,12 +57,12 @@
 	"suggested-articles": "建議條目",
 	"reference-title": "參考資料[$1]",
 	"offline-message": "無網路連線",
-	"onboarding-0-title": "自由的百科全書",
-	"onboarding-0-description": "維基百科是一個包含有關全世界人物、地點、事物方面條目的免費知識資源。",
+	"onboarding-0-title": "關於維基百科",
+	"onboarding-0-description": "維基百科是一個由世界各地志工協作編寫的免費知識資源。",
 	"onboarding-1-title": "在百種語言裡搜尋",
 	"onboarding-1-description": "挑選您的偏好語言、或是用來搜尋與閱讀的語言。",
 	"onboarding-2-title": "取得免費知識",
-	"onboarding-2-description": "閱讀超過 5000 萬個的條目，裡頭完全沒有任何廣告！並且會定期更新與添加條目。",
+	"onboarding-2-description": "閱讀超過 5000 萬個關於人物、地點、以及來自世界上所有事物的條目。並且會定期更新與添加條目內容。",
 	"settings-language": "語言",
 	"settings-textsize": "文字大小",
 	"settings-about-wikipedia": "關於維基百科",

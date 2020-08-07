@@ -2,11 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Amir1arch",
+			"Amire80",
 			"FarsiNevis",
 			"Reza1615"
 		]
 	},
 	"article-action-sections": "بخش‌ها",
+	"article-action-quickfacts": "اطلاعات اجمالی",
 	"article-action-gallery": "نگارخانه",
 	"article-action-languages": "زبان",
 	"article-loading-message": "در حال بارگیری صفحه...",
@@ -48,14 +50,14 @@
 	"suggested-articles": "مقاله‌های پیشنهادی",
 	"reference-title": "مرجع [$1]",
 	"offline-message": "عدم اتصال به اینترنت",
-	"onboarding-0-title": "دانشنامهٔ آزاد",
+	"onboarding-0-title": "دربارهٔ ویکی‌پدیا",
 	"settings-language": "زبان",
 	"settings-textsize": "اندازهٔ متن",
 	"settings-about-wikipedia": "دربارهٔ ویکی‌پدیا",
 	"settings-privacy": "سیاست محرمانگی",
 	"settings-term": "شرایط استفاده",
 	"settings-rate": "به برنامه امتیاز دهید",
-	"settings-help-feedback": "کمک و بازخورد",
+	"settings-help-feedback": "فرستادن بازخورد",
 	"settings-about-app": "دربارهٔ نرم‌افزار",
 	"textsize-increase": "کلید ۶ را بفشارید (افزایش اندازه)",
 	"textsize-decrease": "کلید ۴ را بفشارید (کاهش اندازه)",
@@ -63,6 +65,13 @@
 	"toc-footer": "مقاله‌های پیشنهادی",
 	"view-in-browser": "مقاله را در مرورگر ببینید",
 	"softkey-read-more": "بیشتر بخوانید",
+	"feedback-header": "فرستادن بازخورد",
+	"feedback-privacy-policy": "سیاست محرمانگی",
+	"feedback-terms-of-use": "شرایط استفاده",
+	"softkey-send": "ارسال",
+	"softkey-cancel": "لغو",
+	"feedback-cancel-header": "دور انداختن",
+	"softkey-yes": "بله",
 	"settings-privacy-terms": "سیاست‌ها و محرمانگی",
 	"privacy-terms-header": "سیاست‌ها و محرمانگی"
 }
