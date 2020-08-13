@@ -23,17 +23,29 @@ export const Softkey = ({
   onKeyboard6,
   onKeyS,
   onKeyD,
-  onKeyF
+  onKeyF,
+
+  // direction related prop
+  dir = 'ltr',
+  onKeyFixedArrowLeft,
+  onKeyFixedArrowRight
 }) => {
   const handlersRef = useRef()
+
+  if (dir === 'rtl') {
+    [left, right] = [right, left];
+    [onKeyLeft, onKeyRight] = [onKeyRight, onKeyLeft];
+    [onKeyArrowLeft, onKeyArrowRight] = [onKeyArrowRight, onKeyArrowLeft]
+  }
+
   handlersRef.current = {
     SoftLeft: onKeyLeft,
     Enter: onKeyCenter,
     SoftRight: onKeyRight,
     ArrowDown: onKeyArrowDown,
     ArrowUp: onKeyArrowUp,
-    ArrowLeft: onKeyArrowLeft,
-    ArrowRight: onKeyArrowRight,
+    ArrowLeft: onKeyFixedArrowLeft || onKeyArrowLeft,
+    ArrowRight: onKeyFixedArrowRight || onKeyArrowRight,
     Backspace: onKeyBackspace,
     4: onKeyboard4,
     5: onKeyboard5,

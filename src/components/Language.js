@@ -1,12 +1,14 @@
 import { h } from 'preact'
-import { useState, useRef, useEffect } from 'preact/hooks'
+import { useState, useRef, useEffect, useContext } from 'preact/hooks'
+import { DirectionContext } from 'contexts'
 import { useNavigation, useI18n, useSoftkey, usePopup, useSearchLanguage } from 'hooks'
 import { RadioListView } from 'components'
-import { setAppLanguage, getAppLanguage } from 'utils'
+import { setAppLanguage, getAppLanguage, getDirection } from 'utils'
 
 export const Language = () => {
   const containerRef = useRef()
   const listRef = useRef()
+  const { setDirState } = useContext(DirectionContext)
 
   const i18n = useI18n()
   const [lang, setLang] = useState(getAppLanguage())
@@ -23,6 +25,7 @@ export const Language = () => {
 
       setLang(item.lang)
       setAppLanguage(item.lang)
+      setDirState(getDirection(item.lang))
       history.back()
     }
   }
