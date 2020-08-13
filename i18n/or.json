@@ -2,14 +2,15 @@
 	"@metadata": {
 		"authors": [
 			"MKaur",
-			"Psubhashish"
+			"Psubhashish",
+			"Saileshpat"
 		]
 	},
 	"article-action-sections": "ବିଭାଗ",
 	"article-action-quickfacts": "ସଂକ୍ଷିପ୍ତ ତଥ୍ୟ",
 	"article-action-gallery": "ଗ୍ଯାଲେରି",
 	"article-action-languages": "ଭାଷା",
-	"article-language-available": "$1ଗୋଟି {{PLURAL:$1|ଭାଷା|ଭାଷା}}ରେ ଉପଲବ୍ଧ",
+	"article-language-available": "$1ଗୋଟି {{PLURAL:$1|ଭାଷା|ଭାଷାମାନଙ୍କ}}ରେ ଉପଲବ୍ଧ ଅଟେ",
 	"article-language-loading-message": "ଭାଷାସବୁ ଲୋଡ଼ହେଉଛି...",
 	"article-loading-message": "ପୃଷ୍ଠା ଲୋଡ଼ହେଉଛି...",
 	"article-error-message": "ପ୍ରସଙ୍ଗ ଲୋଡ଼ହେବାରେ ବିଫଳ",
@@ -56,12 +57,12 @@
 	"suggested-articles": "ପ୍ରସ୍ତାବିତ ପ୍ରସଙ୍ଗସବୁ",
 	"reference-title": "ଆଧାର [$1]",
 	"offline-message": "ଇଣ୍ଟରନେଟ ସଂଯୋଗ ନାହିଁ",
-	"onboarding-0-title": "ମୁକ୍ତ ଜ୍ଞାନକୋଷ",
-	"onboarding-0-description": "ଉଇକିପିଡ଼ିଆ ଏକ ଖୋଲା ଜ୍ଞାନର ଭଣ୍ଡାର । ଏଥିରେ ସାରା ବିଶ୍ୱର ନାନାଦି ବ୍ୟକ୍ତି, ସ୍ଥାନ ଓ ବସ୍ତୁ ବାବଦରେ ପ୍ରସଙ୍ଗସବୁ ଭରିରହିଛି ।",
+	"onboarding-0-title": "ଉଇକିପିଡ଼ିଆ ବାବଦରେ",
+	"onboarding-0-description": "ଉଇକିପିଡ଼ିଆ ଏକ ଖୋଲା ଜ୍ଞାନର ଭଣ୍ଡାର ଏବଂ ଏହା ମିଳିତ ଭାବେ ବିଶ୍ୱର ବିଭିନ୍ନ ସ୍ୱେଚ୍ଛାସେବୀଙ୍କ ଦ୍ୱାରା ଲେଖାଯାଇଥାଏ ।",
 	"onboarding-1-title": "ଶହଶହ ଭାଷାରେ ଖୋଜନ୍ତୁ",
 	"onboarding-1-description": "ଖୋଜିବା ଓ ପଢ଼ିବା ପାଇଁ ନିଜ ପସନ୍ଦର ଭାଷା ବାଛନ୍ତୁ ।",
 	"onboarding-2-title": "ମୁକ୍ତ ଜ୍ଞାନ ପାଆନ୍ତୁ",
-	"onboarding-2-description": "ବିଜ୍ଞାପନ ନଥାଇ ୫୦ ମିଲିୟନ (୫ କୋଟି) ପ୍ରସଙ୍ଗ ପଢ଼ନ୍ତୁ! ଅପଡେଟ ଓ ନୂଆ ଲେଖା ନିୟମିତ ଭାବେ ଯୋଡ଼ାଚାଲିଛି ।",
+	"onboarding-2-description": "ପୃଥିବୀର ବିଭିନ୍ନ ସ୍ଥାନର ଲୋକ, ସ୍ଥାନ ଏବଂ ଜିନିଷ ବିଷୟରେ ୫୦ ମିଲିୟନରୁ ଅଧିକ ପ୍ରସଙ୍ଗ ପଢ଼ନ୍ତୁ । ଅପଡେଟ ଏବଂ ନୂଆ ପ୍ରସଙ୍ଗଗୁଡ଼ିକ ନିୟମିତ ଭାବେ ଯୋଡ଼ାଚାଲିଛି ।",
 	"settings-language": "ଭାଷା",
 	"settings-textsize": "ଅକ୍ଷର ଆକାର",
 	"settings-about-wikipedia": "ଉଇକିପିଡ଼ିଆ ବାବଦରେ",
