@@ -22,14 +22,14 @@ const ArticleBody = memo(({ content }) => {
   )
 })
 
-const ArticleActions = ({ actions }) => {
-  const i18n = useI18n()
+const ArticleActions = ({ actions, lang }) => {
+  const contentI18n = useI18n(lang)
   return (
     <div class='article-actions'>
       { actions.filter(a => a.enabled).map(action => (
         <div class='article-actions-button' data-action={action.name} key={action.name}>
           <img src={`images/icon-${action.name}.svg`} />
-          <label>{i18n(`article-action-${action.name}`)}</label>
+          <label>{contentI18n(`article-action-${action.name}`)}</label>
         </div>
       )) }
     </div>
@@ -110,7 +110,7 @@ const ArticleSection = ({
               <div class='desc adjustable-font-size'>{description}</div>
             </Fragment>
           ) }
-          { actions && <ArticleActions actions={actions} /> }
+          { actions && <ArticleActions actions={actions} lang={lang} /> }
           { imageUrl && (
             <div class='indicator'>
               <img src='images/icon-down-arrow.svg' />
