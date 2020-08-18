@@ -3,7 +3,6 @@ import { useI18n } from 'hooks'
 import { buildWpMobileWebUrl, canonicalizeTitle } from 'utils'
 
 export const ArticleFooter = ({ lang, title, items = [], dir }) => {
-  const i18n = useI18n()
   const contentI18n = useI18n(lang)
   const headerTitle = contentI18n('toc-footer')
 
@@ -27,10 +26,10 @@ export const ArticleFooter = ({ lang, title, items = [], dir }) => {
         <h2 class='img'>
           <img src='/images/wikipedia-wordmark-en.png' height='18' width='116' />
         </h2>
-        <p class='license adjustable-font-size' dangerouslySetInnerHTML={{ __html: i18n('content-license') }} />
+        <p class='license adjustable-font-size' dangerouslySetInnerHTML={{ __html: contentI18n('content-license') }} />
         <p class='browser'>
           <a class='external adjustable-font-size' rel='mw:ExtLink' href={buildWpMobileWebUrl(lang, title)}>
-            {i18n('view-in-browser')}
+            {contentI18n('view-in-browser')}
           </a>
         </p>
       </div>
