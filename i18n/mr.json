@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"KartikMistry",
 			"MKaur"
 		]
 	},
@@ -17,6 +18,7 @@
 	"content-license": "<a class=\"external \"rel=\"mw:ExtLink\" href=\"https://creativecommons.org/license/by-sa/3.0/\"> CC BY-SA 3.0 </a> अंतर्गत सामग्री उपलब्ध आहे अन्यथा नोंद",
 	"confirm-section": "विभाग \"$1\" वर जा",
 	"gallery-description": "वर्णन",
+	"gallery-unknown-license": "अनोळखी परवाना",
 	"header-menu": "लेख मेनू",
 	"header-search": "निकाल शोधा",
 	"header-sections": "विभाग",
@@ -24,12 +26,13 @@
 	"header-textsize": "लेख मजकूर आकार",
 	"menu-previous": "मागील लेख",
 	"menu-textsize": "मजकूर आकार",
+	"more-information": "इतर माहिती",
 	"no-result-found": "कोणताही परिणाम आढळला नाही",
 	"softkey-done": "पूर्ण झाले",
 	"softkey-search": "शोधा",
 	"search-language-placeholder": "भाषा शोधा",
 	"softkey-menu": "मेनू",
-	"search-placeholder": "शोधा",
+	"search-placeholder": "विकिपीडिया मध्ये शोधा",
 	"softkey-settings": "सेटिंग्स",
 	"centerkey-select": "निवडा",
 	"softkey-close": "बंद करा",
@@ -44,10 +47,10 @@
 	"suggested-articles": "सुचविलेले लेख",
 	"reference-title": "संदर्भ [$1]",
 	"offline-message": "इंटरनेट कनेक्शन नाही",
-	"onboarding-0-title": "एक मुक्त ज्ञानकोश",
+	"onboarding-0-title": "विकिपीडिया बद्दल",
 	"onboarding-0-description": "विकिपीडिया हा एक विनामूल्य स्त्रोत आहे जो जगभरातील स्वयंसेवकांनी एकत्रितपणे लिहिलेला आहे",
 	"onboarding-1-description": "४० दशलक्षाहून अधिक लेख वाचा, पूर्णपणे जाहिरात-मुक्त! अद्यतने आणि नवीन लेख नियमितपणे जोडले",
-	"onboarding-2-title": "३०० पेक्षा जास्त भाषांमध्ये शोधा",
+	"onboarding-2-title": "मुक्त ज्ञान मेळवा",
 	"onboarding-2-description": "शोधण्यासाठी आणि वाचण्यासाठी आपली पसंत केलेली भाषा किंवा भाषा निवडा",
 	"settings-language": "भाषा",
 	"settings-textsize": "मजकूर आकार",
@@ -55,11 +58,16 @@
 	"settings-privacy": "गोपनीयता धोरण",
 	"settings-term": "वापरण्याच्या अटी",
 	"settings-rate": "या अॲपचे दरनिर्धारण करा",
-	"settings-help-feedback": "मदत आणि अभिप्राय",
+	"settings-help-feedback": "अभिप्राय पाठवा",
 	"settings-about-app": "अ‍ॅप बद्दल",
 	"textsize-increase": "६ दाबा (आकार वाढवा)",
 	"textsize-decrease": "४ दाबा (आकार कमी करा)",
 	"textsize-default": "५ दाबा (डीफॉल्ट)",
 	"toc-footer": "सुचविलेले लेख",
-	"view-in-browser": "ब्राउझरमध्ये लेख पहा"
+	"view-in-browser": "ब्राउझरमध्ये लेख पहा",
+	"softkey-read-more": "अधिक वाचा",
+	"softkey-send": "पाठवा",
+	"softkey-cancel": "रद्द करा",
+	"softkey-yes": "होय",
+	"softkey-no": "नाही"
 }
