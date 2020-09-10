@@ -1,7 +1,7 @@
-import { buildPcsUrl, cachedFetch } from 'utils'
+import { buildPcsUrl, cachedFetch, getLanguageHeader } from 'utils'
 
 export const getRandomArticleTitle = lang => {
   const url = buildPcsUrl(lang, 'title', 'random')
 
-  return cachedFetch(url, data => data.items[0].title, false)
+  return cachedFetch(url, data => data.items[0].title, false, getLanguageHeader(lang))
 }

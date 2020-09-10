@@ -1,4 +1,4 @@
-import { cachedFetch, buildPcsUrl, canonicalizeTitle } from 'utils'
+import { cachedFetch, buildPcsUrl, canonicalizeTitle, getLanguageHeader } from 'utils'
 
 export const getArticleMediaList = (lang, title) => {
   const url = buildPcsUrl(lang, title, 'media-list')
@@ -17,6 +17,5 @@ export const getArticleMediaList = (lang, title) => {
       return mediaArray.concat(media)
     }
     return mediaArray
-  }, [])
-  )
+  }, []), true, getLanguageHeader(lang))
 }

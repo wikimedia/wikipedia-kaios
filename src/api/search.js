@@ -1,4 +1,4 @@
-import { cachedFetch, buildMwApiUrl } from 'utils'
+import { cachedFetch, buildMwApiUrl, getLanguageHeader } from 'utils'
 
 export const search = (lang, term) => {
   const params = {
@@ -28,5 +28,5 @@ export const search = (lang, term) => {
         imageUrl: p.thumbnail && p.thumbnail.source
       }
     })
-  })
+  }, true, getLanguageHeader(lang))
 }

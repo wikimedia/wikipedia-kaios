@@ -10,7 +10,7 @@ export const getLanglinks = (lang, title) => {
     prop: 'langlinks',
     lllimit: 500,
     llprop: 'langname|autonym'
-  }
+  } // todo: find how to pass lang variant
   const url = buildMwApiUrl(lang, params)
   return cachedFetch(url, response => {
     const { pages } = response.query

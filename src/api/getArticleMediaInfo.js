@@ -5,7 +5,7 @@ export const getArticleMediaInfo = (lang, title, fromCommon) => {
     action: 'query',
     prop: 'imageinfo',
     iiextmetadatafilter: 'License|LicenseShortName|ImageDescription|Artist',
-    iiextmetadatalanguage: lang,
+    iiextmetadatalanguage: lang, // todo: check if this needs mapping
     iiextmetadatamultilang: 1,
     iiprop: 'url|extmetadata',
     titles: title

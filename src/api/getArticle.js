@@ -1,4 +1,4 @@
-import { cachedFetch, buildPcsUrl, canonicalizeTitle, getDirection } from 'utils'
+import { cachedFetch, buildPcsUrl, canonicalizeTitle, getDirection, getLanguageHeader } from 'utils'
 
 export const getArticle = (lang, title, { moreInformationText }) => {
   const url = buildPcsUrl(lang, title, 'mobile-sections')
@@ -80,7 +80,7 @@ export const getArticle = (lang, title, { moreInformationText }) => {
       languageCount,
       dir
     }
-  })
+  }, true, getLanguageHeader(lang))
 }
 
 const fixImageUrl = (htmlString, lang) => {

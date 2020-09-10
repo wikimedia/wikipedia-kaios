@@ -73,9 +73,14 @@ const languages = [
     name: 'Portugu\u00eas'
   },
   {
-    canonical_name: 'Chinese',
-    code: 'zh',
-    name: '\u4e2d\u6587'
+    canonical_name: 'Chinese (Traditional)',
+    code: 'zh-hant',
+    name: '\u4e2d\u6587 (t)'
+  },
+  {
+    canonical_name: 'Chinese (Simplified)',
+    code: 'zh-hans',
+    name: '\u4e2d\u6587 (s)'
   },
   {
     canonical_name: 'Ukrainian',
@@ -128,9 +133,14 @@ const languages = [
     name: 'Magyar'
   },
   {
-    canonical_name: 'Serbian',
-    code: 'sr',
-    name: '\u0421\u0440\u043f\u0441\u043a\u0438 / Srpski'
+    canonical_name: 'Serbian (Cyrilic)',
+    code: 'sr-ec',
+    name: '\u0421\u0440\u043f\u0441\u043a\u0438'
+  },
+  {
+    canonical_name: 'Serbian (Latin)',
+    code: 'sr-el',
+    name: 'Srpski'
   },
   {
     canonical_name: 'Malay',
@@ -1574,6 +1584,21 @@ export const getDeviceLanguage = () => {
 
 export const checkHasDeviceLanguageChanged = () => {
   return getCurrentDeviceLanguage() !== localStorage.getItem('language-device')
+}
+
+const languagesWithVariants = {
+  'sr-ec': ['sr', 'sr-ec'],
+  'sr-el': ['sr', 'sr-el'],
+  'zh-hant': ['zh', 'zh-hant'],
+  'zh-hans': ['zh', 'zh-hans']
+}
+
+export const getLanguageHeader = lang => {
+  return languagesWithVariants[lang] ? { 'Accept-Language': languagesWithVariants[lang][1] } : {}
+}
+
+export const getUrlLangCode = lang => {
+  return languagesWithVariants[lang] ? languagesWithVariants[lang][0] : lang
 }
 
 const getAlias = lang => {

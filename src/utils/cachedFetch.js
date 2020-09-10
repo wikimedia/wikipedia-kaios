@@ -6,9 +6,10 @@ import { isProd, appVersion, sendErrorLog, isRequestHeaderDisabled } from 'utils
 const requestCache = {}
 const noopAbort = () => {}
 
-export const cachedFetch = (url, transformFn, cache = true) => {
-  if (cache && requestCache[url]) {
-    return [Promise.resolve(requestCache[url]), noopAbort]
+export const cachedFetch = (url, transformFn, cache = true, headers = {}) => {
+  const cacheKey = url + '-' + JSON.stringify(headers)
+  if (cache && requestCache[cacheKey]) {
+    return [Promise.resolve(requestCache[cacheKey]), noopAbort]
   }
 
   const xhr = new XMLHttpRequest({ mozSystem: true })
@@ -19,6 +20,9 @@ export const cachedFetch = (url, transformFn, cache = true) => {
       xhr.setRequestHeader('User-Agent', `WikipediaApp/${appVersion()} ${navigator.userAgent}`)
       xhr.setRequestHeader('Referer', 'https://www.wikipedia.org')
     }
+    Object.entries(headers).forEach(([name, value]) => {
+      xhr.setRequestHeader(name, value)
+    })
     xhr.send()
     xhr.addEventListener('load', () => {
       // Accept all of 2xx and 3xx
@@ -26,7 +30,7 @@ export const cachedFetch = (url, transformFn, cache = true) => {
         const transformResponse = transformFn(xhr.response)
         resolve(transformResponse)
         if (cache) {
-          requestCache[url] = transformResponse
+          requestCache[cacheKey] = transformResponse
         }
       } else {
         reject(new Error('XHR Error: ' + xhr.status))
