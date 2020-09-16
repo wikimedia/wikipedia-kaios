@@ -1,10 +1,14 @@
 import { normalizeTitle } from 'utils'
 
+const MAX = 100
 const list = []
 
 const add = (lang, title) => {
   const normalizedTitle = normalizeTitle(title)
   list.push({ lang, title: normalizedTitle })
+  if (list.length > MAX) {
+    list.shift()
+  }
 }
 
 const prev = () => {
