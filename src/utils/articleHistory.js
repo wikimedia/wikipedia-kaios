@@ -1,25 +1,18 @@
 import { normalizeTitle } from 'utils'
 
-const KEY = 'article-history'
-
-const get = () => {
-  return JSON.parse(localStorage.getItem(KEY))
-}
-
-const set = list => {
-  localStorage.setItem(KEY, JSON.stringify(list))
-}
+const MAX = 100
+const list = []
 
 const add = (lang, title) => {
-  const list = JSON.parse(localStorage.getItem(KEY)) || []
   const normalizedTitle = normalizeTitle(title)
   list.push({ lang, title: normalizedTitle })
-  set(list)
+  if (list.length > MAX) {
+    list.shift()
+  }
 }
 
 const prev = () => {
-  const list = get()
-  if (!list.length) {
+  if (isEmpty()) {
     return false
   }
 
@@ -27,31 +20,25 @@ const prev = () => {
   list.pop()
 
   // return the previous article
-  const prevArticle = list.pop()
-
-  set(list)
-
-  return prevArticle
+  return list.pop()
 }
 
 const clear = () => {
-  localStorage.setItem(KEY, null)
+  list.length = 0
 }
 
 const isEmpty = () => {
-  return !(get() && get().length)
+  return list.length === 0
 }
 
 const hasPrev = () => {
-  const list = get()
-  return list && (list.length > 1)
+  return list.length > 1
 }
 
 const getPrev = () => {
-  const list = get()
   return list[list.length - 2]
 }
 
 export const articleHistory = {
-  get, set, add, prev, clear, isEmpty, hasPrev, getPrev
+  add, prev, clear, isEmpty, hasPrev, getPrev
 }
