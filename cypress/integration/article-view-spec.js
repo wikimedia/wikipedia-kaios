@@ -74,13 +74,6 @@ describe('Article view', () => {
     quickFactsPage.table().should('contains.text', 'Various types of the domestic cat')
   })
 
-  it('check preview for references opens', () => {
-    goToCatArticle()
-    cy.downArrow()
-    cy.rightArrow()
-    cy.enter()
-    cy.get('.ref-title').should('be.visible').should('contain.text', 'Reference [10]')
-  })
 
   it('check quick facts link opens', () => {
     goToCatArticle()
