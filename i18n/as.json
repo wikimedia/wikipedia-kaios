@@ -1,11 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mohsin Ali"
+			"Mohsin Ali",
+			"Simbu123"
 		]
 	},
+	"app-title": "ৱিকিপিডিয়া",
 	"confirm-section": "\"$1\" শাখালৈ যাওক",
 	"about-header": "সবিশেষ",
+	"about-wikipedia-header": "ৱিকিপিডিয়াৰ বিষয়ে",
 	"no-result-found": "কোনো ফলাফল পোৱা নাই",
 	"softkey-about": "সবিশেষ",
 	"softkey-more-info": "অধিক তথ্য",
