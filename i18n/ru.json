@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Alexander Yukal",
+			"Facenapalm",
 			"Kareyac",
 			"Movses",
 			"Okras",
@@ -18,8 +19,10 @@
 	"article-error-message": "Невозможно загрузить статью",
 	"app-title": "Википедия",
 	"app-subtitle": "Свободная энциклопедия",
+	"app-description": "С помощью бесплатного приложения Википедии ищите и изучайте информацию со всего света на 300+ языках.",
 	"content-license": "Если не указано иное, содержание доступно в соответствии с <a class=\"external\" rel=\"mw:ExtLink\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">CC BY-SA 3.0</a>.",
 	"confirm-section": "Перейти к разделу «$1»",
+	"about-header": "О странице",
 	"about-wikipedia-header": "О Википедии",
 	"gallery-description": "Описание",
 	"gallery-author-license": "Автор и лицензия",
@@ -29,6 +32,7 @@
 	"header-search": "Результаты поиска",
 	"header-sections": "Разделы",
 	"header-settings": "Настройки",
+	"header-textsize": "Размер шрифта статей",
 	"menu-previous": "Предыдущая статья",
 	"menu-textsize": "Размер шрифта",
 	"more-information": "Подробнее",
