@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"BaRaN6161 TURK",
-			"SwornToTranslate29"
+			"SwornToTranslate29",
+			"ToprakM"
 		]
 	},
 	"article-action-sections": "Bölümler",
@@ -73,7 +74,7 @@
 	"textsize-increase": "6'ya basın (Boyutu artır)",
 	"textsize-decrease": "4'e basın (Boyutu küçült)",
 	"textsize-default": "5'e basın (Varsayılan)",
-	"toc-footer": "Önerilen makaleler",
+	"toc-footer": "Önerilen maddeler",
 	"view-in-browser": "Makaleyi tarayıcıda görüntüle",
 	"about-app-message": "Wikimedia Vakfı tarafından sizin gibi gönüllülerin yardımıyla yapılmıştır.",
 	"softkey-read-more": "Daha Fazla Oku",
