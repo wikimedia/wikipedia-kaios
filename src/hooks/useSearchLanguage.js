@@ -42,7 +42,10 @@ const getInitialLangList = lang => {
   const list = prioritizedLanguages
 
   if (!list.find(language => language.lang === lang)) {
-    list.unshift(allLanguages.find(language => language.lang === lang))
+    const targetLanguage = allLanguages.find(language => language.lang === lang)
+    if (targetLanguage) {
+      list.unshift(targetLanguage)
+    }
   }
 
   return list
