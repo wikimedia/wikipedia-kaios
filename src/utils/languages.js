@@ -1509,6 +1509,9 @@ export const getDirection = langCode => {
 }
 
 export const isSupportedForReading = langCode => {
+  if (!languages.find(language => language.code === langCode)) {
+    return false
+  }
   return missingFont.indexOf(langCode) === -1
 }
 
