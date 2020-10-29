@@ -61,5 +61,7 @@
 	"toc-footer": "บทความที่แนะนำ",
 	"view-in-browser": "ดูบทความในเบราว์เซอร์",
 	"softkey-read-more": "อ่านเพิ่มเติม",
-	"feedback-header": "ส่งคำติชม"
+	"feedback-header": "ส่งคำติชม",
+	"softkey-yes": "ใช่",
+	"softkey-no": "ไม่"
 }
