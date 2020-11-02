@@ -1,12 +1,41 @@
 {
 	"@metadata": {
 		"authors": [
-			"Fitoschido"
+			"Fitoschido",
+			"Remux"
 		]
 	},
+	"article-action-sections": "Sekcioj",
+	"article-action-gallery": "Galerio",
+	"article-action-languages": "Lingvo",
 	"app-title": "Vikipedio",
 	"app-subtitle": "La libera enciklopedio",
 	"app-description": "Kun la senkosta aplikaĵo de Vikipedio, serĉu kaj esploru tutmondan informon en pli ol 300 lingvoj.",
-	"search-placeholder": "Serĉi",
-	"centerkey-select": "Elekti"
+	"about-header": "Pri",
+	"about-wikipedia-header": "Pri Vikipedio",
+	"gallery-description": "Priskribo",
+	"gallery-unknown-author": "Nekonata aŭtoro",
+	"gallery-unknown-license": "Nekonata permesilo",
+	"header-search": "Serĉrezultoj",
+	"header-sections": "Sekcioj",
+	"softkey-about": "Pri",
+	"softkey-more-info": "Pli da informo",
+	"search-placeholder": "Serĉi tra Vikipedio",
+	"centerkey-select": "Elekti",
+	"softkey-close": "Fermi",
+	"onboarding-0-title": "Pri Vikipedio",
+	"settings-about-wikipedia": "Pri Vikipedio",
+	"settings-about-app": "Pri la aplikaĵo",
+	"feedback-header": "Sendi rimarkojn",
+	"feedback-placeholder": "Komenci skribi ĉi tie...",
+	"feedback-success": "Dankon por via retrosciigo",
+	"feedback-success-header": "Retrosciigo sendita",
+	"feedback-terms-of-survey": "Terminoj de enketa komunikaĵo",
+	"feedback-privacy-policy": "Politiko pri privateco",
+	"feedback-terms-of-use": "Uzkondiĉoj",
+	"softkey-send": "Sendi",
+	"feedback-cancel": "Ĉu vi certas ke vi volas foriri? Ĉiuj viaj redaktoj perdiĝos",
+	"feedback-cancel-header": "Forĵeti",
+	"softkey-yes": "Jes",
+	"softkey-no": "Ne"
 }
