@@ -1,4 +1,4 @@
-import { appVersion } from 'utils'
+import { appVersion, gitHash } from 'utils'
 
 const intakeUrl = 'https://intake-logging.wikimedia.org/v1/events'
 
@@ -11,7 +11,7 @@ export const sendErrorLog = ({ message, stack = '', url = '' }) => {
     stack_trace: stack,
     message: message,
     url,
-    tags: { app_version: appVersion() }
+    tags: { app_version: appVersion(), git_hash: gitHash() }
   })
   )
 }
