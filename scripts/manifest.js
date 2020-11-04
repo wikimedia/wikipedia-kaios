@@ -162,7 +162,8 @@ manifest.description = translations['en'].description
 const packageVersion = require('../package.json').version
 // The JioStore requires a 4-digit version (a.b.c.d). We append a
 // 4-digit long 4th digit because of the Jio version comparison algorithm.
-// It ignores the dots...
+// It ignores the dots, concatenates all digits, and compare the resulting numbers.
+// Ex: 1.0.10.0 (10100) > 2.0.0.0 (2000)
 const jioVersionPadding = '.1000'
 manifest.version = packageVersion +
 	(process.env.TARGET_STORE === 'jio' ? jioVersionPadding : '')
