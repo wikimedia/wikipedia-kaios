@@ -159,9 +159,13 @@ manifest.display = translations['en'].name
 manifest.subtitle = translations['en'].subtitle
 manifest.description = translations['en'].description
 
-// Use the package version and build number
-const buildNumber = process.env.CIRCLE_BUILD_NUM || 0
-manifest.version = require('../package.json').version + '.' + buildNumber
+const packageVersion = require('../package.json').version
+// The JioStore requires a 4-digit version (a.b.c.d). We append a
+// 4-digit long 4th digit because of the Jio version comparison algorithm.
+// It ignores the dots...
+const jioVersionPadding = '.1000'
+manifest.version = packageVersion +
+	(process.env.TARGET_STORE === 'jio' ? jioVersionPadding : '')
 
 // Send output to stdout
 console.log(JSON.stringify(manifest, null, 2))

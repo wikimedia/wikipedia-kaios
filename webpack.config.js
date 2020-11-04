@@ -1,7 +1,8 @@
 const path = require('path')
-const webpack = require('webpack');
+const fs = require('fs')
+const webpack = require('webpack')
 const StylelintPlugin = require('stylelint-webpack-plugin')
-const TerserPlugin = require('terser-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin')
 
 module.exports = {
   entry: './src/index.js',
@@ -36,12 +37,12 @@ module.exports = {
       fix: true
     }),
     new webpack.DefinePlugin({
-      APP_VERSION: JSON.stringify(require('./package.json').version),
-      BUILD_NUMBER: JSON.stringify(process.env.CIRCLE_BUILD_NUM || 0),
+      APP_VERSION: JSON.stringify(JSON.parse(fs.readFileSync('./manifest.webapp')).version),
+      CIRCLE_SHA1: JSON.stringify(process.env.CIRCLE_SHA1 || '-'),
       INSTRUMENTATION: JSON.stringify(!!parseInt(process.env.INSTRUMENTATION)),
       // "RANDOM" is already used in the terminal, so using just "RAND"
       RANDOM: JSON.stringify(!!parseInt(process.env.RAND)),
-      LANG_LIST: JSON.stringify(process.env.LANG_LIST),
+      TARGET_STORE: JSON.stringify(process.env.TARGET_STORE || 'kai'),
       DISABLE_REQUEST_HEADER: JSON.stringify(!!parseInt(process.env.DISABLE_REQUEST_HEADER))
     }),
     new webpack.EnvironmentPlugin()

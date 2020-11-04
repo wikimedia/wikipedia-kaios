@@ -8,7 +8,7 @@ export const isInstrumentationEnabled = () => INSTRUMENTATION
 export const isRandomEnabled = () => RANDOM
 
 /* eslint-disable-next-line no-undef */
-export const prioritizedLanguageListName = LANG_LIST
+export const prioritizedLanguageListName = TARGET_STORE
 
 /* eslint-disable-next-line no-undef */
 export const isRequestHeaderDisabled = () => DISABLE_REQUEST_HEADER
