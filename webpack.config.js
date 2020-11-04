@@ -37,7 +37,7 @@ module.exports = {
       fix: true
     }),
     new webpack.DefinePlugin({
-      APP_VERSION: JSON.stringify(JSON.parse(fs.readFileSync('./manifest.webapp')).version),
+      APP_VERSION: JSON.stringify(JSON.parse(fs.readFileSync(process.env.MANIFEST_FILE || './manifest.webapp')).version),
       CIRCLE_SHA1: JSON.stringify(process.env.CIRCLE_SHA1 || '-'),
       INSTRUMENTATION: JSON.stringify(!!parseInt(process.env.INSTRUMENTATION)),
       // "RANDOM" is already used in the terminal, so using just "RAND"
