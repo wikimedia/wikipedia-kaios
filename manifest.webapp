@@ -30,6 +30,8 @@
   "permissions": {
     "systemXHR": {
       "description": "Required to bypass CORS limitations."
-    }
+    },
+    "mobiledata": {},
+    "wifidata": {}
   }
 }
