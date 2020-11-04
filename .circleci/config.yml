@@ -16,7 +16,7 @@ jobs:
             ./scripts/zip.sh kai
             ./scripts/zip.sh jio
       - store_artifacts:
-          path: WikipediaKaiOS.zip
+          path: WikipediaKaiOSkai.zip
       - store_artifacts:
           path: WikipediaKaiOSjio.zip
       - store_artifacts:
