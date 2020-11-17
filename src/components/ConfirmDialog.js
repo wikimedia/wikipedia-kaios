@@ -1,7 +1,7 @@
 import { h } from 'preact'
 import { useI18n, useSoftkey, useArticleTextSize } from 'hooks'
 
-export const ConfirmDialog = ({ message, dir, onSubmit, close, closeAll }) => {
+export const ConfirmDialog = ({ title, message, dir, onSubmit, close, closeAll }) => {
   const i18n = useI18n()
 
   useSoftkey('ConfirmDialog', {
@@ -16,9 +16,8 @@ export const ConfirmDialog = ({ message, dir, onSubmit, close, closeAll }) => {
 
   return (
     <div class='confirm-dialog adjustable-font-size' dir={dir}>
-      <div class='info'>
-        <div class='title'>{message}</div>
-      </div>
+      { title && <div class='header'>{title}</div> }
+      <div class='info'>{message}</div>
     </div>
   )
 }

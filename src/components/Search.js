@@ -7,7 +7,7 @@ import {
 } from 'hooks'
 import {
   articleHistory, goto, getAppLanguage,
-  isRandomEnabled
+  isRandomEnabled, confirmDialog
 } from 'utils'
 import { getRandomArticleTitle } from 'api'
 
@@ -51,7 +51,9 @@ export const Search = () => {
     center: current.type === 'DIV' ? i18n('centerkey-select') : '',
     onKeyCenter,
     onKeyLeft: isRandomEnabled() ? goToRandomArticle : null,
-    onKeyBackspace: !(query && current.type === 'INPUT') && (() => window.close())
+    onKeyBackspace: !(query && current.type === 'INPUT') && (() => {
+      confirmDialog({ title: i18n('confirm-app-close-title'), message: i18n('confirm-app-close-message'), onSubmit: window.close })
+    })
   }, [current.type, query])
 
   useTracking('Search', lang)

@@ -1,7 +1,7 @@
 import { usePopup } from 'hooks'
 import { ConfirmDialog } from 'components'
 
-export const confirmDialog = ({ message, onSubmit }) => {
+export const confirmDialog = ({ title, message, onSubmit }) => {
   const [showConfirmDialog] = usePopup(ConfirmDialog, { stack: true })
-  showConfirmDialog({ message, onSubmit })
+  showConfirmDialog({ title, message, onSubmit })
 }
