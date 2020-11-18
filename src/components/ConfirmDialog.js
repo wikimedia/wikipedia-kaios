@@ -13,8 +13,8 @@ export const ConfirmDialog = ({ title, message, dir, onSubmit, onDiscard, close,
     left: i18n('softkey-close'),
     onKeyLeft: onDiscardFn,
     onKeyBackspace: onDiscardFn,
-    center: i18n('softkey-ok'),
-    onKeyCenter: () => { onSubmit(); closeAll() }
+    right: i18n('softkey-ok'),
+    onKeyRight: () => { onSubmit(); closeAll() }
   }, [])
 
   useArticleTextSize('ConfirmDialog')
