@@ -37,6 +37,23 @@ export const Search = () => {
     }
   }
 
+  const onExitConfirmDialog = () => {
+    const isInputType = current.type === 'INPUT'
+    if (isInputType) {
+      setNavigation(-1)
+    }
+    confirmDialog({
+      title: i18n('confirm-app-close-title'),
+      message: i18n('confirm-app-close-message'),
+      onDiscard: () => {
+        if (isInputType) {
+          setNavigation(0)
+        }
+      },
+      onSubmit: window.close
+    })
+  }
+
   const goToRandomArticle = () => {
     const [promise] = getRandomArticleTitle(lang)
 
@@ -51,9 +68,7 @@ export const Search = () => {
     center: current.type === 'DIV' ? i18n('centerkey-select') : '',
     onKeyCenter,
     onKeyLeft: isRandomEnabled() ? goToRandomArticle : null,
-    onKeyBackspace: !(query && current.type === 'INPUT') && (() => {
-      confirmDialog({ title: i18n('confirm-app-close-title'), message: i18n('confirm-app-close-message'), onSubmit: window.close })
-    })
+    onKeyBackspace: !(query && current.type === 'INPUT') && onExitConfirmDialog
   }, [current.type, query])
 
   useTracking('Search', lang)

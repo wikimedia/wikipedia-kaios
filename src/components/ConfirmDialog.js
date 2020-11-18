@@ -1,13 +1,18 @@
 import { h } from 'preact'
 import { useI18n, useSoftkey, useArticleTextSize } from 'hooks'
 
-export const ConfirmDialog = ({ title, message, dir, onSubmit, close, closeAll }) => {
+export const ConfirmDialog = ({ title, message, dir, onSubmit, onDiscard, close, closeAll }) => {
   const i18n = useI18n()
+
+  const onDiscardFn = () => {
+    onDiscard()
+    close()
+  }
 
   useSoftkey('ConfirmDialog', {
     left: i18n('softkey-close'),
-    onKeyLeft: close,
-    onKeyBackspace: close,
+    onKeyLeft: onDiscardFn,
+    onKeyBackspace: onDiscardFn,
     center: i18n('softkey-ok'),
     onKeyCenter: () => { onSubmit(); closeAll() }
   }, [])
