@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"BaRaN6161 TURK",
+			"MuratTheTurkish",
 			"SwornToTranslate29",
 			"ToprakM"
 		]
@@ -17,7 +18,7 @@
 	"app-title": "Vikipedi",
 	"app-subtitle": "Özgür ansiklopedi",
 	"app-description": "Ücretsiz Vikipedi uygulamasıyla, 300'den fazla dilde dünyanın her yerinden bilgi arayın ve keşfedin.",
-	"content-license": "İçerik, aksi belirtilmedikçe <a class=\"external\" rel=\"mw:ExtLink\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">CC BY-SA 3.0</a> altında bulunabilir.",
+	"content-license": "İçerik, aksi belirtilmedikçe <a class=\"external\" rel=\"mw:ExtLink\" href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.tr\">CC BY-SA 3.0</a> altında bulunabilir.",
 	"confirm-section": "\"$1\" Bölümüne Gidin",
 	"about-header": "Hakkında",
 	"about-wikipedia-header": "Vikipedi hakkında",
