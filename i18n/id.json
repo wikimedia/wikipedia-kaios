@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Akmaie Ajam",
+			"Daud I.F. Argana",
 			"Hidayatsrf"
 		]
 	},
@@ -57,11 +58,11 @@
 	"reference-title": "Referensi [$1]",
 	"offline-message": "Tidak ada sambungan internet",
 	"onboarding-0-title": "Tentang Wikipedia",
-	"onboarding-0-description": "Wikipedia adalah sumber pengetahuan gratis yang diisi dengan artikel tentang orang, tempat, dan hal-hal dari seluruh dunia.",
+	"onboarding-0-description": "Wikipedia adalah sumber pengetahuan gratis yang ditulis secara kolaboratif oleh sukarelawan-sukarelawan dari seluruh dunia.",
 	"onboarding-1-title": "Cari dalam ratusan bahasa",
 	"onboarding-1-description": "Pilih bahasa pilihan anda untuk mencari dan membaca.",
 	"onboarding-2-title": "Dapatkan pengetahuan bebas",
-	"onboarding-2-description": "Baca lebih dari 50 juta artikel, sepenuhnya bebas iklan! Pembaruan dan artikel baru ditambahkan secara teratur.",
+	"onboarding-2-description": "Bacalah lebih dari 50 juta artikel tentang berbagai orang, tempat, dan hal dari seluruh dunia. Pembaruan dan artikel baru ditambahkan secara teratur.",
 	"settings-language": "Bahasa",
 	"settings-textsize": "Ukuran teks",
 	"settings-about-wikipedia": "Tentang Wikipedia",
@@ -71,7 +72,7 @@
 	"settings-help-feedback": "Kirim umpan balik",
 	"settings-about-app": "Tentang aplikasi",
 	"textsize-increase": "Tekan 6 (Besarkan)",
-	"textsize-decrease": "Tekan 4 {Kecilkan)",
+	"textsize-decrease": "Tekan 4 (Kecilkan)",
 	"textsize-default": "Tekan 5 (Default)",
 	"toc-footer": "Saran artikel",
 	"view-in-browser": "Lihat artikel di peramban",
