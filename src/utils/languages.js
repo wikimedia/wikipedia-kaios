@@ -1504,7 +1504,7 @@ const prioritizedLists = {
   jio: ['en', 'hi', 'ji', 'as', 'bn', 'gu', 'kn', 'ks', 'ml', 'mr', 'ne', 'or', 'pa', 'sa', 'sd', 'ta', 'te', 'und', 'mai', 'kok', 'mni', 'doi', 'ur']
 }
 
-const prioritizedList = prioritizedLists[prioritizedLanguageListName] ||
+export const prioritizedList = prioritizedLists[prioritizedLanguageListName] ||
       prioritizedLists.default
 
 export const getDirection = langCode => {
@@ -1520,10 +1520,7 @@ export const isSupportedForReading = langCode => {
 
 export const prioritizedLanguages = languages
   .filter(language => {
-    return prioritizedList.indexOf(language.code) !== -1
-  })
-  .filter(language => {
-    return isSupportedForReading(language.code)
+    return prioritizedList.indexOf(language.code) !== -1 && isSupportedForReading(language.code)
   })
   .map(language => {
     return {
