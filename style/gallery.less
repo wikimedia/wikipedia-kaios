@@ -26,6 +26,25 @@
 		}
 	}
 
+	.arrow {
+		position: absolute;
+		top: calc( 50% - 10px );
+		width: 20px;
+		height: 20px;
+		padding: 1px 4.5px;
+		border-radius: 13px;
+		box-shadow: 0 2px 4px 0 rgba( 0, 0, 0, 0.5 );
+		background-color: rgba( 255, 255, 255, 0.9 );
+
+		&.left {
+			left: 8px;
+		}
+
+		&.right {
+			right: 8px;
+		}
+	}
+
 	&.portrait {
 		.img {
 			height: @availableHeight; // Required under portrait for black background to work on device
@@ -50,6 +69,10 @@
 	&.hasHeader {
 		.img {
 			height: calc( 100vh - @softkeysHeight - 27px );
+		}
+
+		.arrow {
+			top: calc( 50% - 10px + @softkeysHeight/2 );
 		}
 	}
 }
