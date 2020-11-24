@@ -124,8 +124,16 @@ export const Gallery = ({ close, closeAll, items, startFileName, lang, dir }) =>
           </div>
         )
       }
-      { currentIndex !== 0 && <div class='arrow left' /> }
-      { currentIndex < items.length - 1 && <div class='arrow right' /> }
+      {
+        currentIndex !== 0 && (
+          <div class={`arrow ${dir === 'rtl' ? 'right' : 'left'}`} />
+        )
+      }
+      {
+        currentIndex < items.length - 1 && (
+          <div class={`arrow ${dir === 'rtl' ? 'left' : 'right'}`} />
+        )
+      }
       <div class='img'>
         <img onLoad={onImageLoad} src={items[currentIndex].thumbnail} />
       </div>
