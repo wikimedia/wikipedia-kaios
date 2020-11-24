@@ -1,7 +1,11 @@
 import { h } from 'preact'
 import { useI18n, useSoftkey, useArticleTextSize } from 'hooks'
 
-export const ConfirmDialog = ({ title, message, dir, onSubmit, onDiscard, close, closeAll }) => {
+export const ConfirmDialog = ({
+  title, message, dir,
+  onSubmitText, onSubmit, onDiscardText, onDiscard,
+  close, closeAll
+}) => {
   const i18n = useI18n()
 
   const onDiscardFn = () => {
@@ -10,10 +14,10 @@ export const ConfirmDialog = ({ title, message, dir, onSubmit, onDiscard, close,
   }
 
   useSoftkey('ConfirmDialog', {
-    left: i18n('softkey-close'),
+    left: onDiscardText || i18n('softkey-close'),
     onKeyLeft: onDiscardFn,
     onKeyBackspace: onDiscardFn,
-    right: i18n('softkey-ok'),
+    right: onSubmitText || i18n('softkey-ok'),
     onKeyRight: () => { onSubmit(); closeAll() }
   }, [])
 

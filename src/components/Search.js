@@ -45,11 +45,13 @@ export const Search = () => {
     confirmDialog({
       title: i18n('confirm-app-close-title'),
       message: i18n('confirm-app-close-message'),
+      onDiscardText: i18n('softkey-cancel'),
       onDiscard: () => {
         if (isInputType) {
           setNavigation(0)
         }
       },
+      onSubmitText: i18n('softkey-exit'),
       onSubmit: window.close
     })
   }

@@ -91,6 +91,7 @@
 	"feedback-terms-of-use": "Text for Terms of use in feedback explanation",
 	"softkey-send": "Label of the send softkey, shown in Feedback component\n{{identical|Send}}",
 	"softkey-cancel": "Label of the cancel softkey, shown in Feedback component\n{{identical|Cancel}}",
+	"softkey-exit": "Label of the exit softkey, shown in Exit Confirm component\n{{identical|Exit}}",
 	"feedback-cancel": "Message shown upon attempting to cancel the sending of feedback in Feedback component",
 	"feedback-cancel-header": "Message shown upon attempting to cancel the sending of feedback in Feedback component",
 	"softkey-yes": "Label for the yes key\n{{identical|Yes}}",
