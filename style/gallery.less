@@ -26,6 +26,23 @@
 		}
 	}
 
+	.arrow {
+		position: absolute;
+		top: calc( 50% - 10px );
+		width: 28px;
+		height: 28px;
+		background-image: url( /images/arrow.svg );
+
+		&.left {
+			left: 8px;
+			transform: scaleX( -1 );
+		}
+
+		&.right {
+			right: 8px;
+		}
+	}
+
 	&.portrait {
 		.img {
 			height: @availableHeight; // Required under portrait for black background to work on device
@@ -50,6 +67,10 @@
 	&.hasHeader {
 		.img {
 			height: calc( 100vh - @softkeysHeight - 27px );
+		}
+
+		.arrow {
+			top: calc( 50% - 10px + @softkeysHeight/2 );
 		}
 	}
 }
