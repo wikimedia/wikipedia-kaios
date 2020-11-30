@@ -5,7 +5,7 @@ const languages = [
   {
     canonical_name: 'English',
     code: 'en',
-    name: 'English (Default)'
+    name: 'English'
   },
   {
     canonical_name: 'Dutch',

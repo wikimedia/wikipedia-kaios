@@ -58,7 +58,17 @@
 			}
 
 			&[ nav-selected=true ] {
-				background-color: #eaf3ff;
+				background-color: #36c;
+				color: #fff;
+
+				.radio-container {
+					.radio {
+						&.selected {
+							outline: 6px solid #fff;
+							border: 2px solid #fff;
+						}
+					}
+				}
 			}
 
 			.radio-container {
@@ -68,10 +78,11 @@
 					width: 22px;
 					height: 22px;
 					border-radius: 11px;
-					border: 2px solid #36c;
+					border: 2px solid #8c8c8c;
 
 					&.selected {
-						outline: 5px solid #36c;
+						border: 2px solid #36c;
+						outline: 6px solid #36c;
 						outline-offset: -11px;
 						-moz-outline-radius: 11px;
 					}
