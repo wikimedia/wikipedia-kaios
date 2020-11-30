@@ -1,5 +1,8 @@
 import { h } from 'preact'
-import { useArticleSummary, useI18n, useSoftkey, useArticleTextSize } from 'hooks'
+import {
+  useArticleSummary, useI18n, useSoftkey,
+  useArticleTextSize, useArticlePreviewTracking
+} from 'hooks'
 import { goto } from 'utils'
 
 export const ArticlePreview = ({ lang, title, dir, close, closeAll }) => {
@@ -19,6 +22,8 @@ export const ArticlePreview = ({ lang, title, dir, close, closeAll }) => {
     onKeyBackspace: close
   }, [summary])
   useArticleTextSize('ArticlePreview', [summary])
+
+  useArticlePreviewTracking()
 
   return summary ? (
     <div class='article-preview' dir={dir}>
