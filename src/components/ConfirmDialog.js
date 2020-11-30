@@ -10,7 +10,7 @@ export const ConfirmDialog = ({
 
   const onDiscardFn = () => {
     onDiscard()
-    close()
+    closeAll()
   }
 
   useSoftkey('ConfirmDialog', {
