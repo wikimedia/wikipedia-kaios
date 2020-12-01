@@ -3,7 +3,14 @@ import { useI18n } from 'hooks'
 import { getArticle, getArticleMediaList, getSuggestedArticles } from 'api'
 import { canonicalizeTitle } from 'utils'
 
+let currentArticle
+
 export const useArticle = (lang, title) => {
+  // a simple way to return the latest article info if it existed
+  if (lang === undefined && title === undefined) {
+    return currentArticle || {}
+  }
+
   const [article, setArticle] = useState(null)
   const contentI18n = useI18n(lang)
   const moreInformationText = contentI18n('more-information')
@@ -39,7 +46,10 @@ export const useArticle = (lang, title) => {
         })
         const tocWithFooter = toc.concat({ level: 1, line: footerTitle, anchor, sectionIndex: sectionsWithFooter.length - 1 })
 
-        setArticle({ ...article, sections: sectionsWithFooter, toc: tocWithFooter, suggestedArticles, media })
+        // build the article object that used in the app
+        const articleObject = { ...article, sections: sectionsWithFooter, toc: tocWithFooter, suggestedArticles, media, articleTitle: title }
+        setArticle(articleObject)
+        currentArticle = articleObject
       }, error => {
         setArticle({ error })
       })

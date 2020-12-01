@@ -1,13 +1,15 @@
 import { h } from 'preact'
 import {
   useArticleSummary, useI18n, useSoftkey,
-  useArticleTextSize, useArticlePreviewTracking
+  useArticleTextSize, useArticlePreviewTracking,
+  useArticle
 } from 'hooks'
 import { goto } from 'utils'
 
 export const ArticlePreview = ({ lang, title, dir, close, closeAll }) => {
   const i18n = useI18n()
   const summary = useArticleSummary(lang, title)
+  const article = useArticle()
 
   const read = () => {
     const readTitle = summary ? summary.titles.canonical : title
@@ -23,7 +25,7 @@ export const ArticlePreview = ({ lang, title, dir, close, closeAll }) => {
   }, [summary])
   useArticleTextSize('ArticlePreview', [summary])
 
-  useArticlePreviewTracking()
+  useArticlePreviewTracking(summary, article, lang)
 
   return summary ? (
     <div class='article-preview' dir={dir}>
