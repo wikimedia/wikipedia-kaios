@@ -7,7 +7,7 @@
 			"Ubahnverleih"
 		]
 	},
-	"article-action-sections": "The action button sections text on the first page of the article used to open the section page and the label of the Section item shown in the Menu page.",
+	"article-action-sections": "The button Contents that users will click on to take them to different sections of an article. The Contents button is also available to select in the article Menu. If contents does not translate well, use words that are similar to: table of contents, topics or chapters",
 	"article-action-quickfacts": "The action button quick facts text on the first page of the article used to open the quick facts page and the label of the Quick facts item shown in the Menu page.",
 	"article-action-gallery": "The action button gallery text on the first page of the article used to open the gallery page.",
 	"article-action-languages": "The action button language text on the first page of the article used to open the language page and the label of the language item shown in the Menu page.",
@@ -30,7 +30,7 @@
 	"gallery-unknown-license": "Text for the license when the image info unknown. Shown in the Gallery page",
 	"header-menu": "The header title of the menu page",
 	"header-search": "The header title of the search page",
-	"header-sections": "The header title of the sections(ToC) page",
+	"header-sections": "The header title of the contents (ToC) page",
 	"header-settings": "The header title of the settings page",
 	"header-textsize": "The header title of the text size page",
 	"menu-previous": "Label of the Previous article item. Shown in the Menu page.",

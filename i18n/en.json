@@ -6,7 +6,7 @@
         "locale": "en",
         "message-documentation": "qqq"
     },
-    "article-action-sections": "Sections",
+    "article-action-sections": "Contents",
     "article-action-quickfacts": "Quick Facts",
     "article-action-gallery": "Gallery",
     "article-action-languages": "Language",
@@ -29,7 +29,7 @@
     "gallery-unknown-license": "Unknown license",
     "header-menu": "Article menu",
     "header-search": "Search results",
-    "header-sections": "Sections",
+    "header-sections": "Contents",
     "header-settings": "Settings",
     "header-textsize": "Article text size",
     "menu-previous": "Previous article",
