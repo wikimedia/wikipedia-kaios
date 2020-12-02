@@ -19,12 +19,6 @@ export const usePopup = (component, options = {}) => {
   const show = props => {
     setPopupState(oldState => {
       let newState = [...oldState]
-
-      // prevent showing duplicate component
-      if (newState.find(state => state.id === component.name)) {
-        return newState
-      }
-
       const newPopup = {
         component,
         props: {
@@ -36,7 +30,10 @@ export const usePopup = (component, options = {}) => {
         id: component.name
       }
       if (options.stack) {
-        newState.push(newPopup)
+        // prevent showing duplicate component
+        if (!newState.find(state => state.id === newPopup.id)) {
+          newState.push(newPopup)
+        }
       } else {
         newState = [newPopup]
       }
