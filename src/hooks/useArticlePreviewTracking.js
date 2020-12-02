@@ -15,7 +15,7 @@ export const useArticlePreviewTracking = (
     return
   }
 
-  const logInukaPageView = () => {
+  const logVirtualPageView = () => {
     const event = {
       /* eslint-disable camelcase */
       access_method: 'mobile app',
@@ -34,7 +34,7 @@ export const useArticlePreviewTracking = (
 
   useEffect(() => {
     // When the preview is shown for at least 1 second
-    const timeoutId = setTimeout(logInukaPageView, 1000)
+    const timeoutId = setTimeout(logVirtualPageView, 1000)
     return () => {
       clearTimeout(timeoutId)
     }
