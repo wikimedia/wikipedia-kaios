@@ -70,5 +70,6 @@ describe('special cases tests', () => {
     cy.get('.info').should('have.text', 'Go to Section "Related characters"')
     cy.backspace()
     cy.get('.info').should('not.be.visible')
+    cy.get('div.quickfacts table.infobox').should('be.visible')
   })
 })
