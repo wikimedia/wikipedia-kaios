@@ -1,7 +1,7 @@
 import { h } from 'preact'
 import { useState, useRef, useEffect } from 'preact/hooks'
 import { useI18n, useSoftkey, useNavigation, usePopup, useOnlineStatus } from 'hooks'
-import { sendFeedback } from 'utils'
+import { sendFeedback, confirmDialog } from 'utils'
 import { OfflinePanel } from 'components'
 
 export const Feedback = ({ close }) => {
@@ -9,7 +9,6 @@ export const Feedback = ({ close }) => {
   const i18n = useI18n()
   const [message, setMessage] = useState()
   const [showSuccessConfirmation] = usePopup(SuccessConfirmationPopup, { stack: true })
-  const [showCancelConfirmation] = usePopup(CancelConfirmationPopup, { stack: true })
   const [current, setNavigation, getCurrent] = useNavigation('Feedback', containerRef, containerRef, 'y')
   const isOnline = useOnlineStatus()
 
@@ -28,6 +27,15 @@ export const Feedback = ({ close }) => {
       }
       showSuccessConfirmation()
     }
+  }
+
+  const showCancelConfirmation = () => {
+    confirmDialog({
+      title: i18n('feedback-cancel-header'),
+      message: i18n('feedback-cancel'),
+      onDiscardText: i18n('softkey-no'),
+      onSubmitText: i18n('softkey-yes')
+    })
   }
 
   const onKeyBackspaceHandler = () => {
@@ -134,25 +142,6 @@ const SuccessConfirmationPopup = ({ closeAll }) => {
     <div class='confirmation-popup'>
       <div class='header'>{i18n('feedback-success-header')}</div>
       <p class='preview-text'>{i18n('feedback-success')}</p>
-    </div>
-  )
-}
-
-const CancelConfirmationPopup = ({ close, closeAll }) => {
-  const i18n = useI18n()
-
-  useSoftkey('FeedbackCancelMessage', {
-    right: i18n('softkey-yes'),
-    onKeyRight: closeAll,
-    left: i18n('softkey-no'),
-    onKeyLeft: close,
-    onKeyBackspace: close
-  }, [])
-
-  return (
-    <div class='confirmation-popup'>
-      <div class='header'>{i18n('feedback-cancel-header')}</div>
-      <p class='preview-text'>{i18n('feedback-cancel')}</p>
     </div>
   )
 }
