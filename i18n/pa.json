@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"MKaur",
+			"Roovinn",
 			"Satdeep gill"
 		]
 	},
@@ -87,6 +88,7 @@
 	"feedback-terms-of-use": "ਵਰਤੋਂ ਦੀਆਂ ਸ਼ਰਤਾਂ",
 	"softkey-send": "ਭੇਜੋ",
 	"softkey-cancel": "ਰੱਦ ਕਰੋ",
+	"softkey-exit": "ਵਿਦਾ ਹੋਵੋ",
 	"feedback-cancel": "ਕੀ ਤੁਸੀਂ ਯਕੀਨਨ ਜਾਣਾ ਚਾਹੁੰਦੇ ਹੋ? ਤੁਹਾਡਾ ਸਾਰਾ ਫ਼ੀਡਬੈਕ ਖਾਰਜ ਹੋ ਜਾਵੇਗਾ",
 	"feedback-cancel-header": "ਖਾਰਜ ਕਰੋ",
 	"softkey-yes": "ਹਾਂ",

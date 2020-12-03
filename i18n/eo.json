@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Fitoschido",
+			"Javiero",
 			"Remux"
 		]
 	},
@@ -11,6 +12,7 @@
 	"app-title": "Vikipedio",
 	"app-subtitle": "La libera enciklopedio",
 	"app-description": "Kun la senkosta aplikaĵo de Vikipedio, serĉu kaj esploru tutmondan informon en pli ol 300 lingvoj.",
+	"confirm-app-close-title": "Ĉu forlasi Vikipedion?",
 	"about-header": "Pri",
 	"about-wikipedia-header": "Pri Vikipedio",
 	"gallery-description": "Priskribo",
@@ -34,6 +36,7 @@
 	"feedback-privacy-policy": "Politiko pri privateco",
 	"feedback-terms-of-use": "Uzkondiĉoj",
 	"softkey-send": "Sendi",
+	"softkey-exit": "Eliro",
 	"feedback-cancel": "Ĉu vi certas ke vi volas foriri? Ĉiuj viaj redaktoj perdiĝos",
 	"feedback-cancel-header": "Forĵeti",
 	"softkey-yes": "Jes",
