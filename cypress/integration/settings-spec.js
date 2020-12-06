@@ -5,25 +5,21 @@ import * as nlJson from '../../i18n/nl.json'
 import { SettingsPage } from '../page-objects/settings-page'
 import { SearchPage } from '../page-objects/search-page'
 import { LanguageSettingsPage } from '../page-objects/language-settings-page'
-import { PopupPage } from '../page-objects/popup-page.js'
 import { AboutAppPage } from '../page-objects/about-app-page.js'
 import { AboutWikipediaPage } from '../page-objects/about-wikipedia-page.js'
 
 const searchPage = new SearchPage()
 const settingsPage = new SettingsPage()
 const languageSettingsPage = new LanguageSettingsPage()
-const popupPage = new PopupPage()
 const aboutAppPage = new AboutAppPage()
 const aboutWikipediaPage = new AboutWikipediaPage()
 const settingsMenuListEnglishText = [enJson['settings-language'],
-  enJson['settings-textsize'],
   enJson['settings-about-wikipedia'],
   enJson['settings-help-feedback'],
   enJson['settings-about-app'],
   enJson['settings-privacy-terms']]
 const languageSettingsPopupEnglishText = enJson['language-setting-message']
 const settingsMenuListDutchText = [nlJson['settings-language'],
-  nlJson['settings-textsize'],
   nlJson['settings-about-wikipedia'],
   nlJson['settings-help-feedback'],
   nlJson['settings-about-app'],
@@ -71,12 +67,6 @@ describe('settings page', () => {
     cy.get('div.list').should('not.contain.text', 'Português')
     cy.get('input').type('port')
     cy.get('div.list').should('contain.text', 'Português')
-  })
-
-  it('check text size popup', () => {
-    languageSettingsPage.selectOptionFromSettings('Text size')
-    popupPage.getHeader().should('have.text', enJson['header-textsize'])
-    popupPage.getContent().should('have.text', enJson['textsize-decrease'] + enJson['textsize-default'] + enJson['textsize-increase'])
   })
 
   it('check about app page', () => {
