@@ -63,18 +63,6 @@ export class ArticlePage {
     return cy.get('.article-content.adjustable-font-size')
   }
 
-  decreaseTextSize () {
-    cy.get('body').type('4')
-  }
-
-  defaultTextSize () {
-    cy.get('body').type('5')
-  }
-
-  increaseTextSize () {
-    cy.get('body').type('6')
-  }
-
   getDownArrowIndicator () {
     return cy.get('div.indicator>img')
   }
