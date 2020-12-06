@@ -1,5 +1,5 @@
 .textsize {
-	font-size: 17px;
+	height: 130px;
 
 	.header {
 		height: @pageHeaderHeight;
@@ -8,11 +8,61 @@
 		box-sizing: border-box;
 		padding: 3px 0;
 		text-align: center;
+		font-size: 17px;
 	}
 
 	.content {
-		p {
-			margin: 14px 10px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		.dummy {
+			text-overflow: ellipsis;
+			overflow: hidden;
+			white-space: nowrap;
+			font-size: 14px;
+			max-width: 200px;
+			margin-top: 15px;
+			margin-bottom: 15px;
+		}
+
+		.slider {
+			width: 198px;
+			height: 5px;
+			background-color: #a2a9b1;
+			border-radius: 2.5px;
+			position: absolute;
+			left: 20px;
+
+			@media @landscape {
+				left: 64px;
+			}
+
+			.circle {
+				display: inline-block;
+				vertical-align: middle;
+				width: 15px;
+				height: 15px;
+				border-radius: 50%;
+				position: absolute;
+				top: -6px;
+				border: solid 3px #fff;
+				background-color: #36c;
+			}
+
+			.filling {
+				display: inline-block;
+				position: absolute;
+				height: 5px;
+				background-color: #36c;
+			}
+		}
+
+		.labels {
+			display: flex;
+			justify-content: space-between;
+			width: 202px;
+			font-size: 17px;
 		}
 	}
 }
