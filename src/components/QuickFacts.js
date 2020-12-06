@@ -2,7 +2,7 @@ import { h } from 'preact'
 import { useRef } from 'preact/hooks'
 import { ReferencePreview, Gallery } from 'components'
 import {
-  useScroll, usePopup,
+  useScroll, usePopup, useArticleTextSize,
   useI18n, useSoftkey, useArticleLinksNavigation
 } from 'hooks'
 import { confirmDialog } from 'utils'
@@ -13,6 +13,7 @@ export const QuickFacts = ({ article, goToArticleSubpage, dir, close, closeAll }
   const [scrollDown, scrollUp, scrollPosition] = useScroll(containerRef, 20, 'y')
   const [showReferencePreview] = usePopup(ReferencePreview, { stack: true })
   const [showGalleryPopup] = usePopup(Gallery, { mode: 'fullscreen', stack: true })
+  const [textSize] = useArticleTextSize('QuickFacts', [], false)
   useSoftkey('QuickFacts', {
     left: i18n('softkey-close'),
     onKeyLeft: closeAll,
@@ -45,7 +46,7 @@ export const QuickFacts = ({ article, goToArticleSubpage, dir, close, closeAll }
     article.contentLang,
     containerRef,
     linkHandlers,
-    [scrollPosition],
+    [scrollPosition, textSize],
     article.media
   )
 
