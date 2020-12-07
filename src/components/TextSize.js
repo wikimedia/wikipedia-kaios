@@ -1,17 +1,21 @@
 import { h } from 'preact'
 import { useI18n, useSoftkey, useArticleTextSize } from 'hooks'
+import { articleTextSize } from 'utils'
 
 export const TextSize = ({ close }) => {
   const i18n = useI18n()
 
+  const [textsize, setTextSize] = useArticleTextSize()
+  const { onKeyArrowLeft, onKeyArrowRight } = articleTextSize.getSoftkeyEffect(setTextSize)
+  const sliderValue = ['0', '16.6', '33.2', '49', '66.6', '83.2', '94']
+
   useSoftkey('TextSize', {
     center: i18n('softkey-ok'),
     onKeyCenter: close,
-    onKeyBackspace: close
+    onKeyBackspace: close,
+    onKeyArrowLeft,
+    onKeyArrowRight
   })
-
-  const [textsize] = useArticleTextSize('TextSize')
-  const sliderValue = ['0', '16.6', '33.2', '49', '66.6', '83.2', '94']
 
   return <div class='textsize'>
     <div class='header'>{i18n('header-textsize')}</div>

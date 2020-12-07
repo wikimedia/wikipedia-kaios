@@ -45,7 +45,7 @@ const ArticleSection = ({
   const i18n = useI18n()
   const [showReferencePreview] = usePopup(ReferencePreview)
   const [showTable] = usePopup(Table, { mode: 'fullscreen' })
-  const [textSize] = useArticleTextSize('Article', [], false)
+  const [textSize] = useArticleTextSize()
 
   const linkHandlers = {
     action: ({ action }) => {

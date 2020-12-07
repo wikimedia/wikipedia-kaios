@@ -18,7 +18,7 @@ export const ArticlePreview = ({ lang, title, dir, close, closeAll }) => {
     onKeyCenter: read,
     onKeyBackspace: close
   }, [summary])
-  useArticleTextSize('ArticlePreview', [summary], false)
+  useArticleTextSize([summary])
 
   return summary ? (
     <div class='article-preview' dir={dir}>
