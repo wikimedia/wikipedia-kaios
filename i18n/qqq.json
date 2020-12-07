@@ -74,7 +74,7 @@
 	"settings-rate": "Label of the Rate item list. Shown in the Settings menu, used in rating the app.",
 	"settings-help-feedback": "Label of Help and feedback item list. Shown in the Settings menu, to find help and give feedback.",
 	"settings-about-app": "Label of the About the app item list. Shown in the Settings menu, used in showing the information of this app",
-	"textsize-dummy": "Label of the dummy text to set the text size. Shown in the Text Size page.",
+	"textsize-preview": "Label of the preview text to set the text size. Shown in the Text Size page.",
 	"textsize-label-small": "Label of the small text indicator. Shown in the Text Size page.",
 	"textsize-label-large": "Label of the large text indicator. Shown in the Text Size page.",
 	"toc-footer": "Label in the sections for the footer link",

@@ -20,8 +20,8 @@ export const TextSize = ({ close }) => {
   return <div class='textsize'>
     <div class='header'>{i18n('header-textsize')}</div>
     <div class='content'>
-      <div class='dummy adjustable-font-size'>
-        {i18n('textsize-dummy')}
+      <div class='preview adjustable-font-size'>
+        {i18n('textsize-preview')}
       </div>
       <div class='slider-container'>
         <div class='slider'>
