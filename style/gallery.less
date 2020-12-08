@@ -3,17 +3,6 @@
 	height: @availableHeight;
 	background-color: #000;
 
-	.header {
-		font-size: 17px;
-		color: #323232;
-		text-overflow: ellipsis;
-		overflow: hidden;
-		background-color: #d8d8d8;
-		padding: 3px 10px;
-		white-space: nowrap;
-		text-align: center;
-	}
-
 	.img {
 		display: flex;
 		align-items: center;
@@ -61,16 +50,6 @@
 
 		img {
 			max-width: 100%;
-		}
-	}
-
-	&.hasHeader {
-		.img {
-			height: calc( 100vh - @softkeysHeight - 27px );
-		}
-
-		.arrow {
-			top: calc( 50% - 10px + @softkeysHeight/2 );
 		}
 	}
 }
