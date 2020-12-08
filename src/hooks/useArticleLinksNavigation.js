@@ -22,8 +22,9 @@ export const useArticleLinksNavigation = (
   contentRef,
   linkHandlers = {},
   dependencies = [],
-  galleryItems = []
+  source = {}
 ) => {
+  // console.log('source', source)
   const i18n = useI18n()
   const [links, setLinks] = useState([])
   const [currentLink, setCurrentLinkInternal] = useState(null)
@@ -46,7 +47,7 @@ export const useArticleLinksNavigation = (
   const hasLinks = () => links && links.length
 
   useEffect(() => {
-    const visibleLinks = findVisibleLinks(contentRef.current, galleryItems)
+    const visibleLinks = findVisibleLinks(contentRef.current, source.galleryItems)
     setLinks(visibleLinks)
     if (visibleLinks.length) {
       if (visibleLinks.indexOf(currentLink) === -1) {
@@ -59,7 +60,7 @@ export const useArticleLinksNavigation = (
 
   const defaultLinkHandlers = {
     title: ({ title }) => {
-      showArticlePreview({ title, lang, dir })
+      showArticlePreview({ title, lang, dir, source })
     },
     external: ({ href }) => {
       window.open(href)
