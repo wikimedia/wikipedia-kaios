@@ -91,7 +91,7 @@ export const Gallery = ({ close, closeAll, items, startFileName, lang, dir }) =>
 
   const onImageLoad = ({ target: img }) => {
     const galleryNode = containerRef.current
-    const galleryClasses = ['hasHeader', 'portrait', 'landscape']
+    const galleryClasses = ['portrait', 'landscape']
 
     galleryClasses.forEach(galleryClass => {
       galleryNode.classList.remove(galleryClass)
@@ -99,10 +99,6 @@ export const Gallery = ({ close, closeAll, items, startFileName, lang, dir }) =>
 
     const orientationClass = img.height >= img.width ? 'portrait' : 'landscape'
     galleryNode.classList.add(orientationClass)
-
-    if (items[currentIndex].caption) {
-      galleryNode.classList.add('hasHeader')
-    }
   }
 
   useSoftkey('Gallery', {
@@ -117,13 +113,6 @@ export const Gallery = ({ close, closeAll, items, startFileName, lang, dir }) =>
 
   return (
     <div class='gallery-view' ref={containerRef}>
-      {
-        items[currentIndex].caption && (
-          <div class='header'>
-            { items[currentIndex].caption }
-          </div>
-        )
-      }
       {
         currentIndex !== 0 && (
           <div class={`arrow ${dir === 'rtl' ? 'right' : 'left'}`} />
