@@ -5,7 +5,10 @@ export const Popup = ({ component, props, options, style }) => {
     let contentClasses = 'popup-content'
     if (options && options.mode === 'fullscreen') {
       contentClasses += ' fullscreen'
+    } else if (options && options.mode === 'halfscreen') {
+      contentClasses += ' halfscreen'
     }
+
     return (
       <div class={contentClasses} style={style}>
         { h(component, props) }

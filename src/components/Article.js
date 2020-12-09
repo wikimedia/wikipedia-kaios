@@ -147,7 +147,7 @@ const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
   const [showTocPopup] = usePopup(ArticleToc, { mode: 'fullscreen', stack: true })
   const [showQuickFactsPopup] = usePopup(QuickFacts, { mode: 'fullscreen', stack: true })
   const [showLanguagePopup] = usePopup(ArticleLanguage, { mode: 'fullscreen', stack: true })
-  const [showMenuPopup] = usePopup(ArticleMenu)
+  const [showMenuPopup] = usePopup(ArticleMenu, { mode: 'halfscreen' })
   const [showGalleryPopup] = usePopup(Gallery, { mode: 'fullscreen', stack: true })
   const [currentSection, setCurrentSection, currentPage] = useArticlePagination(containerRef, article, anchor)
   const section = article.sections[currentSection]
