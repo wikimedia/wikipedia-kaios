@@ -24,7 +24,6 @@ export const useArticleLinksNavigation = (
   dependencies = [],
   source = {}
 ) => {
-  // console.log('source', source)
   const i18n = useI18n()
   const [links, setLinks] = useState([])
   const [currentLink, setCurrentLinkInternal] = useState(null)

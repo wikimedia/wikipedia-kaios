@@ -1,4 +1,5 @@
 import { h } from 'preact'
+import { useLayoutEffect } from 'preact/hooks'
 import {
   useArticleSummary, useI18n, useSoftkey,
   useArticleTextSize, useArticlePreviewTracking
@@ -23,7 +24,11 @@ export const ArticlePreview = ({ lang, title, source, dir, close, closeAll }) =>
   }, [summary])
   useArticleTextSize('ArticlePreview', [summary])
 
-  useArticlePreviewTracking(summary, source, lang)
+  useLayoutEffect(() => {
+    if (summary) {
+      useArticlePreviewTracking(summary, source, lang)
+    }
+  }, [summary])
 
   return summary ? (
     <div class='article-preview' dir={dir}>

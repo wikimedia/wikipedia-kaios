@@ -11,10 +11,6 @@ export const useArticlePreviewTracking = (
     return
   }
 
-  if (page === undefined || source === undefined) {
-    return
-  }
-
   const logVirtualPageView = () => {
     const event = {
       /* eslint-disable camelcase */
