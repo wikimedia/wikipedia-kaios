@@ -1,4 +1,4 @@
-import { useEffect } from 'preact/hooks'
+import { useLayoutEffect } from 'preact/hooks'
 import { sendEvent, isInstrumentationEnabled } from 'utils'
 
 const SCHEMA_NAME = 'VirtualPageView'
@@ -28,11 +28,15 @@ export const useArticlePreviewTracking = (
     sendEvent(SCHEMA_NAME, SCHEMA_REV, language, event)
   }
 
-  useEffect(() => {
+  useLayoutEffect(() => {
+    if (!page) {
+      return
+    }
+
     // When the preview is shown for at least 1 second
     const timeoutId = setTimeout(logVirtualPageView, 1000)
     return () => {
       clearTimeout(timeoutId)
     }
-  }, [])
+  }, [page])
 }
