@@ -18,12 +18,6 @@ export const Softkey = ({
   onKeyArrowLeft,
   onKeyArrowRight,
   onKeyBackspace,
-  onKeyboard4,
-  onKeyboard5,
-  onKeyboard6,
-  onKeyS,
-  onKeyD,
-  onKeyF,
 
   // direction related prop
   dir = 'ltr',
@@ -46,13 +40,7 @@ export const Softkey = ({
     ArrowUp: onKeyArrowUp,
     ArrowLeft: onKeyFixedArrowLeft || onKeyArrowLeft,
     ArrowRight: onKeyFixedArrowRight || onKeyArrowRight,
-    Backspace: onKeyBackspace,
-    4: onKeyboard4,
-    5: onKeyboard5,
-    6: onKeyboard6,
-    s: onKeyS,
-    d: onKeyD,
-    f: onKeyF
+    Backspace: onKeyBackspace
   }
   const onKeyDown = (e) => {
     const key = e.key.toString()
