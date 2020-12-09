@@ -39,7 +39,8 @@ const ArticleActions = ({ actions, lang }) => {
 const ArticleSection = ({
   lang, dir, imageUrl, anchor, title, description, actions,
   isFooter, content, page, goToSubpage, references,
-  articleTitle, suggestedArticles, showGallery, galleryItems
+  articleTitle, suggestedArticles, showGallery,
+  galleryItems, namespace, id
 }) => {
   const contentRef = useRef()
   const i18n = useI18n()
@@ -71,7 +72,7 @@ const ArticleSection = ({
     }
   }
 
-  useArticleLinksNavigation('Article', lang, contentRef, linkHandlers, [page, textSize], galleryItems)
+  useArticleLinksNavigation('Article', lang, contentRef, linkHandlers, [page, textSize], { galleryItems, articleTitle, namespace, id })
 
   useLayoutEffect(() => {
     if (!contentRef.current) {
@@ -239,6 +240,8 @@ const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
         goToSubpage={goToArticleSubpage}
         showGallery={showGallery}
         galleryItems={article.media}
+        namespace={article.namespace}
+        id={article.id}
         page={currentPage}
       />
     </div>

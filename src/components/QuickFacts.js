@@ -14,6 +14,7 @@ export const QuickFacts = ({ article, goToArticleSubpage, dir, close, closeAll }
   const [showReferencePreview] = usePopup(ReferencePreview, { stack: true })
   const [showGalleryPopup] = usePopup(Gallery, { mode: 'fullscreen', stack: true })
   const [textSize] = useArticleTextSize('QuickFacts')
+  const source = { galleryItems: article.media, articleTitle: article.title, namespace: article.namespace, id: article.id }
   useSoftkey('QuickFacts', {
     left: i18n('softkey-close'),
     onKeyLeft: closeAll,
@@ -47,7 +48,7 @@ export const QuickFacts = ({ article, goToArticleSubpage, dir, close, closeAll }
     containerRef,
     linkHandlers,
     [scrollPosition, textSize],
-    article.media
+    source
   )
 
   return (
