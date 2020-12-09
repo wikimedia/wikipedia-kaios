@@ -24,6 +24,8 @@
 	"app-title": "ウィキペディア",
 	"app-subtitle": "フリー百科事典",
 	"confirm-section": "節「$1」に移動",
+	"confirm-app-close-title": "ウィキペディアを閉じますか?",
+	"confirm-app-close-message": "アプリを閉じてよろしいでしょうか?",
 	"about-header": "このアプリについて",
 	"about-wikipedia-header": "ウィキペディアについて",
 	"gallery-description": "説明",

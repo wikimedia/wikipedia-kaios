@@ -1504,6 +1504,9 @@ const prioritizedLists = {
   jio: ['en', 'hi', 'ji', 'as', 'bn', 'gu', 'kn', 'ks', 'ml', 'mr', 'ne', 'or', 'pa', 'sa', 'sd', 'ta', 'te', 'und', 'mai', 'kok', 'mni', 'doi', 'ur']
 }
 
+export const prioritizedList = prioritizedLists[prioritizedLanguageListName] ||
+      prioritizedLists.default
+
 export const getDirection = langCode => {
   return rtl.includes(langCode) ? 'rtl' : 'ltr'
 }
@@ -1517,12 +1520,7 @@ export const isSupportedForReading = langCode => {
 
 export const prioritizedLanguages = languages
   .filter(language => {
-    const list = prioritizedLists[prioritizedLanguageListName] ||
-      prioritizedLists.default
-    return list.indexOf(language.code) !== -1
-  })
-  .filter(language => {
-    return isSupportedForReading(language.code)
+    return prioritizedList.indexOf(language.code) !== -1 && isSupportedForReading(language.code)
   })
   .map(language => {
     return {
@@ -1533,18 +1531,20 @@ export const prioritizedLanguages = languages
     }
   })
 
-export const allLanguages = languages
-  .filter(language => {
-    return isSupportedForReading(language.code)
-  })
-  .map(language => {
-    return {
-      lang: language.code,
-      title: language.name,
-      canonicalName: language.canonical_name,
-      dir: getDirection(language.code)
-    }
-  })
+export const allLanguages = prioritizedLanguages.concat(
+  languages
+    .filter(language => {
+      return isSupportedForReading(language.code) && prioritizedList.indexOf(language.code) === -1
+    })
+    .map(language => {
+      return {
+        lang: language.code,
+        title: language.name,
+        canonicalName: language.canonical_name,
+        dir: getDirection(language.code)
+      }
+    })
+)
 
 export const loadAllLanguagesMessages = () => {
   const messages = {}

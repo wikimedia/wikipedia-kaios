@@ -16,7 +16,7 @@
 			"Whytheonlyone"
 		]
 	},
-	"article-action-sections": "Secciones",
+	"article-action-sections": "Sumario",
 	"article-action-quickfacts": "Datos rápidos",
 	"article-action-gallery": "Galería",
 	"article-action-languages": "Idioma",
@@ -37,7 +37,7 @@
 	"gallery-unknown-license": "Licencia desconocida",
 	"header-menu": "Menú de artículo",
 	"header-search": "Resultados de la búsqueda",
-	"header-sections": "Secciones",
+	"header-sections": "Sumario",
 	"header-settings": "Configuración",
 	"header-textsize": "Tamaño del texto del artículo",
 	"menu-previous": "Artículo anterior",
@@ -98,6 +98,7 @@
 	"feedback-terms-of-use": "Términos de uso",
 	"softkey-send": "Enviar",
 	"softkey-cancel": "Cancelar",
+	"softkey-exit": "Salir",
 	"feedback-cancel": "¿Confirmas que quieres salir? Se perderán todos tus comentarios",
 	"feedback-cancel-header": "Descartar",
 	"softkey-yes": "Sí",

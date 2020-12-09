@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Ajam",
 			"Amir1arch",
 			"Amire80",
 			"FarsiNevis",
@@ -20,6 +21,7 @@
 	"app-subtitle": "دانشنامهٔ آزاد",
 	"app-description": "با اپلیکیشن رایگان ویکی‌پدیا، در میان اطلاعاتی به بیش از ۳۰۰ زبان مختلف از سراسر جهان جستجو و کاوش کنید.",
 	"confirm-section": "برو به بخش «$1»",
+	"confirm-app-close-title": "خروج از ویکی‌پدیا؟",
 	"about-header": "معرفی",
 	"about-wikipedia-header": "دربارهٔ ویکی‌پدیا",
 	"gallery-description": "توضیحات",
@@ -87,6 +89,7 @@
 	"feedback-terms-of-use": "شرایط استفاده",
 	"softkey-send": "ارسال",
 	"softkey-cancel": "لغو",
+	"softkey-exit": "خروج",
 	"feedback-cancel": "آیا از ترک کردن مطمئن هستید؟ تمام بازخورد شما از دست خواهد رفت",
 	"feedback-cancel-header": "دور انداختن",
 	"softkey-yes": "بله",

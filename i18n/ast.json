@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Eduardo Addad de Oliveira",
+			"Fitoschido",
 			"Xuacu"
 		]
 	},
@@ -26,7 +27,7 @@
 	"gallery-unknown-license": "Llicencia desconocida",
 	"header-menu": "Menú d'artículu",
 	"header-search": "Resultaos de la gueta",
-	"header-sections": "Seiciones",
+	"header-sections": "Conteníu",
 	"header-settings": "Configuración",
 	"header-textsize": "Tamañu del testu del artículu",
 	"menu-previous": "Artículu anterior",

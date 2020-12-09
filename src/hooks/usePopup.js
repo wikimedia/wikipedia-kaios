@@ -27,10 +27,13 @@ export const usePopup = (component, options = {}) => {
           closeAll
         },
         options,
-        id: Math.random()
+        id: component.name
       }
       if (options.stack) {
-        newState.push(newPopup)
+        // prevent showing duplicate component
+        if (!newState.find(state => state.id === newPopup.id)) {
+          newState.push(newPopup)
+        }
       } else {
         newState = [newPopup]
       }
