@@ -21,7 +21,7 @@ export const ConfirmDialog = ({
     onKeyRight: () => { onSubmit(); closeAll() }
   }, [])
 
-  useArticleTextSize('ConfirmDialog')
+  useArticleTextSize()
 
   return (
     <div class='confirm-dialog adjustable-font-size' dir={dir}>

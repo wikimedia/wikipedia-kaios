@@ -52,15 +52,11 @@ const init = () => {
 }
 
 const getSoftkeyEffect = (onAdjust = () => {}) => {
-  const onKeyboard4 = () => { adjust(-1); onAdjust(get()) }
-  const onKeyS = () => { adjust(-1); onAdjust(get()) }
-  const onKeyboard5 = () => { reset(); onAdjust(get()) }
-  const onKeyD = () => { reset(); onAdjust(get()) }
-  const onKeyboard6 = () => { adjust(1); onAdjust(get()) }
-  const onKeyF = () => { adjust(1); onAdjust(get()) }
+  const onKeyArrowLeft = () => { adjust(-1); onAdjust(get()) }
+  const onKeyArrowRight = () => { adjust(1); onAdjust(get()) }
 
   return {
-    onKeyboard4, onKeyboard5, onKeyboard6, onKeyS, onKeyD, onKeyF
+    onKeyArrowLeft, onKeyArrowRight
   }
 }
 

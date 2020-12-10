@@ -2,13 +2,12 @@ import { h } from 'preact'
 import { route } from 'preact-router'
 import { useRef, useEffect } from 'preact/hooks'
 import { useNavigation, useI18n, useSoftkey, usePopup } from 'hooks'
-import { ListView, TextSize, AboutApp, AboutWikipedia, PrivacyTerms, Feedback } from 'components'
+import { ListView, AboutApp, AboutWikipedia, PrivacyTerms, Feedback } from 'components'
 
 export const Settings = () => {
   const containerRef = useRef()
   const listRef = useRef()
   const i18n = useI18n()
-  const [showTextSize] = usePopup(TextSize)
   const [showAboutApp] = usePopup(AboutApp, { mode: 'fullscreen' })
   const [showAboutWikipedia] = usePopup(AboutWikipedia, { mode: 'fullscreen' })
   const [showFeedback] = usePopup(Feedback, { mode: 'fullscreen' })
@@ -26,10 +25,6 @@ export const Settings = () => {
     } else if (item.action) {
       item.action()
     }
-  }
-
-  const onTextsizeSelected = () => {
-    showTextSize()
   }
 
   const onAboutAppSelected = () => {
@@ -64,7 +59,6 @@ export const Settings = () => {
 
   const items = [
     { title: i18n('settings-language'), path: '/language' },
-    { title: i18n('settings-textsize'), action: onTextsizeSelected },
     { title: i18n('settings-about-wikipedia'), action: onAboutWikipediaSelected },
     // @todo will have this soon and don't delete it from the language json
     // { title: i18n('settings-rate') },

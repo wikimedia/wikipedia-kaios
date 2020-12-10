@@ -46,7 +46,7 @@ const ArticleSection = ({
   const i18n = useI18n()
   const [showReferencePreview] = usePopup(ReferencePreview)
   const [showTable] = usePopup(Table, { mode: 'fullscreen' })
-  const [textSize] = useArticleTextSize('Article')
+  const [textSize] = useArticleTextSize()
 
   const linkHandlers = {
     action: ({ action }) => {
@@ -148,7 +148,7 @@ const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
   const [showTocPopup] = usePopup(ArticleToc, { mode: 'fullscreen', stack: true })
   const [showQuickFactsPopup] = usePopup(QuickFacts, { mode: 'fullscreen', stack: true })
   const [showLanguagePopup] = usePopup(ArticleLanguage, { mode: 'fullscreen', stack: true })
-  const [showMenuPopup] = usePopup(ArticleMenu, { mode: 'fullscreen' })
+  const [showMenuPopup] = usePopup(ArticleMenu)
   const [showGalleryPopup] = usePopup(Gallery, { mode: 'fullscreen', stack: true })
   const [currentSection, setCurrentSection, currentPage] = useArticlePagination(containerRef, article, anchor)
   const section = article.sections[currentSection]
