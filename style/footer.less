@@ -27,10 +27,6 @@
 				box-shadow: -2px 2px 10px 0 rgba( 0, 0, 0, 0.1 );
 				border: solid 1px #f5f5f5;
 
-				@{data-selected-selector} {
-					background-color: #eaf3ff;
-				}
-
 				&[ dir='rtl' ] {
 					direction: ltr;
 					justify-content: flex-end;
@@ -84,8 +80,13 @@
 					justify-content: center;
 				}
 
-				&[ nav-selected=true ] {
-					background-color: #eaf3ff;
+				@{data-selected-selector} {
+					background-color: #36c;
+					color: #fff;
+
+					.info > .description {
+						color: #fff;
+					}
 				}
 			}
 		}
