@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Htawmonzel"
+			"Htawmonzel",
+			"MuratTheTurkish"
 		]
 	},
 	"article-action-sections": "အခန်",
@@ -37,7 +38,7 @@
 	"softkey-done": "တုဲဒှ်",
 	"softkey-search": "ဂၠာဲ",
 	"search-language-placeholder": "ဂၠာဲ အရေဝ်ဘာသာဂမၠိုင်",
-	"softkey-menu": "စရင်",
+	"softkey-menu": "သွက်ဂွံရုဲစှ်ဂမၠိုင်",
 	"search-placeholder": "ဂၠာဲ ပ္ဍဲ ဝဳကဳပဳဒဳယာ",
 	"softkey-settings": "ဖျေဟ်ဒၞာဲ",
 	"centerkey-select": "ရုဲ",

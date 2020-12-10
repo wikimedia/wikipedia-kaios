@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"CyberTroopers",
+			"MuratTheTurkish",
 			"Tofeiku"
 		]
 	},
@@ -11,7 +12,7 @@
 	"softkey-done": "Selesai",
 	"softkey-search": "Cari",
 	"search-language-placeholder": "Cari bahasa",
-	"softkey-menu": "Menu",
+	"softkey-menu": "Pilihan",
 	"softkey-settings": "Tetapan",
 	"language-change": "Tukar bahasa aplikasi",
 	"language-setting": "Tetapan bahasa",

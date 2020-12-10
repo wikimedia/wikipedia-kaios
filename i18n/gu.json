@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"KartikMistry"
+			"KartikMistry",
+			"MuratTheTurkish"
 		]
 	},
 	"article-action-sections": "વિભાગો",
@@ -37,7 +38,7 @@
 	"softkey-done": "પૂર્ણ",
 	"softkey-search": "શોધ",
 	"search-language-placeholder": "ભાષાઓ શોધો",
-	"softkey-menu": "મેનુ",
+	"softkey-menu": "વિકલ્પો",
 	"search-placeholder": "વિકિપીડિયામાં શોધો",
 	"softkey-settings": "ગોઠવણીઓ",
 	"centerkey-select": "પસંદ કરો",

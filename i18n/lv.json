@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"MuratTheTurkish",
 			"Papuass"
 		]
 	},
@@ -14,10 +15,11 @@
 	"app-subtitle": "Brīvā enciklopēdija",
 	"header-menu": "Raksta izvēlne",
 	"header-search": "Meklēšanas rezultāti",
+	"header-sections": "Saturs",
 	"header-settings": "Iestatījumi",
 	"menu-previous": "Iepriekšējais raksts",
 	"search-language-placeholder": "Meklēt valodas",
-	"softkey-menu": "Izvēlne",
+	"softkey-menu": "Iespējas",
 	"softkey-settings": "Iestatījumi",
 	"softkey-close": "Aizvērt",
 	"language-setting": "Valodas iestatījumi",
@@ -31,5 +33,6 @@
 	"settings-textsize": "Teksta izmērs",
 	"settings-term": "Lietošanas noteikumi",
 	"settings-help-feedback": "Palīdzība un atsauksmes",
-	"settings-about-app": "Par lietotni"
+	"settings-about-app": "Par lietotni",
+	"softkey-exit": "Iziet"
 }

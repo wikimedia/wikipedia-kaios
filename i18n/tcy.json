@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"MKaur"
+			"MKaur",
+			"MuratTheTurkish"
 		]
 	},
 	"article-action-sections": "ವಿಬಾಗೊಲು",
@@ -14,7 +15,7 @@
 	"softkey-done": "ಆಂಡ್",
 	"softkey-search": "ನಾಡ್‍ಲೆ",
 	"search-language-placeholder": "ಬಾಸೆ ನಾಡ್‌ಲೆ",
-	"softkey-menu": "ಮೆನು",
+	"softkey-menu": "ಆಯ್ಕೆಲು",
 	"search-placeholder": "ನಾಡ್‍ಲೆ",
 	"softkey-settings": "ಪ್ರಾಸಸ್ತ್ಯೊಲು",
 	"centerkey-select": "ಆಯ್ಕೆ ಮಲ್ಪುಲೆ",

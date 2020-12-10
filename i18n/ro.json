@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"MSClaudiu"
+			"MSClaudiu",
+			"MuratTheTurkish"
 		]
 	},
 	"article-action-sections": "Secțiuni",
@@ -37,7 +38,7 @@
 	"softkey-done": "Realizat",
 	"softkey-search": "Caută",
 	"search-language-placeholder": "Caută limbile",
-	"softkey-menu": "Meniu",
+	"softkey-menu": "Opțiuni",
 	"search-placeholder": "Caută pe Wikipedia",
 	"softkey-settings": "Setări",
 	"centerkey-select": "Selectează",

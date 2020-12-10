@@ -4,6 +4,7 @@
 			"FinlandMan",
 			"Jack Phoenix",
 			"Muovipullo",
+			"MuratTheTurkish",
 			"Nike",
 			"Pyscowicz"
 		]
@@ -27,7 +28,7 @@
 	"gallery-author-license": "Tekijä ja lisenssi",
 	"gallery-unknown-author": "Tuntematon tekijä",
 	"gallery-unknown-license": "Tuntematon lisenssi",
-	"header-menu": "Artikkelivalikko",
+	"header-menu": "Valinnat",
 	"header-search": "Hakutulokset",
 	"header-sections": "Osiot",
 	"header-settings": "Asetukset",
@@ -41,7 +42,7 @@
 	"softkey-done": "Valmis",
 	"softkey-search": "Hae",
 	"search-language-placeholder": "Hae kieliä",
-	"softkey-menu": "Valikko",
+	"softkey-menu": "Asetukset",
 	"search-placeholder": "Hae Wikipediasta",
 	"softkey-settings": "Asetukset",
 	"centerkey-select": "Valitse",

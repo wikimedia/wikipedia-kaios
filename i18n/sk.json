@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Luky001",
+			"MuratTheTurkish",
 			"Patriccck"
 		]
 	},
@@ -38,7 +39,7 @@
 	"softkey-done": "Hotovo",
 	"softkey-search": "Hľadať",
 	"search-language-placeholder": "Hľadať jazyky",
-	"softkey-menu": "Menu",
+	"softkey-menu": "Možnosti",
 	"search-placeholder": "Vyhľadávať na Wikipédii",
 	"softkey-settings": "Nastavenia",
 	"centerkey-select": "Vybrať",

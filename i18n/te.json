@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"MKaur",
+			"MuratTheTurkish",
 			"Veeven"
 		]
 	},
@@ -16,7 +17,7 @@
 	"softkey-done": "పూర్తయింది.",
 	"softkey-search": "వెతుకు",
 	"search-language-placeholder": "భాషను ఎంచుకోండి",
-	"softkey-menu": "సూచిక",
+	"softkey-menu": "ఎంపికలు",
 	"search-placeholder": "వెతుకు",
 	"softkey-settings": "అమరికలు (సెట్టింగ్స్)",
 	"centerkey-select": "ఎంచుకోండి",

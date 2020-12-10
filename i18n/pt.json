@@ -7,7 +7,8 @@
 			"GoEThe",
 			"Hamilton Abreu",
 			"Mansil",
-			"Mansil alfalb"
+			"Mansil alfalb",
+			"MuratTheTurkish"
 		]
 	},
 	"article-action-sections": "Conteúdo",
@@ -31,7 +32,7 @@
 	"gallery-author-license": "Autor e licença",
 	"gallery-unknown-author": "Autor desconhecido",
 	"gallery-unknown-license": "Licença desconhecida",
-	"header-menu": "Menu do artigo",
+	"header-menu": "Opções",
 	"header-search": "Resultados da pesquisa",
 	"header-sections": "Índice",
 	"header-settings": "Definições",
@@ -45,7 +46,7 @@
 	"softkey-done": "Concluído",
 	"softkey-search": "Pesquisar",
 	"search-language-placeholder": "Pesquisar línguas",
-	"softkey-menu": "Menu",
+	"softkey-menu": "Opções",
 	"search-placeholder": "Pesquisar na Wikipédia",
 	"softkey-settings": "Configurações",
 	"centerkey-select": "Seleccionar",

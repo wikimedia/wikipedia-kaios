@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"BadDog",
-			"MarinaSimic"
+			"MarinaSimic",
+			"MuratTheTurkish"
 		]
 	},
 	"article-action-sections": "Одељци",
@@ -38,7 +39,7 @@
 	"softkey-done": "Готово",
 	"softkey-search": "Претражи",
 	"search-language-placeholder": "Претражите језике",
-	"softkey-menu": "Мени",
+	"softkey-menu": "Опције",
 	"search-placeholder": "Претражите Википедију",
 	"softkey-settings": "Подешавања",
 	"centerkey-select": "Изабери",

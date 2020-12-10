@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Chrumps",
+			"MuratTheTurkish",
 			"Rail",
 			"Strebski",
 			"WaldiSt"
@@ -37,7 +38,7 @@
 	"softkey-done": "Gotowe",
 	"softkey-search": "Szukaj",
 	"search-language-placeholder": "Szukaj języków",
-	"softkey-menu": "Menu",
+	"softkey-menu": "Opcje",
 	"search-placeholder": "Szukaj w Wikipedii",
 	"softkey-settings": "Ustawienia",
 	"centerkey-select": "Wybierz",

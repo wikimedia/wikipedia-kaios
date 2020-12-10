@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Abbas dhothar",
 			"Satdeep gill"
 		]
 	},
@@ -20,6 +21,7 @@
 	"gallery-author-license": "لکھاری تے لسنس",
 	"gallery-unknown-author": "گمنام لکھاری",
 	"gallery-unknown-license": "گمنام لسنس",
+	"header-menu": "آپشنز",
 	"header-search": "کھوج دا نتارا",
 	"header-sections": "حصے",
 	"header-settings": "سیٹنگاں",
@@ -30,6 +32,7 @@
 	"softkey-done": "ہوگیا",
 	"softkey-search": "کھوج",
 	"search-language-placeholder": "بولیاں کھوجو",
+	"softkey-menu": "آپشنز",
 	"search-placeholder": "وکیپیڈیا کھوجو",
 	"softkey-settings": "سیٹنگاں",
 	"centerkey-select": "چنو",

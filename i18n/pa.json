@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"MKaur",
+			"MuratTheTurkish",
 			"Roovinn",
 			"Satdeep gill"
 		]
@@ -39,7 +40,7 @@
 	"softkey-done": "ਮੁਕੰਮਲ",
 	"softkey-search": "ਖੋਜ",
 	"search-language-placeholder": "ਭਾਸ਼ਾ ਚੁਣੋ",
-	"softkey-menu": "ਸੂਚੀ",
+	"softkey-menu": "ਵਿਕਲਪ",
 	"search-placeholder": "ਵਿਕੀਪੀਡੀਆ ਖੋਜੋ",
 	"softkey-settings": "ਸੈਟਿੰਗ",
 	"centerkey-select": "ਚੁਣੋ",

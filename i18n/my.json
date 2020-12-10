@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Dr Lotus Black",
-			"July Amyutay"
+			"July Amyutay",
+			"MuratTheTurkish"
 		]
 	},
 	"article-action-sections": "အပိုင်းများ",
@@ -38,7 +39,7 @@
 	"softkey-done": "ပြီးပြီ",
 	"softkey-search": "ရှာဖွေရန်",
 	"search-language-placeholder": "ဘာသာစကား ရှာဖွေရန်",
-	"softkey-menu": "မီနူး",
+	"softkey-menu": "ရွေးပိုင်ခွင့်",
 	"search-placeholder": "ဝီကီပီးဒီးယားထဲတွင် ရှာဖွေပါ",
 	"softkey-settings": "အပြင်အဆင်များ",
 	"centerkey-select": "ရွေးချယ်",

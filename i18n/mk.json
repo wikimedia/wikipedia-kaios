@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Bjankuloski06"
+			"Bjankuloski06",
+			"MuratTheTurkish"
 		]
 	},
 	"article-action-sections": "Содржина",
@@ -25,7 +26,7 @@
 	"gallery-author-license": "Автор и лиценца",
 	"gallery-unknown-author": "Непознат автор",
 	"gallery-unknown-license": "Непозната лиценца",
-	"header-menu": "Мени на статијата",
+	"header-menu": "Нагодувања",
 	"header-search": "Исход од пребарувањето",
 	"header-sections": "Содржина",
 	"header-settings": "Нагодувања",
@@ -39,7 +40,7 @@
 	"softkey-done": "Готово",
 	"softkey-search": "Пребарај",
 	"search-language-placeholder": "Пребарај јазици",
-	"softkey-menu": "Мени",
+	"softkey-menu": "Нагодувања",
 	"search-placeholder": "Пребарај ја Википедија",
 	"softkey-settings": "Нагодувања",
 	"centerkey-select": "Избери",

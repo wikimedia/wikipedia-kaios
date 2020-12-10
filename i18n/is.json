@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"MuratTheTurkish",
 			"Sveinn í Felli"
 		]
 	},
@@ -37,7 +38,7 @@
 	"softkey-done": "Lokið",
 	"softkey-search": "Leita",
 	"search-language-placeholder": "Leita að tungumálum",
-	"softkey-menu": "Valmynd",
+	"softkey-menu": "Valkostir",
 	"search-placeholder": "Leita á Wikipedia",
 	"softkey-settings": "Stillingar",
 	"centerkey-select": "Velja",

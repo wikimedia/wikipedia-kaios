@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"AKJ GOWDA",
-			"MKaur"
+			"MKaur",
+			"MuratTheTurkish"
 		]
 	},
 	"article-action-sections": "ವಿಭಾಗಗಳು",
@@ -16,7 +17,7 @@
 	"softkey-done": "ಮುಗಿಯಿತು",
 	"softkey-search": "ಹುಡುಕಿ",
 	"search-language-placeholder": "ಭಾಷೆ ಆಯ್ಕೆಮಾಡಿ",
-	"softkey-menu": "ಮೆನು",
+	"softkey-menu": "ಆಯ್ಕೆಗಳು",
 	"search-placeholder": "ಹುಡುಕಿ",
 	"softkey-settings": "ಪ್ರಾಶಸ್ತ್ಯಗಳು",
 	"centerkey-select": "ಆರಿಸಿ",

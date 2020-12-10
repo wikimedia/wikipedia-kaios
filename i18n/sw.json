@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Katwambu"
+			"Katwambu",
+			"MuratTheTurkish"
 		]
 	},
 	"article-action-sections": "Yaliyomo",
@@ -26,7 +27,7 @@
 	"softkey-done": "Maliza",
 	"softkey-search": "Tafuta",
 	"search-language-placeholder": "Chagua lugha",
-	"softkey-menu": "Orodha",
+	"softkey-menu": "Chaguzi",
 	"search-placeholder": "Tafuta Wikipedia",
 	"softkey-settings": "Mpangilio",
 	"centerkey-select": "Chagua",

@@ -3,7 +3,8 @@
 		"authors": [
 			"Akmaie Ajam",
 			"Daud I.F. Argana",
-			"Hidayatsrf"
+			"Hidayatsrf",
+			"MuratTheTurkish"
 		]
 	},
 	"article-action-sections": "Konten",
@@ -41,7 +42,7 @@
 	"softkey-done": "Selesai",
 	"softkey-search": "Cari",
 	"search-language-placeholder": "Cari bahasa",
-	"softkey-menu": "Menu",
+	"softkey-menu": "Opsi",
 	"search-placeholder": "Telusuri Wikipedia",
 	"softkey-settings": "Pengaturan",
 	"centerkey-select": "Pilih",

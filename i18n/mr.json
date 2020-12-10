@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"KartikMistry",
-			"MKaur"
+			"MKaur",
+			"MuratTheTurkish"
 		]
 	},
 	"article-action-sections": "विभाग",
@@ -31,7 +32,7 @@
 	"softkey-done": "पूर्ण झाले",
 	"softkey-search": "शोधा",
 	"search-language-placeholder": "भाषा शोधा",
-	"softkey-menu": "मेनू",
+	"softkey-menu": "पर्याय",
 	"search-placeholder": "विकिपीडिया मध्ये शोधा",
 	"softkey-settings": "सेटिंग्स",
 	"centerkey-select": "निवडा",

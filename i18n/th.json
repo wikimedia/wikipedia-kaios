@@ -4,9 +4,11 @@
 			"Aefgh39622",
 			"Geonuch",
 			"Just Sayori",
+			"MuratTheTurkish",
 			"Nitisart Jungtrakungrat"
 		]
 	},
+	"article-action-sections": "เนื้อหา",
 	"article-action-gallery": "ระเบียงภาพ",
 	"article-action-languages": "ภาษา",
 	"article-language-loading-message": "กำลังโหลดภาษา...",
@@ -14,6 +16,7 @@
 	"article-error-message": "ไม่สามารถโหลดบทความได้",
 	"app-title": "วิกิพีเดีย",
 	"app-subtitle": "สารานุกรมเสรี",
+	"confirm-app-close-title": "ออกจากวิกิพีเดีย?",
 	"about-header": "เกี่ยวกับ",
 	"about-wikipedia-header": "เกี่ยวกับวิกิพีเดีย",
 	"gallery-description": "คำอธิบาย",
@@ -33,7 +36,7 @@
 	"softkey-done": "เสร็จสิ้น",
 	"softkey-search": "ค้นหา",
 	"search-language-placeholder": "ค้นหาภาษา",
-	"softkey-menu": "เมนู",
+	"softkey-menu": "ตัวเลือก",
 	"search-placeholder": "ค้นหาในวิกิพีเดีย",
 	"softkey-settings": "การตั้งค่า",
 	"centerkey-select": "เลือก",

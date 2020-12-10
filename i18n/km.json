@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"MuratTheTurkish",
 			"Pokno Royal"
 		]
 	},
@@ -34,7 +35,7 @@
 	"softkey-done": "សម្រេច",
 	"softkey-search": "ស្វែងរក",
 	"search-language-placeholder": "ស្វែងរកភាសា",
-	"softkey-menu": "ម៉ីនុយ",
+	"softkey-menu": "ជម្រើស",
 	"search-placeholder": "ស្វែងរកក្នុងវិគីភីឌៀ",
 	"softkey-settings": "ការកំណត់",
 	"centerkey-select": "ជ្រើសរើស",

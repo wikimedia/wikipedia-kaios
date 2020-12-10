@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Csega",
-			"Misibacsi"
+			"Misibacsi",
+			"MuratTheTurkish"
 		]
 	},
 	"article-action-sections": "Tartalomjegyzék",
@@ -21,7 +22,7 @@
 	"menu-previous": "Előző szócikk",
 	"softkey-more-info": "További információ",
 	"softkey-done": "Kész",
-	"softkey-menu": "Menü",
+	"softkey-menu": "Beállítások",
 	"softkey-settings": "Beállítások",
 	"centerkey-select": "Kiválaszt",
 	"softkey-close": "Bezár",

@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"MuratTheTurkish",
 			"Robby"
 		]
 	},
@@ -30,7 +31,7 @@
 	"softkey-done": "Fäerdeg",
 	"softkey-search": "Sichen",
 	"search-language-placeholder": "Sprooche sichen",
-	"softkey-menu": "Menü",
+	"softkey-menu": "Optiounen",
 	"search-placeholder": "Op Wikipedia sichen",
 	"softkey-settings": "Astellungen",
 	"centerkey-select": "Eraussichen",

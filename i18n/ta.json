@@ -3,7 +3,8 @@
 		"authors": [
 			"Balajijagadesh",
 			"ElangoRamanujam",
-			"MKaur"
+			"MKaur",
+			"MuratTheTurkish"
 		]
 	},
 	"article-action-sections": "பிரிவுகள்",
@@ -25,7 +26,7 @@
 	"softkey-done": "முடிந்தது",
 	"softkey-search": "தேடுக",
 	"search-language-placeholder": "மொழியைத் தேர்ந்தெடு",
-	"softkey-menu": "பட்டி",
+	"softkey-menu": "விருப்பத்தேர்வுகள்",
 	"search-placeholder": "விக்கிப்பீடியாவில் தேடவும்",
 	"softkey-settings": "அமைப்புகள்",
 	"centerkey-select": "தேர்க",
