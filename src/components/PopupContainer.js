@@ -31,7 +31,11 @@ export const PopupContainer = ({ popups }) => {
     <div class='popup'>
       <div class='shader' style={{ zIndex: shaderZIndex }} />
       { popups.map((popup, index) => {
-        return <Popup {...popup} key={popup.id} style={{ zIndex: nextZIndex(), visibility: (hideOthers && index < lastIndex) ? 'hidden' : 'visible' }} />
+        const style = {
+          zIndex: nextZIndex(),
+          visibility: (hideOthers && index < lastIndex) ? 'hidden' : 'visible'
+        }
+        return <Popup {...popup} key={popup.id} style={style} />
       }) }
     </div>
   )
