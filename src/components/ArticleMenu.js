@@ -38,7 +38,7 @@ export const ArticleMenu = ({
   }
 
   const onTextsizeSelected = () => {
-    const [showTextSize] = usePopup(TextSize, { stack: true })
+    const [showTextSize] = usePopup(TextSize, { stack: true, hideOthers: true })
     showTextSize()
   }
 
