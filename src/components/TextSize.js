@@ -2,7 +2,7 @@ import { h } from 'preact'
 import { useI18n, useSoftkey, useArticleTextSize } from 'hooks'
 import { articleTextSize } from 'utils'
 
-export const TextSize = ({ close }) => {
+export const TextSize = ({ close, articleMenuContainer }) => {
   const i18n = useI18n()
 
   const [textsize, setTextSize] = useArticleTextSize()
@@ -10,8 +10,7 @@ export const TextSize = ({ close }) => {
   const sliderValue = ['0', '16.6', '33.2', '49', '66.6', '83.2', '94']
 
   const handleClose = () => {
-    const articleMenu = document.querySelector('.popup-content')
-    articleMenu.classList.toggle('hidden')
+    articleMenuContainer.classList.toggle('hidden')
     close()
   }
 

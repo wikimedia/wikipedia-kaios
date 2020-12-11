@@ -39,9 +39,9 @@ export const ArticleMenu = ({
 
   const onTextsizeSelected = () => {
     const [showTextSize] = usePopup(TextSize, { stack: true })
-    const articleMenu = document.querySelector('.popup-content')
-    articleMenu.classList.toggle('hidden')
-    showTextSize()
+    const articleMenuContainer = containerRef.current.parentNode
+    articleMenuContainer.classList.toggle('hidden')
+    showTextSize({ articleMenuContainer: articleMenuContainer })
   }
 
   const onPreviousSelected = () => {
