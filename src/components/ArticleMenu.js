@@ -38,10 +38,8 @@ export const ArticleMenu = ({
   }
 
   const onTextsizeSelected = () => {
-    const [showTextSize] = usePopup(TextSize, { stack: true })
-    const articleMenuContainer = containerRef.current.parentNode
-    articleMenuContainer.classList.toggle('hidden')
-    showTextSize({ articleMenuContainer: articleMenuContainer })
+    const [showTextSize] = usePopup(TextSize, { stack: true, hideOthers: true })
+    showTextSize()
   }
 
   const onPreviousSelected = () => {

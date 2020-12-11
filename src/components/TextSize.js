@@ -2,22 +2,17 @@ import { h } from 'preact'
 import { useI18n, useSoftkey, useArticleTextSize } from 'hooks'
 import { articleTextSize } from 'utils'
 
-export const TextSize = ({ close, articleMenuContainer }) => {
+export const TextSize = ({ close }) => {
   const i18n = useI18n()
 
   const [textsize, setTextSize] = useArticleTextSize()
   const { onKeyArrowLeft, onKeyArrowRight } = articleTextSize.getSoftkeyEffect(setTextSize)
   const sliderValue = ['0', '16.6', '33.2', '49', '66.6', '83.2', '94']
 
-  const handleClose = () => {
-    articleMenuContainer.classList.toggle('hidden')
-    close()
-  }
-
   useSoftkey('TextSize', {
     center: i18n('softkey-ok'),
-    onKeyCenter: handleClose,
-    onKeyBackspace: handleClose,
+    onKeyCenter: close,
+    onKeyBackspace: close,
     onKeyArrowLeft,
     onKeyArrowRight
   })
