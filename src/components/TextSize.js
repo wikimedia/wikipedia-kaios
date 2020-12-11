@@ -9,10 +9,16 @@ export const TextSize = ({ close }) => {
   const { onKeyArrowLeft, onKeyArrowRight } = articleTextSize.getSoftkeyEffect(setTextSize)
   const sliderValue = ['0', '16.6', '33.2', '49', '66.6', '83.2', '94']
 
+  const handleClose = () => {
+    const articleMenu = document.querySelector('.popup-content')
+    articleMenu.classList.toggle('hidden')
+    close()
+  }
+
   useSoftkey('TextSize', {
     center: i18n('softkey-ok'),
-    onKeyCenter: close,
-    onKeyBackspace: close,
+    onKeyCenter: handleClose,
+    onKeyBackspace: handleClose,
     onKeyArrowLeft,
     onKeyArrowRight
   })
