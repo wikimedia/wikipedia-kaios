@@ -25,11 +25,13 @@ export const PopupContainer = ({ popups }) => {
   }
   // The shader is just before the last popup
   const shaderZIndex = 100 + popups.length * 2 - 1
+  const lastIndex = popups.length - 1
+  const hideOthers = popups[lastIndex].options.hideOthers
   return (
     <div class='popup'>
       <div class='shader' style={{ zIndex: shaderZIndex }} />
-      { popups.map(popup => {
-        return <Popup {...popup} key={popup.id} style={{ zIndex: nextZIndex() }} />
+      { popups.map((popup, index) => {
+        return <Popup {...popup} key={popup.id} style={{ zIndex: nextZIndex(), visibility: (hideOthers && index < lastIndex) ? 'hidden' : 'visible' }} />
       }) }
     </div>
   )
