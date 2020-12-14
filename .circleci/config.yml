@@ -4,6 +4,7 @@ jobs:
     docker:
       - image: cimg/node:15.4.0-browsers
     steps:
+      - browser-tools/install-browser-tools
       - checkout
       - run:
           name: Build and Test
