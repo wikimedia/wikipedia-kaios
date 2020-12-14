@@ -7,7 +7,7 @@
 			"Simbu123"
 		]
 	},
-	"article-action-sections": "অনুচ্ছেদ",
+	"article-action-sections": "সমল",
 	"article-action-quickfacts": "ক্ষিপ্ৰ তথ্য",
 	"article-action-gallery": "গেলেৰী",
 	"article-action-languages": "ভাষা",
@@ -22,7 +22,7 @@
 	"gallery-unknown-author": "অজ্ঞাত লেখক",
 	"gallery-unknown-license": "অজ্ঞাত অনুজ্ঞাপত্ৰ",
 	"header-search": "সন্ধানৰ ফলাফল",
-	"header-sections": "অনুচ্ছেদ",
+	"header-sections": "সমল",
 	"header-settings": "ছেটিংছ",
 	"header-textsize": "প্ৰবন্ধৰ আখৰৰ আকাৰ",
 	"menu-textsize": "আখৰৰ আকাৰ",
@@ -59,8 +59,6 @@
 	"settings-rate": "এপ ৰেট কৰক",
 	"settings-help-feedback": "মতামত পঠিয়াওক",
 	"settings-about-app": "এপৰ বিষয়ে",
-	"textsize-increase": "6 হেঁচক (আকাৰ বঢ়াওক)",
-	"textsize-decrease": "4 হেঁচক (আকাৰ কমাওক)",
 	"softkey-read-more": "আৰু পঢ়ক",
 	"feedback-header": "মতামত পঠিয়াওক",
 	"feedback-placeholder": "ইয়াত লিখা আৰম্ভ কৰক...",

@@ -32,6 +32,8 @@
 	"settings-language": "Sprog",
 	"settings-textsize": "Tekststørrelse",
 	"settings-about-wikipedia": "Om Wikipedia",
+	"textsize-label-small": "Lille",
+	"textsize-label-large": "Stor",
 	"softkey-yes": "Ja",
 	"softkey-no": "Nej"
 }
