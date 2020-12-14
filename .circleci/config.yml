@@ -1,4 +1,6 @@
 version: 2.1
+orbs:
+  browser-tools: circleci/browser-tools@1.1.1
 jobs:
   build:
     docker:
@@ -26,6 +28,3 @@ jobs:
       - store_artifacts:
           path: cypress/videos
           destination: videos
-orbs:
-  browser-tools: circleci/browser-tools@1.1.1
-version: 2.1
