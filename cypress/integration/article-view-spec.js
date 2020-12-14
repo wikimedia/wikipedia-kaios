@@ -187,9 +187,9 @@ describe('Article view', () => {
   it('check down arrow doesnt show', () => {
     cy.navigateToPageWithoutOnboarding('article/en/Catt')
     articlePage.title().should('have.text', 'Catt')
-    articlePage.getDownArrowIndicator().should('not.be.visible')
+    articlePage.getDownArrowIndicator().should('not.exist')
     cy.downArrow()
-    articlePage.getDownArrowIndicator().should('not.be.visible')
+    articlePage.getDownArrowIndicator().should('not.exist')
   })
 
   it.skip('check table is showing', () => {
