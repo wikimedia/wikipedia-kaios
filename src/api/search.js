@@ -1,6 +1,8 @@
 import { cachedFetch, buildMwApiUrl } from 'utils'
 
 export const search = (lang, term) => {
+  // prefix search
+  /*
   const params = {
     action: 'query',
     prop: ['description', 'pageimages', 'pageprops'].join('|'),
@@ -14,18 +16,31 @@ export const search = (lang, term) => {
     gpsnamespace: 0,
     gpssearch: term.replace(/:/g, ' ')
   }
+  */
+
+  // fulltext search
+  // https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=no%20result%20page&format=json
+  const params = {
+    action: 'query',
+    srprop: 'snippet',
+    srlimit: 15,
+    list: 'search',
+    srsearch: term.replace(/:/g, ' '),
+    format: 'json'
+  }
+
   const url = buildMwApiUrl(lang, params)
   return cachedFetch(url, data => {
-    if (!data.query || !data.query.pages) {
+    if (!data.query || !data.query.search) {
       return []
     }
-    data.query.pages.sort((a, b) => a.index - b.index)
-    return Object.values(data.query.pages).map((p) => {
+    // data.query.search.sort((a, b) => a.index - b.index)
+    return Object.values(data.query.search).map((p) => {
       return {
         title: p.title,
-        titleHtml: p.title.replace(term, `<span class="searchmatch">${term}</span>`),
-        description: p.description,
-        imageUrl: p.thumbnail && p.thumbnail.source
+        titleHtml: p.title,
+        description: p.snippet.replaceAll(/<span class="searchmatch">(\w+)<\/span>/g, '$1')
+        // imageUrl: p.thumbnail && p.thumbnail.source
       }
     })
   })
