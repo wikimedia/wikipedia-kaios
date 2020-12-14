@@ -26,3 +26,6 @@ jobs:
       - store_artifacts:
           path: cypress/videos
           destination: videos
+orbs:
+  browser-tools: circleci/browser-tools@x.y
+version: 2.1
