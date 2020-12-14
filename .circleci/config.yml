@@ -27,5 +27,5 @@ jobs:
           path: cypress/videos
           destination: videos
 orbs:
-  browser-tools: circleci/browser-tools@x.y
+  browser-tools: circleci/browser-tools@1.1.1
 version: 2.1
