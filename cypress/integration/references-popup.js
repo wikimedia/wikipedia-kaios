@@ -9,16 +9,16 @@ describe('references', () => {
     cy.navigateToHomePage()
   })
 
-  it.skip('check preview for references opens', () => {
+  it('check preview for references opens', () => {
     goToCatArticle()
     cy.downArrow()
-    cy.rightArrow()
+    cy.downArrow()
     cy.enter()
-    cy.get('.ref-title').should('be.visible').should('contain.text', 'Reference [10]')
+    cy.get('div.ref-title').should('be.visible')
   })
 })
 
 function goToCatArticle () {
-  cy.navigateToPageWithoutOnboarding('article/en/Cat')
-  articlePage.title().should('have.text', 'Cat')
+  cy.navigateToPageWithoutOnboarding('article/en/Last_Year%3A_The_Nightmare')
+  articlePage.title().should('have.text', 'Last Year: The Nightmare')
 }
