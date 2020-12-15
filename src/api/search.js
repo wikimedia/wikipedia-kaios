@@ -22,10 +22,24 @@ export const search = (lang, term) => {
   // https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=no%20result%20page&format=json
   const params = {
     action: 'query',
+    prop: 'pageimages',
+    generator: 'search',
     srprop: 'snippet',
+    srsearch: term,
     srlimit: 15,
     list: 'search',
-    srsearch: term.replace(/:/g, ' '),
+
+    gsrsearch: term,
+    gsrnamespace: 0,
+    // gsrwhat: 'text',
+    // gsrinfo: '',
+    // gsrprop: 'redirecttitle',
+    // gsroffset: 0,
+    gsrlimit: 15,
+    piprop: 'thumbnail',
+    pithumbsize: 64,
+    pilimit: 15,
+
     format: 'json'
   }
 
@@ -36,11 +50,12 @@ export const search = (lang, term) => {
     }
     // data.query.search.sort((a, b) => a.index - b.index)
     return Object.values(data.query.search).map((p) => {
+      const page = data.query.pages.find(page => page.pageid === p.pageid)
       return {
         title: p.title,
         titleHtml: p.title,
-        description: p.snippet.replaceAll(/<span class="searchmatch">(\w+)<\/span>/g, '$1')
-        // imageUrl: p.thumbnail && p.thumbnail.source
+        description: p.snippet.replace(/<span class="searchmatch">(\w+)<\/span>/g, '$1'),
+        imageUrl: page && page.thumbnail && page.thumbnail.source
       }
     })
   })
