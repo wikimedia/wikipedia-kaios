@@ -11,15 +11,10 @@ describe('references', () => {
 
   it('check preview for references opens', () => {
     goToCatArticle()
-    cy.screenshot()
     cy.downArrow()
-    cy.screenshot()
     cy.downArrow()
-    cy.screenshot()
     cy.enter()
-    cy.screenshot()
     cy.get('div.ref-title').should('be.visible')
-    cy.screenshot()
   })
 })
 
