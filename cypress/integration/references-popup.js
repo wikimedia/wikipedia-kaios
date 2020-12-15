@@ -14,16 +14,16 @@ describe('references', () => {
     cy.screenshot()
     cy.downArrow()
     cy.screenshot()
-    cy.rightArrow()
+    cy.downArrow()
     cy.screenshot()
     cy.enter()
     cy.screenshot()
-    cy.get('.ref-title').should('be.visible').should('contain.text', 'Reference [10]')
+    cy.get('div.ref-title').should('be.visible')
     cy.screenshot()
   })
 })
 
 function goToCatArticle () {
-  cy.navigateToPageWithoutOnboarding('article/en/Cat')
-  articlePage.title().should('have.text', 'Cat')
+  cy.navigateToPageWithoutOnboarding('article/en/Last_Year%3A_The_Nightmare')
+  articlePage.title().should('have.text', 'Last Year: The Nightmare')
 }
