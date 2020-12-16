@@ -4,20 +4,20 @@ export const search = (lang, term) => {
   // fulltext search
   const params = {
     action: 'query',
-    prop: 'pageimages',
-    generator: 'search',
     list: 'search',
     srprop: 'snippet',
     srsearch: term,
     srlimit: 15,
     srenablerewrites: true,
     srinfo: 'rewrittenquery',
-    gsrsearch: term,
-    gsrnamespace: 0,
-    gsrlimit: 15,
+    prop: 'pageimages',
     piprop: 'thumbnail',
     pithumbsize: 64,
     pilimit: 15,
+    generator: 'search',
+    gsrsearch: term,
+    gsrnamespace: 0,
+    gsrlimit: 15,
     format: 'json'
   }
 
@@ -27,12 +27,11 @@ export const search = (lang, term) => {
       return []
     }
 
-    return Object.values(data.query.search).map((p) => {
-      const page = data.query.pages.find(page => page.pageid === p.pageid)
+    return Object.values(data.query.search).map(item => {
+      const page = data.query.pages.find(page => page.pageid === item.pageid)
       return {
-        title: p.title,
-        titleHtml: p.title,
-        description: p.snippet.replace(/<span class="searchmatch">(\w+)<\/span>/g, '$1'),
+        title: item.title,
+        description: item.snippet.replace(/<span class="searchmatch">(\w+)<\/span>/g, '$1'),
         imageUrl: page && page.thumbnail && page.thumbnail.source
       }
     })
