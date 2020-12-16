@@ -31,7 +31,7 @@ export const search = (lang, term) => {
       const page = data.query.pages.find(page => page.pageid === item.pageid)
       return {
         title: item.title,
-        description: item.snippet.replace(/<span class="searchmatch">(\w+)<\/span>/g, '$1'),
+        description: item.snippet,
         imageUrl: page && page.thumbnail && page.thumbnail.source
       }
     })
