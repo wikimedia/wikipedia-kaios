@@ -29,7 +29,6 @@ export const search = (lang, term) => {
     srsearch: term,
     srlimit: 15,
     srenablerewrites: true,
-    srinterwiki: true,
     gsrsearch: term,
     gsrnamespace: 0,
     gsrlimit: 15,
