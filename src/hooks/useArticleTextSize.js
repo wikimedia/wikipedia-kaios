@@ -1,12 +1,18 @@
-import { useState, useLayoutEffect } from 'preact/hooks'
+import { useState, useEffect } from 'preact/hooks'
 import { articleTextSize } from 'utils'
 
-export const useArticleTextSize = (dependencies = []) => {
+let setArticleTextSize
+
+export const useArticleTextSize = (origin) => {
   const [textSize, setTextSize] = useState(articleTextSize.get())
 
-  useLayoutEffect(() => {
-    articleTextSize.init()
-  }, dependencies)
+  if (origin === 'Article') {
+    setArticleTextSize = setTextSize
+  }
+
+  useEffect(() => {
+    setArticleTextSize(articleTextSize.get())
+  })
 
   return [textSize, setTextSize]
 }

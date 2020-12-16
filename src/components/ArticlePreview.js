@@ -21,25 +21,25 @@ export const ArticlePreview = ({ lang, title, source, dir, close, closeAll }) =>
     onKeyCenter: read,
     onKeyBackspace: close
   }, [summary])
-  useArticleTextSize([summary])
+  const [textSize] = useArticleTextSize('ArticlePreview')
 
   useArticlePreviewTracking(summary, source, lang)
 
   return summary ? (
     <div class='article-preview' dir={dir}>
       <div class='item'>
-        <div class='title adjustable-font-size' dangerouslySetInnerHTML={{ __html: summary.titles.display }} />
+        <div class={`title font-size-${textSize}`} dangerouslySetInnerHTML={{ __html: summary.titles.display }} />
         { summary.imageUrl && <img class='img' src={summary.imageUrl} /> }
       </div>
-      <div class='preview-text adjustable-font-size' dangerouslySetInnerHTML={{ __html: summary.preview }} />
+      <div class={`preview-text font-size-${textSize}`} dangerouslySetInnerHTML={{ __html: summary.preview }} />
     </div>
-  ) : <LoadingPreview title={title} dir={dir} />
+  ) : <LoadingPreview title={title} dir={dir} textSize={textSize} />
 }
 
-const LoadingPreview = ({ title, dir }) => (
+const LoadingPreview = ({ title, dir, textSize }) => (
   <div class='article-preview loading' dir={dir}>
     <div class='item'>
-      <div class='title adjustable-font-size'>{title}</div>
+      <div class={`title font-size-${textSize}`}>{title}</div>
       <div class='loading-block img' />
     </div>
     <div class='preview-text' >

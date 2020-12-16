@@ -13,10 +13,10 @@ import {
 } from 'hooks'
 import { articleHistory, confirmDialog, goto, viewport } from 'utils'
 
-const ArticleBody = memo(({ content }) => {
+const ArticleBody = memo(({ content, textSize }) => {
   return (
     <div
-      class='article-content adjustable-font-size'
+      class={`article-content font-size-${textSize}`}
       dangerouslySetInnerHTML={{ __html: content }}
     />
   )
@@ -46,7 +46,7 @@ const ArticleSection = ({
   const i18n = useI18n()
   const [showReferencePreview] = usePopup(ReferencePreview)
   const [showTable] = usePopup(Table, { mode: 'fullscreen' })
-  const [textSize] = useArticleTextSize()
+  const [textSize] = useArticleTextSize('Article')
 
   const linkHandlers = {
     action: ({ action }) => {
@@ -72,7 +72,7 @@ const ArticleSection = ({
     }
   }
 
-  useArticleLinksNavigation('Article', lang, contentRef, linkHandlers, [page, textSize], { galleryItems, articleTitle, namespace, id })
+  useArticleLinksNavigation('Article', lang, contentRef, linkHandlers, [page], { galleryItems, articleTitle, namespace, id })
 
   useLayoutEffect(() => {
     if (!contentRef.current) {
@@ -105,10 +105,10 @@ const ArticleSection = ({
       style={imageUrl ? { backgroundImage: `url(${imageUrl})` } : {}}>
       <div class='card' dir={dir}>
         <div class='intro'>
-          <div class='title adjustable-font-size' data-anchor={anchor} dangerouslySetInnerHTML={{ __html: title }} />
+          <div class={`title font-size-${textSize}`} data-anchor={anchor} dangerouslySetInnerHTML={{ __html: title }} />
           { description && (
             <Fragment>
-              <div class='desc adjustable-font-size'>{description}</div>
+              <div class={`desc font-size-${textSize}`}>{description}</div>
             </Fragment>
           ) }
           { actions && <ArticleActions actions={actions} lang={lang} /> }
@@ -120,7 +120,7 @@ const ArticleSection = ({
         </div>
         { isFooter
           ? <ArticleFooter lang={lang} title={articleTitle} items={suggestedArticles} dir={dir} />
-          : <ArticleBody content={content} />
+          : <ArticleBody content={content} textSize={textSize} />
         }
       </div>
     </div>
