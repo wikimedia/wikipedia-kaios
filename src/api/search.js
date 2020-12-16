@@ -24,22 +24,18 @@ export const search = (lang, term) => {
     action: 'query',
     prop: 'pageimages',
     generator: 'search',
+    list: 'search',
     srprop: 'snippet',
     srsearch: term,
     srlimit: 15,
-    list: 'search',
-
+    srenablerewrites: true,
+    srinterwiki: true,
     gsrsearch: term,
     gsrnamespace: 0,
-    // gsrwhat: 'text',
-    // gsrinfo: '',
-    // gsrprop: 'redirecttitle',
-    // gsroffset: 0,
     gsrlimit: 15,
     piprop: 'thumbnail',
     pithumbsize: 64,
     pilimit: 15,
-
     format: 'json'
   }
 
