@@ -13,7 +13,7 @@ export const QuickFacts = ({ article, goToArticleSubpage, dir, close, closeAll }
   const [scrollDown, scrollUp, scrollPosition] = useScroll(containerRef, 20, 'y')
   const [showReferencePreview] = usePopup(ReferencePreview, { stack: true })
   const [showGalleryPopup] = usePopup(Gallery, { mode: 'fullscreen', stack: true })
-  const [textSize] = useArticleTextSize('QuickFacts')
+  const [fontSizeClass] = useArticleTextSize('QuickFacts')
   const source = { galleryItems: article.media, articleTitle: article.title, namespace: article.namespace, id: article.id }
   useSoftkey('QuickFacts', {
     left: i18n('softkey-close'),
@@ -47,13 +47,13 @@ export const QuickFacts = ({ article, goToArticleSubpage, dir, close, closeAll }
     article.contentLang,
     containerRef,
     linkHandlers,
-    [scrollPosition, textSize],
+    [scrollPosition, fontSizeClass],
     source
   )
 
   return (
     <div
-      class={`quickfacts font-size-${textSize}`}
+      class={`quickfacts ${fontSizeClass}`}
       dir={dir}
       ref={containerRef}
       dangerouslySetInnerHTML={{ __html: article.infobox }}

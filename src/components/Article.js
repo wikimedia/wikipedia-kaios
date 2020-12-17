@@ -13,10 +13,10 @@ import {
 } from 'hooks'
 import { articleHistory, confirmDialog, goto, viewport } from 'utils'
 
-const ArticleBody = memo(({ content, textSize }) => {
+const ArticleBody = memo(({ content, fontSizeClass }) => {
   return (
     <div
-      class={`article-content font-size-${textSize}`}
+      class={`article-content ${fontSizeClass}`}
       dangerouslySetInnerHTML={{ __html: content }}
     />
   )
@@ -46,7 +46,7 @@ const ArticleSection = ({
   const i18n = useI18n()
   const [showReferencePreview] = usePopup(ReferencePreview)
   const [showTable] = usePopup(Table, { mode: 'fullscreen' })
-  const [textSize] = useArticleTextSize('Article')
+  const [fontSizeClass] = useArticleTextSize('Article')
 
   const linkHandlers = {
     action: ({ action }) => {
@@ -96,7 +96,7 @@ const ArticleSection = ({
 
       cardNode.style.marginTop = `${marginTop}px`
     }
-  }, [title, imageUrl, textSize])
+  }, [title, imageUrl, fontSizeClass])
 
   return (
     <div
@@ -105,10 +105,10 @@ const ArticleSection = ({
       style={imageUrl ? { backgroundImage: `url(${imageUrl})` } : {}}>
       <div class='card' dir={dir}>
         <div class='intro'>
-          <div class={`title font-size-${textSize}`} data-anchor={anchor} dangerouslySetInnerHTML={{ __html: title }} />
+          <div class={`title ${fontSizeClass}`} data-anchor={anchor} dangerouslySetInnerHTML={{ __html: title }} />
           { description && (
             <Fragment>
-              <div class={`desc font-size-${textSize}`}>{description}</div>
+              <div class={`desc ${fontSizeClass}`}>{description}</div>
             </Fragment>
           ) }
           { actions && <ArticleActions actions={actions} lang={lang} /> }
@@ -120,7 +120,7 @@ const ArticleSection = ({
         </div>
         { isFooter
           ? <ArticleFooter lang={lang} title={articleTitle} items={suggestedArticles} dir={dir} />
-          : <ArticleBody content={content} textSize={textSize} />
+          : <ArticleBody content={content} fontSizeClass={fontSizeClass} />
         }
       </div>
     </div>

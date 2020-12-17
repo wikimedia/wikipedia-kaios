@@ -25,14 +25,18 @@ const adjust = step => {
 }
 
 const getSoftkeyEffect = (onAdjust = () => {}) => {
-  const onKeyArrowLeft = () => { onAdjust(adjust(-1)) }
-  const onKeyArrowRight = () => { onAdjust(adjust(1)) }
+  const onKeyArrowLeft = () => { adjust(-1); onAdjust(getFontSizeClassName()) }
+  const onKeyArrowRight = () => { adjust(1); onAdjust(getFontSizeClassName()) }
 
   return {
     onKeyArrowLeft, onKeyArrowRight
   }
 }
 
+const getFontSizeClassName = () => {
+  return `font-size-${get()}`
+}
+
 export const articleTextSize = {
-  get, set, adjust, getSoftkeyEffect
+  get, set, adjust, getSoftkeyEffect, getFontSizeClassName
 }
