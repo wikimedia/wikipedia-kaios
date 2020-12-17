@@ -60,7 +60,7 @@ export class ArticlePage {
   }
 
   getArticleText () {
-    return cy.get('.article-content.adjustable-font-size')
+    return cy.get('.article-content')
   }
 
   getDownArrowIndicator () {
