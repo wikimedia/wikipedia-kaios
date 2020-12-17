@@ -27,8 +27,9 @@ export const search = (lang, term) => {
       return []
     }
 
-    return Object.values(data.query.search).map(item => {
-      const page = data.query.pages.find(page => page.pageid === item.pageid)
+    const { search, pages } = data.query
+    return Object.values(search).map(item => {
+      const page = pages && pages.find(page => page.pageid === item.pageid)
       return {
         title: item.title,
         description: item.snippet,
