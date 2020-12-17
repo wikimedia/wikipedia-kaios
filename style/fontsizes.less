@@ -1,31 +1,26 @@
-&.font-size-0 {
-	font-size: 14px;
-}
+@standard: 14px, 15px, 16px, 17px, 18px, 19px, 20px;
+@title: 22px, 23px, 24px, 25px, 26px, 27px, 28px;
+@preview-title: 15px, 16px, 17px, 18px, 19px, 20px, 21px;
+@desc: 12px, 13px, 14px, 15px, 16px, 17px, 18px;
 
-&.font-size-1 {
-	font-size: 15px;
-}
+each(range(7), {
+	.font-size-@{value} {
+		font-size: extract(@standard, @value);
 
-&.font-size-2 {
-	font-size: 16px;
-}
+		&.title {
+			font-size: extract(@title, @value)
+		}
 
-&.font-size-3 {
-	font-size: 17px;
-}
+		&.preview-title {
+			font-size: extract(@preview-title, @value)
+		}
 
-&.font-size-4 {
-	font-size: 18px;
-}
+		&.desc {
+			font-size: extract(@desc, @value)
+		}
 
-&.font-size-5 {
-	font-size: 19px;
-}
-
-&.font-size-6 {
-	font-size: 20px;
-}
-
-&.font-size-28 {
-	font-size: 28px; // TODO - clean up and include the rest of font sizes
-}
+		&.reference-preview {
+			font-size: extract(@desc, @value)
+		}
+	}
+});

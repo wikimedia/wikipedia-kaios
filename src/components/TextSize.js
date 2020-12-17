@@ -25,8 +25,8 @@ export const TextSize = ({ close }) => {
       </div>
       <div class='slider-container'>
         <div class='slider'>
-          <div class='circle' style={`left: ${sliderValue[textSize]}%`} />
-          <div class='filling' style={`width: ${sliderValue[textSize]}%`} />
+          <div class='circle' style={`left: ${sliderValue[textSize - 1]}%`} />
+          <div class='filling' style={`width: ${sliderValue[textSize - 1]}%`} />
         </div>
       </div>
       <div class='labels'>

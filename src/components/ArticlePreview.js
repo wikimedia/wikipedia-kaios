@@ -28,7 +28,7 @@ export const ArticlePreview = ({ lang, title, source, dir, close, closeAll }) =>
   return summary ? (
     <div class='article-preview' dir={dir}>
       <div class='item'>
-        <div class={`title font-size-${textSize}`} dangerouslySetInnerHTML={{ __html: summary.titles.display }} />
+        <div class={`preview-title font-size-${textSize}`} dangerouslySetInnerHTML={{ __html: summary.titles.display }} />
         { summary.imageUrl && <img class='img' src={summary.imageUrl} /> }
       </div>
       <div class={`preview-text font-size-${textSize}`} dangerouslySetInnerHTML={{ __html: summary.preview }} />
@@ -39,7 +39,7 @@ export const ArticlePreview = ({ lang, title, source, dir, close, closeAll }) =>
 const LoadingPreview = ({ title, dir, textSize }) => (
   <div class='article-preview loading' dir={dir}>
     <div class='item'>
-      <div class={`title font-size-${textSize}`}>{title}</div>
+      <div class={`preview-title font-size-${textSize}`}>{title}</div>
       <div class='loading-block img' />
     </div>
     <div class='preview-text' >
