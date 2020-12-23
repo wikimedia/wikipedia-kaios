@@ -1,18 +1,14 @@
-import { useState, useEffect } from 'preact/hooks'
+import { useEffect, useContext } from 'preact/hooks'
+import { FontContext } from 'contexts'
 import { articleTextSize } from 'utils'
 
-let setArticleFontClass
-
-export const useArticleTextSize = (origin) => {
-  const [fontSizeClass, setFontSizeClass] = useState(articleTextSize.getFontSizeClassName())
-
-  if (origin === 'Article') {
-    setArticleFontClass = setFontSizeClass
-  }
+export const useArticleTextSize = () => {
+  const { fontSizeClass, setFontSizeClass } = useContext(FontContext)
 
   useEffect(() => {
-    setArticleFontClass(articleTextSize.getFontSizeClassName())
-  })
+    setFontSizeClass(articleTextSize.getFontSizeClassName())
+  }, [fontSizeClass])
 
+  // return [fontSizeClass, setFontSizeClass, articleTextSize.getHasAdjusted()]
   return [fontSizeClass, setFontSizeClass]
 }
