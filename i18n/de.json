@@ -11,7 +11,8 @@
 			"Killarnee",
 			"MuratTheTurkish",
 			"Ubahnverleih",
-			"WikiBayer"
+			"WikiBayer",
+			"Zauberzunge2000"
 		]
 	},
 	"article-action-sections": "Inhaltsverzeichnis",
@@ -78,6 +79,8 @@
 	"settings-rate": "Die App bewerten",
 	"settings-help-feedback": "Rückmeldung senden",
 	"settings-about-app": "Über die App",
+	"textsize-label-small": "Klein",
+	"textsize-label-large": "Groß",
 	"toc-footer": "Vorgeschlagene Artikel",
 	"view-in-browser": "Artikel im Browser ansehen",
 	"about-app-message": "Entwickelt von der Wikimedia Foundation mit der Hilfe von Freiwilligen wie dir.",
