@@ -1,26 +1,26 @@
-@standard: 14px, 15px, 16px, 17px, 18px, 19px, 20px;
-@title: 22px, 23px, 24px, 25px, 26px, 27px, 28px;
-@preview-title: 15px, 16px, 17px, 18px, 19px, 20px, 21px;
-@desc: 12px, 13px, 14px, 15px, 16px, 17px, 18px;
+@standard: 14;
+@title: 22;
+@preview-title: 15;
+@desc: 12;
 
 each(range(7), {
 	.font-size-@{value} {
-		font-size: extract(@standard, @value);
+		font-size: unit(@standard + @value, px);
 
 		&.title {
-			font-size: extract(@title, @value)
+			font-size: unit(@title + @value, px);
 		}
 
 		&.preview-title {
-			font-size: extract(@preview-title, @value)
+			font-size: unit(@preview-title + @value, px);
 		}
 
 		&.desc {
-			font-size: extract(@desc, @value)
+			font-size: unit(@desc + @value, px);
 		}
 
 		&.reference-preview {
-			font-size: extract(@desc, @value)
+			font-size: unit(@desc + @value, px);
 		}
 	}
 });
