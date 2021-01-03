@@ -21,7 +21,7 @@ export const ArticlePreview = ({ lang, title, source, dir, close, closeAll }) =>
     onKeyCenter: read,
     onKeyBackspace: close
   }, [summary])
-  const [fontSizeClass] = useArticleTextSize('ArticlePreview')
+  const [fontSizeClass] = useArticleTextSize()
 
   useArticlePreviewTracking(summary, source, lang)
 

@@ -11,7 +11,7 @@ export const ReferencePreview = ({ reference, lang, dir, close }) => {
     onKeyLeft: close,
     onKeyBackspace: close
   }, [])
-  const [fontSizeClass] = useArticleTextSize('ReferencePreview')
+  const [fontSizeClass] = useArticleTextSize()
 
   return (
     <div class={`reference-preview ${fontSizeClass}`} dir={dir} ref={contentRef}>

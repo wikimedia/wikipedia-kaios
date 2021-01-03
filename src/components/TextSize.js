@@ -8,7 +8,7 @@ let originalFontSizeClass
 export const TextSize = ({ close }) => {
   const i18n = useI18n()
 
-  const [fontSizeClass, setFontSizeClass] = useArticleTextSize('TextSize')
+  const [fontSizeClass, setFontSizeClass] = useArticleTextSize()
 
   useEffect(() => {
     originalFontSizeClass = articleTextSize.getFontSizeClassName()
