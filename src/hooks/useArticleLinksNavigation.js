@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'preact/hooks'
+import { useState, useEffect, useContext } from 'preact/hooks'
 import { useSoftkey, usePopup, useI18n } from 'hooks'
 import { viewport, INTERWIKI_KEYS, normalizeTitle, getDirection } from 'utils'
 import { ArticlePreview } from 'components'
+import { PopupContext } from 'contexts'
 
 const SELECTED_ATTRIBUTE = 'data-selected'
 
@@ -30,6 +31,7 @@ export const useArticleLinksNavigation = (
 
   const [showArticlePreview] = usePopup(ArticlePreview, { stack: true })
   const dir = getDirection(lang)
+  const { popupState } = useContext(PopupContext)
 
   const setCurrentLink = newLink => {
     setCurrentLinkInternal(previousLink => {
@@ -46,14 +48,16 @@ export const useArticleLinksNavigation = (
   const hasLinks = () => links && links.length
 
   useEffect(() => {
-    const visibleLinks = findVisibleLinks(contentRef.current, source.galleryItems)
-    setLinks(visibleLinks)
-    if (visibleLinks.length) {
-      if (visibleLinks.indexOf(currentLink) === -1) {
-        setCurrentLink(visibleLinks[0])
+    if (origin !== 'Article' || popupState.length === 0) {
+      const visibleLinks = findVisibleLinks(contentRef.current, source.galleryItems)
+      setLinks(visibleLinks)
+      if (visibleLinks.length) {
+        if (visibleLinks.indexOf(currentLink) === -1) {
+          setCurrentLink(visibleLinks[0])
+        }
+      } else {
+        setCurrentLink(null)
       }
-    } else {
-      setCurrentLink(null)
     }
   }, dependencies)
 

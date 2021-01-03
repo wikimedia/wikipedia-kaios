@@ -1,12 +1,37 @@
 import { h } from 'preact'
 import { useI18n, useSoftkey, useArticleTextSize } from 'hooks'
 import { articleTextSize } from 'utils'
+import { useEffect } from 'preact/hooks'
+
+let originalFontSizeClass
 
 export const TextSize = ({ close }) => {
   const i18n = useI18n()
 
   const [fontSizeClass, setFontSizeClass] = useArticleTextSize('TextSize')
-  const { onKeyArrowLeft, onKeyArrowRight } = articleTextSize.getSoftkeyEffect(setFontSizeClass)
+
+  useEffect(() => {
+    originalFontSizeClass = articleTextSize.getFontSizeClassName()
+    articleTextSize.setHasAdjusted(false)
+  }, [])
+
+  const onKeyFixedArrowLeft = () => {
+    articleTextSize.adjust(-1)
+    setFontSizeClass(articleTextSize.getFontSizeClassName())
+  }
+
+  const onKeyFixedArrowRight = () => {
+    articleTextSize.adjust(1)
+    setFontSizeClass(articleTextSize.getFontSizeClassName())
+  }
+
+  const onKeyCenter = () => {
+    if (originalFontSizeClass !== articleTextSize.getFontSizeClassName()) {
+      articleTextSize.setHasAdjusted(true)
+    }
+    close()
+  }
+
   const sliderValue = ['0', '16.6', '33.2', '49', '66.6', '83.2', '94']
   const parseTextSizeInteger = (fontSizeClass) => {
     return parseInt(fontSizeClass.slice(-1))
@@ -14,10 +39,10 @@ export const TextSize = ({ close }) => {
 
   useSoftkey('TextSize', {
     center: i18n('softkey-ok'),
-    onKeyCenter: close,
+    onKeyCenter,
     onKeyBackspace: close,
-    onKeyArrowLeft,
-    onKeyArrowRight
+    onKeyFixedArrowLeft,
+    onKeyFixedArrowRight
   })
 
   return <div class='textsize'>

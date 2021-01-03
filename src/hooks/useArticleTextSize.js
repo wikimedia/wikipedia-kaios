@@ -9,6 +9,5 @@ export const useArticleTextSize = () => {
     setFontSizeClass(articleTextSize.getFontSizeClassName())
   }, [fontSizeClass])
 
-  // return [fontSizeClass, setFontSizeClass, articleTextSize.getHasAdjusted()]
-  return [fontSizeClass, setFontSizeClass]
+  return [fontSizeClass, setFontSizeClass, articleTextSize.getHasAdjusted()]
 }
