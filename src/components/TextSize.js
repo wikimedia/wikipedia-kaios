@@ -24,7 +24,12 @@ export const TextSize = ({ close }) => {
     setFontSizeClass(articleTextSize.getFontSizeClassName())
   }
 
-  const onKeyCenter = () => {
+  const onKeyBackspace = () => {
+    const originalSizeInteger = parseTextSizeInteger(originalFontSizeClass)
+    const currentSizeInteger = parseTextSizeInteger(articleTextSize.getFontSizeClassName())
+
+    articleTextSize.adjust(originalSizeInteger - currentSizeInteger)
+    setFontSizeClass(articleTextSize.getFontSizeClassName())
     close()
   }
 
@@ -35,8 +40,8 @@ export const TextSize = ({ close }) => {
 
   useSoftkey('TextSize', {
     center: i18n('softkey-ok'),
-    onKeyCenter,
-    onKeyBackspace: close,
+    onKeyCenter: close,
+    onKeyBackspace,
     onKeyFixedArrowLeft,
     onKeyFixedArrowRight
   })
