@@ -5,21 +5,24 @@
 
 each(range(7), {
 	.font-size-@{value} {
-		font-size: unit(@standard + @value, px);
+		.article-content,
+		.confirm-dialog,
+		.quickfacts,
+		.preview-text,
+		.textsize-preview {
+			font-size: unit(@standard + @value, px);
+		}
 
-		&.title {
+		.title {
 			font-size: unit(@title + @value, px);
 		}
 
-		&.preview-title {
+		.preview-title {
 			font-size: unit(@preview-title + @value, px);
 		}
 
-		&.desc {
-			font-size: unit(@desc + @value, px);
-		}
-
-		&.reference-preview {
+		.desc,
+		.reference-preview {
 			font-size: unit(@desc + @value, px);
 		}
 	}

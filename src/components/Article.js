@@ -13,10 +13,10 @@ import {
 } from 'hooks'
 import { articleHistory, confirmDialog, goto, viewport } from 'utils'
 
-const ArticleBody = memo(({ content, fontSizeClass }) => {
+const ArticleBody = memo(({ content }) => {
   return (
     <div
-      class={`article-content ${fontSizeClass}`}
+      class={'article-content'}
       dangerouslySetInnerHTML={{ __html: content }}
     />
   )
@@ -104,10 +104,10 @@ const ArticleSection = ({
       style={imageUrl ? { backgroundImage: `url(${imageUrl})` } : {}}>
       <div class='card' dir={dir}>
         <div class='intro'>
-          <div class={`title ${fontSizeClass}`} data-anchor={anchor} dangerouslySetInnerHTML={{ __html: title }} />
+          <div class={'title'} data-anchor={anchor} dangerouslySetInnerHTML={{ __html: title }} />
           { description && (
             <Fragment>
-              <div class={`desc ${fontSizeClass}`}>{description}</div>
+              <div class={'desc'}>{description}</div>
             </Fragment>
           ) }
           { actions && <ArticleActions actions={actions} lang={lang} /> }
@@ -119,7 +119,7 @@ const ArticleSection = ({
         </div>
         { isFooter
           ? <ArticleFooter lang={lang} title={articleTitle} items={suggestedArticles} dir={dir} />
-          : <ArticleBody content={content} fontSizeClass={fontSizeClass} />
+          : <ArticleBody content={content} />
         }
       </div>
     </div>

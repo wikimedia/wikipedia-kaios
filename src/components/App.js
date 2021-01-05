@@ -20,6 +20,10 @@ export const App = ({ i18n, dir }) => {
   }, [dirState])
   // end of useDirection
 
+  useEffect(() => {
+    document.body.className = fontSizeClass
+  }, [fontSizeClass])
+
   useErrorLogging()
 
   return (

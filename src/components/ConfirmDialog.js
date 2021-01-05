@@ -1,5 +1,5 @@
 import { h } from 'preact'
-import { useI18n, useSoftkey, useArticleTextSize } from 'hooks'
+import { useI18n, useSoftkey } from 'hooks'
 
 export const ConfirmDialog = ({
   title, message, dir,
@@ -21,10 +21,8 @@ export const ConfirmDialog = ({
     onKeyRight: () => { onSubmit(); closeAll() }
   }, [])
 
-  const [fontSizeClass] = useArticleTextSize()
-
   return (
-    <div class={`confirm-dialog ${fontSizeClass}`} dir={dir}>
+    <div class={'confirm-dialog'} dir={dir}>
       { title && <div class='header'>{title}</div> }
       <div class='info'>{message}</div>
     </div>
