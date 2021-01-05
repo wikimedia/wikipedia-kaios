@@ -1,7 +1,6 @@
 const KEY = 'article-textsize'
 const DEFAULT_SIZE = 3
 const [MIN_SIZE, MAX_SIZE] = [1, 7]
-let hasAdjusted = false
 
 const get = () => {
   const fontSize = localStorage.getItem(KEY)
@@ -38,14 +37,6 @@ const getFontSizeClassName = () => {
   return `font-size-${get()}`
 }
 
-const setHasAdjusted = (adjustStatus) => {
-  hasAdjusted = adjustStatus
-}
-
-const getHasAdjusted = () => {
-  return hasAdjusted
-}
-
 export const articleTextSize = {
-  get, set, adjust, getSoftkeyEffect, getFontSizeClassName, getHasAdjusted, setHasAdjusted
+  get, set, adjust, getSoftkeyEffect, getFontSizeClassName
 }

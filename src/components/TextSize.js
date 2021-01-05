@@ -12,7 +12,6 @@ export const TextSize = ({ close }) => {
 
   useEffect(() => {
     originalFontSizeClass = articleTextSize.getFontSizeClassName()
-    articleTextSize.setHasAdjusted(false)
   }, [])
 
   const onKeyFixedArrowLeft = () => {
@@ -26,9 +25,6 @@ export const TextSize = ({ close }) => {
   }
 
   const onKeyCenter = () => {
-    if (originalFontSizeClass !== articleTextSize.getFontSizeClassName()) {
-      articleTextSize.setHasAdjusted(true)
-    }
     close()
   }
 

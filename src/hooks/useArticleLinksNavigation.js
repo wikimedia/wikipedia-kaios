@@ -28,6 +28,7 @@ export const useArticleLinksNavigation = (
   const i18n = useI18n()
   const [links, setLinks] = useState([])
   const [currentLink, setCurrentLinkInternal] = useState(null)
+  const [softkeyTrigger, setSoftkeyTrigger] = useState(false)
 
   const [showArticlePreview] = usePopup(ArticlePreview, { stack: true })
   const dir = getDirection(lang)
@@ -48,18 +49,22 @@ export const useArticleLinksNavigation = (
   const hasLinks = () => links && links.length
 
   useEffect(() => {
-    if (origin !== 'Article' || popupState.length === 0) {
-      const visibleLinks = findVisibleLinks(contentRef.current, source.galleryItems)
-      setLinks(visibleLinks)
-      if (visibleLinks.length) {
-        if (visibleLinks.indexOf(currentLink) === -1) {
-          setCurrentLink(visibleLinks[0])
-        }
-      } else {
-        setCurrentLink(null)
+    const visibleLinks = findVisibleLinks(contentRef.current, source.galleryItems)
+    setLinks(visibleLinks)
+    if (visibleLinks.length) {
+      if (visibleLinks.indexOf(currentLink) === -1) {
+        setCurrentLink(visibleLinks[0])
       }
+    } else {
+      setCurrentLink(null)
     }
   }, dependencies)
+
+  useEffect(() => {
+    if (origin !== 'Article' || popupState.length === 0) {
+      setSoftkeyTrigger(!softkeyTrigger)
+    }
+  }, [popupState, currentLink])
 
   const defaultLinkHandlers = {
     title: ({ title }) => {
@@ -83,6 +88,7 @@ export const useArticleLinksNavigation = (
         i = links.length - 1
       }
       setCurrentLink(links[i])
+      setSoftkeyTrigger(!softkeyTrigger)
     },
     [dir === 'rtl' ? 'onKeyFixedArrowLeft' : 'onKeyFixedArrowRight']: () => {
       if (!hasLinks()) {
@@ -90,6 +96,7 @@ export const useArticleLinksNavigation = (
       }
       const i = (links.indexOf(currentLink) + 1) % links.length
       setCurrentLink(links[i])
+      setSoftkeyTrigger(!softkeyTrigger)
     },
     center: currentLink ? i18n('centerkey-select') : '',
     onKeyCenter: () => {
@@ -102,7 +109,7 @@ export const useArticleLinksNavigation = (
         handler(clickEvent)
       }
     }
-  }, [links, currentLink])
+  }, [softkeyTrigger])
 
   return [currentLink]
 }
