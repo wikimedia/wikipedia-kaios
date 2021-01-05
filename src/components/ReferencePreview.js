@@ -1,6 +1,6 @@
 import { h } from 'preact'
 import { useRef } from 'preact/hooks'
-import { useI18n, useSoftkey, useArticleLinksNavigation, useArticleTextSize } from 'hooks'
+import { useI18n, useSoftkey, useArticleLinksNavigation } from 'hooks'
 
 export const ReferencePreview = ({ reference, lang, dir, close }) => {
   const i18n = useI18n()
