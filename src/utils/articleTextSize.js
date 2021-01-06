@@ -21,7 +21,6 @@ const adjust = step => {
   }
 
   set(newSize)
-  return newSize
 }
 
 const getSoftkeyEffect = (onAdjust = () => {}) => {
