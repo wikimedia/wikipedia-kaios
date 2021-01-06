@@ -1,14 +1,16 @@
 import { h } from 'preact'
-import { useI18n, useSoftkey, useArticleTextSize } from 'hooks'
+import { useEffect, useContext } from 'preact/hooks'
+import { useI18n, useSoftkey } from 'hooks'
 import { articleTextSize } from 'utils'
-import { useEffect } from 'preact/hooks'
+import { FontContext } from 'contexts'
 
 let originalFontSizeClass
 
 export const TextSize = ({ close }) => {
   const i18n = useI18n()
 
-  const [fontSizeClass, setFontSizeClass] = useArticleTextSize()
+  // const [fontSizeClass, setFontSizeClass] = useArticleTextSize()
+  const { fontSizeClass, setFontSizeClass } = useContext(FontContext)
 
   useEffect(() => {
     originalFontSizeClass = articleTextSize.getFontSizeClassName()
