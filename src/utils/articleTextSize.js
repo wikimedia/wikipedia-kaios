@@ -23,19 +23,14 @@ const adjust = step => {
   set(newSize)
 }
 
-const getSoftkeyEffect = (onAdjust = () => {}) => {
-  const onKeyArrowLeft = () => { adjust(-1); onAdjust(getFontSizeClassName()) }
-  const onKeyArrowRight = () => { adjust(1); onAdjust(getFontSizeClassName()) }
-
-  return {
-    onKeyArrowLeft, onKeyArrowRight
-  }
-}
-
 const getFontSizeClassName = () => {
+  // The `font-size-x` classname is set to
+  // the HTML body to be made available
+  // for elements with adjustable text size.
+  // See fontsize.less for more info
   return `font-size-${get()}`
 }
 
 export const articleTextSize = {
-  get, set, adjust, getSoftkeyEffect, getFontSizeClassName
+  get, set, adjust, getFontSizeClassName
 }
