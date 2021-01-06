@@ -22,7 +22,7 @@ export const ConfirmDialog = ({
   }, [])
 
   return (
-    <div class={'confirm-dialog'} dir={dir}>
+    <div class='confirm-dialog' dir={dir}>
       { title && <div class='header'>{title}</div> }
       <div class='info'>{message}</div>
     </div>

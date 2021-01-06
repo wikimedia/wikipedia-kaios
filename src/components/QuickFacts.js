@@ -52,7 +52,7 @@ export const QuickFacts = ({ article, goToArticleSubpage, dir, close, closeAll }
 
   return (
     <div
-      class={'quickfacts'}
+      class='quickfacts'
       dir={dir}
       ref={containerRef}
       dangerouslySetInnerHTML={{ __html: article.infobox }}

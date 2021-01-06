@@ -17,7 +17,7 @@ import { FontContext } from 'contexts'
 const ArticleBody = memo(({ content }) => {
   return (
     <div
-      class={'article-content'}
+      class='article-content'
       dangerouslySetInnerHTML={{ __html: content }}
     />
   )
@@ -105,10 +105,10 @@ const ArticleSection = ({
       style={imageUrl ? { backgroundImage: `url(${imageUrl})` } : {}}>
       <div class='card' dir={dir}>
         <div class='intro'>
-          <div class={'title'} data-anchor={anchor} dangerouslySetInnerHTML={{ __html: title }} />
+          <div class='title' data-anchor={anchor} dangerouslySetInnerHTML={{ __html: title }} />
           { description && (
             <Fragment>
-              <div class={'desc'}>{description}</div>
+              <div class='desc'>{description}</div>
             </Fragment>
           ) }
           { actions && <ArticleActions actions={actions} lang={lang} /> }
