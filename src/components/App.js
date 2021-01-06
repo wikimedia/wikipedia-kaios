@@ -19,12 +19,12 @@ export const App = ({ i18n, dir }) => {
   }, [dirState])
   // end of useDirection
 
-  // useFontSize
-  const [fontSizeClass, setFontSizeClass] = useState(articleTextSize.getFontSizeClassName())
+  // useTextSize
+  const [textSize, setTextSize] = useState(articleTextSize.get())
   useEffect(() => {
-    document.body.className = fontSizeClass
-  }, [fontSizeClass])
-  // end of useFontSize
+    document.body.className = `font-size-${textSize}`
+  }, [textSize])
+  // end of useTextSize
 
   useErrorLogging()
 
@@ -33,7 +33,7 @@ export const App = ({ i18n, dir }) => {
       <SoftkeyContext.Provider value={{ state, dispatch }}>
         <PopupContext.Provider value={{ popupState, setPopupState }}>
           <DirectionContext.Provider value={{ dirState, setDirState }}>
-            <FontContext.Provider value={{ fontSizeClass, setFontSizeClass }}>
+            <FontContext.Provider value={{ textSize, setTextSize }}>
               <OfflineIndicator routeUrl={url} />
               <Routes onRouteChange={({ url }) => setUrl(url)} />
               <Softkey dir={dirState} {...state.current} />

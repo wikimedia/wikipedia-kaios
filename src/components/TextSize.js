@@ -4,40 +4,34 @@ import { useI18n, useSoftkey } from 'hooks'
 import { articleTextSize } from 'utils'
 import { FontContext } from 'contexts'
 
-let originalFontSizeClass
+let originalTextSize
 
 export const TextSize = ({ close }) => {
   const i18n = useI18n()
-
-  const { fontSizeClass, setFontSizeClass } = useContext(FontContext)
-
-  useEffect(() => {
-    originalFontSizeClass = articleTextSize.getFontSizeClassName()
-  }, [])
+  const { textSize, setTextSize } = useContext(FontContext)
+  const sliderValue = ['0', '16.6', '33.2', '49', '66.6', '83.2', '94']
 
   const onKeyFixedArrowLeft = () => {
     articleTextSize.adjust(-1)
-    setFontSizeClass(articleTextSize.getFontSizeClassName())
+    setTextSize(articleTextSize.get())
   }
 
   const onKeyFixedArrowRight = () => {
     articleTextSize.adjust(1)
-    setFontSizeClass(articleTextSize.getFontSizeClassName())
+    setTextSize(articleTextSize.get())
   }
 
   const onKeyBackspace = () => {
-    const originalSizeInteger = parseTextSizeInteger(originalFontSizeClass)
-    const currentSizeInteger = parseTextSizeInteger(articleTextSize.getFontSizeClassName())
+    const currentTextSize = articleTextSize.get()
 
-    articleTextSize.adjust(originalSizeInteger - currentSizeInteger)
-    setFontSizeClass(articleTextSize.getFontSizeClassName())
+    articleTextSize.adjust(originalTextSize - currentTextSize)
+    setTextSize(articleTextSize.get())
     close()
   }
 
-  const sliderValue = ['0', '16.6', '33.2', '49', '66.6', '83.2', '94']
-  const parseTextSizeInteger = (fontSizeClass) => {
-    return parseInt(fontSizeClass.slice(-1))
-  }
+  useEffect(() => {
+    originalTextSize = articleTextSize.get()
+  }, [])
 
   useSoftkey('TextSize', {
     center: i18n('softkey-ok'),
@@ -55,8 +49,8 @@ export const TextSize = ({ close }) => {
       </div>
       <div class='slider-container'>
         <div class='slider'>
-          <div class='circle' style={`left: ${sliderValue[parseTextSizeInteger(fontSizeClass) - 1]}%`} />
-          <div class='filling' style={`width: ${sliderValue[parseTextSizeInteger(fontSizeClass) - 1]}%`} />
+          <div class='circle' style={`left: ${sliderValue[textSize - 1]}%`} />
+          <div class='filling' style={`width: ${sliderValue[textSize - 1]}%`} />
         </div>
       </div>
       <div class='labels'>
