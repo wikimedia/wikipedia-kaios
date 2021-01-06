@@ -10,7 +10,6 @@ export const App = ({ i18n, dir }) => {
   // @todo making it used by the global state management
   const [state, dispatch] = useReducer(SoftkeyReducer, {})
   const [popupState, setPopupState] = useState([])
-  const [fontSizeClass, setFontSizeClass] = useState(articleTextSize.getFontSizeClassName())
   const [url, setUrl] = useState()
 
   // useDirection
@@ -20,9 +19,12 @@ export const App = ({ i18n, dir }) => {
   }, [dirState])
   // end of useDirection
 
+  // useFontSize
+  const [fontSizeClass, setFontSizeClass] = useState(articleTextSize.getFontSizeClassName())
   useEffect(() => {
     document.body.className = fontSizeClass
   }, [fontSizeClass])
+  // end of useFontSize
 
   useErrorLogging()
 
