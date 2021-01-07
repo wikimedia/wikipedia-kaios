@@ -10,8 +10,9 @@ export const TextSize = ({ close }) => {
   const i18n = useI18n()
   const { dirState } = useContext(DirectionContext)
   const { textSize, setTextSize } = useContext(FontContext)
-  const sliderPortion = 100 / 6
-  const sliderValue = Array.from({ length: 7 }, (v, i) => i * sliderPortion)
+  const { MAX_SIZE } = articleTextSize
+  const sliderPortion = 100 / (MAX_SIZE - 1)
+  const sliderValue = Array.from({ length: MAX_SIZE }, (v, i) => i * sliderPortion)
 
   const onKeyArrowLeft = () => {
     articleTextSize.adjust(-1)
