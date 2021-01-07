@@ -29,7 +29,7 @@
 	"app-title": "Wikipedia",
 	"app-subtitle": "La enciclopedia libre",
 	"app-description": "Con la aplicación gratuita de Wikipedia es posible buscar y explorar información proveniente de todo el mundo en más de 300 idiomas.",
-	"content-license": "El contenido es disponible bajo la licencia <a class=\"external\" rel=\"mw:ExtLink\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">CC BY-SA 3.0</a> a menos que se indique lo contrario.",
+	"content-license": "El contenido está disponible en virtud de la licencia <a class=\"external\" rel=\"mw:ExtLink\" href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.es_ES\">CC BY-SA 3.0</a> a menos que se indique lo contrario.",
 	"confirm-section": "Ir a la sección «$1»",
 	"confirm-app-close-title": "Salir de Wikipedia?",
 	"confirm-app-close-message": "¿Estás seguro de que quieres salir de la app?",
