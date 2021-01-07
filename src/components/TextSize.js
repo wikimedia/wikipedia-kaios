@@ -2,21 +2,24 @@ import { h } from 'preact'
 import { useEffect, useContext } from 'preact/hooks'
 import { useI18n, useSoftkey } from 'hooks'
 import { articleTextSize } from 'utils'
-import { FontContext } from 'contexts'
+import { FontContext, DirectionContext } from 'contexts'
 
 let originalTextSize
 
 export const TextSize = ({ close }) => {
   const i18n = useI18n()
+  const { dirState } = useContext(DirectionContext)
   const { textSize, setTextSize } = useContext(FontContext)
-  const sliderValue = ['0', '16.6', '33.2', '49', '66.6', '83.2', '94']
+  const { MAX_SIZE } = articleTextSize
+  const sliderPortion = 100 / (MAX_SIZE - 1)
+  const sliderValue = Array.from({ length: MAX_SIZE }, (v, i) => i * sliderPortion)
 
-  const onKeyFixedArrowLeft = () => {
+  const onKeyArrowLeft = () => {
     articleTextSize.adjust(-1)
     setTextSize(articleTextSize.get())
   }
 
-  const onKeyFixedArrowRight = () => {
+  const onKeyArrowRight = () => {
     articleTextSize.adjust(1)
     setTextSize(articleTextSize.get())
   }
@@ -37,20 +40,20 @@ export const TextSize = ({ close }) => {
     center: i18n('softkey-ok'),
     onKeyCenter: close,
     onKeyBackspace,
-    onKeyFixedArrowLeft,
-    onKeyFixedArrowRight
+    onKeyArrowLeft,
+    onKeyArrowRight
   })
 
   return <div class='textsize'>
     <div class='header'>{i18n('header-textsize')}</div>
     <div class='content'>
-      <div class='textsize-preview'>
+      <bdi class='textsize-preview'>
         {i18n('textsize-preview')}
-      </div>
+      </bdi>
       <div class='slider-container'>
         <div class='slider'>
-          <div class='circle' style={`left: ${sliderValue[textSize - 1]}%`} />
           <div class='filling' style={`width: ${sliderValue[textSize - 1]}%`} />
+          <div class='circle' style={`${dirState === 'ltr' ? 'left' : 'right'}: ${sliderValue[textSize - 1]}%`} />
         </div>
       </div>
       <div class='labels'>

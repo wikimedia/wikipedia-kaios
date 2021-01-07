@@ -29,5 +29,5 @@ const adjust = step => {
 }
 
 export const articleTextSize = {
-  get, set, adjust
+  get, set, adjust, MAX_SIZE
 }
