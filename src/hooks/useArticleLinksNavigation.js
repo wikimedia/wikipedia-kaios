@@ -61,8 +61,11 @@ export const useArticleLinksNavigation = (
   }, dependencies)
 
   useEffect(() => {
-    if (origin !== 'Article' || popupState.length === 0) {
-      setSoftkeyTrigger(!softkeyTrigger)
+    const hasGallery = popupState.find(p => p.id === 'Gallery')
+    if (!hasGallery) {
+      if (origin !== 'Article' || popupState.length === 0) {
+        setSoftkeyTrigger(!softkeyTrigger)
+      }
     }
   }, [popupState, currentLink])
 
