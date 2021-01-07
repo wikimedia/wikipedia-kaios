@@ -11,7 +11,7 @@ import {
   useArticlePagination, useArticleLinksNavigation, useArticleTextSize,
   usePopup, useTracking
 } from 'hooks'
-import { articleHistory, confirmDialog, goto, viewport } from 'utils'
+import { articleHistory, confirmDialog, goto, viewport, articleTextSize } from 'utils'
 
 const ArticleBody = memo(({ content }) => {
   return (
@@ -46,7 +46,11 @@ const ArticleSection = ({
   const i18n = useI18n()
   const [showReferencePreview] = usePopup(ReferencePreview)
   const [showTable] = usePopup(Table, { mode: 'fullscreen' })
-  const [textSize] = useArticleTextSize()
+  const textSize = articleTextSize.get()
+  console.log('Article - textSize...', textSize)
+  useArticleTextSize()
+  // useArticleTextSize([textSize])
+  // console.log('Article - textSize...', textSize)
 
   const linkHandlers = {
     action: ({ action }) => {

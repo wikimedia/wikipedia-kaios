@@ -40,6 +40,7 @@ const reset = () => {
 }
 
 const init = () => {
+  console.log('articleTextSize - init')
   const elements = document.querySelectorAll(SELECTORS)
   Array.from(elements).forEach(element => {
     if (!element.hasAttribute(FONT_SIZE_ATTRIBUTE)) {
