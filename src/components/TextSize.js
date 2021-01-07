@@ -6,7 +6,7 @@ import { FontContext, DirectionContext } from 'contexts'
 
 let originalTextSize
 
-export const TextSize = ({ close }) => {
+export const TextSize = ({ close, closeAll }) => {
   const i18n = useI18n()
   const { dirState } = useContext(DirectionContext)
   const { textSize, setTextSize } = useContext(FontContext)
@@ -32,13 +32,18 @@ export const TextSize = ({ close }) => {
     close()
   }
 
+  const onKeyCenter = () => {
+    articleTextSize.setHasAdjusted(true)
+    closeAll()
+  }
+
   useEffect(() => {
     originalTextSize = articleTextSize.get()
   }, [])
 
   useSoftkey('TextSize', {
     center: i18n('softkey-ok'),
-    onKeyCenter: close,
+    onKeyCenter,
     onKeyBackspace,
     onKeyArrowLeft,
     onKeyArrowRight

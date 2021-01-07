@@ -1,6 +1,6 @@
 import { h, Fragment } from 'preact'
 import { memo } from 'preact/compat'
-import { useState, useRef, useEffect, useLayoutEffect, useContext } from 'preact/hooks'
+import { useState, useRef, useEffect, useLayoutEffect } from 'preact/hooks'
 import {
   ReferencePreview, ArticleToc, ArticleLanguage,
   ArticleMenu, ArticleFooter, Loading, QuickFacts,
@@ -11,8 +11,7 @@ import {
   useArticlePagination, useArticleLinksNavigation,
   usePopup, useTracking
 } from 'hooks'
-import { articleHistory, confirmDialog, goto, viewport } from 'utils'
-import { FontContext } from 'contexts'
+import { articleHistory, articleTextSize, confirmDialog, goto, viewport } from 'utils'
 
 const ArticleBody = memo(({ content }) => {
   return (
@@ -47,7 +46,7 @@ const ArticleSection = ({
   const i18n = useI18n()
   const [showReferencePreview] = usePopup(ReferencePreview)
   const [showTable] = usePopup(Table, { mode: 'fullscreen' })
-  const { textSize } = useContext(FontContext)
+  const textSizeAdjustment = articleTextSize.getHasAdjusted()
   const linkHandlers = {
     action: ({ action }) => {
       const targetAction = actions.find(a => a.name === action)
@@ -72,7 +71,7 @@ const ArticleSection = ({
     }
   }
 
-  useArticleLinksNavigation('Article', lang, contentRef, linkHandlers, [page, textSize], { galleryItems, articleTitle, namespace, id })
+  useArticleLinksNavigation('Article', lang, contentRef, linkHandlers, [page, textSizeAdjustment], { galleryItems, articleTitle, namespace, id })
 
   useLayoutEffect(() => {
     if (!contentRef.current) {
@@ -96,7 +95,7 @@ const ArticleSection = ({
 
       cardNode.style.marginTop = `${marginTop}px`
     }
-  }, [title, imageUrl, textSize])
+  }, [title, imageUrl, textSizeAdjustment])
 
   return (
     <div

@@ -1,8 +1,7 @@
-import { useState, useEffect, useContext } from 'preact/hooks'
+import { useState, useEffect } from 'preact/hooks'
 import { useSoftkey, usePopup, useI18n } from 'hooks'
-import { viewport, INTERWIKI_KEYS, normalizeTitle, getDirection } from 'utils'
+import { viewport, INTERWIKI_KEYS, normalizeTitle, getDirection, articleTextSize } from 'utils'
 import { ArticlePreview } from 'components'
-import { PopupContext } from 'contexts'
 
 const SELECTED_ATTRIBUTE = 'data-selected'
 
@@ -28,11 +27,9 @@ export const useArticleLinksNavigation = (
   const i18n = useI18n()
   const [links, setLinks] = useState([])
   const [currentLink, setCurrentLinkInternal] = useState(null)
-  const [softkeyTrigger, setSoftkeyTrigger] = useState(false)
 
   const [showArticlePreview] = usePopup(ArticlePreview, { stack: true })
   const dir = getDirection(lang)
-  const { popupState } = useContext(PopupContext)
 
   const setCurrentLink = newLink => {
     setCurrentLinkInternal(previousLink => {
@@ -51,6 +48,7 @@ export const useArticleLinksNavigation = (
   useEffect(() => {
     const visibleLinks = findVisibleLinks(contentRef.current, source.galleryItems)
     setLinks(visibleLinks)
+    articleTextSize.setHasAdjusted(false)
     if (visibleLinks.length) {
       if (visibleLinks.indexOf(currentLink) === -1) {
         setCurrentLink(visibleLinks[0])
@@ -59,15 +57,6 @@ export const useArticleLinksNavigation = (
       setCurrentLink(null)
     }
   }, dependencies)
-
-  useEffect(() => {
-    const hasGallery = popupState.find(p => p.id === 'Gallery')
-    if (!hasGallery) {
-      if (origin !== 'Article' || popupState.length === 0) {
-        setSoftkeyTrigger(!softkeyTrigger)
-      }
-    }
-  }, [popupState, currentLink])
 
   const defaultLinkHandlers = {
     title: ({ title }) => {
@@ -91,7 +80,6 @@ export const useArticleLinksNavigation = (
         i = links.length - 1
       }
       setCurrentLink(links[i])
-      setSoftkeyTrigger(!softkeyTrigger)
     },
     [dir === 'rtl' ? 'onKeyFixedArrowLeft' : 'onKeyFixedArrowRight']: () => {
       if (!hasLinks()) {
@@ -99,7 +87,6 @@ export const useArticleLinksNavigation = (
       }
       const i = (links.indexOf(currentLink) + 1) % links.length
       setCurrentLink(links[i])
-      setSoftkeyTrigger(!softkeyTrigger)
     },
     center: currentLink ? i18n('centerkey-select') : '',
     onKeyCenter: () => {
@@ -112,7 +99,7 @@ export const useArticleLinksNavigation = (
         handler(clickEvent)
       }
     }
-  }, [softkeyTrigger])
+  }, [links, currentLink])
 
   return [currentLink]
 }

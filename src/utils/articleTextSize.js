@@ -6,6 +6,7 @@
 const KEY = 'article-textsize'
 const DEFAULT_SIZE = 3
 const [MIN_SIZE, MAX_SIZE] = [1, 7]
+let hasAdjusted = false
 
 const get = () => {
   const fontSize = localStorage.getItem(KEY)
@@ -28,6 +29,14 @@ const adjust = step => {
   set(newSize)
 }
 
+const getHasAdjusted = () => {
+  return hasAdjusted
+}
+
+const setHasAdjusted = (adjustStatus) => {
+  hasAdjusted = adjustStatus
+}
+
 export const articleTextSize = {
-  get, set, adjust, MAX_SIZE
+  get, set, adjust, getHasAdjusted, setHasAdjusted, MAX_SIZE
 }
