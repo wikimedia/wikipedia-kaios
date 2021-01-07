@@ -9,7 +9,8 @@ let originalTextSize
 export const TextSize = ({ close }) => {
   const i18n = useI18n()
   const { textSize, setTextSize } = useContext(FontContext)
-  const sliderValue = ['0', '16.6', '33.2', '49', '66.6', '83.2', '94']
+  const sliderPortion = 100 / 6
+  const sliderValue = Array.from({ length: 7 }, (v, i) => i * sliderPortion)
 
   const onKeyFixedArrowLeft = () => {
     articleTextSize.adjust(-1)
@@ -49,8 +50,8 @@ export const TextSize = ({ close }) => {
       </div>
       <div class='slider-container'>
         <div class='slider'>
-          <div class='circle' style={`left: ${sliderValue[textSize - 1]}%`} />
           <div class='filling' style={`width: ${sliderValue[textSize - 1]}%`} />
+          <div class='circle' style={`left: ${sliderValue[textSize - 1]}%`} />
         </div>
       </div>
       <div class='labels'>
