@@ -1,31 +1,39 @@
 import { cachedFetch, buildMwApiUrl } from 'utils'
 
 export const search = (lang, term) => {
+  // fulltext search
   const params = {
     action: 'query',
-    prop: ['description', 'pageimages', 'pageprops'].join('|'),
+    list: 'search',
+    srprop: 'snippet',
+    srsearch: term,
+    srlimit: 15,
+    srenablerewrites: true,
+    srinfo: 'rewrittenquery',
+    prop: 'pageimages',
     piprop: 'thumbnail',
-    pilimit: 15,
-    ppprop: 'displaytitle',
-    generator: 'prefixsearch',
-    redirects: true,
     pithumbsize: 64,
-    gpslimit: 15,
-    gpsnamespace: 0,
-    gpssearch: term.replace(/:/g, ' ')
+    pilimit: 15,
+    generator: 'search',
+    gsrsearch: term,
+    gsrnamespace: 0,
+    gsrlimit: 15,
+    format: 'json'
   }
+
   const url = buildMwApiUrl(lang, params)
   return cachedFetch(url, data => {
-    if (!data.query || !data.query.pages) {
+    if (!data.query || !data.query.search) {
       return []
     }
-    data.query.pages.sort((a, b) => a.index - b.index)
-    return Object.values(data.query.pages).map((p) => {
+
+    const { search, pages } = data.query
+    return Object.values(search).map(item => {
+      const page = pages && pages.find(page => page.pageid === item.pageid)
       return {
-        title: p.title,
-        titleHtml: p.title.replace(term, `<span class="searchmatch">${term}</span>`),
-        description: p.description,
-        imageUrl: p.thumbnail && p.thumbnail.source
+        title: item.title,
+        description: item.snippet,
+        imageUrl: page && page.thumbnail && page.thumbnail.source
       }
     })
   })

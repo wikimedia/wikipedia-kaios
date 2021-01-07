@@ -14,7 +14,7 @@ describe('Article search', () => {
   it('search should show results', () => {
     searchPage.search('catt')
     searchPage.results().first()
-      .should('have.text', 'CattDisambiguation page providing links to topics that could be referred to by the same search term')
+      .should('have.text', 'CattCatt or CATT may refer to: Alfred Catt (1833–1919), Australian parliamentarian Anthony Catt (1933–2018), English cricketer Carrie Chapman Catt (1859–1947)')
   })
 
   it('results with image should show image', () => {
@@ -46,8 +46,8 @@ describe('Article search', () => {
       .children().first().next().should('have.class', 'img')
   })
 
-  it('should show empty result found when search for "adf23cv1"', () => {
-    searchPage.search('adf23cv1')
+  it('should show empty result found when search for "adf23cv111111"', () => {
+    searchPage.search('adf23cv111111')
     searchPage.getEmptyContent().should('have.text', enJson['no-result-found'])
   })
 
