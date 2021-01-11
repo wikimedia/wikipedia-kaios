@@ -6,7 +6,8 @@
 			"MuratTheTurkish",
 			"Steeve815",
 			"YaronSh",
-			"דגש חזק"
+			"דגש חזק",
+			"ישראל קלר"
 		]
 	},
 	"article-action-sections": "תוכן עניינים",
@@ -30,7 +31,7 @@
 	"gallery-author-license": "מחבר ורישיון",
 	"gallery-unknown-author": "מחבר לא ידוע",
 	"gallery-unknown-license": "רישיון לא ידוע",
-	"header-menu": "תפריט ערך",
+	"header-menu": "אפשרויות",
 	"header-search": "תוצאות חיפוש",
 	"header-sections": "תוכן עניינים",
 	"header-settings": "הגדרות",
@@ -76,9 +77,9 @@
 	"settings-rate": "דירוג היישום",
 	"settings-help-feedback": "שליחת משוב",
 	"settings-about-app": "אודות היישום",
-	"textsize-increase": "ללחוץ 6 (להגדיל)",
-	"textsize-decrease": "ללחוץ 4 (להקטין)",
-	"textsize-default": "ללחוץ 5 (ברירת מחדל)",
+	"textsize-preview": "טקסט הערך ייראה כך.",
+	"textsize-label-small": "קטן",
+	"textsize-label-large": "גדול",
 	"toc-footer": "ערכים מוצעים",
 	"view-in-browser": "הצגת הערך בדפדפן",
 	"about-app-message": "נוצר על־ידי קרן ויקימדיה בעזרת מתנדבים כמוך.",

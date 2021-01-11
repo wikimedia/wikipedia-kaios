@@ -5,7 +5,7 @@
 			"Satdeep gill"
 		]
 	},
-	"article-action-sections": "حصے",
+	"article-action-sections": "مواد",
 	"article-action-gallery": "گیلری",
 	"article-action-languages": "بولی",
 	"article-language-available": "{{PLURAL:$1|بولی|بولیاں}} $1 وچ موجود",
@@ -23,7 +23,7 @@
 	"gallery-unknown-license": "گمنام لسنس",
 	"header-menu": "آپشنز",
 	"header-search": "کھوج دا نتارا",
-	"header-sections": "حصے",
+	"header-sections": "مواد",
 	"header-settings": "سیٹنگاں",
 	"more-information": "ہور جانکاری",
 	"no-result-found": "کوئی نتیجے نئیں لبھے",
@@ -53,6 +53,8 @@
 	"settings-privacy": "پرائیویسی پالیسی",
 	"settings-term": "ورتن شرطاں",
 	"settings-about-app": "ایپ بارے چ",
+	"textsize-label-small": "چھوٹا",
+	"textsize-label-large": "وڈا",
 	"softkey-read-more": "ہور پڑھو",
 	"softkey-send": "بھیجو",
 	"softkey-cancel": "مکاؤ",

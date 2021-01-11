@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"500000000006城",
+			"HTan (WMF)",
 			"Josephine W.",
 			"MuratTheTurkish",
 			"Nadine Siak",
@@ -11,7 +12,7 @@
 			"铁桶"
 		]
 	},
-	"article-action-sections": "段落",
+	"article-action-sections": "目录",
 	"article-action-quickfacts": "快速预览",
 	"article-action-gallery": "图库",
 	"article-action-languages": "语言",
@@ -30,9 +31,9 @@
 	"gallery-author-license": "作者与授权协议",
 	"gallery-unknown-author": "未知作者",
 	"gallery-unknown-license": "未知授权协议",
-	"header-menu": "条目菜单",
+	"header-menu": "选项",
 	"header-search": "搜索结果",
-	"header-sections": "段落",
+	"header-sections": "目录",
 	"header-settings": "设置",
 	"header-textsize": "条目文字大小",
 	"menu-previous": "上一条目",
@@ -76,9 +77,6 @@
 	"settings-rate": "评价应用程序",
 	"settings-help-feedback": "发送反馈",
 	"settings-about-app": "关于维基百科应用程序",
-	"textsize-increase": "按6 (增大字号)",
-	"textsize-decrease": "按4 (减小字号)",
-	"textsize-default": "按5 (默认字号)",
 	"toc-footer": "建议条目",
 	"view-in-browser": "在浏览器查看条目",
 	"about-app-message": "由维基媒体基金会在像您这样的志愿者的帮助下制作。",
@@ -89,6 +87,7 @@
 	"feedback-terms-of-use": "使用条款",
 	"softkey-send": "发送",
 	"softkey-cancel": "取消",
+	"softkey-exit": "退出",
 	"feedback-cancel-header": "舍弃",
 	"softkey-yes": "是",
 	"softkey-no": "否",

@@ -169,16 +169,16 @@ describe('Article view', () => {
   it('check down arrow doesnt show', () => {
     cy.navigateToPageWithoutOnboarding('article/en/Catt')
     articlePage.title().should('have.text', 'Catt')
-    articlePage.getDownArrowIndicator().should('not.be.visible')
+    articlePage.getDownArrowIndicator().should('not.exist')
     cy.downArrow()
-    articlePage.getDownArrowIndicator().should('not.be.visible')
+    articlePage.getDownArrowIndicator().should('not.exist')
   })
 
-  it.skip('check table is showing', () => {
-    cy.navigateToPageWithoutOnboarding('article/en/2020_coronavirus_pandemic_in_Portugal')
-    articlePage.title().should('have.text', 'COVID-19 pandemic in Portugal')
+  it('check table is showing', () => {
+    cy.navigateToPageWithoutOnboarding('article/en/Dynamics_(music)')
+    articlePage.title().should('have.text', 'Dynamics (music)')
     articlePage.selectOptionFromActionsMenu('sections')
-    articleMenuPage.selectOptionFromSections('Hospitals_for_COVID-19')
+    articleMenuPage.selectOptionFromSections('Dynamic_markings')
     cy.rightArrow()
     cy.get('table.wikitable>caption>b').should('have.text', 'More Information:')
     cy.enter()
