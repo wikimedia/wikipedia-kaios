@@ -12,7 +12,9 @@ each(range(7), {
 		.confirm-dialog,
 		.quickfacts,
 		.preview-text,
-		.textsize-preview {
+		.textsize-preview,
+		.article-title,
+		.description {
 			font-size: unit(@standard + @value, px);
 		}
 
@@ -24,8 +26,14 @@ each(range(7), {
 			font-size: unit(@preview-title + @value, px);
 		}
 
+		.footer-title {
+			font-size: unit((@desc + @value) + 0.8, px);
+		}
+
 		.desc,
-		.reference-preview {
+		.reference-preview,
+		.license,
+		.browser {
 			font-size: unit(@desc + @value, px);
 		}
 	}

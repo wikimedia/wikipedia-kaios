@@ -78,8 +78,6 @@ describe('Article view', () => {
     goToCatArticle()
     articlePage.selectOptionFromActionsMenu('quickfacts')
     quickFactsPage.table().get('div a ').should('contain.text', 'Conservation status')
-    cy.rightArrow().enter()
-    popupPage.getTitle().should('have.text', 'Conservation status')
     cy.enter()
     articlePage.title().should('have.text', 'Conservation status')
     cy.clickMenuButton().click()
