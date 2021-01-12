@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Alluk.",
 			"FinlandMan",
 			"Jack Phoenix",
 			"Muovipullo",
@@ -9,7 +10,7 @@
 			"Pyscowicz"
 		]
 	},
-	"article-action-sections": "Osiot",
+	"article-action-sections": "Sisältö",
 	"article-action-quickfacts": "Pikafaktoja",
 	"article-action-gallery": "Galleria",
 	"article-action-languages": "Kieli",
@@ -32,7 +33,7 @@
 	"gallery-unknown-license": "Tuntematon lisenssi",
 	"header-menu": "Valinnat",
 	"header-search": "Hakutulokset",
-	"header-sections": "Osiot",
+	"header-sections": "Sisältö",
 	"header-settings": "Asetukset",
 	"header-textsize": "Artikkelitekstin koko",
 	"menu-previous": "Edellinen artikkeli",
@@ -76,15 +77,19 @@
 	"settings-rate": "Arvostele sovellus",
 	"settings-help-feedback": "Lähetä palautetta",
 	"settings-about-app": "Tietoja sovelluksesta",
+	"textsize-preview": "Artikkelin teksti näyttää tältä.",
+	"textsize-label-small": "Pieni",
+	"textsize-label-large": "Suuri",
 	"toc-footer": "Ehdotetut artikkelit",
 	"view-in-browser": "Näytä artikkeli selaimessa",
-	"about-app-message": "Wikimedia Foundationin tekemä sinun kaltaistesi vapaaehtoisten avulla.",
+	"about-app-message": "Wikimedia-säätiön tekemä sinun kaltaistesi vapaaehtoisten avulla.",
 	"softkey-read-more": "Lue lisää",
 	"feedback-header": "Lähetä palautetta",
 	"feedback-explanation": "Käytämme palautettasi tämän sovelluksen parantamiseen. Vastauksesi säilytetään 90 päivän ajan; katso lisätietoja: $1 ja $2.",
 	"feedback-placeholder": "Kirjoita tähän...",
 	"feedback-success": "Kiitos palautteestasi",
 	"feedback-success-header": "Palaute lähetetty",
+	"feedback-terms-of-survey": "Kyselylausunnon ehdot",
 	"feedback-privacy-policy": "Tietosuojakäytäntö",
 	"feedback-terms-of-use": "Käyttöehdot",
 	"softkey-send": "Lähetä",
