@@ -59,10 +59,10 @@ export const Settings = () => {
 
   const items = [
     { title: i18n('settings-language'), path: '/language' },
+    { title: i18n('settings-help-feedback'), action: onFeedbackSelected },
     { title: i18n('settings-about-wikipedia'), action: onAboutWikipediaSelected },
     // @todo will have this soon and don't delete it from the language json
     // { title: i18n('settings-rate') },
-    { title: i18n('settings-help-feedback'), action: onFeedbackSelected },
     { title: i18n('settings-about-app'), action: onAboutAppSelected },
     { title: i18n('settings-privacy-terms'), action: onPrivacyTermsSelected }
   ]
