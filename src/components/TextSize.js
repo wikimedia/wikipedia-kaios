@@ -1,13 +1,17 @@
 import { h } from 'preact'
+import { useContext } from 'preact/hooks'
 import { useI18n, useSoftkey, useArticleTextSize } from 'hooks'
 import { articleTextSize } from 'utils'
+import { DirectionContext } from 'contexts'
 
 export const TextSize = ({ close }) => {
   const i18n = useI18n()
-
-  const [textsize, setTextSize] = useArticleTextSize()
+  const { dirState } = useContext(DirectionContext)
+  const [textSize, setTextSize] = useArticleTextSize()
+  const { MAX_SIZE } = articleTextSize
+  const sliderPortion = 100 / (MAX_SIZE)
+  const sliderValue = Array.from({ length: MAX_SIZE + 1 }, (v, i) => i * sliderPortion)
   const { onKeyArrowLeft, onKeyArrowRight } = articleTextSize.getSoftkeyEffect(setTextSize)
-  const sliderValue = ['0', '16.6', '33.2', '49', '66.6', '83.2', '94']
 
   useSoftkey('TextSize', {
     center: i18n('softkey-ok'),
@@ -20,13 +24,13 @@ export const TextSize = ({ close }) => {
   return <div class='textsize'>
     <div class='header'>{i18n('header-textsize')}</div>
     <div class='content'>
-      <div class='preview adjustable-font-size'>
+      <bdi class='preview adjustable-font-size'>
         {i18n('textsize-preview')}
-      </div>
+      </bdi>
       <div class='slider-container'>
         <div class='slider'>
-          <div class='circle' style={`left: ${sliderValue[textsize]}%`} />
-          <div class='filling' style={`width: ${sliderValue[textsize]}%`} />
+          <div class='filling' style={`width: ${sliderValue[textSize]}%`} />
+          <div class='circle' style={`${dirState === 'ltr' ? 'left' : 'right'}: ${sliderValue[textSize]}%`} />
         </div>
       </div>
       <div class='labels'>

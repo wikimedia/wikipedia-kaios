@@ -61,5 +61,5 @@ const getSoftkeyEffect = (onAdjust = () => {}) => {
 }
 
 export const articleTextSize = {
-  get, set, adjust, reset, init, getSoftkeyEffect
+  get, set, adjust, MAX_SIZE, reset, init, getSoftkeyEffect
 }
