@@ -14,14 +14,14 @@ const languageSettingsPage = new LanguageSettingsPage()
 const aboutAppPage = new AboutAppPage()
 const aboutWikipediaPage = new AboutWikipediaPage()
 const settingsMenuListEnglishText = [enJson['settings-language'],
-  enJson['settings-about-wikipedia'],
   enJson['settings-help-feedback'],
+  enJson['settings-about-wikipedia'],
   enJson['settings-about-app'],
   enJson['settings-privacy-terms']]
 const languageSettingsPopupEnglishText = enJson['language-setting-message']
 const settingsMenuListDutchText = [nlJson['settings-language'],
-  nlJson['settings-about-wikipedia'],
   nlJson['settings-help-feedback'],
+  nlJson['settings-about-wikipedia'],
   nlJson['settings-about-app'],
   nlJson['settings-privacy-terms']]
 
