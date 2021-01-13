@@ -173,7 +173,7 @@ const findVisibleLinks = (container, galleryItems) => {
 
 const isImageInGallery = (galleryItems, link) => {
   const aElement = link.querySelector('a')
-  if (!aElement) {
+  if (!aElement || !galleryItems) {
     return false
   }
 
