@@ -1,15 +1,14 @@
 import { h } from 'preact'
-import { useEffect, useContext } from 'preact/hooks'
+import { useContext } from 'preact/hooks'
 import { useI18n, useSoftkey } from 'hooks'
 import { articleTextSize } from 'utils'
 import { FontContext, DirectionContext } from 'contexts'
-
-let originalTextSize
 
 export const TextSize = ({ close, closeAll }) => {
   const i18n = useI18n()
   const { dirState } = useContext(DirectionContext)
   const { textSize, setTextSize } = useContext(FontContext)
+  const originalTextSize = articleTextSize.get()
   const { MAX_SIZE } = articleTextSize
   const sliderPortion = 100 / (MAX_SIZE - 1)
   const sliderValue = Array.from({ length: MAX_SIZE }, (v, i) => i * sliderPortion)
@@ -36,10 +35,6 @@ export const TextSize = ({ close, closeAll }) => {
     articleTextSize.setHasAdjusted(true)
     closeAll()
   }
-
-  useEffect(() => {
-    originalTextSize = articleTextSize.get()
-  }, [])
 
   useSoftkey('TextSize', {
     center: i18n('softkey-ok'),
