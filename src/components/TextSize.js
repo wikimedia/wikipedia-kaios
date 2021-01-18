@@ -10,8 +10,8 @@ export const TextSize = ({ close, closeAll }) => {
   const { textSize, setTextSize } = useContext(FontContext)
   const [localTextSize, setLocalTextSize] = useState(textSize)
   const { MAX_SIZE, MIN_SIZE } = articleTextSize
-  const sliderPortion = 100 / (MAX_SIZE - 1)
-  const sliderValue = Array.from({ length: MAX_SIZE }, (v, i) => i * sliderPortion)
+  const sliderPortion = 100 / (MAX_SIZE)
+  const sliderValue = Array.from({ length: MAX_SIZE + 1 }, (v, i) => i * sliderPortion)
 
   const adjust = (step) => {
     const newSize = localTextSize + step
@@ -37,13 +37,13 @@ export const TextSize = ({ close, closeAll }) => {
   return <div class='textsize'>
     <div class='header'>{i18n('header-textsize')}</div>
     <div class='content'>
-      <bdi class={`textsize-preview font-size-${localTextSize}`}>
+      <bdi class={`textsize-preview font-size-${localTextSize + 1}`}>
         {i18n('textsize-preview')}
       </bdi>
       <div class='slider-container'>
         <div class='slider'>
-          <div class='filling' style={`width: ${sliderValue[localTextSize - 1]}%`} />
-          <div class='circle' style={`${dirState === 'ltr' ? 'left' : 'right'}: ${sliderValue[localTextSize - 1]}%`} />
+          <div class='filling' style={`width: ${sliderValue[localTextSize]}%`} />
+          <div class='circle' style={`${dirState === 'ltr' ? 'left' : 'right'}: ${sliderValue[localTextSize]}%`} />
         </div>
       </div>
       <div class='labels'>

@@ -22,7 +22,7 @@ export const App = ({ i18n, dir }) => {
   // useTextSize
   const [textSize, setTextSize] = useState(articleTextSize.get())
   useEffect(() => {
-    document.body.className = `font-size-${textSize}`
+    document.body.className = `font-size-${textSize + 1}`
   }, [textSize])
   // end of useTextSize
 

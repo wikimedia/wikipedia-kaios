@@ -4,8 +4,8 @@
  */
 
 const KEY = 'article-textsize'
-const DEFAULT_SIZE = 3
-const [MIN_SIZE, MAX_SIZE] = [1, 7]
+const DEFAULT_SIZE = 2
+const [MIN_SIZE, MAX_SIZE] = [0, 6]
 
 const get = () => {
   const fontSize = localStorage.getItem(KEY)
