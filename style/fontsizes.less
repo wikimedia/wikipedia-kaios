@@ -1,7 +1,7 @@
 @standard: 13;
 @title: 21;
 @preview-title: 14;
-@footer-title: 11;
+@footer-title: 11.8;
 @desc: 11;
 
 each(range(7), {
@@ -13,7 +13,6 @@ each(range(7), {
 		.confirm-dialog,
 		.quickfacts,
 		.preview-text,
-		.textsize-preview,
 		.article-title,
 		.description {
 			font-size: unit(@standard + @value, px);
@@ -28,7 +27,7 @@ each(range(7), {
 		}
 
 		.footer-title {
-			font-size: unit((@footer-title + @value) + 0.8, px);
+			font-size: unit((@footer-title + @value), px);
 		}
 
 		.desc,

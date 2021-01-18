@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'preact/hooks'
 import { useSoftkey, usePopup, useI18n } from 'hooks'
-import { viewport, INTERWIKI_KEYS, normalizeTitle, getDirection, articleTextSize } from 'utils'
+import { viewport, INTERWIKI_KEYS, normalizeTitle, getDirection } from 'utils'
 import { ArticlePreview } from 'components'
 
 const SELECTED_ATTRIBUTE = 'data-selected'
@@ -48,7 +48,6 @@ export const useArticleLinksNavigation = (
   useEffect(() => {
     const visibleLinks = findVisibleLinks(contentRef.current, source.galleryItems)
     setLinks(visibleLinks)
-    articleTextSize.setHasAdjusted(false)
     if (visibleLinks.length) {
       if (visibleLinks.indexOf(currentLink) === -1) {
         setCurrentLink(visibleLinks[0])

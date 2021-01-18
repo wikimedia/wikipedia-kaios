@@ -1,5 +1,5 @@
 import { h } from 'preact'
-import { useContext } from 'preact/hooks'
+import { useState, useContext } from 'preact/hooks'
 import { useI18n, useSoftkey } from 'hooks'
 import { articleTextSize } from 'utils'
 import { FontContext, DirectionContext } from 'contexts'
@@ -8,52 +8,42 @@ export const TextSize = ({ close, closeAll }) => {
   const i18n = useI18n()
   const { dirState } = useContext(DirectionContext)
   const { textSize, setTextSize } = useContext(FontContext)
-  const originalTextSize = articleTextSize.get()
-  const { MAX_SIZE } = articleTextSize
+  const [localTextSize, setLocalTextSize] = useState(textSize)
+  const { MAX_SIZE, MIN_SIZE } = articleTextSize
   const sliderPortion = 100 / (MAX_SIZE - 1)
   const sliderValue = Array.from({ length: MAX_SIZE }, (v, i) => i * sliderPortion)
 
-  const onKeyArrowLeft = () => {
-    articleTextSize.adjust(-1)
-    setTextSize(articleTextSize.get())
-  }
-
-  const onKeyArrowRight = () => {
-    articleTextSize.adjust(1)
-    setTextSize(articleTextSize.get())
-  }
-
-  const onKeyBackspace = () => {
-    const currentTextSize = articleTextSize.get()
-
-    articleTextSize.adjust(originalTextSize - currentTextSize)
-    setTextSize(articleTextSize.get())
-    close()
+  const adjust = (step) => {
+    const newSize = localTextSize + step
+    if (newSize >= MIN_SIZE && newSize <= MAX_SIZE) {
+      setLocalTextSize(newSize)
+    }
   }
 
   const onKeyCenter = () => {
-    articleTextSize.setHasAdjusted(true)
+    articleTextSize.set(localTextSize)
+    setTextSize(localTextSize)
     closeAll()
   }
 
   useSoftkey('TextSize', {
     center: i18n('softkey-ok'),
     onKeyCenter,
-    onKeyBackspace,
-    onKeyArrowLeft,
-    onKeyArrowRight
-  })
+    onKeyBackspace: close,
+    onKeyArrowLeft: () => { adjust(-1) },
+    onKeyArrowRight: () => { adjust(1) }
+  }, [localTextSize])
 
   return <div class='textsize'>
     <div class='header'>{i18n('header-textsize')}</div>
     <div class='content'>
-      <bdi class='textsize-preview'>
+      <bdi class={`textsize-preview font-size-${localTextSize}`}>
         {i18n('textsize-preview')}
       </bdi>
       <div class='slider-container'>
         <div class='slider'>
-          <div class='filling' style={`width: ${sliderValue[textSize - 1]}%`} />
-          <div class='circle' style={`${dirState === 'ltr' ? 'left' : 'right'}: ${sliderValue[textSize - 1]}%`} />
+          <div class='filling' style={`width: ${sliderValue[localTextSize - 1]}%`} />
+          <div class='circle' style={`${dirState === 'ltr' ? 'left' : 'right'}: ${sliderValue[localTextSize - 1]}%`} />
         </div>
       </div>
       <div class='labels'>
