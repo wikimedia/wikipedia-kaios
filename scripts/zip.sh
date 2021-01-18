@@ -11,7 +11,7 @@ mkdir Wikipedia
 
 TARGET_STORE=$TARGET node scripts/manifest.js > Wikipedia/manifest.webapp
 TARGET_STORE=$TARGET INSTRUMENTATION=1 MANIFEST_FILE=./Wikipedia/manifest.webapp npm run build
-cp -r dist Wikipedia/
+cp dist/main.js Wikipedia/
 cp -r images Wikipedia/
 cp index.html Wikipedia/
 
