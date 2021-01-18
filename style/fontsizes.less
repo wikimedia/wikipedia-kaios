@@ -1,0 +1,40 @@
+@standard: 13;
+@title: 21;
+@preview-title: 14;
+@footer-title: 11.8;
+@desc: 11;
+
+each(range(7), {
+	// Classes listed here allow their
+	// corresponding elements to have
+	// adjustable font size via TextSize.js
+	.font-size-@{value} {
+		.article-content,
+		.confirm-dialog,
+		.quickfacts,
+		.preview-text,
+		.article-title,
+		.description {
+			font-size: unit(@standard + @value, px);
+		}
+
+		.title {
+			font-size: unit(@title + @value, px);
+		}
+
+		.preview-title {
+			font-size: unit(@preview-title + @value, px);
+		}
+
+		.footer-title {
+			font-size: unit((@footer-title + @value), px);
+		}
+
+		.desc,
+		.reference-preview,
+		.license,
+		.browser {
+			font-size: unit(@desc + @value, px);
+		}
+	}
+});

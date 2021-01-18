@@ -1,6 +1,6 @@
 import { h, Fragment } from 'preact'
 import { memo } from 'preact/compat'
-import { useState, useRef, useEffect, useLayoutEffect } from 'preact/hooks'
+import { useState, useRef, useEffect, useLayoutEffect, useContext } from 'preact/hooks'
 import {
   ReferencePreview, ArticleToc, ArticleLanguage,
   ArticleMenu, ArticleFooter, Loading, QuickFacts,
@@ -8,15 +8,16 @@ import {
 } from 'components'
 import {
   useArticle, useI18n, useSoftkey,
-  useArticlePagination, useArticleLinksNavigation, useArticleTextSize,
+  useArticlePagination, useArticleLinksNavigation,
   usePopup, useTracking
 } from 'hooks'
 import { articleHistory, confirmDialog, goto, viewport } from 'utils'
+import { FontContext } from 'contexts'
 
 const ArticleBody = memo(({ content }) => {
   return (
     <div
-      class='article-content adjustable-font-size'
+      class='article-content'
       dangerouslySetInnerHTML={{ __html: content }}
     />
   )
@@ -46,8 +47,7 @@ const ArticleSection = ({
   const i18n = useI18n()
   const [showReferencePreview] = usePopup(ReferencePreview)
   const [showTable] = usePopup(Table, { mode: 'fullscreen' })
-  const [textSize] = useArticleTextSize()
-
+  const { textSize } = useContext(FontContext)
   const linkHandlers = {
     action: ({ action }) => {
       const targetAction = actions.find(a => a.name === action)
@@ -105,10 +105,10 @@ const ArticleSection = ({
       style={imageUrl ? { backgroundImage: `url(${imageUrl})` } : {}}>
       <div class='card' dir={dir}>
         <div class='intro'>
-          <div class='title adjustable-font-size' data-anchor={anchor} dangerouslySetInnerHTML={{ __html: title }} />
+          <div class='title' data-anchor={anchor} dangerouslySetInnerHTML={{ __html: title }} />
           { description && (
             <Fragment>
-              <div class='desc adjustable-font-size'>{description}</div>
+              <div class='desc'>{description}</div>
             </Fragment>
           ) }
           { actions && <ArticleActions actions={actions} lang={lang} /> }

@@ -1,6 +1,6 @@
 import { h } from 'preact'
 import { useRef } from 'preact/hooks'
-import { useI18n, useSoftkey, useArticleLinksNavigation, useArticleTextSize } from 'hooks'
+import { useI18n, useSoftkey, useArticleLinksNavigation } from 'hooks'
 
 export const ReferencePreview = ({ reference, lang, dir, close }) => {
   const i18n = useI18n()
@@ -11,10 +11,9 @@ export const ReferencePreview = ({ reference, lang, dir, close }) => {
     onKeyLeft: close,
     onKeyBackspace: close
   }, [])
-  useArticleTextSize()
 
   return (
-    <div class='reference-preview adjustable-font-size' dir={dir} ref={contentRef}>
+    <div class='reference-preview' dir={dir} ref={contentRef}>
       <div class='ref-title'>{i18n('reference-title', reference.number)}</div>
       <div class='ref-content'>
         <bdi dangerouslySetInnerHTML={{ __html: reference.content }} />
