@@ -13,6 +13,7 @@ const SUPPORTED_LINKS = [
   'a[href^="#"]',
   'figure',
   'figure-inline',
+  'div.tsingle',
   'table:not([class^="infobox"])'
 ].join(',')
 
@@ -131,7 +132,7 @@ const makeLinkClickEvent = link => {
     return { type: 'section', text: normalizedText, anchor: link.getAttribute('href').slice(1) }
   }
 
-  if (link.tagName === 'FIGURE' || link.tagName === 'FIGURE-INLINE') {
+  if (['FIGURE', 'FIGURE-INLINE'].includes(link.tagName) || link.classList.contains('tsingle')) {
     const aElement = link.querySelector('a')
     const fileName = getFileNameFromAnchorElement(aElement)
     return { type: 'image', fileName }
