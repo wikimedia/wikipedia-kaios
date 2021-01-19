@@ -1,8 +1,9 @@
 import { h } from 'preact'
 import { useReducer, useState, useEffect } from 'preact/hooks'
 import { Routes, Softkey, PopupContainer, OfflineIndicator } from 'components'
-import { DirectionContext, I18nContext, SoftkeyContext, PopupContext } from 'contexts'
+import { DirectionContext, I18nContext, SoftkeyContext, PopupContext, FontContext } from 'contexts'
 import { SoftkeyReducer } from 'reducers'
+import { articleTextSize } from 'utils'
 import { useErrorLogging } from 'hooks'
 
 export const App = ({ i18n, dir }) => {
@@ -18,6 +19,13 @@ export const App = ({ i18n, dir }) => {
   }, [dirState])
   // end of useDirection
 
+  // useTextSize
+  const [textSize, setTextSize] = useState(articleTextSize.get())
+  useEffect(() => {
+    document.body.className = `font-size-${textSize + 1}`
+  }, [textSize])
+  // end of useTextSize
+
   useErrorLogging()
 
   return (
@@ -25,10 +33,12 @@ export const App = ({ i18n, dir }) => {
       <SoftkeyContext.Provider value={{ state, dispatch }}>
         <PopupContext.Provider value={{ popupState, setPopupState }}>
           <DirectionContext.Provider value={{ dirState, setDirState }}>
-            <OfflineIndicator routeUrl={url} />
-            <Routes onRouteChange={({ url }) => setUrl(url)} />
-            <Softkey dir={dirState} {...state.current} />
-            <PopupContainer popups={popupState} />
+            <FontContext.Provider value={{ textSize, setTextSize }}>
+              <OfflineIndicator routeUrl={url} />
+              <Routes onRouteChange={({ url }) => setUrl(url)} />
+              <Softkey dir={dirState} {...state.current} />
+              <PopupContainer popups={popupState} />
+            </FontContext.Provider>
           </DirectionContext.Provider>
         </PopupContext.Provider>
       </SoftkeyContext.Provider>

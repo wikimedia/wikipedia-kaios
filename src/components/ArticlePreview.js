@@ -1,7 +1,7 @@
 import { h } from 'preact'
 import {
   useArticleSummary, useI18n, useSoftkey,
-  useArticleTextSize, useArticlePreviewTracking
+  useArticlePreviewTracking
 } from 'hooks'
 import { goto } from 'utils'
 
@@ -21,17 +21,16 @@ export const ArticlePreview = ({ lang, title, source, dir, close, closeAll }) =>
     onKeyCenter: read,
     onKeyBackspace: close
   }, [summary])
-  useArticleTextSize([summary])
 
   useArticlePreviewTracking(summary, source, lang)
 
   return summary ? (
     <div class='article-preview' dir={dir}>
       <div class='item'>
-        <div class='title adjustable-font-size' dangerouslySetInnerHTML={{ __html: summary.titles.display }} />
+        <div class='preview-title' dangerouslySetInnerHTML={{ __html: summary.titles.display }} />
         { summary.imageUrl && <img class='img' src={summary.imageUrl} /> }
       </div>
-      <div class='preview-text adjustable-font-size' dangerouslySetInnerHTML={{ __html: summary.preview }} />
+      <div class='preview-text' dangerouslySetInnerHTML={{ __html: summary.preview }} />
     </div>
   ) : <LoadingPreview title={title} dir={dir} />
 }
@@ -39,7 +38,7 @@ export const ArticlePreview = ({ lang, title, source, dir, close, closeAll }) =>
 const LoadingPreview = ({ title, dir }) => (
   <div class='article-preview loading' dir={dir}>
     <div class='item'>
-      <div class='title adjustable-font-size'>{title}</div>
+      <div class='preview-title'>{title}</div>
       <div class='loading-block img' />
     </div>
     <div class='preview-text' >

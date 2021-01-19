@@ -1,36 +1,49 @@
 import { h } from 'preact'
-import { useContext } from 'preact/hooks'
-import { useI18n, useSoftkey, useArticleTextSize } from 'hooks'
+import { useState, useContext } from 'preact/hooks'
+import { useI18n, useSoftkey } from 'hooks'
 import { articleTextSize } from 'utils'
-import { DirectionContext } from 'contexts'
+import { FontContext, DirectionContext } from 'contexts'
 
-export const TextSize = ({ close }) => {
+export const TextSize = ({ close, closeAll }) => {
   const i18n = useI18n()
   const { dirState } = useContext(DirectionContext)
-  const [textSize, setTextSize] = useArticleTextSize()
-  const { MAX_SIZE } = articleTextSize
+  const { textSize, setTextSize } = useContext(FontContext)
+  const [localTextSize, setLocalTextSize] = useState(textSize)
+  const { MAX_SIZE, MIN_SIZE } = articleTextSize
   const sliderPortion = 100 / (MAX_SIZE)
   const sliderValue = Array.from({ length: MAX_SIZE + 1 }, (v, i) => i * sliderPortion)
-  const { onKeyArrowLeft, onKeyArrowRight } = articleTextSize.getSoftkeyEffect(setTextSize)
+
+  const adjust = (step) => {
+    const newSize = localTextSize + step
+    if (newSize >= MIN_SIZE && newSize <= MAX_SIZE) {
+      setLocalTextSize(newSize)
+    }
+  }
+
+  const onKeyCenter = () => {
+    articleTextSize.set(localTextSize)
+    setTextSize(localTextSize)
+    closeAll()
+  }
 
   useSoftkey('TextSize', {
     center: i18n('softkey-ok'),
-    onKeyCenter: close,
+    onKeyCenter,
     onKeyBackspace: close,
-    onKeyArrowLeft,
-    onKeyArrowRight
-  })
+    onKeyArrowLeft: () => { adjust(-1) },
+    onKeyArrowRight: () => { adjust(1) }
+  }, [localTextSize])
 
   return <div class='textsize'>
     <div class='header'>{i18n('header-textsize')}</div>
     <div class='content'>
-      <bdi class='preview adjustable-font-size'>
+      <bdi class={`textsize-preview font-size-${localTextSize + 1}`}>
         {i18n('textsize-preview')}
       </bdi>
       <div class='slider-container'>
         <div class='slider'>
-          <div class='filling' style={`width: ${sliderValue[textSize]}%`} />
-          <div class='circle' style={`${dirState === 'ltr' ? 'left' : 'right'}: ${sliderValue[textSize]}%`} />
+          <div class='filling' style={`width: ${sliderValue[localTextSize]}%`} />
+          <div class='circle' style={`${dirState === 'ltr' ? 'left' : 'right'}: ${sliderValue[localTextSize]}%`} />
         </div>
       </div>
       <div class='labels'>
