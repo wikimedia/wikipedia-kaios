@@ -70,14 +70,14 @@ describe('Article view', () => {
     articlePage.selectOptionFromActionsMenu('quickfacts')
     quickFactsPage.table().should('contains.text', 'Various types of the domestic cat')
     cy.clickCloseButton()
-    articlePage.selectOptionFromArticleMenu('Quick Facts')
+    articlePage.selectOptionFromArticleMenu('quickfacts')
     quickFactsPage.table().should('contains.text', 'Various types of the domestic cat')
   })
 
   it('check quick facts link opens', () => {
     goToCatArticle()
     articlePage.selectOptionFromActionsMenu('quickfacts')
-    quickFactsPage.table().get('div a ').should('contain.text', 'Conservation status')
+    quickFactsPage.table().get('div a[title]').should('contain.text', 'Conservation status')
     cy.enter(2)
     articlePage.title().should('have.text', 'Conservation status')
     cy.clickMenuButton().click()
