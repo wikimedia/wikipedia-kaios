@@ -1,13 +1,13 @@
 import { h } from 'preact'
 import { useRef, useEffect } from 'preact/hooks'
-import { ListView, OfflinePanel } from 'components'
+import { ListView, OfflinePanel, Consent } from 'components'
 import {
   useNavigation, useSearch, useI18n, useSoftkey,
-  useOnlineStatus, useTracking
+  useOnlineStatus, useTracking, usePopup
 } from 'hooks'
 import {
   articleHistory, goto, getAppLanguage,
-  isRandomEnabled, confirmDialog
+  isRandomEnabled, confirmDialog, isConsentGranted
 } from 'utils'
 import { getRandomArticleTitle } from 'api'
 
@@ -19,6 +19,7 @@ export const Search = () => {
   const [current, setNavigation, getCurrent] = useNavigation('Search', containerRef, listRef, 'y')
   const lang = getAppLanguage()
   const [query, setQuery, searchResults] = useSearch(lang)
+  const [showConsentPopup] = usePopup(Consent)
   const isOnline = useOnlineStatus(online => {
     if (online) {
       setQuery(inputRef.current.value)
@@ -78,6 +79,9 @@ export const Search = () => {
   useEffect(() => {
     articleHistory.clear()
     setNavigation(0)
+    if (!isConsentGranted()) {
+      showConsentPopup()
+    }
   }, [])
 
   return (

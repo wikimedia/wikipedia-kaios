@@ -1,15 +1,18 @@
 import { h } from 'preact'
-import { useI18n, useSoftkey, useOnlineStatus } from 'hooks'
+import { useRef } from 'preact/hooks'
+import { useI18n, useSoftkey, useOnlineStatus, useScroll } from 'hooks'
 import { grantConsent, goto } from 'utils'
 import { OfflinePanel } from 'components'
 
-export const Consent = () => {
+export const Consent = ({ close }) => {
   const i18n = useI18n()
   const isOnline = useOnlineStatus()
+  const containerRef = useRef()
+  const [scrollDown, scrollUp] = useScroll(containerRef, 10, 'y')
 
   const onAgree = () => {
     grantConsent()
-    goto.search()
+    close()
   }
 
   const softkeyConfig = {
@@ -23,14 +26,16 @@ export const Consent = () => {
       onKeyLeft: goto.termsOfUse,
       right: i18n('consent-softkeys-policy'),
       onKeyRight: goto.privacyPolicy,
+      onKeyArrowDown: scrollDown,
+      onKeyArrowUp: scrollUp,
       backspace: () => { window.exit() }
     }
   }
   useSoftkey('ConsentMessage', softkeyConfig[isOnline ? 'online' : 'offline'], [isOnline], true)
 
   return (
-    <div class='consent'>
-      <div class='header'>{i18n('app-title')}</div>
+    <div class='consent' ref={containerRef}>
+      <div class='header'>{i18n('consent-privacy-terms')}</div>
       <div class='body'>
         {
           isOnline ? <div class='messages' dir='auto'>
