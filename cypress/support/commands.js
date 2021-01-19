@@ -11,8 +11,10 @@ import * as enJson from '../../i18n/en.json'
   'backspace',
   'enter'
 ].forEach((key) => {
-  Cypress.Commands.add(key, () => {
-    cy.get('body').type(`{${key}}`)
+  Cypress.Commands.add(key, (repeat = 1) => {
+    for (let i = 0; i < repeat; i++) {
+      cy.get('body').type(`{${key}}`)
+    }
   })
 })
 
