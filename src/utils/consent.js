@@ -27,8 +27,7 @@ export const consentMessages = {
     'consent-message-terms': 'I understand and accept the Terms of Service.',
     'consent-softkeys-policy': 'Policy',
     'consent-softkeys-agree': 'Agree',
-    'consent-softkeys-terms': 'Terms',
-    'consent-privacy-terms': 'Privacy and Terms'
+    'consent-softkeys-terms': 'Terms'
   },
   hi: {
     'consent-message-policy': 'मैं निजता नीति की शर्तों को समझता और स्वीकार करता हूँ और ऐसी शर्तों के अनुसार मेरी व्यक्तिगत जानकारी के प्रसंस्करण के लिए सहमति व्यक्त करता हूँ।',
