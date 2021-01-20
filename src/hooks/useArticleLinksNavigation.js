@@ -164,10 +164,6 @@ const findVisibleLinks = (container, galleryItems) => {
     if (rect.y < 0 && (rect.y + rect.height < 0)) {
       continue
     }
-    if (rect.x > viewport.width || rect.y > (viewport.height - 30)) {
-      // After the current page
-      break
-    }
     if (['FIGURE', 'FIGURE-INLINE'].includes(link.tagName) ||
     Array.from(link.classList).some(classname => ['tsingle', 'image'].includes(classname))) {
       if (isImageInGallery(galleryItems, link)) {
@@ -180,6 +176,10 @@ const findVisibleLinks = (container, galleryItems) => {
       } else {
         continue
       }
+    }
+    if (rect.x > viewport.width || rect.y > (viewport.height - 30)) {
+      // After the current page
+      break
     }
     visibleLinks.push(link)
   }
