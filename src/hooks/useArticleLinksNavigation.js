@@ -133,10 +133,7 @@ const makeLinkClickEvent = link => {
     return { type: 'section', text: normalizedText, anchor: link.getAttribute('href').slice(1) }
   }
 
-  if (
-    ['FIGURE', 'FIGURE-INLINE'].includes(link.tagName) ||
-    Array.from(link.classList).some(classname => ['tsingle', 'image'].includes(classname))
-  ) {
+  if (isImageLink(link)) {
     const fileName = getFileNameFromAnchorElement(link)
     return { type: 'image', fileName }
   }
@@ -164,10 +161,11 @@ const findVisibleLinks = (container, galleryItems) => {
     if (rect.y < 0 && (rect.y + rect.height < 0)) {
       continue
     }
-    if (['FIGURE', 'FIGURE-INLINE'].includes(link.tagName) ||
-    Array.from(link.classList).some(classname => ['tsingle', 'image'].includes(classname))) {
-      if (isImageInGallery(galleryItems, link)) {
-        const fileName = getFileNameFromAnchorElement(link)
+    if (isImageLink(link)) {
+      const fileName = getFileNameFromAnchorElement(link)
+      if (fileName && isImageInGallery(galleryItems, fileName)) {
+        // use to capture a.image without figure/figure-inline tag
+        // and prevent the duplicate case of a.image exist under figure/figure-inline
         if (prevImage === fileName) {
           continue
         } else {
@@ -186,18 +184,22 @@ const findVisibleLinks = (container, galleryItems) => {
   return visibleLinks
 }
 
-const isImageInGallery = (galleryItems, link) => {
-  const aElement = link.querySelector('a') || (link.tagName === 'A' && link)
-  if (!aElement || !galleryItems) {
-    return false
-  }
+const isImageLink = link => {
+  return ['FIGURE', 'FIGURE-INLINE'].includes(link.tagName) ||
+    Array.from(link.classList).some(classname => ['tsingle', 'image'].includes(classname))
+}
 
-  const fileName = getFileNameFromAnchorElement(aElement)
+const isImageInGallery = (galleryItems = [], fileName) => {
   return galleryItems.find(media => media.canonicalizedTitle === fileName)
 }
 
 const getFileNameFromAnchorElement = link => {
-  const aElement = link.querySelector('a') || link
+  const aElement = link.querySelector('a') || (link.tagName === 'A' && link)
+
+  if (!aElement) {
+    return
+  }
+
   // file name example in href : /wiki/File:Holly_Christmas_card_from_NLI.jpg
   // split to match the api file name
   const href = aElement.getAttribute('href')
