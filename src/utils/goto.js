@@ -11,8 +11,6 @@ const article = (lang, title, replace = false) => {
 
 const search = () => route('/')
 
-const consent = () => route('/consent')
-
 const termsOfUse = () => {
   const lang = getAppLanguage()
   window.open(`https://foundation.m.wikimedia.org/wiki/Terms_of_Use/${lang}`)
@@ -22,4 +20,4 @@ const privacyPolicy = () => {
   window.open('https://foundation.m.wikimedia.org/wiki/Privacy_policy')
 }
 
-export const goto = { article, search, consent, termsOfUse, privacyPolicy }
+export const goto = { article, search, termsOfUse, privacyPolicy }
