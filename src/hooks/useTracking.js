@@ -1,7 +1,7 @@
 import { useRef, useEffect } from 'preact/hooks'
 import {
   appVersion, appInstallId, generateRandomId, sendEvent,
-  isInstrumentationEnabled
+  isInstrumentationEnabled, isConsentGranted
 } from 'utils'
 
 const SCHEMA_NAME = 'InukaPageView'
@@ -30,7 +30,7 @@ export const useTracking = (
   sectionCount = 0,
   openedSections = {}
 ) => {
-  if (!isInstrumentationEnabled()) {
+  if (!isInstrumentationEnabled() || !isConsentGranted()) {
     return
   }
   const userId = appInstallId()
