@@ -1,5 +1,6 @@
 import { route } from 'preact-router'
 import { canonicalizeTitle, getAppLanguage } from 'utils'
+import { getRandomArticleTitle } from 'api'
 
 const article = (lang, title, replace = false) => {
   if (!Array.isArray(title)) {
@@ -22,4 +23,16 @@ const privacyPolicy = () => {
   window.open('https://foundation.m.wikimedia.org/wiki/Privacy_policy')
 }
 
-export const goto = { article, search, consent, termsOfUse, privacyPolicy }
+const randomArticle = (closePopup) => {
+  const lang = getAppLanguage()
+  const [promise] = getRandomArticleTitle(lang)
+
+  promise.then(title => {
+    if (closePopup) {
+      closePopup()
+    }
+    article(lang, title)
+  })
+}
+
+export const goto = { article, search, consent, termsOfUse, privacyPolicy, randomArticle }

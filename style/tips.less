@@ -1,0 +1,61 @@
+.tips {
+	.list {
+		top: @pageHeaderHeight;
+		bottom: @softkeysHeight;
+
+		.item .info .title {
+			font-size: 17px;
+		}
+	}
+}
+
+.tip {
+	height: @availableHeight;
+
+	.tip-media {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+
+		.tip-animation {
+			height: 156px;
+			width: 196px;
+			background-size: contain;
+			background-repeat: no-repeat;
+
+			@media @landscape {
+				height: 104px;
+				width: 134px;
+			}
+		}
+
+		.tip-image {
+			width: 112px;
+			height: 112px;
+			text-align: center;
+			background-size: contain;
+			background-repeat: no-repeat;
+
+			@media @landscape {
+				width: 80px;
+				height: 80px;
+			}
+		}
+	}
+
+	.tip-header {
+		height: 24px;
+		margin: 22px 34px 6px 10px;
+		font-size: 20px;
+		font-weight: bold;
+		line-height: 1.2;
+		color: #000;
+	}
+
+	.tip-text {
+		margin: 6px 10px 14px;
+		font-size: 14px;
+		line-height: 1.57;
+		color: #000;
+	}
+}

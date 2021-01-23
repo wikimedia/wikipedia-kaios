@@ -9,7 +9,6 @@ import {
   articleHistory, goto, getAppLanguage,
   isRandomEnabled, confirmDialog
 } from 'utils'
-import { getRandomArticleTitle } from 'api'
 
 export const Search = () => {
   const containerRef = useRef()
@@ -28,6 +27,8 @@ export const Search = () => {
     const { index, key } = getCurrent()
     if (index) {
       goto.article(lang, key)
+    } else if (isRandomEnabled() && !query) {
+      goto.randomArticle()
     }
   }
 
@@ -56,20 +57,13 @@ export const Search = () => {
     })
   }
 
-  const goToRandomArticle = () => {
-    const [promise] = getRandomArticleTitle(lang)
-
-    promise.then(title => {
-      goto.article(lang, title)
-    })
-  }
-
   useSoftkey('Search', {
     right: i18n('softkey-settings'),
     onKeyRight: () => { window.location.hash = '/settings' },
     center: current.type === 'DIV' ? i18n('centerkey-select') : '',
     onKeyCenter,
-    onKeyLeft: isRandomEnabled() ? goToRandomArticle : null,
+    left: i18n('softkey-tips'),
+    onKeyLeft: () => { window.location.hash = '/tips' },
     onKeyBackspace: !(query && current.type === 'INPUT') && onExitConfirmDialog
   }, [current.type, query])
 
