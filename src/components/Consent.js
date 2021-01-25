@@ -17,7 +17,7 @@ export const Consent = ({ close }) => {
 
   const softkeyConfig = {
     offline: {
-      backspace: () => { window.exit() }
+      onKeyBackspace: () => { window.close() }
     },
     online: {
       center: i18n('consent-softkeys-agree'),
@@ -28,7 +28,7 @@ export const Consent = ({ close }) => {
       onKeyRight: goto.privacyPolicy,
       onKeyArrowDown: scrollDown,
       onKeyArrowUp: scrollUp,
-      backspace: () => { window.exit() }
+      onKeyBackspace: () => { window.close() }
     }
   }
   useSoftkey('ConsentMessage', softkeyConfig[isOnline ? 'online' : 'offline'], [isOnline], true)
