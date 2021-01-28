@@ -5,9 +5,11 @@
 			"Verman1"
 		]
 	},
+	"article-action-sections": "Mündəricat",
 	"article-action-quickfacts": "Qısa faktlar",
 	"article-action-gallery": "Qalereya",
 	"article-action-languages": "Dil",
+	"article-language-available": "$1 {{PLURAL:$1|dildə}} mövcuddur",
 	"app-title": "Vikipediya",
 	"app-subtitle": "Azad ensiklopediya",
 	"about-header": "Haqqında",
@@ -31,7 +33,7 @@
 	"textsize-label-small": "Kiçik",
 	"textsize-label-large": "Böyük",
 	"toc-footer": "Təklif edilən məqalələr",
-	"about-app-message": "Vikimediya Fondu tərəfindən sizin kimi könüllərin vasitəsilə hazırlanıb.",
+	"about-app-message": "Vikimedia Fondu tərəfindən sizin timsalınızda olan könüllülərin köməkliyi ilə hazırlanmışdır.",
 	"softkey-read-more": "Daha çox oxuyun",
 	"feedback-privacy-policy": "Məxfilik siyasəti",
 	"feedback-terms-of-use": "İstifadə şərtləri",
