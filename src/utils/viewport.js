@@ -1,4 +1,6 @@
-export const viewport = {
-  width: window.innerWidth,
-  height: window.innerHeight
+export const viewport = () => {
+  return {
+    width: window.innerWidth,
+    height: window.innerHeight
+  }
 }
