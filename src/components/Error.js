@@ -1,5 +1,6 @@
 import { h } from 'preact'
 import { useSoftkey, useI18n } from 'hooks'
+import { goto } from 'utils'
 
 export const Error = ({ message, onRefresh }) => {
   const i18n = useI18n()
@@ -8,7 +9,7 @@ export const Error = ({ message, onRefresh }) => {
     center: i18n('softkey-refresh'),
     onKeyCenter: onRefresh,
     left: i18n('softkey-close'),
-    onKeyLeft: () => history.back()
+    onKeyLeft: () => goto.back()
   })
 
   return (
