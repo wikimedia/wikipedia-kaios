@@ -21,7 +21,7 @@ export const Search = () => {
   const [query, setQuery, searchResults] = useSearch(lang)
   const isOnline = useOnlineStatus(online => {
     if (online) {
-      setQuery(inputRef.current.value.trim())
+      setQuery(inputRef.current.value)
     }
   })
   const onKeyCenter = () => {
@@ -33,7 +33,7 @@ export const Search = () => {
 
   const onInput = ({ target }) => {
     if (isOnline) {
-      setQuery(target.value.trim())
+      setQuery(target.value)
     }
   }
 
