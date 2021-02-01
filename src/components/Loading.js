@@ -1,5 +1,7 @@
 import { h } from 'preact'
 import { useSoftkey, useI18n } from 'hooks'
+import { goto } from 'utils'
+
 export const Loading = ({ message, onClose }) => {
   const i18n = useI18n()
 
@@ -9,14 +11,14 @@ export const Loading = ({ message, onClose }) => {
       if (onClose) {
         onClose()
       } else {
-        history.back()
+        goto.back()
       }
     },
     onKeyBackspace: () => {
       if (onClose) {
         onClose()
       } else {
-        history.back()
+        goto.back()
       }
     }
   }, [])

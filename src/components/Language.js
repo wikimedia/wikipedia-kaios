@@ -3,7 +3,7 @@ import { useState, useRef, useEffect, useContext } from 'preact/hooks'
 import { DirectionContext } from 'contexts'
 import { useNavigation, useI18n, useSoftkey, usePopup, useSearchLanguage } from 'hooks'
 import { RadioListView } from 'components'
-import { setAppLanguage, getAppLanguage, getDirection } from 'utils'
+import { setAppLanguage, getAppLanguage, getDirection, goto } from 'utils'
 
 export const Language = () => {
   const containerRef = useRef()
@@ -26,7 +26,7 @@ export const Language = () => {
       setLang(item.lang)
       setAppLanguage(item.lang)
       setDirState(getDirection(item.lang))
-      history.back()
+      goto.back()
     }
   }
 
@@ -36,8 +36,8 @@ export const Language = () => {
     center: i18n('centerkey-select'),
     onKeyCenter,
     left: i18n('softkey-cancel'),
-    onKeyLeft: () => history.back(),
-    onKeyBackspace: !(query && current.type === 'INPUT') && (() => history.back())
+    onKeyLeft: () => goto.back(),
+    onKeyBackspace: !(query && current.type === 'INPUT') && (() => goto.back())
   }, [lang, items, current.type])
 
   useEffect(() => {
@@ -55,7 +55,7 @@ const LanguagePopup = ({ close, i18n }) => {
   useSoftkey('LanguageMessage', {
     center: i18n('softkey-ok'),
     onKeyCenter: close,
-    onKeyBackspace: () => { close(); history.back() }
+    onKeyBackspace: () => { close(); goto.back() }
   }, [])
 
   return <div class='language-message'>

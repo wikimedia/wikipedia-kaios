@@ -162,7 +162,7 @@ const findVisibleLinks = (container, galleryItems) => {
     if ((link.tagName === 'FIGURE' || link.tagName === 'FIGURE-INLINE') && !isImageInGallery(galleryItems, link)) {
       continue
     }
-    if (rect.x > viewport.width || rect.y > (viewport.height - 30)) {
+    if (rect.x > viewport().width || rect.y > (viewport().height - 30)) {
       // After the current page
       break
     }

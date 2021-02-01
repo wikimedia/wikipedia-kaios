@@ -5,6 +5,7 @@ const StylelintPlugin = require('stylelint-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 
 module.exports = {
+  devtool: 'source-map',
   entry: './src/index.js',
   output: {
     filename: 'main.js',
@@ -16,7 +17,8 @@ module.exports = {
       new TerserPlugin({
         terserOptions: {
           keep_classnames: true,
-          keep_fnames: true
+          keep_fnames: true,
+          mangle: false
         }
       })
     ]

@@ -20,4 +20,6 @@ const privacyPolicy = () => {
   window.open('https://foundation.m.wikimedia.org/wiki/Privacy_policy')
 }
 
-export const goto = { article, search, termsOfUse, privacyPolicy }
+const back = () => window.history.back()
+
+export const goto = { article, search, termsOfUse, privacyPolicy, back }
