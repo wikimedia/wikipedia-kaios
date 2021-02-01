@@ -196,13 +196,13 @@ const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
       const { lang, title } = articleHistory.prev()
       goto.article(lang, title, true)
     } else {
-      history.back()
+      goto.back()
     }
   }
 
   useSoftkey('Article', {
     left: i18n('softkey-close'),
-    onKeyLeft: () => history.back(),
+    onKeyLeft: () => goto.back(),
     right: i18n('softkey-menu'),
     onKeyRight: showArticleMenu,
     onKeyBackspace
@@ -258,7 +258,7 @@ const findCurrentLocatedAnchor = ref => {
   let element
   Array.from(ref.current.querySelectorAll('.title, h3, h4'))
     .find(ref => {
-      if (ref.getBoundingClientRect().left < viewport.width) {
+      if (ref.getBoundingClientRect().left < viewport().width) {
         element = ref
       }
     })

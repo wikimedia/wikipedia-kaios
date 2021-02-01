@@ -73,7 +73,7 @@ describe('settings page', () => {
     languageSettingsPage.selectOptionFromSettings('About the app')
     aboutAppPage.getHeader().should('have.text', enJson['about-header'])
     aboutAppPage.getImage().should('have.attr', 'src', '/images/onboarding-0.png')
-    aboutAppPage.getVersion().should('contain', '1.0.0')
+    aboutAppPage.getVersion().should('contain', '0.0.0')
     aboutAppPage.getMessage().should('have.text', enJson['about-app-message'])
   })
 

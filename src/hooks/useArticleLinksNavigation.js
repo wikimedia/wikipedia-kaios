@@ -175,7 +175,7 @@ const findVisibleLinks = (container, galleryItems) => {
         continue
       }
     }
-    if (rect.x > viewport.width || rect.y > (viewport.height - 30)) {
+    if (rect.x > viewport().width || rect.y > (viewport().height - 30)) {
       // After the current page
       break
     }

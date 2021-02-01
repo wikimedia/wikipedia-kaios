@@ -14,7 +14,7 @@ export const useArticlePagination = (
   useSoftkey('Article', {
     onKeyArrowDown: () => {
       const previous = elementRef.current.scrollLeft
-      elementRef.current.scrollLeft += viewport.width
+      elementRef.current.scrollLeft += viewport().width
       const after = elementRef.current.scrollLeft
 
       // show the next section of the article
@@ -26,7 +26,7 @@ export const useArticlePagination = (
     },
     onKeyArrowUp: () => {
       const previous = elementRef.current.scrollLeft
-      elementRef.current.scrollLeft -= viewport.width
+      elementRef.current.scrollLeft -= viewport().width
       const after = elementRef.current.scrollLeft
 
       // show the previous section of the article
@@ -44,9 +44,9 @@ export const useArticlePagination = (
   useLayoutEffect(() => {
     if (isLastPage) {
       const scrollWidth = elementRef.current.scrollWidth
-      const offset = viewport.width
+      const offset = viewport().width
       elementRef.current.scrollLeft = scrollWidth - offset
-      setCurrentPage(elementRef.current.scrollLeft / viewport.width)
+      setCurrentPage(elementRef.current.scrollLeft / viewport().width)
       setIsLastPage(false)
     } else {
       elementRef.current.scrollLeft = 0
@@ -62,10 +62,10 @@ export const useArticlePagination = (
 
       if (anchorElement) {
         const offset = Math.floor(
-          anchorElement.getBoundingClientRect().left / viewport.width
+          anchorElement.getBoundingClientRect().left / viewport().width
         )
-        elementRef.current.scrollLeft += offset * viewport.width
-        setCurrentPage(elementRef.current.scrollLeft / viewport.width)
+        elementRef.current.scrollLeft += offset * viewport().width
+        setCurrentPage(elementRef.current.scrollLeft / viewport().width)
       }
     }
   }, [anchor])
