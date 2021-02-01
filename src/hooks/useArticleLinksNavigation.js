@@ -190,6 +190,9 @@ const isImageLink = link => {
 }
 
 const isImageInGallery = (galleryItems = [], fileName) => {
+  if (!galleryItems) {
+    return false
+  }
   return galleryItems.find(media => media.canonicalizedTitle === fileName)
 }
 
