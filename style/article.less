@@ -150,7 +150,8 @@
 				}
 
 				figure,
-				figure-inline {
+				figure-inline,
+				.gallerybox {
 					position: relative;
 					width: 135px;
 					margin-left: auto;
@@ -165,7 +166,8 @@
 						width: auto;
 					}
 
-					figcaption {
+					figcaption,
+					.gallerytext {
 						font-size: 71.42%; // 10/14 x 100
 						line-height: normal;
 						padding: 5px;
@@ -180,6 +182,8 @@
 				}
 
 				.thumb {
+					all: unset;
+
 					.thumbinner {
 						width: auto !important;
 
@@ -245,7 +249,7 @@
 						padding-left: 0;
 
 						.gallerybox {
-							width: 100% !important;
+							width: 100%;
 							text-align: center;
 
 							div.thumb {
