@@ -1,8 +1,0 @@
-dist/
-node_modules/
-cypress/screenshots
-cypress/videos/
-cypress/fixtures
-.vscode
-Wikipedia
-WikipediaKaiOS*.zip
