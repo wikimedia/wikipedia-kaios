@@ -3,6 +3,7 @@ import { route } from 'preact-router'
 import { useRef, useEffect } from 'preact/hooks'
 import { useNavigation, useI18n, useSoftkey, usePopup } from 'hooks'
 import { ListView, AboutApp, AboutWikipedia, PrivacyTerms, Feedback } from 'components'
+import { goto } from 'utils'
 
 export const Settings = () => {
   const containerRef = useRef()
@@ -45,10 +46,10 @@ export const Settings = () => {
 
   useSoftkey('Settings', {
     left: i18n('softkey-close'),
-    onKeyLeft: () => history.back(),
+    onKeyLeft: () => goto.back(),
     center: i18n('centerkey-select'),
     onKeyCenter,
-    onKeyBackspace: () => history.back()
+    onKeyBackspace: () => goto.back()
   })
 
   const [, setNavigation, getCurrent] = useNavigation('Settings', containerRef, listRef, 'y')
