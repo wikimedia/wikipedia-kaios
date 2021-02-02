@@ -35,4 +35,6 @@ const randomArticle = (closePopup) => {
   })
 }
 
-export const goto = { article, search, consent, termsOfUse, privacyPolicy, randomArticle }
+const back = () => window.history.back()
+
+export const goto = { article, search, consent, termsOfUse, privacyPolicy, back, randomArticle }

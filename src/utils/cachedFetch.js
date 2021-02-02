@@ -53,7 +53,7 @@ const sendLogWhenError = ({ status, response }, url) => {
     return
   }
 
-  if (response.error) {
+  if (response && response.error) {
     sendErrorLog({ message: response.error.info, url })
   } else if (status >= 500 && status < 600) {
     sendErrorLog({ message: `${status} ${url}`, url })
