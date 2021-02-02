@@ -63,21 +63,17 @@ export const Tips = () => {
   )
 }
 
-const tip = (origin, key, close, onNext, onTry) => {
+const tip = (origin, content, close, onNext, onTry) => {
   const i18n = useI18n()
-  const aboutTip = key === 'about'
+  const aboutTip = origin === 'AboutPopup'
 
   const onTryHandler = () => {
-    if (key === 'search') {
+    if (origin === 'SearchPopup') {
       close()
       onTry()
     } else {
       onTry(close)
     }
-  }
-
-  const getBackgroundStyle = () => {
-    return { backgroundImage: aboutTip ? 'url(/images/onboarding-0.png)' : `url(images/tip-${key}-animation.gif` }
   }
 
   useSoftkey(origin, {
@@ -93,26 +89,46 @@ const tip = (origin, key, close, onNext, onTry) => {
   return (
     <div class={'tip'}>
       <div class='tip-media'>
-        <div class={`tip-${aboutTip ? 'image' : 'animation'}`} style={getBackgroundStyle()} />
+        <div class={`${aboutTip ? 'tip-image' : 'tip-animation'}`} style={{ backgroundImage: `url(${content.image})` }} />
       </div>
-      <div class={'tip-header'}>{i18n(`tip-${key}-header`)}</div>
-      <p class={'tip-text'} dangerouslySetInnerHTML={{ __html: i18n(`tip-${key}-message`) }} />
+      <div class={'tip-header'}>{i18n(content.header)}</div>
+      <p class={'tip-text'} dangerouslySetInnerHTML={{ __html: i18n(content.message) }} />
     </div>
   )
 }
 
 const ReadPopup = ({ close, onSearchPopupSelected }) => {
-  return tip('ReadPopup', 'read', close, onSearchPopupSelected, goto.randomArticle)
+  const content = {
+    image: 'images/tip-read-animation.gif',
+    header: 'tip-read-header',
+    message: 'tip-read-message'
+  }
+  return tip('ReadPopup', content, close, onSearchPopupSelected, goto.randomArticle)
 }
 
 const SearchPopup = ({ close, onSwitchPopupSelected }) => {
-  return tip('SearchPopup', 'search', close, onSwitchPopupSelected, goto.search)
+  const content = {
+    image: 'images/tip-search-animation.gif',
+    header: 'tip-search-header',
+    message: 'tip-search-message'
+  }
+  return tip('SearchPopup', content, close, onSwitchPopupSelected, goto.search)
 }
 
 const SwitchPopup = ({ close, showAboutWikipediaPopup }) => {
-  return tip('SwitchPopup', 'switch', close, showAboutWikipediaPopup, goto.randomArticle)
+  const content = {
+    image: 'images/tip-switch-animation.gif',
+    header: 'tip-switch-header',
+    message: 'tip-switch-message'
+  }
+  return tip('SwitchPopup', content, close, showAboutWikipediaPopup, goto.randomArticle)
 }
 
 const AboutPopup = ({ close }) => {
-  return tip('AboutPopup', 'about', close)
+  const content = {
+    image: 'images/onboarding-0.png',
+    header: 'tip-about-header',
+    message: 'tip-about-message'
+  }
+  return tip('AboutPopup', content, close)
 }
