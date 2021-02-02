@@ -79,12 +79,12 @@ export const Search = () => {
 
   useEffect(() => {
     articleHistory.clear()
-    if (!consentGranted) {
+    if (!consentGranted && isOnline) {
       showConsentPopup()
     } else {
       setNavigation(0)
     }
-  }, [consentGranted])
+  }, [consentGranted, isOnline])
 
   return (
     <div class='search' ref={containerRef}>
