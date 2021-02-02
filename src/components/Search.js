@@ -59,11 +59,11 @@ export const Search = () => {
 
   useSoftkey('Search', {
     right: i18n('softkey-settings'),
-    onKeyRight: () => { window.location.hash = '/settings' },
+    onKeyRight: goto.settings,
     center: current.type === 'DIV' ? i18n('centerkey-select') : '',
     onKeyCenter,
     left: i18n('softkey-tips'),
-    onKeyLeft: () => { window.location.hash = '/tips' },
+    onKeyLeft: goto.tips,
     onKeyBackspace: !(query && current.type === 'INPUT') && onExitConfirmDialog
   }, [current.type, query])
 
