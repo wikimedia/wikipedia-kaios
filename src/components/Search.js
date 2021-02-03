@@ -9,6 +9,7 @@ import {
   articleHistory, goto, getAppLanguage,
   isRandomEnabled, confirmDialog
 } from 'utils'
+import { getRandomArticleTitle } from 'api'
 
 export const Search = () => {
   const containerRef = useRef()
@@ -28,7 +29,7 @@ export const Search = () => {
     if (index) {
       goto.article(lang, key)
     } else if (isRandomEnabled() && !query) {
-      goto.randomArticle()
+      goToRandomArticle()
     }
   }
 
@@ -82,4 +83,16 @@ export const Search = () => {
       { !isOnline && <OfflinePanel /> }
     </div>
   )
+}
+
+export const goToRandomArticle = (closePopup) => {
+  const lang = getAppLanguage()
+  const [promise] = getRandomArticleTitle(lang)
+
+  promise.then(title => {
+    if (closePopup) {
+      closePopup()
+    }
+    goto.article(lang, title)
+  })
 }

@@ -1,7 +1,7 @@
 import { h } from 'preact'
 import { useRef, useEffect } from 'preact/hooks'
 import { useNavigation, useI18n, useSoftkey, usePopup } from 'hooks'
-import { ListView } from 'components'
+import { ListView, goToRandomArticle } from 'components'
 import { goto } from 'utils'
 
 export const Tips = () => {
@@ -103,7 +103,7 @@ const ReadPopup = ({ close, onSearchPopupSelected }) => {
     header: 'tip-read-header',
     message: 'tip-read-message'
   }
-  return tip('ReadPopup', content, close, onSearchPopupSelected, goto.randomArticle)
+  return tip('ReadPopup', content, close, onSearchPopupSelected, goToRandomArticle)
 }
 
 const SearchPopup = ({ close, onSwitchPopupSelected }) => {
@@ -121,7 +121,7 @@ const SwitchPopup = ({ close, showAboutWikipediaPopup }) => {
     header: 'tip-switch-header',
     message: 'tip-switch-message'
   }
-  return tip('SwitchPopup', content, close, showAboutWikipediaPopup, goto.randomArticle)
+  return tip('SwitchPopup', content, close, showAboutWikipediaPopup, goToRandomArticle)
 }
 
 const AboutPopup = ({ close }) => {
