@@ -8,7 +8,7 @@ export const useSearch = (lang) => {
   const [searchResults, setSearchResults] = useState()
 
   useEffect(() => {
-    if (query) {
+    if (query && query.trim()) {
       const [request, abort] = search(lang, query)
       request.then(setSearchResults)
       return abort
