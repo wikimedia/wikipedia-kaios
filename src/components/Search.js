@@ -67,10 +67,7 @@ export const Search = () => {
   }
 
   const allowInput = () => {
-    if (isOnline === false && consentGranted === false) {
-      return false
-    }
-    return true
+    return isOnline || consentGranted
   }
 
   useSoftkey('Search', {
@@ -88,9 +85,8 @@ export const Search = () => {
     articleHistory.clear()
     if (!consentGranted && isOnline) {
       showConsentPopup()
-    } else if (!isOnline) {
-      closeConsentPopup()
     } else {
+      closeConsentPopup()
       setNavigation(0)
     }
   }, [consentGranted, isOnline])
