@@ -1,11 +1,10 @@
 import { h } from 'preact'
-import { useRef, useEffect } from 'preact/hooks'
-import { useI18n, useSoftkey, useOnlineStatus, useScroll } from 'hooks'
+import { useRef } from 'preact/hooks'
+import { useI18n, useSoftkey, useScroll } from 'hooks'
 import { grantConsent, goto } from 'utils'
 
 export const Consent = ({ close }) => {
   const i18n = useI18n()
-  const isOnline = useOnlineStatus()
   const containerRef = useRef()
   const [scrollDown, scrollUp] = useScroll(containerRef, 10, 'y')
 
@@ -25,12 +24,6 @@ export const Consent = ({ close }) => {
     onKeyArrowUp: scrollUp,
     onKeyBackspace: () => { window.close() }
   })
-
-  useEffect(() => {
-    if (!isOnline) {
-      close()
-    }
-  }, [isOnline])
 
   return (
     <div class='consent' ref={containerRef}>

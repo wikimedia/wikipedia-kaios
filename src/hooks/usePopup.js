@@ -40,5 +40,5 @@ export const usePopup = (component, options = {}) => {
       return newState
     })
   }
-  return [show]
+  return [show, close]
 }

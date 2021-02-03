@@ -19,7 +19,7 @@ export const Search = () => {
   const [current, setNavigation, getCurrent] = useNavigation('Search', containerRef, listRef, 'y')
   const lang = getAppLanguage()
   const [query, setQuery, searchResults] = useSearch(lang)
-  const [showConsentPopup] = usePopup(Consent)
+  const [showConsentPopup, closeConsentPopup] = usePopup(Consent)
   const consentGranted = isConsentGranted()
   const isOnline = useOnlineStatus(online => {
     if (online && inputRef.current) {
@@ -88,6 +88,8 @@ export const Search = () => {
     articleHistory.clear()
     if (!consentGranted && isOnline) {
       showConsentPopup()
+    } else if (!isOnline) {
+      closeConsentPopup()
     } else {
       setNavigation(0)
     }
