@@ -22,7 +22,7 @@ export const Search = () => {
   const [showConsentPopup] = usePopup(Consent)
   const consentGranted = isConsentGranted()
   const isOnline = useOnlineStatus(online => {
-    if (online) {
+    if (online && inputRef.current) {
       setQuery(inputRef.current.value)
     }
   })
@@ -66,6 +66,13 @@ export const Search = () => {
     })
   }
 
+  const allowInput = () => {
+    if (isOnline === false && consentGranted === false) {
+      return false
+    }
+    return true
+  }
+
   useSoftkey('Search', {
     right: i18n('softkey-settings'),
     onKeyRight: () => { window.location.hash = '/settings' },
@@ -89,7 +96,7 @@ export const Search = () => {
   return (
     <div class='search' ref={containerRef}>
       <img class='double-u' src='images/w.svg' style={{ display: ((searchResults || !isOnline) ? 'none' : 'block') }} />
-      <input ref={inputRef} type='text' placeholder={i18n('search-placeholder')} value={query} onInput={onInput} data-selectable maxlength='255' />
+      { (allowInput()) && <input ref={inputRef} type='text' placeholder={i18n('search-placeholder')} value={query} onInput={onInput} data-selectable maxlength='255' /> }
       { (isOnline && searchResults) && <ListView header={i18n('header-search')} items={searchResults} containerRef={listRef} empty={i18n('no-result-found')} /> }
       { !isOnline && <OfflinePanel /> }
     </div>
