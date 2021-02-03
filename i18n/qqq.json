@@ -91,7 +91,7 @@
 	"tip-switch-header": "Header for the how to switch links tip",
 	"tip-switch-message": "Message for the how to switch links tip",
 	"tip-about-header": "Header for the about Wikipedia tip",
-  "tip-about-message": "Message for the about Wikipedia tip",
+	"tip-about-message": "Message for the about Wikipedia tip",
 	"toc-footer": "Label in the sections for the footer link",
 	"view-in-browser": "Label for the view in browser link. Shown in the footer",
 	"about-app-message": "Main message in About App page",
