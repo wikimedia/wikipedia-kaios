@@ -1,15 +1,21 @@
 {
 	"@metadata": {
 		"authors": [
+			"Dovud",
 			"ToJack"
 		]
 	},
+	"article-action-sections": "Мундариҷа",
 	"app-title": "Википедиа",
+	"confirm-app-close-title": "Баромадан аз Википедиа?",
+	"header-sections": "Мундариҷа",
 	"search-placeholder": "Ҷустан",
 	"settings-language": "Забон",
 	"settings-textsize": "Андозаи матн",
 	"settings-about-wikipedia": "Дар бораи Википедиа",
 	"settings-privacy": "Сиёсати ҳифзи асрор",
 	"settings-term": "Шартҳои истифода",
-	"settings-about-app": "Оиди барнома"
+	"settings-about-app": "Оиди барнома",
+	"softkey-exit": "Баромад",
+	"settings-privacy-terms": "Ҳарими шахсӣ ва Шартҳо"
 }

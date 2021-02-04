@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"K Messaoudi"
+			"K Messaoudi",
+			"MuratTheTurkish"
 		]
 	},
 	"article-action-sections": "Tigezmiwin",
@@ -10,7 +11,7 @@
 	"softkey-done": "Immed",
 	"softkey-search": "Nadi",
 	"search-language-placeholder": "Fren tutlayin",
-	"softkey-menu": "Umuɣ",
+	"softkey-menu": "Iɣewwaṛen",
 	"softkey-settings": "Iɣewwaṛen",
 	"language-change": "Beddel tutlayt n usnas",
 	"language-setting": "Iɣewwaṛen n tutlayt",
