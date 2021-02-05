@@ -1,6 +1,6 @@
 import { h } from 'preact'
 import { useRef, useEffect } from 'preact/hooks'
-import { useNavigation, useI18n, useSoftkey, usePopup } from 'hooks'
+import { useNavigation, useI18n, useSoftkey, usePopup, useOnlineStatus } from 'hooks'
 import { ListView, goToRandomArticle } from 'components'
 import { goto } from 'utils'
 
@@ -66,6 +66,7 @@ export const Tips = () => {
 const tip = (origin, content, close, onNext, onTry) => {
   const i18n = useI18n()
   const aboutTip = origin === 'AboutPopup'
+  const isOnline = useOnlineStatus()
 
   const onTryHandler = () => {
     if (origin === 'SearchPopup') {
@@ -79,12 +80,12 @@ const tip = (origin, content, close, onNext, onTry) => {
   useSoftkey(origin, {
     left: i18n('softkey-back'),
     onKeyLeft: close,
-    center: !aboutTip ? i18n('softkey-try') : '',
-    onKeyCenter: !aboutTip ? onTryHandler : null,
+    center: !aboutTip && isOnline ? i18n('softkey-try') : '',
+    onKeyCenter: !aboutTip && isOnline ? onTryHandler : null,
     right: !aboutTip ? i18n('softkey-next') : '',
     onKeyRight: !aboutTip ? () => { close(); onNext() } : null,
     onKeyBackspace: close
-  }, [])
+  }, [isOnline])
 
   return (
     <div class={'tip'}>
