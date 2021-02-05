@@ -1,8 +1,7 @@
+@consentPopupHeight: 105px;
+
 .consent {
-	height: 105px;
-	overflow-x: hidden;
-	overflow-y: scroll;
-	overflow: -moz-scrollbars-none;
+	height: @consentPopupHeight;
 
 	.header {
 		height: @pageHeaderHeight;
@@ -14,18 +13,20 @@
 
 	.body {
 		background-color: #fff;
-		text-align: center;
+		height: @consentPopupHeight - @pageHeaderHeight;
+		padding: 0 8px 0 8px;
+		overflow-x: hidden;
+		overflow-y: scroll;
+		overflow: -moz-scrollbars-vertical;
 
 		.messages {
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
-			align-items: center;
-			height: 90%;
 
 			.message {
 				font-size: 14px;
-				line-height: 1.3;
+				line-height: 1.5;
 				color: #72777d;
 				padding: 4px 4px 0 4px;
 

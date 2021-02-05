@@ -5,8 +5,8 @@ import { grantConsent, goto } from 'utils'
 
 export const Consent = ({ close }) => {
   const i18n = useI18n()
-  const containerRef = useRef()
-  const [scrollDown, scrollUp] = useScroll(containerRef, 10, 'y')
+  const bodyRef = useRef()
+  const [scrollDown, scrollUp] = useScroll(bodyRef, 10, 'y')
 
   const onAgree = () => {
     grantConsent()
@@ -26,9 +26,9 @@ export const Consent = ({ close }) => {
   })
 
   return (
-    <div class='consent' ref={containerRef}>
+    <div class='consent'>
       <div class='header'>{i18n('consent-privacy-terms')}</div>
-      <div class='body'>
+      <div class='body' ref={bodyRef}>
         <div class='messages' dir='auto'>
           <div class='message'>{i18n('consent-message-policy')}</div>
           <div class='message'>{i18n('consent-message-and')}</div>
