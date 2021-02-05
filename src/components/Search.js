@@ -27,9 +27,11 @@ export const Search = () => {
     }
   })
   const onKeyCenter = () => {
-    const { index, key } = getCurrent()
-    if (index) {
-      goto.article(lang, key)
+    if (allowUsage()) {
+      const { index, key } = getCurrent()
+      if (index) {
+        goto.article(lang, key)
+      }
     }
   }
 
@@ -66,18 +68,18 @@ export const Search = () => {
     })
   }
 
-  const allowInput = () => {
+  const allowUsage = () => {
     return isOnline || consentGranted
   }
 
   useSoftkey('Search', {
-    right: i18n('softkey-settings'),
-    onKeyRight: () => { window.location.hash = '/settings' },
+    right: allowUsage() ? i18n('softkey-settings') : '',
+    onKeyRight: allowUsage() ? () => { window.location.hash = '/settings' } : null,
     center: current.type === 'DIV' ? i18n('centerkey-select') : '',
     onKeyCenter,
     onKeyLeft: isRandomEnabled() ? goToRandomArticle : null,
     onKeyBackspace: !(query && current.type === 'INPUT') && onExitConfirmDialog
-  }, [current.type, query])
+  }, [current.type, query, isOnline])
 
   useTracking('Search', lang)
 
@@ -94,7 +96,7 @@ export const Search = () => {
   return (
     <div class='search' ref={containerRef}>
       <img class='double-u' src='images/w.svg' style={{ display: ((searchResults || !isOnline) ? 'none' : 'block') }} />
-      { (allowInput()) && <input ref={inputRef} type='text' placeholder={i18n('search-placeholder')} value={query} onInput={onInput} data-selectable maxlength='255' /> }
+      { (allowUsage()) && <input ref={inputRef} type='text' placeholder={i18n('search-placeholder')} value={query} onInput={onInput} data-selectable maxlength='255' /> }
       { (isOnline && searchResults) && <ListView header={i18n('header-search')} items={searchResults} containerRef={listRef} empty={i18n('no-result-found')} /> }
       { !isOnline && <OfflinePanel /> }
     </div>
