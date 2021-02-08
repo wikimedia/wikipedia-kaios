@@ -1,6 +1,6 @@
 import { useState, useLayoutEffect } from 'preact/hooks'
 import { useSoftkey, useRange } from 'hooks'
-import { viewport } from 'utils'
+import { viewport, isAnchorIntroSkip } from 'utils'
 
 export const useArticlePagination = (
   elementRef,
@@ -70,11 +70,18 @@ export const useArticlePagination = (
     }
   }, [anchor])
 
+  useLayoutEffect(() => {
+    if (isAnchorIntroSkip(anchor)) {
+      elementRef.current.scrollLeft += viewport().width
+      setCurrentPage(p => p + 1)
+    }
+  }, [])
+
   return [currentSection, setCurrentSection, currentPage]
 }
 
 const findSection = (toc, anchor) => {
-  if (!anchor) {
+  if (!anchor || isAnchorIntroSkip(anchor)) {
     return 0
   }
   return toc.find(item => item.anchor === anchor).sectionIndex

@@ -7,7 +7,7 @@ import {
 } from 'hooks'
 import {
   articleHistory, goto, getAppLanguage,
-  isRandomEnabled, confirmDialog
+  isRandomEnabled, confirmDialog, skipIntroAnchor
 } from 'utils'
 import { getRandomArticleTitle } from 'api'
 
@@ -85,7 +85,7 @@ export const Search = () => {
   )
 }
 
-export const goToRandomArticle = (closePopup) => {
+export const goToRandomArticle = (closePopup, skipIntro = false) => {
   const lang = getAppLanguage()
   const [promise] = getRandomArticleTitle(lang)
 
@@ -93,6 +93,6 @@ export const goToRandomArticle = (closePopup) => {
     if (closePopup) {
       closePopup()
     }
-    goto.article(lang, title)
+    goto.article(lang, skipIntro ? [title, skipIntroAnchor] : title)
   })
 }

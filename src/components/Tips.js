@@ -72,6 +72,8 @@ const tip = (origin, content, close, onNext, onTry) => {
     if (origin === 'SearchPopup') {
       close()
       onTry()
+    } else if (origin === 'SwitchPopup') {
+      onTry(close, true)
     } else {
       onTry(close)
     }
