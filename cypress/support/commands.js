@@ -38,6 +38,10 @@ Cypress.Commands.add('clickSettingsButton', () => {
   cy.getRightSoftkeyButton().contains(enJson['softkey-settings']).click()
 })
 
+Cypress.Commands.add('clickTipsButton', () => {
+  cy.getLeftSoftkeyButton().contains(enJson['softkey-tips']).click()
+})
+
 Cypress.Commands.add('clickMenuButton', () => {
   cy.getRightSoftkeyButton().contains(enJson['softkey-menu']).click()
 })
