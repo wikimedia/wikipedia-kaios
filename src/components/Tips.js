@@ -2,7 +2,7 @@ import { h } from 'preact'
 import { useRef, useEffect } from 'preact/hooks'
 import { useNavigation, useI18n, useSoftkey, usePopup, useOnlineStatus } from 'hooks'
 import { ListView, goToRandomArticle } from 'components'
-import { goto } from 'utils'
+import { goto, articleHistory } from 'utils'
 
 export const Tips = () => {
   const containerRef = useRef()
@@ -69,6 +69,7 @@ const tip = (origin, content, close, onNext, onTry) => {
   const isOnline = useOnlineStatus()
 
   const onTryHandler = () => {
+    articleHistory.clear()
     if (origin === 'SearchPopup') {
       close()
       onTry()
