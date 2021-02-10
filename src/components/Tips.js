@@ -1,6 +1,6 @@
 import { h } from 'preact'
 import { useRef, useEffect } from 'preact/hooks'
-import { useNavigation, useI18n, useSoftkey, usePopup, useOnlineStatus } from 'hooks'
+import { useNavigation, useI18n, useSoftkey, usePopup, useOnlineStatus, useScroll } from 'hooks'
 import { ListView, goToRandomArticle } from 'components'
 import { goto, articleHistory } from 'utils'
 
@@ -67,6 +67,8 @@ const tip = (origin, content, close, onNext, onTry) => {
   const i18n = useI18n()
   const aboutTip = origin === 'AboutPopup'
   const isOnline = useOnlineStatus()
+  const textRef = useRef()
+  const [scrollDown, scrollUp] = useScroll(textRef, 10, 'y')
 
   const onTryHandler = () => {
     articleHistory.clear()
@@ -87,6 +89,8 @@ const tip = (origin, content, close, onNext, onTry) => {
     onKeyCenter: !aboutTip && isOnline ? onTryHandler : null,
     right: !aboutTip ? i18n('softkey-next') : '',
     onKeyRight: !aboutTip ? () => { close(); onNext() } : null,
+    onKeyArrowUp: scrollUp,
+    onKeyArrowDown: scrollDown,
     onKeyBackspace: close
   }, [isOnline])
 
@@ -96,7 +100,7 @@ const tip = (origin, content, close, onNext, onTry) => {
         <div class={`${aboutTip ? 'tip-image' : 'tip-animation'}`} style={{ backgroundImage: `url(${content.image})` }} />
       </div>
       <div class={'tip-header'}>{i18n(content.header)}</div>
-      <p class={'tip-text'} dangerouslySetInnerHTML={{ __html: i18n(content.message) }} />
+      <div class={'tip-text'} ref={textRef} dangerouslySetInnerHTML={{ __html: i18n(content.message) }} />
     </div>
   )
 }
