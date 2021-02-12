@@ -1,13 +1,14 @@
 import { h } from 'preact'
 import { useRef, useEffect } from 'preact/hooks'
-import { ListView, OfflinePanel } from 'components'
+import { ListView, OfflinePanel, Consent } from 'components'
 import {
   useNavigation, useSearch, useI18n, useSoftkey,
-  useOnlineStatus, useTracking
+  useOnlineStatus, useTracking, usePopup
 } from 'hooks'
 import {
   articleHistory, goto, getAppLanguage,
-  isRandomEnabled, confirmDialog, skipIntroAnchor
+  isRandomEnabled, confirmDialog, skipIntroAnchor,
+  isConsentGranted
 } from 'utils'
 import { getRandomArticleTitle } from 'api'
 
@@ -19,17 +20,21 @@ export const Search = () => {
   const [current, setNavigation, getCurrent] = useNavigation('Search', containerRef, listRef, 'y')
   const lang = getAppLanguage()
   const [query, setQuery, searchResults] = useSearch(lang)
+  const [showConsentPopup, closeConsentPopup] = usePopup(Consent)
+  const consentGranted = isConsentGranted()
   const isOnline = useOnlineStatus(online => {
-    if (online) {
+    if (online && inputRef.current) {
       setQuery(inputRef.current.value)
     }
   })
   const onKeyCenter = () => {
-    const { index, key } = getCurrent()
-    if (index) {
-      goto.article(lang, key)
-    } else if (isRandomEnabled() && !query) {
-      goToRandomArticle()
+    if (allowUsage()) {
+      const { index, key } = getCurrent()
+      if (index) {
+        goto.article(lang, key)
+      } else if (isRandomEnabled() && !query) {
+        goToRandomArticle()
+      }
     }
   }
 
@@ -58,27 +63,36 @@ export const Search = () => {
     })
   }
 
+  const allowUsage = () => {
+    return isOnline || consentGranted
+  }
+
   useSoftkey('Search', {
-    right: i18n('softkey-settings'),
-    onKeyRight: goto.settings,
+    right: allowUsage() ? i18n('softkey-settings') : '',
+    onKeyRight: allowUsage() ? goto.settings : null,
     center: current.type === 'DIV' ? i18n('centerkey-select') : '',
     onKeyCenter,
-    left: i18n('softkey-tips'),
-    onKeyLeft: goto.tips,
+    left: allowUsage() ? i18n('softkey-tips') : '',
+    onKeyLeft: allowUsage() ? goto.tips : null,
     onKeyBackspace: !(query && current.type === 'INPUT') && onExitConfirmDialog
-  }, [current.type, query])
+  }, [current.type, query, isOnline])
 
   useTracking('Search', lang)
 
   useEffect(() => {
     articleHistory.clear()
-    setNavigation(0)
-  }, [])
+    if (!consentGranted && isOnline) {
+      showConsentPopup()
+    } else {
+      closeConsentPopup()
+      setNavigation(0)
+    }
+  }, [consentGranted, isOnline])
 
   return (
     <div class='search' ref={containerRef}>
       <img class='double-u' src='images/w.svg' style={{ display: ((searchResults || !isOnline) ? 'none' : 'block') }} />
-      <input ref={inputRef} type='text' placeholder={i18n('search-placeholder')} value={query} onInput={onInput} data-selectable maxlength='255' />
+      { (allowUsage()) && <input ref={inputRef} type='text' placeholder={i18n('search-placeholder')} value={query} onInput={onInput} data-selectable maxlength='255' /> }
       { (isOnline && searchResults) && <ListView header={i18n('header-search')} items={searchResults} containerRef={listRef} empty={i18n('no-result-found')} /> }
       { !isOnline && <OfflinePanel /> }
     </div>

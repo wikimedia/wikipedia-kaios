@@ -1,7 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Eduardo Addad de Oliveira"
+			"Eduardo Addad de Oliveira",
+			"Eduardoaddad",
+			"MuratTheTurkish"
 		]
 	},
 	"article-action-sections": "Seccións",
@@ -12,7 +14,7 @@
 	"header-settings": "Configuracións",
 	"softkey-done": "Feito",
 	"softkey-search": "Procurar",
-	"softkey-menu": "Menú",
+	"softkey-menu": "Opcións",
 	"search-placeholder": "Procurar",
 	"softkey-settings": "Configuracións",
 	"centerkey-select": "Seleccionar",

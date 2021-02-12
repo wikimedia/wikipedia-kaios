@@ -5,8 +5,8 @@
 		]
 	},
 	"article-action-languages": "ቋንቋ",
-	"app-title": "ዊኪፔዲያ",
-	"app-subtitle": "ናጻዊ መዝገበ ፍልጠት",
+	"app-title": "ዊኪፐድያ",
+	"app-subtitle": "ናጻ ኢንሳይክሎፐድያ",
 	"about-header": "ብዛዕባ",
 	"gallery-description": "መግለጺ",
 	"header-settings": "ኣቀማምጣታት",
@@ -14,13 +14,13 @@
 	"softkey-about": "ብዛዕባ",
 	"softkey-done": "ተወዲኡ",
 	"softkey-search": "ምድላይ",
-	"search-placeholder": "ብዊኪፔዲያ ምድላይ",
+	"search-placeholder": "ኣብ ውሽጢ ዊኪፐድያ ድለይ",
 	"softkey-settings": "ኣቀማምጣታት",
 	"softkey-close": "ዕጸው",
 	"softkey-next": "ዝቕጽል",
 	"softkey-back": "ተመለስ",
-	"softkey-refresh": "ኣሐድስ",
-	"onboarding-0-title": "ናጻዊ መዝገበ ፍልጠት",
+	"softkey-refresh": "ኣሓድስ",
+	"onboarding-0-title": "ብዛዕባ ዊኪፐድያ",
 	"settings-language": "ቋንቋ",
 	"settings-privacy": "ናይ ስትረት ሕጊ"
 }

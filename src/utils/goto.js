@@ -11,8 +11,6 @@ const article = (lang, title, replace = false) => {
 
 const search = () => route('/')
 
-const consent = () => route('/consent')
-
 const settings = () => route('/settings')
 
 const tips = () => route('/tips')
@@ -28,4 +26,4 @@ const privacyPolicy = () => {
 
 const back = () => window.history.back()
 
-export const goto = { article, search, consent, termsOfUse, privacyPolicy, back, settings, tips }
+export const goto = { article, search, termsOfUse, privacyPolicy, back, settings, tips }
