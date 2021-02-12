@@ -1,13 +1,13 @@
 import { h } from 'preact'
 import { useRef, useEffect } from 'preact/hooks'
-import { ListView, OfflinePanel } from 'components'
+import { ListView, OfflinePanel, Feed } from 'components'
 import {
   useNavigation, useSearch, useI18n, useSoftkey,
   useOnlineStatus, useTracking
 } from 'hooks'
 import {
   articleHistory, goto, getAppLanguage,
-  isRandomEnabled, confirmDialog
+  isRandomEnabled, confirmDialog, isFeedExpanded
 } from 'utils'
 import { getRandomArticleTitle } from 'api'
 
@@ -82,10 +82,11 @@ export const Search = () => {
 
   return (
     <div class='search' ref={containerRef}>
-      <img class='double-u' src='images/w.svg' style={{ display: ((searchResults || !isOnline) ? 'none' : 'block') }} />
+      <img class='double-u' src='images/w.svg' style={{ display: ((searchResults || !isOnline || isFeedExpanded()) ? 'none' : 'block') }} />
       <input ref={inputRef} type='text' placeholder={i18n('search-placeholder')} value={query} onInput={onInput} data-selectable maxlength='255' />
       { (isOnline && searchResults) && <ListView header={i18n('header-search')} items={searchResults} containerRef={listRef} empty={i18n('no-result-found')} /> }
       { !isOnline && <OfflinePanel /> }
+      { (isOnline && !searchResults) && <Feed /> }
     </div>
   )
 }

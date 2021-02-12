@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'preact/hooks'
 import { useSoftkey } from 'hooks'
+import { expandFeed, collapseFeed } from 'utils'
 
 export const useNavigation = (origin, containerRef, listRef, axis, elementsSelector = '[data-selectable]') => {
   const [current, setCurrent] = useState({ type: null, index: 0, key: null })
@@ -18,6 +19,11 @@ export const useNavigation = (origin, containerRef, listRef, axis, elementsSelec
   const navigatePrevious = () => {
     const allElements = getAllElements()
     const currentIndex = getTheIndexOfTheSelectedElement()
+    console.log('useNavigation - navigatePrevious - allElements, currentIndex...', allElements, currentIndex)
+
+    if (origin === 'Search' && currentIndex === 0) {
+      collapseFeed()
+    }
 
     const setIndex = (currentIndex === 0) ? allElements.length - 1 : currentIndex - 1
     return selectElement(allElements[setIndex] || allElements[0], setIndex)
@@ -26,6 +32,11 @@ export const useNavigation = (origin, containerRef, listRef, axis, elementsSelec
   const navigateNext = () => {
     const allElements = getAllElements()
     const currentIndex = getTheIndexOfTheSelectedElement()
+    console.log('useNavigation - navigateNext - allElements, currentIndex...', allElements, currentIndex)
+
+    if (origin === 'Search' && currentIndex === 0) {
+      expandFeed()
+    }
 
     const setIndex = (currentIndex + 1 > allElements.length - 1) ? 0 : currentIndex + 1
     return selectElement(allElements[setIndex] || allElements[0], setIndex)
