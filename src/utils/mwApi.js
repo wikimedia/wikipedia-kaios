@@ -14,6 +14,14 @@ export const buildMwApiUrl = (lang, params) => {
   }).join('&')
 }
 
+export const buildMwOrgApiUrl = params => {
+  params = Object.assign({}, defautParams, params)
+  const baseUrl = 'https://www.mediawiki.org/w/api.php'
+  return baseUrl + '?' + Object.keys(params).map(p => {
+    return `${p}=${encodeURIComponent(params[p])}`
+  }).join('&')
+}
+
 export const buildCommonsApiUrl = params => {
   params = Object.assign({}, defautParams, params)
   const baseUrl = 'https://commons.wikimedia.org/w/api.php'
