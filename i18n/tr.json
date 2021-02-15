@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"BaRaN6161 TURK",
+			"Joseph",
 			"MuratTheTurkish",
 			"SwornToTranslate29",
 			"ToprakM"
@@ -22,6 +23,7 @@
 	"confirm-section": "\"$1\" Bölümüne Gidin",
 	"confirm-app-close-title": "Vikipedi'den çıkılsın mı?",
 	"confirm-app-close-message": "Uygulamayı çıkmak istediğinizden emin misiniz?",
+	"consent-privacy-terms": "Gizlilik ve Şartlar",
 	"about-header": "Hakkında",
 	"about-wikipedia-header": "Vikipedi hakkında",
 	"gallery-description": "Açıklama",
