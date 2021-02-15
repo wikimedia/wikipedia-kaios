@@ -15,6 +15,7 @@
 	"article-language-loading-message": "The message when loading the article's language page. Shown in the article language page",
 	"article-loading-message": "The message when loading the article. Shown in the article page",
 	"article-error-message": "The message when an article cannot be loaded because the device is offline or for any reason.",
+	"search-loading-message": "The message when loading search results.",
 	"app-title": "Title of the application. Shown in the app store and the app launcher.",
 	"app-subtitle": "Subtitle of the application. Shown in the app store.",
 	"app-description": "Description of the application. Shown in the app store. The word \"free\" is in the sense of \"zero dollars, you don't have pay\".",

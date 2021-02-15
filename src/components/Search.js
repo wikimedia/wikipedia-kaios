@@ -1,6 +1,6 @@
 import { h } from 'preact'
 import { useRef, useEffect } from 'preact/hooks'
-import { ListView, OfflinePanel, Consent } from 'components'
+import { ListView, OfflinePanel, Consent, SearchLoading } from 'components'
 import {
   useNavigation, useSearch, useI18n, useSoftkey,
   useOnlineStatus, useTracking, usePopup
@@ -18,7 +18,7 @@ export const Search = () => {
   const i18n = useI18n()
   const [current, setNavigation, getCurrent] = useNavigation('Search', containerRef, listRef, 'y')
   const lang = getAppLanguage()
-  const [query, setQuery, searchResults] = useSearch(lang)
+  const [query, setQuery, searchResults, loading] = useSearch(lang)
   const [showConsentPopup, closeConsentPopup] = usePopup(Consent)
   const consentGranted = isConsentGranted()
   const isOnline = useOnlineStatus(online => {
@@ -93,12 +93,19 @@ export const Search = () => {
     }
   }, [consentGranted, isOnline])
 
+  const hideW = (searchResults || !isOnline || loading)
+  const showSearchBar = allowUsage()
+  const showResultsList = isOnline && searchResults && !loading
+  const showLoading = isOnline && loading
+  const showOfflinePanel = !isOnline
+
   return (
     <div class='search' ref={containerRef}>
-      <img class='double-u' src='images/w.svg' style={{ display: ((searchResults || !isOnline) ? 'none' : 'block') }} />
-      { (allowUsage()) && <input ref={inputRef} type='text' placeholder={i18n('search-placeholder')} value={query} onInput={onInput} data-selectable maxlength='255' /> }
-      { (isOnline && searchResults) && <ListView header={i18n('header-search')} items={searchResults} containerRef={listRef} empty={i18n('no-result-found')} /> }
-      { !isOnline && <OfflinePanel /> }
+      <img class='double-u' src='images/w.svg' style={{ display: (hideW ? 'none' : 'block') }} />
+      { showSearchBar && <input ref={inputRef} type='text' placeholder={i18n('search-placeholder')} value={query} onInput={onInput} data-selectable maxlength='255' /> }
+      { showResultsList && <ListView header={i18n('header-search')} items={searchResults} containerRef={listRef} empty={i18n('no-result-found')} /> }
+      { showLoading && <SearchLoading /> }
+      { showOfflinePanel && <OfflinePanel /> }
     </div>
   )
 }
