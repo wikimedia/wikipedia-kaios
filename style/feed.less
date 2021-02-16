@@ -1,5 +1,5 @@
 .feed {
-	background-color: #fff;
+	background-color: #f5f5f5;
 	position: absolute;
 
 	&.collapsed {
@@ -9,9 +9,15 @@
 		height: 50px;
 		border-radius: 3px 3px 0 0;
 
-		.trending-list {
+		.header {
+			margin: 0 31px 0 11px;
+		}
+
+		.list {
+			top: 32px;
+			bottom: 0;
+
 			.item {
-				width: 200px;
 				height: 45px;
 			}
 		}
@@ -20,18 +26,25 @@
 	&.expanded {
 		height: 255px;
 		width: 100vw;
+
+		.list {
+			top: 33px;
+			bottom: 0;
+		}
 	}
 
 	.header {
-		width: 61px;
+		width: 73px;
 		height: 14px;
-		margin: 5px 31px 4px 11px;
+		margin: 10px 31px 9px 11px;
 		opacity: 0.9;
 		text-transform: uppercase;
-		font-size: 10px;
+		font-size: 12px;
 		font-weight: bold;
 		letter-spacing: 1px;
-		color: #36c;
+		color: #201212;
+		background-color: #f5f5f5;
+		padding: 0;
 	}
 
 	.cue {
@@ -43,72 +56,55 @@
 		background-color: #ccc;
 	}
 
-	.trending-list {
-		width: 100%;
-		background-color: #fff;
-		text-align: left;
-		overflow: scroll;
-		position: absolute;
+	.list {
+		background-color: #f5f5f5;
 
 		.item {
-			width: 220px;
-			height: 60px;
-			margin: 0 10px 10px 10px;
-			padding: 2px 6px;
-			display: flex;
-			justify-content: space-between;
-			text-align: left;
-			border: solid;
-			border-radius: 9px;
-			border-width: 1px;
+			background-color: #fff;
+			width: 100%;
+			height: 75px;
+			margin-bottom: 5px;
+			padding: 2px 9px;
 
 			&[ dir='rtl' ] {
 				text-align: right;
 			}
 
 			.info {
-				height: 100%;
-				overflow: hidden;
-				display: flex;
-				flex: calc( 100vw - 96px );
-				flex-direction: column;
-				justify-content: center;
-				padding-right: 5px;
+				justify-content: start;
 
 				.title {
-					font-size: 15px;
-					white-space: nowrap;
-					text-overflow: ellipsis;
-					overflow: hidden;
+					font-size: 14px;
+					font-weight: bold;
+					line-height: 1.21;
+					margin-top: 4px;
 				}
 
 				.description {
-					font-size: 12px;
 					color: @colorLight;
-					white-space: nowrap;
-					text-overflow: ellipsis;
-					overflow: hidden;
+					height: 42px;
 				}
 			}
 
 			.img {
-				height: 100%;
-				display: flex;
-				flex: auto;
-				background-repeat: no-repeat;
-				background-position: center center;
-				border-radius: 4px;
-			}
-
-			.link {
-				display: flex;
-				flex-direction: column;
-				justify-content: center;
+				height: 50px;
+				width: 50px;
+				flex: none;
+				background-position: center;
+				margin-top: 4px;
 			}
 
 			&[ nav-selected=true ] {
+				border: solid 2px;
 				border-color: #36c;
-				border-width: 2px;
+				background-color: #fff;
+				color: #000;
+
+				.info {
+					.title {
+						color: #36c;
+					}
+				}
 			}
 		}
 	}
