@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'preact/hooks'
 import { useSoftkey } from 'hooks'
-import { expandFeed, collapseFeed } from 'utils'
 
-export const useNavigation = (origin, containerRef, listRef, axis, elementsSelector = '[data-selectable]') => {
+export const useNavigation = (origin, containerRef, listRef, axis, elementsSelector = '[data-selectable]', setIsFeedExpanded) => {
   const [current, setCurrent] = useState({ type: null, index: 0, key: null })
 
   const getAllElements = () => containerRef.current.querySelectorAll(elementsSelector)
@@ -21,11 +20,16 @@ export const useNavigation = (origin, containerRef, listRef, axis, elementsSelec
     const currentIndex = getTheIndexOfTheSelectedElement()
     console.log('useNavigation - navigatePrevious - allElements, currentIndex...', allElements, currentIndex)
 
-    if (origin === 'Search' && currentIndex === 0) {
-      collapseFeed()
+    let setIndex = (currentIndex === 0) ? allElements.length - 1 : currentIndex - 1
+
+    if (origin === 'Search') {
+      if (currentIndex === 0) {
+        setIndex = 0
+      } else if (currentIndex === 1) {
+        setIsFeedExpanded(false)
+      }
     }
 
-    const setIndex = (currentIndex === 0) ? allElements.length - 1 : currentIndex - 1
     return selectElement(allElements[setIndex] || allElements[0], setIndex)
   }
 
@@ -33,12 +37,16 @@ export const useNavigation = (origin, containerRef, listRef, axis, elementsSelec
     const allElements = getAllElements()
     const currentIndex = getTheIndexOfTheSelectedElement()
     console.log('useNavigation - navigateNext - allElements, currentIndex...', allElements, currentIndex)
+    let setIndex = (currentIndex + 1 > allElements.length - 1) ? 0 : currentIndex + 1
 
-    if (origin === 'Search' && currentIndex === 0) {
-      expandFeed()
+    if (origin === 'Search') {
+      if (currentIndex === 0) {
+        setIsFeedExpanded(true)
+      } else if (currentIndex + 1 > allElements.length - 1) {
+        setIndex = 1
+      }
     }
 
-    const setIndex = (currentIndex + 1 > allElements.length - 1) ? 0 : currentIndex + 1
     return selectElement(allElements[setIndex] || allElements[0], setIndex)
   }
 

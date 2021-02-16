@@ -1,5 +1,5 @@
 import { h } from 'preact'
-import { useRef, useEffect } from 'preact/hooks'
+import { useRef, useEffect, useState } from 'preact/hooks'
 import { ListView, OfflinePanel, Consent, Feed } from 'components'
 import {
   useNavigation, useSearch, useI18n, useSoftkey,
@@ -7,7 +7,8 @@ import {
 } from 'hooks'
 import {
   articleHistory, goto, getAppLanguage,
-  isRandomEnabled, confirmDialog, isConsentGranted
+  isRandomEnabled, confirmDialog, isConsentGranted,
+  isTrendingArticlesGroup, isCuratedTopicsGroup
 } from 'utils'
 import { getRandomArticleTitle } from 'api'
 
@@ -16,7 +17,8 @@ export const Search = () => {
   const inputRef = useRef()
   const listRef = useRef()
   const i18n = useI18n()
-  const [current, setNavigation, getCurrent] = useNavigation('Search', containerRef, listRef, 'y')
+  const [isFeedExpanded, setIsFeedExpanded] = useState(false)
+  const [current, setNavigation, getCurrent] = useNavigation('Search', containerRef, listRef, 'y', '[data-selectable]', setIsFeedExpanded)
   const lang = getAppLanguage()
   const [query, setQuery, searchResults] = useSearch(lang)
   const [showConsentPopup, closeConsentPopup] = usePopup(Consent)
@@ -93,13 +95,16 @@ export const Search = () => {
     }
   }, [consentGranted, isOnline])
 
+  const hideW = (searchResults || !isOnline || isFeedExpanded)
+  const showFeed = (isOnline && !searchResults && (isTrendingArticlesGroup() || isCuratedTopicsGroup()))
+
   return (
     <div class='search' ref={containerRef}>
-      <img class='double-u' src='images/w.svg' style={{ display: ((searchResults || !isOnline) ? 'none' : 'block') }} />
+      <img class='double-u' src='images/w.svg' style={{ display: (hideW ? 'none' : 'block') }} />
       { (allowUsage()) && <input ref={inputRef} type='text' placeholder={i18n('search-placeholder')} value={query} onInput={onInput} data-selectable maxlength='255' /> }
       { (isOnline && searchResults) && <ListView header={i18n('header-search')} items={searchResults} containerRef={listRef} empty={i18n('no-result-found')} /> }
       { !isOnline && <OfflinePanel /> }
-      { (isOnline && !searchResults) && <Feed /> }
+      { showFeed && <Feed lang={lang} isExpanded={isFeedExpanded} containerRef={listRef} /> }
     </div>
   )
 }
