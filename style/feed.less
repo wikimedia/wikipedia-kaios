@@ -1,13 +1,12 @@
 .feed {
 	background-color: #f5f5f5;
 	position: absolute;
+	width: 100vw;
 
 	&.collapsed {
-		width: calc( 100vw - 21px );
-		margin-left: 10px;
 		bottom: 30px;
 		height: 50px;
-		border-radius: 3px 3px 0 0;
+		border-radius: 6px 6px 0 0;
 
 		.header {
 			margin: 0 31px 0 11px;
@@ -19,13 +18,13 @@
 
 			.item {
 				height: 45px;
+				background-color: #f5f5f5;
 			}
 		}
 	}
 
 	&.expanded {
 		height: 255px;
-		width: 100vw;
 
 		.list {
 			top: 33px;
