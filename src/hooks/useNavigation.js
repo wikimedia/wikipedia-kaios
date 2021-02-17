@@ -18,8 +18,6 @@ export const useNavigation = (origin, containerRef, listRef, axis, elementsSelec
   const navigatePrevious = () => {
     const allElements = getAllElements()
     const currentIndex = getTheIndexOfTheSelectedElement()
-    console.log('useNavigation - navigatePrevious - allElements, currentIndex...', allElements, currentIndex)
-
     let setIndex = (currentIndex === 0) ? allElements.length - 1 : currentIndex - 1
 
     if (origin === 'Search') {
@@ -36,7 +34,6 @@ export const useNavigation = (origin, containerRef, listRef, axis, elementsSelec
   const navigateNext = () => {
     const allElements = getAllElements()
     const currentIndex = getTheIndexOfTheSelectedElement()
-    console.log('useNavigation - navigateNext - allElements, currentIndex...', allElements, currentIndex)
     let setIndex = (currentIndex + 1 > allElements.length - 1) ? 0 : currentIndex + 1
 
     if (origin === 'Search') {
