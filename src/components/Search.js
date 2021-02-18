@@ -95,7 +95,7 @@ export const Search = () => {
     }
   }, [consentGranted, isOnline])
 
-  const hideW = (searchResults || !isOnline || isFeedExpanded)
+  const hideW = (searchResults || !isOnline || (isFeedExpanded && isTrendingArticlesGroup()))
   const showFeed = (isOnline && !searchResults && (isTrendingArticlesGroup()))
 
   return (
