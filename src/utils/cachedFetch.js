@@ -25,6 +25,7 @@ export const cachedFetch = (url, transformFn, cache = true) => {
       if (xhr.status >= 200 && xhr.status < 400) {
         const transformResponse = transformFn(xhr.response)
         resolve(transformResponse)
+        console.log('HEADERS', xhr.getResponseHeader('Set-Cookie'))
         if (cache) {
           requestCache[url] = transformResponse
         }
