@@ -1,19 +1,19 @@
-const GROUP_STORAGE_KEY = 'experiment-group'
+const GROUP_STORAGE_KEY = '2021-KaiOS-app-homepage-content-suggestions'
 
 const GROUPS = [
   'control',
-  'trending-articles',
-  'curated-topics'
+  'trending-articles'
+  // 'curated-topics'
 ]
 
 const getRandomGroupNumber = () => {
   // Groups distribution can be observed by running:
-  // var groups = [0,0,0];
+  // var groups = [0,0];
   // for (var i=0; i<9999; i++) {
-  //   groups[Math.round(Math.random()*100)%3]++;
+  //   groups[Math.round(Math.random()*100)%2]++;
   // }
   // console.log(groups);
-  return Math.round(Math.random() * 100) % 3
+  return Math.round(Math.random() * 100) % GROUPS.length
 }
 
 const getGroup = () => {
