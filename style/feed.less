@@ -60,14 +60,9 @@
 
 		.item {
 			background-color: #fff;
-			width: 100%;
 			height: 75px;
 			margin-bottom: 5px;
 			padding: 2px 9px;
-
-			&[ dir='rtl' ] {
-				text-align: right;
-			}
 
 			.info {
 				justify-content: start;
@@ -80,7 +75,6 @@
 				}
 
 				.description {
-					color: @colorLight;
 					height: 42px;
 				}
 			}
@@ -97,11 +91,14 @@
 				border: solid 2px;
 				border-color: #36c;
 				background-color: #fff;
-				color: #000;
 
 				.info {
 					.title {
 						color: #36c;
+					}
+
+					.description {
+						color: @colorLight;
 					}
 				}
 			}

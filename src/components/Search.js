@@ -8,7 +8,7 @@ import {
 import {
   articleHistory, goto, getAppLanguage,
   isRandomEnabled, confirmDialog, isConsentGranted,
-  isTrendingArticlesGroup, isCuratedTopicsGroup
+  isTrendingArticlesGroup
 } from 'utils'
 import { getRandomArticleTitle } from 'api'
 
@@ -96,7 +96,7 @@ export const Search = () => {
   }, [consentGranted, isOnline])
 
   const hideW = (searchResults || !isOnline || isFeedExpanded)
-  const showFeed = (isOnline && !searchResults && (isTrendingArticlesGroup() || isCuratedTopicsGroup()))
+  const showFeed = (isOnline && !searchResults && (isTrendingArticlesGroup()))
 
   return (
     <div class='search' ref={containerRef}>
