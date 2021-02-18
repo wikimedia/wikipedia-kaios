@@ -13,6 +13,9 @@ const SUPPORTED_LINKS = [
   'a[href^="#"]',
   'figure',
   'figure-inline',
+  'div.tsingle',
+  'a.image',
+  '.gallerybox',
   'table:not([class^="infobox"])'
 ].join(',')
 
@@ -131,9 +134,8 @@ const makeLinkClickEvent = link => {
     return { type: 'section', text: normalizedText, anchor: link.getAttribute('href').slice(1) }
   }
 
-  if (link.tagName === 'FIGURE' || link.tagName === 'FIGURE-INLINE') {
-    const aElement = link.querySelector('a')
-    const fileName = getFileNameFromAnchorElement(aElement)
+  if (isImageLink(link)) {
+    const fileName = getFileNameFromAnchorElement(link)
     return { type: 'image', fileName }
   }
 
@@ -145,6 +147,7 @@ const makeLinkClickEvent = link => {
 const findVisibleLinks = (container, galleryItems) => {
   const links = container.querySelectorAll(SUPPORTED_LINKS)
   const visibleLinks = []
+  let prevImage
   let rect
   for (const link of links) {
     rect = link.getBoundingClientRect()
@@ -159,8 +162,19 @@ const findVisibleLinks = (container, galleryItems) => {
     if (rect.y < 0 && (rect.y + rect.height < 0)) {
       continue
     }
-    if ((link.tagName === 'FIGURE' || link.tagName === 'FIGURE-INLINE') && !isImageInGallery(galleryItems, link)) {
-      continue
+    if (isImageLink(link)) {
+      const fileName = getFileNameFromAnchorElement(link)
+      if (fileName && isImageInGallery(galleryItems, fileName)) {
+        // use to capture a.image without figure/figure-inline tag
+        // and prevent the duplicate case of a.image exist under figure/figure-inline
+        if (prevImage === fileName) {
+          continue
+        } else {
+          prevImage = fileName
+        }
+      } else {
+        continue
+      }
     }
     if (rect.x > viewport().width || rect.y > (viewport().height - 30)) {
       // After the current page
@@ -171,19 +185,27 @@ const findVisibleLinks = (container, galleryItems) => {
   return visibleLinks
 }
 
-const isImageInGallery = (galleryItems, link) => {
-  const aElement = link.querySelector('a')
-  if (!aElement || !galleryItems) {
+const isImageLink = link => {
+  return ['FIGURE', 'FIGURE-INLINE'].includes(link.tagName) ||
+    Array.from(link.classList).some(classname => ['tsingle', 'image', 'gallerybox'].includes(classname))
+}
+
+const isImageInGallery = (galleryItems = [], fileName) => {
+  if (!galleryItems) {
     return false
   }
-
-  const fileName = getFileNameFromAnchorElement(aElement)
   return galleryItems.find(media => media.canonicalizedTitle === fileName)
 }
 
-const getFileNameFromAnchorElement = (aElement) => {
+const getFileNameFromAnchorElement = link => {
+  const aElement = link.querySelector('a') || (link.tagName === 'A' && link)
+
+  if (!aElement) {
+    return
+  }
+
   // file name example in href : /wiki/File:Holly_Christmas_card_from_NLI.jpg
   // split to match the api file name
   const href = aElement.getAttribute('href')
-  return href.split(':')[1]
+  return href && href.split(':')[1]
 }
