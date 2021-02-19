@@ -55,7 +55,7 @@ jobs:
       - run:
           name: Deploy sim
           command: |
-            gh-pages --dist . -m "Update demo [ci skip]"
+            gh-pages --dist . -m "[ci skip] Update simulator"
 workflows:
   version: 2
   build:
