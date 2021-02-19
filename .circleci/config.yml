@@ -60,7 +60,7 @@ workflows:
   version: 2
   build:
     jobs:
-      - build
+      - build:
         filters:
           branches:
             ignore: gh-pages
