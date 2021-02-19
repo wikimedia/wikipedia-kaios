@@ -1,19 +1,19 @@
-import { buildMwOrgApiUrl, cachedFetch, isProd } from 'utils'
+import { buildMwOrgApiUrl, cachedFetch } from 'utils' // , isProd
 
-const pad = str => {
-  str = String(str)
-  return (str.length === 1 ? '0' : '') + str
-}
+// const pad = str => {
+//   str = String(str)
+//   return (str.length === 1 ? '0' : '') + str
+// }
 
 const getExperimentData = (prefix, lang) => {
-  const date = new Date()
-  const dateStr = isProd()
-    ? date.getFullYear() + '-' + pad(date.getMonth() + 1) + '-' + pad(date.getDate())
-    : '2021-01-01'
+  // const date = new Date()
+  // const dateStr = isProd()
+  //   ? date.getFullYear() + '-' + pad(date.getMonth() + 1) + '-' + pad(date.getDate())
+  //   : '2021-01-01'
   const params = {
     action: 'query',
     prop: 'revisions',
-    titles: `${prefix}/${lang}/${dateStr}`,
+    titles: `${prefix}/${lang}/2021-01-01`,
     rvslots: 'main',
     rvprop: 'content'
   }

@@ -6,20 +6,21 @@ const GROUPS = [
   // 'curated-topics'
 ]
 
-const getRandomGroupNumber = () => {
-  // Groups distribution can be observed by running:
-  // var groups = [0,0];
-  // for (var i=0; i<9999; i++) {
-  //   groups[Math.round(Math.random()*100)%2]++;
-  // }
-  // console.log(groups);
-  return Math.round(Math.random() * 100) % GROUPS.length
-}
+// const getRandomGroupNumber = () => {
+//   // Groups distribution can be observed by running:
+//   // var groups = [0,0];
+//   // for (var i=0; i<9999; i++) {
+//   //   groups[Math.round(Math.random()*100)%2]++;
+//   // }
+//   // console.log(groups);
+//   return Math.round(Math.random() * 100) % GROUPS.length
+// }
 
 const getGroup = () => {
   let currentGroup = localStorage.getItem(GROUP_STORAGE_KEY)
   if (!currentGroup) {
-    currentGroup = GROUPS[getRandomGroupNumber()]
+    // currentGroup = GROUPS[getRandomGroupNumber()]
+    currentGroup = GROUPS[1]
     localStorage.setItem(GROUP_STORAGE_KEY, currentGroup)
   }
   return currentGroup
