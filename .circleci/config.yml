@@ -69,4 +69,4 @@ workflows:
             - build
           filters:
             branches:
-              only: sim
+              only: master
