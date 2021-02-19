@@ -1,0 +1,26 @@
+{
+	"@metadata": {
+		"authors": [
+			"Joanmp17"
+		]
+	},
+	"article-action-languages": "ቋንቋ",
+	"app-title": "ዊኪፐድያ",
+	"app-subtitle": "ናጻ ኢንሳይክሎፐድያ",
+	"about-header": "ብዛዕባ",
+	"gallery-description": "መግለጺ",
+	"header-settings": "ኣቀማምጣታት",
+	"no-result-found": "ውጺኢታት ኣይተረኸቡን",
+	"softkey-about": "ብዛዕባ",
+	"softkey-done": "ተወዲኡ",
+	"softkey-search": "ምድላይ",
+	"search-placeholder": "ኣብ ውሽጢ ዊኪፐድያ ድለይ",
+	"softkey-settings": "ኣቀማምጣታት",
+	"softkey-close": "ዕጸው",
+	"softkey-next": "ዝቕጽል",
+	"softkey-back": "ተመለስ",
+	"softkey-refresh": "ኣሓድስ",
+	"onboarding-0-title": "ብዛዕባ ዊኪፐድያ",
+	"settings-language": "ቋንቋ",
+	"settings-privacy": "ናይ ስትረት ሕጊ"
+}

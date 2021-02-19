@@ -1,0 +1,30 @@
+{
+	"@metadata": {
+		"authors": [
+			"Joetaras"
+		]
+	},
+	"article-action-sections": "Condenute",
+	"article-action-quickfacts": "Fatte veloce",
+	"article-action-gallery": "Gallerie",
+	"article-action-languages": "Lènghe",
+	"article-language-available": "Disponibbele jndr'à $1 {{PLURAL:$1|lènghe}}",
+	"article-language-loading-message": "Stoche a careche le lènghe…",
+	"article-loading-message": "Stoche a careche 'a pàgene...",
+	"app-title": "Uicchipèdie",
+	"app-subtitle": "'A 'ngeclopedije lìbbere",
+	"app-description": "Cu l'app d'a 'ngeclopedije lìbbere, cirche e esplore le 'mbormaziune da tutte 'u munne jndr'à cchiù de 300 lènghe.",
+	"confirm-section": "Vèje a 'a sezione \"$1\"",
+	"header-settings": "'Mbostaziune",
+	"softkey-done": "Fatte",
+	"softkey-search": "Cirche",
+	"search-placeholder": "Cirche Uicchipèdie",
+	"softkey-settings": "'Mbostaziune",
+	"centerkey-select": "Scacchie",
+	"softkey-close": "Achiude",
+	"language-change": "Cange 'a lènghe de l'app",
+	"language-setting": "'Mbostaziune d'a lènghe",
+	"softkey-ok": "Apposte",
+	"reference-title": "Referimende [$1]",
+	"offline-message": "Nisciuna connessione a Indernette"
+}

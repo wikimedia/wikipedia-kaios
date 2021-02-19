@@ -1,0 +1,34 @@
+{
+	"@metadata": {
+		"authors": [
+			"Hakim1bal"
+		]
+	},
+	"article-action-languages": "ⵜⵓⵜⵍⴰⵢⵜ",
+	"article-language-loading-message": "ⴰⵣⴷⴰⵎ ⵏ ⵜⵓⵜⵍⴰⵢⵉⵏ...",
+	"article-loading-message": "ⴰⵣⴷⴰⵎ ⵏ ⵜⴰⵙⵏⴰ...",
+	"app-title": "ⵡⵉⴽⵉⴱⵉⴷⵢⴰ",
+	"app-subtitle": "ⵜⴰⵙⴰⵏⴰⵢⵜ ⵜⵉⵍⴻⵍⵍⵉⵜ",
+	"about-header": "ⵖⴼ",
+	"about-wikipedia-header": "ⵖⴼ ⵡⵉⴽⵉⴱⵉⴷⵢⴰ",
+	"gallery-description": "ⴰⴳⵍⴰⵎ",
+	"header-search": "ⵜⵉⵢⴰⴼⵓⵜⵉⵏ ⵏ ⵓⵔⵣⵣⵓ",
+	"header-settings": "ⵜⵉⵙⵖⴰⵍ",
+	"softkey-about": "ⵖⴼ",
+	"softkey-search": "ⵔⵣⵓ",
+	"search-placeholder": "ⵔⵣⵓ",
+	"softkey-settings": "ⵜⵉⵙⵖⴰⵍ",
+	"softkey-close": "ⵔⴳⵍ",
+	"language-change": "ⵙⵏⴼⵍ ⵜⵓⵜⵍⴰⵢⵜ ⵏ ⵜⵙⵏⵙⵉ",
+	"language-setting": "ⵜⵉⵙⵖⴰⵍ ⵏ ⵜⵓⵜⵍⴰⵢⵜ",
+	"softkey-ok": "ⵡⴰⵅⵅⴰ",
+	"softkey-read": "ⵖⵔ",
+	"settings-language": "ⵜⵓⵜⵍⴰⵢⵜ",
+	"settings-about-wikipedia": "ⵖⴼ ⵡⵉⴽⵉⴱⵉⴷⵢⴰ",
+	"settings-about-app": "ⵖⴼ ⵜⵉⵙⵏⵙⵉ",
+	"softkey-read-more": "ⵖⵔ ⵓⴳⴳⴰⵔ",
+	"softkey-send": "ⴰⵣⵏ",
+	"softkey-cancel": "ⵙⵔ",
+	"softkey-yes": "ⵢⴰⵀ",
+	"softkey-no": "ⵓⵀⵓ"
+}

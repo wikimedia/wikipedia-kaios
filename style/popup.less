@@ -1,0 +1,28 @@
+.popup {
+	z-index: 100;
+
+	.shader {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: @softkeysHeight;
+		left: 0;
+		background-color: #000;
+		opacity: 0.7;
+	}
+
+	.popup-content {
+		overflow: hidden;
+		position: absolute;
+		max-height: 80vh;
+		right: 0;
+		bottom: @softkeysHeight;
+		left: 0;
+		background-color: #fff;
+
+		&.fullscreen {
+			max-height: unset;
+			top: 0;
+		}
+	}
+}

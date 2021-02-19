@@ -1,0 +1,38 @@
+{
+	"@metadata": {
+		"authors": [
+			"MuratTheTurkish",
+			"Papuass"
+		]
+	},
+	"article-action-sections": "Sadaļas",
+	"article-action-quickfacts": "Ātrie fakti",
+	"article-action-gallery": "Galerija",
+	"article-action-languages": "Valoda",
+	"article-language-loading-message": "Ielādē valodas…",
+	"article-loading-message": "Ielādē lapu…",
+	"app-title": "Vikipēdija",
+	"app-subtitle": "Brīvā enciklopēdija",
+	"header-menu": "Raksta izvēlne",
+	"header-search": "Meklēšanas rezultāti",
+	"header-sections": "Saturs",
+	"header-settings": "Iestatījumi",
+	"menu-previous": "Iepriekšējais raksts",
+	"search-language-placeholder": "Meklēt valodas",
+	"softkey-menu": "Iespējas",
+	"softkey-settings": "Iestatījumi",
+	"softkey-close": "Aizvērt",
+	"language-setting": "Valodas iestatījumi",
+	"softkey-ok": "Labi",
+	"softkey-back": "Atpakaļ",
+	"softkey-skip": "Izlaist",
+	"reference-title": "Atsauce [$1]",
+	"offline-message": "Nav interneta savienojuma",
+	"onboarding-0-title": "Par Vikipēdiju",
+	"settings-language": "Valoda",
+	"settings-textsize": "Teksta izmērs",
+	"settings-term": "Lietošanas noteikumi",
+	"settings-help-feedback": "Palīdzība un atsauksmes",
+	"settings-about-app": "Par lietotni",
+	"softkey-exit": "Iziet"
+}

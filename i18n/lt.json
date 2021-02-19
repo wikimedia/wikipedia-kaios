@@ -1,0 +1,24 @@
+{
+	"@metadata": {
+		"authors": [
+			"Eitvys200",
+			"Tomasdd"
+		]
+	},
+	"app-title": "Vikipedija",
+	"app-subtitle": "Laisvoji enciklopedija",
+	"about-header": "Apie",
+	"about-wikipedia-header": "Apie Vikipediją",
+	"header-settings": "Nustatymai",
+	"suggested-articles": "Siūlomi straipsniai",
+	"settings-language": "Kalba",
+	"settings-textsize": "Teksto dydis",
+	"settings-about-wikipedia": "Apie Vikipediją",
+	"settings-privacy": "Privatumo politika",
+	"settings-term": "Naudojimosi sąlygos",
+	"settings-rate": "Įvertinti programėlę",
+	"settings-help-feedback": "Siųsti atsiliepimą",
+	"settings-about-app": "Apie programėlę",
+	"settings-privacy-terms": "Privatumas ir sąlygos",
+	"privacy-terms-header": "Privatumas ir sąlygos"
+}

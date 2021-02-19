@@ -1,0 +1,32 @@
+{
+	"@metadata": {
+		"authors": [
+			"Cwtiyar",
+			"ئارام بکر"
+		]
+	},
+	"article-loading-message": "بارکردنی پەڕە...",
+	"header-textsize": "قەبارەی دەقی وتار",
+	"menu-textsize": "قەبارەی دەق",
+	"more-information": "زانیاریی زیاتر",
+	"no-result-found": "ھیچ ئاکامێک نەدۆزرایەوە",
+	"softkey-more-info": "زانیاریی زیاتر",
+	"softkey-next": "دواتر",
+	"softkey-back": "گەڕانەوە",
+	"softkey-skip": "پەڕاندن",
+	"settings-help-feedback": "ناردنی ڕەخنە و پێشنیار",
+	"softkey-read-more": "زیاتر بخوێنەوە",
+	"feedback-header": "ناردنی ڕەخنە و پێشنیار",
+	"feedback-placeholder": "لێرەوە دەستبکە بە نووسین...",
+	"feedback-success": "سوپاس بۆ پێشنیارەکانت",
+	"feedback-success-header": "پێشنیار نێردرا",
+	"feedback-privacy-policy": "سیاسەتی تایبەتێتی",
+	"feedback-terms-of-use": "مەرجەکانی بەکارھێنان",
+	"softkey-send": "ناردن",
+	"softkey-cancel": "ھەڵوەشاندنەوە",
+	"feedback-cancel-header": "هەڵوەشاندنەوە",
+	"softkey-yes": "بەڵێ",
+	"softkey-no": "نەخێر",
+	"settings-privacy-terms": "تایبەتێتی و مەرجەکان",
+	"privacy-terms-header": "تایبەتێتی و مەرجەکان"
+}

@@ -1,0 +1,14 @@
+{  
+    "watchForFileChanges": false,
+    "viewportWidth": 240,
+    "viewportHeight": 290,
+    "videoUploadOnPasses":false,
+    "modifyObstructiveCode": false,
+    "baseUrl": "http://127.0.0.1:8080",
+    "defaultCommandTimeout": 6000,
+    "video": true,
+    "firefoxGcInterval": {
+        "runMode": null,
+        "openMode": null
+      }
+}

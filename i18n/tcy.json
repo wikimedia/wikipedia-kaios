@@ -1,0 +1,35 @@
+{
+	"@metadata": {
+		"authors": [
+			"MKaur",
+			"MuratTheTurkish"
+		]
+	},
+	"article-action-sections": "ವಿಬಾಗೊಲು",
+	"app-title": "ವಿಕಿಪೀಡಿಯ",
+	"app-subtitle": "ಒಂಜಿ ಮುಕ್ತ ವಿಶ್ವಕೋಶ",
+	"header-menu": "ಲೇಕನೊದ ಮೆನು",
+	"header-search": "ನಾಡ್‍ಪತ್ತ್‌ನೆತ ಪಲಿತಾಂಸೊಲು",
+	"header-sections": "ವಿಬಾಗೊಲು",
+	"header-settings": "ಪ್ರಾಸಸ್ತ್ಯೊಲು",
+	"softkey-done": "ಆಂಡ್",
+	"softkey-search": "ನಾಡ್‍ಲೆ",
+	"search-language-placeholder": "ಬಾಸೆ ನಾಡ್‌ಲೆ",
+	"softkey-menu": "ಆಯ್ಕೆಲು",
+	"search-placeholder": "ನಾಡ್‍ಲೆ",
+	"softkey-settings": "ಪ್ರಾಸಸ್ತ್ಯೊಲು",
+	"centerkey-select": "ಆಯ್ಕೆ ಮಲ್ಪುಲೆ",
+	"softkey-close": "ಮುಚ್ಚಿಲೆ",
+	"language-change": "ಬಾಸೆ ಬದಲ್ ಮಲ್ಪುಲೆ",
+	"language-setting": "ಬಾಸೆ ಆಯ್ಕೆ ಮಲ್ಪುಲೆ",
+	"softkey-ok": "ಆಂಡ್",
+	"softkey-read": "ಓದ್‍ಲೆ",
+	"reference-title": "ಉಲ್ಲೆಕೊ [$1]",
+	"offline-message": "ಇಂಟರ್ನೆಟ್ ಕನೆಕ್ಷನ್ ಇಜ್ಜಿ",
+	"settings-language": "ಬಾಸೆ",
+	"settings-textsize": "ಪಠ್ಯದ ಗಾತ್ರೊ",
+	"settings-about-wikipedia": "ವಿಕಿಪೀಡಿಯದ ಬಗೆಟ್",
+	"settings-term": "ಗಳಸುನಾ ನಿಬಂದೊಲು",
+	"settings-rate": "ಆಪ್ಅನ್ನು ರೇಟ್ ಮಲ್ಪುಲೆ",
+	"settings-about-app": "ಆಪ್ ತಾ ಬಗ್ಗೆ"
+}

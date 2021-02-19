@@ -1,0 +1,20 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"app-title": "Vikipedija",
+	"app-subtitle": "Slobodna enciklopedija",
+	"app-description": "Sa besplatnom aplikacijom Vikipedija, pretražujte i istražujte informacije iz celog sveta na više od 300 jezika",
+	"header-settings": "Podešavanja",
+	"search-placeholder": "Pretraga",
+	"centerkey-select": "Izaberi",
+	"softkey-close": "Zatvori",
+	"settings-language": "Jezik",
+	"settings-textsize": "Veličina teksta",
+	"settings-about-wikipedia": "O Vikipediji",
+	"settings-privacy": "Politika privatnosti",
+	"settings-term": "Uslovi korišćenja",
+	"settings-rate": "Oceni aplikaciju",
+	"settings-help-feedback": "Pomoć i povratne informacije",
+	"settings-about-app": "O aplikaciji"
+}

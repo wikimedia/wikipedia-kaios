@@ -1,0 +1,40 @@
+{
+	"@metadata": {
+		"authors": [
+			"Csega",
+			"Misibacsi",
+			"MuratTheTurkish"
+		]
+	},
+	"article-action-sections": "Tartalomjegyzék",
+	"article-language-loading-message": "Nyelvek betöltése…",
+	"article-loading-message": "Szócikk betöltése…",
+	"article-error-message": "Nem sikerült a szócikk betöltése",
+	"app-title": "Wikipédia",
+	"confirm-app-close-title": "Kilépés a Wikipédia appból?",
+	"confirm-app-close-message": "Biztos becsukod?",
+	"about-wikipedia-header": "A Wikipédiáról",
+	"gallery-description": "Leírás",
+	"gallery-unknown-author": "Ismeretlen szerző",
+	"gallery-unknown-license": "Ismeretlen licenc",
+	"header-search": "Keresési eredmények",
+	"header-settings": "Beállítások",
+	"menu-previous": "Előző szócikk",
+	"softkey-more-info": "További információ",
+	"softkey-done": "Kész",
+	"softkey-menu": "Beállítások",
+	"softkey-settings": "Beállítások",
+	"centerkey-select": "Kiválaszt",
+	"softkey-close": "Bezár",
+	"language-change": "App nyelvének megváltoztatása",
+	"language-setting": "Nyelvi beállítások",
+	"softkey-ok": "Rendben",
+	"softkey-next": "Következő",
+	"softkey-back": "Vissza",
+	"softkey-skip": "Kihagyás",
+	"softkey-get-started": "Kezdj neki",
+	"softkey-refresh": "Frissítés",
+	"offline-message": "Nincs internetkapcsolat",
+	"onboarding-1-title": "Keress nyelvek százai között",
+	"onboarding-2-title": "Szerezz tudást ingyen"
+}

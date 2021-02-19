@@ -1,0 +1,47 @@
+.loading-planet {
+	background-color: #fff;
+	height: calc( 100vh );
+
+	.galaxy {
+		position: absolute;
+		top: 40%;
+		left: 50%;
+		transform: translate( -50%, -50% );
+		z-index: 0;
+	}
+
+	.earth {
+		position: absolute;
+		top: 40%;
+		left: 50%;
+		transform: translate( -50%, -50% );
+		z-index: 2;
+	}
+
+	.moon {
+		animation: rotation 2.5s infinite linear;
+		position: absolute;
+		top: 40%;
+		left: 50%;
+		z-index: 3;
+	}
+
+	.message {
+		position: absolute;
+		top: calc( 50% + 50px );
+		left: 50%;
+		transform: translate( -50%, -50% );
+		z-index: 2;
+		white-space: nowrap;
+	}
+}
+
+@keyframes rotation {
+	from {
+		transform: translate( -50%, -50% ) rotate( 0deg );
+	}
+
+	to {
+		transform: translate( -50%, -50% ) rotate( 359deg );
+	}
+}

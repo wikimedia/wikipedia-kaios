@@ -1,0 +1,39 @@
+@consentPopupHeight: 105px;
+
+.consent {
+	height: @consentPopupHeight;
+
+	.header {
+		height: @pageHeaderHeight;
+		background-color: #d8d8d8;
+		padding: 3px 0;
+		font-size: 18px;
+		text-align: center;
+	}
+
+	.body {
+		background-color: #fff;
+		height: @consentPopupHeight - @pageHeaderHeight;
+		padding: 0 8px 0 8px;
+		overflow-x: hidden;
+		overflow-y: scroll;
+		overflow: -moz-scrollbars-vertical;
+
+		.messages {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+
+			.message {
+				font-size: 14px;
+				line-height: 1.5;
+				color: #72777d;
+				padding: 4px 4px 0 4px;
+
+				@media @landscape {
+					font-size: 11px;
+				}
+			}
+		}
+	}
+}

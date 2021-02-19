@@ -1,0 +1,32 @@
+* {
+	box-sizing: border-box;
+
+	[ dir='rtl' ] {
+		.article-content {
+			figure > figcaption,
+			table > caption {
+				text-align: right;
+			}
+		}
+	}
+
+	[ dir='ltr' ] {
+		.article-content {
+			figure > figcaption,
+			table > caption {
+				text-align: left;
+			}
+		}
+	}
+}
+
+body {
+	padding: 0;
+	margin: 0;
+	background-color: #36c;
+
+	.root {
+		padding: 0;
+		margin: 0;
+	}
+}

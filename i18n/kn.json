@@ -1,0 +1,40 @@
+{
+	"@metadata": {
+		"authors": [
+			"AKJ GOWDA",
+			"MKaur",
+			"MuratTheTurkish"
+		]
+	},
+	"article-action-sections": "ವಿಭಾಗಗಳು",
+	"app-title": "ವಿಕಿಪೀಡಿಯ",
+	"app-subtitle": "ಒಂದು ಮುಕ್ತ ವಿಶ್ವಕೋಶ",
+	"app-description": "ಉಚಿತ ವಿಕಿಪೀಡಿಯ ಆಪ್‌ನ ಸಹಾಯದಿಂದ ೩೦೦ ಕ್ಕೂ ಹೆಚ್ಚು ಭಾಷೆಗಳಲ್ಲಿರುವ ಮಾಹಿತಿಯನ್ನು ಹುಡುಕಬಹುದು",
+	"header-menu": "ಲೇಖನದ ಮೆನು",
+	"header-search": "ಶೋಧನೆಯ ಫಲಿತಾಂಶಗಳು",
+	"header-sections": "ವಿಭಾಗಗಳು",
+	"header-settings": "ಪ್ರಾಶಸ್ತ್ಯಗಳು",
+	"softkey-done": "ಮುಗಿಯಿತು",
+	"softkey-search": "ಹುಡುಕಿ",
+	"search-language-placeholder": "ಭಾಷೆ ಆಯ್ಕೆಮಾಡಿ",
+	"softkey-menu": "ಆಯ್ಕೆಗಳು",
+	"search-placeholder": "ಹುಡುಕಿ",
+	"softkey-settings": "ಪ್ರಾಶಸ್ತ್ಯಗಳು",
+	"centerkey-select": "ಆರಿಸಿ",
+	"softkey-close": "ಮುಚ್ಚು",
+	"language-change": "ಆಪ್‌ನ ಭಾಷೆಯನ್ನು ಬದಲಿಸಿ",
+	"language-setting": "ಭಾಷಾ ವ್ಯವಸ್ಥೆಗಳು",
+	"language-setting-message": "ಈ ವಿಭಾಗದಲ್ಲಿ ಭಾಷೆಯನ್ನು ಬದಲಿಸಿದರೆ, ಆಪ್‌ನ ಭಾಷೆ ಸಂಪೂರ್ಣವಾಗಿ ಬದಲಾಗುತ್ತದೆ. ಪ್ರತಿಯೊಂದು ಲೇಖನದಲ್ಲೂ ಪ್ರತ್ಯೇಕವಾಗಿ ಭಾಷೆಯನ್ನು ಬದಲಿಸಲು ಲೇಖನದ ಮೆನುವನ್ನು ಬಳಸಿ.",
+	"softkey-ok": "ಸರಿ",
+	"softkey-read": "ಓದು",
+	"reference-title": "ಉಲ್ಲೇಖ [$1]",
+	"offline-message": "ಅಂತರಜಾಲ ಸಂಪರ್ಕ ಇಲ್ಲ",
+	"settings-language": "ಭಾಷೆ",
+	"settings-textsize": "ಪಠ್ಯ‌ದ ಗಾತ್ರ",
+	"settings-about-wikipedia": "ವಿಕಿಪೀಡಿಯದ ಬಗ್ಗೆ",
+	"settings-privacy": "ಗೌಪ್ಯತಾ ನೀತಿ",
+	"settings-term": "ಬಳಕೆಯ ನಿಬಂಧನೆಗಳು",
+	"settings-rate": "ಆಪ್ಅನ್ನು ರೇಟ್ ಮಾಡಿ",
+	"settings-help-feedback": "ಸಹಾಯ ಮತ್ತು ಅಭಿಪ್ರಾಯ",
+	"settings-about-app": "ಆಪ್ ಬಗ್ಗೆ"
+}

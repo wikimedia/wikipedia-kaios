@@ -1,0 +1,39 @@
+{
+	"@metadata": {
+		"authors": [
+			"Saederup92"
+		]
+	},
+	"article-action-gallery": "Galleri",
+	"article-action-languages": "Sprog",
+	"article-language-loading-message": "Indlæser sprog...",
+	"article-loading-message": "Indlæser siden...",
+	"app-subtitle": "Den frie encyklopædi",
+	"about-wikipedia-header": "Om Wikipedia",
+	"gallery-unknown-author": "Ukendt forfatter",
+	"gallery-unknown-license": "Ukendt licens",
+	"header-settings": "Indstillinger",
+	"header-textsize": "Tekststørrelse",
+	"menu-previous": "Forrige artikel",
+	"menu-textsize": "Tekststørrelse",
+	"softkey-done": "Udført",
+	"softkey-settings": "Indstillinger",
+	"centerkey-select": "Vælg",
+	"softkey-close": "Luk",
+	"language-setting": "Sprogindstillinger",
+	"softkey-read": "Læs",
+	"softkey-next": "Næste",
+	"softkey-back": "Tilbage",
+	"softkey-skip": "Spring over",
+	"softkey-get-started": "Kom igang",
+	"offline-message": "Ingen internetforbindelse",
+	"onboarding-0-title": "Om Wikipedia",
+	"onboarding-2-title": "Få fri viden",
+	"settings-language": "Sprog",
+	"settings-textsize": "Tekststørrelse",
+	"settings-about-wikipedia": "Om Wikipedia",
+	"textsize-label-small": "Lille",
+	"textsize-label-large": "Stor",
+	"softkey-yes": "Ja",
+	"softkey-no": "Nej"
+}
