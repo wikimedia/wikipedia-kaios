@@ -7,7 +7,7 @@ export const AboutWikipedia = ({ close }) => {
 
   const getImageBackgroundStyle = index => {
     // only the first onboard image doesn't have background image
-    return index ? { backgroundImage: `url(/images/onboarding-${index}-background.png)` } : {}
+    return index ? { backgroundImage: `url(images/onboarding-${index}-background.png)` } : {}
   }
 
   const softkeyConfig = [
@@ -22,7 +22,7 @@ export const AboutWikipedia = ({ close }) => {
       <div class='header'>{i18n('about-wikipedia-header')}</div>
       <div class='body'>
         <div class='image' style={getImageBackgroundStyle(currentIndex)}>
-          <img src={`/images/onboarding-${currentIndex}.png`} />
+          <img src={`images/onboarding-${currentIndex}.png`} />
         </div>
         <div class='title'>
           {i18n(`onboarding-${currentIndex}-title`)}

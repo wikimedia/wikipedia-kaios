@@ -18,10 +18,10 @@ export const AboutApp = ({ close }) => {
       <div class='header'>{i18n('about-header')}</div>
       <div class='body'>
         <div class='image'>
-          <img src='/images/onboarding-0.png' />
+          <img src='images/onboarding-0.png' />
         </div>
         <div class='image'>
-          <img src='/images/wikipedia-wordmark-en.png' />
+          <img src='images/wikipedia-wordmark-en.png' />
         </div>
         <div class='version'>
           <p>{appVersion()} ({appInstallId()})</p>
