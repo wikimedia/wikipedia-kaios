@@ -1,5 +1,7 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": []
+	},
 	"app-title": "Vikipedija",
 	"app-subtitle": "Slobodna enciklopedija",
 	"app-description": "Sa besplatnom aplikacijom Vikipedija, pretražujte i istražujte informacije iz celog sveta na više od 300 jezika",

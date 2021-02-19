@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Eduardo Addad de Oliveira",
+			"Eduardoaddad",
 			"MuratTheTurkish"
 		]
 	},
@@ -20,6 +21,7 @@
 	"confirm-section": "Ir para a secção \"$1\"",
 	"confirm-app-close-title": "Sair da Wikipédia?",
 	"confirm-app-close-message": "Tem a certeza de que quer sair do aplicativo?",
+	"consent-privacy-terms": "Privacidade e Termos",
 	"about-header": "Sobre",
 	"about-wikipedia-header": "Sobre Wikipédia",
 	"gallery-description": "Descrição",

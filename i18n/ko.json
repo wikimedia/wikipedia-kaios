@@ -3,6 +3,7 @@
 		"authors": [
 			"Codenstory",
 			"Eduardo Addad de Oliveira",
+			"Eduardoaddad",
 			"Gongsoonyee",
 			"MuratTheTurkish",
 			"Ykhwong",
@@ -26,6 +27,7 @@
 	"confirm-section": "\"$1\" 문단으로 이동",
 	"confirm-app-close-title": "위키백과를 종료합니까?",
 	"confirm-app-close-message": "앱을 끝내시겠습니까?",
+	"consent-privacy-terms": "개인정보 및 약관",
 	"about-header": "정보",
 	"about-wikipedia-header": "위키백과 정보",
 	"gallery-description": "설명",

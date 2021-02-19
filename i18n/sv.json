@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Eduardo Addad de Oliveira",
+			"Eduardoaddad",
 			"Mjälten",
 			"MuratTheTurkish",
 			"ProletariatetsBefrielseOrkester",
@@ -25,6 +26,7 @@
 	"confirm-section": "Gå till avsnittet \"$1\"",
 	"confirm-app-close-title": "Avsluta Wikipedia?",
 	"confirm-app-close-message": "Är du säker på att du vill lämna appen?",
+	"consent-privacy-terms": "Integritet och villkor",
 	"about-header": "Om",
 	"about-wikipedia-header": "Om Wikipedia",
 	"gallery-description": "Beskrivning",
