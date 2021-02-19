@@ -1,24 +1,38 @@
 .feed {
-	background-color: #f5f5f5;
+	background-color: #eaecf0;
 	position: absolute;
 	width: 100vw;
 
 	&.collapsed {
 		bottom: 30px;
-		height: 50px;
+		height: 55px;
 		border-radius: 6px 6px 0 0;
+		background-color: #fff;
 
 		.header {
-			margin: 0 31px 0 11px;
+			margin: 0 31px 0 8px;
+			background-color: #fff;
 		}
 
 		.list {
-			top: 32px;
+			top: 26px;
 			bottom: 0;
 
 			.item {
 				height: 45px;
-				background-color: #f5f5f5;
+				background-color: #fff;
+
+				.info {
+					.title {
+						font-weight: 600;
+						line-height: 1.29;
+						margin-top: 0;
+					}
+				}
+
+				.img {
+					margin-top: 0;
+				}
 			}
 		}
 	}
@@ -42,7 +56,7 @@
 		font-weight: bold;
 		letter-spacing: 1px;
 		color: #201212;
-		background-color: #f5f5f5;
+		background-color: #eaecf0;
 		padding: 0;
 	}
 
@@ -56,7 +70,7 @@
 	}
 
 	.list {
-		background-color: #f5f5f5;
+		background-color: #eaecf0;
 
 		.item {
 			background-color: #fff;
