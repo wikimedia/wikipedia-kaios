@@ -1,0 +1,384 @@
+<html>
+	<body>
+		<div class="device">
+			<div class="header">
+				<div class="headersection left">
+					<div class="headeritem mode">&#128289;</div>
+				</div>
+				<div class="headersection right">
+					<div class="headeritem">&#128246;</div>
+					<div class="headeritem clock"></div>
+				</div>
+			</div>
+			<div class="glass">
+				<div class="keyselector">
+					<div>2</div>
+					<div class="selected">a</div>
+					<div>b</div>
+					<div>c</div>
+				</div>
+			</div>
+			<iframe id="appFrame" src="./"></iframe>
+			<div class="brand">INUKA</div>
+			<table class="keypad">
+				<tr>
+					<td><div class="button sk largeicon" data-key="SoftLeft">&mdash;</div></td>
+					<td><div class="button sk" data-key="ArrowUp">&uarr;</div></td>
+					<td><div class="button sk largeicon" data-key="SoftRight">&mdash;</div></td>
+				</tr>
+				<tr>
+					<td><div class="button lr" data-key="ArrowLeft">&larr;</div></td>
+					<td><div class="button sk" data-key="Enter">Enter</div></td>
+					<td><div class="button lr" data-key="ArrowRight">&rarr;</div></td>
+				</tr>
+				<tr>
+					<td><div class="button largeicon call">&mdash;</div></td>
+					<td><div class="button sk" data-key="ArrowDown">&darr;</div></td>
+					<td><div class="button largeicon backspace" data-key="Backspace">&mdash;</div></td>
+				</tr>
+				<tr>
+					<td><div class="button char" data-key="1">1 <span>.,?</span></div></td>
+					<td><div class="button char" data-key="2">2 <span>ABC</span></div></td>
+					<td><div class="button char" data-key="3">3 <span>DEF</span></div></td>
+				</tr>
+				<tr>
+					<td><div class="button char" data-key="4">4 <span>GHI</span></div></td>
+					<td><div class="button char" data-key="5">5 <span>JKL</span></div></td>
+					<td><div class="button char" data-key="6">6 <span>MNO</span></div></td>
+				</tr>
+				<tr>
+					<td><div class="button char" data-key="7">7 <span>PQRS</span></div></td>
+					<td><div class="button char" data-key="8">8 <span>TUV</span></div></td>
+					<td><div class="button char" data-key="9">9 <span>WXYZ</span></div></td>
+				</tr>
+				<tr>
+					<td><div class="button specialchars largeicon" data-key="*">&lowast;</div></td>
+					<td><div class="button char" data-key="0">0 &#95;</div></td>
+					<td><div class="button mode" data-key="#">&#35; <span>&#8682;</span></div></td>
+				</tr>
+			</table>
+		</div>
+		<div class="controlpanel">
+			<input type="checkbox" id="online" name="online" checked autocomplete="off" />
+			<label for="online">Online/offline</label>
+		</div>
+		<style type="text/css">
+			.device {
+				width: 260px;
+				margin-top: 20px;
+				margin-left: auto;
+				margin-right: auto;
+				padding: 20px 10px;
+				border-radius: 20px;
+				background-color: grey;
+				position: relative;
+				box-sizing: border-box;
+			}
+			.header {
+				display: flex;
+				justify-content: space-between;
+				height: 20px;
+				background-color: #ccc;
+			}
+			.headersection.left {
+				display: flex;
+				justify-content: flex-start;
+			}
+			.headersection.right {
+				display: flex;
+				justify-content: flex-end;
+			}
+			.headeritem {
+				font-size: 14px;
+				font-family: sans-serif;
+				align-self: center;
+				margin: 0;
+				padding: 4px;
+			}
+			.glass {
+				position: absolute;
+				top: 40px;
+				left: 10px;
+				width: 240px;
+				height: 310px;
+				cursor: not-allowed;
+			}
+			.keyselector {
+				display: flex;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				height: 30px;
+				width: 100%;
+				background-color: #ccc;
+			}
+			.keyselector div {
+				width: 30px;
+				height: 30px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			.keyselector div.selected {
+				background-color: blue;
+				color: white;
+			}
+			#appFrame {
+				width: 240px;
+				height: 310px;
+				border: 0;
+			}
+			.brand {
+				padding: 10px 10px 6px 38px;
+				letter-spacing: 20px;
+				text-align: center;
+				color: white;
+				font-weight: bold;
+				font-family: sans-serif;
+			}
+			.keypad {
+				width: 100%;
+			}
+			.button {
+				color: white;
+				background-color: black;
+				font-weight: bold;
+				text-align: center;
+				padding: 5px;
+				border-radius: 20px;
+				font-size: 12px;
+				line-height: 12.5px;
+				font-family: sans-serif;
+				cursor: pointer;
+			}
+			.button.largeicon {
+				font-size: 26px;
+			}
+			.button.call {
+				color: green;
+			}
+			.button.backspace {
+				color: red;
+			}
+			.button span {
+				font-size: 8px;
+			}
+			.controlpanel {
+				display: none;
+			}
+		</style>
+		<script type="text/javascript">
+			const keysMap = {
+				'1': ['.', ',', '?', '!', '1', ';', ':', '/', '@'],
+				'2': ['a', 'b', 'c', '2'],
+				'3': ['d', 'e', 'f', '3'],
+				'4': ['g', 'h', 'i', '4'],
+				'5': ['j', 'k', 'l', '5'],
+				'6': ['m', 'n', 'o', '6'],
+				'7': ['p', 'q', 'r', 's', '7'],
+				'8': ['t', 'u', 'v', '8'],
+				'9': ['w', 'x', 'y', 'z', '9'],
+				'0': [' ', '0']
+			};
+			const inputModes = [
+				{ name: 'lowercase', text: '&#128289;', fn: function(key, keys) { return keys.map(k => k.toLowerCase()); } },
+				{ name: 'uppercase', text: '&#128288;', fn: function(key, keys) { return keys.map(k => k.toUpperCase()); } },
+				{ name: 'number', text: '&#128290;', fn: function(key) { return key; } }
+			];
+			let currentInputMode = 0;
+			const inputModeIndicator = document.querySelector('.headeritem.mode');
+			const nextInputMode = function() {
+				currentInputMode = (currentInputMode === inputModes.length - 1 ? 0 : currentInputMode + 1);
+				inputModeIndicator.innerHTML = inputModes[currentInputMode].text;
+			}
+			const keysInCurrentMode = function(key) {
+				return inputModes[currentInputMode].fn(key, keysMap[key]);
+			}
+
+			const appFrame = document.querySelector('#appFrame');
+
+			const keySelector = (function($element) {
+				$element.style.visibility = 'hidden';
+				let keys = [];
+				let currentKey = null;
+				let timeout = null;
+
+				const close = function() {
+					$element.style.visibility = 'hidden';
+				}
+
+				const isClosed = function() {
+					return $element.style.visibility === 'hidden';
+				};
+
+				const open = function() {
+					$element.style.visibility = 'visible';
+					clearTimeout(timeout);
+					timeout = setTimeout(close, 2000);
+				};
+
+				const render = function() {
+					$element.innerHTML = '';
+					keys.forEach(function(k) {
+						const div = document.createElement('div');
+						if (k === currentKey) {
+							div.classList.add('selected')
+						}
+						div.appendChild(document.createTextNode(k));
+						$element.appendChild(div);
+					})
+				};
+
+				const arraysEqual = function(a, b) {
+					if (a.length !== b.length) {
+						return false;
+					}
+					for (var i = 0; i < a.length; i++) {
+						if (a[i] != b[i]) {
+							return false;
+						}
+					}
+					return true;
+				}
+
+				return function(newKeys) {
+					let replace;
+					if (isClosed() || !arraysEqual(keys, newKeys)) {
+						keys = newKeys;
+						currentKey = newKeys[0];
+						replace = false;
+					} else {
+						let index = keys.indexOf(currentKey) + 1;
+						if (index >= keys.length) {
+							index = 0;
+						}
+						currentKey = keys[index];
+						replace = true;
+					}
+					render();
+					open();
+					return [ currentKey, replace ];
+				};
+			})(document.querySelector('.keyselector'));
+
+			const dispatchKeyToDoc = function(key) {
+				const newEvent = new KeyboardEvent('keydown', {
+					key: key,
+					composed: true,
+					bubbles: true,
+					cancelable: false
+				});
+				appFrame.contentDocument.dispatchEvent(newEvent);
+			}
+
+			const isInput = function ($element) {
+				return $element.tagName === 'INPUT' || $element.tagName === 'TEXTAREA';
+			}
+
+			Object.entries({
+				'.button.sk': function(e) {
+					dispatchKeyToDoc(e.currentTarget.getAttribute('data-key'));
+				},
+				'.button.backspace': function(e) {
+					const element = appFrame.contentDocument.activeElement;
+					if (isInput(element)) {
+						if (element.value !== '' && element.selectionStart > 0) {
+							const v = element.value
+							const caret = element.selectionStart - 1
+							element.value = v.substring(0, caret) + v.substring(caret + 1)
+							element.setSelectionRange(caret, caret)
+							element.dispatchEvent(new Event('input'))
+						}
+					} else {
+						dispatchKeyToDoc('Backspace')
+					}
+				},
+				'.button.lr': function(e) {
+					const element = appFrame.contentDocument.activeElement;
+					const key = e.currentTarget.getAttribute('data-key');
+					if (isInput(element)) {
+						if (key === 'ArrowRight') {
+							if (element.selectionStart < element.value.length) {
+								const caret = element.selectionStart + 1
+								element.setSelectionRange(caret, caret)
+							}
+						} else if (key === 'ArrowLeft') {
+							if (element.selectionStart > 0) {
+								const caret = element.selectionStart - 1
+								element.setSelectionRange(caret, caret)
+							}
+						}
+					} else {
+						dispatchKeyToDoc(key)
+					}
+				},
+				'.button.char': function(e) {
+					const keys = keysInCurrentMode(e.currentTarget.getAttribute('data-key'));
+					const element = appFrame.contentDocument.activeElement;
+					if (isInput(element)) {
+						const [key, replace] = Array.isArray(keys) ? keySelector(keys) : [keys, false]
+						let val = element.value
+						let caret = element.selectionStart
+						if (replace) {
+							val = val.substring(0, caret - 1) + key + val.substring(caret);
+						} else {
+							caret++;
+							val = val.substring(0, caret) + key + val.substring(caret);
+						}
+						element.value = val;
+						element.setSelectionRange(caret, caret);
+						element.dispatchEvent(new Event('input'));
+					} else {
+						dispatchKeyToDoc(keys[0]);
+					}
+				},
+				'.button.mode': nextInputMode
+			}).forEach(function(entry) {
+				Array.from(document.querySelectorAll(entry[0])).forEach(function(b) {
+					b.addEventListener('click', entry[1]);
+				});
+			});
+
+			// Prevent key and mouse events from stealing focus from the iframe
+			['keypress', 'keydown', 'keyup', 'mousedown', 'mouseup', 'click'].forEach(function(k) {
+				window.addEventListener(k, function(e) {
+					e.preventDefault();
+				}, true);
+			});
+
+			// Cancel key and mouse events in app container iframe
+			['keypress', 'keydown', 'keyup', 'mousedown', 'mouseup', 'click'].forEach(function(k) {
+				appFrame.contentWindow.addEventListener(k, function(e) {
+					if (e.cancelable) {
+						e.preventDefault();
+						e.stopPropagation();
+					}
+				}, true);
+			});
+
+			// Clock
+			const pad = function(number) {
+				return (number < 10 ? '0' : '') + number;
+			}
+			const clock = document.querySelector('.headeritem.clock');
+			const updateClock = function() {
+				const d = new Date();
+				clock.innerText = d.getHours() + ':' + pad(d.getMinutes());
+			}
+			updateClock()
+			setInterval(updateClock, 60*1000);
+
+			// Online/offline toggle
+			document.querySelector('input#online').addEventListener('change', function(e) {
+				Object.defineProperty(appFrame.contentWindow.Navigator.prototype, "onLine", {
+			        enumerable: true,
+			        configurable: true,
+			        get: function() {
+			        	return e.target.checked;
+			        }
+			    });
+			    appFrame.contentWindow.dispatchEvent(new Event(e.target.checked ? 'online' : 'offline'));
+			});
+		</script>
+	</body>
+</html>
