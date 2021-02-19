@@ -21,6 +21,7 @@ jobs:
             npm test
             ./scripts/zip.sh kai
             ./scripts/zip.sh jio
+            ./scripts/sim.sh
       - store_artifacts:
           path: WikipediaKaiOSkai.zip
       - store_artifacts:
