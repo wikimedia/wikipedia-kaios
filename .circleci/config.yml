@@ -7,6 +7,9 @@ jobs:
       - image: cimg/node:15.4.0-browsers
     steps:
       - browser-tools/install-firefox
+      - add_ssh_keys:
+          fingerprints:
+            - "6f:be:b7:31:66:48:ff:80:ca:77:aa:a1:21:8b:18:2b"
       - checkout
       - run:
           name: Build and Test
@@ -28,3 +31,38 @@ jobs:
       - store_artifacts:
           path: cypress/videos
           destination: videos
+      - persist_to_workspace:
+          root: .
+          paths:
+            - ./gh-pages
+  update-sim:
+    docker:
+      - image: node:8.10.0
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "6f:be:b7:31:66:48:ff:80:ca:77:aa:a1:21:8b:18:2b"
+      - checkout
+      - attach_workspace:
+          at: .
+      - run:
+          name: Prepare
+          command: |
+            npm install -g --silent gh-pages
+            git config user.email "ci-build@wikimedia.org"
+            git config user.name "ci-build"
+      - run:
+          name: Deploy sim
+          command: |
+            gh-pages --dist . -m "Update demo [ci skip]"
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build
+      - update-sim:
+          requires:
+            - build
+          filters:
+            branches:
+              only: sim
