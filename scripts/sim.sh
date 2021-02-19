@@ -8,4 +8,6 @@ cp -r dist gh-pages/dist
 cp -r images gh-pages/images
 cp index.html gh-pages/
 cp sim.html gh-pages/
+
+cp -r .circleci gh-pages/
 touch gh-pages/.nojekyll
