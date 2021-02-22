@@ -37,6 +37,16 @@ export const Search = () => {
     }
   }
 
+  const onKeyBackSpace = () => {
+    if (isFeedExpanded) {
+      setIsFeedExpanded(false)
+      listRef.current.scrollTop = 0
+      setNavigation(0)
+    } else {
+      onExitConfirmDialog()
+    }
+  }
+
   const onInput = ({ target }) => {
     if (isOnline) {
       setQuery(target.value)
@@ -80,7 +90,7 @@ export const Search = () => {
     center: current.type === 'DIV' ? i18n('centerkey-select') : '',
     onKeyCenter,
     onKeyLeft: isRandomEnabled() ? goToRandomArticle : null,
-    onKeyBackspace: !(query && current.type === 'INPUT') && onExitConfirmDialog
+    onKeyBackspace: !(query && current.type === 'INPUT') && onKeyBackSpace
   }, [current.type, query, isOnline])
 
   useTracking('Search', lang)
