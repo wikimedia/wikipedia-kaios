@@ -15,7 +15,7 @@ export class ArticlePage {
   }
 
   footerImage () {
-    return cy.get('img[src="/images/wikipedia-wordmark-en.png"]')
+    return cy.get('img[src="images/wikipedia-wordmark-en.png"]')
   }
 
   footerLicense () {

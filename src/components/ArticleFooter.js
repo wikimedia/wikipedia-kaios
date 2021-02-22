@@ -24,7 +24,7 @@ export const ArticleFooter = ({ lang, title, items = [], dir }) => {
           })}
         </div>
         <h2 class='img'>
-          <img src='/images/wikipedia-wordmark-en.png' height='18' width='116' />
+          <img src='images/wikipedia-wordmark-en.png' height='18' width='116' />
         </h2>
         <p class='license' dangerouslySetInnerHTML={{ __html: contentI18n('content-license') }} />
         <p class='browser'>
