@@ -77,11 +77,13 @@ export const useNavigation = (origin, containerRef, listRef, axis, elementsSelec
     }
   }
 
-  const previousKey = axis === 'x' ? 'onKeyArrowLeft' : 'onKeyArrowUp'
-  const nextKey = axis === 'x' ? 'onKeyArrowRight' : 'onKeyArrowDown'
+  // const previousKey = axis === 'x' ? 'onKeyArrowLeft' : 'onKeyArrowUp'
+  // const nextKey = axis === 'x' ? 'onKeyArrowRight' : 'onKeyArrowDown'
   useSoftkey(origin, {
-    [previousKey]: navigatePrevious,
-    [nextKey]: navigateNext
+    onKeyArrowLeft: navigatePrevious,
+    onKeyArrowUp: navigatePrevious,
+    onKeyArrowRight: navigateNext,
+    onKeyArrowDown: navigateNext
   })
 
   useEffect(() => {

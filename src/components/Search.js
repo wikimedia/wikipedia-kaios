@@ -8,7 +8,7 @@ import {
 import {
   articleHistory, goto, getAppLanguage,
   isRandomEnabled, confirmDialog, isConsentGranted,
-  isTrendingArticlesGroup
+  isTrendingArticlesGroup, isCuratedTopicsGroup
 } from 'utils'
 import { getRandomArticleTitle } from 'api'
 
@@ -95,8 +95,9 @@ export const Search = () => {
     }
   }, [consentGranted, isOnline])
 
-  const hideW = (searchResults || !isOnline || (isFeedExpanded && isTrendingArticlesGroup()))
-  const showFeed = (isOnline && !searchResults && (isTrendingArticlesGroup()))
+  const isExperimentGroup = isTrendingArticlesGroup() || isCuratedTopicsGroup()
+  const hideW = (searchResults || !isOnline || (isFeedExpanded && isExperimentGroup))
+  const showFeed = (isOnline && !searchResults && isExperimentGroup)
 
   return (
     <div class='search' ref={containerRef}>

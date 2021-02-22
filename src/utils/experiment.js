@@ -2,8 +2,8 @@ const GROUP_STORAGE_KEY = '2021-KaiOS-app-homepage-content-suggestions'
 
 const GROUPS = [
   'control',
-  'trending-articles'
-  // 'curated-topics'
+  'trending-articles',
+  'curated-topics'
 ]
 
 // const getRandomGroupNumber = () => {
@@ -20,7 +20,7 @@ const getGroup = () => {
   let currentGroup = localStorage.getItem(GROUP_STORAGE_KEY)
   if (!currentGroup) {
     // currentGroup = GROUPS[getRandomGroupNumber()]
-    currentGroup = GROUPS[1]
+    currentGroup = GROUPS[2]
     localStorage.setItem(GROUP_STORAGE_KEY, currentGroup)
   }
   return currentGroup

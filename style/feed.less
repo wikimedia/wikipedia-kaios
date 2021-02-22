@@ -124,4 +124,22 @@
 			}
 		}
 	}
+
+	.topics {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		padding: 8px;
+
+		.topic {
+			width: 106px;
+			height: 71px;
+			margin: 2px 2px 2px 2px;
+			border: solid 1px;
+
+			&[ nav-selected=true ] {
+				border: solid 2px #36c;
+			}
+		}
+	}
 }
