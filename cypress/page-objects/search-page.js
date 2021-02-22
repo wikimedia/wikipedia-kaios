@@ -22,7 +22,6 @@ export class SearchPage {
   selectOptionFromSearchResultsList (option) {
     this.results()
       .each(($el, index, $list) => {
-        cy.log($el.attr('data-selected-key')+":  is selected==   "+$el.attr('nav-selected'))
         if ($el.attr('data-selected-key') === option) {
           return false
         } else {
