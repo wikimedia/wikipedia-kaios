@@ -10,8 +10,9 @@
 		background-color: #fff;
 
 		.header {
-			margin: 0 31px 0 8px;
+			margin: 0 31px 0 10px;
 			background-color: #fff;
+			font-weight: 500;
 		}
 
 		.list {
@@ -24,18 +25,13 @@
 
 				.info {
 					.title {
-						font-weight: 600;
 						line-height: 1.29;
-						margin-top: 0;
+						font-weight: normal;
 					}
 
 					.description {
 						height: 30px;
 					}
-				}
-
-				.img {
-					margin-top: 0;
 				}
 			}
 		}
@@ -47,11 +43,15 @@
 		.list {
 			top: 33px;
 			bottom: 0;
+
+			// .item {
+			// 	height: 67px;
+			// }
 		}
 	}
 
 	.header {
-		width: 73px;
+		width: 67px;
 		height: 14px;
 		margin: 10px 31px 9px 10px;
 		opacity: 0.9;
@@ -59,18 +59,19 @@
 		font-size: 12px;
 		font-weight: bold;
 		letter-spacing: 1px;
-		color: #201212;
+		color: #202122;
 		background-color: #eaecf0;
 		padding: 0;
 	}
 
 	.cue {
-		width: 15px;
+		width: 25px;
 		height: 3px;
 		margin: auto;
 		margin-top: 8px;
 		border-radius: 1.5px;
-		background-color: #ccc;
+		background-color: #000;
+		opacity: 0.26;
 	}
 
 	.list {
@@ -78,22 +79,24 @@
 
 		.item {
 			background-color: #fff;
-			height: 75px;
+			height: 67px;
 			margin-bottom: 5px;
 			padding: 2px 9px;
 
 			.info {
 				justify-content: start;
+				margin-top: 2px;
 
 				.title {
 					font-size: 14px;
-					font-weight: bold;
+					font-weight: normal;
 					line-height: 1.21;
 					margin-top: 4px;
+					margin-bottom: 2px;
 				}
 
 				.description {
-					height: 47px;
+					height: 32px;
 					width: 155px;
 					white-space: normal;
 				}
@@ -105,6 +108,7 @@
 				flex: none;
 				background-position: center;
 				margin-top: 4px;
+				border-radius: 6px;
 			}
 
 			&[ nav-selected=true ] {
@@ -115,6 +119,7 @@
 				.info {
 					.title {
 						color: #36c;
+						font-weight: bold;
 					}
 
 					.description {
