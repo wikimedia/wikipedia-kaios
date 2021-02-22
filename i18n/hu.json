@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Csega",
+			"Hanna Tardos",
 			"Misibacsi",
 			"MuratTheTurkish"
 		]
@@ -36,5 +37,12 @@
 	"softkey-refresh": "Frissítés",
 	"offline-message": "Nincs internetkapcsolat",
 	"onboarding-1-title": "Keress nyelvek százai között",
-	"onboarding-2-title": "Szerezz tudást ingyen"
+	"onboarding-2-title": "Szerezz tudást ingyen",
+	"feed-header": "Felkapott",
+	"feed-topic-entertainment": "Szórakozás",
+	"feed-topic-sports": "Sport",
+	"feed-topic-people": "Emberek",
+	"feed-topic-science": "Tudomány",
+	"feed-topic-culture": "Kultúra",
+	"feed-topic-places": "Helyek"
 }
