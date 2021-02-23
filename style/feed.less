@@ -12,7 +12,7 @@
 		.header {
 			margin: 0 31px 0 10px;
 			background-color: #fff;
-			font-weight: 500;
+			font-weight: bold;
 		}
 
 		.list {
@@ -27,11 +27,17 @@
 					.title {
 						line-height: 1.29;
 						font-weight: normal;
+						margin-top: 0;
+						margin-bottom: 0;
 					}
 
 					.description {
 						height: 28px;
 					}
+				}
+
+				.img {
+					margin-top: 0;
 				}
 			}
 		}
@@ -64,7 +70,7 @@
 		width: 25px;
 		height: 3px;
 		margin: auto;
-		margin-top: 8px;
+		margin-top: 6px;
 		border-radius: 1.5px;
 		background-color: #000;
 		opacity: 0.26;
@@ -103,6 +109,7 @@
 				width: 50px;
 				flex: none;
 				background-position: center;
+				background-size: cover;
 				margin-top: 4px;
 				border-radius: 6px;
 			}
@@ -110,16 +117,14 @@
 			&[ nav-selected=true ] {
 				border: solid 2px;
 				border-color: #36c;
-				background-color: #fff;
 
 				.info {
 					.title {
-						color: #36c;
 						font-weight: bold;
 					}
 
 					.description {
-						color: @colorLight;
+						color: #f8f9fa;
 					}
 				}
 			}
