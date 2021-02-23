@@ -18,7 +18,7 @@ export const Onboarding = () => {
   return (
     <div class='onboarding'>
       <div class='image'>
-        <img src='/images/onboarding-0.png' />
+        <img src='images/onboarding-0.png' />
       </div>
       <div class='title'>
         {i18n('onboarding-0-title')}
