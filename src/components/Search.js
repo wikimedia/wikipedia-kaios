@@ -18,7 +18,7 @@ export const Search = () => {
   const listRef = useRef()
   const i18n = useI18n()
   const [isFeedExpanded, setIsFeedExpanded] = useState(false)
-  const [current, setNavigation, getCurrent, getAllElements, navigateNext, navigatePrevious] = useNavigation('Search', containerRef, listRef, 'y')
+  const [current, setNavigation, getCurrent, getAllElements] = useNavigation('Search', containerRef, listRef, 'y')
   const lang = getAppLanguage()
   const [query, setQuery, searchResults] = useSearch(lang)
   const [showConsentPopup, closeConsentPopup] = usePopup(Consent)
@@ -50,24 +50,34 @@ export const Search = () => {
   const onKeyArrowDown = () => {
     const index = getCurrent().index
     if (!isFeedExpanded && !searchResults && index === 0) {
-      setIsFeedExpanded(true)
-      navigateNext()
-    } else if (isFeedExpanded && index + 1 > getAllElements().length - 1) {
+      setNavigation(getCurrent().index + 1)
+    } else if (isFeedExpanded && index + 2 > getAllElements().length - 1) {
       setNavigation(1)
     } else {
-      navigateNext()
+      setNavigation(getCurrent().index + 2)
+    }
+
+    if (getCurrent().index > 0) {
+      setIsFeedExpanded(true)
+    } else {
+      setIsFeedExpanded(false)
     }
   }
 
   const onKeyArrowUp = () => {
     const index = getCurrent().index
     if (isFeedExpanded && !searchResults && index === 1) {
-      setIsFeedExpanded(false)
-      navigatePrevious()
+      setNavigation(getCurrent().index - 1)
     } else if (!isFeedExpanded && !searchResults && index === 0) {
       setNavigation(0)
     } else {
-      navigatePrevious()
+      setNavigation(getCurrent().index - 2)
+    }
+
+    if (getCurrent().index <= 0) {
+      setIsFeedExpanded(false)
+    } else {
+      setIsFeedExpanded(true)
     }
   }
 
