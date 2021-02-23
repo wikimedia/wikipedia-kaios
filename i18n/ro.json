@@ -18,6 +18,7 @@
 	"app-description": "Cu aplicația gratuită Wikipedia, căutați și explorați informații din toată lumea în peste 300 de limbi.",
 	"content-license": "Conținutul este disponibil sub <a class=\"external\" rel=\"mw:ExtLink\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">CC BY-SA 3.0</a>, cu excepția cazului în care se menționează altfel",
 	"confirm-section": "Accesați secțiunea \"$1\"",
+	"confirm-app-close-title": "Ieși de pe Wikipedia?",
 	"about-header": "Despre",
 	"about-wikipedia-header": "Despre Wikipedia",
 	"gallery-description": "Descriere",
@@ -74,6 +75,16 @@
 	"view-in-browser": "Vizualizați articolul în browser",
 	"about-app-message": "Realizat de Fundația Wikimedia cu ajutorul voluntarilor ca tine.",
 	"softkey-read-more": "Citește mai mult",
-	"settings-privacy-terms": "Confidențialitate și Termeni",
-	"privacy-terms-header": "Confidențialitate și Termeni"
+	"feed-topic-entertainment": "Divertisment",
+	"feed-topic-society": "Societate",
+	"feedback-header": "Trimiteți o părere",
+	"softkey-send": "Trimite",
+	"softkey-cancel": "Anulează",
+	"softkey-exit": "Ieșire",
+	"feedback-cancel": "Sunteți sigur că vreți să plecați? Tot comentariul dvs. se va pierde",
+	"feedback-cancel-header": "Renunță",
+	"softkey-yes": "Da",
+	"softkey-no": "Nu",
+	"settings-privacy-terms": "Confidențialitate și termeni",
+	"privacy-terms-header": "Confidențialitate și termeni"
 }

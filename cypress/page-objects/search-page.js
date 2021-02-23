@@ -4,7 +4,7 @@ export class SearchPage {
   }
 
   results () {
-    return cy.get('.item')
+    return cy.get('.item[data-selectable="true"]')
   }
 
   getEmptyContent () {
@@ -17,5 +17,19 @@ export class SearchPage {
 
   getSearchTextBox () {
     return cy.get('input[type=text]')
+  }
+
+  selectOptionFromSearchResultsList (option) {
+    this.results()
+      .each(($el, index, $list) => {
+        if ($el.attr('data-selected-key') === option) {
+          return false
+        } else {
+          cy.downArrow()
+        }
+      })
+      .then(() => {
+        cy.enter()
+      })
   }
 }
