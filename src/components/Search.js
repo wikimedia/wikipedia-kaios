@@ -1,6 +1,6 @@
 import { h } from 'preact'
 import { useRef, useEffect, useState } from 'preact/hooks'
-import { ListView, OfflinePanel, Consent, Feed } from 'components'
+import { ListView, OfflinePanel, Consent, Feed, Topic } from 'components'
 import {
   useNavigation, useSearch, useI18n, useSoftkey,
   useOnlineStatus, useTracking, usePopup
@@ -29,11 +29,16 @@ export const Search = () => {
     }
   })
   const onKeyCenter = () => {
-    if (allowUsage()) {
+    if (!allowUsage()) {
+      return
+    }
+    if (!isFeedExpanded) {
       const { index, key } = getCurrent()
       if (index) {
         goto.article(lang, key)
       }
+    } else if (isFeedExpanded) {
+      // @todo toggle trending articles
     }
   }
 
@@ -147,7 +152,8 @@ export const Search = () => {
 
   const isExperimentGroup = isTrendingArticlesGroup() || isCuratedTopicsGroup()
   const hideW = (searchResults || !isOnline || (isFeedExpanded && isExperimentGroup))
-  const showFeed = (isOnline && !searchResults && isExperimentGroup)
+  const showFeed = (isOnline && !searchResults && isTrendingArticlesGroup())
+  const showTopic = (isOnline && !searchResults && isCuratedTopicsGroup())
 
   return (
     <div class='search' ref={containerRef}>
@@ -156,6 +162,7 @@ export const Search = () => {
       { (isOnline && searchResults) && <ListView header={i18n('header-search')} items={searchResults} containerRef={listRef} empty={i18n('no-result-found')} /> }
       { !isOnline && <OfflinePanel /> }
       { showFeed && <Feed lang={lang} isExpanded={isFeedExpanded} containerRef={listRef} /> }
+      { showTopic && <Topic lang={lang} isExpanded={isFeedExpanded} containerRef={listRef} /> }
     </div>
   )
 }
