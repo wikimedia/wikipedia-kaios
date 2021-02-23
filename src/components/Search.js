@@ -18,7 +18,7 @@ export const Search = () => {
   const listRef = useRef()
   const i18n = useI18n()
   const [isFeedExpanded, setIsFeedExpanded] = useState(false)
-  const [current, setNavigation, getCurrent, getAllElements] = useNavigation('Search', containerRef, listRef, 'y')
+  const [current, setNavigation, getCurrent, getAllElements, navigateNext, navigatePrevious] = useNavigation('Search', containerRef, listRef, 'y')
   const lang = getAppLanguage()
   const [query, setQuery, searchResults] = useSearch(lang)
   const [showConsentPopup, closeConsentPopup] = usePopup(Consent)
@@ -82,15 +82,6 @@ export const Search = () => {
       setIsFeedExpanded(true)
     }
   }
-  // useEffect(() => {
-  //   if (current.index === 0) {
-  //     setIsFeedExpanded(false)
-  //   } else {
-  //     setIsFeedExpanded(true)
-  //   }
-
-  //   console.log('current index', current.index, isFeedExpanded )
-  // }, [current.index])
 
   const onInput = ({ target }) => {
     if (isOnline) {
@@ -136,10 +127,10 @@ export const Search = () => {
     onKeyCenter,
     onKeyLeft: isRandomEnabled() ? goToRandomArticle : null,
     onKeyBackspace: !(query && current.type === 'INPUT') && onKeyBackSpace,
-    onKeyArrowDown,
-    onKeyArrowUp,
-    onKeyArrowRight,
-    onKeyArrowLeft
+    onKeyArrowLeft: !query ? onKeyArrowLeft : navigatePrevious,
+    onKeyArrowUp: !query ? onKeyArrowUp : navigatePrevious,
+    onKeyArrowRight: !query ? onKeyArrowRight : navigateNext,
+    onKeyArrowDown: !query ? onKeyArrowDown : navigateNext
   }, [current.type, query, isOnline, searchResults])
 
   useTracking('Search', lang)
