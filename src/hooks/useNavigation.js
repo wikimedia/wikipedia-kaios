@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'preact/hooks'
 import { useSoftkey } from 'hooks'
 
-export const useNavigation = (origin, containerRef, listRef, axis, elementsSelector = '[data-selectable]', setIsFeedExpanded) => {
+export const useNavigation = (origin, containerRef, listRef, axis, elementsSelector = '[data-selectable]') => {
   const [current, setCurrent] = useState({ type: null, index: 0, key: null })
 
   const getAllElements = () => containerRef.current.querySelectorAll(elementsSelector)
@@ -18,32 +18,16 @@ export const useNavigation = (origin, containerRef, listRef, axis, elementsSelec
   const navigatePrevious = () => {
     const allElements = getAllElements()
     const currentIndex = getTheIndexOfTheSelectedElement()
-    let setIndex = (currentIndex === 0) ? allElements.length - 1 : currentIndex - 1
 
-    if (origin === 'Search') {
-      if (currentIndex === 0) {
-        setIndex = 0
-      } else if (currentIndex === 1) {
-        setIsFeedExpanded(false)
-      }
-    }
-
+    const setIndex = (currentIndex === 0) ? allElements.length - 1 : currentIndex - 1
     return selectElement(allElements[setIndex] || allElements[0], setIndex)
   }
 
   const navigateNext = () => {
     const allElements = getAllElements()
     const currentIndex = getTheIndexOfTheSelectedElement()
-    let setIndex = (currentIndex + 1 > allElements.length - 1) ? 0 : currentIndex + 1
 
-    if (origin === 'Search') {
-      if (currentIndex === 0) {
-        setIsFeedExpanded(true)
-      } else if (currentIndex + 1 > allElements.length - 1) {
-        setIndex = 1
-      }
-    }
-
+    const setIndex = (currentIndex + 1 > allElements.length - 1) ? 0 : currentIndex + 1
     return selectElement(allElements[setIndex] || allElements[0], setIndex)
   }
 
@@ -103,5 +87,5 @@ export const useNavigation = (origin, containerRef, listRef, axis, elementsSelec
     }
   })
 
-  return [current, setNavigation, getCurrent]
+  return [current, setNavigation, getCurrent, getAllElements, navigateNext, navigatePrevious]
 }

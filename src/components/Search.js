@@ -18,7 +18,7 @@ export const Search = () => {
   const listRef = useRef()
   const i18n = useI18n()
   const [isFeedExpanded, setIsFeedExpanded] = useState(false)
-  const [current, setNavigation, getCurrent] = useNavigation('Search', containerRef, listRef, 'y', '[data-selectable]', setIsFeedExpanded)
+  const [current, setNavigation, getCurrent, getAllElements, navigateNext, navigatePrevious] = useNavigation('Search', containerRef, listRef, 'y')
   const lang = getAppLanguage()
   const [query, setQuery, searchResults] = useSearch(lang)
   const [showConsentPopup, closeConsentPopup] = usePopup(Consent)
@@ -44,6 +44,30 @@ export const Search = () => {
       setNavigation(0)
     } else {
       onExitConfirmDialog()
+    }
+  }
+
+  const onKeyArrowDown = () => {
+    const index = getCurrent().index
+    if (!isFeedExpanded && !searchResults && index === 0) {
+      setIsFeedExpanded(true)
+      navigateNext()
+    } else if (isFeedExpanded && index + 1 > getAllElements().length - 1) {
+      setNavigation(1)
+    } else {
+      navigateNext()
+    }
+  }
+
+  const onKeyArrowUp = () => {
+    const index = getCurrent().index
+    if (isFeedExpanded && !searchResults && index === 1) {
+      setIsFeedExpanded(false)
+      navigatePrevious()
+    } else if (!isFeedExpanded && !searchResults && index === 0) {
+      setNavigation(0)
+    } else {
+      navigatePrevious()
     }
   }
 
@@ -90,8 +114,10 @@ export const Search = () => {
     center: current.type === 'DIV' ? i18n('centerkey-select') : '',
     onKeyCenter,
     onKeyLeft: isRandomEnabled() ? goToRandomArticle : null,
-    onKeyBackspace: !(query && current.type === 'INPUT') && onKeyBackSpace
-  }, [current.type, query, isOnline])
+    onKeyBackspace: !(query && current.type === 'INPUT') && onKeyBackSpace,
+    onKeyArrowDown,
+    onKeyArrowUp
+  }, [current.type, query, isOnline, searchResults])
 
   useTracking('Search', lang)
 
