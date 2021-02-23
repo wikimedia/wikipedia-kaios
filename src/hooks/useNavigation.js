@@ -13,7 +13,13 @@ export const useNavigation = (origin, containerRef, listRef, axis, elementsSelec
     return element ? parseInt(element.getAttribute('nav-index')) : 0
   }
 
-  const setNavigation = index => selectElement(getAllElements()[index] || document.body)
+  const setNavigation = index => {
+    const allElements = getAllElements()
+    const setIndex = index > 0
+      ? ((index > allElements.length - 1) ? allElements.length - 1 : index)
+      : 0
+    return selectElement(getAllElements()[setIndex], setIndex)
+  }
 
   const navigatePrevious = () => {
     const allElements = getAllElements()

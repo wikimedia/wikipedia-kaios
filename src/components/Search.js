@@ -39,9 +39,9 @@ export const Search = () => {
 
   const onKeyBackSpace = () => {
     if (isFeedExpanded) {
+      setNavigation(0)
       setIsFeedExpanded(false)
       listRef.current.scrollTop = 0
-      setNavigation(0)
     } else {
       onExitConfirmDialog()
     }
@@ -49,37 +49,48 @@ export const Search = () => {
 
   const onKeyArrowDown = () => {
     const index = getCurrent().index
-    if (!isFeedExpanded && !searchResults && index === 0) {
-      setNavigation(getCurrent().index + 1)
-    } else if (isFeedExpanded && index + 2 > getAllElements().length - 1) {
-      setNavigation(1)
-    } else {
+    if (isFeedExpanded && index + 2 < getAllElements().length) {
       setNavigation(getCurrent().index + 2)
-    }
-
-    if (getCurrent().index > 0) {
-      setIsFeedExpanded(true)
     } else {
-      setIsFeedExpanded(false)
+      setNavigation(1)
     }
+    setFeedExpanded()
   }
 
   const onKeyArrowUp = () => {
     const index = getCurrent().index
-    if (isFeedExpanded && !searchResults && index === 1) {
-      setNavigation(getCurrent().index - 1)
-    } else if (!isFeedExpanded && !searchResults && index === 0) {
-      setNavigation(0)
-    } else {
-      setNavigation(getCurrent().index - 2)
-    }
+    setNavigation(index - 2)
+    setFeedExpanded()
+  }
 
-    if (getCurrent().index <= 0) {
+  const onKeyArrowRight = () => {
+    const index = getCurrent().index
+    setNavigation(index + 1)
+    setFeedExpanded()
+  }
+
+  const onKeyArrowLeft = () => {
+    const index = getCurrent().index
+    setNavigation(index - 1)
+    setFeedExpanded()
+  }
+
+  const setFeedExpanded = () => {
+    if (getCurrent().index === 0) {
       setIsFeedExpanded(false)
     } else {
       setIsFeedExpanded(true)
     }
   }
+  // useEffect(() => {
+  //   if (current.index === 0) {
+  //     setIsFeedExpanded(false)
+  //   } else {
+  //     setIsFeedExpanded(true)
+  //   }
+
+  //   console.log('current index', current.index, isFeedExpanded )
+  // }, [current.index])
 
   const onInput = ({ target }) => {
     if (isOnline) {
@@ -126,7 +137,9 @@ export const Search = () => {
     onKeyLeft: isRandomEnabled() ? goToRandomArticle : null,
     onKeyBackspace: !(query && current.type === 'INPUT') && onKeyBackSpace,
     onKeyArrowDown,
-    onKeyArrowUp
+    onKeyArrowUp,
+    onKeyArrowRight,
+    onKeyArrowLeft
   }, [current.type, query, isOnline, searchResults])
 
   useTracking('Search', lang)
