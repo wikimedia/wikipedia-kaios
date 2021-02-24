@@ -7,7 +7,8 @@ import {
 } from 'hooks'
 import {
   articleHistory, goto, getAppLanguage,
-  isRandomEnabled, confirmDialog, isConsentGranted
+  isRandomEnabled, confirmDialog, skipIntroAnchor,
+  isConsentGranted
 } from 'utils'
 import { getRandomArticleTitle } from 'api'
 
@@ -31,6 +32,8 @@ export const Search = () => {
       const { index, key } = getCurrent()
       if (index) {
         goto.article(lang, key)
+      } else if (isRandomEnabled() && !query) {
+        goToRandomArticle()
       }
     }
   }
@@ -60,24 +63,17 @@ export const Search = () => {
     })
   }
 
-  const goToRandomArticle = () => {
-    const [promise] = getRandomArticleTitle(lang)
-
-    promise.then(title => {
-      goto.article(lang, title)
-    })
-  }
-
   const allowUsage = () => {
     return isOnline || consentGranted
   }
 
   useSoftkey('Search', {
     right: allowUsage() ? i18n('softkey-settings') : '',
-    onKeyRight: allowUsage() ? () => { window.location.hash = '/settings' } : null,
+    onKeyRight: allowUsage() ? goto.settings : null,
     center: current.type === 'DIV' ? i18n('centerkey-select') : '',
     onKeyCenter,
-    onKeyLeft: isRandomEnabled() ? goToRandomArticle : null,
+    left: allowUsage() ? i18n('softkey-tips') : '',
+    onKeyLeft: allowUsage() ? goto.tips : null,
     onKeyBackspace: !(query && current.type === 'INPUT') && onExitConfirmDialog
   }, [current.type, query, isOnline])
 
@@ -101,4 +97,16 @@ export const Search = () => {
       { !isOnline && <OfflinePanel /> }
     </div>
   )
+}
+
+export const goToRandomArticle = (closePopup, skipIntro = false) => {
+  const lang = getAppLanguage()
+  const [promise] = getRandomArticleTitle(lang)
+
+  promise.then(title => {
+    if (closePopup) {
+      closePopup()
+    }
+    goto.article(lang, skipIntro ? [title, skipIntroAnchor] : title)
+  })
 }

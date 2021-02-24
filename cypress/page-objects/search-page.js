@@ -15,6 +15,10 @@ export class SearchPage {
     cy.clickSettingsButton()
   }
 
+  navigateToTipsPage () {
+    cy.clickTipsButton()
+  }
+
   getSearchTextBox () {
     return cy.get('input[type=text]')
   }

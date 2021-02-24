@@ -11,6 +11,10 @@ const article = (lang, title, replace = false) => {
 
 const search = () => route('/')
 
+const settings = () => route('/settings')
+
+const tips = () => route('/tips')
+
 const termsOfUse = () => {
   const lang = getAppLanguage()
   window.open(`https://foundation.m.wikimedia.org/wiki/Terms_of_Use/${lang}`)
@@ -22,4 +26,4 @@ const privacyPolicy = () => {
 
 const back = () => window.history.back()
 
-export const goto = { article, search, termsOfUse, privacyPolicy, back }
+export const goto = { article, search, termsOfUse, privacyPolicy, back, settings, tips }
