@@ -58,6 +58,7 @@ describe('special cases tests', () => {
     articlePage.title().should('have.text', 'C')
     articlePage.selectOptionFromActionsMenu('quickfacts')
     cy.get('div.quickfacts table.infobox').should('be.visible')
+    cy.get('a[data-selected=true][href="#Related_characters"]').should('exist')
     cy.enter()
     cy.get('div.info').should('have.text', 'Go to Section "Related characters"')
     cy.backspace()
