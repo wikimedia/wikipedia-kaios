@@ -3,7 +3,7 @@ import { memo } from 'preact/compat'
 import { useState, useRef, useEffect, useLayoutEffect, useContext } from 'preact/hooks'
 import {
   ReferencePreview, ArticleToc, ArticleLanguage,
-  ArticleMenu, ArticleFooter, Loading, QuickFacts,
+  ArticleMenu, ArticleFooter, ArticleLoading, QuickFacts,
   Error, Gallery, Table
 } from 'components'
 import {
@@ -133,7 +133,7 @@ const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
   const [article, loadArticle] = useArticle(lang, articleTitle)
 
   if (!article) {
-    return <Loading message={i18n('article-loading-message')} />
+    return <ArticleLoading />
   }
 
   if (article.error) {
