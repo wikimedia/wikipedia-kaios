@@ -10,7 +10,7 @@ import {
   isRandomEnabled, confirmDialog, skipIntroAnchor,
   isConsentGranted
 } from 'utils'
-import { getRandomArticleTitle } from 'api'
+import { getRandomArticleTitle, getExperimentConfig } from 'api'
 
 export const Search = () => {
   const containerRef = useRef()
@@ -86,6 +86,16 @@ export const Search = () => {
     } else {
       closeConsentPopup()
       setNavigation(0)
+    }
+  }, [consentGranted, isOnline])
+
+  useEffect(() => {
+    if (consentGranted && isOnline) {
+      getExperimentConfig()[0].then(({ startDate, endDate, countries }) => {
+        // check if the date between start and end
+        // check if user within the target countries
+        // if yes, set the user experiment group
+      })
     }
   }, [consentGranted, isOnline])
 
