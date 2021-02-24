@@ -1,10 +1,11 @@
 .loading-planet {
 	background-color: #fff;
-	height: calc( 100vh );
+	height: @availableHeight;
+	position: relative;
 
 	.galaxy {
 		position: absolute;
-		top: 40%;
+		top: 45%;
 		left: 50%;
 		transform: translate( -50%, -50% );
 		z-index: 0;
@@ -12,7 +13,7 @@
 
 	.earth {
 		position: absolute;
-		top: 40%;
+		top: 45%;
 		left: 50%;
 		transform: translate( -50%, -50% );
 		z-index: 2;
@@ -21,14 +22,14 @@
 	.moon {
 		animation: rotation 2.5s infinite linear;
 		position: absolute;
-		top: 40%;
+		top: 45%;
 		left: 50%;
 		z-index: 3;
 	}
 
 	.message {
 		position: absolute;
-		top: calc( 50% + 50px );
+		top: calc( 55% + 50px );
 		left: 50%;
 		transform: translate( -50%, -50% );
 		z-index: 2;

@@ -34,4 +34,26 @@
 		top: 68px;
 		bottom: @softkeysHeight;
 	}
+
+	.loading-planet {
+		height: calc( 100vh - @softkeysHeight - 39px ); // 39px is the input container height
+
+		@media @landscape {
+			.moon {
+				height: 60%;
+			}
+
+			.galaxy {
+				height: 75%;
+			}
+
+			.earth {
+				height: 40%;
+			}
+
+			.message {
+				top: calc( 55% + 35px );
+			}
+		}
+	}
 }

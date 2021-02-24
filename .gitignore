@@ -6,3 +6,4 @@ cypress/fixtures
 .vscode
 Wikipedia
 WikipediaKaiOS*.zip
+gh-pages

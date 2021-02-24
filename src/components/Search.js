@@ -1,6 +1,6 @@
 import { h } from 'preact'
 import { useRef, useEffect, useState } from 'preact/hooks'
-import { ListView, OfflinePanel, Consent, Feed } from 'components'
+import { ListView, OfflinePanel, Consent, SearchLoading, Feed } from 'components'
 import {
   useNavigation, useSearch, useI18n, useSoftkey,
   useOnlineStatus, useTracking, usePopup, useHistoryState
@@ -8,7 +8,7 @@ import {
 import {
   articleHistory, goto, getAppLanguage,
   isRandomEnabled, confirmDialog, isConsentGranted,
-  isTrendingArticlesGroup
+  isTrendingArticlesGroup, skipIntroAnchor
 } from 'utils'
 import { getRandomArticleTitle } from 'api'
 
@@ -21,7 +21,7 @@ export const Search = () => {
   const [lastFeedIndex, setLastFeedIndex] = useHistoryState('lastFeedIndex', null)
   const [current, setNavigation, getCurrent, getAllElements, navigateNext, navigatePrevious] = useNavigation('Search', containerRef, listRef, 'y')
   const lang = getAppLanguage()
-  const [query, setQuery, searchResults] = useSearch(lang)
+  const [query, setQuery, searchResults, loading] = useSearch(lang)
   const [showConsentPopup, closeConsentPopup] = usePopup(Consent)
   const consentGranted = isConsentGranted()
   const isOnline = useOnlineStatus(online => {
@@ -37,6 +37,8 @@ export const Search = () => {
       }
       if (index) {
         goto.article(lang, key)
+      } else if (isRandomEnabled() && !query) {
+        goToRandomArticle()
       }
     }
   }
@@ -101,24 +103,17 @@ export const Search = () => {
     })
   }
 
-  const goToRandomArticle = () => {
-    const [promise] = getRandomArticleTitle(lang)
-
-    promise.then(title => {
-      goto.article(lang, title)
-    })
-  }
-
   const allowUsage = () => {
     return isOnline || consentGranted
   }
 
   useSoftkey('Search', {
     right: allowUsage() ? i18n('softkey-settings') : '',
-    onKeyRight: allowUsage() ? () => { window.location.hash = '/settings' } : null,
+    onKeyRight: allowUsage() ? goto.settings : null,
     center: current.type === 'DIV' ? i18n('centerkey-select') : '',
     onKeyCenter,
-    onKeyLeft: isRandomEnabled() ? goToRandomArticle : null,
+    left: allowUsage() ? i18n('softkey-tips') : '',
+    onKeyLeft: allowUsage() ? goto.tips : null,
     onKeyBackspace: !(query && current.type === 'INPUT') && onKeyBackSpace,
     onKeyArrowDown,
     onKeyArrowUp
@@ -136,16 +131,33 @@ export const Search = () => {
     }
   }, [consentGranted, isOnline])
 
-  const hideW = (searchResults || !isOnline || (isFeedExpanded && isTrendingArticlesGroup()))
-  const showFeed = (isOnline && !searchResults && (isTrendingArticlesGroup()))
+  const hideW = (searchResults || !isOnline || loading || (isFeedExpanded && isTrendingArticlesGroup()))
+  const showSearchBar = allowUsage()
+  const showResultsList = isOnline && searchResults && !loading
+  const showLoading = isOnline && loading
+  const showOfflinePanel = !isOnline
+  const showFeed = (isOnline && !searchResults && !showLoading && !showOfflinePanel && (isTrendingArticlesGroup()))
 
   return (
     <div class='search' ref={containerRef}>
       <img class='double-u' src='images/w.svg' style={{ display: (hideW ? 'none' : 'block') }} />
-      { (allowUsage()) && <input ref={inputRef} type='text' placeholder={i18n('search-placeholder')} value={query} onInput={onInput} data-selectable maxlength='255' /> }
-      { (isOnline && searchResults) && <ListView header={i18n('header-search')} items={searchResults} containerRef={listRef} empty={i18n('no-result-found')} /> }
-      { !isOnline && <OfflinePanel /> }
+      { showSearchBar && <input ref={inputRef} type='text' placeholder={i18n('search-placeholder')} value={query} onInput={onInput} data-selectable maxlength='255' /> }
+      { showResultsList && <ListView header={i18n('header-search')} items={searchResults} containerRef={listRef} empty={i18n('no-result-found')} /> }
+      { showLoading && <SearchLoading /> }
+      { showOfflinePanel && <OfflinePanel /> }
       { showFeed && <Feed lang={lang} isExpanded={isFeedExpanded} setIsExpanded={setIsFeedExpanded} lastIndex={lastFeedIndex} setNavigation={setNavigation} containerRef={listRef} /> }
     </div>
   )
+}
+
+export const goToRandomArticle = (closePopup, skipIntro = false) => {
+  const lang = getAppLanguage()
+  const [promise] = getRandomArticleTitle(lang)
+
+  promise.then(title => {
+    if (closePopup) {
+      closePopup()
+    }
+    goto.article(lang, skipIntro ? [title, skipIntroAnchor] : title)
+  })
 }

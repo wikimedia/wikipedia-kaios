@@ -72,7 +72,7 @@ describe('settings page', () => {
   it('check about app page', () => {
     languageSettingsPage.selectOptionFromSettings('About the app')
     aboutAppPage.getHeader().should('have.text', enJson['about-header'])
-    aboutAppPage.getImage().should('have.attr', 'src', '/images/onboarding-0.png')
+    aboutAppPage.getImage().should('have.attr', 'src', 'images/onboarding-0.png')
     aboutAppPage.getVersion().should('contain', '0.0.0')
     aboutAppPage.getMessage().should('have.text', enJson['about-app-message'])
   })
@@ -80,17 +80,17 @@ describe('settings page', () => {
   it('check about wikipedia page', () => {
     languageSettingsPage.selectOptionFromSettings('About Wikipedia')
     aboutWikipediaPage.getHeader().should('have.text', enJson['about-wikipedia-header'])
-    aboutWikipediaPage.getImage().should('have.attr', 'src', '/images/onboarding-0.png')
+    aboutWikipediaPage.getImage().should('have.attr', 'src', 'images/onboarding-0.png')
     aboutWikipediaPage.getTitle().should('have.text', enJson['onboarding-0-title'])
     aboutWikipediaPage.getDescription().should('have.text', enJson['onboarding-0-description'])
     cy.getRightSoftkeyButton().click()
 
-    aboutWikipediaPage.getImage().should('have.attr', 'src', '/images/onboarding-1.png')
+    aboutWikipediaPage.getImage().should('have.attr', 'src', 'images/onboarding-1.png')
     aboutWikipediaPage.getTitle().should('have.text', enJson['onboarding-1-title'])
     aboutWikipediaPage.getDescription().should('have.text', enJson['onboarding-1-description'])
     cy.getRightSoftkeyButton().click()
 
-    aboutWikipediaPage.getImage().should('have.attr', 'src', '/images/onboarding-2.png')
+    aboutWikipediaPage.getImage().should('have.attr', 'src', 'images/onboarding-2.png')
     aboutWikipediaPage.getTitle().should('have.text', enJson['onboarding-2-title'])
     aboutWikipediaPage.getDescription().should('have.text', enJson['onboarding-2-description'])
     cy.getLeftSoftkeyButton().click()
@@ -103,7 +103,7 @@ describe('settings page', () => {
     languageSettingsPage.selectOptionFromSettings('About Wikipedia')
     aboutWikipediaPage.getHeader().should('have.text', enJson['about-wikipedia-header'])
     cy.getRightSoftkeyButton().click()
-    aboutWikipediaPage.getImage().should('have.attr', 'src', '/images/onboarding-1.png')
+    aboutWikipediaPage.getImage().should('have.attr', 'src', 'images/onboarding-1.png')
     cy.getRightSoftkeyButton().click()
     cy.getCenterSoftkeyButton().should('have.text', enJson['softkey-close'])
     cy.getCenterSoftkeyButton().click()

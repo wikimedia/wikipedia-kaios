@@ -14,7 +14,7 @@ describe('Article search', () => {
   it('search should show results', () => {
     searchPage.search('catt')
     searchPage.results().first()
-      .should('have.text', 'CattCatt or CATT may refer to: Alfred Catt (1833–1919), Australian parliamentarian Anthony Catt (1933–2018), English cricketer Carrie Chapman Catt (1859–1947)')
+      .should('exist')
   })
 
   it('results with image should show image', () => {
@@ -32,7 +32,8 @@ describe('Article search', () => {
   it('article should open from search results page', () => {
     searchPage.search('catt')
     searchPage.results().first()
-    cy.enter().downArrow().enter()
+    cy.downArrow()
+    searchPage.selectOptionFromSearchResultsList('Catt')
     articlePage.title().should('have.text', 'Catt')
   })
 
