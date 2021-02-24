@@ -31,7 +31,3 @@ const getExperimentData = (prefix, lang) => {
 export const getTrendingArticles = lang => {
   return getExperimentData('Wikipedia_for_KaiOS/engagement1/trending', lang)
 }
-
-export const getTopicsArticles = lang => {
-  return getExperimentData('Wikipedia_for_KaiOS/engagement1/topics', lang)
-}
