@@ -3,7 +3,6 @@ const GROUP_STORAGE_KEY = '2021-KaiOS-app-homepage-content-suggestions'
 const GROUPS = [
   'control',
   'trending-articles'
-  // 'curated-topics'
 ]
 
 const getRandomGroupNumber = () => {
@@ -33,5 +32,3 @@ export const getExperiment = () => {
 }
 
 export const isTrendingArticlesGroup = () => getGroup() === GROUPS[1]
-
-export const isCuratedTopicsGroup = () => getGroup() === GROUPS[2]
