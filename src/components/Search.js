@@ -20,7 +20,7 @@ export const Search = () => {
   const [isFeedExpanded, setIsFeedExpanded] = useState(false)
   const [current, setNavigation, getCurrent, getAllElements, navigateNext, navigatePrevious] = useNavigation('Search', containerRef, listRef, 'y')
   const lang = getAppLanguage()
-  const [query, setQuery, searchResults] = useSearch(lang)
+  const [query, setQuery, searchResults, lastFeedIndex, setLastFeedIndex] = useSearch(lang)
   const [showConsentPopup, closeConsentPopup] = usePopup(Consent)
   const consentGranted = isConsentGranted()
   const isOnline = useOnlineStatus(online => {
@@ -31,6 +31,9 @@ export const Search = () => {
   const onKeyCenter = () => {
     if (allowUsage()) {
       const { index, key } = getCurrent()
+      if (index && isFeedExpanded) {
+        setLastFeedIndex(index)
+      }
       if (index) {
         goto.article(lang, key)
       }
@@ -63,6 +66,7 @@ export const Search = () => {
     const index = getCurrent().index
     if (isFeedExpanded && !searchResults && index === 1) {
       setIsFeedExpanded(false)
+      setLastFeedIndex(null)
       navigatePrevious()
     } else if (!isFeedExpanded && !searchResults && index === 0) {
       setNavigation(0)
@@ -140,7 +144,7 @@ export const Search = () => {
       { (allowUsage()) && <input ref={inputRef} type='text' placeholder={i18n('search-placeholder')} value={query} onInput={onInput} data-selectable maxlength='255' /> }
       { (isOnline && searchResults) && <ListView header={i18n('header-search')} items={searchResults} containerRef={listRef} empty={i18n('no-result-found')} /> }
       { !isOnline && <OfflinePanel /> }
-      { showFeed && <Feed lang={lang} isExpanded={isFeedExpanded} containerRef={listRef} /> }
+      { showFeed && <Feed lang={lang} isExpanded={isFeedExpanded} setIsExpanded={setIsFeedExpanded} lastIndex={lastFeedIndex} setNavigation={setNavigation} containerRef={listRef} /> }
     </div>
   )
 }

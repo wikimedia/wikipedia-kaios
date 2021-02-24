@@ -4,7 +4,7 @@ import { ListView } from 'components'
 import { useI18n } from 'hooks'
 import { getTrendingArticles } from 'api'
 
-export const Feed = ({ isExpanded, lang, containerRef }) => {
+export const Feed = ({ lang, isExpanded, setIsExpanded, lastIndex, setNavigation, containerRef }) => {
   const [trendingArticles, setTrendingArticles] = useState([])
   const i18n = useI18n()
 
@@ -13,6 +13,13 @@ export const Feed = ({ isExpanded, lang, containerRef }) => {
     request.then(setTrendingArticles)
     return abort
   })
+
+  useEffect(() => {
+    if (lastIndex) {
+      setIsExpanded(true)
+      setNavigation(lastIndex)
+    }
+  }, [trendingArticles])
 
   return (
     <div class={`feed ${isExpanded ? 'expanded' : 'collapsed'}`}>
