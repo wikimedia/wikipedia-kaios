@@ -3,7 +3,7 @@ import { useRef, useEffect, useState } from 'preact/hooks'
 import { ListView, OfflinePanel, Consent, Feed } from 'components'
 import {
   useNavigation, useSearch, useI18n, useSoftkey,
-  useOnlineStatus, useTracking, usePopup
+  useOnlineStatus, useTracking, usePopup, useHistoryState
 } from 'hooks'
 import {
   articleHistory, goto, getAppLanguage,
@@ -18,9 +18,10 @@ export const Search = () => {
   const listRef = useRef()
   const i18n = useI18n()
   const [isFeedExpanded, setIsFeedExpanded] = useState(false)
+  const [lastFeedIndex, setLastFeedIndex] = useHistoryState('lastFeedIndex', null)
   const [current, setNavigation, getCurrent, getAllElements, navigateNext, navigatePrevious] = useNavigation('Search', containerRef, listRef, 'y')
   const lang = getAppLanguage()
-  const [query, setQuery, searchResults, lastFeedIndex, setLastFeedIndex] = useSearch(lang)
+  const [query, setQuery, searchResults] = useSearch(lang)
   const [showConsentPopup, closeConsentPopup] = usePopup(Consent)
   const consentGranted = isConsentGranted()
   const isOnline = useOnlineStatus(online => {

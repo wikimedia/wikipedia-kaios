@@ -4,7 +4,6 @@ import { search } from 'api'
 
 export const useSearch = (lang) => {
   const [query, setQuery] = useHistoryState('query', '')
-  const [lastFeedIndex, setLastFeedIndex] = useHistoryState('lastFeedIndex', null)
 
   const [searchResults, setSearchResults] = useState()
 
@@ -18,5 +17,5 @@ export const useSearch = (lang) => {
     }
   }, [lang, query])
 
-  return [query, setQuery, searchResults, lastFeedIndex, setLastFeedIndex]
+  return [query, setQuery, searchResults]
 }
