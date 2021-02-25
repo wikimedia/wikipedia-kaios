@@ -20,7 +20,6 @@
 		top: calc( 50% - 10px );
 		width: 28px;
 		height: 28px;
-		background-image: url( /images/arrow.svg );
 
 		&.left {
 			left: 8px;
@@ -35,21 +34,19 @@
 	&.portrait {
 		.img {
 			height: @availableHeight; // Required under portrait for black background to work on device
-		}
-
-		img {
-			height: 100%;
-			width: auto;
+			img {
+				height: 100%;
+				width: auto;
+			}
 		}
 	}
 
 	&.landscape {
 		.img {
 			height: @availableHeight; // Required under landscape for black background to work on device
-		}
-
-		img {
-			max-width: 100%;
+			img {
+				max-width: 100%;
+			}
 		}
 	}
 }
