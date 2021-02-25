@@ -16,7 +16,8 @@
 			"Rodney Araujo",
 			"Silverie04",
 			"Suecarmol",
-			"Whytheonlyone"
+			"Whytheonlyone",
+			"WikiiiTranslator"
 		]
 	},
 	"article-action-sections": "Sumario",
@@ -70,6 +71,7 @@
 	"softkey-skip": "Saltar",
 	"softkey-get-started": "Empezar",
 	"softkey-refresh": "Actualizar",
+	"softkey-tips": "Consejos",
 	"suggested-articles": "Artículos sugeridos",
 	"reference-title": "Referencia [$1]",
 	"offline-message": "Sin conexión a internet",
@@ -90,6 +92,12 @@
 	"textsize-preview": "El texto del artículo se mostrará así.",
 	"textsize-label-small": "Pequeño",
 	"textsize-label-large": "Grande",
+	"tips-read": "Como leer un articulo?",
+	"tips-search": "Como buscar un articulo?",
+	"tips-switch": "Como cambiar entre enlaces?",
+	"tip-read-message": "Usa enlaces o opciones de llave rápida para leer artículos en múltiples lenguajes, ver galería y más.",
+	"tip-search-header": "Buscar artículo",
+	"tip-switch-header": "Cambiar enlaces",
 	"toc-footer": "Artículos sugeridos",
 	"view-in-browser": "Ver artículo en el navegador",
 	"about-app-message": "Creado por la Fundación Wikimedia con ayuda de voluntarios como tú.",
