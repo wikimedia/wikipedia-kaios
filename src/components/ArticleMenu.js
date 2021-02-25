@@ -7,6 +7,7 @@ import { ListView, TextSize } from 'components'
 export const ArticleMenu = ({
   close, onTocSelected, onLanguageSelected,
   onQuickFactsSelected, onGallerySelected,
+  onShareArticleUrl,
   hasLanguages, hasInfobox, hasGallery
 }) => {
   const containerRef = useRef()
@@ -53,6 +54,11 @@ export const ArticleMenu = ({
   }, [])
 
   const items = [
+    {
+      title: 'Share',
+      action: onShareArticleUrl,
+      enabled: !!window.MozActivity // disabled on browsers (not supported)
+    },
     {
       title: i18n('search-placeholder'),
       action: onSearchSelected,

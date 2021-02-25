@@ -11,7 +11,7 @@ import {
   useArticlePagination, useArticleLinksNavigation,
   usePopup, useTracking
 } from 'hooks'
-import { articleHistory, confirmDialog, goto, viewport } from 'utils'
+import { articleHistory, confirmDialog, goto, viewport, buildWpMobileWebUrl } from 'utils'
 import { FontContext } from 'contexts'
 
 const ArticleBody = memo(({ content }) => {
@@ -179,12 +179,24 @@ const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
     showGalleryPopup({ items: article.media, startFileName, lang, dir })
   }
 
+  const shareArticleUrl = () => {
+    // eslint-disable-next-line no-new
+    new window.MozActivity({
+      name: 'share',
+      data: {
+        type: 'url',
+        url: buildWpMobileWebUrl(lang, articleTitle)
+      }
+    })
+  }
+
   const showArticleMenu = () => {
     showMenuPopup({
       onTocSelected: showArticleTocPopup,
       onLanguageSelected: showArticleLanguagePopup,
       onQuickFactsSelected: showQuickFacts,
       onGallerySelected: showGallery,
+      onShareArticleUrl: shareArticleUrl,
       hasInfobox: !!article.infobox,
       hasLanguages: article.languageCount,
       hasGallery: !!article.media.length
