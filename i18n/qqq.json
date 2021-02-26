@@ -11,6 +11,7 @@
 	"article-action-quickfacts": "The action button quick facts text on the first page of the article used to open the quick facts page and the label of the Quick facts item shown in the Menu page.",
 	"article-action-gallery": "The action button gallery text on the first page of the article used to open the gallery page.",
 	"article-action-languages": "The action button language text on the first page of the article used to open the language page and the label of the language item shown in the Menu page.",
+	"article-action-share": "The menu item to share an article URL.",
 	"article-language-available": "The header title of the article language search page. The word \"available\" refers to the article.",
 	"article-language-loading-message": "The message when loading the article's language page. Shown in the article language page",
 	"article-loading-message": "The message when loading the article. Shown in the article page",

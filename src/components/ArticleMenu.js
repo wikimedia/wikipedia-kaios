@@ -55,7 +55,7 @@ export const ArticleMenu = ({
 
   const items = [
     {
-      title: 'Share',
+      title: i18n('article-action-share'),
       action: onShareArticleUrl,
       enabled: !!window.MozActivity // disabled on browsers (not supported)
     },

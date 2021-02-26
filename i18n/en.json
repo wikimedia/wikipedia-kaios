@@ -10,6 +10,7 @@
     "article-action-quickfacts": "Quick Facts",
     "article-action-gallery": "Gallery",
     "article-action-languages": "Language",
+    "article-action-share": "Share",
     "article-language-available": "Available in $1 {{PLURAL:$1|language|languages}}",
     "article-language-loading-message": "Loading languages...",
     "article-loading-message": "Loading page...",
