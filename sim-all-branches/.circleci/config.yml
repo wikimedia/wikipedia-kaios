@@ -55,7 +55,7 @@ jobs:
       - run:
           name: Deploy sim
           command: |
-            gh-pages --dotfiles --dist ./gh-pages --dest $CIRCLE_BRANCH
+            gh-pages --dotfiles --dist ./gh-pages --dest $CIRCLE_BRANCH -m "[ci skip] Update simulator"
 workflows:
   version: 2
   build:
