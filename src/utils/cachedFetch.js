@@ -45,7 +45,7 @@ export const cachedFetch = (url, transformFn, cache = true) => {
     }
   }
 
-  return [promise, abort]
+  return [promise, abort, xhr]
 }
 
 const sendLogWhenError = ({ status, response }, url) => {

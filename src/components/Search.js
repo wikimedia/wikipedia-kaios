@@ -91,10 +91,17 @@ export const Search = () => {
 
   useEffect(() => {
     if (consentGranted && isOnline) {
-      getExperimentConfig()[0].then(({ startDate, endDate, countries }) => {
-        // check if the date between start and end
-        // check if user within the target countries
-        // if yes, set the user experiment group
+      const [promise,, xhr] = getExperimentConfig()
+      promise.then(({ startDate, endDate, countries }) => {
+        // @todo check if the date between start and end
+
+        const targetCountries = Array.isArray(countries) ? [countries] : countries
+        // example : GeoIP=DE:BE:Berlin:52.48:13.36:v4; Path=/; secure; Domain=.mediawiki.org
+        const userCountry = xhr.getResponseHeader('Set-Cookie').match(/GeoIP=(\w+)/)[1]
+
+        if (targetCountries.includes(userCountry)) {
+          // @todo  set the user experiment group
+        }
       })
     }
   }, [consentGranted, isOnline])
