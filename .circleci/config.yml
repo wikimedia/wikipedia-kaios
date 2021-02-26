@@ -53,6 +53,11 @@ jobs:
             git config user.email "ci-build@wikimedia.org"
             git config user.name "ci-build"
       - run:
+        name: SEt gh-pages dest based on current branch
+        command: |
+          echo 'export SIM_DIR=$([ "$CIRCLE_BRANCH" == "master" ] && echo "." || echo "$CIRCLE_BRANCH")' >> $BASH_ENV
+          source $BASH_ENV
+      - run:
           name: Deploy sim
           command: |
             gh-pages --dotfiles --dist ./gh-pages --dest $SIM_DIR -m "[ci skip] Update simulator"
@@ -67,16 +72,3 @@ workflows:
       - update-sim:
           requires:
             - build
-          filters:
-            branches:
-              only: master
-          environment:
-            SIM_DIR: "."
-      - update-sim:
-          requires:
-            - build
-          filters:
-            branches:
-              ignore: master
-          environment:
-            SIM_DIR: $CIRCLE_BRANCH
