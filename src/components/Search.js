@@ -89,18 +89,36 @@ export const Search = () => {
     }
   }, [consentGranted, isOnline])
 
+  // experiment hook
   useEffect(() => {
+    function formatDate (date) {
+      var d = new Date(date)
+      var month = '' + (d.getMonth() + 1)
+      var day = '' + d.getDate()
+      var year = d.getFullYear()
+
+      if (month.length < 2) { month = '0' + month }
+      if (day.length < 2) { day = '0' + day }
+
+      return [year, month, day].join('')
+    }
     if (consentGranted && isOnline) {
       const [promise,, xhr] = getExperimentConfig()
       promise.then(({ startDate, endDate, countries }) => {
-        // @todo check if the date between start and end
+        try {
+          const now = parseInt(formatDate(Date.now()), 10)
+          const targetCountries = Array.isArray(countries) ? [countries] : countries
+          const userCountry = xhr.getResponseHeader('Set-Cookie').match(/GeoIP=(\w+)/)[1]
 
-        const targetCountries = Array.isArray(countries) ? [countries] : countries
-        // example : GeoIP=DE:BE:Berlin:52.48:13.36:v4; Path=/; secure; Domain=.mediawiki.org
-        const userCountry = xhr.getResponseHeader('Set-Cookie').match(/GeoIP=(\w+)/)[1]
-
-        if (targetCountries.includes(userCountry)) {
+          if (
+            now > parseInt(startDate, 10) &&
+          now < parseInt(endDate, 10) &&
+          targetCountries.includes(userCountry)
+          ) {
           // @todo  set the user experiment group
+          }
+        } catch (e) {
+          //
         }
       })
     }
