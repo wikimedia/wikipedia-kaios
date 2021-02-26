@@ -11,7 +11,7 @@ export const useSearch = (lang) => {
   useEffect(() => {
     if (query && query.trim()) {
       setLoading(true)
-      const [request, abort] = search(lang, query)
+      const [request, abort] = search(lang, query.trim())
       request.then(data => {
         setLoading(false)
         setSearchResults(data)
