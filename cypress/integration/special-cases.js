@@ -5,7 +5,7 @@ import { ArticleMenuPage } from '../page-objects/article-menu-page'
 const articlePage = new ArticlePage()
 const articleMenuPage = new ArticleMenuPage()
 
-describe('special cases tests', () => {
+describe.skip('special cases tests', () => {
   it('special page article should open', () => {
     cy.navigateToPageWithoutOnboarding('article/en/Help%3AIPA%2FEnglish')
     articlePage.title().should('have.text', 'Help:IPA/English')

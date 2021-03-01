@@ -14,7 +14,7 @@ const popupPage = new PopupPage()
 const articleMenuPage = new ArticleMenuPage()
 const searchPage = new SearchPage()
 
-describe('Article view', () => {
+describe.skip('Article view', () => {
   beforeEach(() => {
     cy.navigateToHomePage()
   })
