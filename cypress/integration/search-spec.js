@@ -25,7 +25,7 @@ describe('Article search', () => {
 
   it('results without image should not show image', () => {
     searchPage.search('catt')
-    searchPage.results().first()
+    searchPage.results().first().next()
       .children().first().next().should('not.exist')
   })
 

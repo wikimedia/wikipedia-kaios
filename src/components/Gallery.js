@@ -115,12 +115,12 @@ export const Gallery = ({ close, closeAll, items, startFileName, lang, dir }) =>
     <div class='gallery-view' ref={containerRef}>
       {
         currentIndex !== 0 && (
-          <div class={`arrow ${dir === 'rtl' ? 'right' : 'left'}`} />
+          <img src='images/arrow.svg' class={`arrow ${dir === 'rtl' ? 'right' : 'left'}`} />
         )
       }
       {
         currentIndex < items.length - 1 && (
-          <div class={`arrow ${dir === 'rtl' ? 'left' : 'right'}`} />
+          <img src='images/arrow.svg' class={`arrow ${dir === 'rtl' ? 'left' : 'right'}`} />
         )
       }
       <div class='img'>
