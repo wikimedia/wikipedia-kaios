@@ -1,6 +1,6 @@
 import { useEffect } from 'preact/hooks'
 import { getExperimentConfig } from 'api'
-import { isConsentGranted } from 'utils'
+import { isConsentGranted, setExperimentGroup, clearExperimentGroup } from 'utils'
 
 const STORAGE_KEY = '2021-KaiOS-app-engagement-config'
 const DAY_TIMESTAMP = 24 * 60 * 60 * 1000
@@ -29,21 +29,24 @@ export const useExperimentConfig = () => {
       promise.then(({ startDate, endDate, countries }) => {
         try {
           const now = parseInt(formatDate(Date.now()), 10)
-          const targetCountries = Array.isArray(countries) ? [countries] : countries
-          const userCountry = xhr.getResponseHeader('Set-Cookie').match(/GeoIP=(\w+)/)[1]
+          const targetCountries = Array.isArray(countries) ? countries : [countries]
+          const userCountry = 'NG' || xhr.getResponseHeader('Set-Cookie').match(/GeoIP=(\w+)/)[1]
 
+          debugger; // eslint-disable-line
           if (
-            now > parseInt(startDate, 10) &&
-          now < parseInt(endDate, 10) &&
+            now >= parseInt(startDate, 10) &&
+          now <= parseInt(endDate, 10) &&
           targetCountries.includes(userCountry)
           ) {
             localStorage.setItem(STORAGE_KEY,
               JSON.stringify({ timestamp: nowTimestamp, startDate, endDate, countries, include: true })
             )
+            setExperimentGroup()
           } else {
             localStorage.setItem(STORAGE_KEY,
               JSON.stringify({ timestamp: nowTimestamp, include: false })
             )
+            clearExperimentGroup()
           }
         } catch (e) {
           // in desktop browser, xhr getResponseHeader from Set-Cookie is not allowed
@@ -51,6 +54,7 @@ export const useExperimentConfig = () => {
           localStorage.setItem(STORAGE_KEY,
             JSON.stringify({ timestamp: nowTimestamp, include: false })
           )
+          clearExperimentGroup()
         }
       })
     }

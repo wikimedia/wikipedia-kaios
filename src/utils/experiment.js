@@ -15,13 +15,16 @@ const getRandomGroupNumber = () => {
   return Math.round(Math.random() * 100) % GROUPS.length
 }
 
+export const setExperimentGroup = () => {
+  localStorage.setItem(GROUP_STORAGE_KEY, GROUPS[getRandomGroupNumber()])
+}
+
+export const clearExperimentGroup = () => {
+  localStorage.setItem(GROUP_STORAGE_KEY, null)
+}
+
 const getGroup = () => {
-  let currentGroup = localStorage.getItem(GROUP_STORAGE_KEY)
-  if (!currentGroup) {
-    currentGroup = GROUPS[getRandomGroupNumber()]
-    localStorage.setItem(GROUP_STORAGE_KEY, currentGroup)
-  }
-  return currentGroup
+  return localStorage.getItem(GROUP_STORAGE_KEY)
 }
 
 export const getExperiment = () => {
