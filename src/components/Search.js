@@ -10,7 +10,7 @@ import {
   isRandomEnabled, confirmDialog, skipIntroAnchor,
   isConsentGranted
 } from 'utils'
-import { getRandomArticleTitle, getExperimentConfig } from 'api'
+import { getRandomArticleTitle } from 'api'
 
 export const Search = () => {
   const containerRef = useRef()
@@ -86,41 +86,6 @@ export const Search = () => {
     } else {
       closeConsentPopup()
       setNavigation(0)
-    }
-  }, [consentGranted, isOnline])
-
-  // experiment hook
-  useEffect(() => {
-    function formatDate (date) {
-      var d = new Date(date)
-      var month = '' + (d.getMonth() + 1)
-      var day = '' + d.getDate()
-      var year = d.getFullYear()
-
-      if (month.length < 2) { month = '0' + month }
-      if (day.length < 2) { day = '0' + day }
-
-      return [year, month, day].join('')
-    }
-    if (consentGranted && isOnline) {
-      const [promise,, xhr] = getExperimentConfig()
-      promise.then(({ startDate, endDate, countries }) => {
-        try {
-          const now = parseInt(formatDate(Date.now()), 10)
-          const targetCountries = Array.isArray(countries) ? [countries] : countries
-          const userCountry = xhr.getResponseHeader('Set-Cookie').match(/GeoIP=(\w+)/)[1]
-
-          if (
-            now > parseInt(startDate, 10) &&
-          now < parseInt(endDate, 10) &&
-          targetCountries.includes(userCountry)
-          ) {
-          // @todo  set the user experiment group
-          }
-        } catch (e) {
-          //
-        }
-      })
     }
   }, [consentGranted, isOnline])
 
