@@ -12,13 +12,16 @@ export const getArticle = (lang, title, { moreInformationText }, useMobileHtml =
       const sections = []
 
       const getMeta = (prop, key = 'property') => {
-        return doc.querySelector('head > meta[' + key + '="' + prop + '"]').getAttribute('content')
+        const metaNode = doc.querySelector('head > meta[' + key + '="' + prop + '"]')
+        return metaNode && metaNode.getAttribute('content')
       }
 
       const lead = doc.querySelector('header')
       const section0 = doc.querySelector('section')
-      const infobox = section0.querySelector('.infobox').outerHTML
-      section0.querySelector('.pcs-collapse-table-container').remove()
+      const infoboxNode = section0.querySelector('.infobox')
+      const infobox = infoboxNode && infoboxNode.outerHTML
+      const pcsTableContainer = section0.querySelector('.pcs-collapse-table-container')
+      pcsTableContainer && pcsTableContainer.remove()
       const articleTitle = lead.querySelector('h1').textContent
       sections.push({
         imageUrl: getMeta('mw:leadImage'),
