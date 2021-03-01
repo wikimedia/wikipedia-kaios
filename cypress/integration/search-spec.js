@@ -31,7 +31,7 @@ describe('Article search', () => {
 
   it('article should open from search results page', () => {
     searchPage.search('catt')
-    searchPage.results().first()
+    searchPage.results().first().next()
     cy.downArrow()
     searchPage.selectOptionFromSearchResultsList('Catt')
     articlePage.title().should('have.text', 'Catt')

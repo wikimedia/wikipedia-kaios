@@ -49,7 +49,7 @@ Cypress.Commands.add('clickMenuButton', () => {
 Cypress.Commands.add('navigateToHomePage', () => {
   cy.setLocalStorage('has-onboard-before', true)
   cy.setLocalStorage('usage-data-consent', '{}') // Don't display consent screen
-  cy.setLocalStorage('experiment-group', 'control')
+  cy.setLocalStorage('2021-KaiOS-app-homepage-content-suggestions', 'control')
   cy.visit('/')
 })
 
