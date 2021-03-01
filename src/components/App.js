@@ -3,9 +3,8 @@ import { useReducer, useState, useEffect } from 'preact/hooks'
 import { Routes, Softkey, PopupContainer, OfflineIndicator } from 'components'
 import { DirectionContext, I18nContext, SoftkeyContext, PopupContext, FontContext } from 'contexts'
 import { SoftkeyReducer } from 'reducers'
-import { articleTextSize, isConsentGranted } from 'utils'
-import { useErrorLogging } from 'hooks'
-import { getExperimentConfig } from 'api'
+import { articleTextSize } from 'utils'
+import { useErrorLogging, useExperimentConfig } from 'hooks'
 
 export const App = ({ i18n, dir }) => {
   // @todo making it used by the global state management
@@ -27,42 +26,7 @@ export const App = ({ i18n, dir }) => {
   }, [textSize])
   // end of useTextSize
 
-  // experiment config
-  const consentGranted = isConsentGranted()
-  useEffect(() => {
-    function formatDate (date) {
-      var d = new Date(date)
-      var month = '' + (d.getMonth() + 1)
-      var day = '' + d.getDate()
-      var year = d.getFullYear()
-
-      if (month.length < 2) { month = '0' + month }
-      if (day.length < 2) { day = '0' + day }
-
-      return [year, month, day].join('')
-    }
-    if (consentGranted) {
-      const [promise,, xhr] = getExperimentConfig()
-      promise.then(({ startDate, endDate, countries }) => {
-        try {
-          const now = parseInt(formatDate(Date.now()), 10)
-          const targetCountries = Array.isArray(countries) ? [countries] : countries
-          const userCountry = xhr.getResponseHeader('Set-Cookie').match(/GeoIP=(\w+)/)[1]
-
-          if (
-            now > parseInt(startDate, 10) &&
-          now < parseInt(endDate, 10) &&
-          targetCountries.includes(userCountry)
-          ) {
-          // @todo  set the user experiment group
-          }
-        } catch (e) {
-          //
-        }
-      })
-    }
-  }, [consentGranted])
-
+  useExperimentConfig()
   useErrorLogging()
 
   return (
