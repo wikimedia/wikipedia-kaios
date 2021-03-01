@@ -1,8 +1,81 @@
 import { cachedFetch, buildPcsUrl, canonicalizeTitle, getDirection } from 'utils'
 
-export const getArticle = (lang, title, { moreInformationText }) => {
+export const getArticle = (lang, title, { moreInformationText }, useMobileHtml = false) => {
   const url = buildPcsUrl(lang, title, 'mobile-sections')
   const dir = getDirection(lang)
+
+  if (useMobileHtml) {
+    return cachedFetch(buildPcsUrl(lang, title, 'mobile-html'), data => {
+      const parser = new DOMParser()
+      const doc = parser.parseFromString(data, 'text/html')
+      const toc = []
+      const sections = []
+
+      const getMeta = (prop, key = 'property') => {
+        return doc.querySelector('head > meta[' + key + '="' + prop + '"]').getAttribute('content')
+      }
+
+      const lead = doc.querySelector('header')
+      const section0 = doc.querySelector('section')
+      const infobox = section0.querySelector('.infobox').outerHTML
+      section0.querySelector('.pcs-collapse-table-container').remove()
+      const articleTitle = lead.querySelector('h1').textContent
+      sections.push({
+        imageUrl: getMeta('mw:leadImage'),
+        title: articleTitle,
+        anchor: articleTitle,
+        description: lead.querySelector('p').textContent,
+        content: section0.outerHTML
+      })
+
+      toc.push({
+        level: 1,
+        line: articleTitle,
+        anchor: articleTitle,
+        sectionIndex: 0
+      })
+
+      Array.from(doc.querySelectorAll('section')).forEach((section, index) => {
+        if (index === 0) {
+          return
+        }
+        const titleNode = section.querySelector('h1, h2, h3, h4, h5')
+        const title = titleNode.textContent
+        const level = parseInt(titleNode.tagName.charAt(1)) - 1
+        const sectionHeader = section.querySelector('.pcs-edit-section-header')
+        if (sectionHeader) {
+          sectionHeader.remove()
+        }
+        sections.push({
+          title: title,
+          anchor: title,
+          content: '<div>' + section.innerHTML + '</div>'
+        })
+        toc.push({
+          level,
+          line: title,
+          anchor: title,
+          sectionIndex: index
+        })
+      })
+
+      const result = {
+        contentLang: getMeta('content-language', 'http-equiv'),
+        namespace: getMeta('mw:pageNamespace'),
+        id: getMeta('mw:pageId'),
+        sections,
+        infobox,
+        toc,
+        references: null,
+        languageCount: 1,
+        dir: doc.querySelector('body').getAttribute('dir')
+      }
+
+      // console.log('mobile-html', result)
+
+      return result
+    }, true, 'html')
+  }
 
   return cachedFetch(url, data => {
     const parser = new DOMParser()
@@ -14,7 +87,6 @@ export const getArticle = (lang, title, { moreInformationText }) => {
     // parse info box
     const doc = parser.parseFromString(fixImageUrl(data.lead.sections[0].text, lang), 'text/html')
     const infobox = extractInfobox(doc)
-    const preview = extractPreview(doc)
 
     // parse lead as the first section
     const sections = []
@@ -23,9 +95,9 @@ export const getArticle = (lang, title, { moreInformationText }) => {
       title: data.lead.displaytitle,
       anchor: canonicalizeTitle(data.lead.normalizedtitle),
       description: data.lead.description,
-      content: modifyHtmlText(data.lead.sections[0].text, moreInformationText, lang),
-      preview
+      content: modifyHtmlText(data.lead.sections[0].text, moreInformationText, lang)
     })
+    // console.log('mobile-sections', sections[0])
     toc.push({
       level: 1,
       line: data.lead.normalizedtitle,
@@ -130,26 +202,6 @@ const extractReference = refNode => {
   const refContentNode = refNode.querySelector('.mw-reference-text')
   const content = refContentNode ? refContentNode.outerHTML : ''
   return [id, { number, content }]
-}
-
-const extractPreview = doc => {
-  const p = doc.querySelector('p')
-
-  if (!p) {
-    return ''
-  }
-
-  Array.from(p.querySelectorAll('a')).forEach(link => {
-    const span = document.createElement('span')
-    span.textContent = link.textContent
-    link.parentNode.replaceChild(span, link)
-  })
-
-  Array.from(p.querySelectorAll('.mw-ref')).forEach(ref => {
-    ref.parentNode.removeChild(ref)
-  })
-
-  return p.outerHTML
 }
 
 const extractInfobox = doc => {

@@ -9,6 +9,7 @@ const SUPPORTED_LINKS = [
   '[data-action]',
   'a[title]',
   'a[href^="#cite_note"]',
+  'sup.mw-ref',
   'a[rel="mw:ExtLink"]',
   'a[href^="#"]',
   'figure',

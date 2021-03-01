@@ -7,7 +7,7 @@ const pad = str => {
 
 const getExperimentData = (prefix, lang) => {
   const date = new Date()
-  const dateStr = isProd()
+  const dateStr = isProd() && !isProd()
     ? date.getFullYear() + '-' + pad(date.getMonth() + 1) + '-' + pad(date.getDate())
     : '2021-01-01'
   const params = {
