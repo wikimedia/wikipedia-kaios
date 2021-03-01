@@ -6,14 +6,14 @@ import { isProd, appVersion, sendErrorLog, isRequestHeaderDisabled } from 'utils
 const requestCache = {}
 const noopAbort = () => {}
 
-export const cachedFetch = (url, transformFn, cache = true) => {
+export const cachedFetch = (url, transformFn, cache = true, format = 'json') => {
   if (cache && requestCache[url]) {
     return [Promise.resolve(requestCache[url]), noopAbort]
   }
 
   const xhr = new XMLHttpRequest({ mozSystem: true })
   const promise = new Promise((resolve, reject) => {
-    xhr.responseType = 'json'
+    xhr.responseType = format
     xhr.open('GET', url)
     if (!isRequestHeaderDisabled()) {
       xhr.setRequestHeader('User-Agent', `WikipediaApp/${appVersion()} ${navigator.userAgent}`)
