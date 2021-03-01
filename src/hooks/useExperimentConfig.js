@@ -30,9 +30,8 @@ export const useExperimentConfig = () => {
         try {
           const now = parseInt(formatDate(Date.now()), 10)
           const targetCountries = Array.isArray(countries) ? countries : [countries]
-          const userCountry = 'NG' || xhr.getResponseHeader('Set-Cookie').match(/GeoIP=(\w+)/)[1]
+          const userCountry = xhr.getResponseHeader('Set-Cookie').match(/GeoIP=(\w+)/)[1]
 
-          debugger; // eslint-disable-line
           if (
             now >= parseInt(startDate, 10) &&
           now <= parseInt(endDate, 10) &&
