@@ -22,7 +22,6 @@ export const useExperimentConfig = () => {
   useEffect(() => {
     const nowTimestamp = Date.now()
     const { timestamp } = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}
-    debugger;// eslint-disable-line
     const hasRecordBefore = timestamp && ((nowTimestamp - timestamp) < DAY_TIMESTAMP)
 
     if (!hasRecordBefore && consentGranted) {
