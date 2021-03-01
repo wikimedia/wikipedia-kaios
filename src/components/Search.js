@@ -115,9 +115,9 @@ export const Search = () => {
     left: allowUsage() ? i18n('softkey-tips') : '',
     onKeyLeft: allowUsage() ? goto.tips : null,
     onKeyBackspace: !(query && current.type === 'INPUT') && onKeyBackSpace,
-    onKeyArrowDown,
-    onKeyArrowUp
-  }, [current.type, query, isOnline, searchResults])
+    onKeyArrowDown: !loading && onKeyArrowDown,
+    onKeyArrowUp: !loading && onKeyArrowUp
+  }, [current.type, query, isOnline, searchResults, loading])
 
   useTracking('Search', lang)
 
