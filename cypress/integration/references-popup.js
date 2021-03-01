@@ -4,7 +4,7 @@ import { ArticlePage } from '../page-objects/article-page'
 
 const articlePage = new ArticlePage()
 
-describe('references', () => {
+describe.skip('references', () => {
   beforeEach(() => {
     cy.navigateToHomePage()
   })
