@@ -5,7 +5,6 @@ import { isConsentGranted, isTrendingArticlesGroup } from 'utils'
 const STORAGE_KEY = '2021-KaiOS-app-engagement-config'
 const USER_COUNTRY_STORAGE_KEY = 'user-country'
 const DAY_TIMESTAMP = 24 * 60 * 60 * 1000
-const SUPPORTED_LANGUAGES = ['en']
 
 const formatDate = date => {
   const d = new Date(date)
@@ -19,15 +18,17 @@ const formatDate = date => {
   return [year, month, day].join('')
 }
 
-const isUserUnderExperimentGroup = (startDate, endDate, countries) => {
+const isUserUnderExperimentGroup = (startDate, endDate, countries, languages, appLanguage) => {
   const now = parseInt(formatDate(Date.now()), 10)
   const targetCountries = Array.isArray(countries) ? countries : [countries]
   const userCountry = localStorage.getItem(USER_COUNTRY_STORAGE_KEY)
+  const targetLanguages = Array.isArray(languages) ? languages : [languages]
 
   if (
     now >= parseInt(startDate, 10) &&
     now <= parseInt(endDate, 10) &&
-    targetCountries.includes(userCountry)
+    targetCountries.includes(userCountry) &&
+    targetLanguages.includes(appLanguage)
   ) {
     return isTrendingArticlesGroup()
   } else {
@@ -35,34 +36,25 @@ const isUserUnderExperimentGroup = (startDate, endDate, countries) => {
   }
 }
 
-export const useExperimentConfig = (lang) => {
+export const useExperimentConfig = lang => {
   const [isExperimentGroup, setIsExperimentGroup] = useState()
   const consentGranted = isConsentGranted()
-
-  // the app language is not supported
-  if (!SUPPORTED_LANGUAGES.includes(lang)) {
-    setIsExperimentGroup(false)
-    return isExperimentGroup
-  }
-
   const nowTimestamp = Date.now()
-  const { timestamp, startDate, endDate, countries } = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}
+  const { timestamp, startDate, endDate, countries, languages } = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}
   const hasRecordBefore = timestamp && ((nowTimestamp - timestamp) < DAY_TIMESTAMP)
 
-  // previous record found
-  if (hasRecordBefore) {
-    setIsExperimentGroup(isUserUnderExperimentGroup(startDate, endDate, countries))
-  }
-
   useEffect(() => {
-    // no record found or record found but expire
-    if (consentGranted && !hasRecordBefore) {
+    // previous record found
+    if (hasRecordBefore) {
+      setIsExperimentGroup(isUserUnderExperimentGroup(startDate, endDate, countries, languages, lang))
+    } else if (consentGranted && !hasRecordBefore) {
+      // no record found or record found but expire
       const [promise] = getExperimentConfig()
       promise.then(({ startDate, endDate, countries }) => {
         localStorage.setItem(STORAGE_KEY,
           JSON.stringify({ timestamp: Date.now(), startDate, endDate, countries })
         )
-        setIsExperimentGroup(isUserUnderExperimentGroup(startDate, endDate, countries))
+        setIsExperimentGroup(isUserUnderExperimentGroup(startDate, endDate, countries, languages, lang))
       })
     }
   }, [consentGranted])
