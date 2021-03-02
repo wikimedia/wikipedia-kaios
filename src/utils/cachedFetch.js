@@ -28,6 +28,11 @@ export const cachedFetch = (url, transformFn, cache = true) => {
         if (cache) {
           requestCache[url] = transformResponse
         }
+
+        // set user located country
+        const GeoIP = xhr.getAllResponseHeaders().match(/GeoIP=(\w+)/)
+        const userCountry = GeoIP && GeoIP[1]
+        localStorage.setItem('user-country', userCountry)
       } else {
         reject(new Error('XHR Error: ' + xhr.status))
       }
@@ -45,7 +50,7 @@ export const cachedFetch = (url, transformFn, cache = true) => {
     }
   }
 
-  return [promise, abort, xhr]
+  return [promise, abort]
 }
 
 const sendLogWhenError = ({ status, response }, url) => {

@@ -3,10 +3,11 @@ import { getExperimentConfig } from 'api'
 import { isConsentGranted, isTrendingArticlesGroup } from 'utils'
 
 const STORAGE_KEY = '2021-KaiOS-app-engagement-config'
+const USER_COUNTRY_STORAGE_KEY = 'user-country'
 const DAY_TIMESTAMP = 24 * 60 * 60 * 1000
 const SUPPORTED_LANGUAGES = ['en']
 
-function formatDate (date) {
+const formatDate = date => {
   const d = new Date(date)
   const year = d.getFullYear()
   let month = '' + (d.getMonth() + 1)
@@ -18,51 +19,50 @@ function formatDate (date) {
   return [year, month, day].join('')
 }
 
+const isUserUnderExperimentGroup = (startDate, endDate, countries) => {
+  const now = parseInt(formatDate(Date.now()), 10)
+  const targetCountries = Array.isArray(countries) ? countries : [countries]
+  const userCountry = localStorage.getItem(USER_COUNTRY_STORAGE_KEY)
+
+  if (
+    now >= parseInt(startDate, 10) &&
+    now <= parseInt(endDate, 10) &&
+    targetCountries.includes(userCountry)
+  ) {
+    return isTrendingArticlesGroup()
+  } else {
+    return false
+  }
+}
+
 export const useExperimentConfig = (lang) => {
   const [isExperimentGroup, setIsExperimentGroup] = useState()
   const consentGranted = isConsentGranted()
 
+  // the app language is not
   if (!SUPPORTED_LANGUAGES.includes(lang)) {
     setIsExperimentGroup(false)
     return isExperimentGroup
   }
 
+  const nowTimestamp = Date.now()
+  const { timestamp, startDate, endDate, countries } = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}
+  const isRecordExpire = timestamp && ((nowTimestamp - timestamp) < DAY_TIMESTAMP)
+
+  // previous record found
+  if (isRecordExpire) {
+    setIsExperimentGroup(isUserUnderExperimentGroup(startDate, endDate, countries))
+  }
+
   useEffect(() => {
-    const nowTimestamp = Date.now()
-    const { timestamp } = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}
-    const hasRecordBefore = timestamp && ((nowTimestamp - timestamp) < DAY_TIMESTAMP)
-
-    if (hasRecordBefore) {
-      setIsExperimentGroup(isTrendingArticlesGroup())
-    } else if (!hasRecordBefore && consentGranted) {
-      const [promise,, xhr] = getExperimentConfig()
+    // no record found or record found but expire
+    if (consentGranted && !isRecordExpire) {
+      const [promise] = getExperimentConfig()
       promise.then(({ startDate, endDate, countries }) => {
-        try {
-          const now = parseInt(formatDate(Date.now()), 10)
-          const targetCountries = Array.isArray(countries) ? countries : [countries]
-          const userCountry = xhr.getResponseHeader('Set-Cookie').match(/GeoIP=(\w+)/)[1]
-
-          localStorage.setItem(STORAGE_KEY,
-            JSON.stringify({ timestamp: nowTimestamp, startDate, endDate, countries })
-          )
-
-          if (
-            now >= parseInt(startDate, 10) &&
-          now <= parseInt(endDate, 10) &&
-          targetCountries.includes(userCountry)
-          ) {
-            setIsExperimentGroup(isTrendingArticlesGroup())
-          } else {
-            setIsExperimentGroup(false)
-          }
-        } catch (e) {
-          // in desktop browser, xhr getResponseHeader from Set-Cookie is not allowed
-          // set the key so it won't request the config the next time
-          localStorage.setItem(STORAGE_KEY,
-            JSON.stringify({ timestamp: nowTimestamp })
-          )
-          setIsExperimentGroup(false)
-        }
+        localStorage.setItem(STORAGE_KEY,
+          JSON.stringify({ timestamp: Date.now(), startDate, endDate, countries })
+        )
+        setIsExperimentGroup(isUserUnderExperimentGroup(startDate, endDate, countries))
       })
     }
   }, [consentGranted])
