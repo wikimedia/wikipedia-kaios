@@ -22,7 +22,6 @@ export const Search = () => {
   const lang = getAppLanguage()
   const [query, setQuery, searchResults, loading] = useSearch(lang)
   const [showConsentPopup, closeConsentPopup] = usePopup(Consent)
-  const isExperimentGroup = useExperimentConfig()
   const consentGranted = isConsentGranted()
   const isOnline = useOnlineStatus(online => {
     if (online && inputRef.current) {
