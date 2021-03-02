@@ -3,8 +3,7 @@ import { useRef, useEffect } from 'preact/hooks'
 import { ListView, OfflinePanel, Consent, SearchLoading } from 'components'
 import {
   useNavigation, useSearch, useI18n, useSoftkey,
-  useOnlineStatus, useTracking, usePopup,
-  useExperimentConfig
+  useOnlineStatus, useTracking, usePopup
 } from 'hooks'
 import {
   articleHistory, goto, getAppLanguage,
