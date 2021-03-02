@@ -6,10 +6,10 @@ const STORAGE_KEY = '2021-KaiOS-app-engagement-config'
 const DAY_TIMESTAMP = 24 * 60 * 60 * 1000
 
 function formatDate (date) {
-  var d = new Date(date)
-  var month = '' + (d.getMonth() + 1)
-  var day = '' + d.getDate()
-  var year = d.getFullYear()
+  const d = new Date(date)
+  const month = '' + (d.getMonth() + 1)
+  const day = '' + d.getDate()
+  const year = d.getFullYear()
 
   if (month.length < 2) { month = '0' + month }
   if (day.length < 2) { day = '0' + day }
