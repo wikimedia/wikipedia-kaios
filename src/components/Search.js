@@ -3,7 +3,8 @@ import { useRef, useEffect } from 'preact/hooks'
 import { ListView, OfflinePanel, Consent, SearchLoading } from 'components'
 import {
   useNavigation, useSearch, useI18n, useSoftkey,
-  useOnlineStatus, useTracking, usePopup
+  useOnlineStatus, useTracking, usePopup,
+  useExperimentConfig
 } from 'hooks'
 import {
   articleHistory, goto, getAppLanguage,
@@ -21,6 +22,7 @@ export const Search = () => {
   const lang = getAppLanguage()
   const [query, setQuery, searchResults, loading] = useSearch(lang)
   const [showConsentPopup, closeConsentPopup] = usePopup(Consent)
+  const isExperimentGroup = useExperimentConfig()
   const consentGranted = isConsentGranted()
   const isOnline = useOnlineStatus(online => {
     if (online && inputRef.current) {

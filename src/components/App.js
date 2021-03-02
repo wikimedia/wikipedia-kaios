@@ -4,7 +4,7 @@ import { Routes, Softkey, PopupContainer, OfflineIndicator } from 'components'
 import { DirectionContext, I18nContext, SoftkeyContext, PopupContext, FontContext } from 'contexts'
 import { SoftkeyReducer } from 'reducers'
 import { articleTextSize } from 'utils'
-import { useErrorLogging, useExperimentConfig } from 'hooks'
+import { useErrorLogging } from 'hooks'
 
 export const App = ({ i18n, dir }) => {
   // @todo making it used by the global state management
@@ -26,7 +26,6 @@ export const App = ({ i18n, dir }) => {
   }, [textSize])
   // end of useTextSize
 
-  useExperimentConfig()
   useErrorLogging()
 
   return (

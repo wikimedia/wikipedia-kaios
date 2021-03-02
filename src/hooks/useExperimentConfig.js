@@ -1,4 +1,4 @@
-import { useEffect } from 'preact/hooks'
+import { useEffect, useState } from 'preact/hooks'
 import { getExperimentConfig } from 'api'
 import { isConsentGranted, setExperimentGroup, clearExperimentGroup } from 'utils'
 
@@ -7,9 +7,9 @@ const DAY_TIMESTAMP = 24 * 60 * 60 * 1000
 
 function formatDate (date) {
   const d = new Date(date)
-  const month = '' + (d.getMonth() + 1)
-  const day = '' + d.getDate()
   const year = d.getFullYear()
+  let month = '' + (d.getMonth() + 1)
+  let day = '' + d.getDate()
 
   if (month.length < 2) { month = '0' + month }
   if (day.length < 2) { day = '0' + day }
@@ -18,13 +18,17 @@ function formatDate (date) {
 }
 
 export const useExperimentConfig = () => {
+  const [isExperimentGroup, setIsExperimentGroup] = useState()
   const consentGranted = isConsentGranted()
+
   useEffect(() => {
     const nowTimestamp = Date.now()
-    const { timestamp } = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}
+    const { timestamp, include } = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}
     const hasRecordBefore = timestamp && ((nowTimestamp - timestamp) < DAY_TIMESTAMP)
 
-    if (!hasRecordBefore && consentGranted) {
+    if (hasRecordBefore) {
+      setIsExperimentGroup(include)
+    } else if (!hasRecordBefore && consentGranted) {
       const [promise,, xhr] = getExperimentConfig()
       promise.then(({ startDate, endDate, countries }) => {
         try {
@@ -41,11 +45,13 @@ export const useExperimentConfig = () => {
               JSON.stringify({ timestamp: nowTimestamp, startDate, endDate, countries, include: true })
             )
             setExperimentGroup()
+            setIsExperimentGroup(true)
           } else {
             localStorage.setItem(STORAGE_KEY,
               JSON.stringify({ timestamp: nowTimestamp, include: false })
             )
             clearExperimentGroup()
+            setIsExperimentGroup(false)
           }
         } catch (e) {
           // in desktop browser, xhr getResponseHeader from Set-Cookie is not allowed
@@ -54,8 +60,11 @@ export const useExperimentConfig = () => {
             JSON.stringify({ timestamp: nowTimestamp, include: false })
           )
           clearExperimentGroup()
+          setIsExperimentGroup(false)
         }
       })
     }
   }, [consentGranted])
+
+  return isExperimentGroup
 }
