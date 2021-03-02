@@ -50,9 +50,9 @@ export const useExperimentConfig = lang => {
     } else if (consentGranted && !hasRecordBefore) {
       // no record found or record found but expire
       const [promise] = getExperimentConfig()
-      promise.then(({ startDate, endDate, countries }) => {
+      promise.then(({ startDate, endDate, countries, languages }) => {
         localStorage.setItem(STORAGE_KEY,
-          JSON.stringify({ timestamp: Date.now(), startDate, endDate, countries })
+          JSON.stringify({ timestamp: Date.now(), startDate, endDate, countries, languages })
         )
         setIsExperimentGroup(isUserUnderExperimentGroup(startDate, endDate, countries, languages, lang))
       })
