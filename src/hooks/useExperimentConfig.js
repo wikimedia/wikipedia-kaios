@@ -39,7 +39,7 @@ export const useExperimentConfig = (lang) => {
   const [isExperimentGroup, setIsExperimentGroup] = useState()
   const consentGranted = isConsentGranted()
 
-  // the app language is not
+  // the app language is not supported
   if (!SUPPORTED_LANGUAGES.includes(lang)) {
     setIsExperimentGroup(false)
     return isExperimentGroup
@@ -47,16 +47,16 @@ export const useExperimentConfig = (lang) => {
 
   const nowTimestamp = Date.now()
   const { timestamp, startDate, endDate, countries } = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}
-  const isRecordExpire = timestamp && ((nowTimestamp - timestamp) < DAY_TIMESTAMP)
+  const hasRecordBefore = timestamp && ((nowTimestamp - timestamp) < DAY_TIMESTAMP)
 
   // previous record found
-  if (isRecordExpire) {
+  if (hasRecordBefore) {
     setIsExperimentGroup(isUserUnderExperimentGroup(startDate, endDate, countries))
   }
 
   useEffect(() => {
     // no record found or record found but expire
-    if (consentGranted && !isRecordExpire) {
+    if (consentGranted && !hasRecordBefore) {
       const [promise] = getExperimentConfig()
       promise.then(({ startDate, endDate, countries }) => {
         localStorage.setItem(STORAGE_KEY,
