@@ -46,19 +46,27 @@ export const getArticle = (lang, title, { moreInformationText }, useMobileHtml =
         const title = titleNode.textContent
         const level = parseInt(titleNode.tagName.charAt(1)) - 1
         const sectionHeader = section.querySelector('.pcs-edit-section-header')
-        if (sectionHeader) {
-          sectionHeader.remove()
+
+        const content = '<div>' + section.innerHTML + '</div>'
+
+        // new section when toclevel 1
+        if (level === 1) {
+          if (sectionHeader) {
+            sectionHeader.remove()
+          }
+          sections.push({
+            title: title,
+            anchor: title,
+            content: content
+          })
         }
-        sections.push({
-          title: title,
-          anchor: title,
-          content: '<div>' + section.innerHTML + '</div>'
-        })
-        toc.push({
-          level,
+
+        // build toc structure (level 1 to 3)
+        level <= 3 && toc.push({
+          level: level,
           line: title,
           anchor: title,
-          sectionIndex: index
+          sectionIndex: sections.length - 1
         })
       })
 
@@ -70,7 +78,7 @@ export const getArticle = (lang, title, { moreInformationText }, useMobileHtml =
         infobox,
         toc,
         references: null,
-        languageCount: 1,
+        languageCount: 1, // todo: get this from a different API and merge the result in useArticle()
         dir: doc.querySelector('body').getAttribute('dir')
       }
 
