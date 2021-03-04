@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Akmaie Ajam",
+			"Chinamoonroll",
 			"Daud I.F. Argana",
 			"Hidayatsrf",
 			"MuratTheTurkish"
@@ -61,7 +62,7 @@
 	"reference-title": "Referensi [$1]",
 	"offline-message": "Tidak ada sambungan internet",
 	"onboarding-0-title": "Tentang Wikipedia",
-	"onboarding-0-description": "Wikipedia adalah sumber pengetahuan gratis yang ditulis secara kolaboratif oleh sukarelawan-sukarelawan dari seluruh dunia.",
+	"onboarding-0-description": "Wikipedia adalah sumber pengetahuan gratis yang ditulis secara kolaboratif oleh sukarélawan-sukarélawan dari seluruh dunia.",
 	"onboarding-1-title": "Cari dalam ratusan bahasa",
 	"onboarding-1-description": "Pilih bahasa pilihan anda untuk mencari dan membaca.",
 	"onboarding-2-title": "Dapatkan pengetahuan bebas",
