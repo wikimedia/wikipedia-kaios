@@ -27,7 +27,7 @@ export const Feed = ({ lang, isExpanded, setIsExpanded, lastIndex, setNavigation
   }, [trendingArticles])
 
   useEffect(() => {
-    if (isExpanded && loading) {
+    if (isExpanded) {
       setNavigation(1)
     }
   }, [loading, isExpanded])
