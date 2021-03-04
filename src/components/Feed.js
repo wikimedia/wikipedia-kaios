@@ -48,7 +48,7 @@ const Loading = ({ isExpanded }) => {
         <div class='item' data-selectable={selectable}>
           <div class='bars'>
             <div class='bar' />
-            <div class='bar' />
+            <div class='smaller bar' />
           </div>
           <div class='rectangle' />
         </div>
