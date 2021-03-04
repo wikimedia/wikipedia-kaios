@@ -3,12 +3,13 @@ import { useRef, useEffect, useState } from 'preact/hooks'
 import { ListView, OfflinePanel, Consent, SearchLoading, Feed } from 'components'
 import {
   useNavigation, useSearch, useI18n, useSoftkey,
-  useOnlineStatus, useTracking, usePopup, useHistoryState
+  useOnlineStatus, useTracking, usePopup, useHistoryState,
+  useExperimentConfig
 } from 'hooks'
 import {
   articleHistory, goto, getAppLanguage,
   isRandomEnabled, confirmDialog, isConsentGranted,
-  isTrendingArticlesGroup, skipIntroAnchor
+  skipIntroAnchor
 } from 'utils'
 import { getRandomArticleTitle } from 'api'
 
@@ -21,6 +22,7 @@ export const Search = () => {
   const [lastFeedIndex, setLastFeedIndex] = useHistoryState('lastFeedIndex', null)
   const [current, setNavigation, getCurrent, getAllElements, navigateNext, navigatePrevious] = useNavigation('Search', containerRef, listRef, 'y')
   const lang = getAppLanguage()
+  const isExperimentGroup = useExperimentConfig(lang)
   const [query, setQuery, searchResults, loading] = useSearch(lang)
   const [showConsentPopup, closeConsentPopup] = usePopup(Consent)
   const consentGranted = isConsentGranted()
@@ -131,12 +133,12 @@ export const Search = () => {
     }
   }, [consentGranted, isOnline])
 
-  const hideW = (searchResults || !isOnline || loading || (isFeedExpanded && isTrendingArticlesGroup()))
+  const hideW = (searchResults || !isOnline || loading || (isFeedExpanded && isExperimentGroup))
   const showSearchBar = allowUsage()
   const showResultsList = isOnline && searchResults && !loading
   const showLoading = isOnline && loading
   const showOfflinePanel = !isOnline
-  const showFeed = (isOnline && !searchResults && !showLoading && !showOfflinePanel && (isTrendingArticlesGroup()))
+  const showFeed = (isOnline && !searchResults && !showLoading && !showOfflinePanel && (isExperimentGroup))
 
   return (
     <div class='search' ref={containerRef}>
