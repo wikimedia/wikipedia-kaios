@@ -21,10 +21,10 @@ export const Feed = ({ lang, isExpanded, setIsExpanded, lastIndex, setNavigation
     }
   }, [trendingArticles])
 
-  return (
+  return trendingArticles.length ? (
     <div class={`feed ${isExpanded ? 'expanded' : 'collapsed'}`}>
       {!isExpanded && <div class='cue' />}
       <ListView items={trendingArticles} header={i18n('feed-header')} containerRef={containerRef} />
     </div>
-  )
+  ) : null
 }
