@@ -87,5 +87,5 @@ export const useNavigation = (origin, containerRef, listRef, axis, elementsSelec
     }
   })
 
-  return [current, setNavigation, getCurrent, getAllElements, navigateNext, navigatePrevious]
+  return [current, setNavigation, getCurrent]
 }

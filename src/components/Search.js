@@ -1,14 +1,14 @@
 import { h } from 'preact'
-import { useRef, useEffect, useState } from 'preact/hooks'
-import { ListView, OfflinePanel, Consent, SearchLoading, Feed } from 'components'
+import { useRef, useEffect } from 'preact/hooks'
+import { ListView, OfflinePanel, Consent, SearchLoading } from 'components'
 import {
   useNavigation, useSearch, useI18n, useSoftkey,
-  useOnlineStatus, useTracking, usePopup, useHistoryState
+  useOnlineStatus, useTracking, usePopup
 } from 'hooks'
 import {
   articleHistory, goto, getAppLanguage,
-  isRandomEnabled, confirmDialog, isConsentGranted,
-  isTrendingArticlesGroup, skipIntroAnchor
+  isRandomEnabled, confirmDialog, skipIntroAnchor,
+  isConsentGranted
 } from 'utils'
 import { getRandomArticleTitle } from 'api'
 
@@ -17,9 +17,7 @@ export const Search = () => {
   const inputRef = useRef()
   const listRef = useRef()
   const i18n = useI18n()
-  const [isFeedExpanded, setIsFeedExpanded] = useState(false)
-  const [lastFeedIndex, setLastFeedIndex] = useHistoryState('lastFeedIndex', null)
-  const [current, setNavigation, getCurrent, getAllElements, navigateNext, navigatePrevious] = useNavigation('Search', containerRef, listRef, 'y')
+  const [current, setNavigation, getCurrent] = useNavigation('Search', containerRef, listRef, 'y')
   const lang = getAppLanguage()
   const [query, setQuery, searchResults, loading] = useSearch(lang)
   const [showConsentPopup, closeConsentPopup] = usePopup(Consent)
@@ -32,49 +30,11 @@ export const Search = () => {
   const onKeyCenter = () => {
     if (allowUsage()) {
       const { index, key } = getCurrent()
-      if (index && isFeedExpanded) {
-        setLastFeedIndex(index)
-      }
       if (index) {
         goto.article(lang, key)
       } else if (isRandomEnabled() && !query) {
         goToRandomArticle()
       }
-    }
-  }
-
-  const onKeyBackSpace = () => {
-    if (isFeedExpanded) {
-      setIsFeedExpanded(false)
-      listRef.current.scrollTop = 0
-      setNavigation(0)
-    } else {
-      onExitConfirmDialog()
-    }
-  }
-
-  const onKeyArrowDown = () => {
-    const index = getCurrent().index
-    if (!isFeedExpanded && !searchResults && index === 0) {
-      setIsFeedExpanded(true)
-      navigateNext()
-    } else if (isFeedExpanded && index + 1 > getAllElements().length - 1) {
-      setNavigation(1)
-    } else {
-      navigateNext()
-    }
-  }
-
-  const onKeyArrowUp = () => {
-    const index = getCurrent().index
-    if (isFeedExpanded && !searchResults && index === 1) {
-      setIsFeedExpanded(false)
-      setLastFeedIndex(null)
-      navigatePrevious()
-    } else if (!isFeedExpanded && !searchResults && index === 0) {
-      setNavigation(0)
-    } else {
-      navigatePrevious()
     }
   }
 
@@ -114,10 +74,8 @@ export const Search = () => {
     onKeyCenter,
     left: allowUsage() ? i18n('softkey-tips') : '',
     onKeyLeft: allowUsage() ? goto.tips : null,
-    onKeyBackspace: !(query && current.type === 'INPUT') && onKeyBackSpace,
-    onKeyArrowDown: !loading && onKeyArrowDown,
-    onKeyArrowUp: !loading && onKeyArrowUp
-  }, [current.type, query, isOnline, searchResults, loading])
+    onKeyBackspace: !(query && current.type === 'INPUT') && onExitConfirmDialog
+  }, [current.type, query, isOnline])
 
   useTracking('Search', lang)
 
@@ -131,12 +89,11 @@ export const Search = () => {
     }
   }, [consentGranted, isOnline])
 
-  const hideW = (searchResults || !isOnline || loading || (isFeedExpanded && isTrendingArticlesGroup()))
+  const hideW = (searchResults || !isOnline || loading)
   const showSearchBar = allowUsage()
   const showResultsList = isOnline && searchResults && !loading
   const showLoading = isOnline && loading
   const showOfflinePanel = !isOnline
-  const showFeed = (isOnline && !searchResults && !showLoading && !showOfflinePanel && (isTrendingArticlesGroup()))
 
   return (
     <div class='search' ref={containerRef}>
@@ -145,7 +102,6 @@ export const Search = () => {
       { showResultsList && <ListView header={i18n('header-search')} items={searchResults} containerRef={listRef} empty={i18n('no-result-found')} /> }
       { showLoading && <SearchLoading /> }
       { showOfflinePanel && <OfflinePanel /> }
-      { showFeed && <Feed lang={lang} isExpanded={isFeedExpanded} setIsExpanded={setIsFeedExpanded} lastIndex={lastFeedIndex} setNavigation={setNavigation} containerRef={listRef} /> }
     </div>
   )
 }
