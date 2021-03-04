@@ -7,11 +7,11 @@ rm -rf Wikipedia
 rm -rf dist
 rm $FILENAME.zip
 
-mkdir Wikipedia
+mkdir -p Wikipedia/dist
 
 TARGET_STORE=$TARGET node scripts/manifest.js > Wikipedia/manifest.webapp
 TARGET_STORE=$TARGET INSTRUMENTATION=1 MANIFEST_FILE=./Wikipedia/manifest.webapp npm run build
-cp dist/main.js Wikipedia/
+cp dist/main.js Wikipedia/dist/main.js
 cp -r images Wikipedia/
 cp index.html Wikipedia/
 
