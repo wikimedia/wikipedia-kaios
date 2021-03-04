@@ -1,26 +1,26 @@
 {
     "batchcomplete": true,
     "continue": {
-    "sroffset": 1,
-    "gsroffset": 1,
-    "continue": "gsroffset||"
+        "sroffset": 1,
+        "gsroffset": 1,
+        "continue": "gsroffset||"
     },
     "query": {
-    "pages": [
-    {
-    "pageid": 5723979,
-    "ns": 0,
-    "title": "Catt",
-    "index": 1
+        "pages": [
+            {
+                "pageid": 5723979,
+                "ns": 0,
+                "title": "Catt",
+                "index": 1
+            }
+        ],
+        "search": [
+            {
+                "ns": 0,
+                "title": "Catt",
+                "pageid": 5723979,
+                "snippet": "<span class=\"searchmatch\">Catt</span> or <span class=\"searchmatch\">CATT</span> may refer to: Alfred <span class=\"searchmatch\">Catt</span> (1833–1919), Australian parliamentarian Anthony <span class=\"searchmatch\">Catt</span> (1933–2018), English cricketer Carrie Chapman <span class=\"searchmatch\">Catt</span> (1859–1947)"
+            }
+        ]
     }
-    ],
-    "search": [
-    {
-    "ns": 0,
-    "title": "Catt",
-    "pageid": 5723979,
-    "snippet": "<span class=\"searchmatch\">Catt</span> or <span class=\"searchmatch\">CATT</span> may refer to: Alfred <span class=\"searchmatch\">Catt</span> (1833–1919), Australian parliamentarian Anthony <span class=\"searchmatch\">Catt</span> (1933–2018), English cricketer Carrie Chapman <span class=\"searchmatch\">Catt</span> (1859–1947)"
-    }
-    ]
-    }
-    }
+}
