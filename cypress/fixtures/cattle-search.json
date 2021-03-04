@@ -1,0 +1,31 @@
+{
+    "batchcomplete": true,
+    "continue": {
+    "sroffset": 1,
+    "gsroffset": 1,
+    "continue": "gsroffset||"
+    },
+    "query": {
+    "pages": [
+    {
+    "pageid": 26051975,
+    "ns": 0,
+    "title": "Cattle",
+    "index": 1,
+    "thumbnail": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/CH_cow_2_cropped.jpg/64px-CH_cow_2_cropped.jpg",
+    "width": 64,
+    "height": 64
+    }
+    }
+    ],
+    "search": [
+    {
+    "ns": 0,
+    "title": "Cattle",
+    "pageid": 26051975,
+    "snippet": "<span class=\"searchmatch\">Cattle</span>, or cows (female) and bulls (male), are the most common type of large domesticated ungulates. They are a prominent modern member of the subfamily"
+    }
+    ]
+    }
+    }
