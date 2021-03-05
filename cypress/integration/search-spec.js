@@ -12,21 +12,21 @@ describe('Article search', () => {
   })
 
   it('search should show results', () => {
-    cy.intercept('/api.php', {fixture: 'catt-search.json'})
+    cy.intercept('/api.php', { fixture: 'catt-search.json' })
     searchPage.search('catt')
     searchPage.results().first()
       .should('exist')
   })
 
   it('results with image should show image', () => {
-    cy.intercept('/api.php', {fixture: 'cattle-search.json'})
+    cy.intercept('/api.php', { fixture: 'cattle-search.json' })
     searchPage.search('cattle')
     searchPage.results().first()
       .children().first().next().should('have.class', 'img')
   })
 
   it('results without image should not show image', () => {
-    cy.intercept('/api.php', {fixture: 'helena-catt-search.json'})
+    cy.intercept('/api.php', { fixture: 'helena-catt-search.json' })
     searchPage.search('Helena Catt')
     searchPage.results().first()
       .children().first().next().should('not.exist')
@@ -41,7 +41,7 @@ describe('Article search', () => {
   })
 
   it('back button should take us to search page with results', () => {
-    cy.intercept('/api.php', {fixture: 'cattle-search.json'})
+    cy.intercept('/api.php', { fixture: 'cattle-search.json' })
     searchPage.search('cattle')
     searchPage.results().first()
     cy.enter().downArrow().enter()
@@ -57,7 +57,7 @@ describe('Article search', () => {
   })
 
   it('center softkey should change when focus on result and search input', () => {
-    cy.intercept('/api.php', {fixture: 'cat-search.json'})
+    cy.intercept('/api.php', { fixture: 'cat-search.json' })
     searchPage.search('cat')
     cy.getCenterSoftkeyButton().should('not.have.text')
     searchPage.results().first()
