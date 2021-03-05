@@ -1,12 +1,9 @@
 version: 2.1
-orbs:
-  browser-tools: circleci/browser-tools@1.1.1
 jobs:
   build:
     docker:
       - image: cimg/node:15.4.0-browsers
     steps:
-      - browser-tools/install-firefox
       - add_ssh_keys:
           fingerprints:
             - "6f:be:b7:31:66:48:ff:80:ca:77:aa:a1:21:8b:18:2b"
