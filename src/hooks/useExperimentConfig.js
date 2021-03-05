@@ -4,7 +4,6 @@ import { isConsentGranted, isTrendingArticlesGroup } from 'utils'
 
 const STORAGE_KEY = '2021-KaiOS-app-engagement-config'
 const USER_COUNTRY_STORAGE_KEY = 'user-country'
-const DAY_TIMESTAMP = 24 * 60 * 60 * 1000
 
 const formatDate = date => {
   const d = new Date(date)
@@ -36,12 +35,15 @@ const isUserUnderExperimentGroup = (startDate, endDate, countries, languages, ap
   }
 }
 
+const isSameDay = (ts1, ts2) => {
+  return formatDate(ts1) === formatDate(ts2)
+}
+
 export const useExperimentConfig = lang => {
   const [isExperimentGroup, setIsExperimentGroup] = useState()
   const consentGranted = isConsentGranted()
-  const nowTimestamp = Date.now()
   const { timestamp, startDate, endDate, countries, languages } = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}
-  const hasRecordBefore = timestamp && ((nowTimestamp - timestamp) < DAY_TIMESTAMP)
+  const hasRecordBefore = timestamp && isSameDay(Date.now(), timestamp)
 
   useEffect(() => {
     // previous record found
