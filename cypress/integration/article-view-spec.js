@@ -126,7 +126,6 @@ describe('Article view', () => {
     cy.getCenterSoftkeyButton().click()
     articlePage.getArticleText().should('have.css', 'font-size', '14px')
     articlePage.selectOptionFromArticleMenu('Search Wikipedia')
-    cy.intercept('/api.php', { fixture: 'cattle-search.json' })
     cy.get('input[type=text]').type('cattle')
     searchPage.results().first()
     cy.downArrow()
