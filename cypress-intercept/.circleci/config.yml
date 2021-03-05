@@ -4,7 +4,7 @@ orbs:
 jobs:
   build:
     docker:
-      - image: cimg/node:15.4.0-browsers
+      - image: cimg/node:15.9.0-browsers
     steps:
       - browser-tools/install-firefox
       - add_ssh_keys:
