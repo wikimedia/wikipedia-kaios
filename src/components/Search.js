@@ -133,12 +133,12 @@ export const Search = () => {
     }
   }, [consentGranted, isOnline])
 
-  const hideW = (searchResults || !isOnline || loading || (isFeedExpanded && isExperimentGroup))
+  const hideW = searchResults || !isOnline || loading || (isFeedExpanded && isExperimentGroup)
   const showSearchBar = allowUsage()
   const showResultsList = isOnline && searchResults && !loading
   const showLoading = isOnline && loading
   const showOfflinePanel = !isOnline
-  const showFeed = (isOnline && !searchResults && !showLoading && !showOfflinePanel && (isExperimentGroup))
+  const showFeed = isOnline && !searchResults && !showLoading && !showOfflinePanel && isExperimentGroup
 
   return (
     <div class='search' ref={containerRef}>
