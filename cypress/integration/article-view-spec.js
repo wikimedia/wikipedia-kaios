@@ -126,10 +126,9 @@ describe.skip('Article view', () => {
     cy.getCenterSoftkeyButton().click()
     articlePage.getArticleText().should('have.css', 'font-size', '14px')
     articlePage.selectOptionFromArticleMenu('Search Wikipedia')
-    cy.get('input[type=text]').type('cattle')
+    searchPage.search('cattle')
     searchPage.results().first()
-    cy.downArrow()
-    cy.enter()
+    cy.enter().downArrow().enter()
     articlePage.getArticleText().should('have.css', 'font-size', '14px')
   })
 

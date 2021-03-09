@@ -2,9 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Akmaie Ajam",
+			"Chinamoonroll",
 			"Daud I.F. Argana",
 			"Hidayatsrf",
-			"MuratTheTurkish"
+			"MuratTheTurkish",
+			"Naufal06"
 		]
 	},
 	"article-action-sections": "Konten",
@@ -15,6 +17,7 @@
 	"article-language-loading-message": "Memuat bahasa...",
 	"article-loading-message": "Memuat halaman...",
 	"article-error-message": "Tidak dapat memuat artikel",
+	"search-loading-message": "Memuat artikel...",
 	"app-title": "Wikipedia",
 	"app-subtitle": "Ensiklopedia bebas",
 	"app-description": "Dengan aplikasi Wikipedia yang gratis, cari dan jelajahi informasi dari seluruh dunia dalam 300+ bahasa.",
@@ -57,11 +60,12 @@
 	"softkey-skip": "Lewati",
 	"softkey-get-started": "Memulai",
 	"softkey-refresh": "Segarkan",
+	"softkey-tips": "Tips",
 	"suggested-articles": "Artikel yang disarankan",
 	"reference-title": "Referensi [$1]",
 	"offline-message": "Tidak ada sambungan internet",
 	"onboarding-0-title": "Tentang Wikipedia",
-	"onboarding-0-description": "Wikipedia adalah sumber pengetahuan gratis yang ditulis secara kolaboratif oleh sukarelawan-sukarelawan dari seluruh dunia.",
+	"onboarding-0-description": "Wikipedia adalah sumber pengetahuan gratis yang ditulis secara kolaboratif oleh sukarélawan-sukarélawan dari seluruh dunia.",
 	"onboarding-1-title": "Cari dalam ratusan bahasa",
 	"onboarding-1-description": "Pilih bahasa pilihan anda untuk mencari dan membaca.",
 	"onboarding-2-title": "Dapatkan pengetahuan bebas",
@@ -77,6 +81,8 @@
 	"textsize-preview": "Teks artikel akan terlihat seperti ini.",
 	"textsize-label-small": "Kecil",
 	"textsize-label-large": "Besar",
+	"tips-about": "Apa itu Wikipedia?",
+	"tip-read-header": "Baca artikel",
 	"toc-footer": "Saran artikel",
 	"view-in-browser": "Lihat artikel di peramban",
 	"about-app-message": "Dibuat oleh Wikimedia Foundation dengan bantuan sukarelawan seperti Anda.",
