@@ -18,7 +18,7 @@
     "cypress:fix-lint": "eslint cypress/ --fix",
     "cypress:run": "cypress run",
     "cypress:run:firefox": "cypress run --browser firefox",
-    "cypress:run:firefox:headless": "cypress run --browser firefox --headless",
+    "cypress:run:firefox:headless": "cypress run --browser firefox --headless --record --key $CYPRESS_RECORD_KEY",
     "cypress:open": "cypress open"
   },
   "repository": {
