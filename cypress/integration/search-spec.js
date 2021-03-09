@@ -60,6 +60,7 @@ describe('Article search', () => {
     searchPage.search('cat')
     cy.getCenterSoftkeyButton().should('not.have.text')
     searchPage.results().first()
+    cy.wait(500)
     cy.downArrow()
     cy.getCenterSoftkeyButton().should('have.text', enJson['centerkey-select'])
     cy.upArrow()
