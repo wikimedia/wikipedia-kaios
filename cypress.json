@@ -5,5 +5,5 @@
     "modifyObstructiveCode": false,
     "baseUrl": "http://127.0.0.1:8080",
     "video": false,
-    "retries": 1
+    "retries": 3
 }
