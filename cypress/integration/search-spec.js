@@ -33,11 +33,10 @@ describe('Article search', () => {
   })
 
   it('article should open from search results page', () => {
-    searchPage.search('catt')
+    searchPage.search('cattle')
     searchPage.results().first()
-    cy.downArrow()
-    searchPage.selectOptionFromSearchResultsList('Catt')
-    articlePage.title().should('have.text', 'Catt')
+    cy.enter().downArrow().enter()
+    articlePage.title().should('have.text', 'Cattle')
   })
 
   it('back button should take us to search page with results', () => {
