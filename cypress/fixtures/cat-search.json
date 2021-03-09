@@ -1,0 +1,31 @@
+{
+    "batchcomplete": true,
+    "continue": {
+        "sroffset": 1,
+        "gsroffset": 1,
+        "continue": "gsroffset||"
+    },
+    "query": {
+        "pages": [
+            {
+                "pageid": 6678,
+                "ns": 0,
+                "title": "Cat",
+                "index": 1,
+                "thumbnail": {
+                    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Cat_poster_1.jpg/64px-Cat_poster_1.jpg",
+                    "width": 64,
+                    "height": 42
+                }
+            }
+        ],
+        "search": [
+            {
+                "ns": 0,
+                "title": "Cat",
+                "pageid": 6678,
+                "snippet": "as the domestic <span class=\"searchmatch\">cat</span> to distinguish it from the wild members of the family. A <span class=\"searchmatch\">cat</span> can either be a house <span class=\"searchmatch\">cat</span>, a farm <span class=\"searchmatch\">cat</span> or a feral <span class=\"searchmatch\">cat</span>; the latter ranges"
+            }
+        ]
+    }
+}

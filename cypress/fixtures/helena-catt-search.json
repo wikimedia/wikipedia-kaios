@@ -1,0 +1,26 @@
+{
+    "batchcomplete": true,
+    "continue": {
+        "sroffset": 1,
+        "gsroffset": 1,
+        "continue": "gsroffset||"
+    },
+    "query": {
+        "pages": [
+            {
+                "pageid": 58746536,
+                "ns": 0,
+                "title": "Helena Catt",
+                "index": 1
+            }
+        ],
+        "search": [
+            {
+                "ns": 0,
+                "title": "Helena Catt",
+                "pageid": 58746536,
+                "snippet": "<span class=\"searchmatch\">Helena</span> <span class=\"searchmatch\">Catt</span>, from the UK, was a New Zealand public servant and is an expert in electoral practice. She was the first female chief executive of the New"
+            }
+        ]
+    }
+}
