@@ -4,5 +4,6 @@
   "videoUploadOnPasses": false,
   "baseUrl": "http://127.0.0.1:8080",
   "retries": 5,
-  "defaultCommandTimeout": 8000
+  "defaultCommandTimeout": 8000,
+  "video": false
 }

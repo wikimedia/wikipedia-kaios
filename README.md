@@ -1,6 +1,6 @@
-[![wikipedia-kaios](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/detailed/7izdto&style=flat&logo=cypress)](https://dashboard.cypress.io/projects/7izdto/runs)
 [![CircleCI](https://circleci.com/gh/wikimedia/wikipedia-kaios/tree/master.svg?style=svg)](https://circleci.com/gh/wikimedia/wikipedia-kaios/tree/master)
 
+[![wikipedia-kaios](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/detailed/7izdto&style=flat&logo=cypress)](https://dashboard.cypress.io/projects/7izdto/runs)
 # Wikipedia KaiOS 
 
 The official Wikipedia KaiOS app. [KaiOS](https://developer.kaiostech.com/) is a web-based mobile operating system that enables a new category of smart feature phones, a successor of the discontinued Firefox OS.
