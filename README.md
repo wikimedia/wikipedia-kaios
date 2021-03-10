@@ -1,3 +1,4 @@
+[![wikipedia-kaios](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/detailed/7izdto&style=flat&logo=cypress)](https://dashboard.cypress.io/projects/7izdto/runs)
 [![CircleCI](https://circleci.com/gh/wikimedia/wikipedia-kaios/tree/master.svg?style=svg)](https://circleci.com/gh/wikimedia/wikipedia-kaios/tree/master)
 
 # Wikipedia KaiOS 
