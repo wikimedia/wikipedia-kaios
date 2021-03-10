@@ -5,7 +5,7 @@ import {
 } from 'utils'
 
 const SCHEMA_NAME = 'InukaPageView'
-const SCHEMA_REV = 21205270
+const SCHEMA_REV = 21188117
 const SESSION_ID_KEY = 'INUKA-PV-S'
 const ONE_HOUR = 3600 * 1000
 
