@@ -70,8 +70,11 @@
 		<div class="controlpanel">
 			<input type="checkbox" id="online" name="online" checked autocomplete="off" />
 			<label for="online">Online/offline</label>
-			<input type="checkbox" id="experiment-trending" name="experiment-trending" />
-			<label for="experiment-trending">Experiment Group (Trending articles)</label>
+			<div id="experiment-trending">
+				<input type="checkbox" name="experiment-trending" />
+					<label for="experiment-trending">Experiment Group (Trending articles)</label>
+				</div>
+			</div>
 		</div>
 		<style type="text/css">
 			.device {
@@ -350,14 +353,14 @@
 				});
 			});
 
-			// Prevent key events from stealing focus from the iframe
-			['keypress', 'keydown', 'keyup'].forEach(function(k) {
+			// Prevent key and mouse events from stealing focus from the iframe
+			['keypress', 'keydown', 'keyup', 'mousedown', 'mouseup', 'click'].forEach(function(k) {
 				window.addEventListener(k, function(e) {
 					e.preventDefault();
 				}, true);
 			});
 
-			// Cancel key events in app container iframe
+			// Cancel key and mouse events in app container iframe
 			['keypress', 'keydown', 'keyup', 'mousedown', 'mouseup', 'click'].forEach(function(k) {
 				appFrame.contentWindow.addEventListener(k, function(e) {
 					if (e.cancelable) {
@@ -392,14 +395,17 @@
 			});
 
 			// Experiment Group for Trending Articles  toggle
-			document.querySelector('input#experiment-trending').addEventListener('change', function(e) {
-				const checked = e.target.checked;
-				if ( checked ) {
-					localStorage.setItem( '2021-KaiOS-app-engagement-config', '{"timestamp":Date.now(),"startDate":"20210101","endDate":"20211231","countries":["NG"],"languages":["en"]}' )
+			document.querySelector('#experiment-trending').addEventListener('click', function(e) {
+				const input = document.getElementById('experiment-trending').querySelector('input')
+				const checked = input.checked
+				if ( !checked ) {
+					localStorage.setItem( '2021-KaiOS-app-engagement-config', `{"timestamp":${Date.now()},"startDate":"20210101","endDate":"20211231","countries":["NG"],"languages":["en"]}` )
 					localStorage.setItem( '2021-KaiOS-app-homepage-content-suggestions', 'trending-articles')
 					localStorage.setItem( 'user-country', 'NG' )
+					input.checked = true
 				} else {
 					localStorage.setItem( 'user-country', null )
+					input.checked = false
 				}
 			});
 		</script>
