@@ -1,4 +1,4 @@
-import { isProd, appVersion, sendErrorLog, isRequestHeaderDisabled } from 'utils'
+import { isProd, appVersion, sendErrorLog, isRequestHeaderDisabled, USER_COUNTRY_STORAGE_KEY } from 'utils'
 
 // todo: Implement a real cache that keeps
 // the last N requests to keep memory usage
@@ -32,7 +32,7 @@ export const cachedFetch = (url, transformFn, cache = true) => {
         // set user located country
         const GeoIP = xhr.getAllResponseHeaders().match(/GeoIP=(\w+)/)
         const userCountry = GeoIP && GeoIP[1]
-        localStorage.setItem('user-country', userCountry)
+        localStorage.setItem(USER_COUNTRY_STORAGE_KEY, userCountry)
       } else {
         reject(new Error('XHR Error: ' + xhr.status))
       }

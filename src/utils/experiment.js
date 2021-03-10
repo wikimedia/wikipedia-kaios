@@ -1,5 +1,7 @@
 const GROUP_STORAGE_KEY = '2021-KaiOS-app-homepage-content-suggestions'
 
+export const USER_COUNTRY_STORAGE_KEY = 'user-country'
+
 const GROUPS = [
   'control',
   'trending-articles'

@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'preact/hooks'
 import { getExperimentConfig } from 'api'
-import { isConsentGranted, isTrendingArticlesGroup } from 'utils'
+import { isConsentGranted, isTrendingArticlesGroup, USER_COUNTRY_STORAGE_KEY } from 'utils'
 
 const STORAGE_KEY = '2021-KaiOS-app-engagement-config'
-const USER_COUNTRY_STORAGE_KEY = 'user-country'
 
 const formatDate = date => {
   const d = new Date(date)
