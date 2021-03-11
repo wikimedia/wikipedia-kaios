@@ -68,8 +68,11 @@
 			</table>
 		</div>
 		<div class="controlpanel">
-			<input type="checkbox" id="online" name="online" checked autocomplete="off" />
-			<label for="online">Online/offline</label>
+			<p>Configuration:</p>
+			<div id="online">
+				<input type="checkbox" name="online" checked autocomplete="off" />
+				<label for="online">Online/offline</label>
+			</div>
 			<div id="experiment-trending">
 				<input type="checkbox" name="experiment-trending" />
 					<label for="experiment-trending">Experiment Group (Trending articles)</label>
@@ -178,6 +181,12 @@
 				font-size: 8px;
 			}
 			.controlpanel {
+				position: fixed;
+				right: 0;
+				bottom: 100px;
+				width: 30%;
+			}
+			.controlpanel #online {
 				display: none;
 			}
 		</style>
@@ -383,30 +392,32 @@
 			setInterval(updateClock, 60*1000);
 
 			// Online/offline toggle
-			document.querySelector('input#online').addEventListener('change', function(e) {
+			document.querySelector('#online').addEventListener('click', function(e) {
+				const input = document.getElementById('online').querySelector('input')
+				const checked = !input.checked
 				Object.defineProperty(appFrame.contentWindow.Navigator.prototype, "onLine", {
 			        enumerable: true,
 			        configurable: true,
 			        get: function() {
-			        	return e.target.checked;
+			        	return checked;
 			        }
 			    });
-			    appFrame.contentWindow.dispatchEvent(new Event(e.target.checked ? 'online' : 'offline'));
+			    appFrame.contentWindow.dispatchEvent(new Event(checked ? 'online' : 'offline'));
+				input.checked = checked
 			});
 
 			// Experiment Group for Trending Articles  toggle
 			document.querySelector('#experiment-trending').addEventListener('click', function(e) {
 				const input = document.getElementById('experiment-trending').querySelector('input')
-				const checked = input.checked
-				if ( !checked ) {
+				const checked = !input.checked
+				if ( checked ) {
 					localStorage.setItem( '2021-KaiOS-app-engagement-config', `{"timestamp":${Date.now()},"startDate":"20210101","endDate":"20211231","countries":["NG"],"languages":["en"]}` )
 					localStorage.setItem( '2021-KaiOS-app-homepage-content-suggestions', 'trending-articles')
 					localStorage.setItem( 'user-country', 'NG' )
-					input.checked = true
 				} else {
 					localStorage.setItem( 'user-country', null )
-					input.checked = false
 				}
+				input.checked = checked
 			});
 		</script>
 	</body>
