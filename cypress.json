@@ -6,5 +6,6 @@
   "retries": 5,
   "defaultCommandTimeout": 8000,
   "video": true,
-  "videoCompression": false
+  "videoCompression": false,
+  "projectId": "7izdto"
 }
