@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'preact/hooks'
 import { getExperimentConfig } from 'api'
-import { isConsentGranted, isTrendingArticlesGroup, USER_COUNTRY_STORAGE_KEY } from 'utils'
+import { isConsentGranted, isTrendingArticlesGroup, getUserCountry } from 'utils'
 
 const STORAGE_KEY = '2021-KaiOS-app-engagement-config'
 
@@ -19,7 +19,7 @@ const formatDate = date => {
 const isUserUnderExperimentGroup = (startDate, endDate, countries, languages, appLanguage) => {
   const now = parseInt(formatDate(Date.now()), 10)
   const targetCountries = Array.isArray(countries) ? countries : [countries]
-  const userCountry = localStorage.getItem(USER_COUNTRY_STORAGE_KEY)
+  const userCountry = getUserCountry()
   const targetLanguages = Array.isArray(languages) ? languages : [languages]
 
   if (

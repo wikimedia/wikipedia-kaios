@@ -1,4 +1,7 @@
-import { isProd, appVersion, sendErrorLog, isRequestHeaderDisabled, USER_COUNTRY_STORAGE_KEY } from 'utils'
+import {
+  isProd, appVersion, sendErrorLog,
+  isRequestHeaderDisabled, setUserCountry
+} from 'utils'
 
 // todo: Implement a real cache that keeps
 // the last N requests to keep memory usage
@@ -35,7 +38,7 @@ export const cachedFetch = (url, transformFn, cache = true) => {
         if (userCountry) {
           // in device, there is always user country set in response header
           // in desktop, it is always null
-          localStorage.setItem(USER_COUNTRY_STORAGE_KEY, userCountry)
+          setUserCountry(userCountry)
         }
       } else {
         reject(new Error('XHR Error: ' + xhr.status))

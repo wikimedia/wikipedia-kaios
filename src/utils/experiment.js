@@ -1,6 +1,6 @@
 const GROUP_STORAGE_KEY = '2021-KaiOS-app-homepage-content-suggestions'
 
-export const USER_COUNTRY_STORAGE_KEY = 'user-country'
+const USER_COUNTRY_STORAGE_KEY = 'user-country'
 
 const GROUPS = [
   'control',
@@ -34,3 +34,9 @@ export const getExperiment = () => {
 }
 
 export const isTrendingArticlesGroup = () => getGroup() === GROUPS[1]
+
+export const setUserCountry = country => {
+  localStorage.setItem(USER_COUNTRY_STORAGE_KEY, country)
+}
+
+export const getUserCountry = () => localStorage.getItem('USER_COUNTRY_STORAGE_KEY')
