@@ -305,7 +305,8 @@ describe('references', () => {
   })
 
   it('check preview for references opens', () => {
-    goToCatArticle()
+    cy.navigateToPageWithoutOnboarding('article/en/Last_Year%3A_The_Nightmare')
+    articlePage.title().should('have.text', 'Last Year: The Nightmare')
     cy.downArrow()
     cy.downArrow()
     cy.enter()
