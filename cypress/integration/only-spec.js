@@ -32,8 +32,8 @@ const settingsMenuListDutchText = [nlJson['settings-language'], nlJson['settings
 const tipsMenuListEnglishText = [enJson['tips-read'], enJson['tips-search'], enJson['tips-switch'], enJson['tips-about']]
 
 function goToCatArticle () {
-  cy.navigateToPageWithoutOnboarding('article/en/Last_Year%3A_The_Nightmare')
-  articlePage.title().should('have.text', 'Last Year: The Nightmare')
+  cy.navigateToPageWithoutOnboarding('article/en/Cat')
+  articlePage.title().should('have.text', 'Cat')
 }
 
 describe('Article view', () => {
@@ -234,20 +234,6 @@ describe('Onboarding', () => {
     cy.getCenterSoftkeyButton().should('have.text', 'Get started').click()
     cy.getCenterSoftkeyButton().should('have.text', 'Agree').click()
     searchPage.getSearchTextBox().should('be.visible')
-  })
-})
-
-describe('references', () => {
-  beforeEach(() => {
-    cy.navigateToHomePage()
-  })
-
-  it('check preview for references opens', () => {
-    goToCatArticle()
-    cy.downArrow()
-    cy.downArrow()
-    cy.enter()
-    cy.get('div.ref-title').should('be.visible')
   })
 })
 
