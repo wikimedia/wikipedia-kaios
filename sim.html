@@ -406,8 +406,8 @@
 				input.checked = checked
 			});
 
-			// Experiment Group for Trending Articles  toggle
-			document.querySelector('#experiment-trending').addEventListener('click', function(e) {
+			// Experiment Group for Trending Articles toggle
+			document.querySelector('#experiment-trending').addEventListener('mousedown', function(e) {
 				const input = document.getElementById('experiment-trending').querySelector('input')
 				const checked = !input.checked
 				if ( checked ) {
@@ -415,10 +415,15 @@
 					localStorage.setItem( '2021-KaiOS-app-homepage-content-suggestions', 'trending-articles')
 					localStorage.setItem( 'user-country', 'NG' )
 				} else {
-					localStorage.setItem( 'user-country', null )
+					localStorage.removeItem( 'user-country' )
 				}
 				input.checked = checked
 			});
+
+			// initial value of the experiment toggle checkbox
+			if ( localStorage.getItem( 'user-country' ) ) {
+				document.getElementById('experiment-trending').querySelector('input').checked = true
+			}
 		</script>
 	</body>
 </html>
