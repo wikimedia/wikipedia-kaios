@@ -32,7 +32,11 @@ export const cachedFetch = (url, transformFn, cache = true) => {
         // set user located country
         const GeoIP = xhr.getAllResponseHeaders().match(/GeoIP=(\w+)/)
         const userCountry = GeoIP && GeoIP[1]
-        localStorage.setItem(USER_COUNTRY_STORAGE_KEY, userCountry)
+        if (userCountry) {
+          // in device, there is always user country set in response header
+          // in desktop, it is always null
+          localStorage.setItem(USER_COUNTRY_STORAGE_KEY, userCountry)
+        }
       } else {
         reject(new Error('XHR Error: ' + xhr.status))
       }
