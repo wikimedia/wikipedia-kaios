@@ -48,6 +48,7 @@ export const Search = () => {
   const onKeyBackSpace = () => {
     if (isFeedExpanded) {
       setIsFeedExpanded(false)
+      setLastFeedIndex(null)
       listRef.current.scrollTop = 0
       setNavigation(0)
     } else {
