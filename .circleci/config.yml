@@ -55,7 +55,7 @@ jobs:
       - run:
           name: Set gh-pages dest based on current branch
           command: |
-            echo 'export SIM_DIR=$([ "$CIRCLE_BRANCH" == "main" ] && echo "." || echo "$CIRCLE_BRANCH")' >> $BASH_ENV
+            echo 'export SIM_DIR=$([ "$CIRCLE_BRANCH" == "master" ] && echo "." || echo "$CIRCLE_BRANCH")' >> $BASH_ENV
             source $BASH_ENV
       - run:
           name: Deploy sim
