@@ -3,6 +3,7 @@
 		"authors": [
 			"MKaur",
 			"MuratTheTurkish",
+			"R4356th",
 			"Runab",
 			"Sohom Datta",
 			"Tahmid02016",
@@ -80,6 +81,10 @@
 	"textsize-preview": "এই মাপে পৃষ্ঠার লেখা প্রদর্শিত হবে।",
 	"textsize-label-small": "ছোট",
 	"textsize-label-large": "বড়",
+	"tips-header": "পরামর্শ",
+	"tips-about": "উইকিপিডিয়া কী?",
+	"tip-read-header": "নিবন্ধ পড়ুন",
+	"tip-about-header": "উইকিপিডিয়া সম্পর্কে",
 	"toc-footer": "প্রস্তাবিত পাতা",
 	"view-in-browser": "ব্রাউজারে নিবন্ধ দেখুন",
 	"about-app-message": "আপনি ও অন্যান্য স্বেচ্ছাসেবীদের সাথে যৌথ প্রয়াসে উইকিমিডিয়া ফাউন্ডেশন দ্বারা নির্মিত।",
