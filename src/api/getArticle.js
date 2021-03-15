@@ -10,6 +10,7 @@ export const getArticle = (lang, title, { moreInformationText }, useMobileHtml =
       const doc = parser.parseFromString(data, 'text/html')
       const toc = []
       const sections = []
+      const references = {}
 
       const getMeta = (prop, key = 'property') => {
         const metaNode = doc.querySelector('head > meta[' + key + '="' + prop + '"]')
@@ -70,6 +71,13 @@ export const getArticle = (lang, title, { moreInformationText }, useMobileHtml =
         })
       })
 
+      // build references list
+      const refNodes = doc.querySelectorAll('li[id^="cite_"]')
+      for (const refNode of refNodes) {
+        const [id, ref] = extractReference(refNode)
+        references[id] = ref
+      }
+
       const result = {
         contentLang: getMeta('content-language', 'http-equiv'),
         namespace: getMeta('mw:pageNamespace'),
@@ -77,7 +85,7 @@ export const getArticle = (lang, title, { moreInformationText }, useMobileHtml =
         sections,
         infobox,
         toc,
-        references: null,
+        references,
         languageCount: 1, // todo: get this from a different API and merge the result in useArticle()
         dir: doc.querySelector('body').getAttribute('dir')
       }

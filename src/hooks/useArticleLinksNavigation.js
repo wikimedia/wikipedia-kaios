@@ -8,7 +8,6 @@ const SELECTED_ATTRIBUTE = 'data-selected'
 const SUPPORTED_LINKS = [
   '[data-action]',
   'a[title]',
-  'a[href^="#cite_note"]',
   'sup.mw-ref',
   'a[rel="mw:ExtLink"]',
   'a[href^="#"]',
@@ -121,8 +120,8 @@ const makeLinkClickEvent = link => {
     return { type: 'action', action }
   }
 
-  if (link.parentElement.classList.contains('mw-ref')) {
-    const referenceId = link.getAttribute('href').slice(1)
+  if (link.classList.contains('mw-ref')) {
+    const referenceId = link.querySelector('a').getAttribute('href').split('#')[1]
     return { type: 'reference', referenceId }
   }
 
