@@ -1,7 +1,7 @@
 import { useRef, useEffect } from 'preact/hooks'
 import {
   appVersion, appInstallId, generateRandomId, sendEvent,
-  isInstrumentationEnabled, isConsentGranted, isProd
+  isInstrumentationEnabled, isConsentGranted, isProd, getExperiment
 } from 'utils'
 
 const SCHEMA_NAME = 'InukaPageView'
@@ -97,7 +97,8 @@ export const useTracking = (
       page_namespace: namespace,
       is_main_page: isSearch,
       is_search_page: isSearch,
-      is_production: isProd()
+      is_production: isProd(),
+      tests: [getExperiment()]
       /* eslint-enable camelcase */
     }
 
