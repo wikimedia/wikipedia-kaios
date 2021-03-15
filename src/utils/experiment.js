@@ -26,7 +26,7 @@ const getGroup = () => {
 
 export const getExperiment = () => {
   return {
-    name: '2021-KaiOS-app-homepage-content-suggestions',
+    name: GROUP_STORAGE_KEY,
     group: getGroup()
   }
 }
