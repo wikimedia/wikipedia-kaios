@@ -68,7 +68,7 @@
 			</table>
 		</div>
 		<div class="controlpanel">
-			<p>Configuration:</p>
+			<div>Configuration:</div>
 			<div id="online">
 				<input type="checkbox" name="online" checked autocomplete="off" />
 				<label for="online">Online/offline</label>
@@ -181,10 +181,8 @@
 				font-size: 8px;
 			}
 			.controlpanel {
-				position: fixed;
-				right: 0;
-				bottom: 100px;
-				width: 30%;
+				margin: 20px 0;
+				text-align: center;
 			}
 			.controlpanel #online {
 				display: none;
@@ -419,11 +417,6 @@
 				}
 				input.checked = checked
 			});
-
-			// initial value of the experiment toggle checkbox
-			if ( localStorage.getItem( 'user-country' ) ) {
-				document.getElementById('experiment-trending').querySelector('input').checked = true
-			}
 		</script>
 	</body>
 </html>
