@@ -22,6 +22,7 @@ describe.skip('special cases tests', () => {
 
   it('gallery opens from a non-english article', () => {
     cy.navigateToPageWithoutOnboarding('article/pl/Tupolew_Tu-154/Użytkownicy[24]')
+    cy.wait(500)
     articlePage.title().should('have.text', 'Użytkownicy[24]')
     cy.rightArrow()
     cy.enter()

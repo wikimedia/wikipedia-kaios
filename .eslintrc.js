@@ -25,6 +25,7 @@ module.exports = {
     "no-only-tests"
   ],
   "rules": {
-    "no-only-tests/no-only-tests": "error"
+    "no-only-tests/no-only-tests": "error",
+    "cypress/no-unnecessary-waiting": "warn"
   }
 }
