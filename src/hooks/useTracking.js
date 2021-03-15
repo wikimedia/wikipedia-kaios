@@ -1,11 +1,11 @@
 import { useRef, useEffect } from 'preact/hooks'
 import {
   appVersion, appInstallId, generateRandomId, sendEvent,
-  isInstrumentationEnabled, isConsentGranted
+  isInstrumentationEnabled, isConsentGranted, isProd
 } from 'utils'
 
 const SCHEMA_NAME = 'InukaPageView'
-const SCHEMA_REV = 21084675
+const SCHEMA_REV = 21188117
 const SESSION_ID_KEY = 'INUKA-PV-S'
 const ONE_HOUR = 3600 * 1000
 
@@ -96,7 +96,8 @@ export const useTracking = (
       opened_section_count: trackingRef.openedSectionCount,
       page_namespace: namespace,
       is_main_page: isSearch,
-      is_search_page: isSearch
+      is_search_page: isSearch,
+      is_production: isProd()
       /* eslint-enable camelcase */
     }
 
