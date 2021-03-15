@@ -4,8 +4,8 @@ import {
   isInstrumentationEnabled, isConsentGranted
 } from 'utils'
 
-const SCHEMA_NAME = 'InukaPageView'
-const SCHEMA_REV = 21084675
+const SCHEMA_NAME = '/analytics/legacy/inukapageview/1.0.0'
+const STREAM_NAME = 'eventlogging_InukaPageView'
 const SESSION_ID_KEY = 'INUKA-PV-S'
 const ONE_HOUR = 3600 * 1000
 
@@ -100,7 +100,7 @@ export const useTracking = (
       /* eslint-enable camelcase */
     }
 
-    sendEvent(SCHEMA_NAME, SCHEMA_REV, language, event)
+    sendEvent(SCHEMA_NAME, STREAM_NAME, event)
   }
 
   useEffect(() => {
