@@ -32,7 +32,7 @@ describe('special cases tests', () => {
   it('check goto quickfacts holly', () => {
     cy.navigateToPageWithoutOnboarding('article/en/Holly')
     articlePage.title().should('have.text', 'Holly')
-    articlePage.selectOptionFromActionsMenu('quickfacts')
+    articlePage.selectOptionFromArticleMenu('Quick Facts')
     Cypress._.times(20, (i) => {
       cy.downArrow()
     })
@@ -46,7 +46,7 @@ describe('special cases tests', () => {
   it('check goto quickfacts C', () => {
     cy.navigateToPageWithoutOnboarding('article/en/C')
     articlePage.title().should('have.text', 'C')
-    articlePage.selectOptionFromActionsMenu('quickfacts')
+    articlePage.selectOptionFromArticleMenu('Quick Facts')
     cy.get('div.quickfacts table.infobox').should('be.visible')
     cy.enter()
     cy.get('.info').should('have.text', 'Go to Section "Related characters"')
@@ -57,7 +57,7 @@ describe('special cases tests', () => {
   it('backspace on popup', () => {
     cy.navigateToPageWithoutOnboarding('article/en/C')
     articlePage.title().should('have.text', 'C')
-    articlePage.selectOptionFromActionsMenu('quickfacts')
+    articlePage.selectOptionFromArticleMenu('Quick Facts')
     cy.get('div.quickfacts table.infobox').should('be.visible')
     cy.get('a[data-selected=true][href="#Related_characters"]').should('exist')
     cy.enter()
