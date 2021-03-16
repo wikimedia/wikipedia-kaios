@@ -262,5 +262,5 @@ const findCurrentLocatedAnchor = ref => {
         element = ref
       }
     })
-  return element.getAttribute('data-anchor')
+  return element.getAttribute('data-anchor') || element.id
 }

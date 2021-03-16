@@ -6,9 +6,5 @@
   "retries": 5,
   "defaultCommandTimeout": 8000,
   "video": false,
-<<<<<<< HEAD
-  "videoCompression": false,
-=======
->>>>>>> origin/main
   "projectId": "7izdto"
 }

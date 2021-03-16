@@ -27,15 +27,15 @@ export const getArticle = (lang, title, { moreInformationText }, useMobileHtml =
       sections.push({
         imageUrl: getMeta('mw:leadImage'),
         title: articleTitle,
-        anchor: articleTitle,
+        anchor: canonicalizeTitle(articleTitle),
         description: lead.querySelector('p').textContent,
-        content: section0.outerHTML
+        content: modifyHtmlText2(section0.outerHTML)
       })
 
       toc.push({
         level: 1,
         line: articleTitle,
-        anchor: articleTitle,
+        anchor: canonicalizeTitle(articleTitle),
         sectionIndex: 0
       })
 
@@ -48,7 +48,7 @@ export const getArticle = (lang, title, { moreInformationText }, useMobileHtml =
         const level = parseInt(titleNode.tagName.charAt(1)) - 1
         const sectionHeader = section.querySelector('.pcs-edit-section-header')
 
-        const content = '<div>' + section.innerHTML + '</div>'
+        const content = '<div>' + modifyHtmlText2(section.innerHTML) + '</div>'
 
         // new section when toclevel 1
         if (level === 1) {
@@ -57,7 +57,7 @@ export const getArticle = (lang, title, { moreInformationText }, useMobileHtml =
           }
           sections.push({
             title: title,
-            anchor: title,
+            anchor: canonicalizeTitle(title),
             content: content
           })
         }
@@ -66,7 +66,7 @@ export const getArticle = (lang, title, { moreInformationText }, useMobileHtml =
         level <= 3 && toc.push({
           level: level,
           line: title,
-          anchor: title,
+          anchor: canonicalizeTitle(title),
           sectionIndex: sections.length - 1
         })
       })
@@ -204,9 +204,23 @@ const fixTableCaption = (htmlString, moreInformationText) => {
   return node.childNodes[0].innerHTML
 }
 
+// mobile-section
 const modifyHtmlText = (text, moreInformationText, lang) => {
   const fixedImageUrlText = fixImageUrl(text, lang)
   return fixTableCaption(fixedImageUrlText, moreInformationText)
+}
+
+// mobile-html
+const modifyHtmlText2 = (text, lang) => {
+  const parser = new DOMParser()
+  const doc = parser.parseFromString(text, 'text/html')
+
+  const sectionNodes = doc.querySelectorAll('section')
+  for (const sectionNode of sectionNodes) {
+    sectionNode.style.removeProperty('display')
+  }
+
+  return doc.body.innerHTML
 }
 
 const convertPlainText = string => {
