@@ -16,6 +16,11 @@ export const getExperimentConfig = () => {
     if (page.missing) {
       return {}
     }
-    return JSON.parse(page.revisions[0].slots.main.content)
+    try {
+      return JSON.parse(page.revisions[0].slots.main.content)
+    } catch (e) {
+      console.warn('Error fetching the experiment config', e, JSON.stringify(data))
+      return {}
+    }
   })
 }
