@@ -24,11 +24,12 @@ export const getArticle = (lang, title, { moreInformationText }, useMobileHtml =
       const pcsTableContainer = section0.querySelector('.pcs-collapse-table-container')
       pcsTableContainer && pcsTableContainer.remove()
       const articleTitle = lead.querySelector('h1').textContent
+      const articleDescription = lead.querySelector('p') && lead.querySelector('p').textContent
       sections.push({
         imageUrl: getMeta('mw:leadImage'),
         title: articleTitle,
         anchor: canonicalizeTitle(articleTitle),
-        description: lead.querySelector('p').textContent,
+        description: articleDescription,
         content: modifyHtmlText2(section0.outerHTML)
       })
 
