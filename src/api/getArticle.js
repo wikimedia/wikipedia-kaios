@@ -23,8 +23,8 @@ export const getArticle = (lang, title, { moreInformationText }, useMobileHtml =
       const infobox = infoboxNode && infoboxNode.outerHTML
       const pcsTableContainer = section0.querySelector('.pcs-collapse-table-container')
       pcsTableContainer && pcsTableContainer.remove()
-      const articleTitle = lead.querySelector('h1').textContent
-      const articleDescription = lead.querySelector('p') && lead.querySelector('p').textContent
+      const articleTitle = (lead && lead.querySelector('h1').textContent) || doc.title
+      const articleDescription = lead && lead.querySelector('p') && lead.querySelector('p').textContent
       sections.push({
         imageUrl: getMeta('mw:leadImage'),
         title: articleTitle,
