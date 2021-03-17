@@ -10,10 +10,12 @@ export const grantConsent = () => {
   const version = appVersion()
   sendEvent(
     '/analytics/legacy/kaiosappfirstrun/1.0.0',
-    'eventlogging_KaiOSAppFirstRun', {
+    'eventlogging_KaiOSAppFirstRun',
+    {
       app_version: version,
       app_id: appInstallId()
-    })
+    }
+  )
   localStorage.setItem(KEY, JSON.stringify({
     timestamp: Date.now(),
     version
