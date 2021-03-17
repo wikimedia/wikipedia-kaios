@@ -14,7 +14,7 @@ const popupPage = new PopupPage()
 const articleMenuPage = new ArticleMenuPage()
 const searchPage = new SearchPage()
 
-describe.skip('Article view', () => {
+describe('Article view', () => {
   beforeEach(() => {
     cy.navigateToHomePage()
   })
@@ -71,7 +71,7 @@ describe.skip('Article view', () => {
     quickFactsPage.table().should('contains.text', 'Various types of the domestic cat')
   })
 
-  it('check quick facts link opens', () => {
+  it.skip('check quick facts link opens', () => {
     goToCatArticle()
     articlePage.selectOptionFromArticleMenu('Quick Facts')
     quickFactsPage.table().get('div a ').should('contain.text', 'Conservation status')
@@ -170,7 +170,7 @@ describe.skip('Article view', () => {
     articlePage.getDownArrowIndicator().should('not.exist')
   })
 
-  it('check table is showing', () => {
+  it.skip('check table is showing', () => {
     cy.navigateToPageWithoutOnboarding('article/en/Dynamics_(music)')
     articlePage.title().should('have.text', 'Dynamics (music)')
     articlePage.selectOptionFromActionsMenu('sections')
