@@ -143,7 +143,7 @@ const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
   const dir = article.dir
   const sectionCount = article.toc.filter(s => s.level === 1).length
   const [openedSections, setOpenedSections] = useState({})
-  useTracking('Article', lang, article.namespace, sectionCount, openedSections)
+  useTracking('Article', article.namespace, sectionCount, openedSections)
   const [anchor, setAnchor] = useState(initialAnchor)
   const [showTocPopup] = usePopup(ArticleToc, { mode: 'fullscreen', stack: true })
   const [showQuickFactsPopup] = usePopup(QuickFacts, { mode: 'fullscreen', stack: true })
@@ -221,7 +221,6 @@ const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
 
   const actions = currentSection === 0 ? [
     { name: 'sections', enabled: true, handler: showArticleTocPopup },
-    { name: 'quickfacts', enabled: !!article.infobox, handler: showQuickFacts },
     { name: 'gallery', enabled: !!article.media.length, handler: showGallery },
     { name: 'languages', enabled: article.languageCount, handler: showArticleLanguagePopup }
   ] : null

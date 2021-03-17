@@ -1,4 +1,4 @@
-import { appVersion, appInstallId, sendEvent, getAppLanguage } from 'utils'
+import { appVersion, appInstallId, sendEvent } from 'utils'
 
 const KEY = 'usage-data-consent'
 
@@ -8,10 +8,14 @@ export const isConsentGranted = () => {
 
 export const grantConsent = () => {
   const version = appVersion()
-  sendEvent('KaiOSAppFirstRun', 20158341, getAppLanguage(), {
-    app_version: version,
-    app_id: appInstallId()
-  })
+  sendEvent(
+    '/analytics/legacy/kaiosappfirstrun/1.0.0',
+    'eventlogging_KaiOSAppFirstRun',
+    {
+      app_version: version,
+      app_id: appInstallId()
+    }
+  )
   localStorage.setItem(KEY, JSON.stringify({
     timestamp: Date.now(),
     version
