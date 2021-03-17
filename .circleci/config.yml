@@ -4,7 +4,7 @@ orbs:
 jobs:
   build:
     docker:
-      - image: cimg/node:15.4.0-browsers
+      - image: cimg/node:15.9.0-browsers
     steps:
       - browser-tools/install-firefox
       - add_ssh_keys:
@@ -55,7 +55,7 @@ jobs:
       - run:
           name: Set gh-pages dest based on current branch
           command: |
-            echo 'export SIM_DIR=$([ "$CIRCLE_BRANCH" == "master" ] && echo "." || echo "$CIRCLE_BRANCH")' >> $BASH_ENV
+            echo 'export SIM_DIR=$([ "$CIRCLE_BRANCH" == "main" ] && echo "." || echo "$CIRCLE_BRANCH")' >> $BASH_ENV
             source $BASH_ENV
       - run:
           name: Deploy sim
