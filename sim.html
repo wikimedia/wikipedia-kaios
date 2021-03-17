@@ -9,7 +9,14 @@
 	<title>KaiOS Simulator</title>
 	</head>
 	<body>
-		<div class="device">
+		<div class="container">
+		<div class="panel help">
+			<h2>BETA</h2>
+			<p>This software is in beta</p>
+			<h2>HELP</h2>
+			<p>This is not a touch screen. Use the buttons on the device to interact with the app.</p>
+		</div>
+		<div class="panel device">
 			<div class="header">
 				<div class="headersection left">
 					<div class="headeritem mode">&#128289;</div>
@@ -67,7 +74,7 @@
 				</tr>
 			</table>
 		</div>
-		<div class="controlpanel">
+		<div class="panel controlpanel">
 			<h3>Configuration</h3>
 			<div id="online">
 				<input type="checkbox" name="online" checked autocomplete="off" />
@@ -79,11 +86,22 @@
 			</div>
 		</div>
 		<style type="text/css">
+			.container {
+				display: flex;
+				flex-wrap: wrap;
+			}
+			.panel {
+				border-radius: 20px;
+				border: grey 1px solid;
+				margin: 20px;
+				width: 260px;
+				box-sizing: border-box;
+			}
+			.help {
+				padding: 20px;
+			}
 			.device {
 				width: 260px;
-				margin-top: 20px;
-				margin-left: auto;
-				margin-right: auto;
 				padding: 20px 10px;
 				border-radius: 20px;
 				background-color: grey;
@@ -182,7 +200,6 @@
 			.controlpanel {
 				box-sizing: border-box;
 				width: 260px;
-				margin: 20px auto;
 				padding: 0 10px 10px 10px;
 				border: grey solid 1px;
 				border-radius: 20px;
@@ -421,6 +438,12 @@
 				input.checked = checked
 				appFrame.contentWindow.location = './'
 			});
+
+			// navigator.sendBeacon may be undefined in some browser configuration
+			if (!appFrame.contentWindow.navigator.sendBeacon) {
+				appFrame.contentWindow.navigator.sendBeacon = function() {}
+			}
 		</script>
+		</div>
 	</body>
 </html>
