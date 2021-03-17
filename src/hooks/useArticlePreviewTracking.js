@@ -1,5 +1,5 @@
 import { useLayoutEffect } from 'preact/hooks'
-import { sendEvent, isInstrumentationEnabled } from 'utils'
+import { sendLegacyEvent, isInstrumentationEnabled } from 'utils'
 
 const SCHEMA_NAME = 'VirtualPageView'
 const SCHEMA_REV = 19883675
@@ -25,7 +25,7 @@ export const useArticlePreviewTracking = (
       /* eslint-enable camelcase */
     }
 
-    sendEvent(SCHEMA_NAME, SCHEMA_REV, language, event)
+    sendLegacyEvent(SCHEMA_NAME, SCHEMA_REV, language, event)
   }
 
   useLayoutEffect(() => {
