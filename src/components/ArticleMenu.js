@@ -55,11 +55,6 @@ export const ArticleMenu = ({
 
   const items = [
     {
-      title: i18n('article-action-share'),
-      action: onShareArticleUrl,
-      enabled: !!window.MozActivity // disabled on browsers (not supported)
-    },
-    {
       title: i18n('search-placeholder'),
       action: onSearchSelected,
       enabled: true
@@ -94,6 +89,11 @@ export const ArticleMenu = ({
       title: i18n('article-action-languages'),
       action: onLanguageSelected,
       enabled: hasLanguages
+    },
+    {
+      title: i18n('article-action-share'),
+      action: onShareArticleUrl,
+      enabled: !!window.MozActivity // disabled on browsers (not supported)
     }
   ]
 
