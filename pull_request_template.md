@@ -9,3 +9,5 @@ _Describe the statement of this pr_
 _Describe the technical solution and attach the screenshot if needed_
 
 ### Note
+
+Sim Link: https://wikimedia.github.io/wikipedia-kaios/<BRANCH NAME>/sim.html
