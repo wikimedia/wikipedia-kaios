@@ -221,7 +221,6 @@ const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
 
   const actions = currentSection === 0 ? [
     { name: 'sections', enabled: true, handler: showArticleTocPopup },
-    { name: 'quickfacts', enabled: !!article.infobox, handler: showQuickFacts },
     { name: 'gallery', enabled: !!article.media.length, handler: showGallery },
     { name: 'languages', enabled: article.languageCount, handler: showArticleLanguagePopup }
   ] : null

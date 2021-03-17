@@ -67,16 +67,13 @@ describe('Article view', () => {
 
   it('check quick facts opens', () => {
     goToCatArticle()
-    articlePage.selectOptionFromActionsMenu('quickfacts')
-    quickFactsPage.table().should('contains.text', 'Various types of the domestic cat')
-    cy.clickCloseButton()
     articlePage.selectOptionFromArticleMenu('Quick Facts')
     quickFactsPage.table().should('contains.text', 'Various types of the domestic cat')
   })
 
   it('check quick facts link opens', () => {
     goToCatArticle()
-    articlePage.selectOptionFromActionsMenu('quickfacts')
+    articlePage.selectOptionFromArticleMenu('Quick Facts')
     quickFactsPage.table().get('div a ').should('contain.text', 'Conservation status')
     cy.rightArrow().enter()
     popupPage.getTitle().should('have.text', 'Conservation status')
@@ -139,7 +136,7 @@ describe('Article view', () => {
     cy.leftArrow(2)
     cy.getCenterSoftkeyButton().click()
     articlePage.getArticleText().should('have.css', 'font-size', '14px')
-    articlePage.selectOptionFromActionsMenu('quickfacts')
+    articlePage.selectOptionFromArticleMenu('Quick Facts')
     cy.rightArrow().enter()
     popupPage.getText().should('have.css', 'font-size', '14px')
     cy.enter()
