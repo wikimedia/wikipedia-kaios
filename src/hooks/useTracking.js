@@ -1,7 +1,7 @@
 import { useRef, useEffect } from 'preact/hooks'
 import {
   appVersion, appInstallId, generateRandomId, sendEvent,
-  isInstrumentationEnabled, isConsentGranted
+  isInstrumentationEnabled, isConsentGranted, isProd, getExperiment
 } from 'utils'
 
 const SCHEMA_NAME = '/analytics/legacy/inukapageview/1.0.0'
@@ -95,7 +95,9 @@ export const useTracking = (
       opened_section_count: trackingRef.openedSectionCount,
       page_namespace: namespace,
       is_main_page: isSearch,
-      is_search_page: isSearch
+      is_search_page: isSearch,
+      is_production: isProd(),
+      tests: [getExperiment()]
       /* eslint-enable camelcase */
     }
 
