@@ -1,6 +1,6 @@
-import { appVersion, gitHash } from 'utils'
+import { appVersion, gitHash, isProd } from 'utils'
 
-const intakeUrl = 'https://intake-logging.wikimedia.org/v1/events'
+const intakeUrl = 'https://intake-logging.wikimedia.org/v1/events' + (isProd() ? '?hasty=true' : '')
 
 export const sendErrorLog = ({ message, stack = '', url = '' }) => {
   navigator.sendBeacon(intakeUrl, JSON.stringify({
