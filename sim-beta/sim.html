@@ -14,8 +14,8 @@
 			<h2>About the simulator</h2>
 			<ul>
 				<li>This is a BETA version of the simulator for the Wikipedia app on KaiOS.</li>
-				<li>To learn more about the app, visit the <a href="https://www.mediawiki.org/wiki/Wikipedia_for_KaiOS">project page</a></li>
-				<li>If you come across issues with the simulator, please let us know on the <a href="https://www.mediawiki.org/wiki/Talk:Wikipedia_for_KaiOS">talk page</a> or file an issue in <a href="https://phabricator.wikimedia.org/project/board/4305/">Phabricator</a></li>
+				<li>To learn more about the app, visit the <a href="https://www.mediawiki.org/wiki/Wikipedia_for_KaiOS" data-allowlist="true">project page</a></li>
+				<li>If you come across issues with the simulator, please let us know on the <a href="https://www.mediawiki.org/wiki/Talk:Wikipedia_for_KaiOS" data-allowlist="true">talk page</a> or file an issue in <a href="https://phabricator.wikimedia.org/project/board/4305/" data-allowlist="true">Phabricator</a></li>
 			</ul>
 			<h2>How to use the phone</h2>
 			<ul>
@@ -380,7 +380,9 @@
 			// Prevent key and mouse events from stealing focus from the iframe
 			['keypress', 'keydown', 'keyup', 'mousedown', 'mouseup', 'click'].forEach(function(k) {
 				window.addEventListener(k, function(e) {
-					e.preventDefault();
+					if (!e.target.getAttribute('data-allowlist')) {
+						e.preventDefault();
+					}
 				}, true);
 			});
 
