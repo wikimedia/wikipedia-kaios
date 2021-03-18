@@ -9,7 +9,24 @@
 	<title>KaiOS Simulator</title>
 	</head>
 	<body>
-		<div class="device">
+		<div class="container">
+		<div class="panel help">
+			<h2>About the simulator</h2>
+			<ul>
+				<li>This is a BETA version of the simulator for the Wikipedia app on KaiOS.</li>
+				<li>To learn more about the app, visit the <a href="https://www.mediawiki.org/wiki/Wikipedia_for_KaiOS" data-allowlist="true">project page</a></li>
+				<li>If you come across issues with the simulator, please let us know on the <a href="https://www.mediawiki.org/wiki/Talk:Wikipedia_for_KaiOS" data-allowlist="true">talk page</a> or file an issue in <a href="https://phabricator.wikimedia.org/project/board/4305/" data-allowlist="true">Phabricator</a></li>
+			</ul>
+			<h2>How to use the phone</h2>
+			<ul>
+				<li>This is a non-touch phone. Use the keypad to navigate the app</li>
+				<li>Use the Enter button to go forward (twice to start).</li>
+				<li>Use the up/down keys to page through an article</li>
+				<li>Use the left/right keys to cycle through the article links</li>
+				<li>Use the red key to go back</li>
+			</ul>
+		</div>
+		<div class="panel device">
 			<div class="header">
 				<div class="headersection left">
 					<div class="headeritem mode">&#128289;</div>
@@ -67,7 +84,7 @@
 				</tr>
 			</table>
 		</div>
-		<div class="controlpanel">
+		<div class="panel controlpanel">
 			<h3>Configuration</h3>
 			<div id="online">
 				<input type="checkbox" name="online" checked autocomplete="off" />
@@ -79,11 +96,17 @@
 			</div>
 		</div>
 		<style type="text/css">
+			.container {
+				display: flex;
+				flex-wrap: wrap;
+			}
+			.panel {
+				margin: 20px;
+				width: 260px;
+				box-sizing: border-box;
+			}
 			.device {
 				width: 260px;
-				margin-top: 20px;
-				margin-left: auto;
-				margin-right: auto;
 				padding: 20px 10px;
 				border-radius: 20px;
 				background-color: grey;
@@ -178,14 +201,6 @@
 			}
 			.button span {
 				font-size: 8px;
-			}
-			.controlpanel {
-				box-sizing: border-box;
-				width: 260px;
-				margin: 20px auto;
-				padding: 0 10px 10px 10px;
-				border: grey solid 1px;
-				border-radius: 20px;
 			}
 			.controlpanel #online {
 				display: none;
@@ -366,7 +381,9 @@
 			// Prevent key and mouse events from stealing focus from the iframe
 			['keypress', 'keydown', 'keyup', 'mousedown', 'mouseup', 'click'].forEach(function(k) {
 				window.addEventListener(k, function(e) {
-					e.preventDefault();
+					if (!e.target.getAttribute('data-allowlist')) {
+						e.preventDefault();
+					}
 				}, true);
 			});
 
@@ -421,6 +438,12 @@
 				input.checked = checked
 				appFrame.contentWindow.location = './'
 			});
+
+			// navigator.sendBeacon may be undefined in some browser configuration
+			if (!appFrame.contentWindow.navigator.sendBeacon) {
+				appFrame.contentWindow.navigator.sendBeacon = function() {}
+			}
 		</script>
+		</div>
 	</body>
 </html>
