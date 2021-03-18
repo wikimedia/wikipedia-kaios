@@ -44,14 +44,16 @@
 	}
 
 	&.expanded {
-		height: 255px;
+		.listview {
+			height: 255px;
 
-		.list {
-			top: 33px;
-			bottom: 36px;
+			.list {
+				top: 33px;
+				bottom: 36px;
 
-			@media @landscape {
-				bottom: 110px;
+				@media @landscape {
+					bottom: 110px;
+				}
 			}
 		}
 	}
