@@ -8,7 +8,8 @@ export const ArticleMenu = ({
   close, onTocSelected, onLanguageSelected,
   onQuickFactsSelected, onGallerySelected,
   onShareArticleUrl,
-  hasLanguages, hasInfobox, hasGallery
+  hasLanguages, hasInfobox, hasGallery,
+  isShareEnabled
 }) => {
   const containerRef = useRef()
   const listRef = useRef()
@@ -93,7 +94,7 @@ export const ArticleMenu = ({
     {
       title: i18n('article-action-share'),
       action: onShareArticleUrl,
-      enabled: !!window.MozActivity // disabled on browsers (not supported)
+      enabled: isShareEnabled
     }
   ]
 

@@ -152,6 +152,7 @@ const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
   const [showGalleryPopup] = usePopup(Gallery, { mode: 'fullscreen', stack: true })
   const [currentSection, setCurrentSection, currentPage] = useArticlePagination(containerRef, article, anchor)
   const section = article.sections[currentSection]
+  const sharedEnabled = !!window.MozActivity // disabled on browsers (not supported)
   const goToArticleSubpage = ({ sectionIndex, anchor }) => {
     setCurrentSection(
       sectionIndex !== undefined
@@ -199,7 +200,8 @@ const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
       onShareArticleUrl: shareArticleUrl,
       hasInfobox: !!article.infobox,
       hasLanguages: article.languageCount,
-      hasGallery: !!article.media.length
+      hasGallery: !!article.media.length,
+      isShareEnabled: sharedEnabled
     })
   }
 
@@ -236,7 +238,7 @@ const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
     { name: 'quickfacts', enabled: !!article.infobox, handler: showQuickFacts },
     { name: 'gallery', enabled: !!article.media.length, handler: showGallery },
     { name: 'languages', enabled: article.languageCount, handler: showArticleLanguagePopup },
-    { name: 'share', enabled: !!window.MozActivity, handler: shareArticleUrl }
+    { name: 'share', enabled: sharedEnabled, handler: shareArticleUrl }
   ] : null
 
   return (
