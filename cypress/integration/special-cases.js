@@ -20,7 +20,7 @@ describe('special cases tests', () => {
     articleMenuPage.getMenuOption('Language').should('not.exist')
   })
 
-  it.skip('gallery opens from a non-english article', () => {
+  it('gallery opens from a non-english article', () => {
     cy.navigateToPageWithoutOnboarding('article/pl/Tupolew_Tu-154/Użytkownicy[24]')
     cy.wait(500)
     articlePage.title().should('have.text', 'Użytkownicy[24]')

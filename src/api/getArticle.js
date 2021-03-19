@@ -20,7 +20,7 @@ export const getArticle = (lang, title, { moreInformationText }, useMobileHtml =
       const lead = doc.querySelector('header')
       const section0 = doc.querySelector('section')
       const infoboxNode = section0.querySelector('.infobox')
-      const infobox = infoboxNode && infoboxNode.outerHTML
+      const infobox = infoboxNode && modifyHtmlText2(infoboxNode.outerHTML)
       const pcsTableContainer = section0.querySelector('.pcs-collapse-table-container')
       pcsTableContainer && pcsTableContainer.remove()
       const articleTitle = (lead && lead.querySelector('h1').textContent) || doc.title
@@ -216,9 +216,27 @@ const modifyHtmlText2 = (text, lang) => {
   const parser = new DOMParser()
   const doc = parser.parseFromString(text, 'text/html')
 
+  // enable section
   const sectionNodes = doc.querySelectorAll('section')
   for (const sectionNode of sectionNodes) {
     sectionNode.style.removeProperty('display')
+  }
+
+  // enable image
+  const imageNodes = doc.querySelectorAll('span.pcs-lazy-load-placeholder')
+
+  for (const imageNode of imageNodes) {
+    const source = 'https:' + imageNode.getAttribute('data-src')
+    const image = document.createElement('img')
+    image.src = source
+    image.height = imageNode.getAttribute('data-height')
+    imageNode.parentNode.append(image)
+
+    if (!imageNode.parentNode.classList.contains('image')) {
+      imageNode.parentNode.classList += ' image'
+    }
+
+    imageNode.remove()
   }
 
   return doc.body.innerHTML
