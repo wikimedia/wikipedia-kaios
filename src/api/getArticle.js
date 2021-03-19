@@ -81,7 +81,7 @@ export const getArticle = (lang, title, { moreInformationText }, useMobileHtml =
 
       const result = {
         contentLang: getMeta('content-language', 'http-equiv'),
-        namespace: getMeta('mw:pageNamespace'),
+        namespace: parseInt(getMeta('mw:pageNamespace'), 10),
         id: getMeta('mw:pageId'),
         sections,
         infobox,
