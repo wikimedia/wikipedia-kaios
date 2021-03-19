@@ -16,7 +16,7 @@ const SUPPORTED_LINKS = [
   'div.tsingle',
   'a.image',
   '.gallerybox',
-  'table:not([class^="infobox"])'
+  '.pcs-collapse-table-container'
 ].join(',')
 
 export const useArticleLinksNavigation = (
@@ -139,8 +139,8 @@ const makeLinkClickEvent = link => {
     return { type: 'image', fileName }
   }
 
-  if (link.tagName === 'TABLE') {
-    return { type: 'table', content: link.innerHTML }
+  if (isTableLink(link)) {
+    return { type: 'table', content: link.querySelector('.pcs-collapse-table-content').innerHTML }
   }
 }
 
@@ -188,6 +188,10 @@ const findVisibleLinks = (container, galleryItems) => {
 const isImageLink = link => {
   return ['FIGURE', 'FIGURE-INLINE'].includes(link.tagName) ||
     Array.from(link.classList).some(classname => ['tsingle', 'image', 'gallerybox'].includes(classname))
+}
+
+const isTableLink = link => {
+  return link.classList.contains('pcs-collapse-table-container')
 }
 
 const isImageInGallery = (galleryItems = [], fileName) => {

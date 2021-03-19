@@ -109,8 +109,20 @@
 					display: none;
 				}
 
-				.pcs-collapse-table-content {
-					display: block !important;
+				.pcs-collapse-table-container {
+					display: block;
+					width: 100%;
+					padding: 4px;
+					overflow: hidden;
+					background-color: #f6f6f6 !important;
+					border-radius: 2px !important;
+					box-shadow: inset 0 0 0 1px #eaecf0 !important;
+					border: solid 0.5px #c8ccd1 !important;
+
+					@{data-selected-selector} {
+						border: solid 0.5px #36c !important;
+						background-color: #eaf3ff !important;
+					}
 				}
 
 				figure,
