@@ -1,4 +1,4 @@
-import { buildMwOrgApiUrl, cachedFetch } from 'utils'
+import { buildMwOrgApiUrl, cachedFetch, sendErrorLog } from 'utils'
 
 export const getTrendingArticles = (lang, country) => {
   const title = `Wikipedia_for_KaiOS/engagement1/trending/${lang}/${country.toLowerCase()}`
@@ -13,6 +13,7 @@ export const getTrendingArticles = (lang, country) => {
   return cachedFetch(url, data => {
     const page = data.query.pages[0]
     if (page.missing) {
+      sendErrorLog({ message: page, url })
       return []
     }
     return JSON.parse(page.revisions[0].slots.main.content)

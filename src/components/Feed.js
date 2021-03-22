@@ -34,11 +34,15 @@ export const Feed = ({ lang, isExpanded, setIsExpanded, lastIndex, setNavigation
     }
   }, [loading, isExpanded])
 
+  const showArticles = trendingArticles.length > 0 && !loading
+  const showError = trendingArticles.length === 0 && !loading
+
   return (
     <div class={`feed ${isExpanded ? 'expanded' : 'collapsed'}`}>
       {!isExpanded && <div class='cue' />}
-      {!loading && <ListView items={trendingArticles} header={i18n('feed-header')} containerRef={containerRef} />}
       {loading && <Loading isExpanded={isExpanded} />}
+      {showArticles && <ListView items={trendingArticles} header={i18n('feed-header')} containerRef={containerRef} />}
+      {showError && <Error />}
     </div>
   )
 }
@@ -70,6 +74,16 @@ const Loading = ({ isExpanded }) => {
     <div class='loading'>
       {!isExpanded && <div class='collapsed' />}
       {isExpanded && loadingExpanded()}
+    </div>
+  )
+}
+
+const Error = () => {
+  const i18n = useI18n()
+  return (
+    <div class='error'>
+      <img src='images/article-error.png' />
+      <p class='message' data-selectable>{i18n('feed-error-message')}</p>
     </div>
   )
 }
