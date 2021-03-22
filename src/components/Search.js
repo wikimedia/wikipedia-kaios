@@ -122,7 +122,7 @@ export const Search = () => {
     onKeyArrowUp: !loading && onKeyArrowUp
   }, [current.type, query, isOnline, searchResults, loading])
 
-  useTracking('Search')
+  useTracking('Search', lang)
 
   useEffect(() => {
     articleHistory.clear()
