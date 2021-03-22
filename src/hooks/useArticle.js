@@ -19,7 +19,7 @@ export const useArticle = (lang, title) => {
 
   const loadArticle = () => {
     setArticle(null)
-    const [articlePromise, articleAbort] = getArticle(lang, title, translation, true)
+    const [articlePromise, articleAbort] = getArticle(lang, title, translation)
     const [mediaPromise, mediaAbort] = getArticleMediaList(lang, title)
     const [suggestionsPromise, suggestionsAbort] = getSuggestedArticles(lang, title)
     abortFunctions = [articleAbort, mediaAbort, suggestionsAbort]
