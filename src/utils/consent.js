@@ -1,4 +1,4 @@
-import { appVersion, appInstallId, sendEvent } from 'utils'
+import { appVersion, appInstallId, sendEvent, getDeviceLanguage } from 'utils'
 
 const KEY = 'usage-data-consent'
 
@@ -11,6 +11,7 @@ export const grantConsent = () => {
   sendEvent(
     '/analytics/legacy/kaiosappfirstrun/1.0.0',
     'eventlogging_KaiOSAppFirstRun',
+    getDeviceLanguage(),
     {
       app_version: version,
       app_id: appInstallId()

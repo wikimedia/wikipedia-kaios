@@ -25,6 +25,7 @@ const getSessionId = () => {
 
 export const useTracking = (
   pageName,
+  language,
   namespace = -1,
   sectionCount = 0,
   openedSections = {}
@@ -101,7 +102,7 @@ export const useTracking = (
       /* eslint-enable camelcase */
     }
 
-    sendEvent(SCHEMA_NAME, STREAM_NAME, event)
+    sendEvent(SCHEMA_NAME, STREAM_NAME, language, event)
   }
 
   useEffect(() => {
