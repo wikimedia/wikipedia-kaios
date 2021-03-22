@@ -46,6 +46,7 @@ export const getArticle = (lang, title, { moreInformationText }, useMobileHtml =
         }
         const titleNode = section.querySelector('h1, h2, h3, h4, h5')
         const title = titleNode.textContent
+        const anchor = titleNode.id || canonicalizeTitle(title)
         const level = parseInt(titleNode.tagName.charAt(1)) - 1
         const sectionHeader = section.querySelector('.pcs-edit-section-header')
 
@@ -56,18 +57,14 @@ export const getArticle = (lang, title, { moreInformationText }, useMobileHtml =
           if (sectionHeader) {
             sectionHeader.remove()
           }
-          sections.push({
-            title: title,
-            anchor: canonicalizeTitle(title),
-            content: content
-          })
+          sections.push({ title, anchor, content })
         }
 
         // build toc structure (level 1 to 3)
         level <= 3 && toc.push({
-          level: level,
+          level,
           line: title,
-          anchor: canonicalizeTitle(title),
+          anchor,
           sectionIndex: sections.length - 1
         })
       })
@@ -222,7 +219,7 @@ const modifyHtmlText2 = (text, lang) => {
     sectionNode.style.removeProperty('display')
   }
 
-  // enable image
+  // enable lazyload image
   const imageSpanNodes = doc.querySelectorAll('span.pcs-lazy-load-placeholder')
   for (const imageSpanNode of imageSpanNodes) {
     const source = imageSpanNode.getAttribute('data-src')
