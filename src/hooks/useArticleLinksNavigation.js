@@ -112,6 +112,10 @@ const makeLinkClickEvent = link => {
     if (title.includes(':') && INTERWIKI_KEYS.includes(title.split(':')[0])) {
       return { type: 'external', href: link.href }
     }
+    if (link.hash) {
+      const anchor = link.hash.split('#')[1]
+      return { type: 'section', text: normalizeTitle(anchor), anchor }
+    }
     return { type: 'title', title }
   }
 

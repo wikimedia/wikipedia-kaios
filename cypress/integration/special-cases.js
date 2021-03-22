@@ -42,7 +42,7 @@ describe('special cases tests', () => {
     cy.get('.title').should('have.text', 'Selected species')
   })
 
-  it.skip('check goto quickfacts C', () => {
+  it('check goto quickfacts C', () => {
     cy.navigateToPageWithoutOnboarding('article/en/C')
     articlePage.title().should('have.text', 'C')
     articlePage.selectOptionFromArticleMenu('Quick Facts')
@@ -53,12 +53,12 @@ describe('special cases tests', () => {
     cy.get('.title').should('have.text', 'Related characters')
   })
 
-  it.skip('backspace on popup', () => {
+  it('backspace on popup', () => {
     cy.navigateToPageWithoutOnboarding('article/en/C')
     articlePage.title().should('have.text', 'C')
     articlePage.selectOptionFromArticleMenu('Quick Facts')
     cy.get('div.quickfacts table.infobox').should('be.visible')
-    cy.get('a[data-selected=true][href="#Related_characters"]').should('exist')
+    cy.get('a[data-selected=true][href="./C#Related_characters"]').should('exist')
     cy.enter()
     cy.get('.confirm-dialog>.info').should('have.text', 'Go to Section "Related characters"')
     cy.backspace()
