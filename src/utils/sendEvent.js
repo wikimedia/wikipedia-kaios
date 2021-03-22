@@ -5,6 +5,7 @@ const intakeUrl = 'https://intake-analytics.wikimedia.org/v1/events' + (isProd()
 export const sendEvent = ($schema, stream, lang, event) => {
   const body = JSON.stringify({
     $schema,
+    schema: $schema,
     meta: { stream },
     client_dt: new Date().toISOString(),
     webHost: window.location.hostname,
