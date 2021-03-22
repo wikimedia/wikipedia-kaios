@@ -11,6 +11,7 @@ export const grantConsent = () => {
   sendEvent(
     '/analytics/legacy/kaiosappfirstrun/1.0.0',
     'eventlogging_KaiOSAppFirstRun',
+    'KaiOSAppFirstRun',
     getDeviceLanguage(),
     {
       app_version: version,
