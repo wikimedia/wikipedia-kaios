@@ -314,7 +314,7 @@
 				return $element.tagName === 'INPUT' || $element.tagName === 'TEXTAREA';
 			}
 
-			Object.entries({
+			const keyHandlers = {
 				'.button.sk': function(e) {
 					dispatchKeyToDoc(e.currentTarget.getAttribute('data-key'));
 				},
@@ -372,9 +372,10 @@
 					}
 				},
 				'.button.mode': nextInputMode
-			}).forEach(function(entry) {
-				Array.from(document.querySelectorAll(entry[0])).forEach(function(b) {
-					b.addEventListener('click', entry[1]);
+			};
+			Object.keys(keyHandlers).forEach(function(selector) {
+				Array.from(document.querySelectorAll(selector)).forEach(function(b) {
+					b.addEventListener('click', keyHandlers[selector]);
 				});
 			});
 
