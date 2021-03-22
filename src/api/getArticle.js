@@ -20,7 +20,7 @@ export const getArticle = (lang, title, { moreInformationText }, useMobileHtml =
       const lead = doc.querySelector('header')
       const section0 = doc.querySelector('section')
       const infoboxNode = section0.querySelector('.infobox')
-      const infobox = infoboxNode && modifyHtmlText2(infoboxNode.outerHTML)
+      const infobox = infoboxNode && modifyHtmlText2(infoboxNode.outerHTML, lang)
       const pcsTableContainer = section0.querySelector('.pcs-collapse-table-container')
       pcsTableContainer && pcsTableContainer.remove()
       const articleTitle = (lead && lead.querySelector('h1').textContent) || doc.title
@@ -180,8 +180,8 @@ const fixImageUrl = (htmlString, lang) => {
   // The app is served from the app:// protocol so protocol-relative
   // image sources don't work.
   return htmlString
-    .replace(/src="\/\//gi, 'src="https://')
-    .replace(/src="\/w\/extensions\//gi, `src="https://${lang}.wikipedia.org/w/extensions/`)
+    .replace(/\/\//gi, 'https://')
+    .replace(/\/w\/extensions\//gi, `https://${lang}.wikipedia.org/w/extensions/`)
 }
 
 const fixTableCaption = (htmlString, moreInformationText) => {
@@ -223,20 +223,26 @@ const modifyHtmlText2 = (text, lang) => {
   }
 
   // enable image
-  const imageNodes = doc.querySelectorAll('span.pcs-lazy-load-placeholder')
-
-  for (const imageNode of imageNodes) {
-    const source = 'https:' + imageNode.getAttribute('data-src')
+  const imageSpanNodes = doc.querySelectorAll('span.pcs-lazy-load-placeholder')
+  for (const imageSpanNode of imageSpanNodes) {
+    const source = imageSpanNode.getAttribute('data-src')
     const image = document.createElement('img')
     image.src = source
-    image.height = imageNode.getAttribute('data-height')
-    imageNode.parentNode.append(image)
+    image.height = imageSpanNode.getAttribute('data-height')
+    imageSpanNode.parentNode.append(image)
 
-    if (!imageNode.parentNode.classList.contains('image')) {
-      imageNode.parentNode.classList += ' image'
+    if (!imageSpanNode.parentNode.classList.contains('image')) {
+      imageSpanNode.parentNode.classList += ' image'
     }
 
-    imageNode.remove()
+    imageSpanNode.remove()
+  }
+
+  // fix image node
+  const imageNodes = doc.querySelectorAll('img')
+  for (const imageNode of imageNodes) {
+    const url = fixImageUrl(imageNode.getAttribute('src'), lang)
+    imageNode.setAttribute('src', url)
   }
 
   return doc.body.innerHTML
