@@ -115,7 +115,7 @@ const modifyHtmlText = (text, lang) => {
     const image = document.createElement('img')
     image.src = source
     image.height = imageSpanNode.getAttribute('data-height')
-    imageSpanNode.parentNode.append(image)
+    imageSpanNode.parentNode.appendChild(image)
 
     if (!imageSpanNode.parentNode.classList.contains('image')) {
       imageSpanNode.parentNode.classList += ' image'
