@@ -18,7 +18,7 @@ export const getArticle = (lang, title) => {
     const lead = doc.querySelector('header')
     const section0 = doc.querySelector('section')
     const infoboxNode = section0.querySelector('.infobox')
-    const infobox = infoboxNode && modifyHtmlText(infoboxNode.outerHTML, lang)
+    const infobox = infoboxNode && modifyElement(infoboxNode, lang)
     const pcsTableContainer = section0.querySelector('.pcs-collapse-table-container')
     pcsTableContainer && pcsTableContainer.remove()
     const articleTitle = (lead && lead.querySelector('h1').textContent) || doc.title
@@ -28,7 +28,7 @@ export const getArticle = (lang, title) => {
       title: articleTitle,
       anchor: canonicalizeTitle(articleTitle),
       description: articleDescription,
-      content: modifyHtmlText(section0.outerHTML)
+      content: modifyElement(section0, lang)
     })
 
     toc.push({
@@ -48,7 +48,7 @@ export const getArticle = (lang, title) => {
       const level = parseInt(titleNode.tagName.charAt(1)) - 1
       const sectionHeader = section.querySelector('.pcs-edit-section-header')
 
-      const content = '<div>' + modifyHtmlText(section.innerHTML) + '</div>'
+      const content = '<div>' + modifyElement(section, lang) + '</div>'
 
       // new section when toclevel 1
       if (level === 1) {
@@ -98,10 +98,7 @@ const fixImageUrl = (htmlString, lang) => {
     .replace(/\/w\/extensions\//gi, `https://${lang}.wikipedia.org/w/extensions/`)
 }
 
-const modifyHtmlText = (text, lang) => {
-  const parser = new DOMParser()
-  const doc = parser.parseFromString(text, 'text/html')
-
+const modifyElement = (doc, lang) => {
   // enable section
   const sectionNodes = doc.querySelectorAll('section')
   for (const sectionNode of sectionNodes) {
@@ -131,7 +128,7 @@ const modifyHtmlText = (text, lang) => {
     imageNode.setAttribute('src', url)
   }
 
-  return doc.body.innerHTML
+  return doc.outerHTML
 }
 
 const extractReference = refNode => {
