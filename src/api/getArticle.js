@@ -87,7 +87,7 @@ export const getArticle = (lang, title) => {
     }
 
     return result
-  }, true, 'html')
+  }, true, 'text')
 }
 
 const fixImageUrl = (htmlString, lang) => {
