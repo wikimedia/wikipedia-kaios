@@ -1,3 +1,11 @@
-<svg width="61" height="56" viewBox="0 0 61 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M30.891 26.516C15.886 26.516 2.104 39.551 1.744 54.457C1.726 55.174 1.528 55.204 1.301 54.523C0.593 52.402 0 48.81 0 45.081C0 26.836 14.191 11.878 30.837 10.742C31.55 10.694 32.129 10.074 32.129 9.35898V1.17798C32.129 0.0739789 32.874 -0.325021 33.793 0.286979L59.599 17.491C60.517 18.103 60.517 19.097 59.599 19.71L33.793 36.914C32.874 37.526 32.133 37.127 32.139 36.023C32.1697 30.2716 32.185 27.396 32.185 27.396C32.185 26.911 31.605 26.516 30.891 26.516Z" fill="#3366CC"/>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.3.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 20 20" style="enable-background:new 0 0 20 20;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#3366CC;}
+</style>
+<g id="share-icon">
+	<path id="Path" class="st0" d="M12,6V2l7,7l-7,7v-4c-5,0-8.5,1.5-11,5c0.2-1,0.5-2,0.8-2.9L2,13.6C3.6,9.9,6.6,6.8,12,6z"/>
+</g>
 </svg>
