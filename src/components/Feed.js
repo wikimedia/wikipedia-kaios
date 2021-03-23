@@ -37,7 +37,7 @@ export const Feed = ({ lang, isExpanded, setIsExpanded, lastIndex, setNavigation
   return (
     <div class={`feed ${isExpanded ? 'expanded' : 'collapsed'}`}>
       {!isExpanded && <div class='cue' />}
-      {!loading && <ListView items={trendingArticles} header={i18n('feed-header')} containerRef={containerRef} />}
+      {!loading && <ListView items={trendingArticles.slice(0, 5)} header={i18n('feed-header')} containerRef={containerRef} />}
       {loading && <Loading isExpanded={isExpanded} />}
     </div>
   )
