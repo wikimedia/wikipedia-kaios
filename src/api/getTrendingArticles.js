@@ -13,7 +13,7 @@ export const getTrendingArticles = (lang, country) => {
   return cachedFetch(url, data => {
     const page = data.query.pages[0]
     if (page.missing) {
-      sendErrorLog({ message: page, url })
+      sendErrorLog({ message: page.title, url })
       return []
     }
     return JSON.parse(page.revisions[0].slots.main.content)
