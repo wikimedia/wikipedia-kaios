@@ -15,6 +15,6 @@ export const getTrendingArticles = (lang, country) => {
     if (page.missing) {
       return []
     }
-    return JSON.parse(page.revisions[0].slots.main.content)
+    return JSON.parse(page.revisions[0].slots.main.content).slice(0, 5)
   })
 }
