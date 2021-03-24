@@ -13,7 +13,7 @@ export const getTrendingArticles = (lang, country) => {
   return cachedFetch(url, data => {
     const page = data.query.pages[0]
     if (page.missing) {
-      sendErrorLog({ message: page.title, url })
+      sendErrorLog({ message: `There was an issue fetching '${page.title}', the full API response is: ${JSON.stringify(data)}`, url })
       return []
     }
     return JSON.parse(page.revisions[0].slots.main.content)
