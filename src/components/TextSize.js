@@ -25,18 +25,18 @@ export const TextSize = ({ close, closeAll }) => {
     closeAll()
   }
 
-  const onKeyLeft = () => {
+  const onDiscard = () => {
     articleTextSize.set(localTextSize)
     setTextSize(localTextSize)
-    closeAll()
+    close()
   }
 
   useSoftkey('TextSize', {
     center: i18n('softkey-ok'),
     left: i18n('softkey-cancel'),
     onKeyCenter,
-    onKeyLeft,
-    onKeyBackspace: close,
+    onKeyLeft: onDiscard,
+    onKeyBackspace: onDiscard,
     onKeyArrowLeft: () => { adjust(-1) },
     onKeyArrowRight: () => { adjust(1) }
   }, [textSize])
