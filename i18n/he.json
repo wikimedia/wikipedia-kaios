@@ -14,6 +14,7 @@
 	"article-action-quickfacts": "עובדות מהירות",
 	"article-action-gallery": "גלריה",
 	"article-action-languages": "שפה",
+	"article-action-share": "שיתוף",
 	"article-language-available": "זמין {{PLURAL:$1|בשפה אחת|ב־$1 שפות}}.",
 	"article-language-loading-message": "טעינת שפות...",
 	"article-loading-message": "טעינת דף...",
