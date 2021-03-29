@@ -11,7 +11,7 @@ export const useSoftkey = (origin, config = null, dependencies = [], replace = f
   useEffect(() => {
     if (config) {
       const type = replace ? 'replace' : 'set'
-      softkey.dispatch({ type, config })
+      softkey.dispatch({ type, config, origin })
     }
   }, dependencies)
   return softkey

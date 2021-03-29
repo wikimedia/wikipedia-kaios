@@ -1,21 +1,36 @@
 export const SoftkeyReducer = (state, action) => {
   let stack,
     current
+
   switch (action.type) {
     case 'set':
-      return { ...state, current: { ...state.current, ...action.config } }
+      if (action.origin === state.current.origin) {
+        return { ...state, current: { ...state.current, ...action.config } }
+      } else {
+        const stack = [...state.stack]
+        const targetIndex = stack.findIndex(s => s.origin === action.origin)
+        stack[targetIndex] = { ...stack[targetIndex], ...action.config }
+        return { stack, current: state.current }
+      }
     case 'replace':
       // eslint-disable-next-line no-case-declarations
-      const { name, counter } = state.current
-      return { ...state, current: { name, counter, ...action.config } }
+      const { origin, counter } = state.current
+      if (action.origin === state.current.origin) {
+        return { ...state, current: { origin, counter, ...action.config } }
+      } else {
+        const stack = [...state.stack]
+        const targetIndex = stack.findIndex(s => s.origin === action.origin)
+        stack[targetIndex] = { origin, counter, ...action.config }
+        return { stack, current: state.current }
+      }
     case 'push':
       stack = state.stack || []
       current = state.current
       if (!current) {
-        current = { name: action.origin, counter: 1 }
-      } else if (current.name !== action.origin) {
+        current = { origin: action.origin, counter: 1 }
+      } else if (current.origin !== action.origin) {
         stack.push(current)
-        current = { name: action.origin, counter: 1 }
+        current = { origin: action.origin, counter: 1 }
       } else {
         current.counter++
       }
@@ -23,14 +38,14 @@ export const SoftkeyReducer = (state, action) => {
     case 'pop':
       stack = state.stack || []
       current = state.current
-      if (current.name !== action.origin) {
+      if (current.origin !== action.origin) {
         // The component order called of unmount doesn't follow the stack order
         // therefore searching for the right stack to minus the counter
         // and remove it from the stack
         let searchIndex = stack.length
         while (searchIndex--) {
           const searchStack = stack[searchIndex]
-          if (searchStack.name === action.origin) {
+          if (searchStack.origin === action.origin) {
             searchStack.counter--
             if (searchStack.counter === 0) {
               stack.splice(searchIndex, 1)
