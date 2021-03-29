@@ -1,7 +1,6 @@
 export const SoftkeyReducer = (state, action) => {
   let stack,
     current
-
   switch (action.type) {
     case 'set':
       if (action.origin === state.current.origin) {
