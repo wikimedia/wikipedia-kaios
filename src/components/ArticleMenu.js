@@ -7,7 +7,9 @@ import { ListView, TextSize } from 'components'
 export const ArticleMenu = ({
   close, onTocSelected, onLanguageSelected,
   onQuickFactsSelected, onGallerySelected,
-  hasLanguages, hasInfobox, hasGallery
+  onShareArticleUrl,
+  hasLanguages, hasInfobox, hasGallery,
+  isShareEnabled
 }) => {
   const containerRef = useRef()
   const listRef = useRef()
@@ -88,6 +90,11 @@ export const ArticleMenu = ({
       title: i18n('article-action-languages'),
       action: onLanguageSelected,
       enabled: hasLanguages
+    },
+    {
+      title: i18n('article-action-share'),
+      action: onShareArticleUrl,
+      enabled: isShareEnabled
     }
   ]
 

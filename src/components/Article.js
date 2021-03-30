@@ -11,7 +11,7 @@ import {
   useArticlePagination, useArticleLinksNavigation,
   usePopup, useTracking
 } from 'hooks'
-import { articleHistory, confirmDialog, goto, viewport } from 'utils'
+import { articleHistory, confirmDialog, goto, viewport, buildWpMobileWebUrl } from 'utils'
 import { FontContext } from 'contexts'
 
 const ArticleBody = memo(({ content }) => {
@@ -143,7 +143,7 @@ const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
   const dir = article.dir
   const sectionCount = article.toc.filter(s => s.level === 1).length
   const [openedSections, setOpenedSections] = useState({})
-  useTracking('Article', article.namespace, sectionCount, openedSections)
+  useTracking('Article', lang, article.namespace, sectionCount, openedSections)
   const [anchor, setAnchor] = useState(initialAnchor)
   const [showTocPopup] = usePopup(ArticleToc, { mode: 'fullscreen', stack: true })
   const [showQuickFactsPopup] = usePopup(QuickFacts, { mode: 'fullscreen', stack: true })
@@ -152,6 +152,7 @@ const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
   const [showGalleryPopup] = usePopup(Gallery, { mode: 'fullscreen', stack: true })
   const [currentSection, setCurrentSection, currentPage] = useArticlePagination(containerRef, article, anchor)
   const section = article.sections[currentSection]
+  const sharedEnabled = !!window.MozActivity // disabled on browsers (not supported)
   const goToArticleSubpage = ({ sectionIndex, anchor }) => {
     setCurrentSection(
       sectionIndex !== undefined
@@ -179,15 +180,28 @@ const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
     showGalleryPopup({ items: article.media, startFileName, lang, dir })
   }
 
+  const shareArticleUrl = () => {
+    // eslint-disable-next-line no-new
+    new window.MozActivity({
+      name: 'share',
+      data: {
+        type: 'url',
+        url: buildWpMobileWebUrl(lang, articleTitle)
+      }
+    })
+  }
+
   const showArticleMenu = () => {
     showMenuPopup({
       onTocSelected: showArticleTocPopup,
       onLanguageSelected: showArticleLanguagePopup,
       onQuickFactsSelected: showQuickFacts,
       onGallerySelected: showGallery,
+      onShareArticleUrl: shareArticleUrl,
       hasInfobox: !!article.infobox,
       hasLanguages: article.languageCount,
-      hasGallery: !!article.media.length
+      hasGallery: !!article.media.length,
+      isShareEnabled: sharedEnabled
     })
   }
 
@@ -222,7 +236,8 @@ const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
   const actions = currentSection === 0 ? [
     { name: 'sections', enabled: true, handler: showArticleTocPopup },
     { name: 'gallery', enabled: !!article.media.length, handler: showGallery },
-    { name: 'languages', enabled: article.languageCount, handler: showArticleLanguagePopup }
+    { name: 'languages', enabled: article.languageCount, handler: showArticleLanguagePopup },
+    { name: 'share', enabled: sharedEnabled, handler: shareArticleUrl }
   ] : null
 
   return (

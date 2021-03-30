@@ -14,6 +14,7 @@
 	"article-action-quickfacts": "Dades ràpides",
 	"article-action-gallery": "Galeria",
 	"article-action-languages": "Llengua",
+	"article-action-share": "Comparteix",
 	"article-language-available": "Disponible en $1 {{PLURAL:$1|llengua|llengües}}",
 	"article-language-loading-message": "S'estan carregant les llengües...",
 	"article-loading-message": "S'està carregant la pàgina…",
