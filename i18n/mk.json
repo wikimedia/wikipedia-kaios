@@ -9,6 +9,7 @@
 	"article-action-quickfacts": "Кратки факти",
 	"article-action-gallery": "Галерија",
 	"article-action-languages": "Јазик",
+	"article-action-share": "Сподели",
 	"article-language-available": "Достапно на $1 {{PLURAL:$1|јазик|јазици}}",
 	"article-language-loading-message": "Ги вчитувам јазиците...",
 	"article-loading-message": "Ја вчитувам страницата...",

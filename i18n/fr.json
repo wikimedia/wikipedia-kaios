@@ -20,6 +20,7 @@
 	"article-action-quickfacts": "Faits en bref",
 	"article-action-gallery": "Galerie",
 	"article-action-languages": "Langue",
+	"article-action-share": "Partager",
 	"article-language-available": "Disponible en $1 {{PLURAL:$1|langue|langues}}",
 	"article-language-loading-message": "Chargement des langues...",
 	"article-loading-message": "Chargement de la page...",

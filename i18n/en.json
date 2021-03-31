@@ -99,6 +99,7 @@
     "about-app-message": "Made by the Wikimedia Foundation with the help of volunteers like you.",
     "softkey-read-more": "Read More",
     "feed-header": "Trending",
+    "feed-error-message": "Unable to load trending articles",
     "feedback-header": "Send feedback",
     "feedback-explanation": "We will use your feedback to help improve this app. Your response will be kept for 90 days, subject to our $1 and $2",
     "feedback-placeholder": "Start writing here...",

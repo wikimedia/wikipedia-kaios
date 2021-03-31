@@ -31,18 +31,34 @@ export const Search = () => {
       setQuery(inputRef.current.value)
     }
   })
+
+  const handleLastFeedIndex = () => {
+    const { index } = getCurrent()
+    if (index && isFeedExpanded) {
+      setLastFeedIndex(index)
+    }
+  }
+
   const onKeyCenter = () => {
     if (allowUsage()) {
       const { index, key } = getCurrent()
-      if (index && isFeedExpanded) {
-        setLastFeedIndex(index)
-      }
+      handleLastFeedIndex()
       if (index) {
         goto.article(lang, key)
       } else if (isRandomEnabled() && !query) {
         goToRandomArticle()
       }
     }
+  }
+
+  const onKeyRight = () => {
+    handleLastFeedIndex()
+    goto.settings()
+  }
+
+  const onKeyLeft = () => {
+    handleLastFeedIndex()
+    goto.tips()
   }
 
   const onKeyBackSpace = () => {
@@ -112,11 +128,11 @@ export const Search = () => {
 
   useSoftkey('Search', {
     right: allowUsage() ? i18n('softkey-settings') : '',
-    onKeyRight: allowUsage() ? goto.settings : null,
+    onKeyRight: allowUsage() ? onKeyRight : null,
     center: current.type === 'DIV' ? i18n('centerkey-select') : '',
     onKeyCenter,
     left: allowUsage() ? i18n('softkey-tips') : '',
-    onKeyLeft: allowUsage() ? goto.tips : null,
+    onKeyLeft: allowUsage() ? onKeyLeft : null,
     onKeyBackspace: !(query && current.type === 'INPUT') && onKeyBackSpace,
     onKeyArrowDown: !loading && onKeyArrowDown,
     onKeyArrowUp: !loading && onKeyArrowUp
