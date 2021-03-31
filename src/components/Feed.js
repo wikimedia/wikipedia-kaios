@@ -25,14 +25,10 @@ export const Feed = ({ lang, isExpanded, setIsExpanded, lastIndex, setNavigation
     if (lastIndex) {
       setIsExpanded(true)
       setNavigation(lastIndex)
-    }
-  }, [trendingArticles])
-
-  useEffect(() => {
-    if (isExpanded) {
+    } else if (isExpanded) {
       setNavigation(1)
     }
-  }, [loading, isExpanded])
+  }, [trendingArticles, loading, isExpanded])
 
   const showArticles = trendingArticles.length > 0 && !loading
   const showError = trendingArticles.length === 0 && !loading
