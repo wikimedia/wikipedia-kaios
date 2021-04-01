@@ -1,3 +1,24 @@
+/**
+ * The softkey state object has two keys, stack and current.
+ * stack is the array list of the softkey item
+ * current is the current softkey item
+ *
+ * The "origin" in the item represent as the unique key,
+ * the action use this key to find the target item in stack and current
+ *
+ * There are four types of action in this reducer
+ *
+ * Set:
+ *    Set the softkey item with the new config
+ * Replace:
+ *    Remove and replace the existing softkey item with the new config
+ * Push:
+ *    Register a new softkey item or
+ *    increase the counter if it is being called multiple times
+ * Pop:
+ *    Deregister the softkey item when the component being unmounted.
+ *    It use the counter to determine whether the item is completely unmounted
+ */
 export const SoftkeyReducer = (state, action) => {
   let stack,
     current
