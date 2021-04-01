@@ -15,6 +15,7 @@
 	"article-action-quickfacts": "Snabbfakta",
 	"article-action-gallery": "Galleri",
 	"article-action-languages": "Språk",
+	"article-action-share": "Dela",
 	"article-language-available": "Tillgänglig på $1 {{PLURAL:$1|språk}}",
 	"article-language-loading-message": "Läser in språk...",
 	"article-loading-message": "Läser in sida...",
