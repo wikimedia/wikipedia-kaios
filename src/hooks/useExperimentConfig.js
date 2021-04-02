@@ -28,9 +28,9 @@ const isUserUnderExperimentGroup = (startDate, endDate, countries, languages, ap
     targetCountries.includes(userCountry) &&
     targetLanguages.includes(appLanguage)
   ) {
-    return true || isTrendingArticlesGroup()
+    return isTrendingArticlesGroup() // TODO: revert before merging
   } else {
-    return true
+    return false
   }
 }
 
