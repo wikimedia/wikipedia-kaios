@@ -15,7 +15,7 @@ export const Feed = ({ lang, isExpanded, setIsExpanded, lastIndex, setNavigation
     setLoading(true)
     const [request, abort] = getTrendingArticles(lang, userCountry)
     request.then(articles => {
-      // setLoading(false) - TODO: revert before merging
+      setLoading(false)
       setTrendingArticles(articles)
     })
     return abort
