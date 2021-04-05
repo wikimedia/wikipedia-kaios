@@ -104,6 +104,7 @@
 	"about-app-message": "Skapad av Wikimedia Foundation med hjälp av frivilliga som dig.",
 	"softkey-read-more": "Läs mer",
 	"feed-header": "Populärt",
+	"feed-error-message": "Kunde inte läsa in populära artiklar",
 	"feedback-header": "Skicka återkoppling",
 	"feedback-explanation": "Vi kommer använda din återkoppling för att hjälpa till att förbättra denna app. Ditt svar kommer att behållas i 90 dagar, enligt $1 och $2",
 	"feedback-placeholder": "Börja skriva här...",

@@ -103,6 +103,7 @@
 	"about-app-message": "Creat per la Fundació Wikimedia amb l'ajuda de voluntaris.",
 	"softkey-read-more": "Més informació",
 	"feed-header": "Tendències",
+	"feed-error-message": "No es poden carregar els articles en tendència",
 	"feedback-header": "Envia comentaris",
 	"feedback-explanation": "Farem servir els vostres comentaris per a millor l'aplicació. La vostra resposta es conservarà durant 90 dies, d'acord amb la nostra $1 i $2",
 	"feedback-placeholder": "Comenceu a escriure-hi...",
