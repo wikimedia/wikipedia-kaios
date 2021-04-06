@@ -109,6 +109,10 @@
 					&.withImg {
 						width: 155px;
 					}
+
+					p {
+						margin: 0;
+					}
 				}
 			}
 
@@ -140,57 +144,65 @@
 	}
 
 	.loading {
-		background-color: #fff;
+		background-color: #eaecf0;
 		height: 300px;
-		margin-top: -5px;
 
-		.collapsed {
+		&.collapsed {
 			height: 55px;
-			background-color: #d8d8d8;
-			margin-right: 10px;
-			margin-left: 10px;
-			margin-top: 10px;
+			margin-top: -9px;
 			border-radius: 6px 6px 0 0;
-			padding: 0 10px;
 		}
 
 		.expanded {
-			padding-top: 25px;
+			.top {
+				background-color: #eaecf0;
+				height: 38px;
+				padding-top: 5px;
+			}
 
 			.item {
 				display: flex;
 				justify-content: space-between;
-				margin-left: 10px;
-				margin-right: 10px;
 				margin-bottom: 5px;
-				border-radius: 2px;
-				border: solid 1px #d8d8d8;
-				height: 60px;
+				background-color: #fff;
+				height: 67px;
 
 				.bars {
 					height: 49px;
 					width: 147px;
 					background-color: #fff;
 					padding-top: 12px;
-					padding-left: 5px;
+					padding-left: 10px;
 
 					.bar {
-						width: 148px;
-						height: 11px;
-						margin: 0 0 10px;
+						width: 160px;
+						height: 12px;
+						margin: 0 0 14px;
 						border-radius: 2px;
-						background-color: #d8d8d8;
+						background-color: #eaecf0;
 
 						&.smaller {
-							width: 118px;
+							width: 110px;
+							height: 10px;
 						}
 					}
 				}
 
 				.rectangle {
-					height: 58px;
+					height: 50px;
 					width: 50px;
-					background-color: #d8d8d8;
+					background-color: #eaecf0;
+					margin-top: 4px;
+					margin-right: 5px;
+					border-radius: 6px;
+					visibility: hidden;
+					animation: rectangleDelay 0s 200ms forwards;
+
+					@keyframes rectangleDelay {
+						to {
+							visibility: visible;
+						}
+					}
 				}
 			}
 		}
