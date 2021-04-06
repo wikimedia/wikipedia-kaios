@@ -82,7 +82,6 @@ export const getArticle = (lang, title) => {
       infobox,
       toc,
       references,
-      languageCount: 1, // todo: get this from a different API and merge the result in useArticle()
       dir: doc.querySelector('body').getAttribute('dir')
     }
 

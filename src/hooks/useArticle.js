@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'preact/hooks'
 import { useI18n } from 'hooks'
-import { getArticle, getArticleSummary, getArticleMediaList, getSuggestedArticles } from 'api'
+import {
+  getArticle, getArticleSummary, getArticleMediaList,
+  getSuggestedArticles, getLanglinks
+} from 'api'
 import { canonicalizeTitle } from 'utils'
 
 export const useArticle = (lang, title) => {
@@ -23,9 +26,10 @@ export const useArticle = (lang, title) => {
     const [summaryPromise, summaryAbort] = getArticleSummary(lang, title)
     const [mediaPromise, mediaAbort] = getArticleMediaList(lang, title)
     const [suggestionsPromise, suggestionsAbort] = getSuggestedArticles(lang, title)
-    abortFunctions = [articleAbort, summaryAbort, mediaAbort, suggestionsAbort]
-    Promise.all([articlePromise, summaryPromise, mediaPromise, suggestionsPromise])
-      .then(([article, summary, media, suggestedArticles]) => {
+    const [languagesPromise, languagesAbort] = getLanglinks(lang, title)
+    abortFunctions = [articleAbort, summaryAbort, mediaAbort, suggestionsAbort, languagesAbort]
+    Promise.all([articlePromise, summaryPromise, mediaPromise, suggestionsPromise, languagesPromise])
+      .then(([article, summary, media, suggestedArticles, languages]) => {
         const { sections, toc } = article
         const footerTitle = contentI18n('toc-footer')
         const anchor = canonicalizeTitle(footerTitle)
@@ -34,6 +38,9 @@ export const useArticle = (lang, title) => {
         if (summary.imageUrl) {
           article.sections[0].imageUrl = summary.imageUrl
         }
+
+        // set language count value
+        article.languageCount = languages.length
 
         // build footer used section and toc
         // with header title in the same language as article
@@ -45,6 +52,7 @@ export const useArticle = (lang, title) => {
         })
         const tocWithFooter = toc.concat({ level: 1, line: footerTitle, anchor, sectionIndex: sectionsWithFooter.length - 1 })
 
+        console.log(article)
         setArticle({ ...article, title, sections: sectionsWithFooter, toc: tocWithFooter, suggestedArticles, media })
       }, error => {
         setArticle({ error })
