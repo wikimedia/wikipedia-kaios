@@ -44,6 +44,7 @@ export const Feed = ({ lang, isExpanded, setIsExpanded, lastIndex, setNavigation
 }
 
 const Loading = ({ isExpanded }) => {
+  const i18n = useI18n()
   const loadingExpanded = () => {
     const loadingItem = (selectable = false) => {
       return (
@@ -59,6 +60,9 @@ const Loading = ({ isExpanded }) => {
 
     return (
       <div class='expanded'>
+        <div class='top'>
+          <div class='header'><span>{i18n('feed-header')}</span></div>
+        </div>
         {loadingItem(true)}
         {loadingItem()}
         {loadingItem()}
@@ -67,8 +71,7 @@ const Loading = ({ isExpanded }) => {
   }
 
   return (
-    <div class='loading'>
-      {!isExpanded && <div class='collapsed' />}
+    <div class={`loading ${!isExpanded ? 'collapsed' : ''}`}>
       {isExpanded && loadingExpanded()}
     </div>
   )
