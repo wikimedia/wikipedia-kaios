@@ -52,7 +52,6 @@ export const useArticle = (lang, title) => {
         })
         const tocWithFooter = toc.concat({ level: 1, line: footerTitle, anchor, sectionIndex: sectionsWithFooter.length - 1 })
 
-        console.log(article)
         setArticle({ ...article, title, sections: sectionsWithFooter, toc: tocWithFooter, suggestedArticles, media })
       }, error => {
         setArticle({ error })
