@@ -21,7 +21,7 @@
 	"app-title": "Wikipédia",
 	"app-subtitle": "Slobodná encyklopédia",
 	"app-description": "S aplikáciou Wikipédie môžete vyhľadávať a objavovať informácie z celého sveta vo viac ako 300 jazykoch.",
-	"content-license": "Obsah je dostupný pod <a class=\"external\" rel=\"mw:ExtLink\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">CC BY-SA 3.0</a>, pokiaľ nie je uvedené inak.",
+	"content-license": "Obsah je dostupný pod licenciou<a class=\"external\" rel=\"mw:ExtLink\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">CC BY-SA 3.0</a>, pokiaľ nie je uvedené inak.",
 	"confirm-section": "Prejsť na sekciu „$1“",
 	"confirm-app-close-title": "Odísť z Wikipédie?",
 	"confirm-app-close-message": "Naozaj chcete odísť z aplikácie?",
