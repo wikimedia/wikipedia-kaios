@@ -23,5 +23,5 @@ export const useSearch = (lang) => {
     }
   }, [lang, query])
 
-  return [query, setQuery, searchResults, loading]
+  return [setQuery, searchResults, loading]
 }
