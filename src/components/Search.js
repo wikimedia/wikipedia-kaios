@@ -23,8 +23,8 @@ export const Search = () => {
   const [current, setNavigation, getCurrent, getAllElements, navigateNext, navigatePrevious] = useNavigation('Search', containerRef, listRef, 'y')
   const lang = getAppLanguage()
   const isExperimentGroup = useExperimentConfig(lang)
-  const [setQuery, searchResults, loading] = useSearch(lang)
-  const [inputText, setInputText] = useState('')
+  const [inputText, setInputText] = useHistoryState('search-input-text')
+  const [setQuery, searchResults, loading] = useSearch(lang, inputText)
   const [showConsentPopup, closeConsentPopup] = usePopup(Consent)
   const consentGranted = isConsentGranted()
   const isOnline = useOnlineStatus(online => {
