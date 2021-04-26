@@ -1,6 +1,6 @@
 import { h } from 'preact'
 import { useRef, useEffect, useState } from 'preact/hooks'
-import { ListView, OfflinePanel, Consent, SearchLoading, Feed } from 'components'
+import { ListView, OfflinePanel, Consent, SearchLoading, Feed, ArticleLoading } from 'components'
 import {
   useNavigation, useSearch, useI18n, useSoftkey,
   useOnlineStatus, useTracking, usePopup, useHistoryState,
@@ -25,6 +25,7 @@ export const Search = () => {
   const isExperimentGroup = useExperimentConfig(lang)
   const [query, setQuery, searchResults, loading] = useSearch(lang)
   const [showConsentPopup, closeConsentPopup] = usePopup(Consent)
+  const [showArticleLoadingPopup] = usePopup(ArticleLoading, { mode: 'fullscreen ' })
   const consentGranted = isConsentGranted()
   const isOnline = useOnlineStatus(online => {
     if (online && inputRef.current) {
@@ -44,7 +45,8 @@ export const Search = () => {
       const { index, key } = getCurrent()
       handleLastFeedIndex()
       if (index) {
-        goto.article(lang, key)
+        showArticleLoadingPopup({ lang, title: key })
+        // goto.article(lang, key)
       } else if (isRandomEnabled() && !query) {
         goToRandomArticle()
       }

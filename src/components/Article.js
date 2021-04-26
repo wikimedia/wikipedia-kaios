@@ -4,7 +4,7 @@ import { useState, useRef, useEffect, useLayoutEffect, useContext } from 'preact
 import {
   ReferencePreview, ArticleToc, ArticleLanguage,
   ArticleMenu, ArticleFooter, ArticleLoading, QuickFacts,
-  Error, Gallery, Table
+  Gallery, Table
 } from 'components'
 import {
   useArticle, useI18n, useSoftkey,
@@ -130,14 +130,10 @@ const ArticleSection = ({
 const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
   const i18n = useI18n()
   const containerRef = useRef()
-  const [article, loadArticle] = useArticle(lang, articleTitle)
+  const [article] = useArticle(lang, articleTitle)
 
   if (!article) {
-    return <ArticleLoading />
-  }
-
-  if (article.error) {
-    return <Error message={i18n('article-error-message')} onRefresh={loadArticle} />
+    return <ArticleLoading title={articleTitle} lang={lang} />
   }
 
   const dir = article.dir
