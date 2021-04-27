@@ -12,7 +12,7 @@ export const getTrendingArticles = (lang, country) => {
   const url = buildMwOrgApiUrl(params)
   return cachedFetch(url, data => {
     const page = data.query.pages[0]
-    if (page.missing) {
+    if (page && page.missing) {
       sendErrorLog({ message: `There was an issue fetching '${page.title}', the full API response is: ${JSON.stringify(data)}`, url })
       return []
     }
