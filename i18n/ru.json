@@ -8,7 +8,8 @@
 			"Movses",
 			"MuratTheTurkish",
 			"Okras",
-			"Pacha Tchernof"
+			"Pacha Tchernof",
+			"Soul Train"
 		]
 	},
 	"article-action-sections": "Содержание",
@@ -62,6 +63,7 @@
 	"softkey-skip": "Пропустить",
 	"softkey-get-started": "Приступить",
 	"softkey-refresh": "Обновить",
+	"softkey-tips": "Советы",
 	"suggested-articles": "Предлагаемые статьи",
 	"reference-title": "Примечание [$1]",
 	"offline-message": "Нет подключения к интернету",
@@ -82,6 +84,8 @@
 	"textsize-preview": "Текст статьи будет выглядеть так.",
 	"textsize-label-small": "Маленький",
 	"textsize-label-large": "Большой",
+	"tips-header": "Советы",
+	"tip-about-header": "О Википедии",
 	"toc-footer": "Предлагаемые статьи",
 	"view-in-browser": "Посмотреть статью в браузере",
 	"about-app-message": "Сделано Фондом Викимедиа с помощью таких же добровольцев, как вы.",
