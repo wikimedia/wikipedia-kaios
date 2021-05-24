@@ -241,8 +241,12 @@
 				let keys = [];
 				let currentKey = null;
 				let timeout = null;
+				let lastInputElement;
 
 				const close = function() {
+					if (lastInputElement) {
+						lastInputElement.dispatchEvent(new InputEvent('input'))
+					}
 					$element.style.visibility = 'hidden';
 				}
 
@@ -253,7 +257,7 @@
 				const open = function() {
 					$element.style.visibility = 'visible';
 					clearTimeout(timeout);
-					timeout = setTimeout(close, 2000);
+					timeout = setTimeout(close, 1000);
 				};
 
 				const render = function() {
@@ -280,13 +284,23 @@
 					return true;
 				}
 
-				return function(newKeys) {
+				return function(newKeys, inputElement) {
 					let replace;
-					if (isClosed() || !arraysEqual(keys, newKeys)) {
+					lastInputElement = inputElement
+
+					if (isClosed()) {
+						keys = newKeys;
+						currentKey = newKeys[0];
+						replace = false;
+					} else if (!arraysEqual(keys, newKeys)) {
+						// it's open but this is a new button
+						// confirm previous selection
+						lastInputElement.dispatchEvent(new InputEvent('input'));
 						keys = newKeys;
 						currentKey = newKeys[0];
 						replace = false;
 					} else {
+						// it's open and this is another press on the same button
 						let index = keys.indexOf(currentKey) + 1;
 						if (index >= keys.length) {
 							index = 0;
@@ -326,7 +340,7 @@
 							const caret = element.selectionStart - 1
 							element.value = v.substring(0, caret) + v.substring(caret + 1)
 							element.setSelectionRange(caret, caret)
-							element.dispatchEvent(new Event('input'))
+							element.dispatchEvent(new InputEvent('input'))
 						}
 					} else {
 						dispatchKeyToDoc('Backspace')
@@ -353,9 +367,10 @@
 				},
 				'.button.char': function(e) {
 					const keys = keysInCurrentMode(e.currentTarget.getAttribute('data-key'));
+					const useKeySelector = Array.isArray(keys);
 					const element = appFrame.contentDocument.activeElement;
 					if (isInput(element)) {
-						const [key, replace] = Array.isArray(keys) ? keySelector(keys) : [keys, false]
+						const [key, replace] = useKeySelector ? keySelector(keys, element) : [keys, false]
 						let val = element.value
 						let caret = element.selectionStart
 						if (replace) {
@@ -366,7 +381,7 @@
 						}
 						element.value = val;
 						element.setSelectionRange(caret, caret);
-						element.dispatchEvent(new Event('input'));
+						element.dispatchEvent(new InputEvent('input', {isComposing: useKeySelector}));
 					} else {
 						dispatchKeyToDoc(keys[0]);
 					}
