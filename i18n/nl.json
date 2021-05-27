@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Elroy",
+			"Jeroen N",
 			"Mainframe98",
 			"MuratTheTurkish",
 			"Nickthijssen1994",
@@ -105,7 +106,7 @@
 	"feed-header": "Populair",
 	"feed-error-message": "Fout bij het laden van populaire artikelen",
 	"feedback-header": "Terugkoppeling verzenden",
-	"feedback-explanation": "We zullen uw feedback gebruiken om de app te verbeteren. Uw reactie wordt 90 dagen bewaart, onderworpen aan $1 en $2.",
+	"feedback-explanation": "We zullen uw feedback gebruiken om de app te verbeteren. Uw reactie wordt 90 dagen bewaard, onderworpen aan $1 en $2.",
 	"feedback-placeholder": "Begin hier met schrijven...",
 	"feedback-success": "Bedankt voor uw terugkoppeling",
 	"feedback-success-header": "Terugkoppeling verstuurd",
