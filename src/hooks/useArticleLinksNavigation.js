@@ -8,7 +8,7 @@ const SELECTED_ATTRIBUTE = 'data-selected'
 const SUPPORTED_LINKS = [
   '[data-action]',
   'a[title]',
-  'a[href^="#cite_note"]',
+  'sup.mw-ref',
   'a[rel="mw:ExtLink"]',
   'a[href^="#"]',
   'figure',
@@ -16,7 +16,7 @@ const SUPPORTED_LINKS = [
   'div.tsingle',
   'a.image',
   '.gallerybox',
-  'table:not([class^="infobox"])'
+  '.pcs-collapse-table-container'
 ].join(',')
 
 export const useArticleLinksNavigation = (
@@ -112,6 +112,10 @@ const makeLinkClickEvent = link => {
     if (title.includes(':') && INTERWIKI_KEYS.includes(title.split(':')[0])) {
       return { type: 'external', href: link.href }
     }
+    if (link.hash) {
+      const anchor = link.hash.split('#')[1]
+      return { type: 'section', text: normalizeTitle(anchor), anchor }
+    }
     return { type: 'title', title }
   }
 
@@ -120,8 +124,8 @@ const makeLinkClickEvent = link => {
     return { type: 'action', action }
   }
 
-  if (link.parentElement.classList.contains('mw-ref')) {
-    const referenceId = link.getAttribute('href').slice(1)
+  if (link.classList.contains('mw-ref')) {
+    const referenceId = link.querySelector('a').getAttribute('href').split('#')[1]
     return { type: 'reference', referenceId }
   }
 
@@ -139,8 +143,8 @@ const makeLinkClickEvent = link => {
     return { type: 'image', fileName }
   }
 
-  if (link.tagName === 'TABLE') {
-    return { type: 'table', content: link.innerHTML }
+  if (isTableLink(link)) {
+    return { type: 'table', content: link.querySelector('.pcs-collapse-table-content').innerHTML }
   }
 }
 
@@ -188,6 +192,10 @@ const findVisibleLinks = (container, galleryItems) => {
 const isImageLink = link => {
   return ['FIGURE', 'FIGURE-INLINE'].includes(link.tagName) ||
     Array.from(link.classList).some(classname => ['tsingle', 'image', 'gallerybox'].includes(classname))
+}
+
+const isTableLink = link => {
+  return link.classList.contains('pcs-collapse-table-container')
 }
 
 const isImageInGallery = (galleryItems = [], fileName) => {

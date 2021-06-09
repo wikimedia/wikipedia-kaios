@@ -12,7 +12,7 @@ describe('special cases tests', () => {
     cy.get('.article-content').should('contain.text', 'Throughout Wikipedia, the pronunciation of words is indicated by means of the ')
   })
 
-  it('languages option should not be available for article in one single language', () => {
+  it.skip('languages option should not be available for article in one single language', () => {
     cy.navigateToPageWithoutOnboarding('article/pt/Bruscos')
     articlePage.title().should('have.text', 'Bruscos')
     articlePage.getActionsSectionButton('languages').should('not.exist')
@@ -24,12 +24,11 @@ describe('special cases tests', () => {
     cy.navigateToPageWithoutOnboarding('article/pl/Tupolew_Tu-154/Użytkownicy[24]')
     cy.wait(500)
     articlePage.title().should('have.text', 'Użytkownicy[24]')
-    cy.rightArrow()
     cy.enter()
     cy.get('.gallery-view>.img>img').should('be.visible').should('have.attr', 'src', 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Tupolev_Tu-154B%2C_Tarom_AN0679876.jpg/640px-Tupolev_Tu-154B%2C_Tarom_AN0679876.jpg')
   })
 
-  it('check goto quickfacts holly', () => {
+  it.skip('check goto quickfacts holly', () => {
     cy.navigateToPageWithoutOnboarding('article/en/Holly')
     articlePage.title().should('have.text', 'Holly')
     articlePage.selectOptionFromArticleMenu('Quick Facts')
@@ -59,7 +58,7 @@ describe('special cases tests', () => {
     articlePage.title().should('have.text', 'C')
     articlePage.selectOptionFromArticleMenu('Quick Facts')
     cy.get('div.quickfacts table.infobox').should('be.visible')
-    cy.get('a[data-selected=true][href="#Related_characters"]').should('exist')
+    cy.get('a[data-selected=true][href="./C#Related_characters"]').should('exist')
     cy.enter()
     cy.get('.confirm-dialog>.info').should('have.text', 'Go to Section "Related characters"')
     cy.backspace()
