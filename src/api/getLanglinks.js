@@ -1,8 +1,13 @@
 import {
   buildMwApiUrl, cachedFetch,
   isSupportedForReading, getDirection,
-  prioritizedList
+  isPrioritized
 } from 'utils'
+
+const convertToWikiLang = lang => {
+  // The lang link endpoint return 'nb' but the wiki subdomain is 'no'
+  return lang === 'nb' ? 'no' : lang
+}
 
 export const getLanglinks = (lang, title) => {
   const params = {
@@ -16,34 +21,37 @@ export const getLanglinks = (lang, title) => {
   return cachedFetch(url, response => {
     const { pages } = response.query
     const langlinks = pages[0].langlinks
-    const prioritizedLanguages = langlinks
-      .filter(item => {
-        return prioritizedList.indexOf(item.lang) !== -1 && isSupportedForReading(item.lang)
-      })
+    const allLanguages = langlinks
       .map(item => {
         return {
           title: item.autonym,
           langname: item.langname,
-          lang: item.lang,
+          lang: convertToWikiLang(item.lang),
           description: item.title,
           dir: getDirection(item.lang)
         }
       })
-    const allLanguages = prioritizedLanguages.concat(
-      langlinks
-        .filter(item => {
-          return isSupportedForReading(item.lang) && prioritizedList.indexOf(item.lang) === -1
-        })
-        .map(item => {
-          return {
-            title: item.autonym,
-            langname: item.langname,
-            lang: item.lang,
-            description: item.title,
-            dir: getDirection(item.lang)
-          }
-        })
-    )
+      .filter(item => isSupportedForReading(item.lang))
+
+    // Sort languages prioritized first, and then
+    // in alphabetical order within the prioritized
+    // and non-prioritized groups.
+    allLanguages.sort((a, b) => {
+      const aPrio = isPrioritized(a.lang)
+      const bPrio = isPrioritized(b.lang)
+      if (aPrio && !bPrio) {
+        return 0
+      } else if (!aPrio && bPrio) {
+        return 1
+      } else {
+        if (a.lang < b.lang) {
+          return -1
+        } else if (a.lang > b.lang) {
+          return 1
+        }
+        return 0
+      }
+    })
 
     return allLanguages
   })
