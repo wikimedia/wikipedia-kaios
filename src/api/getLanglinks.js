@@ -4,9 +4,11 @@ import {
   isPrioritized
 } from 'utils'
 
-const convertToWikiLang = lang => {
-  // The lang link endpoint return 'nb' but the wiki subdomain is 'no'
-  return lang === 'nb' ? 'no' : lang
+const getLangFromUrl = url => {
+  // Get the lang code from the site URL since it may differ from
+  // the official code used in configuration.
+  const prefixLength = 'https://'.length
+  return url.substr(prefixLength, url.indexOf('.') - prefixLength)
 }
 
 export const getLanglinks = (lang, title) => {
@@ -15,7 +17,7 @@ export const getLanglinks = (lang, title) => {
     titles: title,
     prop: 'langlinks',
     lllimit: 500,
-    llprop: 'langname|autonym'
+    llprop: 'langname|autonym|url'
   }
   const url = buildMwApiUrl(lang, params)
   return cachedFetch(url, response => {
@@ -26,7 +28,7 @@ export const getLanglinks = (lang, title) => {
         return {
           title: item.autonym,
           langname: item.langname,
-          lang: convertToWikiLang(item.lang),
+          lang: getLangFromUrl(item.url),
           description: item.title,
           dir: getDirection(item.lang)
         }
