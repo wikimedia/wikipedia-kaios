@@ -1504,8 +1504,10 @@ const prioritizedLists = {
   jio: ['en', 'hi', 'ji', 'as', 'bn', 'gu', 'kn', 'ks', 'ml', 'mr', 'ne', 'or', 'pa', 'sa', 'sd', 'ta', 'te', 'und', 'mai', 'kok', 'mni', 'doi', 'ur']
 }
 
-export const prioritizedList = prioritizedLists[prioritizedLanguageListName] ||
+const prioritizedList = prioritizedLists[prioritizedLanguageListName] ||
       prioritizedLists.default
+
+export const isPrioritized = lang => prioritizedList.indexOf(lang) > -1
 
 export const getDirection = langCode => {
   return rtl.includes(langCode) ? 'rtl' : 'ltr'
