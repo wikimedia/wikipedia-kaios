@@ -20,6 +20,7 @@
 	"article-action-quickfacts": "حقائق سريعة",
 	"article-action-gallery": "معرض الصور",
 	"article-action-languages": "اللغة",
+	"article-action-share": "شارك",
 	"article-language-available": "متاح ب$1 {{PLURAL:$1|لغة|لغات}}",
 	"article-language-loading-message": "جارٍ تحميل اللغات...",
 	"article-loading-message": "جارٍ تحميل الصفحة...",
