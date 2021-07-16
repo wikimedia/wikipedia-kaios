@@ -1,6 +1,6 @@
 import { h } from 'preact'
 import { useRef, useLayoutEffect } from 'preact/hooks'
-import { useI18n, useSoftkey, usePopup, useRange, useArticleMediaInfo } from 'hooks'
+import { useI18n, useSoftkey, usePopup, useRange, useArticleMediaInfo, useArticleMedia } from 'hooks'
 
 const MAX_DESCRIPTION_HEIGHT = 45
 
@@ -88,6 +88,7 @@ export const Gallery = ({ close, closeAll, items, startFileName, lang, dir }) =>
     currentIndex, onPrevImage, onNextImage
   ] = useRange(getInitialIndex(items, startFileName), items.length - 1)
   const [showAboutPopup] = usePopup(AboutContainer, { stack: true })
+  const media = useArticleMedia(lang, items[currentIndex].title, items[currentIndex].fromCommon, currentIndex)
 
   const onImageLoad = ({ target: img }) => {
     const galleryNode = containerRef.current
@@ -124,7 +125,7 @@ export const Gallery = ({ close, closeAll, items, startFileName, lang, dir }) =>
         )
       }
       <div class='img'>
-        <img onLoad={onImageLoad} src={items[currentIndex].thumbnail} />
+        <img onLoad={onImageLoad} src={media && media.source} />
       </div>
     </div>
   )
