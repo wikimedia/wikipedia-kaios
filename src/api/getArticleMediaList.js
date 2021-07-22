@@ -7,7 +7,6 @@ export const getArticleMediaList = (lang, title) => {
       const source = item && item.srcset && `https:${item.srcset[0].src}`
       const media = {
         caption: item.caption && item.caption.text.trim(),
-        thumbnail: source,
         title: item.title,
         canonicalizedTitle:
           item.title && canonicalizeTitle(item.title.split(':')[1]),

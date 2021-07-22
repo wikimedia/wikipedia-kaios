@@ -1,4 +1,4 @@
-import { cachedFetch, buildMwApiUrl, buildCommonsApiUrl } from 'utils'
+import { cachedFetch, buildMwApiUrl, buildCommonsApiUrl, viewport } from 'utils'
 
 export const getArticleMediaInfo = (lang, title, fromCommon) => {
   const params = {
@@ -7,6 +7,8 @@ export const getArticleMediaInfo = (lang, title, fromCommon) => {
     iiextmetadatafilter: 'License|LicenseShortName|ImageDescription|Artist',
     iiextmetadatalanguage: lang,
     iiextmetadatamultilang: 1,
+    iiurlwidth: viewport().width,
+    iiurlheight: viewport().height,
     iiprop: 'url|extmetadata',
     titles: title
   }
@@ -31,7 +33,8 @@ export const getArticleMediaInfo = (lang, title, fromCommon) => {
       author,
       description,
       license: LicenseShortName && LicenseShortName.value,
-      filePage: convertUrlToMobile(imageInfo[0].descriptionshorturl)
+      filePage: convertUrlToMobile(imageInfo[0].descriptionshorturl),
+      source: imageInfo[0].thumburl
     }
   })
 }
