@@ -109,7 +109,7 @@ export const Gallery = ({ close, closeAll, items, startFileName, lang, dir }) =>
     [dir === 'rtl' ? 'onKeyFixedArrowLeft' : 'onKeyFixedArrowRight']: onNextImage,
     [dir === 'rtl' ? 'onKeyFixedArrowRight' : 'onKeyFixedArrowLeft']: onPrevImage,
     onKeyBackspace: close
-  }, [currentIndex])
+  }, [currentIndex, mediaInfo])
 
   return (
     <div class='gallery-view' ref={containerRef}>
