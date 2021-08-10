@@ -1,6 +1,7 @@
 import { h } from 'preact'
 import { useRef, useLayoutEffect } from 'preact/hooks'
 import { useI18n, useSoftkey, usePopup, useRange, useArticleMediaInfo } from 'hooks'
+import { openExternal } from 'utils'
 
 const MAX_DESCRIPTION_HEIGHT = 45
 
@@ -15,7 +16,7 @@ const AboutContainer = ({ mediaInfo, dir, title, caption, close }) => {
     right: mediaInfo && mediaInfo.filePage ? i18n('softkey-more-info') : '',
     onKeyRight: () => {
       if (mediaInfo && mediaInfo.filePage) {
-        window.open(mediaInfo.filePage)
+        openExternal(mediaInfo.filePage)
       }
     }
   }, [mediaInfo])

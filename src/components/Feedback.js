@@ -1,7 +1,7 @@
 import { h } from 'preact'
 import { useState, useRef, useEffect } from 'preact/hooks'
 import { useI18n, useSoftkey, useNavigation, usePopup, useOnlineStatus } from 'hooks'
-import { sendFeedback, confirmDialog } from 'utils'
+import { sendFeedback, confirmDialog, openExternal } from 'utils'
 import { OfflinePanel } from 'components'
 
 export const Feedback = ({ close }) => {
@@ -50,7 +50,7 @@ export const Feedback = ({ close }) => {
     const { index } = getCurrent()
     if (index > 0) {
       const item = items[index - 1]
-      window.open(item.link)
+      openExternal(item.link)
     }
   }
 
