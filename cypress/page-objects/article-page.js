@@ -34,6 +34,10 @@ export class ArticlePage {
     return cy.get('div.gallery-about > div.header')
   }
 
+  galleryPopupDescriptionText () {
+    return cy.get('p.description bdi')
+  }
+
   selectOptionFromActionsMenu (option) {
     var entered = false
     cy

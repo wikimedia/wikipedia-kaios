@@ -56,12 +56,9 @@ describe('Article view', () => {
     goToCatArticle()
     articlePage.selectOptionFromActionsMenu('gallery')
     articlePage.galleryImage().should('be.visible')
-    articlePage.galleryImage().invoke('attr', 'src').then((src) => {
-      cy.rightArrow()
-      articlePage.galleryImage().should('not.have.attr', 'src', src)
-    })
     cy.enter()
     articlePage.galleryPopupHeader().should('be.visible')
+    articlePage.galleryPopupDescriptionText().should('be.visible').should('have.text', 'A montage of cat pictures using images from Wikimedia creators')
     cy.getRightSoftkeyButton().should('have.text', enJson['softkey-more-info'])
   })
 
