@@ -3,6 +3,7 @@
 		"authors": [
 			"Eduardo Addad de Oliveira",
 			"Eduardoaddad",
+			"Fúlvio",
 			"Mariagarbin",
 			"MuratTheTurkish"
 		]
@@ -20,7 +21,7 @@
 	"app-title": "Wikipédia",
 	"app-subtitle": "A enciclopédia livre",
 	"app-description": "Com o aplicativo grátis da Wikipédia, procure e explore a informação de todo o mundo em mais de 300 idiomas",
-	"content-license": "O conteúdo está disponível sob <a class=\"external\" rel=\"mw:ExtLink\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">CC BY-SA 3.0</a> salvo indicação em contrário.",
+	"content-license": "O conteúdo está disponível sob <a class=\"external\" rel=\"mw:ExtLink\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">CC BY-SA 3.0</a>, salvo indicação em contrário.",
 	"confirm-section": "Ir para a secção \"$1\"",
 	"confirm-app-close-title": "Sair da Wikipédia?",
 	"confirm-app-close-message": "Tem a certeza de que quer sair do aplicativo?",
