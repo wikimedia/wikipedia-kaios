@@ -88,7 +88,7 @@ export const Gallery = ({ close, closeAll, items, startFileName, lang, dir }) =>
     currentIndex, onPrevImage, onNextImage
   ] = useRange(getInitialIndex(items, startFileName), items.length - 1)
   const [showAboutPopup] = usePopup(AboutContainer, { stack: true })
-  const mediaInfo = useArticleMediaInfo(lang, items[currentIndex].title, items[currentIndex].fromCommon, currentIndex)
+  const mediaInfo = useArticleMediaInfo(lang, items[currentIndex].title, currentIndex)
 
   const onImageLoad = ({ target: img }) => {
     const galleryNode = containerRef.current
