@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Alexander Yukal",
+			"DDPAT",
 			"Movses",
 			"MuratTheTurkish",
 			"Piramidion",
@@ -14,8 +15,8 @@
 	"article-action-languages": "Мова",
 	"article-action-share": "Поділитися",
 	"article-language-available": "Доступно {{PLURAL:$1|$1-ю мовою|$1-ма мовами}}",
-	"article-language-loading-message": "Завантаження мов...",
-	"article-loading-message": "Завантаження сторінки...",
+	"article-language-loading-message": "Завантаження мов…",
+	"article-loading-message": "Завантаження сторінки…",
 	"article-error-message": "Не вдалося завантажити статтю",
 	"search-loading-message": "Завантаження статей…",
 	"app-title": "Вікіпедія",
