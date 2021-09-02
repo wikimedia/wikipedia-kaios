@@ -22,7 +22,7 @@ describe('special cases tests', () => {
 
   it('gallery opens from a non-english article', () => {
     cy.navigateToPageWithoutOnboarding('article/pl/Tupolew_Tu-154/Użytkownicy[24]')
-    cy.wait(500)
+    cy.wait(500) // eslint-disable-line cypress/no-unnecessary-waiting
     articlePage.title().should('have.text', 'Użytkownicy[24]')
     cy.rightArrow()
     cy.enter()
