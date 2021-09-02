@@ -14,6 +14,9 @@ export const ArticleMenu = ({
   const containerRef = useRef()
   const listRef = useRef()
   const i18n = useI18n()
+  const [, setNavigation, getCurrent] = useNavigation('Menu', containerRef, listRef, 'y')
+  const [showTextSize] = usePopup(TextSize, { stack: true, hideOthers: true })
+
   const onKeyCenter = () => {
     const { index } = getCurrent()
     const enabledItems = items.filter(item => item.enabled)
@@ -32,15 +35,12 @@ export const ArticleMenu = ({
     onKeyBackspace: close
   })
 
-  const [, setNavigation, getCurrent] = useNavigation('Menu', containerRef, listRef, 'y')
-
   const onSearchSelected = () => {
     close()
     goto.search()
   }
 
   const onTextsizeSelected = () => {
-    const [showTextSize] = usePopup(TextSize, { stack: true, hideOthers: true })
     showTextSize()
   }
 

@@ -1,7 +1,10 @@
 import { h } from 'preact'
 import { useState, useRef, useEffect } from 'preact/hooks'
-import { useI18n, useSoftkey, useNavigation, usePopup, useOnlineStatus } from 'hooks'
-import { sendFeedback, confirmDialog, openExternal } from 'utils'
+import {
+  useI18n, useSoftkey, useNavigation, usePopup,
+  useOnlineStatus, useConfirmDialog
+} from 'hooks'
+import { sendFeedback, openExternal } from 'utils'
 import { OfflinePanel } from 'components'
 
 export const Feedback = ({ close }) => {
@@ -11,6 +14,7 @@ export const Feedback = ({ close }) => {
   const [showSuccessConfirmation] = usePopup(SuccessConfirmationPopup, { stack: true })
   const [current, setNavigation, getCurrent] = useNavigation('Feedback', containerRef, containerRef, 'y')
   const isOnline = useOnlineStatus()
+  const showConfirmDialog = useConfirmDialog()
 
   const items = [
     { text: `<a data-selectable>${i18n('feedback-privacy-policy')}</a>`, link: 'https://foundation.m.wikimedia.org/wiki/Privacy_policy' },
@@ -30,7 +34,7 @@ export const Feedback = ({ close }) => {
   }
 
   const showCancelConfirmation = () => {
-    confirmDialog({
+    showConfirmDialog({
       title: i18n('feedback-cancel-header'),
       message: i18n('feedback-cancel'),
       onDiscardText: i18n('softkey-no'),
