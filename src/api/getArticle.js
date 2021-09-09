@@ -1,4 +1,7 @@
-import { cachedFetch, buildPcsUrl, canonicalizeTitle, getDirection } from 'utils'
+import {
+  cachedFetch, buildPcsUrl, canonicalizeTitle,
+  getDirection, fixImgSrc
+} from 'utils'
 
 export const getArticle = (lang, title, { moreInformationText }) => {
   const url = buildPcsUrl(lang, title, 'mobile-sections')
@@ -86,12 +89,10 @@ export const getArticle = (lang, title, { moreInformationText }) => {
 }
 
 const fixImageUrl = (doc, lang) => {
-  Array.from(doc.querySelectorAll('img')).forEach(img => {
-    img.src = 'https:' + img.getAttribute('src')
-      .replace(/src="\/w\/extensions\//gi, `src="//${lang}.wikipedia.org/w/extensions/`)
-      // .replace(/220px-/gi, '80px-')
+  for (const img of doc.querySelectorAll('img')) {
+    img.src = fixImgSrc(img.getAttribute('src'), lang)
     img.srcset = ''
-  })
+  }
 }
 
 const fixTableCaption = (doc, moreInformationText) => {
