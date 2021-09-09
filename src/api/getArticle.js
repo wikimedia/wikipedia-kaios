@@ -152,6 +152,9 @@ const extractInfobox = doc => {
       }
     })
 
+    // remove infobox from the doc to reduce DOM size
+    infoboxNode.parentNode.removeChild(infoboxNode)
+
     return infoboxNode.outerHTML
   }
 }
