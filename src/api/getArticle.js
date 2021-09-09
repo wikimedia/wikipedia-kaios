@@ -6,15 +6,15 @@ export const getArticle = (lang, title, { moreInformationText }) => {
 
   return cachedFetch(url, data => {
     const parser = new DOMParser()
+    const doc = parser.parseFromString(data.lead.sections[0].text, 'text/html')
     const imageUrl = data.lead.image && data.lead.image.urls['320']
     const toc = []
     const references = {}
     const languageCount = data.lead.languagecount
 
-    // parse info box
-    const doc = parser.parseFromString(fixImageUrl(data.lead.sections[0].text, lang), 'text/html')
+    fixImageUrl(doc, lang)
+    fixTableCaption(doc, moreInformationText)
     const infobox = extractInfobox(doc)
-    const preview = extractPreview(doc)
 
     // parse lead as the first section
     const sections = []
@@ -23,8 +23,7 @@ export const getArticle = (lang, title, { moreInformationText }) => {
       title: data.lead.displaytitle,
       anchor: canonicalizeTitle(data.lead.normalizedtitle),
       description: data.lead.description,
-      content: modifyHtmlText(data.lead.sections[0].text, moreInformationText, lang),
-      preview
+      content: doc.body.innerHTML
     })
     toc.push({
       level: 1,
@@ -35,7 +34,10 @@ export const getArticle = (lang, title, { moreInformationText }) => {
 
     // parse remaining sections
     data.remaining.sections.forEach((s) => {
-      const modifiedTextContent = modifyHtmlText(s.text, moreInformationText, lang)
+      const sectionDoc = parser.parseFromString(s.text, 'text/html')
+      fixImageUrl(sectionDoc, lang)
+      fixTableCaption(sectionDoc, moreInformationText)
+      const modifiedTextContent = sectionDoc.body.innerHTML
       // new section when toclevel 1
       if (s.toclevel === 1) {
         sections.push({
@@ -61,7 +63,6 @@ export const getArticle = (lang, title, { moreInformationText }) => {
 
       // build references list
       if (s.isReferenceSection) {
-        const sectionDoc = parser.parseFromString(s.text, 'text/html')
         const refNodes = sectionDoc.querySelectorAll('li[id^="cite_"]')
         for (const refNode of refNodes) {
           const [id, ref] = extractReference(refNode)
@@ -84,19 +85,18 @@ export const getArticle = (lang, title, { moreInformationText }) => {
   })
 }
 
-const fixImageUrl = (htmlString, lang) => {
-  // The app is served from the app:// protocol so protocol-relative
-  // image sources don't work.
-  return htmlString
-    .replace(/src="\/\//gi, 'src="https://')
-    .replace(/src="\/w\/extensions\//gi, `src="https://${lang}.wikipedia.org/w/extensions/`)
+const fixImageUrl = (doc, lang) => {
+  Array.from(doc.querySelectorAll('img')).forEach(img => {
+    img.src = 'https:' + img.getAttribute('src')
+      .replace(/src="\/w\/extensions\//gi, `src="//${lang}.wikipedia.org/w/extensions/`)
+      // .replace(/220px-/gi, '80px-')
+    img.srcset = ''
+  })
 }
 
-const fixTableCaption = (htmlString, moreInformationText) => {
+const fixTableCaption = (doc, moreInformationText) => {
   const hiddenClassName = 'hidden-in-table'
-  const parser = new DOMParser()
-  const node = parser.parseFromString(htmlString, 'text/html')
-  const tableNodes = node.querySelectorAll('table')
+  const tableNodes = doc.querySelectorAll('table:not([class^="infobox"])')
   for (const tableNode of tableNodes) {
     const thContent = Array.from(tableNode.querySelectorAll('th')).map(th => th.textContent).join(', ')
     const normalizedThContent = thContent.replace(/\[\d+]/g, '')
@@ -109,13 +109,6 @@ const fixTableCaption = (htmlString, moreInformationText) => {
     }
     tableNode.style = ''
   }
-
-  return node.childNodes[0].innerHTML
-}
-
-const modifyHtmlText = (text, moreInformationText, lang) => {
-  const fixedImageUrlText = fixImageUrl(text, lang)
-  return fixTableCaption(fixedImageUrlText, moreInformationText)
 }
 
 const convertPlainText = string => {
@@ -130,26 +123,6 @@ const extractReference = refNode => {
   const refContentNode = refNode.querySelector('.mw-reference-text')
   const content = refContentNode ? refContentNode.outerHTML : ''
   return [id, { number, content }]
-}
-
-const extractPreview = doc => {
-  const p = doc.querySelector('p')
-
-  if (!p) {
-    return ''
-  }
-
-  Array.from(p.querySelectorAll('a')).forEach(link => {
-    const span = document.createElement('span')
-    span.textContent = link.textContent
-    link.parentNode.replaceChild(span, link)
-  })
-
-  Array.from(p.querySelectorAll('.mw-ref')).forEach(ref => {
-    ref.parentNode.removeChild(ref)
-  })
-
-  return p.outerHTML
 }
 
 const extractInfobox = doc => {
