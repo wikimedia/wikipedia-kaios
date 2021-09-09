@@ -131,9 +131,9 @@ const extractInfobox = doc => {
     // Clear a bunch of style that interfere with the layout
     infoboxNode.style.width = ''
     infoboxNode.style.fontSize = ''
-    const blackListedProps = ['minWidth', 'whiteSpace', 'width']
+    const disallowedProps = ['minWidth', 'whiteSpace', 'width']
     Array.from(infoboxNode.querySelectorAll('[style]')).forEach(n => {
-      blackListedProps.forEach(propName => {
+      disallowedProps.forEach(propName => {
         if (n.style[propName]) {
           n.style[propName] = ''
         }
