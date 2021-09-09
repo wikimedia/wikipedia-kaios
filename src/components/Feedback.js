@@ -1,5 +1,6 @@
 import { h } from 'preact'
 import { useState, useRef, useEffect } from 'preact/hooks'
+import { memo } from 'preact/compat'
 import { useI18n, useSoftkey, useNavigation, usePopup, useOnlineStatus } from 'hooks'
 import { sendFeedback, confirmDialog, openExternal } from 'utils'
 import { OfflinePanel } from 'components'
@@ -129,7 +130,7 @@ export const Feedback = ({ close }) => {
   )
 }
 
-const SuccessConfirmationPopup = ({ closeAll }) => {
+const SuccessConfirmationPopup = memo(({ closeAll }) => {
   const i18n = useI18n()
 
   useSoftkey('FeedbackSuccessMessage', {
@@ -144,4 +145,4 @@ const SuccessConfirmationPopup = ({ closeAll }) => {
       <p class='preview-text'>{i18n('feedback-success')}</p>
     </div>
   )
-}
+})
