@@ -10,10 +10,5 @@ export const fixImgSrc = (originalSrc, lang) => {
     src = 'https:' + src
   }
 
-  // thumb url
-  // if (src.indexOf('/thumb/') !== -1) {
-  //   src = src.replace(/\/\d+px-/, '/220px-')
-  // }
-
   return src
 }
