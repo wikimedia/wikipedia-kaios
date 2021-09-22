@@ -1,5 +1,6 @@
 import { h } from 'preact'
 import { useRef, useEffect } from 'preact/hooks'
+import { memo } from 'preact/compat'
 import { useNavigation, useI18n, useSoftkey, usePopup, useOnlineStatus, useScroll } from 'hooks'
 import { ListView, goToRandomArticle } from 'components'
 import { goto, articleHistory } from 'utils'
@@ -105,38 +106,38 @@ const tip = (origin, content, close, onNext, onTry) => {
   )
 }
 
-const ReadPopup = ({ close, onSearchPopupSelected }) => {
+const ReadPopup = memo(({ close, onSearchPopupSelected }) => {
   const content = {
     image: 'images/tip-read-animation.gif',
     header: 'tip-read-header',
     message: 'tip-read-message'
   }
   return tip('ReadPopup', content, close, onSearchPopupSelected, goToRandomArticle)
-}
+})
 
-const SearchPopup = ({ close, onSwitchPopupSelected }) => {
+const SearchPopup = memo(({ close, onSwitchPopupSelected }) => {
   const content = {
     image: 'images/tip-search-animation.gif',
     header: 'tip-search-header',
     message: 'tip-search-message'
   }
   return tip('SearchPopup', content, close, onSwitchPopupSelected, goto.search)
-}
+})
 
-const SwitchPopup = ({ close, showAboutWikipediaPopup }) => {
+const SwitchPopup = memo(({ close, showAboutWikipediaPopup }) => {
   const content = {
     image: 'images/tip-switch-animation.gif',
     header: 'tip-switch-header',
     message: 'tip-switch-message'
   }
   return tip('SwitchPopup', content, close, showAboutWikipediaPopup, goToRandomArticle)
-}
+})
 
-const AboutPopup = ({ close }) => {
+const AboutPopup = memo(({ close }) => {
   const content = {
     image: 'images/onboarding-0.png',
     header: 'tip-about-header',
     message: 'tip-about-message'
   }
   return tip('AboutPopup', content, close)
-}
+})

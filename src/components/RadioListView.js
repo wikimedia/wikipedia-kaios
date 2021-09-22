@@ -1,6 +1,7 @@
 import { h } from 'preact'
+import { memo } from 'preact/compat'
 
-export const RadioListView = ({ items = [], header, containerRef, empty }) => {
+export const RadioListView = memo(({ items = [], header, containerRef, empty }) => {
   return (
     <div class='radiolistview'>
       { header && <div class='header'>{header}</div> }
@@ -21,4 +22,4 @@ export const RadioListView = ({ items = [], header, containerRef, empty }) => {
       </div>
     </div>
   )
-}
+})

@@ -1,6 +1,7 @@
 import { h } from 'preact'
+import { memo } from 'preact/compat'
 
-export const Loading = ({ message }) => {
+export const Loading = memo(({ message }) => {
   return (
     <div class='loading-planet'>
       <img class='moon' src='images/loading-moon.svg' />
@@ -9,4 +10,4 @@ export const Loading = ({ message }) => {
       <p class='message'>{message}</p>
     </div>
   )
-}
+})

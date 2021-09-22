@@ -23,7 +23,7 @@ const ArticleBody = memo(({ content }) => {
   )
 })
 
-const ArticleActions = ({ actions, lang }) => {
+const ArticleActions = memo(({ actions, lang }) => {
   const contentI18n = useI18n(lang)
   return (
     <div class='article-actions'>
@@ -35,7 +35,7 @@ const ArticleActions = ({ actions, lang }) => {
       )) }
     </div>
   )
-}
+})
 
 const ArticleSection = ({
   lang, dir, imageUrl, anchor, title, description, actions,
@@ -262,11 +262,11 @@ const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
   )
 }
 
-export const Article = ({ lang, title: articleTitle, anchor: initialAnchor }) => {
+export const Article = memo(({ lang, title: articleTitle, anchor: initialAnchor }) => {
   return (
     <ArticleInner lang={lang} articleTitle={articleTitle} initialAnchor={initialAnchor} key={lang + articleTitle} />
   )
-}
+})
 
 const findCurrentLocatedAnchor = ref => {
   let element

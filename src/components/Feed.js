@@ -1,5 +1,6 @@
 import { h } from 'preact'
 import { useEffect, useState } from 'preact/hooks'
+import { memo } from 'preact/compat'
 import { ListView } from 'components'
 import { useI18n } from 'hooks'
 import { getTrendingArticles } from 'api'
@@ -43,7 +44,7 @@ export const Feed = ({ lang, isExpanded, setIsExpanded, lastIndex, setNavigation
   )
 }
 
-const Loading = ({ isExpanded }) => {
+const Loading = memo(({ isExpanded }) => {
   const i18n = useI18n()
   const loadingExpanded = () => {
     const loadingItem = (selectable = false) => {
@@ -75,9 +76,9 @@ const Loading = ({ isExpanded }) => {
       {isExpanded && loadingExpanded()}
     </div>
   )
-}
+})
 
-const Error = () => {
+const Error = memo(() => {
   const i18n = useI18n()
   return (
     <div class='error'>
@@ -85,4 +86,4 @@ const Error = () => {
       <p class='message' data-selectable>{i18n('feed-error-message')}</p>
     </div>
   )
-}
+})
