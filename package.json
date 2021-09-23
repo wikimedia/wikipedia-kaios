@@ -75,7 +75,7 @@
     "webpack-dev-server": "^4.1.0"
   },
   "dependencies": {
-    "banana-i18n": "^2.0.0",
+    "banana-i18n": "2.0.0",
     "history": "^4.10.1",
     "preact": "^10.4.1",
     "preact-router": "^3.2.1"
