@@ -1,8 +1,9 @@
 import { h } from 'preact'
 import { useRef } from 'preact/hooks'
+import { memo } from 'preact/compat'
 import { useI18n, useSoftkey, useScroll } from 'hooks'
 
-export const Table = ({ dir, close, content }) => {
+export const Table = memo(({ dir, close, content }) => {
   const containerRef = useRef()
   const i18n = useI18n()
   const [scrollDown, scrollUp] = useScroll(containerRef, 20, 'y')
@@ -23,4 +24,4 @@ export const Table = ({ dir, close, content }) => {
       <table dangerouslySetInnerHTML={{ __html: content }} />
     </div>
   )
-}
+})

@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"MSClaudiu",
-			"MuratTheTurkish"
+			"MuratTheTurkish",
+			"WebSourceContentRO"
 		]
 	},
 	"article-action-sections": "Cuprins",
@@ -102,7 +103,7 @@
 	"feedback-header": "Trimiteți o părere",
 	"feedback-explanation": "Vom folosi feedback-ul dvs. pentru a ajuta la îmbunătățirea acestei aplicații. Răspunsul dvs. va fi păstrat timp de 90 de zile, sub rezerva $1 și $2",
 	"feedback-placeholder": "Începeți să scrieți aici ...",
-	"feedback-success": "Vă mulțumim pentru recenzia dvs.",
+	"feedback-success": "Vă mulțumim pentru părerea dvs.",
 	"feedback-success-header": "Recenzie trimisă",
 	"feedback-terms-of-survey": "Declarația Privind Protecția Datelor",
 	"feedback-privacy-policy": "Politica de confidențialitate",

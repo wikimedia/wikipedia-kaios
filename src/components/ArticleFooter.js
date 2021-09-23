@@ -1,8 +1,9 @@
 import { h } from 'preact'
+import { memo } from 'preact/compat'
 import { useI18n } from 'hooks'
 import { buildWpMobileWebUrl, canonicalizeTitle } from 'utils'
 
-export const ArticleFooter = ({ lang, title, items = [], dir }) => {
+export const ArticleFooter = memo(({ lang, title, items = [], dir }) => {
   const contentI18n = useI18n(lang)
   const headerTitle = contentI18n('toc-footer')
 
@@ -35,4 +36,4 @@ export const ArticleFooter = ({ lang, title, items = [], dir }) => {
       </div>
     </div>
   )
-}
+})

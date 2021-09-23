@@ -1,8 +1,9 @@
 import { h } from 'preact'
+import { memo } from 'preact/compat'
 import { useSoftkey, useI18n } from 'hooks'
 import { onboarding, goto } from 'utils'
 
-export const Onboarding = () => {
+export const Onboarding = memo(() => {
   const i18n = useI18n()
 
   const exitOnboard = () => {
@@ -28,4 +29,4 @@ export const Onboarding = () => {
       </div>
     </div>
   )
-}
+})

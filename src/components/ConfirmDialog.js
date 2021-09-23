@@ -1,7 +1,8 @@
 import { h } from 'preact'
+import { memo } from 'preact/compat'
 import { useI18n, useSoftkey } from 'hooks'
 
-export const ConfirmDialog = ({
+export const ConfirmDialog = memo(({
   title, message, dir,
   onSubmitText, onSubmit, onDiscardText, onDiscard,
   close, closeAll
@@ -27,4 +28,4 @@ export const ConfirmDialog = ({
       <div class='info'>{message}</div>
     </div>
   )
-}
+})
