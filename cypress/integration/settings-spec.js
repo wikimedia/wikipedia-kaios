@@ -26,7 +26,7 @@ const settingsMenuListDutchText = [nlJson['settings-language'],
   nlJson['settings-privacy-terms']]
 
 describe('settings page', () => {
-  var firstElementOfTheSettingsMenuList
+  let firstElementOfTheSettingsMenuList
   beforeEach(() => {
     cy.navigateToHomePage()
     searchPage.navigateToSettingsPage()

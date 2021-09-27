@@ -3,6 +3,8 @@ const fs = require('fs')
 const webpack = require('webpack')
 const StylelintPlugin = require('stylelint-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
+const ESLintPlugin = require('eslint-webpack-plugin')
+
 
 module.exports = {
   devtool: 'source-map',
@@ -27,10 +29,20 @@ module.exports = {
     hints: false
   },
   devServer: {
-    publicPath: '/dist/',
-    watchOptions: {
-      ignored: ['dist', 'node_modules']
-    }
+    static: {
+      directory: '.',
+      serveIndex: true,
+      watch: true
+    },
+    devMiddleware: {
+      publicPath: "/dist/",
+    },
+    watchFiles: [
+      'src/**/*',
+      'style/**/*',
+      'i18n/**/*',
+      'images/**/*'
+    ]
   },
   plugins: [
     new StylelintPlugin({
@@ -47,19 +59,15 @@ module.exports = {
       TARGET_STORE: JSON.stringify(process.env.TARGET_STORE || 'kai'),
       DISABLE_REQUEST_HEADER: JSON.stringify(!!parseInt(process.env.DISABLE_REQUEST_HEADER))
     }),
-    new webpack.EnvironmentPlugin()
+    new webpack.EnvironmentPlugin(),
+    new ESLintPlugin({
+      // enforce: 'pre',
+      extensions: 'jsx',
+      fix: true
+    })
   ],
   module: {
     rules: [
-      {
-        enforce: 'pre',
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        loader: 'eslint-loader',
-        options: {
-          fix: true
-        }
-      },
       {
         test: /\.jsx?$/,
         exclude: /(node_modules)/,

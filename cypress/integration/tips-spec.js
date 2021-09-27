@@ -14,7 +14,7 @@ const tipsMenuListEnglishText = [enJson['tips-read'],
   enJson['tips-about']]
 
 describe('Tips page', () => {
-  var firstElementOfTheTipsMenuList
+  let firstElementOfTheTipsMenuList
   beforeEach(() => {
     cy.navigateToHomePage()
     searchPage.navigateToTipsPage()
