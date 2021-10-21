@@ -25,7 +25,7 @@
 	"confirm-section": "\"$1\" حصي ڏاھن وڃو",
 	"confirm-app-close-title": "وڪيپيڊيا مان نڪرجي؟",
 	"confirm-app-close-message": "ڇا توھان کي پڪ آھي تہ توھان ايپ مان نڪرڻ چاھيو ٿا؟",
-	"consent-privacy-terms": "ذاتيات ۽ شرط",
+	"consent-privacy-terms": "نويڪلائي ۽ شرط",
 	"about-header": "بابت",
 	"about-wikipedia-header": "وڪيپيڊيا بابت",
 	"gallery-description": "تشريح",
@@ -73,7 +73,7 @@
 	"settings-language": "ٻولي",
 	"settings-textsize": "متن جي ماپ",
 	"settings-about-wikipedia": "وڪيپيڊيا بابت",
-	"settings-privacy": "ذاتيات پاليسي",
+	"settings-privacy": "نويڪلائي نِيَمَ",
 	"settings-term": "استعمال جا شرط",
 	"settings-rate": "ايپ کي ريٽ ڪريو",
 	"settings-help-feedback": "موٽ ڏيو",
@@ -104,7 +104,7 @@
 	"feedback-success": "توھان جي موٽ لاءِ توھان جي مھرباني",
 	"feedback-success-header": "موٽ ڏني وئي",
 	"feedback-terms-of-survey": "سروي بيان جا شرط",
-	"feedback-privacy-policy": "ذاتيات پاليسي",
+	"feedback-privacy-policy": "نويڪلائي نِيَمَ",
 	"feedback-terms-of-use": "استعمال جا شرط",
 	"softkey-send": "موڪليو",
 	"softkey-cancel": "رد",
@@ -113,6 +113,6 @@
 	"feedback-cancel-header": "ڦٽو ڪريو",
 	"softkey-yes": "ھا",
 	"softkey-no": "نہ",
-	"settings-privacy-terms": "ذاتيات ۽ شرط",
-	"privacy-terms-header": "ذاتيات ۽ شرط"
+	"settings-privacy-terms": "نويڪلائي ۽ شرط",
+	"privacy-terms-header": "نويڪلائي ۽ شرط"
 }
