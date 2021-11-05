@@ -39,7 +39,7 @@ export class ArticlePage {
   }
 
   selectOptionFromActionsMenu (option) {
-    var entered = false
+    let entered = false
     cy
       .get('.article-actions-button')
       .each(($el, index, $list) => {

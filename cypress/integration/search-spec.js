@@ -60,7 +60,7 @@ describe('Article search', () => {
     searchPage.search('cat')
     cy.getCenterSoftkeyButton().should('not.have.text')
     searchPage.results().first()
-    cy.wait(500)
+    cy.wait(500) // eslint-disable-line cypress/no-unnecessary-waiting
     cy.downArrow()
     cy.getCenterSoftkeyButton().should('have.text', enJson['centerkey-select'])
     cy.upArrow()

@@ -22,14 +22,6 @@ export const buildMwOrgApiUrl = params => {
   }).join('&')
 }
 
-export const buildCommonsApiUrl = params => {
-  params = Object.assign({}, defautParams, params)
-  const baseUrl = 'https://commons.wikimedia.org/w/api.php'
-  return baseUrl + '?' + Object.keys(params).map(p => {
-    return `${p}=${encodeURIComponent(params[p])}`
-  }).join('&')
-}
-
 export const buildWpMobileWebUrl = (lang, title) => {
   const page = encodeURIComponent(canonicalizeTitle(title))
   return `https://${lang}.m.wikipedia.org/w/index.php?title=${page}`

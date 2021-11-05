@@ -1,8 +1,9 @@
 import { h } from 'preact'
+import { memo } from 'preact/compat'
 import { useSoftkey, useI18n } from 'hooks'
 import { goto } from 'utils'
 
-export const Error = ({ message, onRefresh }) => {
+export const Error = memo(({ message, onRefresh }) => {
   const i18n = useI18n()
 
   useSoftkey('Error', {
@@ -18,4 +19,4 @@ export const Error = ({ message, onRefresh }) => {
       <p class='message'>{message}</p>
     </div>
   )
-}
+})

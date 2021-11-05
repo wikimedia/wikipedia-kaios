@@ -2,12 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Adithyak1997",
+			"ElangoRamanujam",
 			"MuratTheTurkish",
 			"Praveenp",
 			"Santhosh.thottingal"
 		]
 	},
-	"article-action-sections": "ഭാഗങ്ങൾ",
+	"article-action-sections": "ഉള്ളടക്കം",
 	"article-action-quickfacts": "ഒറ്റനോട്ടത്തിൽ",
 	"article-action-gallery": "ചിത്രശാല",
 	"article-action-languages": "ഭാഷ",
@@ -22,7 +23,7 @@
 	"about-header": "കുറിച്ച്",
 	"about-wikipedia-header": "വിക്കിപീഡിയയെ കുറിച്ച്",
 	"gallery-description": "വിവരണം",
-	"header-sections": "ഭാഗങ്ങൾ",
+	"header-sections": "ഉള്ളടക്കം",
 	"header-settings": "സജ്ജീകരണങ്ങൾ",
 	"softkey-about": "കുറിച്ച്",
 	"softkey-done": "ചെയ്തു",
@@ -50,5 +51,8 @@
 	"settings-term": "ഉപയോഗനിബന്ധനകൾ",
 	"settings-help-feedback": "സഹായവും പ്രതികരണവും",
 	"settings-about-app": "ആപ്പിനെപ്പറ്റി",
-	"softkey-read-more": "കൂടുതൽ വായിക്കുക"
+	"softkey-read-more": "കൂടുതൽ വായിക്കുക",
+	"feedback-cancel-header": "ഒഴിവാക്കുക",
+	"softkey-yes": "അതെ",
+	"softkey-no": "അല്ല"
 }

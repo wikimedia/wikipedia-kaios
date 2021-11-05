@@ -1,5 +1,6 @@
 import { h } from 'preact'
 import { useRef, useLayoutEffect } from 'preact/hooks'
+import { memo } from 'preact/compat'
 import { useI18n, useSoftkey, usePopup, useRange, useArticleMediaInfo } from 'hooks'
 import { openExternal } from 'utils'
 
@@ -59,7 +60,7 @@ const AboutContainer = ({ mediaInfo, dir, title, caption, close }) => {
   )
 }
 
-const LoadingAbout = () => {
+const LoadingAbout = memo(() => {
   const i18n = useI18n()
   return (
     <div class='gallery-about loading'>
@@ -79,7 +80,7 @@ const LoadingAbout = () => {
       </div>
     </div>
   )
-}
+})
 
 export const Gallery = ({ close, closeAll, items, startFileName, lang, dir }) => {
   const i18n = useI18n()
@@ -88,7 +89,7 @@ export const Gallery = ({ close, closeAll, items, startFileName, lang, dir }) =>
     currentIndex, onPrevImage, onNextImage
   ] = useRange(getInitialIndex(items, startFileName), items.length - 1)
   const [showAboutPopup] = usePopup(AboutContainer, { stack: true })
-  const mediaInfo = useArticleMediaInfo(lang, items[currentIndex].title, items[currentIndex].fromCommon, currentIndex)
+  const mediaInfo = useArticleMediaInfo(lang, items[currentIndex].title, currentIndex)
 
   const onImageLoad = ({ target: img }) => {
     const galleryNode = containerRef.current

@@ -55,10 +55,10 @@ The Wikipedia app should be running on your device now.
 ### Run a test server in one terminal window or tab
 `npm install && npm run build && npm run dev`
 
-### To run headlessly
+### On a different tab: to run headlessly
 `npm test`
 
-### To open cypress and run inside cypress
+### On a different tab: to open cypress and run inside cypress
 `npm run cypress:open`
 
 ## To keep app updated with latest version

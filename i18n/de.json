@@ -13,6 +13,7 @@
 			"Killarnee",
 			"MuratTheTurkish",
 			"Ubahnverleih",
+			"Umlaut",
 			"WikiBayer",
 			"Zauberzunge2000"
 		]
@@ -26,10 +27,12 @@
 	"article-language-loading-message": "Sprachen werden geladen...",
 	"article-loading-message": "Seite wird geladen …",
 	"article-error-message": "Artikel konnte nicht geladen werden",
+	"search-loading-message": "Lade Artikel …",
 	"app-title": "Wikipedia",
 	"app-subtitle": "Die freie Enzyklopädie",
 	"app-description": "Die kostenlose Wikipedia-App ermöglicht es freies Wissen in über 300 Sprachen zu erkunden.",
 	"confirm-section": "Gehe zu Abschnitt \"$1\"",
+	"confirm-app-close-title": "Wikipedia beenden?",
 	"consent-privacy-terms": "Datenschutz und Bedingungen",
 	"about-header": "Bildinformationen",
 	"about-wikipedia-header": "Über Wikipedia",
