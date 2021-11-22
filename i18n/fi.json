@@ -8,7 +8,8 @@
 			"Muovipullo",
 			"MuratTheTurkish",
 			"Nike",
-			"Pyscowicz"
+			"Pyscowicz",
+			"Veikk0.ma"
 		]
 	},
 	"article-action-sections": "Sisältö",
@@ -93,6 +94,7 @@
 	"tips-about": "Mikä Wikipedia on?",
 	"tip-read-header": "Lue artikkeli",
 	"tip-search-header": "Hae artikkelia",
+	"tip-search-message": "Kirjoita hakukenttään lukeaksesi artikkeleja ihmisistä, paikoista ja asioista ympäri maailmaa.",
 	"tip-switch-header": "Vaihda linkkejä",
 	"tip-about-header": "Tietoja Wikipediasta",
 	"tip-about-message": "Wikipedia on vapaa tietoresurssi, jota kirjoittavat yhteistyössä vapaaehtoiset ympäri maailmaa.",

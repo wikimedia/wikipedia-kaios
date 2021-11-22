@@ -11,7 +11,7 @@
 	"article-action-gallery": "Gidan/dakin tahiri",
 	"article-action-languages": "Yare/harshe",
 	"article-action-share": "Rabawa",
-	"article-language-available": "Akwai shi a $1\n{PLURAL:$1|harshe|harsuna}}",
+	"article-language-available": "Akwai shi a $1\n{{PLURAL:$1|harshe|harsuna}}",
 	"article-language-loading-message": "Yare mai shiga",
 	"article-loading-message": "Shafe mai shiga",
 	"article-error-message": "Rashin iya shigar da makala",
@@ -35,7 +35,7 @@
 	"header-sections": "Abubuwan dake ciki",
 	"header-settings": "Saituka",
 	"header-textsize": "Girman mukala",
-	"menu-previous": "Mukalan daya gabata",
+	"menu-previous": "Muƙalan daya gabata",
 	"menu-textsize": "Girman rubutu",
 	"more-information": "Bayani masu yawa",
 	"no-result-found": "Babu sakamakokin",
@@ -115,6 +115,6 @@
 	"feedback-cancel-header": "Shere",
 	"softkey-yes": "Eh",
 	"softkey-no": "A'a",
-	"settings-privacy-terms": "Ko'dojin sirri",
-	"privacy-terms-header": "Ka'idojin sirri"
+	"settings-privacy-terms": "Ƙo'dojin sirri",
+	"privacy-terms-header": "Ƙa'idoji sirri"
 }
