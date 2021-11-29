@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Khun Kt",
 			"咽頭べさ"
 		]
 	},
@@ -15,7 +16,7 @@
 	"article-error-message": "ဒင်ႏနွောင်ꩻတဝ်း ရောမ်ဖြုဲင်ꩻဝွန်ႏသွူ",
 	"search-loading-message": "အဝ်ႏဒင်ႏရောမ်ဖြုဲင်ꩻကျာꩻ...",
 	"app-title": "ဝီခီပီးဒီးယား",
-	"app-subtitle": "အငိုꩻလို့တဝ်း လွစ်တခြင်ကျမ်ꩻပေါင်ꩻစွုမ်ႏ",
+	"app-subtitle": "အငိုꩻလို့တဝ်း ကျမ်ꩻပေါင်ꩻစွုမ်ႏ",
 	"app-description": "ခမ်ႏဘာႏလောင်းကို ကအဝ်ႏဒါႏ ဘာႏသာႏငဝ်းငွါဖုံႏ ၃၀၀ လွိုကပါဒါႏ သတင်ꩻအချက်လက်ဖုံႏယို ထိုမ်ႏထွားအီစမ်ꩻသွော့ တောမ်ႏဝီခီပီးဒီးယား app သြ။",
 	"content-license": "မတ်ခါꩻတောမ်ႏအနယ်ꩻလင် မိဉ်ႏအဝ်ႏတဝ်းနဝ်ꩻ အကျောင်ꩻခရာႏဖုံႏယို လꩻနွောင်ꩻဒျာႏ  <a class=\"external\" rel=\"mw:ExtLink\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">CC BY-SA 3.0</a> ဆꩻလ့နဝ်ꩻသွူ။",
 	"confirm-section": "လွေꩻ အကွို့ꩻ \"$1\" ကို",
@@ -71,7 +72,7 @@
 	"settings-language": "ဘာႏသာႏငဝ်းငွါ",
 	"settings-textsize": "လိတ်ယာႏပေႏတန်",
 	"settings-about-wikipedia": "ဝီခီပီးဒီးယားခရာႏ",
-	"settings-privacy": "နမ်းပဲင်ႏရေꩻရာႏ မူဝါဒ",
+	"settings-privacy": "နမ်းပဲင်ႏရေꩻရာႏမူဝါဒ",
 	"settings-term": "သူင်ꩻအီခရာႏဆဲင်ႏရာꩻ အွောန်ႏထွော့ချက်ဖုံႏ",
 	"settings-rate": "အွောန်ႏထွော့ App အရန်း",
 	"settings-help-feedback": "ပသာသွော့ပြန်ႏချာချက်",
@@ -104,7 +105,7 @@
 	"feedback-success": "ဖေႏကျံႏညဏ်ႏဖေႏဒါႏနုဲင်းယို ကေꩻဇူꩻတန်ငါႏသွူသြ",
 	"feedback-success-header": "ပသာထွူလဲဉ်း ဖေႏကျံႏညဏ်ႏချက်",
 	"feedback-terms-of-survey": "ကလွိုက်ထေထန်ႏဒါႏမုဲင်တန်ꩻတဖွောင်ꩻရဲဉ်ႏဖုံႏ",
-	"feedback-privacy-policy": "နမ်းပဲင်ႏရေꩻရာႏ မူဝါဒ",
+	"feedback-privacy-policy": "နမ်းပဲင်ႏရေꩻရာႏမူဝါဒ",
 	"feedback-terms-of-use": "သူင်ꩻအီခရာႏဆဲင်ႏရာꩻ အွောန်ႏထွော့ချက်ဖုံႏ",
 	"softkey-send": "ပသာ",
 	"softkey-cancel": "မာꩻတဝ်းဒွုမ်",
