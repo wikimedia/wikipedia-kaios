@@ -1,18 +1,27 @@
 {
 	"@metadata": {
 		"authors": [
+			"Jolka Kaj",
 			"Андрей Саг."
 		]
 	},
-	"article-action-sections": "Пӧлік",
+	"article-action-sections": "Полбахтар",
 	"article-action-languages": "Тіл",
-	"header-menu": "Статьяның менюзы",
+	"header-menu": "Чарадығлар",
 	"header-search": "Тілен салтары",
+	"header-sections": "Полбахтар",
 	"softkey-done": "Идерге",
 	"softkey-search": "Тілирге",
-	"softkey-menu": "Меню",
+	"search-language-placeholder": "Тіллер тілирге",
+	"softkey-menu": "Чарадығлар",
 	"softkey-settings": "Турғысханы",
 	"language-change": "Тілде алыстырарға",
 	"softkey-ok": "Окей",
-	"softkey-read": "Хығырарға"
+	"softkey-read": "Хығырарға",
+	"settings-language": "Тіл",
+	"textsize-label-small": "Кічіг",
+	"textsize-label-large": "Улуғ",
+	"tips-header": "Устастар",
+	"softkey-yes": "Йа",
+	"softkey-no": "Чох"
 }
