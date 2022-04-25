@@ -1,13 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
+			"Patriot Kur",
 			"Гусейн"
 		]
 	},
 	"article-action-sections": "Мындәриҹот",
 	"article-action-quickfacts": "Кыртә фактон",
 	"article-action-gallery": "Галерејә",
-	"article-action-languages": "Зывон",
+	"article-action-languages": "Zıvon",
 	"article-action-share": "Певыло карде",
 	"article-language-available": "Дастрәсе бә $1 {{PLURAL:$1|зывонәдә|зывононәдә}}",
 	"article-language-loading-message": "Зывонон әловә кардә бејдән...",
@@ -68,7 +69,7 @@
 	"onboarding-1-description": "Пијә зывони бывыжнән ја зывони бо нәве ијән һанде.",
 	"onboarding-2-title": "Бепулә зынәјон сәј",
 	"onboarding-2-description": "Баһандән 50 миллионисә ве мәғолон че одәмон, вырон ијән дынјо ҹурбәҹурә чијон барәдә. Нујә кардә бејдә ијән һежо нујә мәғолон әловә бејдән.",
-	"settings-language": "Зывон",
+	"settings-language": "Zıvon",
 	"settings-textsize": "Мәтни памјә",
 	"settings-about-wikipedia": "Википедија барәдә",
 	"settings-privacy": "Хысусијәти сијосәт",
