@@ -153,6 +153,22 @@ export const Search = () => {
     }
   }, [consentGranted, isOnline])
 
+  // This is the global EndCall event
+  // it will apply to all pages once user land on search page
+  useEffect(() => {
+    const onKeyEndCall = (e) => {
+      const key = e.key.toString()
+
+      if (key === 'EndCall') {
+        onExitConfirmDialog()
+        e.stopPropagation()
+        e.preventDefault()
+      }
+    }
+
+    document.addEventListener('keydown', onKeyEndCall)
+  }, [])
+
   const hideW = searchResults || !isOnline || loading || (isFeedExpanded && isExperimentGroup)
   const showSearchBar = allowUsage()
   const showResultsList = isOnline && searchResults && !loading
