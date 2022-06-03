@@ -129,6 +129,8 @@ export const Search = () => {
     return isOnline || consentGranted
   }
 
+  // This is the global EndCall event
+  // it will apply to all pages once user land on search page
   useGlobalEndCallKey(onExitConfirmDialog)
 
   useSoftkey('Search', {
