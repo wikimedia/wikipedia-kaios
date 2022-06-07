@@ -4,7 +4,7 @@ import { ListView, OfflinePanel, Consent, SearchLoading, Feed } from 'components
 import {
   useNavigation, useSearch, useI18n, useSoftkey,
   useOnlineStatus, useTracking, usePopup, useHistoryState,
-  useGlobalEndCallKey, useExperimentConfig, useConfirmDialog
+  useExperimentConfig, useConfirmDialog
 } from 'hooks'
 import {
   articleHistory, goto, getAppLanguage,
@@ -128,10 +128,6 @@ export const Search = () => {
   const allowUsage = () => {
     return isOnline || consentGranted
   }
-
-  // This is the global EndCall event
-  // it will apply to all pages once user land on search page
-  useGlobalEndCallKey(onExitConfirmDialog)
 
   useSoftkey('Search', {
     right: allowUsage() ? i18n('softkey-settings') : '',
