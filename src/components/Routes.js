@@ -11,7 +11,6 @@ export const Routes = ({ onRouteChange }) => {
     }
     onRouteChange(url)
   }
-
   return (
     <Router history={createHashHistory()} onChange={onChange}>
       <Onboarding path='/onboarding' />
