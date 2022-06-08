@@ -1,6 +1,6 @@
 import { h } from 'preact'
 import { useReducer, useState, useEffect, useLayoutEffect } from 'preact/hooks'
-import { Routes, Softkey, PopupContainer, OfflineIndicator } from 'components'
+import { Routes, Softkey, PopupContainer, OfflineIndicator, EndCallHandler } from 'components'
 import { DirectionContext, I18nContext, SoftkeyContext, PopupContext, FontContext } from 'contexts'
 import { SoftkeyReducer } from 'reducers'
 import { articleTextSize } from 'utils'
@@ -34,6 +34,7 @@ export const App = ({ i18n, dir }) => {
         <PopupContext.Provider value={{ popupState, setPopupState }}>
           <DirectionContext.Provider value={{ dirState, setDirState }}>
             <FontContext.Provider value={{ textSize, setTextSize }}>
+              <EndCallHandler />
               <OfflineIndicator routeUrl={url} />
               <Routes onRouteChange={({ url }) => setUrl(url)} />
               <Softkey dir={dirState} {...state.current} />
