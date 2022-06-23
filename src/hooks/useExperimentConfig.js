@@ -16,10 +16,7 @@ const formatDate = date => {
   return [year, month, day].join('')
 }
 
-// disable the experimental features
 const isUserUnderExperimentGroup = (startDate, endDate, countries, languages, appLanguage) => {
-  return false
-  /*
   const now = parseInt(formatDate(Date.now()), 10)
   const targetCountries = Array.isArray(countries) ? countries : [countries]
   const userCountry = getUserCountry()
@@ -35,7 +32,6 @@ const isUserUnderExperimentGroup = (startDate, endDate, countries, languages, ap
   } else {
     return false
   }
-  */
 }
 
 const isSameDay = (ts1, ts2) => {

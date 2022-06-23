@@ -4,7 +4,7 @@ import { ListView, OfflinePanel, Consent, SearchLoading, Feed } from 'components
 import {
   useNavigation, useSearch, useI18n, useSoftkey,
   useOnlineStatus, useTracking, usePopup, useHistoryState,
-  useExperimentConfig, useConfirmDialog
+  useConfirmDialog
 } from 'hooks'
 import {
   articleHistory, goto, getAppLanguage,
@@ -22,7 +22,7 @@ export const Search = () => {
   const [lastFeedIndex, setLastFeedIndex] = useHistoryState('lastFeedIndex', null)
   const [current, setNavigation, getCurrent, getAllElements, navigateNext, navigatePrevious] = useNavigation('Search', containerRef, listRef, 'y')
   const lang = getAppLanguage()
-  const isExperimentGroup = useExperimentConfig(lang)
+  const isExperimentGroup = false // disable the experiment feature, useExperimentConfig(lang)
   const [inputText, setInputText] = useHistoryState('search-input-text')
   const [setQuery, searchResults, loading] = useSearch(lang, inputText)
   const [showConsentPopup, closeConsentPopup] = usePopup(Consent)
