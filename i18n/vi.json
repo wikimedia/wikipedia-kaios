@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Minh Nguyen",
 			"Nghiemtrongdai VN",
 			"TARGET6tidiem"
 		]
@@ -13,7 +14,7 @@
 	"article-language-loading-message": "Đang tải ngôn ngữ",
 	"article-loading-message": "Đang tải trang",
 	"article-error-message": "Không thể tải trang",
-	"search-loading-message": "Đang tải bài viết...",
+	"search-loading-message": "Đang tải bài viết…",
 	"app-title": "Wikipedia",
 	"app-subtitle": "Bách khoa toàn thư mở",
 	"confirm-app-close-title": "Thoát Wikipedia?",
@@ -91,7 +92,7 @@
 	"feed-error-message": "Không thể tải các bài viết thịnh hành",
 	"feedback-header": "Gửi phản hồi",
 	"feedback-explanation": "Chúng tôi sẽ sử dụng phản hồi của bạn để giúp cải thiện ứng dụng này. Phản hồi của bạn sẽ được lưu giữ trong 90 ngày, tùy thuộc vào $1 và $2 của chúng tôi",
-	"feedback-placeholder": "Bắt đầu viết tại đây...",
+	"feedback-placeholder": "Bắt đầu viết tại đây…",
 	"feedback-success": "Cảm ơn bạn đã gửi phản hồi",
 	"feedback-success-header": "Gửi phản hồi",
 	"feedback-terms-of-survey": "Điều khoản của tuyên bố khảo sát",
