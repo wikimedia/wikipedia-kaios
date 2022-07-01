@@ -69,8 +69,27 @@ export const Search = () => {
       setLastFeedIndex(null)
       listRef.current.scrollTop = 0
       setNavigation(0)
+    } else if (inputText) {
+      onInput({ target: { value: '' } })
+      setNavigation(0)
     } else {
       onExitConfirmDialog()
+    }
+  }
+
+  const onKeyEndCall = () => {
+    if (inputText && current.type === 'INPUT') {
+      // simulate backspace event
+      const element = inputRef.current
+      if (element.value !== '' && element.selectionStart > 0) {
+        const v = element.value
+        const caret = element.selectionStart - 1
+        element.value = v.substring(0, caret) + v.substring(caret + 1)
+        element.setSelectionRange(caret, caret)
+        element.dispatchEvent(new InputEvent('input'))
+      }
+    } else {
+      onKeyBackSpace()
     }
   }
 
@@ -137,6 +156,7 @@ export const Search = () => {
     left: allowUsage() ? i18n('softkey-tips') : '',
     onKeyLeft: allowUsage() ? onKeyLeft : null,
     onKeyBackspace: !(inputText && current.type === 'INPUT') && onKeyBackSpace,
+    onKeyEndCall: onKeyEndCall,
     onKeyArrowDown: !loading && onKeyArrowDown,
     onKeyArrowUp: !loading && onKeyArrowUp
   }, [current.type, inputText, isOnline, searchResults, loading])
