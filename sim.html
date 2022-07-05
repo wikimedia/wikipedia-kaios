@@ -357,11 +357,13 @@
 				'.button.backspace': function(e) {
 					const element = appFrame.contentDocument.activeElement;
 					if (isInput(element)) {
-						const v = element.value
-						const caret = element.selectionStart - 1
-						element.value = v.substring(0, caret) + v.substring(caret + 1)
-						element.setSelectionRange(caret, caret)
-						element.dispatchEvent(new InputEvent('input'))
+						if (element.value !== '' && element.selectionStart > 0) {
+							const v = element.value
+							const caret = element.selectionStart - 1
+							element.value = v.substring(0, caret) + v.substring(caret + 1)
+							element.setSelectionRange(caret, caret)
+							element.dispatchEvent(new InputEvent('input'))
+						}
 					} else {
 						dispatchKeyToDoc('Backspace')
 					}
