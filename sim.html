@@ -60,7 +60,10 @@
 				<tr>
 					<td><div class="button largeicon call">&mdash;</div></td>
 					<td><div class="button sk" data-key="ArrowDown">&darr;</div></td>
-					<td><div class="button largeicon backspace" data-key="Backspace">&mdash;</div></td>
+					<td class="flex-td">
+						<div class="button backspace" data-key="Backspace">↩</div>
+						<div class="button endcall" data-key="EndCall">&mdash;</div>
+					</td>
 				</tr>
 				<tr>
 					<td><div class="button char" data-key="1">1 <span>.,?</span></div></td>
@@ -199,11 +202,21 @@
 			.button.backspace {
 				color: red;
 			}
+			.button.endcall {
+				color: red;
+			}
 			.button span {
 				font-size: 8px;
 			}
 			.controlpanel #online {
 				display: none;
+			}
+			.flex-td {
+				display: flex;
+			}
+			.flex-td .button {
+				flex: auto;
+				font-size: 15px;
 			}
 		</style>
 		<script type="text/javascript">
@@ -441,6 +454,7 @@
 			});
 
 			// Experiment Group for Trending Articles toggle
+			/* the experiment trending articles is now disabled
 			document.querySelector('#experiment-trending').addEventListener('mousedown', function(e) {
 				const input = document.getElementById('experiment-trending').querySelector('input')
 				const checked = !input.checked
@@ -454,6 +468,7 @@
 				input.checked = checked
 				appFrame.contentWindow.location = './'
 			});
+			*/
 
 			// navigator.sendBeacon may be undefined in some browser configuration
 			if (!appFrame.contentWindow.navigator.sendBeacon) {
