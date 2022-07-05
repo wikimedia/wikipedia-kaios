@@ -357,18 +357,19 @@
 				'.button.backspace': function(e) {
 					const element = appFrame.contentDocument.activeElement;
 					if (isInput(element)) {
-						simulateBackspace(element);
+						if (element.value !== '' && element.selectionStart > 0) {
+							const v = element.value
+							const caret = element.selectionStart - 1
+							element.value = v.substring(0, caret) + v.substring(caret + 1)
+							element.setSelectionRange(caret, caret)
+							element.dispatchEvent(new InputEvent('input'))
+						}
 					} else {
 						dispatchKeyToDoc('Backspace')
 					}
 				},
 				'.button.endcall': function(e) {
-					const element = appFrame.contentDocument.activeElement;
-					if (isInput(element)) {
-						simulateBackspace(element);
-					} else {
-						dispatchKeyToDoc('EndCall')
-					}
+					dispatchKeyToDoc('EndCall')
 				},
 				'.button.lr': function(e) {
 					const element = appFrame.contentDocument.activeElement;
