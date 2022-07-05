@@ -9,6 +9,7 @@ import * as enJson from '../../i18n/en.json'
   'leftArrow',
   'rightArrow',
   'backspace',
+  'endCall',
   'enter'
 ].forEach((key) => {
   Cypress.Commands.add(key, (repeat = 1) => {
