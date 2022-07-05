@@ -62,7 +62,7 @@ describe('Article search', () => {
     cy.intercept('/api.php', { fixture: 'cattle-search.json' })
     searchPage.search('cattle')
     cy.downArrow()
-    cy.endCall()
+    cy.pressEndCallButton()
     cy.get('.listview').should('not.exist')
   })
 
