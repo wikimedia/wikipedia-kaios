@@ -9,7 +9,6 @@ import * as enJson from '../../i18n/en.json'
   'leftArrow',
   'rightArrow',
   'backspace',
-  'endCall',
   'enter'
 ].forEach((key) => {
   Cypress.Commands.add(key, (repeat = 1) => {
@@ -29,6 +28,16 @@ Cypress.Commands.add('getRightSoftkeyButton', () => {
 
 Cypress.Commands.add('getCenterSoftkeyButton', () => {
   return cy.get('.softkey > .center')
+})
+
+Cypress.Commands.add('pressEndCallButton', () => {
+  const endCallEvent = new KeyboardEvent('keydown', {
+    key: 'EndCall',
+    composed: true,
+    bubbles: true,
+    cancelable: false
+  })
+  document.dispatchEvent(endCallEvent)
 })
 
 Cypress.Commands.add('clickCloseButton', () => {

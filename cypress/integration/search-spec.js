@@ -58,7 +58,7 @@ describe('Article search', () => {
     cy.get('.listview').should('not.exist')
   })
 
-  it('back button should take us to home page', () => {
+  it('end call button should take us to home page', () => {
     cy.intercept('/api.php', { fixture: 'cattle-search.json' })
     searchPage.search('cattle')
     cy.downArrow()
