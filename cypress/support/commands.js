@@ -30,6 +30,16 @@ Cypress.Commands.add('getCenterSoftkeyButton', () => {
   return cy.get('.softkey > .center')
 })
 
+Cypress.Commands.add('pressEndCallButton', () => {
+  const endCallEvent = new KeyboardEvent('keydown', {
+    key: 'EndCall',
+    composed: true,
+    bubbles: true,
+    cancelable: false
+  })
+  document.dispatchEvent(endCallEvent)
+})
+
 Cypress.Commands.add('clickCloseButton', () => {
   cy.getLeftSoftkeyButton().contains(enJson['softkey-close']).click()
 })

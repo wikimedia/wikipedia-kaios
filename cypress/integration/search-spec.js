@@ -50,6 +50,22 @@ describe('Article search', () => {
       .children().first().next().should('have.class', 'img')
   })
 
+  it('back button should take us to home page', () => {
+    cy.intercept('/api.php', { fixture: 'cattle-search.json' })
+    searchPage.search('cattle')
+    cy.downArrow()
+    cy.backspace()
+    cy.get('.listview').should('not.exist')
+  })
+
+  it('end call button should take us to home page', () => {
+    cy.intercept('/api.php', { fixture: 'cattle-search.json' })
+    searchPage.search('cattle')
+    cy.downArrow()
+    cy.pressEndCallButton()
+    cy.get('.listview').should('not.exist')
+  })
+
   it('should show empty result found when search for "adf23cv111111"', () => {
     searchPage.search('adf23cv111111')
     searchPage.getEmptyContent().should('have.text', enJson['no-result-found'])
