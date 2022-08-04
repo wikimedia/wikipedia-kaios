@@ -10,15 +10,14 @@ describe('references', () => {
   })
 
   it('check preview for references opens', () => {
-    goToCatArticle()
-    cy.downArrow(2)
-    cy.leftArrow()
+    goToArticle()
+    cy.downArrow(3)
     cy.enter()
     cy.get('div.ref-title').should('be.visible')
   })
 })
 
-function goToCatArticle () {
+function goToArticle () {
   cy.navigateToPageWithoutOnboarding('article/en/Last_Year%3A_The_Nightmare')
   articlePage.title().should('have.text', 'Last Year: The Nightmare')
 }
