@@ -1,13 +1,13 @@
 import { h } from 'preact'
 import { useI18n, useSoftkey } from 'hooks'
-import { appVersion, appInstallId } from 'utils'
+import { appVersion, appInstallId, openExternal } from 'utils'
 
 export const AboutApp = ({ close }) => {
   const i18n = useI18n()
 
   useSoftkey('AboutApp', {
     right: i18n('softkey-read-more'),
-    onKeyRight: () => window.open('https://wikimediafoundation.org/'),
+    onKeyRight: () => openExternal('https://wikimediafoundation.org/'),
     left: i18n('softkey-close'),
     onKeyLeft: close,
     onKeyBackspace: close

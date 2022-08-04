@@ -1,7 +1,10 @@
 import { useState, useEffect } from 'preact/hooks'
 import { useSoftkey, usePopup, useI18n } from 'hooks'
-import { viewport, INTERWIKI_KEYS, normalizeTitle, getDirection } from 'utils'
 import { ArticlePreview } from 'components'
+import {
+  viewport, INTERWIKI_KEYS, normalizeTitle, getDirection,
+  openExternal
+} from 'utils'
 
 const SELECTED_ATTRIBUTE = 'data-selected'
 
@@ -65,7 +68,7 @@ export const useArticleLinksNavigation = (
       showArticlePreview({ title, lang, dir, source })
     },
     external: ({ href }) => {
-      window.open(href)
+      openExternal(href)
     }
   }
 

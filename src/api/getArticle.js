@@ -1,4 +1,6 @@
-import { cachedFetch, buildPcsUrl, canonicalizeTitle } from 'utils'
+import {
+  cachedFetch, buildPcsUrl, canonicalizeTitle
+} from 'utils'
 
 export const getArticle = (lang, title) => {
   const url = buildPcsUrl(lang, title, 'mobile-html')

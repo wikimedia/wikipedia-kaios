@@ -1,6 +1,7 @@
 import { h } from 'preact'
+import { memo } from 'preact/compat'
 
-export const Popup = ({ component, props, options, style }) => {
+export const Popup = memo(({ component, props, options, style }) => {
   if (component) {
     let contentClasses = 'popup-content'
     if (options && options.mode === 'fullscreen') {
@@ -12,9 +13,9 @@ export const Popup = ({ component, props, options, style }) => {
       </div>
     )
   }
-}
+})
 
-export const PopupContainer = ({ popups }) => {
+export const PopupContainer = memo(({ popups }) => {
   if (popups.length === 0) {
     return ''
   }
@@ -39,4 +40,4 @@ export const PopupContainer = ({ popups }) => {
       }) }
     </div>
   )
-}
+})

@@ -68,7 +68,7 @@ describe('Article view', () => {
   it('check quick facts opens', () => {
     goToCatArticle()
     articlePage.selectOptionFromArticleMenu('Quick Facts')
-    quickFactsPage.table().should('contains.text', 'Various types of the domestic cat')
+    quickFactsPage.table().should('contains.text', 'Various types of cat')
   })
 
   it('check quick facts link opens', () => {

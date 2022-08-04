@@ -9,9 +9,9 @@ import {
 import {
   useArticle, useI18n, useSoftkey,
   useArticlePagination, useArticleLinksNavigation,
-  usePopup, useTracking
+  usePopup, useTracking, useConfirmDialog
 } from 'hooks'
-import { articleHistory, confirmDialog, goto, viewport, buildWpMobileWebUrl } from 'utils'
+import { articleHistory, goto, viewport, buildWpMobileWebUrl } from 'utils'
 import { FontContext } from 'contexts'
 
 const ArticleBody = memo(({ content }) => {
@@ -23,7 +23,7 @@ const ArticleBody = memo(({ content }) => {
   )
 })
 
-const ArticleActions = ({ actions, lang }) => {
+const ArticleActions = memo(({ actions, lang }) => {
   const contentI18n = useI18n(lang)
   return (
     <div class='article-actions'>
@@ -35,7 +35,7 @@ const ArticleActions = ({ actions, lang }) => {
       )) }
     </div>
   )
-}
+})
 
 const ArticleSection = ({
   lang, dir, imageUrl, anchor, title, description, actions,
@@ -48,6 +48,7 @@ const ArticleSection = ({
   const [showReferencePreview] = usePopup(ReferencePreview)
   const [showTable] = usePopup(Table, { mode: 'fullscreen' })
   const { textSize } = useContext(FontContext)
+  const showConfirmDialog = useConfirmDialog()
   const linkHandlers = {
     action: ({ action }) => {
       const targetAction = actions.find(a => a.name === action)
@@ -62,7 +63,7 @@ const ArticleSection = ({
     },
     section: ({ text, anchor }) => {
       // @todo styling to be confirmed with design
-      confirmDialog({ message: i18n('confirm-section', text), dir, onSubmit: () => goToSubpage({ anchor }) })
+      showConfirmDialog({ message: i18n('confirm-section', text), dir, onSubmit: () => goToSubpage({ anchor }) })
     },
     image: ({ fileName }) => {
       showGallery(fileName)
@@ -262,11 +263,11 @@ const ArticleInner = ({ lang, articleTitle, initialAnchor }) => {
   )
 }
 
-export const Article = ({ lang, title: articleTitle, anchor: initialAnchor }) => {
+export const Article = memo(({ lang, title: articleTitle, anchor: initialAnchor }) => {
   return (
     <ArticleInner lang={lang} articleTitle={articleTitle} initialAnchor={initialAnchor} key={lang + articleTitle} />
   )
-}
+})
 
 const findCurrentLocatedAnchor = ref => {
   let element

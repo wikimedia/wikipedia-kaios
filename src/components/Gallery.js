@@ -1,13 +1,14 @@
 import { h } from 'preact'
 import { useRef, useLayoutEffect } from 'preact/hooks'
+import { memo } from 'preact/compat'
 import { useI18n, useSoftkey, usePopup, useRange, useArticleMediaInfo } from 'hooks'
+import { openExternal } from 'utils'
 
 const MAX_DESCRIPTION_HEIGHT = 45
 
-const AboutContainer = ({ lang, dir, title, caption, fromCommon, close }) => {
+const AboutContainer = ({ mediaInfo, dir, title, caption, close }) => {
   const i18n = useI18n()
   const containerRef = useRef()
-  const mediaInfo = useArticleMediaInfo(lang, title, fromCommon)
 
   useSoftkey('About', {
     left: i18n('softkey-close'),
@@ -16,7 +17,7 @@ const AboutContainer = ({ lang, dir, title, caption, fromCommon, close }) => {
     right: mediaInfo && mediaInfo.filePage ? i18n('softkey-more-info') : '',
     onKeyRight: () => {
       if (mediaInfo && mediaInfo.filePage) {
-        window.open(mediaInfo.filePage)
+        openExternal(mediaInfo.filePage)
       }
     }
   }, [mediaInfo])
@@ -59,7 +60,7 @@ const AboutContainer = ({ lang, dir, title, caption, fromCommon, close }) => {
   )
 }
 
-const LoadingAbout = () => {
+const LoadingAbout = memo(() => {
   const i18n = useI18n()
   return (
     <div class='gallery-about loading'>
@@ -79,7 +80,7 @@ const LoadingAbout = () => {
       </div>
     </div>
   )
-}
+})
 
 export const Gallery = ({ close, closeAll, items, startFileName, lang, dir }) => {
   const i18n = useI18n()
@@ -88,6 +89,7 @@ export const Gallery = ({ close, closeAll, items, startFileName, lang, dir }) =>
     currentIndex, onPrevImage, onNextImage
   ] = useRange(getInitialIndex(items, startFileName), items.length - 1)
   const [showAboutPopup] = usePopup(AboutContainer, { stack: true })
+  const mediaInfo = useArticleMediaInfo(lang, items[currentIndex].title, currentIndex)
 
   const onImageLoad = ({ target: img }) => {
     const galleryNode = containerRef.current
@@ -105,11 +107,11 @@ export const Gallery = ({ close, closeAll, items, startFileName, lang, dir }) =>
     left: i18n('softkey-close'),
     onKeyLeft: closeAll,
     center: i18n('softkey-about'),
-    onKeyCenter: () => showAboutPopup({ ...items[currentIndex], lang, dir }),
+    onKeyCenter: () => showAboutPopup({ ...items[currentIndex], mediaInfo, dir }),
     [dir === 'rtl' ? 'onKeyFixedArrowLeft' : 'onKeyFixedArrowRight']: onNextImage,
     [dir === 'rtl' ? 'onKeyFixedArrowRight' : 'onKeyFixedArrowLeft']: onPrevImage,
     onKeyBackspace: close
-  }, [currentIndex])
+  }, [currentIndex, mediaInfo])
 
   return (
     <div class='gallery-view' ref={containerRef}>
@@ -124,7 +126,7 @@ export const Gallery = ({ close, closeAll, items, startFileName, lang, dir }) =>
         )
       }
       <div class='img'>
-        <img onLoad={onImageLoad} src={items[currentIndex].thumbnail} />
+        <img onLoad={onImageLoad} src={mediaInfo && mediaInfo.source} />
       </div>
     </div>
   )

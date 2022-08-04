@@ -1,5 +1,5 @@
 import { h } from 'preact'
-import { useReducer, useState, useEffect } from 'preact/hooks'
+import { useReducer, useState, useEffect, useLayoutEffect } from 'preact/hooks'
 import { Routes, Softkey, PopupContainer, OfflineIndicator } from 'components'
 import { DirectionContext, I18nContext, SoftkeyContext, PopupContext, FontContext } from 'contexts'
 import { SoftkeyReducer } from 'reducers'
@@ -21,7 +21,7 @@ export const App = ({ i18n, dir }) => {
 
   // useTextSize
   const [textSize, setTextSize] = useState(articleTextSize.get())
-  useEffect(() => {
+  useLayoutEffect(() => {
     document.body.className = `font-size-${textSize + 1}`
   }, [textSize])
   // end of useTextSize

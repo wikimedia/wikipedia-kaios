@@ -1,9 +1,10 @@
 import { h } from 'preact'
 import { useRef } from 'preact/hooks'
+import { memo } from 'preact/compat'
 import { useI18n, useSoftkey, useScroll } from 'hooks'
 import { grantConsent, goto } from 'utils'
 
-export const Consent = ({ close }) => {
+export const Consent = memo(({ close }) => {
   const i18n = useI18n()
   const bodyRef = useRef()
   const [scrollDown, scrollUp] = useScroll(bodyRef, 10, 'y')
@@ -37,4 +38,4 @@ export const Consent = ({ close }) => {
       </div>
     </div>
   )
-}
+})

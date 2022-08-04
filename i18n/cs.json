@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Clon",
 			"Dvorapa",
 			"Eduardo Addad de Oliveira",
 			"Jan Myšák",
@@ -15,6 +16,7 @@
 	"article-action-quickfacts": "Stručná fakta",
 	"article-action-gallery": "Galerie",
 	"article-action-languages": "Jazyk",
+	"article-action-share": "Sdílet",
 	"article-language-available": "Dostupné v {{PLURAL:$1|$1 jazyce|$1 jazycích}}",
 	"article-language-loading-message": "Načítání jazyků…",
 	"article-loading-message": "Načítání stránky…",

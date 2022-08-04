@@ -2,11 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"IBAnk",
+			"Serkanland",
 			"Verman1"
 		]
 	},
 	"article-action-sections": "Mündəricat",
-	"article-action-quickfacts": "Qısa faktlar",
+	"article-action-quickfacts": "Cəld faktlar",
 	"article-action-gallery": "Qalereya",
 	"article-action-languages": "Dil",
 	"article-language-available": "$1 {{PLURAL:$1|dildə}} mövcuddur",

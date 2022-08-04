@@ -3,7 +3,7 @@ import { route } from 'preact-router'
 import { useRef, useEffect } from 'preact/hooks'
 import { useNavigation, useI18n, useSoftkey, usePopup } from 'hooks'
 import { ListView, AboutApp, AboutWikipedia, PrivacyTerms, Feedback } from 'components'
-import { goto } from 'utils'
+import { goto, openExternal } from 'utils'
 
 export const Settings = () => {
   const containerRef = useRef()
@@ -20,7 +20,7 @@ export const Settings = () => {
 
     // open link
     if (item.link) {
-      window.open(item.link)
+      openExternal(item.link)
     } else if (item.path) {
       route(item.path)
     } else if (item.action) {

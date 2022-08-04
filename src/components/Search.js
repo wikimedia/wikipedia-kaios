@@ -4,11 +4,11 @@ import { ListView, OfflinePanel, Consent, SearchLoading, Feed } from 'components
 import {
   useNavigation, useSearch, useI18n, useSoftkey,
   useOnlineStatus, useTracking, usePopup, useHistoryState,
-  useExperimentConfig
+  useConfirmDialog
 } from 'hooks'
 import {
   articleHistory, goto, getAppLanguage,
-  isRandomEnabled, confirmDialog, isConsentGranted,
+  isRandomEnabled, isConsentGranted,
   skipIntroAnchor
 } from 'utils'
 import { getRandomArticleTitle } from 'api'
@@ -22,10 +22,12 @@ export const Search = () => {
   const [lastFeedIndex, setLastFeedIndex] = useHistoryState('lastFeedIndex', null)
   const [current, setNavigation, getCurrent, getAllElements, navigateNext, navigatePrevious] = useNavigation('Search', containerRef, listRef, 'y')
   const lang = getAppLanguage()
-  const isExperimentGroup = useExperimentConfig(lang)
-  const [query, setQuery, searchResults, loading] = useSearch(lang)
+  const isExperimentGroup = false // disable the experiment feature, useExperimentConfig(lang)
+  const [inputText, setInputText] = useHistoryState('search-input-text')
+  const [setQuery, searchResults, loading] = useSearch(lang, inputText)
   const [showConsentPopup, closeConsentPopup] = usePopup(Consent)
   const consentGranted = isConsentGranted()
+  const showConfirmDialog = useConfirmDialog()
   const isOnline = useOnlineStatus(online => {
     if (online && inputRef.current) {
       setQuery(inputRef.current.value)
@@ -45,7 +47,7 @@ export const Search = () => {
       handleLastFeedIndex()
       if (index) {
         goto.article(lang, key)
-      } else if (isRandomEnabled() && !query) {
+      } else if (isRandomEnabled() && !inputText) {
         goToRandomArticle()
       }
     }
@@ -67,8 +69,27 @@ export const Search = () => {
       setLastFeedIndex(null)
       listRef.current.scrollTop = 0
       setNavigation(0)
+    } else if (inputText) {
+      onInput({ target: { value: '' } })
+      setNavigation(0)
     } else {
       onExitConfirmDialog()
+    }
+  }
+
+  const onKeyEndCall = () => {
+    if (inputText && current.type === 'INPUT') {
+      // simulate backspace event
+      const element = inputRef.current
+      if (element.value !== '' && element.selectionStart > 0) {
+        const v = element.value
+        const caret = element.selectionStart - 1
+        element.value = v.substring(0, caret) + v.substring(caret + 1)
+        element.setSelectionRange(caret, caret)
+        element.dispatchEvent(new InputEvent('input'))
+      }
+    } else {
+      onKeyBackSpace()
     }
   }
 
@@ -97,8 +118,9 @@ export const Search = () => {
     }
   }
 
-  const onInput = ({ target }) => {
-    if (isOnline) {
+  const onInput = ({ target, isComposing }) => {
+    setInputText(target.value)
+    if (isOnline && !isComposing) {
       setQuery(target.value)
     }
   }
@@ -108,7 +130,7 @@ export const Search = () => {
     if (isInputType) {
       setNavigation(-1)
     }
-    confirmDialog({
+    showConfirmDialog({
       title: i18n('confirm-app-close-title'),
       message: i18n('confirm-app-close-message'),
       onDiscardText: i18n('softkey-cancel'),
@@ -133,10 +155,11 @@ export const Search = () => {
     onKeyCenter,
     left: allowUsage() ? i18n('softkey-tips') : '',
     onKeyLeft: allowUsage() ? onKeyLeft : null,
-    onKeyBackspace: !(query && current.type === 'INPUT') && onKeyBackSpace,
+    onKeyBackspace: !(inputText && current.type === 'INPUT') && onKeyBackSpace,
+    onKeyEndCall: onKeyEndCall,
     onKeyArrowDown: !loading && onKeyArrowDown,
     onKeyArrowUp: !loading && onKeyArrowUp
-  }, [current.type, query, isOnline, searchResults, loading])
+  }, [current.type, inputText, isOnline, searchResults, loading])
 
   useTracking('Search', lang)
 
@@ -160,7 +183,7 @@ export const Search = () => {
   return (
     <div class='search' ref={containerRef}>
       <img class='double-u' src='images/w.svg' style={{ display: (hideW ? 'none' : 'block') }} />
-      { showSearchBar && <input ref={inputRef} type='text' placeholder={i18n('search-placeholder')} value={query} onInput={onInput} data-selectable maxlength='255' /> }
+      { showSearchBar && <input ref={inputRef} type='text' placeholder={i18n('search-placeholder')} value={inputText} onInput={onInput} data-selectable maxlength='255' /> }
       { showResultsList && <ListView header={i18n('header-search')} items={searchResults} containerRef={listRef} empty={i18n('no-result-found')} /> }
       { showLoading && <SearchLoading /> }
       { showOfflinePanel && <OfflinePanel /> }

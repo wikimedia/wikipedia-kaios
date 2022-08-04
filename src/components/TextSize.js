@@ -8,42 +8,49 @@ export const TextSize = ({ close, closeAll }) => {
   const i18n = useI18n()
   const { dirState } = useContext(DirectionContext)
   const { textSize, setTextSize } = useContext(FontContext)
-  const [localTextSize, setLocalTextSize] = useState(textSize)
+  const [localTextSize] = useState(textSize)
   const { MAX_SIZE, MIN_SIZE } = articleTextSize
   const sliderPortion = 100 / (MAX_SIZE)
   const sliderValue = Array.from({ length: MAX_SIZE + 1 }, (v, i) => i * sliderPortion)
 
   const adjust = (step) => {
-    const newSize = localTextSize + step
+    const newSize = textSize + step
     if (newSize >= MIN_SIZE && newSize <= MAX_SIZE) {
-      setLocalTextSize(newSize)
+      setTextSize(newSize)
     }
   }
 
   const onKeyCenter = () => {
+    articleTextSize.set(textSize)
+    closeAll()
+  }
+
+  const onDiscard = () => {
     articleTextSize.set(localTextSize)
     setTextSize(localTextSize)
-    closeAll()
+    close()
   }
 
   useSoftkey('TextSize', {
     center: i18n('softkey-ok'),
+    left: i18n('softkey-cancel'),
     onKeyCenter,
-    onKeyBackspace: close,
+    onKeyLeft: onDiscard,
+    onKeyBackspace: onDiscard,
     onKeyArrowLeft: () => { adjust(-1) },
     onKeyArrowRight: () => { adjust(1) }
-  }, [localTextSize])
+  }, [textSize])
 
   return <div class='textsize'>
     <div class='header'>{i18n('header-textsize')}</div>
     <div class='content'>
-      <bdi class={`textsize-preview font-size-${localTextSize + 1}`}>
+      <bdi class={`textsize-preview font-size-${textSize + 1}`}>
         {i18n('textsize-preview')}
       </bdi>
       <div class='slider-container'>
         <div class='slider'>
-          <div class='filling' style={`width: ${sliderValue[localTextSize]}%`} />
-          <div class='circle' style={`${dirState === 'ltr' ? 'left' : 'right'}: ${sliderValue[localTextSize]}%`} />
+          <div class='filling' style={`width: ${sliderValue[textSize]}%`} />
+          <div class='circle' style={`${dirState === 'ltr' ? 'left' : 'right'}: ${sliderValue[textSize]}%`} />
         </div>
       </div>
       <div class='labels'>

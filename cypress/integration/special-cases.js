@@ -22,10 +22,10 @@ describe('special cases tests', () => {
 
   it('gallery opens from a non-english article', () => {
     cy.navigateToPageWithoutOnboarding('article/pl/Tupolew_Tu-154/Użytkownicy[24]')
-    cy.wait(500)
+    cy.wait(500) // eslint-disable-line cypress/no-unnecessary-waiting
     articlePage.title().should('have.text', 'Użytkownicy[24]')
     cy.enter()
-    cy.get('.gallery-view>.img>img').should('be.visible').should('have.attr', 'src', 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Tupolev_Tu-154B%2C_Tarom_AN0679876.jpg/640px-Tupolev_Tu-154B%2C_Tarom_AN0679876.jpg')
+    cy.get('.gallery-view>.img>img').should('be.visible').should('have.attr', 'src', 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Tupolev_Tu-154B%2C_Tarom_AN0679876.jpg/240px-Tupolev_Tu-154B%2C_Tarom_AN0679876.jpg')
   })
 
   it.skip('check goto quickfacts holly', () => {

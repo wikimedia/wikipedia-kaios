@@ -1,7 +1,8 @@
 import { h } from 'preact'
+import { memo } from 'preact/compat'
 import { useI18n } from 'hooks'
 
-export const OfflinePanel = () => {
+export const OfflinePanel = memo(() => {
   const i18n = useI18n()
   return (
     <div class='offline-panel'>
@@ -11,4 +12,4 @@ export const OfflinePanel = () => {
       </div>
     </div>
   )
-}
+})

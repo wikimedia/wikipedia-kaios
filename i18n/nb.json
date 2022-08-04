@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Danmichaelo",
 			"Jon Harald Søby"
 		]
 	},
@@ -97,6 +98,7 @@
 	"about-app-message": "Laget av Wikimedia Foundation med hjelp av frivillige som deg.",
 	"softkey-read-more": "Les mer",
 	"feed-header": "Populært",
+	"feed-error-message": "Klarte ikke laste populære artikler",
 	"feedback-header": "Send tilbakemelding",
 	"feedback-explanation": "Vi bruker tilbakemeldingene dine for å forbedre appen. Svarene dine blir beholdt i 90 dager, i henhold til vår $1 og våre $2.",
 	"feedback-placeholder": "Begynn å skrive her …",

@@ -1,0 +1,40 @@
+{
+	"@metadata": {
+		"authors": [
+			"Yupik"
+		]
+	},
+	"article-action-languages": "Ǩiõll",
+	"app-title": "Wikipedia",
+	"about-header": "Lââʹssteâđ",
+	"about-wikipedia-header": "Teâđ Wikipediast",
+	"header-settings": "Asetõõzz",
+	"menu-textsize": "Teeʹkst šorradvuõtt",
+	"more-information": "Lââʹssteâđ",
+	"no-result-found": "Ni mâiʹd ij käunnʼjam",
+	"softkey-about": "Lââʹssteâđ",
+	"softkey-search": "Ooʒʒ",
+	"search-language-placeholder": "Ooʒʒ ǩiõlid",
+	"softkey-menu": "Asetõõzz",
+	"search-placeholder": "Ooʒʒ Wikipediast",
+	"softkey-settings": "Asetõõzz",
+	"centerkey-select": "Vaʹlljed",
+	"language-setting": "Ǩiõllasetõõzz",
+	"softkey-refresh": "Peiʹvved",
+	"reference-title": "Teâttkäivv [$1]",
+	"onboarding-0-title": "Teâđ Wikipediast",
+	"settings-language": "Ǩiõll",
+	"settings-textsize": "Teeʹkst šorradvuõtt",
+	"settings-about-wikipedia": "Teâđ Wikipediast",
+	"settings-privacy": "Teâttsuejjčiõʹlǧǧõs",
+	"settings-term": "Ââʹnnem-määin",
+	"settings-help-feedback": "Vuõlttâd maacctõõzz",
+	"tip-search-header": "Ooʒʒ artikkeeʹl",
+	"tip-about-header": "Teâđ Wikipediast",
+	"softkey-read-more": "Looǥǥ lââʹzz",
+	"feedback-header": "Vuõlttâd maacctõõzz",
+	"feedback-privacy-policy": "Teâttsuejjčiõʹlǧǧõs",
+	"feedback-terms-of-use": "Ââʹnnem-määin",
+	"softkey-send": "Vuõlttâd",
+	"feedback-cancel-header": "Tirššâl"
+}
