@@ -60,7 +60,10 @@
 				<tr>
 					<td><div class="button largeicon call">&mdash;</div></td>
 					<td><div class="button sk" data-key="ArrowDown">&darr;</div></td>
-					<td><div class="button largeicon backspace" data-key="Backspace">&mdash;</div></td>
+					<td class="flex-td">
+						<div class="button backspace" data-key="Backspace">↩</div>
+						<div class="button endcall" data-key="EndCall">&mdash;</div>
+					</td>
 				</tr>
 				<tr>
 					<td><div class="button char" data-key="1">1 <span>.,?</span></div></td>
@@ -199,11 +202,21 @@
 			.button.backspace {
 				color: red;
 			}
+			.button.endcall {
+				color: red;
+			}
 			.button span {
 				font-size: 8px;
 			}
 			.controlpanel #online {
 				display: none;
+			}
+			.flex-td {
+				display: flex;
+			}
+			.flex-td .button {
+				flex: auto;
+				font-size: 15px;
 			}
 		</style>
 		<script type="text/javascript">
@@ -241,8 +254,12 @@
 				let keys = [];
 				let currentKey = null;
 				let timeout = null;
+				let lastInputElement;
 
 				const close = function() {
+					if (lastInputElement) {
+						lastInputElement.dispatchEvent(new InputEvent('input'))
+					}
 					$element.style.visibility = 'hidden';
 				}
 
@@ -253,7 +270,7 @@
 				const open = function() {
 					$element.style.visibility = 'visible';
 					clearTimeout(timeout);
-					timeout = setTimeout(close, 2000);
+					timeout = setTimeout(close, 1000);
 				};
 
 				const render = function() {
@@ -280,13 +297,23 @@
 					return true;
 				}
 
-				return function(newKeys) {
+				return function(newKeys, inputElement) {
 					let replace;
-					if (isClosed() || !arraysEqual(keys, newKeys)) {
+					lastInputElement = inputElement
+
+					if (isClosed()) {
+						keys = newKeys;
+						currentKey = newKeys[0];
+						replace = false;
+					} else if (!arraysEqual(keys, newKeys)) {
+						// it's open but this is a new button
+						// confirm previous selection
+						lastInputElement.dispatchEvent(new InputEvent('input'));
 						keys = newKeys;
 						currentKey = newKeys[0];
 						replace = false;
 					} else {
+						// it's open and this is another press on the same button
 						let index = keys.indexOf(currentKey) + 1;
 						if (index >= keys.length) {
 							index = 0;
@@ -326,11 +353,14 @@
 							const caret = element.selectionStart - 1
 							element.value = v.substring(0, caret) + v.substring(caret + 1)
 							element.setSelectionRange(caret, caret)
-							element.dispatchEvent(new Event('input'))
+							element.dispatchEvent(new InputEvent('input'))
 						}
 					} else {
 						dispatchKeyToDoc('Backspace')
 					}
+				},
+				'.button.endcall': function(e) {
+					dispatchKeyToDoc('EndCall')
 				},
 				'.button.lr': function(e) {
 					const element = appFrame.contentDocument.activeElement;
@@ -353,9 +383,10 @@
 				},
 				'.button.char': function(e) {
 					const keys = keysInCurrentMode(e.currentTarget.getAttribute('data-key'));
+					const useKeySelector = Array.isArray(keys);
 					const element = appFrame.contentDocument.activeElement;
 					if (isInput(element)) {
-						const [key, replace] = Array.isArray(keys) ? keySelector(keys) : [keys, false]
+						const [key, replace] = useKeySelector ? keySelector(keys, element) : [keys, false]
 						let val = element.value
 						let caret = element.selectionStart
 						if (replace) {
@@ -366,7 +397,7 @@
 						}
 						element.value = val;
 						element.setSelectionRange(caret, caret);
-						element.dispatchEvent(new Event('input'));
+						element.dispatchEvent(new InputEvent('input', {isComposing: useKeySelector}));
 					} else {
 						dispatchKeyToDoc(keys[0]);
 					}
@@ -426,6 +457,7 @@
 			});
 
 			// Experiment Group for Trending Articles toggle
+			/* the experiment trending articles is now disabled
 			document.querySelector('#experiment-trending').addEventListener('mousedown', function(e) {
 				const input = document.getElementById('experiment-trending').querySelector('input')
 				const checked = !input.checked
@@ -439,6 +471,7 @@
 				input.checked = checked
 				appFrame.contentWindow.location = './'
 			});
+			*/
 
 			// navigator.sendBeacon may be undefined in some browser configuration
 			if (!appFrame.contentWindow.navigator.sendBeacon) {
