@@ -11,8 +11,7 @@ describe('references', () => {
 
   it('check preview for references opens', () => {
     goToCatArticle()
-    cy.downArrow()
-    cy.downArrow()
+    cy.leftArrow()
     cy.enter()
     cy.get('div.ref-title').should('be.visible')
   })
