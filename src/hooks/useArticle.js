@@ -9,8 +9,6 @@ import { canonicalizeTitle } from 'utils'
 export const useArticle = (lang, title) => {
   const [article, setArticle] = useState(null)
   const contentI18n = useI18n(lang)
-  const moreInformationText = contentI18n('more-information')
-  const translation = { moreInformationText }
 
   let abortFunctions = []
 
@@ -22,7 +20,7 @@ export const useArticle = (lang, title) => {
 
   const loadArticle = () => {
     setArticle(null)
-    const [articlePromise, articleAbort] = getArticle(lang, title, translation)
+    const [articlePromise, articleAbort] = getArticle(lang, title)
     const [summaryPromise, summaryAbort] = getArticleSummary(lang, title)
     const [mediaPromise, mediaAbort] = getArticleMediaList(lang, title)
     const [suggestionsPromise, suggestionsAbort] = getSuggestedArticles(lang, title)
