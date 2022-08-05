@@ -12,7 +12,7 @@ describe('special cases tests', () => {
     cy.get('.article-content').should('contain.text', 'Throughout Wikipedia, the pronunciation of words is indicated by means of the ')
   })
 
-  it.skip('languages option should not be available for article in one single language', () => {
+  it('languages option should not be available for article in one single language', () => {
     cy.navigateToPageWithoutOnboarding('article/pt/Bruscos')
     articlePage.title().should('have.text', 'Bruscos')
     articlePage.getActionsSectionButton('languages').should('not.exist')
