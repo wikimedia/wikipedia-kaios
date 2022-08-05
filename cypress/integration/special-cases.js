@@ -28,6 +28,15 @@ describe('special cases tests', () => {
     cy.get('.gallery-view>.img>img').should('be.visible').should('have.attr', 'src', 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Tupolev_Tu-154B%2C_Tarom_AN0679876.jpg/240px-Tupolev_Tu-154B%2C_Tarom_AN0679876.jpg')
   })
 
+  it('shoud not highlight edit image in holly quickfact', () => {
+    cy.navigateToPageWithoutOnboarding('article/en/Holly')
+    articlePage.title().should('have.text', 'Holly')
+    articlePage.selectOptionFromArticleMenu('Quick Facts')
+    cy.rightArrow(3)
+    cy.enter()
+    cy.get('.preview-title').should('not.have.text', 'E')
+  })
+
   it.skip('check goto quickfacts holly', () => {
     cy.navigateToPageWithoutOnboarding('article/en/Holly')
     articlePage.title().should('have.text', 'Holly')

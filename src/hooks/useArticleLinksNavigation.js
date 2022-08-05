@@ -194,7 +194,8 @@ const findVisibleLinks = (container, galleryItems) => {
 
 const isImageLink = link => {
   return ['FIGURE', 'FIGURE-INLINE'].includes(link.tagName) ||
-    Array.from(link.classList).some(classname => ['tsingle', 'image', 'gallerybox'].includes(classname))
+    Array.from(link.classList).some(classname => ['tsingle', 'image', 'gallerybox'].includes(classname)) ||
+    link.querySelector('img')
 }
 
 const isTableLink = link => {
