@@ -176,7 +176,7 @@ describe('Article view', () => {
     articlePage.selectOptionFromActionsMenu('sections')
     articleMenuPage.selectOptionFromSections('Dynamic_markings')
     cy.rightArrow()
-    cy.get('table.wikitable>caption>b').should('have.text', 'More Information:')
+    cy.get('div.pcs-collapse-table-collapsed-container').should('have.text', 'More information Name, Letters ...')
     cy.enter()
     cy.get('div.popup-content.fullscreen').should('be.visible')
     cy.get('div.popup-content.fullscreen tr>th').should('be.visible')

@@ -24,12 +24,20 @@ describe('special cases tests', () => {
     cy.navigateToPageWithoutOnboarding('article/pl/Tupolew_Tu-154/Użytkownicy[24]')
     cy.wait(500) // eslint-disable-line cypress/no-unnecessary-waiting
     articlePage.title().should('have.text', 'Użytkownicy[24]')
-    cy.rightArrow()
     cy.enter()
     cy.get('.gallery-view>.img>img').should('be.visible').should('have.attr', 'src', 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Tupolev_Tu-154B%2C_Tarom_AN0679876.jpg/240px-Tupolev_Tu-154B%2C_Tarom_AN0679876.jpg')
   })
 
-  it('check goto quickfacts holly', () => {
+  it.skip('shoud not highlight edit image in holly quickfact', () => {
+    cy.navigateToPageWithoutOnboarding('article/en/Holly')
+    articlePage.title().should('have.text', 'Holly')
+    articlePage.selectOptionFromArticleMenu('Quick Facts')
+    cy.rightArrow(3)
+    cy.enter()
+    cy.get('.preview-title').should('not.have.text', 'E')
+  })
+
+  it.skip('check goto quickfacts holly', () => {
     cy.navigateToPageWithoutOnboarding('article/en/Holly')
     articlePage.title().should('have.text', 'Holly')
     articlePage.selectOptionFromArticleMenu('Quick Facts')
@@ -59,7 +67,7 @@ describe('special cases tests', () => {
     articlePage.title().should('have.text', 'C')
     articlePage.selectOptionFromArticleMenu('Quick Facts')
     cy.get('div.quickfacts table.infobox').should('be.visible')
-    cy.get('a[data-selected=true][href="#Related_characters"]').should('exist')
+    cy.get('a[data-selected=true][href="./C#Related_characters"]').should('exist')
     cy.enter()
     cy.get('.confirm-dialog>.info').should('have.text', 'Go to Section "Related characters"')
     cy.backspace()

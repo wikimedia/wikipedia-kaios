@@ -58,7 +58,7 @@ export const useArticlePagination = (
     if (anchor) {
       const anchorElement = Array
         .from(elementRef.current.querySelectorAll('.title, h3, h4'))
-        .find(e => e.getAttribute('data-anchor') === anchor)
+        .find(e => (e.getAttribute('data-anchor') || e.id) === anchor)
 
       if (anchorElement) {
         const offset = Math.floor(

@@ -1,121 +1,138 @@
 import {
-  cachedFetch, buildPcsUrl, canonicalizeTitle,
-  getDirection, fixImgSrc
+  cachedFetch, buildPcsUrl, canonicalizeTitle
 } from 'utils'
 
-export const getArticle = (lang, title, { moreInformationText }) => {
-  const url = buildPcsUrl(lang, title, 'mobile-sections')
-  const dir = getDirection(lang)
+export const getArticle = (lang, title) => {
+  const url = buildPcsUrl(lang, title, 'mobile-html')
 
   return cachedFetch(url, data => {
     const parser = new DOMParser()
-    const doc = parser.parseFromString(data.lead.sections[0].text, 'text/html')
-    const imageUrl = data.lead.image && data.lead.image.urls['320']
+    const doc = parser.parseFromString(data, 'text/html')
     const toc = []
-    const references = {}
-    const languageCount = data.lead.languagecount
-
-    fixImageUrl(doc, lang)
-    fixTableCaption(doc, moreInformationText)
-    const infobox = extractInfobox(doc)
-
-    // parse lead as the first section
     const sections = []
+    const references = {}
+
+    const getMeta = (prop, key = 'property') => {
+      const metaNode = doc.querySelector('head > meta[' + key + '="' + prop + '"]')
+      return metaNode && metaNode.getAttribute('content')
+    }
+
+    const lead = doc.querySelector('header')
+    const section0 = doc.querySelector('section')
+    const infoboxNode = section0.querySelector('.infobox')
+    const infobox = infoboxNode && modifyHtmlText(infoboxNode.outerHTML, lang)
+    const pcsTableContainer = section0.querySelector('.pcs-collapse-table-container')
+    pcsTableContainer && pcsTableContainer.remove()
+    const articleTitle = (lead && lead.querySelector('h1').textContent) || doc.title
+    const articleDescription = lead && lead.querySelector('p') && lead.querySelector('p').textContent
     sections.push({
-      imageUrl,
-      title: data.lead.displaytitle,
-      anchor: canonicalizeTitle(data.lead.normalizedtitle),
-      description: data.lead.description,
-      content: doc.body.innerHTML
+      imageUrl: getMeta('mw:leadImage'),
+      title: articleTitle,
+      anchor: canonicalizeTitle(articleTitle),
+      description: articleDescription,
+      content: modifyHtmlText(section0.outerHTML)
     })
+
     toc.push({
       level: 1,
-      line: data.lead.normalizedtitle,
-      anchor: canonicalizeTitle(data.lead.normalizedtitle),
+      line: articleTitle,
+      anchor: canonicalizeTitle(articleTitle),
       sectionIndex: 0
     })
 
-    // parse remaining sections
-    data.remaining.sections.forEach((s) => {
-      const sectionDoc = parser.parseFromString(s.text, 'text/html')
-      fixImageUrl(sectionDoc, lang)
-      fixTableCaption(sectionDoc, moreInformationText)
-      const modifiedTextContent = sectionDoc.body.innerHTML
+    Array.from(doc.querySelectorAll('section')).forEach((section, index) => {
+      if (index === 0) {
+        return
+      }
+      const titleNode = section.querySelector('h1, h2, h3, h4, h5')
+      const title = titleNode.textContent
+      const anchor = titleNode.id || canonicalizeTitle(title)
+      const level = parseInt(titleNode.tagName.charAt(1)) - 1
+      const sectionHeader = section.querySelector('.pcs-edit-section-header')
+
+      const content = '<div>' + modifyHtmlText(section.innerHTML) + '</div>'
+
       // new section when toclevel 1
-      if (s.toclevel === 1) {
-        sections.push({
-          title: s.line,
-          anchor: s.anchor,
-          content: modifiedTextContent
-        })
-      } else {
-        // group into previous section when toclevel > 1
-        const previousSection = sections[sections.length - 1]
-        const header = 'h' + (s.toclevel + 1)
-        const headerLine = `<${header} data-anchor=${s.anchor}>${s.line}</${header}>`
-        previousSection.content += headerLine + modifiedTextContent
+      if (level === 1) {
+        if (sectionHeader) {
+          sectionHeader.remove()
+        }
+        sections.push({ title, anchor, content })
       }
 
       // build toc structure (level 1 to 3)
-      s.toclevel <= 3 && toc.push({
-        level: s.toclevel,
-        line: convertPlainText(s.line),
-        anchor: s.anchor,
+      level <= 3 && toc.push({
+        level,
+        line: title,
+        anchor,
         sectionIndex: sections.length - 1
       })
-
-      // build references list
-      if (s.isReferenceSection) {
-        const refNodes = sectionDoc.querySelectorAll('li[id^="cite_"]')
-        for (const refNode of refNodes) {
-          const [id, ref] = extractReference(refNode)
-          references[id] = ref
-        }
-      }
     })
 
-    return {
-      contentLang: lang,
-      namespace: data.lead.ns,
-      id: data.lead.id,
+    // build references list
+    const refNodes = doc.querySelectorAll('li[id^="cite_"]')
+    for (const refNode of refNodes) {
+      const [id, ref] = extractReference(refNode)
+      references[id] = ref
+    }
+
+    const result = {
+      contentLang: getMeta('content-language', 'http-equiv'),
+      namespace: parseInt(getMeta('mw:pageNamespace'), 10),
+      id: getMeta('mw:pageId'),
       sections,
       infobox,
       toc,
       references,
-      languageCount,
-      dir
+      dir: doc.querySelector('body').getAttribute('dir')
     }
-  })
+
+    return result
+  }, true, 'text')
 }
 
-const fixImageUrl = (doc, lang) => {
-  for (const img of doc.querySelectorAll('img')) {
-    img.src = fixImgSrc(img.getAttribute('src'), lang)
-    img.srcset = ''
+const fixImageUrl = (htmlString, lang) => {
+  // The app is served from the app:// protocol so protocol-relative
+  // image sources don't work.
+  return htmlString
+    .replace(/\/\//gi, 'https://')
+    .replace(/\/w\/extensions\//gi, `https://${lang}.wikipedia.org/w/extensions/`)
+}
+
+const modifyHtmlText = (text, lang) => {
+  const parser = new DOMParser()
+  const doc = parser.parseFromString(text, 'text/html')
+
+  // enable section
+  const sectionNodes = doc.querySelectorAll('section')
+  for (const sectionNode of sectionNodes) {
+    sectionNode.style.removeProperty('display')
   }
-}
 
-const fixTableCaption = (doc, moreInformationText) => {
-  const hiddenClassName = 'hidden-in-table'
-  const tableNodes = doc.querySelectorAll('table:not([class^="infobox"])')
-  for (const tableNode of tableNodes) {
-    const thContent = Array.from(tableNode.querySelectorAll('th')).map(th => th.textContent).join(', ')
-    const normalizedThContent = thContent.replace(/\[\d+]/g, '')
-    if (tableNode.caption && tableNode.caption.textContent) {
-      tableNode.caption.innerHTML = `<b class='${hiddenClassName}'>${moreInformationText}:</b><p class='${hiddenClassName}'>${normalizedThContent}</p><span>${tableNode.caption.textContent}</span>`
-    } else {
-      const caption = tableNode.createCaption()
-      caption.className = hiddenClassName
-      caption.innerHTML = `<b class='${hiddenClassName}'>${moreInformationText}:</b><p class='${hiddenClassName}'>${normalizedThContent}</p>Table`
+  // enable lazyload image
+  const imageSpanNodes = doc.querySelectorAll('span.pcs-lazy-load-placeholder')
+  for (const imageSpanNode of imageSpanNodes) {
+    const source = imageSpanNode.getAttribute('data-src')
+    const image = document.createElement('img')
+    image.src = source
+    image.height = imageSpanNode.getAttribute('data-height')
+    imageSpanNode.parentNode.appendChild(image)
+
+    if (!imageSpanNode.parentNode.classList.contains('image')) {
+      imageSpanNode.parentNode.classList += ' image'
     }
-    tableNode.style = ''
-  }
-}
 
-const convertPlainText = string => {
-  var dom = document.createElement('div')
-  dom.innerHTML = string
-  return dom.textContent
+    imageSpanNode.remove()
+  }
+
+  // fix image node
+  const imageNodes = doc.querySelectorAll('img')
+  for (const imageNode of imageNodes) {
+    const url = fixImageUrl(imageNode.getAttribute('src'), lang)
+    imageNode.setAttribute('src', url)
+  }
+
+  return doc.body.innerHTML
 }
 
 const extractReference = refNode => {
@@ -124,38 +141,4 @@ const extractReference = refNode => {
   const refContentNode = refNode.querySelector('.mw-reference-text')
   const content = refContentNode ? refContentNode.outerHTML : ''
   return [id, { number, content }]
-}
-
-const extractInfobox = doc => {
-  const infoboxNode = doc.querySelector('[class^="infobox"]')
-  if (infoboxNode) {
-    // Clear a bunch of style that interfere with the layout
-    infoboxNode.style.width = ''
-    infoboxNode.style.fontSize = ''
-    const disallowedProps = ['minWidth', 'whiteSpace', 'width']
-    Array.from(infoboxNode.querySelectorAll('[style]')).forEach(n => {
-      disallowedProps.forEach(propName => {
-        if (n.style[propName]) {
-          n.style[propName] = ''
-        }
-      })
-    })
-
-    // Long URLs in content make the table too wide
-    Array.from(infoboxNode.querySelectorAll('a[href]')).forEach(a => {
-      if (a.href === a.textContent) {
-        // Use a shorter text (strip protocol and path)
-        var u = new URL(a.href)
-        a.textContent = u.hostname
-
-        // Constrain the parent node and truncate if needed
-        a.parentNode.classList.add('truncate')
-      }
-    })
-
-    // remove infobox from the doc to reduce DOM size
-    infoboxNode.parentNode.removeChild(infoboxNode)
-
-    return infoboxNode.outerHTML
-  }
 }

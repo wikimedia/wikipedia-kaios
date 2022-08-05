@@ -100,19 +100,19 @@
 
 				* {
 					max-width: 100%;
-
-					@{infobox_v3-selector} {
-						display: none;
-					}
 				}
 
-				table {
-					@{infobox-selector} {
-						display: none;
-					}
+				.pcs-edit-section-header,
+				.pcs-edit-section-link-container,
+				.pcs-collapse-table-collapsed-container,
+				.pcs-ref-backlink-container {
+					display: none;
+				}
+
+				.pcs-collapse-table-container {
 					display: block;
 					width: 100%;
-					max-height: 42px;
+					padding: 4px;
 					overflow: hidden;
 					background-color: #f6f6f6 !important;
 					border-radius: 2px !important;
@@ -123,30 +123,10 @@
 						border: solid 0.5px #36c !important;
 						background-color: #eaf3ff !important;
 					}
+				}
 
-					tbody {
-						display: none;
-					}
-
-					caption {
-						display: block;
-						font-size: 12px;
-						color: #72777d;
-						position: relative;
-						padding: 0 4px;
-
-						> b {
-							color: #000;
-						}
-
-						> p {
-							margin: 0;
-							margin-top: -10px;
-							white-space: nowrap;
-							text-overflow: ellipsis;
-							overflow: hidden;
-						}
-					}
+				table.wikitable {
+					display: none; // hide legacy table
 				}
 
 				figure,
@@ -223,17 +203,6 @@
 							margin-top: -10px;
 						}
 					}
-				}
-
-				span.mw-ref {
-					font-size: 50%;
-					vertical-align: super;
-				}
-
-				a {
-					text-decoration: none;
-					page-break-inside: avoid; // doesn't work
-					padding: 1px;
 				}
 
 				dd {

@@ -1,8 +1,10 @@
-a,
-span.mw-ref {
+a {
 	unicode-bidi: -moz-isolate;
 	unicode-bidi: -webkit-isolate;
 	unicode-bidi: isolate;
+	text-decoration: none;
+	page-break-inside: avoid; // doesn't work
+	padding: 1px;
 
 	// invisible border to reserve a pixel around the element
 	border: solid 1px rgba( 51, 102, 204, 0 );

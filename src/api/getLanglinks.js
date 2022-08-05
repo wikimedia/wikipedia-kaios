@@ -23,6 +23,11 @@ export const getLanglinks = (lang, title) => {
   return cachedFetch(url, response => {
     const { pages } = response.query
     const langlinks = pages[0].langlinks
+
+    if (!langlinks) {
+      return []
+    }
+
     const allLanguages = langlinks
       .map(item => {
         return {
