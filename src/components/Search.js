@@ -1,6 +1,6 @@
 import { h } from 'preact'
-import { useRef, useEffect, useState } from 'preact/hooks'
-import { ListView, OfflinePanel, Consent, SearchLoading, Feed } from 'components'
+import { useRef, useEffect } from 'preact/hooks'
+import { ListView, OfflinePanel, Consent, SearchLoading } from 'components'
 import {
   useNavigation, useSearch, useI18n, useSoftkey,
   useOnlineStatus, useTracking, usePopup, useHistoryState,
@@ -18,11 +18,8 @@ export const Search = () => {
   const inputRef = useRef()
   const listRef = useRef()
   const i18n = useI18n()
-  const [isFeedExpanded, setIsFeedExpanded] = useState(false)
-  const [lastFeedIndex, setLastFeedIndex] = useHistoryState('lastFeedIndex', null)
-  const [current, setNavigation, getCurrent, getAllElements, navigateNext, navigatePrevious] = useNavigation('Search', containerRef, listRef, 'y')
+  const [current, setNavigation, getCurrent,, navigateNext, navigatePrevious] = useNavigation('Search', containerRef, listRef, 'y')
   const lang = getAppLanguage()
-  const isExperimentGroup = false // disable the experiment feature, useExperimentConfig(lang)
   const [inputText, setInputText] = useHistoryState('search-input-text')
   const [setQuery, searchResults, loading] = useSearch(lang, inputText)
   const [showConsentPopup, closeConsentPopup] = usePopup(Consent)
@@ -34,17 +31,9 @@ export const Search = () => {
     }
   })
 
-  const handleLastFeedIndex = () => {
-    const { index } = getCurrent()
-    if (index && isFeedExpanded) {
-      setLastFeedIndex(index)
-    }
-  }
-
   const onKeyCenter = () => {
     if (allowUsage()) {
       const { index, key } = getCurrent()
-      handleLastFeedIndex()
       if (index) {
         goto.article(lang, key)
       } else if (isRandomEnabled() && !inputText) {
@@ -54,22 +43,15 @@ export const Search = () => {
   }
 
   const onKeyRight = () => {
-    handleLastFeedIndex()
     goto.settings()
   }
 
   const onKeyLeft = () => {
-    handleLastFeedIndex()
     goto.tips()
   }
 
   const onKeyBackSpace = () => {
-    if (isFeedExpanded) {
-      setIsFeedExpanded(false)
-      setLastFeedIndex(null)
-      listRef.current.scrollTop = 0
-      setNavigation(0)
-    } else if (inputText) {
+    if (inputText) {
       onInput({ target: { value: '' } })
       setNavigation(0)
     } else {
@@ -94,28 +76,11 @@ export const Search = () => {
   }
 
   const onKeyArrowDown = () => {
-    const index = getCurrent().index
-    if (!isFeedExpanded && !searchResults && index === 0) {
-      setIsFeedExpanded(true)
-      navigateNext()
-    } else if (isFeedExpanded && index + 1 > getAllElements().length - 1) {
-      setNavigation(1)
-    } else {
-      navigateNext()
-    }
+    navigateNext()
   }
 
   const onKeyArrowUp = () => {
-    const index = getCurrent().index
-    if (isFeedExpanded && !searchResults && index === 1) {
-      setIsFeedExpanded(false)
-      setLastFeedIndex(null)
-      navigatePrevious()
-    } else if (!isFeedExpanded && !searchResults && index === 0) {
-      setNavigation(0)
-    } else {
-      navigatePrevious()
-    }
+    navigatePrevious()
   }
 
   const onInput = ({ target, isComposing }) => {
@@ -157,8 +122,8 @@ export const Search = () => {
     onKeyLeft: allowUsage() ? onKeyLeft : null,
     onKeyBackspace: !(inputText && current.type === 'INPUT') && onKeyBackSpace,
     onKeyEndCall: onKeyEndCall,
-    onKeyArrowDown: !loading && onKeyArrowDown,
-    onKeyArrowUp: !loading && onKeyArrowUp
+    onKeyArrowDown: !loading && searchResults && onKeyArrowDown,
+    onKeyArrowUp: !loading && searchResults && onKeyArrowUp
   }, [current.type, inputText, isOnline, searchResults, loading])
 
   useTracking('Search', lang)
@@ -173,12 +138,11 @@ export const Search = () => {
     }
   }, [consentGranted, isOnline])
 
-  const hideW = searchResults || !isOnline || loading || (isFeedExpanded && isExperimentGroup)
+  const hideW = searchResults || !isOnline || loading
   const showSearchBar = allowUsage()
   const showResultsList = isOnline && searchResults && !loading
   const showLoading = isOnline && loading
   const showOfflinePanel = !isOnline
-  const showFeed = isOnline && !searchResults && !showLoading && !showOfflinePanel && isExperimentGroup
 
   return (
     <div class='search' ref={containerRef}>
@@ -187,7 +151,6 @@ export const Search = () => {
       { showResultsList && <ListView header={i18n('header-search')} items={searchResults} containerRef={listRef} empty={i18n('no-result-found')} /> }
       { showLoading && <SearchLoading /> }
       { showOfflinePanel && <OfflinePanel /> }
-      { showFeed && <Feed lang={lang} isExpanded={isFeedExpanded} setIsExpanded={setIsFeedExpanded} lastIndex={lastFeedIndex} setNavigation={setNavigation} containerRef={listRef} /> }
     </div>
   )
 }
