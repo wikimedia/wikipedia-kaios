@@ -109,8 +109,6 @@
 	"view-in-browser": "在浏览器查看条目",
 	"about-app-message": "由维基媒体基金会在像您这样的志愿者的帮助下制作。",
 	"softkey-read-more": "阅读更多",
-	"feed-header": "热门",
-	"feed-error-message": "无法加载热门条目",
 	"feedback-header": "发送反馈",
 	"feedback-explanation": "我们将使用您的反馈来帮助改进此应用。您的回复将保留90天，但我们需要分别支付$1和$2",
 	"feedback-placeholder": "在这里开始写...",

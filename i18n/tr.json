@@ -100,8 +100,6 @@
 	"view-in-browser": "Makaleyi tarayıcıda görüntüle",
 	"about-app-message": "Wikimedia Vakfı tarafından sizin gibi gönüllülerin yardımıyla yapılmıştır.",
 	"softkey-read-more": "Daha Fazla Oku",
-	"feed-header": "Gündemdekiler",
-	"feed-error-message": "Gündemdeki sayfalar yüklenemiyor",
 	"feedback-header": "Geri bildirim gönder",
 	"feedback-explanation": "Bu uygulamayı geliştirmek için fikirlerinizi kullanacağız. Yanıtınız $1 ve $2 ile bağlı olarak 90 gün boyunca saklanacaktır",
 	"feedback-placeholder": "Buraya yazmaya başlayın...",

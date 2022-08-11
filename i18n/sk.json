@@ -100,8 +100,6 @@
 	"view-in-browser": "Zobraziť článok v prehliadači",
 	"about-app-message": "Vytvorené Nadáciou Wikimedia s pomocou dobrovoľníkov, ako ste vy.",
 	"softkey-read-more": "Čítať viac",
-	"feed-header": "Trendy",
-	"feed-error-message": "Nepodarilo sa načítať trendy články",
 	"feedback-header": "Poslať spätnú väzbu",
 	"feedback-explanation": "Vašu spätnú väzbu použijeme na zlepšenie tejto aplikácie. Vaša odpoveď bude uchovávaná po dobu 90 dní v súlade s našimi $1 a $2",
 	"feedback-placeholder": "Začnite písať tu...",

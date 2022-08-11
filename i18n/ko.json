@@ -105,8 +105,6 @@
 	"view-in-browser": "브라우저에서 문서 보기",
 	"about-app-message": "위키미디어 재단은 여러분과 같은 자원봉사자들의 도움을 받아 만들어졌습니다.",
 	"softkey-read-more": "더 보기",
-	"feed-header": "유행",
-	"feed-error-message": "인기글 로딩 실패",
 	"feedback-header": "피드백 보내기",
 	"feedback-explanation": "여러분의 의견은 이 앱의 개선을 지원하는데 도움을 줍니다. $1 및 $2에 의거하여 여러분의 응답은 90일 간 보관됩니다.",
 	"feedback-placeholder": "여기에 써 주세요...",

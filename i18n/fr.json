@@ -108,8 +108,6 @@
 	"view-in-browser": "Afficher l’article dans un navigateur",
 	"about-app-message": "Réalisé par la Fondation Wikimedia avec l’aide de bénévoles tels que vous.",
 	"softkey-read-more": "En savoir plus",
-	"feed-header": "Tendance",
-	"feed-error-message": "Impossible de charger les articles tendance",
 	"feedback-header": "Envoyer un avis",
 	"feedback-explanation": "Nous utiliserons votre avis pour aider à améliorer cette application. Votre réponse sera conservée pendant 90 jours, selon notre $1 et notre $2.",
 	"feedback-placeholder": "Commencer à écrire ici...",

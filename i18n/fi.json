@@ -102,8 +102,6 @@
 	"view-in-browser": "Näytä artikkeli selaimessa",
 	"about-app-message": "Wikimedia-säätiön tekemä sinun kaltaistesi vapaaehtoisten avulla.",
 	"softkey-read-more": "Lue lisää",
-	"feed-header": "Nousussa",
-	"feed-error-message": "Nousussa olevia artikkeleita ei voida ladata",
 	"feedback-header": "Lähetä palautetta",
 	"feedback-explanation": "Käytämme palautettasi tämän sovelluksen parantamiseen. Vastauksesi säilytetään 90 päivän ajan; katso lisätietoja: $1 ja $2.",
 	"feedback-placeholder": "Kirjoita tähän...",

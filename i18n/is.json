@@ -97,8 +97,6 @@
 	"view-in-browser": "Skoða grein í vafra",
 	"about-app-message": "Gert af Wikimedia Foundation með hjálp sjálfboðaliða eins og þér.",
 	"softkey-read-more": "Lesa meira",
-	"feed-header": "Í umræðunni",
-	"feed-error-message": "Gat ekki hlaðið inn mest lesnu greinum",
 	"feedback-header": "Senda umsögn",
 	"feedback-explanation": "Við munum nýta umsagnir frá þér til að bæta appið. Svarinu þínu verður haldið til haga í 90 daga, í samræmi við ákvæði í $1 og $2",
 	"feedback-placeholder": "Byrja að skrifa hér...",

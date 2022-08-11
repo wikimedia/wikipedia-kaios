@@ -112,8 +112,6 @@
 	"view-in-browser": "Ver artículo en el navegador",
 	"about-app-message": "Creado por la Fundación Wikimedia con ayuda de voluntarios como tú.",
 	"softkey-read-more": "Leer más",
-	"feed-header": "Tendencias",
-	"feed-error-message": "No se puede cargar los artículos en tendencia",
 	"feedback-header": "Enviar comentarios",
 	"feedback-explanation": "Usaremos sus comentarios para improvisar esta aplicación. Tu respuesta va ser guardada para 90 días, sujeto al nuestro $1 y $2",
 	"feedback-placeholder": "Empieza a escribir aquí...",
