@@ -4,6 +4,7 @@
 			"HTan (WMF)",
 			"Kly",
 			"MuratTheTurkish",
+			"Winston Sung",
 			"沈澄心"
 		]
 	},
@@ -74,7 +75,7 @@
 	"settings-language": "語言",
 	"settings-textsize": "文字大小",
 	"settings-about-wikipedia": "關於維基百科",
-	"settings-privacy": "隱私方針",
+	"settings-privacy": "隱私權政策",
 	"settings-term": "使用條款",
 	"settings-rate": "評分應用程式",
 	"settings-help-feedback": "發送意見回饋",
@@ -105,7 +106,7 @@
 	"feedback-success": "感謝您的意見回饋",
 	"feedback-success-header": "意見回饋已發送",
 	"feedback-terms-of-survey": "調查聲明條款",
-	"feedback-privacy-policy": "隱私方針",
+	"feedback-privacy-policy": "隱私權政策",
 	"feedback-terms-of-use": "使用條款",
 	"softkey-send": "發送",
 	"softkey-cancel": "取消",
