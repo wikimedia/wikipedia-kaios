@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"AlexandrL714",
 			"Jolka Kaj",
 			"Андрей Саг."
 		]
@@ -19,9 +20,29 @@
 	"softkey-ok": "Окей",
 	"softkey-read": "Хығырарға",
 	"settings-language": "Тіл",
+	"settings-textsize": "Тексттің сині",
+	"settings-about-wikipedia": "Википедиядаңар",
+	"settings-privacy": "Чазыттығ политика",
+	"settings-term": "Тузаланғанның условиелері",
+	"settings-rate": "Приложениені паалаңар",
+	"settings-help-feedback": "Ӱндезігні ызыбызарға",
+	"settings-about-app": "Приложениедеңер",
+	"textsize-preview": "Статьяның тексты іди кӧрінер",
 	"textsize-label-small": "Кічіг",
 	"textsize-label-large": "Улуғ",
 	"tips-header": "Устастар",
+	"tips-read": "Хайди статьяны хығырарға?",
+	"tips-search": "Хайди статьяны тілирге?",
+	"tips-switch": "Хайди ссылкалар аразында переключаться поларға?",
+	"tips-about": "Википедия - ол ниме?",
+	"tip-read-header": "Статьяны хығырарға",
+	"softkey-send": "Ызыбызарға",
+	"softkey-cancel": "Чох иткені",
+	"softkey-exit": "Сығарға",
+	"feedback-cancel": "Парыбызарға хынчазар ба? Сірер прай ӱндезіглеріңерні чідірерзер",
+	"feedback-cancel-header": "Тастабызарға",
 	"softkey-yes": "Йа",
-	"softkey-no": "Чох"
+	"softkey-no": "Чох",
+	"settings-privacy-terms": "Конфиденциальность паза оңдайлары",
+	"privacy-terms-header": "Конфиденциальность паза оңдайлары"
 }

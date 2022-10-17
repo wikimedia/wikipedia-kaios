@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Csega",
+			"Dj",
 			"Hanna Tardos",
 			"Misibacsi",
 			"MuratTheTurkish"
@@ -49,5 +50,23 @@
 	"tip-read-header": "Cikk olvasása",
 	"tip-search-header": "Cikk keresése",
 	"tip-switch-header": "Hivatkozás cseréje",
-	"tip-about-header": "A Wikipédiáról"
+	"tip-about-header": "A Wikipédiáról",
+	"toc-footer": "Ajánlott cikkek",
+	"view-in-browser": "Szócikk olvasása böngészőben",
+	"about-app-message": "A Wikimedia Alapítvány készítette olyan önkéntesek segítségével, mint te.",
+	"softkey-read-more": "További információ",
+	"feedback-header": "Visszajelzés küldése",
+	"feedback-placeholder": "Kezdj el itt írni...",
+	"feedback-success": "Köszönjük visszajelzésed!",
+	"feedback-success-header": "Visszajelzés elküldve",
+	"feedback-privacy-policy": "Adatvédelmi irányelvek",
+	"feedback-terms-of-use": "Felhasználási feltételek",
+	"softkey-send": "Küldés",
+	"softkey-cancel": "Mégse",
+	"softkey-exit": "Kilépés",
+	"feedback-cancel-header": "Elvetés",
+	"softkey-yes": "Igen",
+	"softkey-no": "Nem",
+	"settings-privacy-terms": "Adatvédelem és feltételek",
+	"privacy-terms-header": "Adatvédelem és feltételek"
 }
