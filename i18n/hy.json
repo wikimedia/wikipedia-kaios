@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kareyac"
+			"Kareyac",
+			"Xelgen"
 		]
 	},
 	"article-action-sections": "Բաժիններ",
@@ -13,6 +14,7 @@
 	"gallery-unknown-author": "Անքայտ հեղինակ",
 	"gallery-unknown-license": "Անհայտ արտոնություն",
 	"header-menu": "Ընտրանքներ",
+	"header-sections": "Բովանդակություն",
 	"header-settings": "Կարգավորումներ",
 	"more-information": "Մանրամասն տեղեկատվություն",
 	"softkey-done": "Արված է",
