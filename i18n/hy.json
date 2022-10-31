@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Kareyac",
-			"Xelgen"
+			"Xelgen",
+			"Սերգեյ Սաֆարյան"
 		]
 	},
 	"article-action-sections": "Բաժիններ",
@@ -23,6 +24,7 @@
 	"search-placeholder": "Որոնել",
 	"centerkey-select": "Ընտրել",
 	"softkey-close": "Փակել",
+	"language-setting": "Լեզվի կարգավորումներ",
 	"softkey-ok": "Բարի",
 	"softkey-read": "Կարդալ",
 	"softkey-next": "Հաջորդ",
