@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"AlexandrL714",
+			"Amire80",
 			"Jolka Kaj",
 			"Андрей Саг."
 		]
@@ -43,7 +44,7 @@
 	"softkey-exit": "Сығарға",
 	"feedback-cancel": "Парыбызарға хынчазар ба? Сірер прай ӱндезіглеріңерні чідірерзер",
 	"feedback-cancel-header": "Тастабызарға",
-	"softkey-yes": "Йа",
+	"softkey-yes": "Я",
 	"softkey-no": "Чох",
 	"settings-privacy-terms": "Конфиденциальность паза оңдайлары",
 	"privacy-terms-header": "Конфиденциальность паза оңдайлары"
