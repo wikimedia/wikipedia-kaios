@@ -1,11 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
+			"Patriot Kor",
 			"Patriot Kur",
 			"Гусейн"
 		]
 	},
-	"article-action-sections": "Мындәриҹот",
+	"article-action-sections": "Mındəricot",
 	"article-action-quickfacts": "Кыртә фактон",
 	"article-action-gallery": "Галерејә",
 	"article-action-languages": "Zıvon",
@@ -31,7 +32,7 @@
 	"gallery-unknown-license": "Номәлумә лисенсијә",
 	"header-menu": "Сәбәро",
 	"header-search": "Нәве нәтиҹон",
-	"header-sections": "Мындәриҹот",
+	"header-sections": "Mındəricot",
 	"header-settings": "Сәбәро",
 	"header-textsize": "Мәғолон шрифти памјә",
 	"menu-previous": "Навынәни мәғолә",
