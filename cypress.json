@@ -3,7 +3,7 @@
   "viewportHeight": 290,
   "videoUploadOnPasses": false,
   "baseUrl": "http://127.0.0.1:8080",
-  "retries": 5,
+  "retries": 1,
   "defaultCommandTimeout": 8000,
   "video": false,
   "projectId": "7izdto"
