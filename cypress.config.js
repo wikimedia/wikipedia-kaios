@@ -1,4 +1,4 @@
-const { defineConfig } = require('cypress')
+const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
   viewportWidth: 240,
@@ -7,14 +7,13 @@ module.exports = defineConfig({
   retries: 1,
   defaultCommandTimeout: 8000,
   video: false,
-  projectId: '7izdto',
   e2e: {
     // We've imported your old cypress plugins here.
     // You may want to clean this up later by importing these.
     setupNodeEvents(on, config) {
-      return require('./cypress/plugins/index.js')(on, config)
+      return require("./cypress/plugins/index.js")(on, config);
     },
-    baseUrl: 'http://127.0.0.1:8080',
-    specPattern: 'cypress/e2e/**/*.{js,jsx,ts,tsx}',
+    baseUrl: "http://127.0.0.1:8080",
+    specPattern: "cypress/e2e/**/*.{js,jsx,ts,tsx}",
   },
-})
+});
