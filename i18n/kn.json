@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"AKJ GOWDA",
+			"Ashay vb",
 			"MKaur",
 			"MSG17",
 			"MuratTheTurkish",
@@ -21,6 +22,7 @@
 	"app-title": "ವಿಕಿಪೀಡಿಯ",
 	"app-subtitle": "ಒಂದು ಮುಕ್ತ ವಿಶ್ವಕೋಶ",
 	"app-description": "ಉಚಿತ ವಿಕಿಪೀಡಿಯ ಆಪ್‌ನ ಸಹಾಯದಿಂದ ೩೦೦ ಕ್ಕೂ ಹೆಚ್ಚು ಭಾಷೆಗಳಲ್ಲಿರುವ ಮಾಹಿತಿಯನ್ನು ಹುಡುಕಬಹುದು",
+	"content-license": "ವಿಷಯವು <a class=\"external\" rel=\"mw:ExtLink\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">CC BY-SA 3.0</a> ಅಡಿಯಲ್ಲಿ ಲಭ್ಯವಿದೆ ಗಮನಿಸದ ಹೊರತು.",
 	"confirm-section": "\"$1\" ವಿಭಾಗಕ್ಕೆ ಹೋಗಿ",
 	"confirm-app-close-title": "ವಿಕಿಪೀಡಿಯ ನಿರ್ಗಮಿಸಬೇಕೇ?",
 	"confirm-app-close-message": "ನೀವು ಆ್ಯಪ್‌ನಿಂದ ನಿರ್ಗಮಿಸಬೇಕೆಂದು ಖಚಿತವಾಗಿ ಬಯಸುವಿರಾ?",
@@ -90,6 +92,7 @@
 	"tip-read-header": "ಲೇಖನ ಓದಿ",
 	"tip-read-message": "ಲೇಖನಗಳನ್ನು ಹಲವು ಭಾಷೆಗಳಲ್ಲಿ ಓದಲು, ಗ್ಯಾಲರಿ ನೋಡಲು, ಹಾಗೂ ಇನ್ನಷ್ಟು ತಿಳಿಯಲು ತ್ವರಿತ ಕೊಂಡಿಗಳನ್ನು ಅಥವಾ ಆಯ್ಕೆಗಳು ಗುಂಡಿಯನ್ನು ಬಳಸಿ.",
 	"tip-search-header": "ಲೇಖನ ಹುಡುಕಿ",
+	"tip-search-message": "ಪ್ರಪಂಚದಾದ್ಯಂತ ಜನರು, ಸ್ಥಳಗಳು ಮತ್ತು ವಸ್ತುಗಳ ಕುರಿತು ಲೇಖನಗಳನ್ನು ಓದಲು ಹುಡುಕಾಟ ಬಾಕ್ಸ್‌ನಲ್ಲಿ ಟೈಪ್ ಮಾಡಿ.",
 	"tip-switch-header": "ಕೊಂಡಿಗಳನ್ನು ಬದಲಾಯಿಸಿ",
 	"tip-switch-message": "ಲೇಖನದಲ್ಲಿರುವ ಕೊಂಡಿಗಳನ್ನು ಆಯ್ಕೆ ಮಾಡಲು ಎಡ ಅಥವಾ ಬಲ ಗುಂಡಿಗಳನ್ನು ಬಳಸಿ, ನಿಮ್ಮ ಜ್ಞಾನವನ್ನು ಹೆಚ್ಚಿಸಿಕೊಳ್ಳಿ.",
 	"tip-about-header": "ವಿಕಿಪೀಡಿಯದ ಬಗ್ಗೆ",
@@ -103,6 +106,7 @@
 	"feedback-placeholder": "ಇಲ್ಲಿ ಬರೆಯಲು ಆರಂಭಿಸಿ...",
 	"feedback-success": "ನಿಮ್ಮ ಮರುಮಾಹಿತಿಗೆ ಧನ್ಯವಾದಗಳು",
 	"feedback-success-header": "ಮರುಮಾಹಿತಿ ಕಳಿಸಲಾಯಿತು",
+	"feedback-terms-of-survey": "ಸಮೀಕ್ಷೆಯ ಹೇಳಿಕೆಯ ನಿಯಮಗಳು",
 	"feedback-privacy-policy": "ಗೌಪ್ಯತಾ ನೀತಿ",
 	"feedback-terms-of-use": "ಬಳಕೆಯ ನಿಬಂಧನೆಗಳು",
 	"softkey-send": "ಕಳುಹಿಸಿ",
