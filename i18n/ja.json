@@ -12,7 +12,8 @@
 			"Rootflag",
 			"Siglite3",
 			"Tmv",
-			"きこねす"
+			"きこねす",
+			"もなー(偽物)"
 		]
 	},
 	"article-action-sections": "目次",
@@ -96,6 +97,7 @@
 	"tips-about": "ウィキペディアとは?",
 	"tip-read-header": "記事を読む",
 	"tip-search-header": "記事を検索",
+	"tip-search-message": "検索ボックスに入力して、世界中の人、場所、物に関する記事を読みましょう。",
 	"tip-about-header": "ウィキペディアについて",
 	"tip-about-message": "ウィキペディアは世界中のボランティアたちによって書き込まれた無料の知識源です。",
 	"toc-footer": "おすすめの記事",
