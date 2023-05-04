@@ -1,0 +1,41 @@
+{
+	"@metadata": {
+		"authors": [
+			"Kareyac",
+			"StanProg"
+		]
+	},
+	"article-action-sections": "Съдържание",
+	"article-action-quickfacts": "Кратки факти",
+	"article-action-gallery": "Галерия",
+	"article-action-languages": "Език",
+	"article-action-share": "Споделяне",
+	"article-loading-message": "Страницата се зарежда...",
+	"confirm-app-close-title": "Изход от Уикипедия?",
+	"confirm-app-close-message": "Сигурни ли сте, че искате да излезете от приложението?",
+	"consent-privacy-terms": "Поверителност и условия",
+	"about-header": "Относно",
+	"about-wikipedia-header": "За Уикипедия",
+	"gallery-description": "Описание",
+	"header-menu": "Настройки",
+	"header-sections": "Съдържание",
+	"header-settings": "Настройки",
+	"softkey-search": "Търсене",
+	"softkey-menu": "Настройки",
+	"suggested-articles": "Предложени статии",
+	"settings-language": "Език",
+	"tip-about-header": "За Уикипедия",
+	"toc-footer": "Предложени статии",
+	"feedback-explanation": "Ще използваме Вашите отзиви, за да помогнем за подобряването на това приложение. Вашият отговор ще бъде запазен 90 дни, при спазване на нашите $1 и $2",
+	"feedback-privacy-policy": "Защита на личните данни",
+	"feedback-terms-of-use": "Условия за ползване",
+	"softkey-send": "Изпращане",
+	"softkey-cancel": "Отказ",
+	"softkey-exit": "Изход",
+	"feedback-cancel": "Сигурни ли сте, че искате да напуснете? Цялата Ви обратна връзка ще бъде загубена",
+	"feedback-cancel-header": "Отхвърляне",
+	"softkey-yes": "Да",
+	"softkey-no": "Не",
+	"settings-privacy-terms": "Поверителност и условия",
+	"privacy-terms-header": "Поверителност и условия"
+}
