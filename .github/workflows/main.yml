@@ -36,3 +36,8 @@ jobs:
           npm run banana
           npm run start &
           npm test
+          
+      - uses: humanitec/build-push-to-humanitec@v1
+        with:
+          humanitec-token: ${{ secrets.HUMANITEC_TOKEN }}
+          organization: gabrielprod
