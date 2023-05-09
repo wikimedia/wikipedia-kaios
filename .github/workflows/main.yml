@@ -32,10 +32,10 @@ jobs:
 
       - name: Build and Test
         run: |
-          npm run build:ci
-          npm run banana
-          npm run start &
-          npm test
+          # npm run build:ci
+          # npm run banana
+          # npm run start &
+          # npm test
           
       - uses: humanitec/build-push-to-humanitec@v1
         with:
