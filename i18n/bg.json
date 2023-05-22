@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Kareyac",
-			"StanProg"
+			"StanProg",
+			"Ted Masters"
 		]
 	},
 	"article-action-sections": "Съдържание",
@@ -16,7 +17,7 @@
 	"article-error-message": "Статията не може да се зареди",
 	"search-loading-message": "Зареждане на статии...",
 	"app-title": "Уикипедия",
-	"app-subtitle": "Cвободната енциклопедия",
+	"app-subtitle": "Свободната енциклопедия",
 	"confirm-app-close-title": "Изход от Уикипедия?",
 	"confirm-app-close-message": "Сигурни ли сте, че искате да излезете от приложението?",
 	"consent-privacy-terms": "Поверителност и условия",

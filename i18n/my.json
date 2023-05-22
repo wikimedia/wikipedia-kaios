@@ -6,7 +6,7 @@
 			"MuratTheTurkish"
 		]
 	},
-	"article-action-sections": "အပိုင်းများ",
+	"article-action-sections": "မာတိကာ",
 	"article-action-quickfacts": "အချက်တိုများ",
 	"article-action-gallery": "ပြခန်း",
 	"article-action-languages": "ဘာသာစကား",
@@ -15,6 +15,7 @@
 	"article-language-loading-message": "ဘာသာစကားများ ဝန်ဆွဲတင်နေသည်...",
 	"article-loading-message": "စာမျက်နှာကို ဝန်ဆွဲတင်နေသည်...",
 	"article-error-message": "ဆောင်းပါးကို ဝန်ဆွဲမတင်နိုင်ပါ",
+	"search-loading-message": "ဆောင်းပါးများကို ဖွင့်နေသည်...",
 	"app-title": "ဝီကီပီးဒီးယား",
 	"app-subtitle": "အခမဲ့ လွတ်လပ်စွယ်စုံကျမ်း",
 	"app-description": "ကမ္ဘာအနှံ့ရှိ ဘာသာစကားပေါင်း ၃၀၀ ကျော်ပါဝင်သော သတင်းအချက်အလက်များကို ဝီကီပီးဒီးယား app နှင့်အတူ ရှာဖွေစူးစမ်းကြည့်ပါ။",
@@ -58,6 +59,7 @@
 	"softkey-skip": "ကျော်ရန်",
 	"softkey-get-started": "စတင်ပါ",
 	"softkey-refresh": "ပြန်လည်ဆန်းသစ်ရန်",
+	"softkey-tips": "အကြံပြုချက်များ",
 	"softkey-try": "စမ်းကြည့်ရန်",
 	"suggested-articles": "အကြံပြုထားသော ဆောင်းပါးများ",
 	"reference-title": "ရည်ညွှန်း [$1]",
@@ -81,6 +83,7 @@
 	"textsize-label-large": "အကြီး",
 	"tips-about": "ဝီကီပီဒီးယားဆိုတာဘာလဲ",
 	"tip-read-header": "ဆောင်းပါး ဖတ်ရှုရန်",
+	"tip-search-header": "ဆောင်းပါးရှာဖွေရန်",
 	"tip-about-header": "ဝီကီပီးဒီးယားအကြောင်း",
 	"tip-about-message": "ဝီကီပီးဒီးယားသည် ကမ္ဘာတစ်ဝှမ်းမှ စေတနာ့ဝန်ထမ်းများက ပူးပေါင်းရေးသားထားသော အခမဲ့ရင်းမြစ်တစ်ခု ဖြစ်ပါသည်။",
 	"toc-footer": "အကြံပြုထားသော ဆောင်းပါးများ",
