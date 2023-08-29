@@ -88,7 +88,7 @@ export const getArticle = (lang, title) => {
     }
 
     return result
-  }, true, 'text')
+  }, true, 'text', { 'X-Analytics': 'pageview=1' })
 }
 
 const fixImageUrl = (htmlString, lang) => {

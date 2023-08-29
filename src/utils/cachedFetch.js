@@ -9,7 +9,7 @@ import {
 const requestCache = {}
 const noopAbort = () => {}
 
-export const cachedFetch = (url, transformFn, cache = true, format = 'json') => {
+export const cachedFetch = (url, transformFn, cache = true, format = 'json', header = {}) => {
   if (cache && requestCache[url]) {
     return [Promise.resolve(requestCache[url]), noopAbort]
   }
@@ -21,6 +21,12 @@ export const cachedFetch = (url, transformFn, cache = true, format = 'json') => 
     if (!isRequestHeaderDisabled()) {
       xhr.setRequestHeader('User-Agent', `WikipediaApp/${appVersion()} ${navigator.userAgent}`)
       xhr.setRequestHeader('Referer', 'https://www.wikipedia.org')
+
+      if (Object.keys(header).length) {
+        for (const key in header) {
+          xhr.setRequestHeader(key, header[key])
+        }
+      }
     }
     xhr.send()
     xhr.addEventListener('load', () => {
