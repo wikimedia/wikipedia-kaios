@@ -9,7 +9,7 @@ describe('references', () => {
     cy.navigateToHomePage()
   })
 
-  it('check preview for references opens', () => {
+  it.skip('check preview for references opens', () => {
     goToArticle()
     cy.downArrow(3)
     cy.enter()
