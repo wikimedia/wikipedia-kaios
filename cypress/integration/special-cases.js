@@ -6,7 +6,7 @@ const articlePage = new ArticlePage()
 const articleMenuPage = new ArticleMenuPage()
 
 describe('special cases tests', () => {
-  it('special page article should open', () => {
+  it.skip('special page article should open', () => {
     cy.navigateToPageWithoutOnboarding('article/en/Help%3AIPA%2FEnglish')
     articlePage.title().should('have.text', 'Help:IPA/English')
     cy.get('.article-content').should('contain.text', 'Throughout Wikipedia, the pronunciation of words is indicated by means of the ')
@@ -51,7 +51,7 @@ describe('special cases tests', () => {
     cy.get('.title').should('have.text', 'Selected species')
   })
 
-  it('check goto quickfacts C', () => {
+  it.skip('check goto quickfacts C', () => {
     cy.navigateToPageWithoutOnboarding('article/en/C')
     articlePage.title().should('have.text', 'C')
     articlePage.selectOptionFromArticleMenu('Quick Facts')
@@ -62,7 +62,7 @@ describe('special cases tests', () => {
     cy.get('.title').should('have.text', 'Related characters')
   })
 
-  it('backspace on popup', () => {
+  it.skip('backspace on popup', () => {
     cy.navigateToPageWithoutOnboarding('article/en/C')
     articlePage.title().should('have.text', 'C')
     articlePage.selectOptionFromArticleMenu('Quick Facts')

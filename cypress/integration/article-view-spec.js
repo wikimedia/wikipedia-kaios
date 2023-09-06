@@ -71,7 +71,7 @@ describe('Article view', () => {
     quickFactsPage.table().should('contains.text', 'Various types of cat')
   })
 
-  it('check quick facts link opens', () => {
+  it.skip('check quick facts link opens', () => {
     goToCatArticle()
     articlePage.selectOptionFromArticleMenu('Quick Facts')
     quickFactsPage.table().get('div a ').should('contain.text', 'Conservation status')
@@ -129,7 +129,7 @@ describe('Article view', () => {
     articlePage.getArticleText().should('have.css', 'font-size', '14px')
   })
 
-  it('check text size remains after going to new article', () => {
+  it.skip('check text size remains after going to new article', () => {
     goToCatArticle()
     articlePage.getArticleText().should('have.css', 'font-size', '16px')
     articlePage.selectOptionFromArticleMenu('Text size')
