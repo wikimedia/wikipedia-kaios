@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Peterleth",
 			"Saederup92"
 		]
 	},
@@ -43,6 +44,17 @@
 	"tips-about": "Hvad er Wikipedia?",
 	"tip-read-header": "Læs artikel",
 	"tip-about-header": "Om Wikipedia",
+	"feedback-success": "Tak for din feedback",
+	"feedback-success-header": "Feedback sendt",
+	"feedback-terms-of-survey": "Vilkår for undersøgelseserklæring",
+	"feedback-privacy-policy": "Privatlivspolitik",
+	"feedback-terms-of-use": "Vilkår for anvendelse",
+	"softkey-send": "Send",
+	"softkey-cancel": "Annullér",
+	"softkey-exit": "Forlad",
+	"feedback-cancel-header": "Fortryd",
 	"softkey-yes": "Ja",
-	"softkey-no": "Nej"
+	"softkey-no": "Nej",
+	"settings-privacy-terms": "Privatliv og vilkår",
+	"privacy-terms-header": "Privatliv og vilkår"
 }
