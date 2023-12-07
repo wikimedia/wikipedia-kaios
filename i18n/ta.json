@@ -3,6 +3,7 @@
 		"authors": [
 			"Balajijagadesh",
 			"ElangoRamanujam",
+			"Fahimrazick",
 			"MKaur",
 			"MuratTheTurkish"
 		]
@@ -35,7 +36,7 @@
 	"softkey-about": "இதுபற்றி",
 	"softkey-more-info": "மேலதிகத் தகவல்",
 	"softkey-done": "முடிந்தது",
-	"softkey-search": "தேடுக",
+	"softkey-search": "தேடு",
 	"search-language-placeholder": "மொழியைத் தேர்ந்தெடு",
 	"softkey-menu": "விருப்பத்தேர்வுகள்",
 	"search-placeholder": "விக்கிப்பீடியாவில் தேடவும்",
