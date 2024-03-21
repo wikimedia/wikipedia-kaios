@@ -18,6 +18,6 @@ describe('references', () => {
 })
 
 function goToArticle () {
-  cy.navigateToPageWithoutOnboarding('article/en/Last_Year%3A_The_Nightmare')
-  articlePage.title().should('have.text', 'Last Year: The Nightmare')
+  cy.navigateToPageWithoutOnboarding('article/en/Last_Year%20(video%20game)')
+  articlePage.title().should('have.text', 'Last Year (video game)')
 }
