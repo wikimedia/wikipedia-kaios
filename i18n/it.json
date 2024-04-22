@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Beta16",
+			"Champ0999",
 			"CloeRiva",
 			"Dansita",
 			"Eduardo Addad de Oliveira",
@@ -18,6 +19,7 @@
 	"article-language-loading-message": "Caricamento lingue...",
 	"article-loading-message": "Caricamento pagina...",
 	"article-error-message": "Impossibile caricare la voce",
+	"search-loading-message": "Caricamento articoli...",
 	"app-title": "Wikipedia",
 	"app-subtitle": "L'enciclopedia libera",
 	"app-description": "Con l'applicazione gratuita di Wikipedia, cerca ed esplora informazioni da tutto il mondo in oltre 300 lingue.",
