@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Cabal",
 			"MKaur",
 			"MuratTheTurkish",
 			"Roovinn",
@@ -13,7 +14,7 @@
 	"article-action-languages": "ਭਾਸ਼ਾ",
 	"article-language-available": "{{PLURAL:$1|ਭਾਸ਼ਾ|ਭਾਸ਼ਾਵਾਂ}} $1 ਵਿੱਚ ਮੌਜੂਦ",
 	"article-language-loading-message": "ਭਾਸ਼ਾਵਾਂ ਲੋਡ ਹੋ ਰਹੀਆਂ ਹਨ",
-	"article-loading-message": "ਪੰਨਾ ਲੋਡ ਹੋ ਰਿਹਾ ਹੈ",
+	"article-loading-message": "ਸਫ਼ਾ ਲੋਡ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ...",
 	"article-error-message": "ਲੇਖ ਲੋਡ ਕਰਨ ਵਿੱਚ ਅਸਮਰੱਥ",
 	"app-title": "ਵਿਕੀਪੀਡੀਆ",
 	"app-subtitle": "ਇਕ ਅਜ਼ਾਦ ਗਿਆਨਕੋਸ਼",
