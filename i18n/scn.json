@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ajeje Brazorf"
+			"Ajeje Brazorf",
+			"Gmelfi"
 		]
 	},
 	"article-action-sections": "Ìnnici",
@@ -37,7 +38,7 @@
 	"settings-privacy": "Pulìtica supra la privacy",
 	"settings-term": "Cunnizzioni d'usu",
 	"textsize-label-small": "Nicu",
-	"textsize-label-large": "Largu",
+	"textsize-label-large": "Granni",
 	"tips-header": "Cunzigghi",
 	"tip-read-header": "Leggi vuci",
 	"tip-about-header": "Nfurmazzioni supra Wikipedia",
