@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Cigaryno",
 			"Dyolf77",
 			"Eduardo Addad de Oliveira",
 			"Eduardoaddad",
@@ -52,7 +53,7 @@
 	"menu-previous": "المقالة السابقة",
 	"menu-textsize": "حجم الخط",
 	"more-information": "المزيد من المعلومات",
-	"no-result-found": "لم يتم العثور على نتائج",
+	"no-result-found": "لا توجد نتائج",
 	"softkey-about": "حول",
 	"softkey-more-info": "مزيد من المعلومات",
 	"softkey-done": "تم",
